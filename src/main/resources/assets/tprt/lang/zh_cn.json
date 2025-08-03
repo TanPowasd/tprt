@@ -12,6 +12,7 @@
   "item.tprt.king_of_magic": "法术核心",
   "item.tprt.king_of_mc": "原版核心",
   "item.tprt.tanpowasd": "挚爱",
+  "item.tprt.mixeddragon":"龙神钢",
 
   "block.tprt.lr_block":"lr块",
   "block.tprt.raw_lr_block":"粗制lr块",
@@ -26,6 +27,12 @@
 
   "material.tprt.tanpowasd": "挚爱",
   "material.tprt.tanpowasd.flavor": "以爱之名",
+
+  "material.tprt.mixeddragon":"龙神钢",
+  "material.tprt.mixeddragon.flavor": "听见万龙咆哮的声音",
+
+  "material.tprt.forged_steel":"锻造钢",
+  "material.tprt.forged_steel.flavor": "千锤百炼所铸",
 
   "modifier.tprt.lastone": "荣!",
   "modifier.tprt.lastone.flavor": "人类战士最后的荣光!",

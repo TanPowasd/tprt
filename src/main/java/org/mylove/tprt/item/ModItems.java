@@ -27,8 +27,7 @@ public class ModItems {
 
     public static final RegistryObject<Item>LR_APPLE=ITEMS.register("lr_apple",
             ()->new Item(new Item.Properties().food(ModFoods.LR_APPLE)));
-
-
+//挚爱锭前置
     public static final RegistryObject<Item>KING_OF_FOREST=ITEMS.register("king_of_forest",
             ()->new Item(new Item.Properties()));
     public static final RegistryObject<Item>KING_OF_FIREANDICE=ITEMS.register("king_of_fireandice",
@@ -39,6 +38,12 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final RegistryObject<Item>KING_OF_MC=ITEMS.register("king_of_mc",
             ()->new Item(new Item.Properties()));
+
+//lr特供 龙神锭
+    public static final RegistryObject<Item>MIXEDDRAGON=ITEMS.register("mixeddragon",
+        ()->new Item(new Item.Properties()));
+
+
 
 
     public static void register(IEventBus eventBus){
