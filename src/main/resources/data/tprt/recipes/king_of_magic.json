@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item":"irons_spellbooks:villager_spell_book"
+    },
+    "B": {
+      "item":"irons_spellbooks:arcane_ingot"
+    },
+    "C": {
+      "item":"irons_spellbooks:keeper_flamberge"
+    },
+    "D": {
+      "item":"irons_spellbooks:permafrost_shard"
+    },
+    "E": {
+      "item":"irons_spellbooks:legendary_ink"
+    },
+    "F": {
+      "item":"ars_nouveau:wilden_tribute"
+    },
+    "G": {
+      "item":"ars_nouveau:source_gem"
+    },
+    "H": {
+      "item": "ars_nouveau:greater_experience_gem"
+    },
+    "I": {
+      "item": "ars_nouveau:music_disc_aria_biblio"
+    }
+  },
+  "pattern": [
+    "ABC",
+    "DIE",
+    "GHF"
+  ],
+  "result": {
+    "item": "tprt:king_of_magic"
+  }
+}

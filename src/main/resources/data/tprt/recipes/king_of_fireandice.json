@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "iceandfire:deathworm_tounge"
+    },
+    "B": {
+      "item": "iceandfire:pixie_wings"
+    },
+    "C": {
+      "item": "iceandfire:hippogryph_talon"
+    },
+    "D": {
+      "item": "iceandfire:siren_tear"
+    },
+    "E": {
+      "item": "iceandfire:hippocampus_fin"
+    },
+    "F": {
+      "item": "iceandfire:dread_queen_sword"
+    },
+    "G": {
+      "item": "iceandfire:dragonsteel_fire_block"
+    },
+    "H": {
+      "item": "iceandfire:dragonsteel_ice_block"
+    },
+    "I": {
+      "item": "iceandfire:dragonsteel_lightning_block"
+    }
+  },
+  "pattern": [
+    "ABC",
+    "DFE",
+    "GHI"
+  ],
+  "result": {
+    "item": "tprt:king_of_fireandice"
+  }
+}

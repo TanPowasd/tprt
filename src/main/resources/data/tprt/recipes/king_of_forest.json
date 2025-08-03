@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "twilightforest:hydra_trophy"
+    },
+    "B": {
+      "item": "twilightforest:lich_trophy"
+    },
+    "C": {
+      "item": "twilightforest:naga_trophy"
+    },
+    "D": {
+      "item": "twilightforest:snow_queen_trophy"
+    },
+    "E": {
+      "item":"twilightforest:ur_ghast_trophy"
+    },
+    "F": {
+      "item":"twilightforest:quest_ram_trophy"
+    },
+    "G": {
+      "item": "twilightforest:minoshroom_trophy"
+    },
+    "H": {
+      "item": "twilightforest:knight_phantom_trophy"
+    },
+    "I": {
+      "item": "twilightforest:mazebreaker_pickaxe"
+    }
+  },
+  "pattern": [
+    "ABC",
+    "EIF",
+    "DGH"
+  ],
+  "result": {
+    "item": "tprt:king_of_forest"
+  }
+}
