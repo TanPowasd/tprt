@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:tanpowasd"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:tanpowasd_fluid"
+  },
+  "temperature": 4000,
+  "time": 100
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:king_of_forest"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:king_of_forest_fluid"
+  },
+  "temperature": 2001,
+  "time": 100
+}

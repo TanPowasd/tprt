@@ -1,0 +1,14 @@
+{
+  "perStat": {
+    "tconstruct:head": [
+      {
+        "name": "tprt:lastone",
+        "level": 1
+      }
+    ],
+    "tconstruct:headle": [{
+      "name": "tprt:for_the_love",
+      "level": 2
+    }]
+  }
+}

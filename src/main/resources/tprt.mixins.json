@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.mylove.tprt.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "tprt.refmap.json",
+  "mixins": [],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.7"
+}

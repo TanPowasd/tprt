@@ -1,0 +1,33 @@
+{
+  "creativetab.tprt_tab": "挚爱",
+
+  "item.tprt.lriron": "LR锭",
+  "item.tprt.raw_lriron": "略提纯LR锭",
+  "item.tprt.awairon": "雇佣兵的罐头",
+  "item.tprt.raw_awairon": "雇佣兵的粗粮",
+  "item.tprt.lr_apple": "lr的精华之果",
+  "item.tprt.king_of_forest": "暮色核心",
+  "item.tprt.king_of_fireandice": "冰火核心",
+  "item.tprt.king_of_cataclysm": "灾变核心",
+  "item.tprt.king_of_magic": "法术核心",
+  "item.tprt.king_of_mc": "原版核心",
+  "item.tprt.tanpowasd": "挚爱",
+
+  "block.tprt.lr_block":"lr块",
+  "block.tprt.raw_lr_block":"粗制lr块",
+  "block.tprt.raw_lr_block":"粗制lr块",
+
+  "fluid.tconstruct.king_of_mc_fluid": "熔融世界!",
+  "fluid.tconstruct.king_of_magic_fluid": "熔融魔法!",
+  "fluid.tconstruct.king_of_fireandice_fluid": "可燃冰!",
+  "fluid.tconstruct.king_of_forest_fluid": "熔融暮光!",
+  "fluid.tconstruct.king_of_cataclysm_fluid": "熔融灾变!",
+  "fluid.tconstruct.tanpowasd_fluid": "熔融挚爱",
+
+  "material.tprt.tanpowasd": "挚爱",
+  "material.tprt.tanpowasd.flavor": "以爱之名",
+
+  "modifier.tprt.lastone": "荣!",
+  "modifier.tprt.lastone.flavor": "人类战士最后的荣光!",
+  "modifier.tprt.lastone.description": "代码的名义"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "tprt:lr_block"
+    }
+  },
+  "pattern": [
+    "I"
+  ],
+  "result": {
+    "count": 9,
+    "item": "tprt:lriron"
+  }
+}
