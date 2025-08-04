@@ -43,10 +43,11 @@ public class ModItems {
     public static final RegistryObject<Item>MIXEDDRAGON=ITEMS.register("mixeddragon",
         ()->new Item(new Item.Properties()));
 //lr特供 锻造钢
-public static final RegistryObject<Item>FORGED_STEEL=ITEMS.register("forged_steel",
+    public static final RegistryObject<Item>FORGED_STEEL=ITEMS.register("forged_steel",
         ()->new Item(new Item.Properties()));
-
-
+//lr特供 🐖包
+    public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
+        ()->new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

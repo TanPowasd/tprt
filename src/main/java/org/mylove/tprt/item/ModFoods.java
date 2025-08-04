@@ -21,4 +21,12 @@ public class ModFoods {
             .fast()
             .alwaysEat()
             .build();
+
+    public static final FoodProperties PIG_BUN=new FoodProperties.Builder()
+            .nutrition(9)
+            .saturationMod(1)
+            .effect(()->new MobEffectInstance(MobEffects.HUNGER,15,1),1f)
+            .effect(()->new MobEffectInstance(MobEffects.CONFUSION,200,1),1f)
+            .alwaysEat()
+            .build();
 }
