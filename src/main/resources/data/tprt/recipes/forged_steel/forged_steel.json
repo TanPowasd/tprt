@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:forged_steel"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:forged_steel_fluid"
+  },
+  "temperature": 1435,
+  "time": 100
+}

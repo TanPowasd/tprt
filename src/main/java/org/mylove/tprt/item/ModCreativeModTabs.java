@@ -35,6 +35,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.KING_OF_MAGIC.get());
                         pOutput.accept(ModItems.KING_OF_MC.get());
                         pOutput.accept(ModItems.MIXEDDRAGON.get());//龙神锭
+                        pOutput.accept(ModItems.FORGED_STEEL.get());
                     })
                     .build()
 

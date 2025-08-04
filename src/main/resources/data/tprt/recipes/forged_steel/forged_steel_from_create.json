@@ -1,0 +1,105 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "tconstruct:steel_ingot"
+  },
+  "loops": 16,
+  "results": [
+    {
+      "item": "tprt:forged_steel"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        },
+        {
+          "amount": 100,
+          "fluid": "tconstruct:blazing_blood",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        },
+        {
+          "amount":45,
+          "fluid": "tconstruct:molten_steel",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tconstruct:steel_ingot"
+  }
+}

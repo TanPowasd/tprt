@@ -15,4 +15,5 @@ public class ModifierRegistry {
     }
     public static final StaticModifier<lastone> lastone = MODIFIERS.register("lastone", lastone::new);
     public static final StaticModifier<for_the_love> for_the_love = MODIFIERS.register("for_the_love", for_the_love::new);
+    //public static final StaticModifier<mixeddragon_armor>mixeddragon_armor=MODIFIERS.register("mixeddragon_armor", mixeddragon_armor::new);
 }

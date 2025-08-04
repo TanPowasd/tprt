@@ -42,7 +42,9 @@ public class ModItems {
 //lr特供 龙神锭
     public static final RegistryObject<Item>MIXEDDRAGON=ITEMS.register("mixeddragon",
         ()->new Item(new Item.Properties()));
-
+//lr特供 锻造钢
+public static final RegistryObject<Item>FORGED_STEEL=ITEMS.register("forged_steel",
+        ()->new Item(new Item.Properties()));
 
 
 

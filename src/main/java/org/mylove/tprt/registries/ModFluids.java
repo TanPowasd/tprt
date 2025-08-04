@@ -38,10 +38,8 @@ public class ModFluids {
     public static final FluidObject<ForgeFlowingFluid>KING_OF_MC_FLUID=registerHotFluid(FLUIDS,"king_of_mc_fluid",2001,4,5,2f,false);
     public static final FluidObject<ForgeFlowingFluid>KING_OF_CATACLYSM_FLUID=registerHotFluid(FLUIDS,"king_of_cataclysm_fluid",2001,4,5,2f,false);
     public static final FluidObject<ForgeFlowingFluid>TANPOWASD_FLUID=registerHotFluid(FLUIDS,"tanpowasd_fluid",4000,4,5,2f,false);
-
-    //LR特供 龙神钢
     public static final FluidObject<ForgeFlowingFluid>MIXEDDRAGON_FLUID=registerHotFluid(FLUIDS,"mixeddragon_fluid",4000,4,5,2,false);
-
+    public static final FluidObject<ForgeFlowingFluid>FORGED_STEEL_FLUID=registerHotFluid(FLUIDS,"forged_steel_fluid",1475,4,5,2,false);
 
 
     private static FluidType.Properties hot(String name, int Temp, boolean gas) {

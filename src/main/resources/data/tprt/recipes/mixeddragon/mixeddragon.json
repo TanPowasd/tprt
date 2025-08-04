@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:mixeddragon"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:mixeddragon_fluid"
+  },
+  "temperature": 3500,
+  "time": 100
+}

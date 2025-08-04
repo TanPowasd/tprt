@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:mixeddragon",
+  "temperature": 3500,
+  "result": {
+    "fluid": "tprt:mixeddragon_fluid",
+    "amount": 90
+  }
+}

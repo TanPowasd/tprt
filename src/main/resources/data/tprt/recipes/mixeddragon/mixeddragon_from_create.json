@@ -1,0 +1,126 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "tprt:forged_steel"
+  },
+  "loops": 32,
+  "results": [
+    {
+      "item": "tprt:mixeddragon"
+    }
+  ],
+  "sequence":[
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tprt:forged_steel"
+        },
+        {
+          "item": "tprt:forged_steel"
+        }
+      ],
+      "results": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tprt:forged_steel"
+        },
+        {
+          "amount": 90,
+          "fluid": "sakuratinker:molten_dragon_fire_steel",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tprt:forged_steel"
+        },
+        {
+          "amount": 90,
+          "fluid": "sakuratinker:molten_dragon_ice_steel",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tprt:forged_steel"
+        },
+        {
+          "amount": 90,
+          "fluid": "sakuratinker:molten_dragon_lightning_steel",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ],
+      "results": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ],
+      "results": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ],
+      "results": [
+        {
+          "item": "tprt:forged_steel"
+        }
+      ]
+    }
+  ],
+  "transitionalItem":{
+    "item": "tprt:forged_steel"
+  }
+}
