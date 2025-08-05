@@ -33,7 +33,8 @@ public class  burning_flames extends Modifier implements MeleeHitModifierHook {
         ResourceLocation effectId=new ResourceLocation("cataclysm","blazing_brand");
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
-    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
+    @Override
+    public void afterMeleeHit(IToolStackView tool,ModifierEntry modifier,ToolAttackContext context,float damage) {
         LivingEntity entity = context.getLivingTarget();
        // LegacyDamageSource source =LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setFire();
        // entity.hurt(source,1);
@@ -44,15 +45,18 @@ public class  burning_flames extends Modifier implements MeleeHitModifierHook {
         }
         else {
             int amplifier=instance.getAmplifier();
-            int newAmplifer=amplifier+1;//获得层数并加1
-            int duration=instance.getDuration();
+            int newAmplifier=amplifier+1;
+            if(newAmplifier>=modifier.getLevel()){
+                newAmplifier=modifier.getLevel()-1;
+            }
+            int duration=200;
             boolean visible=instance.isVisible();
             boolean ambient =instance.isAmbient();
             boolean showIcon= instance.showIcon();
             MobEffectInstance newEffect=new MobEffectInstance(
                     effect,
                     duration,
-                    Math.max(newAmplifer,modifier.getLevel()),
+                    newAmplifier,
                     ambient,
                     visible,
                     showIcon

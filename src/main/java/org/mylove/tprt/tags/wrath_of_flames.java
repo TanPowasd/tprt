@@ -4,47 +4,48 @@ import com.ssakura49.sakuratinker.library.damagesource.LegacyDamageSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
-import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import java.util.Random;
 import java.util.UUID;
 
-public class wrath_of_flames extends Modifier implements MeleeDamageModifierHook {
-    UUID uuid=UUID.fromString("d2a24321-daee-4e3e-afa2-f37f1aa11451");
-    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
-    }
+public class wrath_of_flames extends Modifier implements MeleeHitModifierHook {
+    UUID uuid=UUID.fromString("d2ab3741-d1ad-4e3e-1145-f37f1aac9cf1");
     public static MobEffect getEffect(){
         ResourceLocation effectId=new ResourceLocation("cataclysm","blazing_brand");
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
-    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
-        LivingEntity entity = context.getLivingTarget();
-        // LegacyDamageSource source =LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setFire();
-        // entity.hurt(source,1);
-        if(entity!=null){
-            MobEffect effect=getEffect();
-            MobEffectInstance instance=entity.getEffect(effect);
-            int effectNum=instance.getAmplifier();
-            LegacyDamageSource source = LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setFire();
-            entity.hurt(source,damage*effectNum*0.3f);
-
+    @Override
+    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+        //hookBuilder.addHook(this);
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this,ModifierHooks.MELEE_HIT);
+    }
+    //尽可能下降优先级来保证增伤害吃满
+    public int getPriority() {
+        return 50;
+    }
+    @Override
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt)
+    {
+        LivingEntity target = context.getLivingTarget();
+        LivingEntity attacker = context.getAttacker();
+        MobEffect effect=getEffect();
+        MobEffectInstance instance=target.getEffect(effect);
+        if(target != null){
+            if(instance!=null){
+                 LegacyDamageSource source =LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setFire();
+                 target.invulnerableTime=0;
+                 target.hurt(source,damageDealt*(instance.getAmplifier()+1)*0.3f);
+            }
         }
-        return damage;
     }
 }
