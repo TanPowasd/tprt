@@ -60,5 +60,9 @@
 
   "modifier.tprt.forged_steel":"千锤百炼",
   "modifier.tprt.forged_steel.flavor":"锻造的力量蕴含其中",
-  "modifier.tprt.forged_steel.description":"较大幅度提高工具的所有属性"
+  "modifier.tprt.forged_steel.description":"较大幅度提高工具的所有属性",
+
+  "modifier.tprt.sacred_sacrifice": "神圣献祭",
+  "modifier.tprt.sacred_sacrifice.flavor": "以我之血",
+  "modifier.tprt.sacred_sacrifice.description": "燃烧生命，杀死它们！"
 }
