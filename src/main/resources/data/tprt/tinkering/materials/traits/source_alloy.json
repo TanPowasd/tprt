@@ -1,0 +1,40 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:source_alloy_default"
+    },
+    {
+      "level": 5,
+      "name": "sakuratinker:enchanted_blade"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:source_alloy_armor"
+      },
+      {
+        "level": 5,
+        "name": "sakuratinker:magic_shield"
+      }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:source_alloy_default"
+      },
+      {
+        "level": 5,
+        "name": "sakuratinker:enchanted_blade"
+      }
+    ],
+    "sakuratinker:charm":[
+      {
+        "level":1,
+        "name":"tprt:source_alloy_charm"
+      }
+    ]
+  }
+}

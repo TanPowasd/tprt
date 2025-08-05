@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:source_alloy"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:source_alloy_fluid"
+  },
+  "temperature": 3200,
+  "time": 1200
+}

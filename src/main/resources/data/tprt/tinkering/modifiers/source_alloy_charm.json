@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "attributeslib"
+    }
+  ],
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:attribute",
+      "each_level": 0.25,
+      "operation": "multiply_total",
+      "attribute": "irons_spellbooks:spell_power",
+      "unique": "tconstruct.modifier.source_alloy_charm"
+    }
+  ],
+  "tooltip_display": "always"
+}

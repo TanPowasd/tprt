@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fluid": {
+    "name": "tprt:source_alloy_fluid",
+    "amount": 90
+  },
+  "temperature": 3200,
+  "output": "tprt:source_alloy"
+}

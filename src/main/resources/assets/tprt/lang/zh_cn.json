@@ -47,6 +47,9 @@
   "material.tprt.forged_steel":"锻造钢",
   "material.tprt.forged_steel.flavor": "千锤百炼所铸",
 
+  "material.tprt.source_alloy":"源质合金",
+  "material.tprt.source_alloy.flavor": "魔法与材料的完美结合",
+
   "modifier.tprt.lastone": "荣!",
   "modifier.tprt.lastone.flavor": "人类战士最后的荣光!",
   "modifier.tprt.lastone.description": "代码的名义",
@@ -63,11 +66,23 @@
   "modifier.tprt.forged_steel.flavor":"锻造的力量蕴含其中",
   "modifier.tprt.forged_steel.description":"较大幅度提高工具的所有属性",
 
+  "modifier.tprt.source_alloy_default":"魔力升华",
+  "modifier.tprt.source_alloy_default.flavor":"你的魔力被提纯了",
+  "modifier.tprt.source_alloy_default.description":"提高所造成的法术伤害",
+
+  "modifier.tprt.source_alloy_charm":"魔力棱镜",
+  "modifier.tprt.source_alloy_charm.flavor":"聚焦你的魔力",
+  "modifier.tprt.source_alloy_charm.description":"大幅提升法术强度",
+
+  "modifier.tprt.source_alloy_armor":"魔源裹身",
+  "modifier.tprt.source_alloy_armor.flavor":"自然的魔力正在涌向你",
+  "modifier.tprt.source_alloy_armor.description":"提升法术抗性，法力上限，法力回复速度以及法术强度",
+
   "modifier.tprt.sacred_sacrifice": "神圣献祭",
   "modifier.tprt.sacred_sacrifice.flavor": "以我之血",
   "modifier.tprt.sacred_sacrifice.description": "燃烧生命，杀死它们！",
 
   "modifier.tprt.burning_flames": "焚焰",
 
-  "modifier.tprt.wrath_of_flames": "焰魔之怒火"
+  "modifier.tprt.wrath_of_flames": "焰魔之怒"
 }

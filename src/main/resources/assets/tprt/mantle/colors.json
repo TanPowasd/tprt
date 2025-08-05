@@ -1,7 +1,8 @@
 {
   "material.tprt": {
     "mixeddragon": "#4B0082",
-    "forged_steel": "#232222"
+    "forged_steel": "#232222",
+    "source_alloy": "#ffdd3a"
   },
   "modifier.tprt": {
 

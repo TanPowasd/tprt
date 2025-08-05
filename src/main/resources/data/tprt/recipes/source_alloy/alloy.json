@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "amount": 810,
+      "fluid": "sakuratinker:molten_south_star"
+    },
+    {
+      "amount": 810,
+      "fluid": "sakuratinker:molten_arcane_alloy"
+    },
+    {
+      "amount": 16000,
+      "fluid": "starbunclemania:source_fluid"
+    }
+  ],
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:source_alloy_fluid"
+  },
+  "temperature": 3250
+}

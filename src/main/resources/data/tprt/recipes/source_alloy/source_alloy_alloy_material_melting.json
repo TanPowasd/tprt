@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:source_alloy",
+  "temperature": 3200,
+  "result": {
+    "fluid": "tprt:source_alloy_fluid",
+    "amount": 90
+  }
+}
