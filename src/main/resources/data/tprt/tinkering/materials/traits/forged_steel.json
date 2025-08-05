@@ -1,7 +1,7 @@
 {
     "default": [
       {
-        "level": 2,
+        "level": 1,
         "name": "tconstruct:ductile"
       },
       {
@@ -12,7 +12,7 @@
     "perStat": {
       "tconstruct:armor": [
         {
-            "level": 2,
+            "level": 1,
             "name": "tconstruct:ductile"
         },
         {
@@ -22,7 +22,7 @@
       ],
       "tconstruct:ranged": [
         {
-            "level": 2,
+            "level": 1,
             "name": "tconstruct:ductile"
         },
         {

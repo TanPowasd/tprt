@@ -9,8 +9,8 @@
   "modules": [
     {
       "type": "tconstruct:attribute",
-      "each_level": 0.05,
-      "operation": "multiply_total",
+      "each_level": 0.1,
+      "operation": "addition",
       "attribute": "irons_spellbooks:spell_power",
       "unique": "tconstruct.modifier.source_alloy_armor"
     },
@@ -30,8 +30,8 @@
     },
     {
       "type": "tconstruct:attribute",
-      "each_level": 0.25,
-      "operation": "multiply_base",
+      "each_level": 60,
+      "operation": "addition",
       "attribute": "ars_nouveau:ars_nouveau.perk.mana_regen",
       "unique": "tconstruct.modifier.source_alloy_armor"
     }
