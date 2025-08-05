@@ -1,0 +1,64 @@
+package org.mylove.tprt.tags;
+
+import com.ssakura49.sakuratinker.library.damagesource.LegacyDamageSource;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.registries.ForgeRegistries;
+import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.module.ModuleHookMap;
+import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+
+import java.util.UUID;
+
+public class  burning_flames extends Modifier implements MeleeHitModifierHook {
+    UUID uuid=UUID.fromString("d2ab3741-d1ad-4e3e-1145-f37f1aac9cf1");
+    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
+    }
+
+    public static MobEffect getEffect(){
+        ResourceLocation effectId=new ResourceLocation("cataclysm","blazing_brand");
+        return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
+    }
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
+        LivingEntity entity = context.getLivingTarget();
+       // LegacyDamageSource source =LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setFire();
+       // entity.hurt(source,1);
+        MobEffect effect=getEffect();
+        MobEffectInstance instance=entity.getEffect(effect);
+        if(instance == null ){
+            entity.addEffect(new MobEffectInstance(effect,200,0,true,true));
+        }
+        else {
+            int amplifier=instance.getAmplifier();
+            int newAmplifer=amplifier+1;//获得层数并加1
+            int duration=instance.getDuration();
+            boolean visible=instance.isVisible();
+            boolean ambient =instance.isAmbient();
+            boolean showIcon= instance.showIcon();
+            MobEffectInstance newEffect=new MobEffectInstance(
+                    effect,
+                    duration,
+                    Math.max(newAmplifer,modifier.getLevel()),
+                    ambient,
+                    visible,
+                    showIcon
+            );
+            entity.addEffect(newEffect);
+        }
+       // return damage;
+    }
+}

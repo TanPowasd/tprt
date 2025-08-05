@@ -1,5 +1,8 @@
 package org.mylove.tprt.tags;
 
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -30,9 +33,10 @@ public class sacred_sacrifice extends Modifier implements MeleeDamageModifierHoo
            LivingEntity myself= context.getAttacker();
            if(myself!=null) {
                Random rand=new Random();
-               myself.setHealth(myself.getHealth() - modifier.getLevel() * rand.nextInt(10)+1);
+               myself.setHealth(myself.getHealth() - modifier.getLevel() * rand.nextInt(5)+1);
+               myself.addEffect(new MobEffectInstance(MobEffects.REGENERATION,400,2));
            }
         }
-        return damage+(entity.getMaxHealth()-entity.getHealth())*0.1f*modifier.getLevel();
+        return damage+(entity.getMaxHealth()-entity.getHealth())*0.3f*modifier.getLevel();
     }
 }
