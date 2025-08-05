@@ -45,6 +45,9 @@ public class ModItems {
 //lr特供 锻造钢
     public static final RegistryObject<Item>FORGED_STEEL=ITEMS.register("forged_steel",
         ()->new Item(new Item.Properties()));
+//lr特供 源质合金
+    public static final RegistryObject<Item>SOURCE_ALLOY=ITEMS.register("source_alloy",
+        ()->new Item(new Item.Properties()));
 //lr特供 🐖包
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
         ()->new Item(new Item.Properties()));

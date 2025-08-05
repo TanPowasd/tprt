@@ -16,11 +16,11 @@
   "item.tprt.tanpowasd": "挚爱",
   "item.tprt.mixeddragon":"龙神钢",
   "item.tprt.forged_steel": "锻造钢",
+  "item.tprt.source_alloy": "源质合金",
   "item.tprt.pig_bun": "🐖包",
 
 
   "block.tprt.lr_block":"lr块",
-  "block.tprt.raw_lr_block":"粗制lr块",
   "block.tprt.raw_lr_block":"粗制lr块",
 
 
@@ -32,6 +32,7 @@
   "fluid.tconstruct.king_of_cataclysm_fluid": "熔融灾变!",
   "fluid.tconstruct.tanpowasd_fluid": "熔融挚爱",
   "fluid.tconstruct.mixeddragon_fluid": "熔融龙神钢",
+  "fluid.tconstruct.source_alloy_fluid": "熔融源质合金",
   "fluid.tconstruct.forged_steel_fluid": "熔融锻造钢",
 
 
