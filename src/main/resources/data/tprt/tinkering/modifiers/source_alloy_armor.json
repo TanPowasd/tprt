@@ -1,39 +1,50 @@
 {
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "attributeslib"
-    }
-  ],
   "level_display": "tconstruct:default",
   "modules": [
     {
       "type": "tconstruct:attribute",
-      "each_level": 0.1,
+      "each_level": 150,
       "operation": "addition",
-      "attribute": "irons_spellbooks:spell_power",
-      "unique": "tconstruct.modifier.source_alloy_armor"
-    },
-    {
-      "type": "tconstruct:attribute",
-      "each_level": 600,
-      "operation": "addition",
-      "attribute": "iars_nouveau:ars_nouveau.perk.max_mana",
-      "unique": "tconstruct.modifier.source_alloy_armor"
+      "attribute": "ars_nouveau:ars_nouveau.perk.mana_regen",
+      "unique": "tconstruct.modifier.source_alloy_armor",
+      "slots": [
+        "feet",
+        "legs",
+        "chest",
+        "head",
+        "mainhand",
+        "offhand"
+      ]
     },
     {
       "type": "tconstruct:attribute",
       "each_level": 0.1,
       "operation": "addition",
       "attribute": "irons_spellbooks:spell_resist",
-      "unique": "tconstruct.modifier.source_alloy_armor"
+      "unique": "tconstruct.modifier.source_alloy_armor",
+      "slots": [
+        "feet",
+        "legs",
+        "chest",
+        "head",
+        "mainhand",
+        "offhand"
+      ]
     },
     {
       "type": "tconstruct:attribute",
-      "each_level": 60,
+      "each_level": 600,
       "operation": "addition",
-      "attribute": "ars_nouveau:ars_nouveau.perk.mana_regen",
-      "unique": "tconstruct.modifier.source_alloy_armor"
+      "attribute": "ars_nouveau:ars_nouveau.perk.max_mana",
+      "unique": "tconstruct.modifier.source_alloy_armor",
+      "slots": [
+        "feet",
+        "legs",
+        "chest",
+        "head",
+        "mainhand",
+        "offhand"
+      ]
     }
 
   ],

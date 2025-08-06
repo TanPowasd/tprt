@@ -9,7 +9,7 @@
   "modules": [
     {
       "type": "tconstruct:attribute",
-      "each_level": 0.35,
+      "each_level": 0.25,
       "operation": "addition",
       "attribute": "l2damagetracker:magic_damage",
       "unique": "tconstruct.modifier.source_alloy",

@@ -67,16 +67,16 @@
   "modifier.tprt.forged_steel.description":"较大幅度提高工具的所有属性",
 
   "modifier.tprt.source_alloy_default":"魔力升华",
-  "modifier.tprt.source_alloy_default.flavor":"你的魔力被提纯了",
-  "modifier.tprt.source_alloy_default.description":"提高所造成的法术伤害",
+  "modifier.tprt.source_alloy_default.flavor":"你的魔力变得无比纯净",
+  "modifier.tprt.source_alloy_default.description":"提高造成的法术伤害",
 
   "modifier.tprt.source_alloy_charm":"魔力棱镜",
   "modifier.tprt.source_alloy_charm.flavor":"聚焦你的魔力",
-  "modifier.tprt.source_alloy_charm.description":"大幅提升法术强度",
+  "modifier.tprt.source_alloy_charm.description":"大幅提升法术伤害，会主动吞噬持有者的魔力并给予强大的生命回复效果",
 
   "modifier.tprt.source_alloy_armor":"魔源裹身",
   "modifier.tprt.source_alloy_armor.flavor":"自然的魔力正在涌向你",
-  "modifier.tprt.source_alloy_armor.description":"提升法术抗性，法力上限，法力回复速度以及法术强度",
+  "modifier.tprt.source_alloy_armor.description":"提升法术抗性，法力上限和法力回复速度",
 
   "modifier.tprt.sacred_sacrifice": "神圣献祭",
   "modifier.tprt.sacred_sacrifice.flavor": "以我之血",

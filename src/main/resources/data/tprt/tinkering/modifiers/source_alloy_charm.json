@@ -1,18 +1,27 @@
 {
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "attributeslib"
-    }
-  ],
   "level_display": "tconstruct:default",
   "modules": [
     {
-      "type": "tconstruct:attribute",
-      "each_level": 0.4,
-      "operation": "addition",
-      "attribute": "irons_spellbooks:spell_power",
-      "unique": "tconstruct.modifier.source_alloy_charm"
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "ars_nouveau:ars_nouveau.perk.mana_regen",
+          "operation": "addition",
+          "value": -100.0
+        },
+        {
+          "attribute": "l2damagetracker:magic_damage",
+          "operation": "addition",
+          "value": 0.5
+        },
+        {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "operation": "addition",
+          "value": 8.0
+        }
+
+      ],
+      "name": "tprt:source_alloy_charm"
     }
   ],
   "tooltip_display": "always"
