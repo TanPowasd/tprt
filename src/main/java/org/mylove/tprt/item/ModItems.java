@@ -50,7 +50,7 @@ public class ModItems {
         ()->new Item(new Item.Properties()));
 //lr特供 🐖包
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
-        ()->new Item(new Item.Properties()));
+        ()->new Item(new Item.Properties().food(ModFoods.PIG_BUN)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
