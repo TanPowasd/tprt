@@ -10,6 +10,12 @@
     }
   ],
   "perStat": {
+    "sakuratinker:spell_cloth": [
+      {
+        "level": 5,
+        "name": "sakuratinker:enchanted_blade"
+      }
+      ],
     "tconstruct:armor": [
       {
         "level": 1,

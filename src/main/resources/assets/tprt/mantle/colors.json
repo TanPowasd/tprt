@@ -2,7 +2,8 @@
   "material.tprt": {
     "mixeddragon": "#4B0082",
     "forged_steel": "#232222",
-    "source_alloy": "#ffdd3a"
+    "source_alloy": "#ffdd3a",
+    "ignitium": "#FFF08226"
   },
   "modifier.tprt": {
     "mixeddragon_armor":"#EEDD82",
@@ -10,6 +11,8 @@
     "forged_steel":"#232222",
     "source_alloy_default":"#ffdd3a",
     "source_alloy_armor":"#ffdd3a",
-    "source_alloy_charm":"#ffdd3a"
+    "source_alloy_charm":"#ffdd3a",
+    "burning_flames": "#FFF08226",
+    "wrath_of_flames": "#FFF08226"
   }
 }

@@ -50,6 +50,9 @@
   "material.tprt.source_alloy":"源质合金",
   "material.tprt.source_alloy.flavor": "魔法与材料的完美结合",
 
+  "material.tprt.ignitium":"腾炎",
+  "material.tprt.ignitium.flavor":"永恒燃烧的怒火",
+
   "modifier.tprt.lastone": "荣!",
   "modifier.tprt.lastone.flavor": "人类战士最后的荣光!",
   "modifier.tprt.lastone.description": "代码的名义",
@@ -83,6 +86,10 @@
   "modifier.tprt.sacred_sacrifice.description": "燃烧生命，杀死它们！",
 
   "modifier.tprt.burning_flames": "焚焰",
+  "modifier.tprt.burning_flames.flavor": "焚尽世间的烈焰",
+  "modifier.tprt.burning_flames.description": "攻击附加炽热烙印，等级上限为词条等级上限",
 
-  "modifier.tprt.wrath_of_flames": "焰魔之怒"
+  "modifier.tprt.wrath_of_flames": "焰魔之怒",
+  "modifier.tprt.wrath_of_flames.flavor":"来自下界烈焰领主的怒火",
+  "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外造成30%的火焰伤害"
 }

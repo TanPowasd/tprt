@@ -10,6 +10,11 @@
       "toughness": 0.5
     },
     "sakuratinker:charm_core": {},
+    "sakuratinker:spell_cloth": {
+      "cast_time": 0.8,
+      "spell_power": 1.2,
+      "spell_reduce": 0.6
+    },
     "tconstruct:binding": {},
     "tconstruct:handle": {
       "durability": 0.8,
