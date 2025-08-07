@@ -26,7 +26,7 @@ public class sacred_sacrifice extends Modifier implements MeleeDamageModifierHoo
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
     }
-
+    @Override
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity entity = context.getLivingTarget();
         if(entity != null) {

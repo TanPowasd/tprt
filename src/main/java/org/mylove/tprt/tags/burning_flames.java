@@ -28,7 +28,6 @@ public class  burning_flames extends Modifier implements MeleeHitModifierHook {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
     }
-
     public static MobEffect getEffect(){
         ResourceLocation effectId=new ResourceLocation("cataclysm","blazing_brand");
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);

@@ -12,9 +12,12 @@ public class ModifierRegistry {
     public static void register(IEventBus eventBus) {
         MODIFIERS.register(eventBus);
     }
+
     public static final StaticModifier<lastone> lastone = MODIFIERS.register("lastone", lastone::new);
     public static final StaticModifier<for_the_love> for_the_love = MODIFIERS.register("for_the_love", for_the_love::new);
     public static final StaticModifier<sacred_sacrifice> sacred_sacrifice = MODIFIERS.register("sacred_sacrifice", sacred_sacrifice::new);
     public static final StaticModifier<burning_flames> burning_flames = MODIFIERS.register("burning_flames", burning_flames::new);
     public static final StaticModifier<wrath_of_flames> wrath_of_flames = MODIFIERS.register("wrath_of_flames", wrath_of_flames::new);
+    public static final StaticModifier<real_attack> real_attack = MODIFIERS.register("real_attack",real_attack::new);
+
 }
