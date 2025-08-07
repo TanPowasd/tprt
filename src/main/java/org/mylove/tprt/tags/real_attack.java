@@ -8,6 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
@@ -15,27 +16,20 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import java.util.UUID;
 
-public class lastone extends NoLevelsModifier implements MeleeDamageModifierHook {
-    UUID uuid=UUID.fromString("d2ab3741-d1ad-4e3e-afa2-f37f1aac9cf1");
+public class real_attack extends NoLevelsModifier implements MeleeHitModifierHook {
+    UUID uuid=UUID.fromString("B268AF32-38F9-45D1-8DE8-33F807408DE7");
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
+        hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
+    }
+    public int getPriority() {
+        return 50;
     }
     @Override
-    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage) {
         LivingEntity entity = context.getLivingTarget();
-        if(entity != null) {
-            AttributeInstance instance = entity.getAttribute(Attributes.MAX_HEALTH);
-            if (instance != null) {
-                double basevalue = 0;
-                AttributeModifier temp = instance.getModifier(uuid);
-                if(temp != null) {
-                    basevalue = temp.getAmount();
-                }
-                instance.removeModifier(uuid);
-                instance.addPermanentModifier(new AttributeModifier(uuid,"reducemaxhp",basevalue - damage, AttributeModifier.Operation.ADDITION));
-            }
-        }
-        return damage;
+        if(entity!=null)
+            entity.invulnerableTime=0;//取消无敌帧
     }
 }
+
