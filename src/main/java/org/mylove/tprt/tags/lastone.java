@@ -24,12 +24,16 @@ public class lastone extends NoLevelsModifier implements MeleeDamageModifierHook
 
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity entity = context.getLivingTarget();
-        if(entity != null&& entity instanceof Player==false) {
+        if(entity != null) {
             AttributeInstance instance = entity.getAttribute(Attributes.MAX_HEALTH);
             if (instance != null) {
-                double havereduce = instance.getBaseValue() - instance.getValue();
+                double basevalue = 0;
+                AttributeModifier temp = instance.getModifier(uuid);
+                if(temp != null) {
+                    basevalue = temp.getAmount();
+                }
                 instance.removeModifier(uuid);
-                instance.addPermanentModifier(new AttributeModifier(uuid,"reducemaxhp",-(damage + havereduce), AttributeModifier.Operation.ADDITION));
+                instance.addPermanentModifier(new AttributeModifier(uuid,"reducemaxhp",basevalue - damage, AttributeModifier.Operation.ADDITION));
             }
         }
         return damage;
