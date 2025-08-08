@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -24,12 +25,6 @@ public class wrath_of_flames extends Modifier implements MeleeHitModifierHook {
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
     @Override
-    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        //hookBuilder.addHook(this);
-        super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this,ModifierHooks.MELEE_HIT);
-    }
-    //尽可能下降优先级来保证增伤害吃满
     public int getPriority() {
         return 50;
     }
@@ -38,14 +33,17 @@ public class wrath_of_flames extends Modifier implements MeleeHitModifierHook {
     {
         LivingEntity target = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
+        //MobEffect effect= MobEffect.EFFECTBLAZING_BRAND.get();
         MobEffect effect=getEffect();
-        MobEffectInstance instance=target.getEffect(effect);
-        if(target != null){
+        if (target != null && !context.getLevel().isClientSide && target.hasEffect(effect) && attacker instanceof Player player) {
+            LegacyDamageSource source = LegacyDamageSource.playerAttack(player).setFire();
+            MobEffectInstance instance=target.getEffect(effect);
+            //int bufnum=0;
             if(instance!=null){
-                 LegacyDamageSource source =LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setFire();
-                 target.invulnerableTime=0;
-                 target.hurt(source,damageDealt*(instance.getAmplifier()+1)*0.3f);
+                int bufnum= instance.getAmplifier()+1;
+                //target.hurt(source, damageDealt*bufnum*0.3f);
             }
+            target.hurt(source, 20);
         }
     }
 }
