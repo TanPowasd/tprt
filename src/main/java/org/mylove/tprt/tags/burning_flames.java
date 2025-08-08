@@ -33,35 +33,31 @@ public class  burning_flames extends Modifier implements MeleeHitModifierHook {
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
     @Override
-    public void afterMeleeHit(IToolStackView tool,ModifierEntry modifier,ToolAttackContext context,float damage) {
-        LivingEntity entity = context.getLivingTarget();
-       // LegacyDamageSource source =LegacyDamageSource.playerAttack(context.getPlayerAttacker()).setFire();
-       // entity.hurt(source,1);
-        MobEffect effect=getEffect();
-        MobEffectInstance instance=entity.getEffect(effect);
-        if(instance == null ){
-            entity.addEffect(new MobEffectInstance(effect,200,0,true,true));
-        }
-        else {
-            int amplifier=instance.getAmplifier();
-            int newAmplifier=amplifier+1;
-            if(newAmplifier>=modifier.getLevel()){
-                newAmplifier=modifier.getLevel()-1;
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry entry, ToolAttackContext context, float damageDealt) {
+        if (!(context.getTarget() instanceof LivingEntity target)) return;
+        MobEffect effect = getEffect();
+        MobEffectInstance instance = target.getEffect(effect);
+        if (instance != null) {
+            int amplifier = instance.getAmplifier();
+            int newAmplifier = amplifier + 1;
+            int duration = instance.getDuration();
+            boolean ambient = instance.isAmbient();
+            boolean visible = instance.isVisible();
+            boolean showIcon = instance.showIcon();
+            if (newAmplifier > entry.getLevel()) {
+                newAmplifier = entry.getLevel();
             }
-            int duration=200;
-            boolean visible=instance.isVisible();
-            boolean ambient =instance.isAmbient();
-            boolean showIcon= instance.showIcon();
-            MobEffectInstance newEffect=new MobEffectInstance(
+            int a = instance.getAmplifier();
+            MobEffectInstance newEffect = new MobEffectInstance(
                     effect,
                     duration,
                     newAmplifier,
                     ambient,
                     visible,
-                    showIcon
-            );
-            entity.addEffect(newEffect);
+                    showIcon);
+            target.addEffect(newEffect);
+        } else {
+            target.addEffect(new MobEffectInstance(getEffect(), 200));
         }
-       // return damage;
     }
 }
