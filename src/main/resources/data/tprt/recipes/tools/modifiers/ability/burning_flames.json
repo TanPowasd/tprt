@@ -1,0 +1,32 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "cataclysm:blazing_grips"
+    },
+    {
+      "item": "cataclysm:ignitium_upgrade_smithing_template"
+    },
+    {
+      "item": "cataclysm:ignitium_ingot"
+    },
+    {
+      "item": "cataclysm:ignitium_ingot"
+    },
+    {
+      "item": "cataclysm:ignitium_ingot"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:burning_flames",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable/durability"
+    }
+  ]
+}
