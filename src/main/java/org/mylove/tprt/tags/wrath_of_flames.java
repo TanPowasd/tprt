@@ -15,6 +15,7 @@ import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHoo
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import com.github.L_Ender.cataclysm.init.ModEffect;
 
 import java.util.UUID;
 
@@ -26,7 +27,7 @@ public class wrath_of_flames extends Modifier implements MeleeHitModifierHook {
     }
     @Override
     public int getPriority() {
-        return 50;
+        return 51;
     }
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt)
@@ -34,15 +35,12 @@ public class wrath_of_flames extends Modifier implements MeleeHitModifierHook {
         LivingEntity target = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
         //MobEffect effect= MobEffect.EFFECTBLAZING_BRAND.get();
-        MobEffect effect=getEffect();
+        MobEffect effect=MobEffect.
+        //MobEffect effect=getEffect();
         if (target != null && !context.getLevel().isClientSide && target.hasEffect(effect) && attacker instanceof Player player) {
             LegacyDamageSource source = LegacyDamageSource.playerAttack(player).setFire();
-            MobEffectInstance instance=target.getEffect(effect);
+            //MobEffectInstance instance=target.getEffect(effect);
             //int bufnum=0;
-            if(instance!=null){
-                int bufnum= instance.getAmplifier()+1;
-                //target.hurt(source, damageDealt*bufnum*0.3f);
-            }
             target.hurt(source, 20);
         }
     }

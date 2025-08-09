@@ -44,13 +44,14 @@ public class  burning_flames extends Modifier implements MeleeHitModifierHook {
             boolean ambient = instance.isAmbient();
             boolean visible = instance.isVisible();
             boolean showIcon = instance.showIcon();
-            if (newAmplifier > entry.getLevel()) {
-                newAmplifier = entry.getLevel();
+            if (newAmplifier >= entry.getLevel()) {
+                newAmplifier = entry.getLevel()-1;
             }
             int a = instance.getAmplifier();
             MobEffectInstance newEffect = new MobEffectInstance(
                     effect,
-                    duration,
+                   // duration,
+                    200,
                     newAmplifier,
                     ambient,
                     visible,
