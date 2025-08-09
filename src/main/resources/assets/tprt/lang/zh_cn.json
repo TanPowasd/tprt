@@ -1,6 +1,8 @@
 {
   "creativetab.tprt_tab": "挚爱",
 
+
+
   "item.tprt.lriron": "LR锭",
   "item.tprt.raw_lriron": "略提纯LR锭",
   "item.tprt.awairon": "雇佣兵的罐头",
@@ -94,6 +96,10 @@
   "modifier.tprt.lord_of_fire": "烈焰领主",
   "modifier.tprt.lord_of_fire.flavor":"成为烈焰的象征",
   "modifier.tprt.lord_of_fire.description":"攻击附带40点火焰伤害",
+
+  "modifier.tprt.flame_rising": "火焰升腾",
+  "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
+  "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽，一个防御以及一个能力槽",
 
   "modifer.tprt.real_attack": "真实攻击"
 }
