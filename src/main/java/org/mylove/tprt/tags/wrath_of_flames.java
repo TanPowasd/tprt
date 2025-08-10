@@ -35,7 +35,7 @@ public class wrath_of_flames extends Modifier implements MeleeHitModifierHook {
         LivingEntity target = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
         //MobEffect effect= MobEffect.EFFECTBLAZING_BRAND.get();
-        MobEffect effect=MobEffect.
+        MobEffect effect=ModEffect.EFFECTABYSSAL_BURN.get();
         //MobEffect effect=getEffect();
         if (target != null && !context.getLevel().isClientSide && target.hasEffect(effect) && attacker instanceof Player player) {
             LegacyDamageSource source = LegacyDamageSource.playerAttack(player).setFire();
