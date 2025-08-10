@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "cataclysm:cursium_upgrade_smithing_template"
+    },
+    {
+      "item": "cataclysm:cursium_block"
+    },
+    {
+      "item": "cataclysm:cursed_bow"
+    },
+    {
+      "item": "cataclysm:soul_render"
+    },
+    {
+      "item": "cataclysm:the_annihilator"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:the_spirit_of_evil_curse",
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}

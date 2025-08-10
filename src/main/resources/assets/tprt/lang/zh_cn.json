@@ -101,5 +101,10 @@
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
   "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽，一个防御以及一个能力槽",
 
+  "modifier.tprt.the_spirit_of_evil_curse": "恶咒之灵",
+  "modifier.tprt.the_spirit_of_evil_curse.flavor":"诅咒的力量重塑了你的装备",
+  "modifier.tprt.the_spirit_of_evil_curse.description":"这位诅咒亡灵的力量为你带来了一个升级槽，一个防御以及一个能力槽",
+
+
   "modifer.tprt.real_attack": "真实攻击"
 }
