@@ -20,6 +20,6 @@ public class real_damage extends NoLevelsModifier implements MeleeDamageModifier
     }
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage){
         LivingEntity entity=context.getLivingTarget();
-
+        return damage;
     }
 }
