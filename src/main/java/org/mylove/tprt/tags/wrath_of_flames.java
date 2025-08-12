@@ -26,6 +26,11 @@ public class wrath_of_flames extends Modifier implements MeleeHitModifierHook {
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
     @Override
+    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
+    }
+    @Override
     public int getPriority() {
         return 51;
     }
