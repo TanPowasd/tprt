@@ -45,6 +45,7 @@ public class wrath_of_flames extends Modifier implements MeleeHitModifierHook {
             MobEffect effect = getEffect();
             MobEffectInstance instance = target.getEffect(effect);
             int bufnum=instance.getAmplifier()+1;
+            System.out.println(damageDealt);
             target.hurt(source, damageDealt*bufnum*0.3f);
         }
     }
