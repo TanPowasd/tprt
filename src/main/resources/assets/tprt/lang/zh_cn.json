@@ -105,6 +105,17 @@
   "modifier.tprt.the_spirit_of_evil_curse.flavor":"诅咒的力量重塑了你的装备",
   "modifier.tprt.the_spirit_of_evil_curse.description":"这位诅咒亡灵的力量为你带来了一个升级槽，一个防御以及一个能力槽",
 
+  "modifier.tprt.solid_armor": "坚固护甲",
+  "modifier.tprt.solid_armor.flavor":"锻造你的护甲，使其更加坚固",
+  "modifier.tprt.solid_armor.description":"以一个升级槽为代价获得一个防御槽",
+
+  "modifier.tprt.armor_fragmentation": "盔甲碎裂",
+  "modifier.tprt.armor_fragmentation.flavor":"粉碎你的护甲，使其更加易塑",
+  "modifier.tprt.armor_fragmentation.description":"以一个防御槽为代价获得一个升级槽",
+
+  "modifier.tprt.enchantment": "附魔升华",
+  "modifier.tprt.enchantment.flavor":"附魔你的物品，使其能力更加强大",
+  "modifier.tprt.enchantment.description":"以两个升级槽为代价获得一个能力槽",
 
   "modifer.tprt.real_attack": "真实攻击"
 }
