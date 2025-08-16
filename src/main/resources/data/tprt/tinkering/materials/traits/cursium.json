@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:cursed_spirit"
+    },
+    {
+      "level": 1,
+      "name": "tprt:bitter_cold"
+    }
+  ]
+}

@@ -3,7 +3,8 @@
     "mixeddragon": "#4B0082",
     "forged_steel": "#232222",
     "source_alloy": "#ffdd3a",
-    "ignitium": "#FFF08226"
+    "ignitium": "#FFF08226",
+    "cursium": "#FF5BCAC1"
   },
   "modifier.tprt": {
     "mixeddragon_armor":"#EEDD82",
@@ -16,6 +17,8 @@
     "wrath_of_flames": "#FFF08226",
     "lord_of_fire": "#FFF08226",
     "flame_rising": "#FFF08226",
-    "the_spirit_of_evil_curse": "#FF5BCAC1"
+    "the_spirit_of_evil_curse": "#FF5BCAC1",
+    "cursed_spirit": "#FF5BCAC1",
+    "bitter_cold": "#FF5BCAC1"
   }
 }

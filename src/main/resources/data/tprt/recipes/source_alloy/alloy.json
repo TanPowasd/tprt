@@ -2,15 +2,15 @@
   "type": "tconstruct:alloy",
   "inputs": [
     {
-      "amount": 1800,
+      "amount": 3600,
       "fluid": "sakuratinker:molten_south_star"
     },
     {
-      "amount": 1800,
+      "amount": 3600,
       "fluid": "sakuratinker:molten_arcane_alloy"
     },
     {
-      "amount": 16000,
+      "amount": 48000,
       "fluid": "starbunclemania:source_fluid"
     }
   ],
