@@ -51,7 +51,7 @@ public class double_or_none extends NoLevelsModifier implements ModifyDamageModi
                 }
                 else{
                     MobEffect effect = getEffect();
-                    MobEffectInstance instance = entity.getEffect(effect);
+                    MobEffectInstance instance = attacker.getEffect(effect);
                     if(instance==null){
                         attacker.addEffect(new MobEffectInstance(getEffect(), 200));
                     }

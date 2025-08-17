@@ -26,6 +26,10 @@
 
 
 
+  "effect.tprt.moredamage": "易伤",
+
+
+
   "fluid.tconstruct.king_of_mc_fluid": "熔融世界",
   "fluid.tconstruct.king_of_magic_fluid": "熔融魔法",
   "fluid.tconstruct.king_of_fireandice_fluid": "可燃冰",
@@ -136,5 +140,9 @@
 
   "modifer.tprt.double_or_none": "狂赌深渊",
   "modifer.tprt.double_or_none.flavor": "0 or 2 ?",
-  "modifer.tprt.double_or_none.description": "我赌你的枪里没有子弹!"
+  "modifer.tprt.double_or_none.description": "我赌你的枪里没有子弹!",
+
+  "modifier.tprt.for_the_love": "爱之力",
+  "modifier.tprt.for_the_love.flavor": "以爱之名"
+
 }

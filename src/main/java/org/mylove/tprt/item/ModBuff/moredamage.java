@@ -29,8 +29,10 @@ public class moredamage extends MobEffect{
         armorPenalty=Math.max(armorPenalty,minArmorPenalty);
         AttributeInstance armorAttr=entity.getAttribute(Attributes.ARMOR);
         if(armorAttr!=null){
+            UUID ARMOR_PENALTY_UUID = UUID.fromString("874C97BF-6CF1-4E95-88D7-2B8828B42A2A");
+            armorAttr.removeModifier(ARMOR_PENALTY_UUID);
             armorAttr.addTransientModifier(new AttributeModifier(
-                    UUID.fromString("874C97BF-6CF1-4E95-88D7-2B8828B42A2A"),
+                    ARMOR_PENALTY_UUID,
                     "armor penalty",
                     armorPenalty,
                     AttributeModifier.Operation.MULTIPLY_TOTAL
