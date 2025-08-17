@@ -21,5 +21,5 @@ public class ModifierRegistry {
     public static final StaticModifier<real_attack> real_attack = MODIFIERS.register("real_attack",real_attack::new);
     public static final StaticModifier<cursed_spirit> cursed_spirit=MODIFIERS.register("cursed_spirit",cursed_spirit::new);
 
-    //public static final StaticModifier<double_or_none>double_or_none  = MODIFIERS.register("double_or_none",double_or_none::new);
+    public static final StaticModifier<double_or_none>double_or_none  = MODIFIERS.register("double_or_none",double_or_none::new);
 }

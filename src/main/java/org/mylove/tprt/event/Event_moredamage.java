@@ -12,7 +12,7 @@ import org.mylove.tprt.item.ModBuff.moredamage;
 import org.mylove.tprt.registries.ModBuffRegistry;
 import org.mylove.tprt.Tprt;
 import net.minecraftforge.fml.common.Mod;
-@Mod.EventBusSubscriber(modid=Tprt.MODID,bus=Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid=Tprt.MODID,bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class Event_moredamage {
     @SubscribeEvent
     public  static void onLivingHurt(LivingHurtEvent event){
