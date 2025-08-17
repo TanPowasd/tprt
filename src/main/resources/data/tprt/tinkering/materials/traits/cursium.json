@@ -8,5 +8,13 @@
       "level": 1,
       "name": "tprt:bitter_cold"
     }
-  ]
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:soul_dodge"
+      }
+    ]
+  }
 }

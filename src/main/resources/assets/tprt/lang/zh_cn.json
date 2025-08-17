@@ -39,6 +39,7 @@
   "fluid.tconstruct.mixeddragon_fluid": "熔融龙神钢",
   "fluid.tconstruct.source_alloy_fluid": "熔融源质合金",
   "fluid.tconstruct.forged_steel_fluid": "熔融锻造钢",
+  "fluid.tconstruct.molten_cursium": "熔融咒魂",
 
 
 
@@ -68,7 +69,7 @@
 
   "modifier.tprt.mixeddragon_armor":"龙神护体",
   "modifier.tprt.mixeddragon_armor.flavor":"来自龙神的庇佑",
-  "modifier.tprt.mixeddragon_armor.description":"每级获得4%伤害减免",
+  "modifier.tprt.mixeddragon_armor.description":"每级获得5%物理伤害减免和10%法术抗性",
 
   "modifier.tprt.mixeddragon_ranged":"龙吟",
   "modifier.tprt.mixeddragon_ranged.flavor":"众龙的力量激荡不息",
@@ -100,7 +101,7 @@
 
   "modifier.tprt.wrath_of_flames": "焰魔之怒",
   "modifier.tprt.wrath_of_flames.flavor":"来自下界烈焰领主的怒火",
-  "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外造成30%的火焰伤害",
+  "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外造成30%伤害",
 
   "modifier.tprt.lord_of_fire": "烈焰领主",
   "modifier.tprt.lord_of_fire.flavor":"成为烈焰的象征",
@@ -113,6 +114,10 @@
   "modifier.tprt.bitter_cold": "苦寒",
   "modifier.tprt.bitter_cold.flavor":"极地的严寒浸入骨髓",
   "modifier.tprt.bitter_cold.description":"攻击额外造成15点冰冻伤害",
+
+  "modifier.tprt.soul_dodge": "魂灵闪避",
+  "modifier.tprt.soul_dodge.flavor":"身体仿若幽魂",
+  "modifier.tprt.soul_dodge.description":"有较低概率免疫受到的伤害",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",

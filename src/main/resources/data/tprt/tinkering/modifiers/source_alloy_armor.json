@@ -18,7 +18,7 @@
     },
     {
       "type": "tconstruct:attribute",
-      "each_level": 0.1,
+      "each_level": 0.2,
       "operation": "addition",
       "attribute": "irons_spellbooks:spell_resist",
       "unique": "tconstruct.modifier.source_alloy_armor",
