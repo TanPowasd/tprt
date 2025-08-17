@@ -29,6 +29,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.block.Modblocks;
 import org.mylove.tprt.item.ModCreativeModTabs;
 import org.mylove.tprt.item.ModItems;
+import org.mylove.tprt.registries.ModBuffRegistry;
 import org.mylove.tprt.registries.ModFluids;
 import org.mylove.tprt.registries.ModifierRegistry;
 import org.slf4j.Logger;
@@ -49,6 +50,7 @@ public class Tprt {
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
         Modblocks.register(modEventBus);
+        ModBuffRegistry.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
 
         ModifierRegistry.register(modEventBus);

@@ -1,5 +1,6 @@
 package org.mylove.tprt.tags;
 
+import com.ssakura49.sakuratinker.utils.tinker.ToolUtil;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -24,7 +25,11 @@ public class for_the_love extends Modifier implements MeleeDamageModifierHook {
     }
 
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
+
         LivingEntity entity = context.getLivingTarget();
+        if(entity==null){
+            return damage;
+        }
         return damage* modifier.getLevel();
     }
 }

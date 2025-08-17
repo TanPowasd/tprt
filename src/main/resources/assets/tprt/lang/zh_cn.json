@@ -20,26 +20,26 @@
   "item.tprt.pig_bun": "🐖包",
 
 
+
   "block.tprt.lr_block":"lr块",
   "block.tprt.raw_lr_block":"粗制lr块",
 
 
 
-  "fluid.tconstruct.king_of_mc_fluid": "熔融世界!",
-  "fluid.tconstruct.king_of_magic_fluid": "熔融魔法!",
-  "fluid.tconstruct.king_of_fireandice_fluid": "可燃冰!",
-  "fluid.tconstruct.king_of_forest_fluid": "熔融暮光!",
-  "fluid.tconstruct.king_of_cataclysm_fluid": "熔融灾变!",
+  "fluid.tconstruct.king_of_mc_fluid": "熔融世界",
+  "fluid.tconstruct.king_of_magic_fluid": "熔融魔法",
+  "fluid.tconstruct.king_of_fireandice_fluid": "可燃冰",
+  "fluid.tconstruct.king_of_forest_fluid": "熔融暮光",
+  "fluid.tconstruct.king_of_cataclysm_fluid": "熔融灾变",
   "fluid.tconstruct.tanpowasd_fluid": "熔融挚爱",
   "fluid.tconstruct.mixeddragon_fluid": "熔融龙神钢",
   "fluid.tconstruct.source_alloy_fluid": "熔融源质合金",
   "fluid.tconstruct.forged_steel_fluid": "熔融锻造钢",
 
 
+
   "material.tprt.tanpowasd": "挚爱",
-  "material.tprt.tanpowasd.flavor": "以爱之名",
-
-
+  "material.tprt.tanpowasd.flavor": "爱在永恒",
 
   "material.tprt.mixeddragon":"龙神钢",
   "material.tprt.mixeddragon.flavor": "听见万龙咆哮的声音",
@@ -55,6 +55,8 @@
 
   "material.tprt.cursium":"咒魂",
   "material.tprt.cursium.flavor":"昔日的传奇战士，今日的诅咒亡灵",
+
+
 
   "modifier.tprt.lastone": "荣!",
   "modifier.tprt.lastone.flavor": "人类战士最后的荣光!",
@@ -128,5 +130,11 @@
   "modifier.tprt.enchantment.flavor":"附魔你的物品，使其能力更加强大",
   "modifier.tprt.enchantment.description":"以两个升级槽为代价获得一个能力槽",
 
-  "modifer.tprt.real_attack": "真实攻击"
+  "modifer.tprt.real_attack": "真实攻击",
+  "modifer.tprt.real_attack.flavor": "暴露他们的弱点",
+  "modifer.tprt.real_attack.description": "直触目标的灵魂，忽视其部分护甲和抗性",
+
+  "modifer.tprt.double_or_none": "狂赌深渊",
+  "modifer.tprt.double_or_none.flavor": "0 or 2 ?",
+  "modifer.tprt.double_or_none.description": "我赌你的枪里没有子弹!",
 }

@@ -16,6 +16,31 @@
       "melee_speed": 1.2,
       "mining_speed": 0.8
     },
+    "sakuratinker:energy_unit": {
+      "durability": 1.2,
+      "energy_storage": 800000
+    },
+    "sakuratinker:laser_medium": {
+      "cooldown": 0.1,
+      "range": 300.0
+    },
+    "sakuratinker:flag": {
+      "attack_buff_time": 6000,
+      "charge_time": 15,
+      "defence_buff_time": 6000,
+      "range": 50
+    },
+    "sakuratinker:axle": {
+      "attack_interval": 3.3,
+      "time": 1200.0,
+      "weight": 2.0
+    },
+    "sakuratinker:chord": {
+      "length": 24.0
+    },
+    "sakuratinker:yoyo_ring": {
+      "max_collected": 4.0
+    },
     "tconstruct:head": {
       "durability": 2091,
       "melee_attack": 22,

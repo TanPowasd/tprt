@@ -9,6 +9,10 @@
     "tconstruct:headle": [{
       "name": "tprt:sacred_sacrifice",
       "level": 2
+    }],
+    "tconstruct:maille": [{
+      "name": "tprt:double_or_none",
+      "level": 1
     }]
   }
 }
