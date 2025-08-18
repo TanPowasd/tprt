@@ -21,6 +21,12 @@
         "level": 1
       }
     ],
+    "tconstruct:binding": [
+      {
+        "name": "tprt:disruption_break",
+        "level": 1
+      }
+    ],
     "tconstruct:maille": [{
       "name": "tprt:double_or_none",
       "level": 1

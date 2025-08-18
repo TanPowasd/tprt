@@ -45,21 +45,21 @@ public class disruption_break extends Modifier implements MeleeDamageModifierHoo
             }
             else if(maxHealthE<maxHealthA) {
                 //目标最大生命值比己方小，打出压制
-                NewDamage*=1.2f;
+                NewDamage*=Math.pow(1.2f,modifier.getLevel());
             }
              if(damage>ArmorE){
-                NewDamage+=Math.max(5, (damage - ArmorE) * 0.5f);
+                NewDamage+=Math.max(5, (damage - ArmorE) * 0.5f)*modifier.getLevel();
             }
             if(ArmorA>ArmorE){
                 //己方护甲值大于目标护甲值，打出压制
-                NewDamage*=1.2f;
+                NewDamage*=Math.pow(1.2f,modifier.getLevel());
             }
             else if(ArmorA<ArmorE){
                 //己方护甲值小于目标护甲值,打出额外伤害
-                NewDamage+=Math.max(5, (ArmorE - ArmorA) * 0.5f);
+                NewDamage+=Math.max(5, (ArmorE - ArmorA) * 0.5f)*modifier.getLevel();
             }
             if(healthA>healthE||healthA>ArmorE){
-                NewDamage+=Math.abs(healthE-ArmorE);
+                NewDamage+=Math.abs(healthE-ArmorE)*modifier.getLevel();
             }
             return NewDamage;
         }
