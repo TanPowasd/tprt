@@ -1,5 +1,6 @@
 package org.mylove.tprt.tags;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -43,17 +44,22 @@ public class lucky_strike extends Modifier implements MeleeDamageModifierHook, M
         return damage;
     }
 
+    /** Todo: 1.finish attack feedback 2.add material recipe */
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         LivingEntity attacker = context.getPlayerAttacker();
-        if(context.getAttacker().level().isClientSide && attacker != null){
+        // if(context.getAttacker().level().isClientSide && attacker != null){
+        // TinkerConstruct 钩子自带服务端判断
+        if(attacker != null){
             Level pLevel = context.getPlayerAttacker().level();
+            // attacker.sendSystemMessage(Component.literal("!"+attacker.getX()+isLucky));
             if(isLucky){
                 // ding ding ding
-                pLevel.playSound((Player)null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.VILLAGER_YES, SoundSource.PLAYERS, 0.5F, 1.0F);
+                pLevel.playSound((Player)null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.VILLAGER_YES, SoundSource.PLAYERS, 1.0F, 1.0F);
             } else {
-                pLevel.playSound((Player)null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.VILLAGER_NO, SoundSource.PLAYERS, 0.5F, 1.0F);
+                pLevel.playSound((Player)null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.VILLAGER_NO, SoundSource.PLAYERS, 1.0F, 1.0F);
             }
         }
+
     }
 }
