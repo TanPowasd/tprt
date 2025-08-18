@@ -19,6 +19,7 @@
   "item.tprt.source_alloy": "源质合金",
   "item.tprt.pig_bun": "🐖包",
   "item.tprt.red_turtle": "红温🐢",
+  "item.tprt.blue_lancer": "蓝色枪兵",
 
 
 
@@ -153,5 +154,9 @@
 
   "modifier.tprt.disruption_break": "瓦解破裂",
   "modifier.tprt.disruption_break.flavor": "你的全身被解析",
-  "modifier.tprt.disruption_break.description": "数据对比"
+  "modifier.tprt.disruption_break.description": "数据对比",
+
+  "modifier.tprt.luck_strike": "幸运一击",
+  "modifier.tprt.luck_strike.flavor": "自古枪兵。。。",
+  "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低"
 }

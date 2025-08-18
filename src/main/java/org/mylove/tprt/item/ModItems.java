@@ -56,6 +56,10 @@ public class ModItems {
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
         ()->new Item(new Item.Properties().food(ModFoods.PIG_BUN)));
 
+//超级幸运E
+    public static final RegistryObject<Item>BLUE_LANCER=ITEMS.register("blue_lancer",
+        () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

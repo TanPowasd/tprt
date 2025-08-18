@@ -19,8 +19,9 @@ public class ModifierRegistry {
     public static final StaticModifier<burning_flames> burning_flames = MODIFIERS.register("burning_flames", burning_flames::new);
     public static final StaticModifier<wrath_of_flames> wrath_of_flames = MODIFIERS.register("wrath_of_flames", wrath_of_flames::new);
     public static final StaticModifier<real_attack> real_attack = MODIFIERS.register("real_attack",real_attack::new);
-    public static final StaticModifier<cursed_spirit> cursed_spirit=MODIFIERS.register("cursed_spirit",cursed_spirit::new);
-    public static final StaticModifier<double_or_none>double_or_none=MODIFIERS.register("double_or_none",double_or_none::new);
-    public static final StaticModifier<soul_dodge>soul_dodge=MODIFIERS.register("soul_dodge",soul_dodge::new);
-    public static final StaticModifier<disruption_break>disruption_break=MODIFIERS.register("disruption_break",disruption_break::new);
+    public static final StaticModifier<cursed_spirit> cursed_spirit = MODIFIERS.register("cursed_spirit",cursed_spirit::new);
+    public static final StaticModifier<double_or_none> double_or_none = MODIFIERS.register("double_or_none",double_or_none::new);
+    public static final StaticModifier<soul_dodge> soul_dodge = MODIFIERS.register("soul_dodge",soul_dodge::new);
+    public static final StaticModifier<disruption_break> disruption_break = MODIFIERS.register("disruption_break",disruption_break::new);
+    public static final StaticModifier<lucky_strike> luck_strike = MODIFIERS.register("luck_strike",lucky_strike::new);
 }

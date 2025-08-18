@@ -23,7 +23,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import java.util.UUID;
 
 public class  burning_flames extends Modifier implements MeleeHitModifierHook {
-    UUID uuid=UUID.fromString("d2ab3741-d1ad-4e3e-1145-f37f1aac9cf1");
+    UUID uuid = UUID.fromString("d2ab3741-d1ad-4e3e-1145-f37f1aac9cf1");
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);

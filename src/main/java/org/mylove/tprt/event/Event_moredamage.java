@@ -15,10 +15,10 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid=Tprt.MODID,bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class Event_moredamage {
     @SubscribeEvent
-    public  static void onLivingHurt(LivingHurtEvent event){
+    public static void onLivingHurt(LivingHurtEvent event){
         LivingEntity entity = event.getEntity();
         //MobEffect effect=entity.getEffect(ModBuffRegistry.MOREDAMAGE.get());
-        MobEffectInstance instance =entity.getEffect(ModBuffRegistry.MOREDAMAGE.get());
+        MobEffectInstance instance = entity.getEffect(ModBuffRegistry.MOREDAMAGE.get());
         if(instance!=null){
             int bufnum=instance.getAmplifier()+1;
             float attE=1.0f+0.2f*bufnum;

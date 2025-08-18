@@ -43,8 +43,9 @@ public class Tprt {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public Tprt() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public Tprt(FMLJavaModLoadingContext context) {
+//        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus modEventBus = context.getModEventBus();
 
         ModFluids.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
