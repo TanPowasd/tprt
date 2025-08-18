@@ -18,7 +18,7 @@
   "item.tprt.forged_steel": "锻造钢",
   "item.tprt.source_alloy": "源质合金",
   "item.tprt.pig_bun": "🐖包",
-
+  "item.tprt.red_turtle": "红温🐢",
 
 
   "block.tprt.lr_block":"lr块",
@@ -139,15 +139,18 @@
   "modifier.tprt.enchantment.flavor":"附魔你的物品，使其能力更加强大",
   "modifier.tprt.enchantment.description":"以两个升级槽为代价获得一个能力槽",
 
-  "modifer.tprt.real_attack": "真实攻击",
-  "modifer.tprt.real_attack.flavor": "暴露他们的弱点",
+  "modifier.tprt.real_attack": "真实攻击",
+  "modifier.tprt.real_attack.flavor": "暴露他们的弱点",
   "modifer.tprt.real_attack.description": "直触目标的灵魂，忽视其部分护甲和抗性",
 
-  "modifer.tprt.double_or_none": "狂赌深渊",
-  "modifer.tprt.double_or_none.flavor": "0 or 2 ?",
-  "modifer.tprt.double_or_none.description": "我赌你的枪里没有子弹!",
+  "modifier.tprt.double_or_none": "狂赌深渊",
+  "modifier.tprt.double_or_none.flavor": "0 or 2 ?",
+  "modifier.tprt.double_or_none.description": "我赌你的枪里没有子弹!",
 
   "modifier.tprt.for_the_love": "爱之力",
-  "modifier.tprt.for_the_love.flavor": "以爱之名"
+  "modifier.tprt.for_the_love.flavor": "以爱之名",
 
+  "modifier.tprt.disruption_break": "瓦解破裂",
+  "modifier.tprt.disruption_break.flavor": "你的全身被解析",
+  "modifier.tprt.disruption_break.description": "数据对比"
 }

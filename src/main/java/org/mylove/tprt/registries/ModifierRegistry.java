@@ -22,4 +22,5 @@ public class ModifierRegistry {
     public static final StaticModifier<cursed_spirit> cursed_spirit=MODIFIERS.register("cursed_spirit",cursed_spirit::new);
     public static final StaticModifier<double_or_none>double_or_none=MODIFIERS.register("double_or_none",double_or_none::new);
     public static final StaticModifier<soul_dodge>soul_dodge=MODIFIERS.register("soul_dodge",soul_dodge::new);
+    public static final StaticModifier<disruption_break>disruption_break=MODIFIERS.register("disruption_break",disruption_break::new);
 }

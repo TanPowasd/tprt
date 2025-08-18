@@ -39,6 +39,10 @@ public class ModItems {
     public static final RegistryObject<Item>KING_OF_MC=ITEMS.register("king_of_mc",
             ()->new Item(new Item.Properties()));
 
+
+    public static final RegistryObject<Item>RED_TURTLE=ITEMS.register("red_turtle",
+        ()->new Item(new Item.Properties().food(ModFoods.RED_TURTLE)));
+
 //lr特供 龙神锭
     public static final RegistryObject<Item>MIXEDDRAGON=ITEMS.register("mixeddragon",
         ()->new Item(new Item.Properties()));
