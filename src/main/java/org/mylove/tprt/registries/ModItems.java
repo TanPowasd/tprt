@@ -1,4 +1,4 @@
-package org.mylove.tprt.item;
+package org.mylove.tprt.registries;
 
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
