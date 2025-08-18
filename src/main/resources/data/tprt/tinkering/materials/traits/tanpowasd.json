@@ -9,9 +9,8 @@
         "name": "tprt:disruption_break",
         "level": 1
       }
-
     ],
-    "tconstruct:headle": [
+    "tconstruct:handle": [
       {
         "name": "tprt:sacred_sacrifice",
         "level": 2
