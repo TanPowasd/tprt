@@ -1,0 +1,62 @@
+{
+  "type": "create:sequenced_assembly",
+    "ingredient": {
+      "item": "minecraft:turtle_helmet"
+    },
+  "loops": 2,
+  "results":[{
+    "item": "tprt:red_turtle"
+  }],
+  "sequence": [
+    {
+      "type": "create:filling",
+        "ingredients": [
+          {
+            "item": "minecraft:turtle_helmet"
+          },
+          {
+            "amount": 100,
+            "fluid": "minecraft:lava",
+            "nbt": {}
+          }
+        ],
+      "results": [
+        {
+          "item": "minecraft:turtle_helmet"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:turtle_helmet"
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:turtle_helmet"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:turtle_helmet"
+        },
+        {
+          "item": "minecraft:rotten_flesh"
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:turtle_helmet"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:turtle_helmet"
+  }
+}

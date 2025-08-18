@@ -4,6 +4,8 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import org.mylove.tprt.Tprt;
+import org.mylove.tprt.registries.ModBuffRegistry;
 
 public class ModFoods {
     public static final FoodProperties LR_APPLE=new FoodProperties.Builder()
@@ -27,6 +29,16 @@ public class ModFoods {
             .saturationMod(1)
             .effect(()->new MobEffectInstance(MobEffects.HUNGER,15,1),1f)
             .effect(()->new MobEffectInstance(MobEffects.CONFUSION,200,1),1f)
+            .alwaysEat()
+            .build();
+    public static final FoodProperties RED_TURTLE = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.0f)
+            .effect(() -> new MobEffectInstance(ModBuffRegistry.MOREDAMAGE.get(), 200, 0), 1f) // 10秒 moredamage
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, 1), 1f) // 20秒 抗性提升2
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 200, 0), 1f) // 10秒 伤害吸收1
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, 1), 1f) // 20秒 力量2
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 0), 1f) // 20秒 缓慢1
             .alwaysEat()
             .build();
 }

@@ -42,7 +42,7 @@ public class soul_dodge extends NoLevelsModifier implements ModifyDamageModifier
         }
         if (attacker != null && entity != null) {
             if(SlotInChargeModule.isInCharge(context.getTinkerData(), SLOT_IN_CHARGE, equipmentSlot)){
-                if(ifdodge>=0.85){
+                if(ifdodge>=0.80f){
                     return 0;
                 }
                 else{
