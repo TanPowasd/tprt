@@ -23,7 +23,7 @@ public class for_the_love extends Modifier implements MeleeDamageModifierHook {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
     }
-
+//废弃词条
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
 
         LivingEntity entity = context.getLivingTarget();
