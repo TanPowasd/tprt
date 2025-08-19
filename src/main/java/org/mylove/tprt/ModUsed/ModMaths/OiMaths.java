@@ -67,5 +67,84 @@ public class OiMaths {
             return -1;
         }
     }
-
+    public class OPTIMIZE{
+        public static long QuickPow(long a, long b, long mod) {
+            //快速幂算法
+            long res=1;
+            while (b>0) {
+                if ((b&1)==1) {
+                    res=(res*a)%mod;
+                }
+                a=(a*a)%mod;
+                b>>=1;
+            }
+            return res;
+        }
+        public static int __GCD(int a, int b) {
+            // 辗转相除法求最大公约数
+            return b == 0 ? a : __GCD(b, a % b);
+        }
+        public static int euler_phi(int n){
+            //欧拉函数
+            int res=n;
+            for(int i=2;i*i<=n;i++){
+                if(n%i==0){
+                    res=res/i*(i-1);
+                    while(n%i==0){
+                        n/=i;
+                    }
+                }
+            }
+            if(n>1){
+                res=res/n*(n-1);
+            }
+            return res;
+        }
+    }
+    public class Mat{
+        public static long[][] MatMatrix=new long[10][10];
+        public static long[][] MatrixMul_2(long[][] a,long[][] b){
+            long[][] ans=new long[10][10];
+            for(int i=0;i<10;i++){
+                for(int j=0;j<10;j++){
+                    ans[i][j]=0;
+                }
+            }
+            for(int i=0;i<2;i++){
+                for(int j=0;j<2;j++){
+                    for(int k=0;k<2;k++){
+                        ans[i][j]+= (long) (a[i][k]*b[k][j]%(1e9+7));
+                    }
+                }
+            }
+            return ans;
+        }
+        public static long Fibonacci(long n){
+            if(n==0){
+                return 0;
+            }
+            if(n==1){
+                return 1;
+            }
+            long[][] ans=new long[2][2];
+            ans[0][0]=1;
+            ans[0][1]=1;
+            ans[1][0]=1;
+            ans[1][1]=0;
+            long[][] res=new long[2][2];
+            res[0][0]=0;
+            res[0][1]=0;
+            res[1][0]=0;
+            res[1][1]=0;
+            n-=2;
+            while(n>0){
+                if((n&1)==1){
+                    res=MatrixMul_2(res,ans);
+                }
+                ans=MatrixMul_2(ans,ans);
+                n>>=1;
+            }
+            return (long) ((res[0][1])%(1e9+7));
+        }
+    }
 }
