@@ -24,4 +24,5 @@ public class ModifierRegistry {
     public static final StaticModifier<soul_dodge> soul_dodge = MODIFIERS.register("soul_dodge",soul_dodge::new);
     public static final StaticModifier<disruption_break> disruption_break = MODIFIERS.register("disruption_break",disruption_break::new);
     public static final StaticModifier<lucky_strike> luck_strike = MODIFIERS.register("luck_strike",lucky_strike::new);
+    public static final StaticModifier<the_dragon_power> the_dragon_power = MODIFIERS.register("the_dragon_power",the_dragon_power::new);
 }

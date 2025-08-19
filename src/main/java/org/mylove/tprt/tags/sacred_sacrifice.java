@@ -34,7 +34,7 @@ public class sacred_sacrifice extends Modifier implements MeleeDamageModifierHoo
            if(myself!=null) {
                Random rand=new Random();
                myself.setHealth(myself.getHealth() - modifier.getLevel() * rand.nextInt(5)+1);
-               myself.addEffect(new MobEffectInstance(MobEffects.REGENERATION,400,2));
+               myself.addEffect(new MobEffectInstance(MobEffects.REGENERATION,400,4));
            }
         }
         return damage+(entity.getMaxHealth()-entity.getHealth())*0.3f*modifier.getLevel();

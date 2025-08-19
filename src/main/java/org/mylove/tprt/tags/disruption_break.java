@@ -18,7 +18,7 @@ public class disruption_break extends Modifier implements MeleeDamageModifierHoo
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
     }
-
+/** ToDo 重做词条 */
     @Override
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity entity=context.getLivingTarget();
@@ -31,8 +31,9 @@ public class disruption_break extends Modifier implements MeleeDamageModifierHoo
             float healthA= attacker.getHealth();
             float maxHealthE= entity.getMaxHealth();
             float maxHealthA= attacker.getMaxHealth();
-            if(maxHealthE/healthE<=0.1f){
+            if(healthE/maxHealthE<=0.1f){
                 //目标生命值不足10%直接斩杀
+                //挚爱无法触发
                 return Integer.MAX_VALUE;
             }
             else if(healthE<ArmorE){
@@ -43,9 +44,10 @@ public class disruption_break extends Modifier implements MeleeDamageModifierHoo
                 //目标最大生命值比己方大，打出伤害增加差值
                 NewDamage+=(maxHealthE-maxHealthA)*modifier.getLevel();
             }
-            else if(maxHealthE<maxHealthA) {
-                //目标最大生命值比己方小，打出压制
-                NewDamage*=Math.pow(1.2f,modifier.getLevel());
+            else if(maxHealthE<healthA) {
+                //目标最大生命值比己方小，斩杀
+                //NewDamage*=Math.pow(1.2f,modifier.getLevel());
+                return Integer.MAX_VALUE;
             }
              if(damage>ArmorE){
                 NewDamage+=Math.max(5, (damage - ArmorE) * 0.5f)*modifier.getLevel();
