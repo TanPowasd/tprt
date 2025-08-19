@@ -23,6 +23,8 @@ public class lucky_strike extends Modifier implements MeleeDamageModifierHook, M
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE, ModifierHooks.MELEE_HIT);
     }
+
+    /** Todo: 1.add material recipe 2.balance tag values */
     @Override
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         // 伤害概率变高，概率变低；幸运越高，伤害变高概率越低，但触发倍率越高；幸运越高，伤害变低概率越高，但降低的量越少；平均伤害随着随幸运和词条等级提高
@@ -45,7 +47,6 @@ public class lucky_strike extends Modifier implements MeleeDamageModifierHook, M
         return damage;
     }
 
-    /** Todo: 1.finish attack feedback 2.add material recipe */
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         LivingEntity attacker = context.getPlayerAttacker();
@@ -56,9 +57,7 @@ public class lucky_strike extends Modifier implements MeleeDamageModifierHook, M
             // attacker.sendSystemMessage(Component.literal("!"+attacker.getX()+isLucky));
             if(isLucky){
                 // ding ding ding
-                pLevel.playSound((Player)null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.VILLAGER_YES, SoundSource.PLAYERS, 1.0F, 1.0F);
-            } else {
-                pLevel.playSound((Player)null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.VILLAGER_NO, SoundSource.PLAYERS, 1.0F, 1.0F);
+                pLevel.playSound((Player)null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1.0F, 1.0F);
             }
         }
 
