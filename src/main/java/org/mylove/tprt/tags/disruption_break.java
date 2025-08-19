@@ -39,7 +39,7 @@ public class disruption_break extends Modifier implements MeleeDamageModifierHoo
                 //目标生命值小于护甲值，斩杀
                 return Integer.MAX_VALUE;
             }
-            if (maxHealthE>maxHealthA) {
+            if (maxHealthE>maxHealthA&&healthE>healthA) {
                 //目标最大生命值比己方大，打出伤害增加差值
                 NewDamage+=(maxHealthE-maxHealthA)*modifier.getLevel();
             }

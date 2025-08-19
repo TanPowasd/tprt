@@ -1,14 +1,8 @@
-package org.mylove.tprt.item.ModBuff;
-import com.github.L_Ender.cataclysm.init.ModEffect;
+package org.mylove.tprt.registries.ModBuff;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.*;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import org.mylove.tprt.registries.ModBuffRegistry;
-import slimeknights.tconstruct.tools.modifiers.effect.NoMilkEffect;
 
 import java.util.UUID;
 

@@ -1,11 +1,8 @@
-package org.mylove.tprt.item;
+package org.mylove.tprt.registries;
 
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import org.mylove.tprt.Tprt;
-import org.mylove.tprt.registries.ModBuffRegistry;
 
 public class ModFoods {
     public static final FoodProperties LR_APPLE=new FoodProperties.Builder()
