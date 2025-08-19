@@ -4,6 +4,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.tags.*;
+import org.mylove.tprt.tags.modifier.*;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
@@ -24,4 +25,6 @@ public class ModifierRegistry {
     public static final StaticModifier<soul_dodge> soul_dodge = MODIFIERS.register("soul_dodge",soul_dodge::new);
     public static final StaticModifier<disruption_break> disruption_break = MODIFIERS.register("disruption_break",disruption_break::new);
     public static final StaticModifier<lucky_strike> luck_strike = MODIFIERS.register("luck_strike",lucky_strike::new);
+    public static final StaticModifier<flying_sword> flying_sword = MODIFIERS.register("flying_sword", flying_sword::new);
+    public static final StaticModifier<nine_sword> nine_sword = MODIFIERS.register("nine_sword", nine_sword::new);
 }

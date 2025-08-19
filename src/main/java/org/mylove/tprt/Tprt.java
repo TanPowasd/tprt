@@ -11,12 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mylove.tprt.registries.Modblocks;
-import org.mylove.tprt.registries.ModCreativeModTabs;
-import org.mylove.tprt.registries.ModItems;
-import org.mylove.tprt.registries.ModBuffRegistry;
-import org.mylove.tprt.registries.ModFluids;
-import org.mylove.tprt.registries.ModifierRegistry;
+import org.mylove.tprt.registries.*;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -36,6 +31,7 @@ public class Tprt {
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
         Modblocks.register(modEventBus);
+        ModEntities.register(modEventBus);
         ModBuffRegistry.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
 
