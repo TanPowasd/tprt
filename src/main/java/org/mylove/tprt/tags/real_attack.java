@@ -22,8 +22,10 @@ public class real_attack extends NoLevelsModifier implements MeleeHitModifierHoo
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
     }
+    @Override
     public int getPriority() {
-        return 50;
+        return 1;
+        //最后生效
     }
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage) {

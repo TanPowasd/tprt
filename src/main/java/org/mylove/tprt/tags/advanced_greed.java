@@ -20,15 +20,20 @@ import java.util.UUID;
 
 public class advanced_greed extends NoLevelsModifier implements MeleeDamageModifierHook, MeleeHitModifierHook {
     UUID uuid = UUID.fromString("e2b7c1a4-8f3d-4c2a-9b6e-1d7f8a9c3b2a");
-    protected void HookRegister(ModuleHookMap.Builder hookBuilder) {
+    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
         hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
+        hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
     }
     public static MobEffect getEffect(){
         ResourceLocation effectId=new ResourceLocation("tprt","myl_girig_pro");
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
+    @Override
+    public int getPriority() {
+        return 99;
+    }
+
     @Override
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity entity= context.getLivingTarget();
