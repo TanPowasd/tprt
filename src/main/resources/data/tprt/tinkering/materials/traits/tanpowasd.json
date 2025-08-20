@@ -8,6 +8,10 @@
       {
         "name": "tprt:disruption_break",
         "level": 1
+      },
+      {
+        "name": "tprt:d2_lunky_pants",
+        "level": 1
       }
     ],
     "tconstruct:handle": [
@@ -17,6 +21,10 @@
       },
       {
         "name": "tprt:disruption_break",
+        "level": 1
+      },
+      {
+        "name": "tprt:d2_lunky_pants",
         "level": 1
       }
     ],
