@@ -1,5 +1,7 @@
 package org.mylove.tprt;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -11,8 +13,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.mylove.tprt.client.flying_sword.FlyingSwordRenderer;
 import org.mylove.tprt.registries.*;
 import org.slf4j.Logger;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Tprt.MODID)
@@ -67,7 +71,7 @@ public class Tprt {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.FLYING_SWORD.get(), FlyingSwordRenderer::new);
         }
     }
 }
