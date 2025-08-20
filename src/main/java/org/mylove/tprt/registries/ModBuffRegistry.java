@@ -15,4 +15,5 @@ public class ModBuffRegistry {
     }
     public static final RegistryObject<MobEffect> MOREDAMAGE=EFFECT.register("moredamage",moredamage::new);
     public static final RegistryObject<MobEffect>LLLEGALLY_MODIFIED_HOLSTERS=EFFECT.register("lllegally_modified_holsters", lllegally_modified_holsters::new);
+    public static final RegistryObject<MobEffect>MYL_GIRIG_PRO=EFFECT.register("myl_girig_pro", myl_girig_pro::new);
 }

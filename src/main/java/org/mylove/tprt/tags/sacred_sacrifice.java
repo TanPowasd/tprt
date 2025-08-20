@@ -33,7 +33,8 @@ public class sacred_sacrifice extends Modifier implements MeleeDamageModifierHoo
            LivingEntity myself= context.getAttacker();
            if(myself!=null) {
                Random rand=new Random();
-               myself.setHealth(myself.getHealth() - modifier.getLevel() * rand.nextInt(5)+1);
+               //myself.setHealth(myself.getHealth() - modifier.getLevel() * rand.nextInt(5)+1);
+               //myself.hurt(context.getAttacker().getLastDamageSource(), modifier.getLevel() * rand.nextInt(5) + 1);
                myself.addEffect(new MobEffectInstance(MobEffects.REGENERATION,400,4));
            }
         }
