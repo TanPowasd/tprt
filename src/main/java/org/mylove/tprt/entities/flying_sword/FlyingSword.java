@@ -1,6 +1,9 @@
 package org.mylove.tprt.entities.flying_sword;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
@@ -19,17 +22,21 @@ public class FlyingSword extends Entity implements GeoEntity {
     private int health = 5;
     public int value;
     private int count = 1;
+    private static final EntityDataAccessor<Integer> COUNTER =
+            SynchedEntityData.defineId(FlyingSword.class, EntityDataSerializers.INT);
+
 
     protected static final RawAnimation FLY_ANIM = RawAnimation.begin().thenLoop("move.fly");
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
-    public FlyingSword(EntityType<?> pEntityType, Level pLevel) {
+    public FlyingSword(EntityType<FlyingSword> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
     public FlyingSword(Level pLevel){
         this(ModEntities.FLYING_SWORD.get(), pLevel);
         // set all things
     }
+
 
     public boolean isAttackable() {
         return false;
@@ -42,7 +49,7 @@ public class FlyingSword extends Entity implements GeoEntity {
 
     @Override
     protected void defineSynchedData() {
-
+        this.entityData.define(COUNTER, 0);
     }
 
     @Override

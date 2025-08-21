@@ -161,5 +161,9 @@
 
   "modifier.tprt.luck_strike": "幸运一击",
   "modifier.tprt.luck_strike.flavor": "自古枪兵。。。",
-  "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低"
+  "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低",
+
+  "modifier.tprt.flying_sword": "御剑",
+  "modifier.tprt.flying_sword.flavor": "嗖嗖嗖",
+  "modifier.tprt.flying_sword.description": "快捷栏中的御剑不在手中时会悬浮玩家背后，非常帅气"
 }

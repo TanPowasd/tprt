@@ -3,6 +3,7 @@ package org.mylove.tprt.client.flying_sword;
 import net.minecraft.resources.ResourceLocation;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.entities.flying_sword.FlyingSword;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 
 public class FlyingSwordModel extends GeoModel<FlyingSword> {
@@ -23,5 +24,10 @@ public class FlyingSwordModel extends GeoModel<FlyingSword> {
     @Override
     public ResourceLocation getAnimationResource(FlyingSword flyingSword) {
         return this.animations;
+    }
+
+    @Override
+    public void setCustomAnimations(FlyingSword animatable, long instanceId, AnimationState<FlyingSword> animationState) {
+        super.setCustomAnimations(animatable, instanceId, animationState);
     }
 }

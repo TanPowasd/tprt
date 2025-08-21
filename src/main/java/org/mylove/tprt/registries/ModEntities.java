@@ -16,7 +16,6 @@ public class ModEntities {
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Tprt.MODID);
 
     public static final RegistryObject<EntityType<FlyingSword>> FLYING_SWORD =
-//    public static final RegistryObject<EntityType<Entity>> FLYING_SWORD =
             ENTITY_TYPES.register("flying_sword", () -> EntityType.Builder
                     .<FlyingSword>of(FlyingSword::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F)
@@ -24,6 +23,7 @@ public class ModEntities {
                     .clientTrackingRange(16)
                     .updateInterval(20)
                     .build(ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "flying_sword").toString())
+//                    .build("flying_sword")
             );
 
     public static void register(IEventBus eventBus){
