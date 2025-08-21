@@ -155,20 +155,18 @@ repositories {
         }
     }
 }
-mixin {
-    add sourceSets.main, "tprt.refmap.json"
-    config "tprt.mixins.json"
-    debug.export = true
-    debug.verbose=true
-}
+
 dependencies {
-    //annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     // Specify the version of Minecraft to use.
     // Any artifact can be supplied so long as it has a "userdev" classifier artifact and is a compatible patcher artifact.
     // The "userdev" classifier will be requested and setup by ForgeGradle.
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // sponge - Mixin Annotation Processor
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
     implementation fg.deobf("slimeknights.mantle:Mantle:1.20.1-1.11.63")
     implementation fg.deobf("slimeknights.tconstruct:TConstruct:1.20.1-3.10.1.76")
     implementation fg.deobf("curse.maven:jei-238222:6600311")
@@ -206,6 +204,13 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
+}
+
+mixin {
+    add sourceSets.main, "tprt.refmap.json"
+    config "tprt.mixins.json"
+    debug.export = true
+    debug.verbose=true
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
