@@ -167,7 +167,7 @@
   "modifier.tprt.flying_sword.flavor": "嗖嗖嗖",
   "modifier.tprt.flying_sword.description": "快捷栏中的御剑不在手中时会悬浮玩家背后，非常帅气",
 
-  "modifier.tprt.flying_sword": "九剑",
-  "modifier.tprt.flying_sword.flavor": "-",
-  "modifier.tprt.flying_sword.description": "-"
+  "modifier.tprt.nine_sword": "九剑",
+  "modifier.tprt.nine_sword.flavor": "-",
+  "modifier.tprt.nine_sword.description": "-"
 }

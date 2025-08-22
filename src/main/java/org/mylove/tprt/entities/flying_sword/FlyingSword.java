@@ -1,6 +1,10 @@
 package org.mylove.tprt.entities.flying_sword;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -18,12 +22,18 @@ import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Objects;
+import java.util.UUID;
 
 
 public class FlyingSword extends Entity implements GeoEntity {
-    private static final String[] BEHAVIOR_MODE_LIST = {"IDLE", "LAUNCH", "RESET"};
+    private static final EntityDataAccessor<String> DATA_MASTER_UUID = SynchedEntityData.defineId(FlyingSword.class, EntityDataSerializers.STRING);
+    private static final String[] BEHAVIOR_MODE_LIST = {"IDLE", "LAUNCH", "RECOUP"};
+    private static final String MASTER_UUID = "MasterUUID";
+
+    // geckoLib
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
     private Player master;
+    private String masterUUID;
     // private IToolStackView tinkerTool;
     private String behaviorMode;
     private int slotNumber;
@@ -39,6 +49,8 @@ public class FlyingSword extends Entity implements GeoEntity {
     }
     public FlyingSword(IToolStackView tool, Level pLevel, Player player, int slot, ItemStack stack){
         this(ModEntities.FLYING_SWORD.get(), pLevel);
+        masterUUID = player.getUUID().toString();
+        this.entityData.set(DATA_MASTER_UUID, masterUUID);
         noPhysics = true;
         master = player;
         slotNumber = slot;
@@ -76,8 +88,8 @@ public class FlyingSword extends Entity implements GeoEntity {
             // lunching
             LunchingMode();
         } else {
-            // resetting
-            ResettingMode();
+            // recoup
+            RecoupingMode();
         }
     }
 
@@ -151,7 +163,7 @@ public class FlyingSword extends Entity implements GeoEntity {
     }
 
     public boolean triggerLunch(Vec3 targetPoint) {
-        boolean canLunch = this.lunchCooldown > 0;
+        boolean canLunch = this.lunchCooldown == 0;
         if(!canLunch) return false;
         DeBug.Console(master, slotNumber+"号剑发射");
         this.lunchCooldown = 30;
@@ -171,8 +183,8 @@ public class FlyingSword extends Entity implements GeoEntity {
         return true;
     }
 
-    private void ResettingMode() {
-
+    private void RecoupingMode() {
+        setBehaviorMode(0);
     }
 
 
@@ -187,19 +199,26 @@ public class FlyingSword extends Entity implements GeoEntity {
         DeBug.Console(master, "号剑切换模式: "+toMode);
     }
 
+    /** 设置与服务器同步的数据 */
     @Override
     protected void defineSynchedData() {
+        this.entityData.define(DATA_MASTER_UUID, "");
 
     }
 
+    /** 从存档中读取长久保存的数据 */
     @Override
     protected void readAdditionalSaveData(CompoundTag pCompound) {
-
+        pCompound.putString(MASTER_UUID, masterUUID);
+        if (pCompound.contains(MASTER_UUID, Tag.TAG_STRING)) {
+            setMasterUUID(pCompound.getString(MASTER_UUID));
+        }
     }
 
+    /** 将数据长久保存到存档 */
     @Override
     protected void addAdditionalSaveData(CompoundTag pCompound) {
-
+        pCompound.putString(MASTER_UUID, masterUUID);
     }
 
     @Override
@@ -219,4 +238,14 @@ public class FlyingSword extends Entity implements GeoEntity {
         return this.geoCache;
     }
 
+
+    // 一些简写===================================
+    public void setMasterUUID(String uuid) {
+        this.entityData.set(DATA_MASTER_UUID, uuid);
+        Player p = level().getPlayerByUUID(UUID.fromString(uuid));
+        if(p!=null){
+            this.master = p;
+            DeBug.Console(this.master, "飞剑认领成功");
+        }
+    }
 }

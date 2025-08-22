@@ -27,4 +27,5 @@ public class ModifierRegistry {
     public static final StaticModifier<flying_sword_tag> flying_sword = MODIFIERS.register("flying_sword", flying_sword_tag::new);
     public static final StaticModifier<nine_sword_tag> nine_sword = MODIFIERS.register("nine_sword", nine_sword_tag::new);
     public static final StaticModifier<test_entity_gen> test_entity_gen = MODIFIERS.register("test_entity_gen", test_entity_gen::new);
+    public static final StaticModifier<test_entity_uuid> test_entity_uuid = MODIFIERS.register("test_entity_uuid", test_entity_uuid::new);
 }
