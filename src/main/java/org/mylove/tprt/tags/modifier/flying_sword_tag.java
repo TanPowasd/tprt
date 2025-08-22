@@ -1,11 +1,13 @@
 package org.mylove.tprt.tags.modifier;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.mylove.tprt.entities.flying_sword.FlyingSword;
+import org.mylove.tprt.utilities.DeBug;
 import org.mylove.tprt.utilities.Math0;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -21,19 +23,22 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-// 此类为所有强化所共有，不要在这里加特指某个工具的数据
 public class flying_sword_tag extends SingleLevelModifier implements
-        EquipmentChangeModifierHook, InventoryTickModifierHook, ModifierRemovalHook {
-    private FlyingSword flyingSwordEntity;
-    private UUID swordUUID;
+        EquipmentChangeModifierHook, InventoryTickModifierHook, ModifierRemovalHook
+{
+    // 此类为所有强化所共有，不要在这里加特指某个工具的数据
+    // private FlyingSword flyingSwordEntity;
+    // private UUID swordUUID;
+
+    // ResourceLocation仅可包含: a-z0-9/.-_
+    private static final ResourceLocation PERSISTENT_UUID_KEY = ResourceLocation.parse("uuid-key");
 
     // 生成飞剑，一个工具对应的飞剑应当是唯一的
-    private FlyingSword generateFlyingSword(IToolStackView tool, Level level, Player player, int itemSlot, ItemStack stack, @Nullable UUID uuid){
+    private String generateFlyingSword(IToolStackView tool, Level level, Player player, int itemSlot, ItemStack stack, @Nullable String uuid){
         FlyingSword flyingSword = new FlyingSword(tool, level, player, itemSlot, stack);
-//        flyingSword.setPos(player.getX(), player.getY(), player.getZ());
         level.addFreshEntity(flyingSword);
 
-        return flyingSword;
+        return flyingSword.getUUID().toString();
     }
 
     private void degenerateFlyingSword(){
@@ -42,7 +47,7 @@ public class flying_sword_tag extends SingleLevelModifier implements
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        hookBuilder.addHook(this, ModifierHooks.EQUIPMENT_CHANGE, ModifierHooks.INVENTORY_TICK);
+        hookBuilder.addHook(this, ModifierHooks.EQUIPMENT_CHANGE, ModifierHooks.INVENTORY_TICK, ModifierHooks.REMOVE);
     }
 
     @Override
@@ -63,16 +68,23 @@ public class flying_sword_tag extends SingleLevelModifier implements
         if(!Math0.isBetweenAnd(itemSlot, 0, 8)) return;
 
         if(!level.isClientSide){
-            if(flyingSwordEntity == null){
-                this.flyingSwordEntity = generateFlyingSword(tool, level, player, itemSlot, stack, swordUUID);
+            // 将生成的飞剑实体id存到工具本身上
+            String uuid =  tool.getPersistentData().getString(PERSISTENT_UUID_KEY);
+            DeBug.Console(player, uuid);
+            if(uuid.isEmpty()){
+                String uuid1 = generateFlyingSword(tool, level, player, itemSlot, stack, null);
+                tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);
+            } else {
+                // 没有找到工具离开物品栏的钩子，因此逻辑改为飞剑需定期判定工具存在以续命
+                // todo: how to find an entity using UUID?
+                // level.getEntity(UUID.fromString(uuid));
             }
-        } else {
-            // holder.sendSystemMessage(Component.literal(itemSlot+"  "+player.tickCount));
         }
     }
 
     @Override
     public @org.jetbrains.annotations.Nullable Component onRemoved(IToolStackView tool, Modifier modifier) {
+        tool.getPersistentData().putString(PERSISTENT_UUID_KEY, "");
         return null;
     }
 }
