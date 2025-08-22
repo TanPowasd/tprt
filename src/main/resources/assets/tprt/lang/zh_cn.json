@@ -30,6 +30,8 @@
 
   "effect.tprt.moredamage": "易伤",
   "effect.tprt.lllegally_modified_holsters": "非法改造枪套",
+  "effect.tprt.eager_edge": "急切刀锋",
+  "effect.tprt.de_eager_edge": "急切刀锋cd",
 
 
   "fluid.tconstruct.king_of_mc_fluid": "熔融世界",
@@ -169,5 +171,9 @@
 
   "modifier.tprt.d2_lunky_pants": "幸运裤",
   "modifier.tprt.d2_lunky_pants.flavor": "来自异域",
-  "modifier.tprt.d2_lunky_pants.description": " “什么？没有，我没有非法改造枪套。这只是一条超级幸运的裤子！”——凯德6号 "
+  "modifier.tprt.d2_lunky_pants.description": " “什么？没有，我没有非法改造枪套。这只是一条超级幸运的裤子！”——凯德6号 ",
+
+  "modifier.tprt.d2_half_truth": "真假参半",
+  "modifier.tprt.d2_half_truth.flavor": "急切刀锋",
+  "modifier.tprt.d2_half_truth.description": "切换到此武器后立即提高刀剑前冲距离",
 }
