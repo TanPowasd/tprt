@@ -21,11 +21,18 @@ import java.util.Objects;
 
 
 public class FlyingSword extends Entity implements GeoEntity {
-    private static final String[] BEHAVIOR_MODE_LIST = {"IDLE", "LAUNCH", "RECOUP"};
+    private static final String[] BEHAVIOR_MODE_LIST = {"IDLE", "LAUNCH", "RESET"};
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
     private Player master;
-    private String behaviorMode = "IDLE";
+    // private IToolStackView tinkerTool;
+    private String behaviorMode;
     private int slotNumber;
+    private final int initLifetime = 40;
+    private int lifeTime;
+    private int lunchCooldown;
+    private final int generalFlyingSpeed = 2;
+    private Vec3 lunchingModeTarget;
+    private Vec3 lunchingModeDelta;
 
     public FlyingSword(EntityType<FlyingSword> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -35,25 +42,55 @@ public class FlyingSword extends Entity implements GeoEntity {
         master = player;
         noPhysics = true;
         slotNumber = slot;
+        behaviorMode = "IDLE";
+        lifeTime = initLifetime;
+        lunchCooldown = 0;
         // master.nineSwordPlayerCapacity
     }
-
 
     public boolean isAttackable() {
         return false;
     }
-
-    public void launchSword(Vec3 target){
-        this.behaviorMode = BEHAVIOR_MODE_LIST[1];
-        Vec3 local = this.position();
+    public boolean skipAttackInteraction(Entity pEntity) {
+        return true;
     }
+
 
     @Override
     public void tick() {
         super.tick();
-        // idle
+        if (master == null) {
+            // this.discard();
+            return;
+        }
+
+        lifeTime--;
+        if(lifeTime<=0){
+            checkMasterPos();
+        }
         if(Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[0])){
+            // idle
             IdleMode();
+        } else if (Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1])) {
+            // lunching
+            LunchingMode();
+        } else {
+            // resetting
+            ResettingMode();
+        }
+    }
+
+    private void checkMasterPos() {
+        // 飞剑需要定期确定召唤者在身边，且对应slot的匠魂工具中有此剑的uuid
+
+        //ItemStack hotbarSlot = master.getInventory().getItem(slotNumber);
+        //hotbarSlot.readShareTag();
+        double distance = master.position().distanceTo(this.position());
+        if(distance<=32) {
+            lifeTime = initLifetime;
+        } else {
+            DeBug.Console(master, slotNumber+"号剑已销毁");
+            this.discard();
         }
     }
 
@@ -68,8 +105,8 @@ public class FlyingSword extends Entity implements GeoEntity {
     }
 
     private void IdleMode() {
+        if(this.lunchCooldown>0) this.lunchCooldown--;
         // 无指令时：1.保持在玩家背后 2.跟随移动 3.跟随传送
-        if (master == null) return;
         Vec3 ownerBack = calculateIdlePos();
         Vec3 current = this.position();
         Vec3 delta = ownerBack.subtract(current);
@@ -77,10 +114,11 @@ public class FlyingSword extends Entity implements GeoEntity {
 
         if(level().isClientSide) {
             // 大约一秒调用一次，不是每t吗？
-            // DeBug.Console(master, distance+"");
+            // DeBug.Console(master, distance+"distance");
         }
+        DeBug.Console(master, distance+"distance"+level().isClientSide);
 
-        if (distance > 0.1) {
+        if (distance > 0.01) {
             Vec3 motion = delta.normalize().scale(Math0.clamp(1d, distance * 0.25, distance * 1));
             this.setDeltaMovement(motion);
 
@@ -92,19 +130,56 @@ public class FlyingSword extends Entity implements GeoEntity {
         // this.lookAt(master);
     }
 
-    // 快捷栏的每把飞剑都有自己对应的位置: 7 5 3 1 0 2 4 6 8
     private Vec3 calculateIdlePos() {
+        // 快捷栏的每把飞剑都有自己对应的位置: 7 5 3 1 0 2 4 6 8
         Vec3 masterBack = master.getLookAngle().scale(-1.5);
         // 构造垂直向量，简单的几何学：他们的点积为零 perpendicular.dot(masterBack) = 0
         Vec3 perpendicular = new Vec3(masterBack.z, 0, -1 * masterBack.x).normalize();
         // 最后的.3决定疏密程度
-        double slotPosition = Math.pow(-1, slotNumber) * Math.ceil((double) slotNumber /2) * .3;
+        double slotPosition = Math.pow(-1, slotNumber) * Math.ceil((double) slotNumber /2) * .6;
         return master.position().add(masterBack.add(perpendicular.scale(slotPosition)));
+    }
+
+    private void LunchingMode() {
+        if(this.position().distanceTo(this.lunchingModeTarget) > 0.01){
+            this.setPos(this.position().add(this.lunchingModeDelta.scale(this.generalFlyingSpeed)));
+        } else {
+            this.setBehaviorMode(2);
+        }
+    }
+
+    public void triggerLunch(Vec3 targetPoint) {
+        if(this.lunchCooldown > 0) return;
+        DeBug.Console(master, slotNumber+"号剑发射");
+        this.lunchCooldown = 30;
+        // 发射路径会在一开始就确定好
+        Vec3 startingPoint = this.position();
+
+        this.lunchingModeTarget = targetPoint;
+        this.lunchingModeDelta = targetPoint.subtract(startingPoint).scale(0.01);
+
+        // 应当画弧，但现在先用直线
+        // double distance = startingPoint.distanceTo(targetPoint);
+
+        if(Objects.equals(this.behaviorMode, BEHAVIOR_MODE_LIST[0])){
+            this.setBehaviorMode(1);
+        }
+    }
+
+    private void ResettingMode() {
+
     }
 
 
     public String getBehaviorMode() {
-        return behaviorMode;
+        return this.behaviorMode;
+    }
+    private void setBehaviorMode(int mode) {
+        // assume 0 <= mode <= 2
+        String toMode = BEHAVIOR_MODE_LIST[mode];
+        this.behaviorMode = toMode;
+
+        DeBug.Console(master, "号剑切换模式: "+toMode);
     }
 
     @Override

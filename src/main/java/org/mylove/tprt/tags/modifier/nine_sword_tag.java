@@ -30,6 +30,5 @@ public class nine_sword_tag extends SingleLevelModifier implements UsingToolModi
             DeBug.Console(player, "onUsingTick");
         }
 
-        UsingToolModifierHook.super.onUsingTick(tool, modifier, entity, useDuration, timeLeft, activeModifier);
     }
 }

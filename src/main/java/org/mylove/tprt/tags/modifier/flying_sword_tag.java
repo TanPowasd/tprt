@@ -3,6 +3,7 @@ package org.mylove.tprt.tags.modifier;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -64,13 +65,14 @@ public class flying_sword_tag extends SingleLevelModifier implements
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level level, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if(!(holder instanceof Player player)) return;
         if(player.tickCount % 20 != 1) return;
+        if(!Inventory.isHotbarSlot(itemSlot)) return;
         // todo: 处理位于副手的情况 08/21
-        if(!Math0.isBetweenAnd(itemSlot, 0, 8)) return;
+        if(itemSlot==0 && player.getOffhandItem().equals(tool)) return;
 
         if(!level.isClientSide){
             // 将生成的飞剑实体id存到工具本身上
             String uuid =  tool.getPersistentData().getString(PERSISTENT_UUID_KEY);
-            DeBug.Console(player, uuid);
+            // DeBug.Console(player, uuid);
             if(uuid.isEmpty()){
                 String uuid1 = generateFlyingSword(tool, level, player, itemSlot, stack, null);
                 tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);

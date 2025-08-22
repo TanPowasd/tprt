@@ -14,6 +14,6 @@ public class PlayerMixin implements PlayerMixinAPI {
     private FlyingSword[] nineSword$HotbarHolder = new FlyingSword[9];
 
     public FlyingSword[] getNineSword$HotbarHolder() {
-        return nineSword$HotbarHolder;
+        return this.nineSword$HotbarHolder;
     }
 }
