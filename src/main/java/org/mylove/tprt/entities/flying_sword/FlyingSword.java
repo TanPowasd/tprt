@@ -1,7 +1,6 @@
 package org.mylove.tprt.entities.flying_sword;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -9,6 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.mylove.tprt.registries.ModEntities;
+import org.mylove.tprt.utilities.Abbr;
 import org.mylove.tprt.utilities.DeBug;
 import org.mylove.tprt.utilities.Math0;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -39,13 +39,14 @@ public class FlyingSword extends Entity implements GeoEntity {
     }
     public FlyingSword(IToolStackView tool, Level pLevel, Player player, int slot, ItemStack stack){
         this(ModEntities.FLYING_SWORD.get(), pLevel);
-        master = player;
         noPhysics = true;
+        master = player;
         slotNumber = slot;
         behaviorMode = "IDLE";
         lifeTime = initLifetime;
         lunchCooldown = 0;
-        // master.nineSwordPlayerCapacity
+
+        Abbr.setPlayerSwords(master, slot, this);
     }
 
     public boolean isAttackable() {
@@ -116,7 +117,8 @@ public class FlyingSword extends Entity implements GeoEntity {
             // 大约一秒调用一次，不是每t吗？
             // DeBug.Console(master, distance+"distance");
         }
-        DeBug.Console(master, distance+"distance"+level().isClientSide);
+        // 08/22: 1.tick中始终为服务端 2.setPos函数雀食每t更新，发包（或许）不是，本地和服务端数据1s左右同步一次，故本地渲染是跳跃的
+        // DeBug.Console(master, distance+"distance"+level().isClientSide);
 
         if (distance > 0.01) {
             Vec3 motion = delta.normalize().scale(Math0.clamp(1d, distance * 0.25, distance * 1));
@@ -148,8 +150,9 @@ public class FlyingSword extends Entity implements GeoEntity {
         }
     }
 
-    public void triggerLunch(Vec3 targetPoint) {
-        if(this.lunchCooldown > 0) return;
+    public boolean triggerLunch(Vec3 targetPoint) {
+        boolean canLunch = this.lunchCooldown > 0;
+        if(!canLunch) return false;
         DeBug.Console(master, slotNumber+"号剑发射");
         this.lunchCooldown = 30;
         // 发射路径会在一开始就确定好
@@ -164,6 +167,8 @@ public class FlyingSword extends Entity implements GeoEntity {
         if(Objects.equals(this.behaviorMode, BEHAVIOR_MODE_LIST[0])){
             this.setBehaviorMode(1);
         }
+
+        return true;
     }
 
     private void ResettingMode() {

@@ -3,6 +3,9 @@ package org.mylove.tprt.tags.modifier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+import org.mylove.tprt.entities.flying_sword.FlyingSword;
+import org.mylove.tprt.utilities.Abbr;
 import org.mylove.tprt.utilities.DeBug;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -25,7 +28,13 @@ public class nine_sword_tag extends SingleLevelModifier implements UsingToolModi
         Level level = player.level();
 
         if(!level.isClientSide){
-
+            for (int i=0; i<9; i++){
+                FlyingSword sword = Abbr.getSword(player, i);
+                if(sword != null){
+                    Vec3 target = player.getLookAngle().scale(4);
+                    sword.triggerLunch(target);
+                }
+            }
         } else {
             DeBug.Console(player, "onUsingTick");
         }
