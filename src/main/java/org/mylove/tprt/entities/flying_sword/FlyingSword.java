@@ -40,6 +40,9 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     // initialization
     public static final int initLifetime = 40;
+    private static final double displayDensity = .3;
+    private static final int maxLunchCooldown = 28; // 这也是魔法数, 设计上应当9把剑都存在时可以无缝交替发射, 参考九剑词条中的魔法数
+    private static final int windowOfAttackTick = 8; // 决定了剑会多久抵达目标点
     private static final String[] BEHAVIOR_MODE_LIST = {"IDLE", "LAUNCH", "RECOUP"};
 
     // geckoLib
@@ -51,13 +54,15 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     // normalAttributes
     private Player master;
     private String masterUUID;
-    // private IToolStackView tinkerTool;
     private String behaviorMode = "IDLE";
     private int slotNumber;
     private int lifeTime = initLifetime;
     private int lunchCooldown = 0;
-    private final int generalFlyingSpeed = 2;
-    private Vec3 lunchingModeTarget;
+    private int lunchTickRemaining = 0;
+    @Deprecated
+    private final int generalFlyingSpeed = 2; // we use "windowOfAttackTick" instead
+    @Deprecated
+    private Vec3 lunchingModeTarget; // we use getDeltaMovement() now
     private Vec3 lunchingModeDelta;
     public boolean noPhysics = true;
 
@@ -98,9 +103,9 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             if(tickCount % 20 == 0) tryFindMaster();
             return;
         }
-        if(tickCount % 40 == 0) DeBug.Console(master, slotNumber+"号飞剑客户端"+level().isClientSide);
 
         lifeTime--;
+        if(lunchCooldown>0 && !Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1])) lunchCooldown--;
         if(lifeTime<=0){
             checkValidatedMaster();
         }
@@ -115,7 +120,8 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             RecoupingMode();
         }
 
-        // DeBug.Console(master, slotNumber+"号飞剑: "+ DeBug.FlatXYZ(position()));
+        // if(tickCount % 40 == 0) DeBug.Console(master, slotNumber+"号飞剑客户端"+level().isClientSide);
+        // if(tickCount % 40 == 0) DeBug.Console(master, slotNumber+"号飞剑: "+ DeBug.FlatXYZ(position()));
     }
 
     private void tryFindMaster() {
@@ -140,10 +146,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         if(distance<=32) {
             lifeTime = initLifetime;
         } else {
-
-            // 纯调试
             DeBug.Console(master, slotNumber+"号剑已销毁\n销毁飞剑位置: "+DeBug.FlatXYZ(position()));
-
             discard();
         }
     }
@@ -161,7 +164,6 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     }
 
     private void IdleMode() {
-        if(lunchCooldown>0) lunchCooldown--;
         Vec3 delta0 = getDeltaMovement();
         // 无指令时：1.保持在玩家背后 2.跟随移动 3.跟随传送
         Vec3 ownerBack = calculateIdlePos();
@@ -173,15 +175,13 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
         // 08/22: 1.tick中始终为服务端 2.setPos函数雀食每t更新，发包（或许）不是，本地和服务端数据1s左右同步一次，故本地渲染是跳跃的
         // 08/23: 并非，tick中始终为服务端因为实体只在服务端创建了（看flying_sword_tag的逻辑），这是个bug
+        // 08/23: 并非并非, 见注册类ModEntity
 
-
-        if (distance > 0.01) {
+        if (distance > 1.0e-7d) {
             Vec3 motion = delta.normalize().scale(Math0.clamp(1d, distance * 0.25, distance * 1));
             setDeltaMovement(motion);
 
             setPos(current.add(motion));
-
-            move(MoverType.SELF, motion);
         } else {
             setDeltaMovement(Vec3.ZERO);
         }
@@ -191,54 +191,54 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private Vec3 calculateIdlePos() {
         // 快捷栏的每把飞剑都有自己对应的位置: 7 5 3 1 0 2 4 6 8
         Vec3 masterBack = master.getLookAngle().scale(-1.5);
-        // 构造垂直向量，简单的几何学：他们的点积为零 perpendicular.dot(masterBack) = 0
+        // 构造垂直向量，简单的几何学：他们的点积为零 即perpendicular.dot(masterBack) = 0
         Vec3 perpendicular = new Vec3(masterBack.z, 0, -1 * masterBack.x).normalize();
-        // 最后的.3决定疏密程度
-        double slotPosition = Math.pow(-1, slotNumber) * Math.ceil((double) slotNumber /2) * .6;
+        double slotPosition = Math.pow(-1, slotNumber) * Math.ceil((double) slotNumber /2) * displayDensity;
         return master.position().add(masterBack.add(perpendicular.scale(slotPosition)));
     }
 
     private void LunchingMode() {
+        lunchTickRemaining--;
         Vec3 delta0 = getDeltaMovement();
-        Vec3 deltaStatic = lunchingModeDelta.scale(generalFlyingSpeed);
-        if(position().distanceTo(lunchingModeTarget) >= deltaStatic.scale(0.6).length()){
-            setPos(position().add(deltaStatic));
-            setDeltaMovement(deltaStatic);
+
+        // 两种判断哪个好?
+        // if(position().distanceTo(lunchingModeTarget) >= delta0.scale(0.6).length()){
+        if(lunchTickRemaining>=0){
+            setPos(position().add(delta0));
+            // setDeltaMovement(delta0);
         } else {
             setBehaviorMode(2);
         }
     }
 
     public boolean triggerLunch(Vec3 targetPoint) {
-        boolean canLunch = lunchCooldown == 0;
-        if(!canLunch) return false;
+        if(!canLunch()) return false;
         DeBug.Console(master, slotNumber+"号剑发射");
-        lunchCooldown = 30;
+        setBehaviorMode(1);
+        lunchCooldown = maxLunchCooldown;
+        lunchTickRemaining = windowOfAttackTick + 1;
         // 发射路径会在一开始就确定好
         Vec3 startingPoint = position();
 
         lunchingModeTarget = targetPoint;
-        lunchingModeDelta = targetPoint.subtract(startingPoint).scale(0.01);
+        lunchingModeDelta = targetPoint.subtract(startingPoint).scale((double) 1 / windowOfAttackTick);
+        setDeltaMovement(lunchingModeDelta);
 
-        // 应当画弧，但现在先用直线
+        // todo: 应当画弧，但现在先用直线
         // double distance = startingPoint.distanceTo(targetPoint);
-
-        if(Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[0])){
-            setBehaviorMode(1);
-        }
 
         return true;
     }
 
     private void RecoupingMode() {
+        // 返程的弧线是动态的, 不好画先空着
         setBehaviorMode(0);
     }
 
-
-    public String getBehaviorMode() {
-        return behaviorMode;
+    /** 获取就绪状态 */
+    public boolean canLunch() {
+        return lunchCooldown <= 0 && Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[0]);
     }
-
 
 
     // 数据管理 ========================================
@@ -309,7 +309,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         return geoCache;
     }
 
-    // use vanilla renderer
+    // use vanilla renderer @sakuraTinker
     public void setAnimationState(String state) {
         if (!this.animationState.equals(state)) {
             this.animationState = state;
@@ -329,6 +329,10 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
 
     // 一些简写 ===================================
+    public String getBehaviorMode() {
+        return behaviorMode;
+    }
+
     private void setMasterUUID(String uuid) {
         masterUUID = uuid;
         // entityData.set(DATA_MASTER_UUID, uuid);
@@ -345,12 +349,13 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         //entityData.set(DATA_SLOT_NUMBER, slot);
     }
 
+    /** @param mode: 0--IDLE; 1--LUNCH; 2--RECOUP */
     private void setBehaviorMode(int mode) {
         // assume 0 <= mode <= 2
         String toMode = BEHAVIOR_MODE_LIST[mode];
         behaviorMode = toMode;
         //entityData.set(DATA_BEHAVIOR_MODE, toMode);
-        DeBug.Console(master, "号剑切换模式: "+toMode);
+        DeBug.Console(master, slotNumber+"号剑切换模式: "+toMode);
     }
 
 }

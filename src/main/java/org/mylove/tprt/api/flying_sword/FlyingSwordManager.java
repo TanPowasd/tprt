@@ -5,6 +5,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mylove.tprt.entities.flying_sword.FlyingSword;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * 思路来自:
  * <a href="https://github.com/FrozenRainDev/Hardcore-Survival/blob/1.20.1/src/main/java/biz/coolpage/hcs/status/manager/ThirstManager.java#L6">@Github</a>
@@ -25,10 +28,8 @@ public class FlyingSwordManager {
         this.nineSword$HotbarHolder[slot] = sword;
     }
 
-    /** 发射飞剑，已作空判 */
-    public boolean lunch(int slot, Vec3 target) {
-        if(this.nineSword$HotbarHolder[slot] == null) return false;
-        return this.nineSword$HotbarHolder[slot].triggerLunch(target);
+    public int getCount() {
+        return (int) Arrays.stream(nineSword$HotbarHolder).filter(Objects::nonNull).count();
     }
 
 }

@@ -26,16 +26,19 @@ public class nine_sword_tag extends SingleLevelModifier implements UsingToolModi
     @Override
     public void onUsingTick(IToolStackView tool, ModifierEntry modifier, LivingEntity entity, int useDuration, int timeLeft, ModifierEntry activeModifier) {
         if(!(entity instanceof Player player)) return;
-        //if(player.tickCount % 2 != 1) return;
         Level level = player.level();
 
         if(!level.isClientSide){
-            // DeBug.Console(player, "onUsingTickServerSide");
+            int total = Abbr.getFlyingSwordCount(player);
+            // 发射需要满足的条件: 1.处于发射窗口(即下述判定) 2.存在飞剑冷却完毕
+            // 富含魔力的算式*1
+            if(player.tickCount % (22 - total*2) != 0) return;
             for (int i=0; i<9; i++){
                 FlyingSword sword = Abbr.getSword(player, i);
                 if(sword != null){
                     Vec3 target = player.position().add(player.getLookAngle().scale(10));
-                    sword.triggerLunch(target);
+                    boolean lunched = sword.triggerLunch(target);
+                    if(lunched) break;
                 }
             }
         } else {

@@ -66,7 +66,8 @@ public class flying_sword_tag extends SingleLevelModifier implements
     @Override
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level level, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if(!(holder instanceof Player player)) return;
-        if(player.tickCount % FlyingSword.initLifetime != 0) return;
+        // 此处有魔法数19
+        if(player.tickCount % FlyingSword.initLifetime != 19) return;
         if(!Inventory.isHotbarSlot(itemSlot)) return;
         // todo: 处理位于副手的情况 08/21
         if(itemSlot==0 && player.getOffhandItem().equals(tool)) return;

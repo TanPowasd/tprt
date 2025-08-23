@@ -20,4 +20,9 @@ public class Abbr {
     public static void setPlayerSwords(Player player, int slot, FlyingSword sword){
         ((PlayerMixinAPI) player).getFlyingSwordManager().set(slot, sword);
     }
+
+    /** 获取当前飞剑总数 */
+    public static int getFlyingSwordCount(Player player){
+        return ((PlayerMixinAPI) player).getFlyingSwordManager().getCount();
+    }
 }
