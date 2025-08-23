@@ -29,7 +29,7 @@ public class FlyingSwordRendererVanilla extends EntityRenderer<FlyingSword> {
     @Override
     public void render(FlyingSword entity, float entityYaw, float partialTicks,
                        PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
-//        poseStack.pushPose();
+        poseStack.pushPose();
 //
 //        // 平滑跟踪位置
 //        Vec3 smoothedPos = entity.getSmoothedPosition(partialTicks);

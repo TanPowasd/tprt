@@ -10,7 +10,6 @@ import net.minecraft.world.level.Level;
 import org.mylove.tprt.entities.flying_sword.FlyingSword;
 import org.mylove.tprt.utilities.Abbr;
 import org.mylove.tprt.utilities.DeBug;
-import org.mylove.tprt.utilities.Math0;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -23,7 +22,6 @@ import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import javax.annotation.Nullable;
-import java.util.UUID;
 
 public class flying_sword_tag extends SingleLevelModifier implements
         EquipmentChangeModifierHook, InventoryTickModifierHook, ModifierRemovalHook
@@ -40,7 +38,7 @@ public class flying_sword_tag extends SingleLevelModifier implements
         FlyingSword flyingSword = new FlyingSword(tool, level, player, itemSlot, stack);
 
         level.addFreshEntity(flyingSword);
-        DeBug.Console(player, "生成飞剑: isClientSide = "+level.isClientSide);
+        DeBug.Console(player, "生成飞剑: isClientSide = "+level.isClientSide+ itemSlot+"号");
         return flyingSword.getUUID().toString();
     }
 
@@ -67,7 +65,7 @@ public class flying_sword_tag extends SingleLevelModifier implements
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level level, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if(!(holder instanceof Player player)) return;
         // 此处有魔法数19
-        if(player.tickCount % FlyingSword.initLifetime != 19) return;
+        if(player.tickCount % FlyingSword.maxLifetime != 19) return;
         if(!Inventory.isHotbarSlot(itemSlot)) return;
         // todo: 处理位于副手的情况 08/21
         if(itemSlot==0 && player.getOffhandItem().equals(tool)) return;
@@ -82,22 +80,29 @@ public class flying_sword_tag extends SingleLevelModifier implements
 //            tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);
 //        } else {
 //            // 没有找到工具离开物品栏的钩子，因此逻辑改为飞剑需定期判定工具存在以续命
-//            // todo(done): how to find an entity using UUID? we have mixin!
 //            // level.getEntity(UUID.fromString(uuid));
 //        }
 
-        if(Abbr.getSword(player, itemSlot) == null){
+        FlyingSword flyingSword = Abbr.getSword(player, itemSlot);
+        if(flyingSword == null){
             String uuid1 = generateFlyingSword(tool, level, player, itemSlot, stack, null);
-            // tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);
+            tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);
+        } else if (uuid.isEmpty() || !uuid.equals(flyingSword.getStringUUID()) || itemSlot != flyingSword.getSlotNumber()) {
+            flyingSword.setToDiscard("in list but no uuid on tool || uuid not match");
+            String uuid1 = generateFlyingSword(tool, level, player, itemSlot, stack, null);
+            tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);
+        } else {
+            // 完全匹配, 你的剑就是我的剑
 
         }
+
 
         // DeBug.Console(player, "客户端："+level.isClientSide);
     }
 
     @Override
     public @Nullable Component onRemoved(IToolStackView tool, Modifier modifier) {
-        // tool.getPersistentData().putString(PERSISTENT_UUID_KEY, "");
+         tool.getPersistentData().remove(PERSISTENT_UUID_KEY);
         return null;
     }
 }

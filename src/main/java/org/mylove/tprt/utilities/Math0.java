@@ -33,7 +33,6 @@ public class Math0 {
      * @param min      下界
      * @param max      上界
      *
-     * todo: add more number type
      */
     public static boolean isBetweenAnd(int value, int min, int max) {
         return min <= value && value <= max;

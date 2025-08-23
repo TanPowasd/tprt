@@ -3,17 +3,14 @@ package org.mylove.tprt.entities.flying_sword;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
+import org.jetbrains.annotations.Nullable;
 import org.mylove.tprt.registries.ModEntities;
 import org.mylove.tprt.utilities.Abbr;
 import org.mylove.tprt.utilities.DeBug;
@@ -24,7 +21,6 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.text.DecimalFormat;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -39,7 +35,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     // private static final String BEHAVIOR_MODE = "BehaviorMode";
 
     // initialization
-    public static final int initLifetime = 40;
+    public static final int maxLifetime = 40;
     private static final double displayDensity = .3;
     private static final int maxLunchCooldown = 28; // 这也是魔法数, 设计上应当9把剑都存在时可以无缝交替发射, 参考九剑词条中的魔法数
     private static final int windowOfAttackTick = 8; // 决定了剑会多久抵达目标点
@@ -56,14 +52,14 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private String masterUUID;
     private String behaviorMode = "IDLE";
     private int slotNumber;
-    private int lifeTime = initLifetime;
+    private int lifeTime = maxLifetime;
     private int lunchCooldown = 0;
     private int lunchTickRemaining = 0;
+    private boolean isAboutToDiscard = false;
     @Deprecated
     private final int generalFlyingSpeed = 2; // we use "windowOfAttackTick" instead
     @Deprecated
     private Vec3 lunchingModeTarget; // we use getDeltaMovement() now
-    private Vec3 lunchingModeDelta;
     public boolean noPhysics = true;
 
 
@@ -99,15 +95,15 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     public void tick() {
         baseTick();
         if (master == null) {
-            // discard();
             if(tickCount % 20 == 0) tryFindMaster();
             return;
         }
+        if(!Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1]) && isAboutToDiscard) discard();
 
         lifeTime--;
         if(lunchCooldown>0 && !Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1])) lunchCooldown--;
         if(lifeTime<=0){
-            checkValidatedMaster();
+            checkDistanceValidate();
         }
         if(Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[0])){
             // idle
@@ -131,20 +127,20 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
                 master = p;
                 DeBug.Console(master, slotNumber+"号飞剑认领成功");
             } else {
-                lifeTime -= 5;
+                lifeTime -= 10;
                 if(lifeTime<=0) discard();
             }
         }
     }
 
-    private void checkValidatedMaster() {
-        // 飞剑需要定期确定召唤者在身边，且对应slot的匠魂工具中有此剑的uuid
+    private void checkDistanceValidate() {
+        // 飞剑需要定期确定召唤者在身边，且对应slot的匠魂工具中有此剑的uuid // 后者在tag中作了判断
 
-        ItemStack hotbarSlot = master.getInventory().getItem(slotNumber);
-        //hotbarSlot.readShareTag();
+        // ItemStack hotbarSlot = master.getInventory().getItem(slotNumber);
+        // hotbarSlot.readShareTag();
         double distance = master.position().distanceTo(position());
         if(distance<=32) {
-            lifeTime = initLifetime;
+            lifeTime = maxLifetime;
         } else {
             DeBug.Console(master, slotNumber+"号剑已销毁\n销毁飞剑位置: "+DeBug.FlatXYZ(position()));
             discard();
@@ -178,7 +174,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         // 08/23: 并非并非, 见注册类ModEntity
 
         if (distance > 1.0e-7d) {
-            Vec3 motion = delta.normalize().scale(Math0.clamp(1d, distance * 0.25, distance * 1));
+            Vec3 motion = delta.normalize().scale(Math0.clamp(.01 + distance*distance*0.1, distance * 0.1, distance * 1));
             setDeltaMovement(motion);
 
             setPos(current.add(motion));
@@ -198,6 +194,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     }
 
     private void LunchingMode() {
+        // todo: 写两个轨迹函数, 给模型添加旋转, 旋转可以等模型引用成功后再搞
         lunchTickRemaining--;
         Vec3 delta0 = getDeltaMovement();
 
@@ -221,7 +218,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         Vec3 startingPoint = position();
 
         lunchingModeTarget = targetPoint;
-        lunchingModeDelta = targetPoint.subtract(startingPoint).scale((double) 1 / windowOfAttackTick);
+        Vec3 lunchingModeDelta = targetPoint.subtract(startingPoint).scale((double) 1 / windowOfAttackTick);
         setDeltaMovement(lunchingModeDelta);
 
         // todo: 应当画弧，但现在先用直线
@@ -236,9 +233,10 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     }
 
     /** 获取就绪状态 */
-    public boolean canLunch() {
+    private boolean canLunch() {
         return lunchCooldown <= 0 && Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[0]);
     }
+
 
 
     // 数据管理 ========================================
@@ -324,6 +322,20 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     }
     public Vec3 getSmoothedPosition(float partialTick) {
         return position().add(getDeltaMovement().scale(partialTick));
+    }
+
+
+
+    // 对外方法 ===================================
+    /** 外部调用的销毁函数, 会在一个攻击周期后自动销毁 */
+    public void setToDiscard(@Nullable String message) {
+        DeBug.Console(master, slotNumber+"号剑将销毁: "+message);
+        isAboutToDiscard = true;
+        discard();
+    }
+
+    public int getSlotNumber() {
+        return slotNumber;
     }
 
 
