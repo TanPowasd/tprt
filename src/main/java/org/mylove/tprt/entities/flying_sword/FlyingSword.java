@@ -44,6 +44,9 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     // geckoLib
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+    // animation(respect sakuraTinker)
+    private String animationState = "idle";
+    private int animationTick = 0;
 
     // normalAttributes
     private Player master;
@@ -90,12 +93,13 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     @Override
     public void tick() {
         super.tick();
-//        this.baseTick();
+//        baseTick();
         if (master == null) {
-            // this.discard();
+            // discard();
             if(tickCount % 20 == 0) tryFindMaster();
             return;
         }
+        if(tickCount % 40 == 0) DeBug.Console(master, slotNumber+"号飞剑客户端"+level().isClientSide);
 
         lifeTime--;
         if(lifeTime<=0){
@@ -112,7 +116,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             RecoupingMode();
         }
 
-        // DeBug.Console(this.master, slotNumber+"号飞剑: "+ DeBug.FlatXYZ(this.position()));
+        // DeBug.Console(master, slotNumber+"号飞剑: "+ DeBug.FlatXYZ(position()));
     }
 
     private void tryFindMaster() {
@@ -120,7 +124,10 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             Player p = level().getPlayerByUUID(UUID.fromString(masterUUID));
             if(p!=null) {
                 master = p;
-                DeBug.Console(this.master, slotNumber+"号飞剑认领成功");
+                DeBug.Console(master, slotNumber+"号飞剑认领成功");
+            } else {
+                lifeTime -= 5;
+                if(lifeTime<=0) discard();
             }
         }
     }
@@ -128,38 +135,38 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private void checkValidatedMaster() {
         // 飞剑需要定期确定召唤者在身边，且对应slot的匠魂工具中有此剑的uuid
 
-        //ItemStack hotbarSlot = master.getInventory().getItem(slotNumber);
+        ItemStack hotbarSlot = master.getInventory().getItem(slotNumber);
         //hotbarSlot.readShareTag();
-        double distance = master.position().distanceTo(this.position());
+        double distance = master.position().distanceTo(position());
         if(distance<=32) {
             lifeTime = initLifetime;
         } else {
 
             // 纯调试
-            DeBug.Console(master, slotNumber+"号剑已销毁\n销毁飞剑位置: "+DeBug.FlatXYZ(this.position()));
+            DeBug.Console(master, slotNumber+"号剑已销毁\n销毁飞剑位置: "+DeBug.FlatXYZ(position()));
 
-            this.discard();
+            discard();
         }
     }
 
 
-
+    // 等确定好客户端渲染是什么问题后换自己写的逻辑函数
     //    @Override
 //    public void baseTick() {
-//        this.level().getProfiler().push("flyingSwordBaseTick");
-////        this.xRotO = this.getXRot();
-////        this.yRotO = this.getYRot();
-//        this.clearFire();
-//        this.checkBelowWorld();
-//        this.level().getProfiler().pop();
+//        level().getProfiler().push("flyingSwordBaseTick");
+////        xRotO = getXRot();
+////        yRotO = getYRot();
+//        clearFire();
+//        checkBelowWorld();
+//        level().getProfiler().pop();
 //    }
 
     private void IdleMode() {
-        if(this.lunchCooldown>0) this.lunchCooldown--;
+        if(lunchCooldown>0) lunchCooldown--;
         Vec3 delta0 = getDeltaMovement();
         // 无指令时：1.保持在玩家背后 2.跟随移动 3.跟随传送
         Vec3 ownerBack = calculateIdlePos();
-        Vec3 current = this.position();
+        Vec3 current = position();
         Vec3 delta = ownerBack.subtract(current);
         double distance = delta.length();
 
@@ -167,21 +174,20 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
         // 08/22: 1.tick中始终为服务端 2.setPos函数雀食每t更新，发包（或许）不是，本地和服务端数据1s左右同步一次，故本地渲染是跳跃的
         // 08/23: 并非，tick中始终为服务端因为实体只在服务端创建了（看flying_sword_tag的逻辑），这是个bug
-        if(this.tickCount % 40 == 0) DeBug.Console(master, slotNumber+"号飞剑客户端"+level().isClientSide);
 
 
         if (distance > 0.01) {
             Vec3 motion = delta.normalize().scale(Math0.clamp(1d, distance * 0.25, distance * 1));
-            this.setDeltaMovement(motion);
+            setDeltaMovement(motion);
 
             // todo: 实体移动是跳跃的，有什么办法吗？
-            this.setPos(current.add(motion));
+            setPos(current.add(motion));
 
-            this.move(MoverType.SELF, motion);
+            move(MoverType.SELF, motion);
         } else {
-            this.setDeltaMovement(Vec3.ZERO);
+            setDeltaMovement(Vec3.ZERO);
         }
-        // this.lookAt(master);
+        // lookAt(master);
     }
 
     private Vec3 calculateIdlePos() {
@@ -196,31 +202,31 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     private void LunchingMode() {
         Vec3 delta0 = getDeltaMovement();
-        Vec3 deltaStatic = this.lunchingModeDelta.scale(this.generalFlyingSpeed);
-        if(this.position().distanceTo(this.lunchingModeTarget) >= deltaStatic.scale(0.6).length()){
-            this.setPos(this.position().add(deltaStatic));
-            this.setDeltaMovement(deltaStatic);
+        Vec3 deltaStatic = lunchingModeDelta.scale(generalFlyingSpeed);
+        if(position().distanceTo(lunchingModeTarget) >= deltaStatic.scale(0.6).length()){
+            setPos(position().add(deltaStatic));
+            setDeltaMovement(deltaStatic);
         } else {
-            this.setBehaviorMode(2);
+            setBehaviorMode(2);
         }
     }
 
     public boolean triggerLunch(Vec3 targetPoint) {
-        boolean canLunch = this.lunchCooldown == 0;
+        boolean canLunch = lunchCooldown == 0;
         if(!canLunch) return false;
         DeBug.Console(master, slotNumber+"号剑发射");
-        this.lunchCooldown = 30;
+        lunchCooldown = 30;
         // 发射路径会在一开始就确定好
-        Vec3 startingPoint = this.position();
+        Vec3 startingPoint = position();
 
-        this.lunchingModeTarget = targetPoint;
-        this.lunchingModeDelta = targetPoint.subtract(startingPoint).scale(0.01);
+        lunchingModeTarget = targetPoint;
+        lunchingModeDelta = targetPoint.subtract(startingPoint).scale(0.01);
 
         // 应当画弧，但现在先用直线
         // double distance = startingPoint.distanceTo(targetPoint);
 
-        if(Objects.equals(this.behaviorMode, BEHAVIOR_MODE_LIST[0])){
-            this.setBehaviorMode(1);
+        if(Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[0])){
+            setBehaviorMode(1);
         }
 
         return true;
@@ -232,7 +238,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
 
     public String getBehaviorMode() {
-        return this.behaviorMode;
+        return behaviorMode;
     }
 
 
@@ -242,24 +248,23 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     @Override
     protected void defineSynchedData() {
         //改用生成时一次性同步的数据，因为masterUUID不会改变
-        //this.entityData.define(DATA_MASTER_UUID, "");
-        //this.entityData.define(DATA_SLOT_NUMBER, 0);
-        //this.entityData.define(DATA_BEHAVIOR_MODE, "IDLE");
-
+        //entityData.define(DATA_MASTER_UUID, "");
+        //entityData.define(DATA_SLOT_NUMBER, 0);
+        //entityData.define(DATA_BEHAVIOR_MODE, "IDLE");
     }
 
     /** 实体生成时与服务器同步一次，随后撒手 */
     @Override
     public void writeSpawnData(FriendlyByteBuf buffer) {
-        buffer.writeUUID(this.getUUID());
-        buffer.writeUtf(this.masterUUID);
+        buffer.writeUUID(getUUID());
+        buffer.writeUtf(masterUUID);
     }
 
     /** 实体生成时与服务器同步一次，随后撒手 */
     @Override
     public void readSpawnData(FriendlyByteBuf buffer) {
-        this.setUUID(buffer.readUUID());
-        this.setMasterUUID(buffer.readUtf());
+        setUUID(buffer.readUUID());
+        setMasterUUID(buffer.readUtf());
     }
 
     /** 从存档中读取长久保存的数据 */
@@ -303,32 +308,50 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.geoCache;
+        return geoCache;
     }
+
+    // use vanilla renderer
+    public void setAnimationState(String state) {
+        if (!this.animationState.equals(state)) {
+            this.animationState = state;
+            this.animationTick = 0;
+        }
+    }
+    public String getAnimationState() {
+        return animationState;
+    }
+    public float getAnimationProgress(float partialTicks) {
+        return (animationTick + partialTicks) / 20f; // 一次动画20 tick
+    }
+    public Vec3 getSmoothedPosition(float partialTick) {
+        return position().add(getDeltaMovement().scale(partialTick));
+    }
+
 
 
     // 一些简写 ===================================
     private void setMasterUUID(String uuid) {
-        this.masterUUID = uuid;
-        // this.entityData.set(DATA_MASTER_UUID, uuid);
+        masterUUID = uuid;
+        // entityData.set(DATA_MASTER_UUID, uuid);
         // 世界加载之初玩家尚未加入
 //        Player p = level().getPlayerByUUID(UUID.fromString(uuid));
 //        if(p!=null){
-//            this.master = p;
-//            DeBug.Console(this.master, "飞剑认领成功");
+//            master = p;
+//            DeBug.Console(master, "飞剑认领成功");
 //        }
     }
 
     private void setSlotNumber(int slot) {
-        this.slotNumber = slot;
-        //this.entityData.set(DATA_SLOT_NUMBER, slot);
+        slotNumber = slot;
+        //entityData.set(DATA_SLOT_NUMBER, slot);
     }
 
     private void setBehaviorMode(int mode) {
         // assume 0 <= mode <= 2
         String toMode = BEHAVIOR_MODE_LIST[mode];
-        this.behaviorMode = toMode;
-        //this.entityData.set(DATA_BEHAVIOR_MODE, toMode);
+        behaviorMode = toMode;
+        //entityData.set(DATA_BEHAVIOR_MODE, toMode);
         DeBug.Console(master, "号剑切换模式: "+toMode);
     }
 
