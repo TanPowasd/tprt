@@ -49,6 +49,7 @@ public class d2_half_truths extends BaseModifier {
                         gety= self.getY(),
                         getz= self.getZ();
                 self.setDeltaMovement(self.getLookAngle().scale(15));
+
             }
         }
     }
