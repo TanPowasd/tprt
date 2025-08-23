@@ -42,6 +42,7 @@ public class ModFluids {
     public static final FluidObject<ForgeFlowingFluid>FORGED_STEEL_FLUID=registerHotFluid(FLUIDS,"forged_steel_fluid",1475,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>SOURCE_ALLOY_FLUID=registerHotFluid(FLUIDS,"source_alloy_fluid",3500,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>MOLTEN_CURSIUM=registerHotFluid(FLUIDS,"molten_cursium",1800,4,5,2,false);
+    public static final FluidObject<ForgeFlowingFluid>MOLTEN_ADVANCED_MANYULLYN=registerHotFluid(FLUIDS,"molten_advanced_manyullyn",2000,4,5,2,false);
 
     private static FluidType.Properties hot(String name, int Temp, boolean gas) {
         return FluidType.Properties.create().density(gas?-2000:2000).viscosity(10000).temperature(Temp)

@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:advanced_manyullyn",
+  "temperature": 2000,
+  "result": {
+    "fluid": "tprt:molten_advanced_manyullyn",
+    "amount": 90
+  }
+}

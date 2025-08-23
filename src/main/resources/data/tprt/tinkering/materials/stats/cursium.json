@@ -13,36 +13,6 @@
       "mining_speed": 6.7,
       "mining_tier": "minecraft:netherite"
     },
-    "tconstruct:maille": {},
-    "tconstruct:plating_boots": {
-      "armor": 5,
-      "durability": 500,
-      "knockback_resistance": 0.05,
-      "toughness": 2.5
-    },
-    "tconstruct:plating_chestplate": {
-      "armor": 10,
-      "durability": 1000,
-      "knockback_resistance": 0.10,
-      "toughness": 5
-    },
-    "tconstruct:plating_helmet": {
-      "armor": 5,
-      "durability": 500,
-      "knockback_resistance": 0.05,
-      "toughness": 2.5
-    },
-    "tconstruct:plating_leggings": {
-      "armor": 8,
-      "durability": 800,
-      "knockback_resistance": 0.08,
-      "toughness": 4
-    },
-    "tconstruct:plating_shield": {
-      "armor": 2,
-      "durability": 300,
-      "knockback_resistance": 0.05,
-      "toughness": 2
-    }
+    "tconstruct:maille": {}
   }
 }

@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/ingot"
+  },
+  "cast_consumed": false,
+  "fluid": {
+    "name": "tprt:molten_advanced_manyullyn",
+    "amount": 90
+  },
+  "result": "tprt:advanced_manyullyn",
+  "cooling_time": 400
+}

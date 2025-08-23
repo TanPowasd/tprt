@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:advanced_manyullyn"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:molten_advanced_manyullyn"
+  },
+  "temperature": 2000,
+  "time": 360
+}

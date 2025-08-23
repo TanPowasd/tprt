@@ -52,6 +52,9 @@ public class ModItems {
 //lr特供 源质合金
     public static final RegistryObject<Item>SOURCE_ALLOY=ITEMS.register("source_alloy",
         ()->new Item(new Item.Properties()));
+//lr特供 超限玛玉灵
+    public static final RegistryObject<Item>ADVANCED_MANYULLYN=ITEMS.register("advanced_manyullyn",
+        ()->new Item(new Item.Properties()));
 //lr特供 🐖包
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
         ()->new Item(new Item.Properties().food(ModFoods.PIG_BUN)));

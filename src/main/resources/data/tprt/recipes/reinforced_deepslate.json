@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:chiseled_deepslate"
+    },
+    "N": {
+      "item": "minecraft:netherite_block"
+    },
+    "A": {
+      "item": "minecraft:enchanted_golden_apple"
+    }
+  },
+  "pattern": [
+    "NAN",
+    "ADA",
+    "NAN"
+  ],
+  "result": {
+    "item": "minecraft:reinforced_deepslate"
+  }
+}
