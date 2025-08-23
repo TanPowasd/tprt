@@ -21,9 +21,8 @@ public class ModEntities {
                     .sized(0.5F, 0.5F)
                     .fireImmune()
                     .clientTrackingRange(16)
-                    .updateInterval(20)
+                    .updateInterval(2) // default: 3, 越快动画越流畅，gpu负担越大 // 之前写的20，nmd修了2天
                     .build(ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "flying_sword").toString())
-//                    .build("flying_sword")
             );
 
     public static void register(IEventBus eventBus){

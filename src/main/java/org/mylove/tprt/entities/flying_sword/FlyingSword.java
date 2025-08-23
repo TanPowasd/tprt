@@ -92,8 +92,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     @Override
     public void tick() {
-        super.tick();
-//        baseTick();
+        baseTick();
         if (master == null) {
             // discard();
             if(tickCount % 20 == 0) tryFindMaster();
@@ -151,15 +150,15 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
 
     // 等确定好客户端渲染是什么问题后换自己写的逻辑函数
-    //    @Override
-//    public void baseTick() {
-//        level().getProfiler().push("flyingSwordBaseTick");
-////        xRotO = getXRot();
-////        yRotO = getYRot();
-//        clearFire();
-//        checkBelowWorld();
-//        level().getProfiler().pop();
-//    }
+    @Override
+    public void baseTick() {
+        level().getProfiler().push("flyingSwordBaseTick");
+//        xRotO = getXRot();
+//        yRotO = getYRot();
+        clearFire();
+        checkBelowWorld();
+        level().getProfiler().pop();
+    }
 
     private void IdleMode() {
         if(lunchCooldown>0) lunchCooldown--;
@@ -180,7 +179,6 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             Vec3 motion = delta.normalize().scale(Math0.clamp(1d, distance * 0.25, distance * 1));
             setDeltaMovement(motion);
 
-            // todo: 实体移动是跳跃的，有什么办法吗？
             setPos(current.add(motion));
 
             move(MoverType.SELF, motion);
