@@ -24,9 +24,10 @@ public class test_entity_uuid extends SingleLevelModifier implements EntityInter
         hookBuilder.addHook(this, ModifierHooks.ENTITY_INTERACT);
     }
 
+    /** 右键输出实体uuid，虽然没必要专门写一个吧 */
     @Override
     public InteractionResult afterEntityUse(IToolStackView tool, ModifierEntry modifier, Player player, LivingEntity target, InteractionHand hand, InteractionSource source) {
-        if(player.level().isClientSide) DeBug.Console(player, ""+target.getUUID().toString());
+        if(player.level().isClientSide) DeBug.Console(player, target.getUUID().toString());
         return InteractionResult.PASS;
     }
 }

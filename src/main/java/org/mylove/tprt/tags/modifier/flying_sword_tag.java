@@ -8,6 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.mylove.tprt.entities.flying_sword.FlyingSword;
+import org.mylove.tprt.utilities.Abbr;
 import org.mylove.tprt.utilities.DeBug;
 import org.mylove.tprt.utilities.Math0;
 import slimeknights.tconstruct.library.modifiers.Modifier;
@@ -37,8 +38,9 @@ public class flying_sword_tag extends SingleLevelModifier implements
     // 生成飞剑，一个工具对应的飞剑应当是唯一的
     private String generateFlyingSword(IToolStackView tool, Level level, Player player, int itemSlot, ItemStack stack, @Nullable String uuid){
         FlyingSword flyingSword = new FlyingSword(tool, level, player, itemSlot, stack);
-        level.addFreshEntity(flyingSword);
 
+        level.addFreshEntity(flyingSword);
+        DeBug.Console(player, "生成飞剑: isClientSide = "+level.isClientSide);
         return flyingSword.getUUID().toString();
     }
 
@@ -64,29 +66,37 @@ public class flying_sword_tag extends SingleLevelModifier implements
     @Override
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level level, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if(!(holder instanceof Player player)) return;
-        if(player.tickCount % 20 != 1) return;
+        if(player.tickCount % FlyingSword.initLifetime != 0) return;
         if(!Inventory.isHotbarSlot(itemSlot)) return;
         // todo: 处理位于副手的情况 08/21
         if(itemSlot==0 && player.getOffhandItem().equals(tool)) return;
 
-        if(!level.isClientSide){
-            // 将生成的飞剑实体id存到工具本身上
-            String uuid =  tool.getPersistentData().getString(PERSISTENT_UUID_KEY);
-            // DeBug.Console(player, uuid);
-            if(uuid.isEmpty()){
-                String uuid1 = generateFlyingSword(tool, level, player, itemSlot, stack, null);
-                tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);
-            } else {
-                // 没有找到工具离开物品栏的钩子，因此逻辑改为飞剑需定期判定工具存在以续命
-                // todo: how to find an entity using UUID?
-                // level.getEntity(UUID.fromString(uuid));
-            }
+        // 将生成的飞剑实体id存到工具本身上
+        String uuid =  tool.getPersistentData().getString(PERSISTENT_UUID_KEY);
+
+        // DeBug.Console(player, uuid);
+//        if(uuid.isEmpty()){
+//            // 服务端判断（空） -> 覆写uuid-NBT -> 客户端判断（有） -> 不生成飞剑
+//            String uuid1 = generateFlyingSword(tool, level, player, itemSlot, stack, null);
+//            tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);
+//        } else {
+//            // 没有找到工具离开物品栏的钩子，因此逻辑改为飞剑需定期判定工具存在以续命
+//            // todo(done): how to find an entity using UUID? we have mixin!
+//            // level.getEntity(UUID.fromString(uuid));
+//        }
+
+        if(Abbr.getSword(player, itemSlot) == null){
+            String uuid1 = generateFlyingSword(tool, level, player, itemSlot, stack, null);
+            // tool.getPersistentData().putString(PERSISTENT_UUID_KEY, uuid1);
+
         }
+
+        // DeBug.Console(player, "客户端："+level.isClientSide);
     }
 
     @Override
-    public @org.jetbrains.annotations.Nullable Component onRemoved(IToolStackView tool, Modifier modifier) {
-        tool.getPersistentData().putString(PERSISTENT_UUID_KEY, "");
+    public @Nullable Component onRemoved(IToolStackView tool, Modifier modifier) {
+        // tool.getPersistentData().putString(PERSISTENT_UUID_KEY, "");
         return null;
     }
 }
