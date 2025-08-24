@@ -54,7 +54,7 @@ public class advanced_greed extends NoLevelsModifier implements MeleeDamageModif
                     NewAmplifier=9;
                 }
                 // attacker.addEffect(new MobEffectInstance(effect,200,NewAmplifier));
-                dl=1.0f+0.15f*NewAmplifier;
+                dl=1.0f+0.10f*NewAmplifier+(NewAmplifier==9?1:0);
             }
             return damage*dl;
         }
@@ -68,14 +68,14 @@ public class advanced_greed extends NoLevelsModifier implements MeleeDamageModif
             MobEffect effect= ModBuffRegistry.MYL_GIRIG_PRO.get();
             MobEffectInstance instance = attacker.getEffect(effect);
             if (instance == null) {
-                attacker.addEffect(new MobEffectInstance(effect, 200, 0));
+                attacker.addEffect(new MobEffectInstance(effect, 40, 0));
             } else {
                 int amplifier = instance.getAmplifier();
                 int newAmplifier = amplifier + 1;
                 if (newAmplifier == 10) {
                     newAmplifier = 9;
                 }
-                attacker.addEffect(new MobEffectInstance(effect, 200, newAmplifier));
+                attacker.addEffect(new MobEffectInstance(effect, 40, newAmplifier));
             }
         }
     }
