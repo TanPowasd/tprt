@@ -37,7 +37,7 @@ public class nine_sword_tag extends SingleLevelModifier implements UsingToolModi
                 FlyingSword sword = Abbr.getSword(player, i);
                 if(sword != null){
                     Vec3 target = player.position().add(player.getLookAngle().scale(10));
-                    boolean lunched = sword.triggerLunch(target);
+                    boolean lunched = sword.triggerLunch(target, player.getViewXRot(1), player.getViewYRot(1));
                     if(lunched) break;
                 }
             }

@@ -13,6 +13,9 @@ public class DeBug {
     public static void Console(Player player, String message){
         player.sendSystemMessage(Component.literal(message));
     }
+    public static void Console(Player player, Number message){
+        Console(player, ""+message);
+    }
 
     /** 展平一个三维向量，并限制小数点位数 */
     public static String FlatXYZ(Vec3 v3) {

@@ -1,6 +1,5 @@
 package org.mylove.tprt.entities.flying_sword;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -11,7 +10,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import org.jetbrains.annotations.Nullable;
@@ -27,9 +25,6 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Objects;
 import java.util.UUID;
-
-import static org.mylove.tprt.tags.modifier.flying_sword_tag.PERSISTENT_SLOT;
-import static org.mylove.tprt.tags.modifier.flying_sword_tag.PERSISTENT_UUID_KEY;
 
 /**
  * 古希腊掌管射剑的神
@@ -49,7 +44,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     public static final int maxLifetime = 40;
     private static final double displayDensity = .3;
     private static final int maxLunchCooldown = 28; // 这也是魔法数, 设计上应当9把剑都存在时可以无缝交替发射, 参考九剑词条中的魔法数
-    private static final int windowOfAttackTick = 8; // 决定了剑会多久抵达目标点
+    private static final int windowOfAttackTick = 40; // 决定了剑会多久抵达目标点
     private static final String[] BEHAVIOR_MODE_LIST = {"IDLE", "LAUNCH", "RECOUP"};
 
     // geckoLib
@@ -70,8 +65,16 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private boolean isAboutToDiscard = false;
     @Deprecated
     private final int generalFlyingSpeed = 2; // we use "windowOfAttackTick" instead
-    @Deprecated
-    private Vec3 lunchingModeTarget; // we use getDeltaMovement() now
+    private Vec3 lunchInitPosition;
+    private Vec3 lunchModeTarget;
+    private float lunchPitchRadius;
+    private float lunchYawRadius;
+    /** 短轴 */
+    private double lunchEllipseShort;
+    /** 长轴 */
+    private double lunchEllipseMajor;
+    private double lunchVerticalRandom;
+    //private Vec3 lunchRotate;
 
 
     public FlyingSword(EntityType<FlyingSword> pEntityType, Level pLevel) {
@@ -227,36 +230,60 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private void LunchingMode() {
         // todo: 写两个轨迹函数, 给模型添加旋转, 旋转可以等模型引用成功后再搞
         lunchTickRemaining--;
-        Vec3 delta0 = getDeltaMovement();
-
-        // 两种判断哪个好?
-        // if(position().distanceTo(lunchingModeTarget) >= delta0.scale(0.6).length()){
         if(lunchTickRemaining>=0){
-            setPos(position().add(delta0));
-            // setDeltaMovement(delta0);
+
+            // 写一个简单的椭球, 定义长半轴为a, 两个短半轴均为b
+            // pitch, yaw 两变量可参考此文
+            // https://www.jianshu.com/p/a824e3cc4573
+            double a, b, x, z, tmp;
+            a = lunchEllipseMajor / 2;
+            b = lunchEllipseShort / 2;
+
+            int t = windowOfAttackTick - lunchTickRemaining;
+            z = lunchEllipseMajor * t / windowOfAttackTick;
+            tmp = b*b - b*b * (z-a)*(z-a) / (a*a);
+//            boolean minus = tmp <= 0;
+            x = Math.pow(-1, slotNumber) * Math.sqrt(Math.abs(tmp));
+
+            //DeBug.Console(master, "z"+z+"   "+"x"+x+"   "+"t"+t+"    tmp"+tmp);
+
+            // 角度稍稍错开让轨迹不那么单调
+//            Vec3 posEllipse = new Vec3(x,0,z).xRot(-lunchPitch).zRot((float) lunchVerticalRandom * 3).yRot(-lunchYaw);
+            Vec3 posEllipse = new Vec3(x,0,z).xRot(-lunchPitchRadius).yRot(-lunchYawRadius);
+
+            DeBug.Console(master, posEllipse.toString());
+
+            Vec3 pos0 = position();
+            setPos(lunchInitPosition.add(posEllipse));
+            setDeltaMovement(position().subtract(pos0));
+
         } else {
             setBehaviorMode(2);
         }
     }
     private boolean checkHitBoxCollide() {
+        // 碰撞和实体交互
         return false;
     }
 
-    public boolean triggerLunch(Vec3 targetPoint) {
+    public boolean triggerLunch(Vec3 targetPoint, float pitch, float yaw) {
         if(!canLunch()) return false;
         DeBug.Console(master, slotNumber+"号剑发射");
         setBehaviorMode(1);
         lunchCooldown = maxLunchCooldown;
-        lunchTickRemaining = windowOfAttackTick + 1;
+        lunchTickRemaining = windowOfAttackTick;
         // 发射路径会在一开始就确定好
-        Vec3 startingPoint = position();
+        lunchInitPosition = position();
+        lunchModeTarget = targetPoint;
+        lunchPitchRadius = (float) Math.toRadians(pitch);
+        lunchYawRadius = (float) Math.toRadians(yaw);
+        lunchEllipseMajor = position().distanceTo(lunchModeTarget);
+        lunchEllipseShort = 2 * lunchEllipseMajor / 3;
+        lunchVerticalRandom = Math.random();
 
-        lunchingModeTarget = targetPoint;
-        Vec3 lunchingModeDelta = targetPoint.subtract(startingPoint).scale((double) 1 / windowOfAttackTick);
-        setDeltaMovement(lunchingModeDelta);
-
-        // todo: 应当画弧，但现在先用直线
-        // double distance = startingPoint.distanceTo(targetPoint);
+        DeBug.Console(master, lunchEllipseMajor);
+        DeBug.Console(master, lunchPitchRadius);
+        DeBug.Console(master, lunchYawRadius);
 
         return true;
     }
