@@ -57,6 +57,9 @@ public class test_ellipse extends SingleLevelModifier implements UsingToolModifi
                 Vec3 posEllipse2 = new Vec3(x,0,z).yRot((float) Math.toRadians(90)).add(player.position());
                 level.addParticle(ParticleTypes.ENCHANTED_HIT, posEllipse2.x, posEllipse2.y, posEllipse2.z, 0, 0,0);
 
+                Vec3 posEllipse3 = new Vec3(x,0,z).zRot((float) Math.toRadians(90)).add(player.position());
+                level.addParticle(ParticleTypes.FALLING_HONEY, posEllipse3.x, posEllipse3.y, posEllipse3.z, 0, 0,0);
+
                 // straight
                 z2 = i * distance / all;
                 Vec3 fi2 = new Vec3(0, 0, z2).xRot((float) Math.toRadians(-45)).add(player.position());
