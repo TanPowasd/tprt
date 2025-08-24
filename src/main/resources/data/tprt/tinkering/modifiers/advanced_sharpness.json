@@ -1,0 +1,19 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 2.5,
+      "operation": "add",
+      "stat": "tconstruct:attack_damage",
+      "unique": "tconstruct.modifier.advanced_sharpness"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.1,
+      "operation": "multiply_base",
+      "stat": "tconstruct:attack_damage",
+      "unique": "tconstruct.modifier.advanced_sharpness"
+    }
+  ]
+}

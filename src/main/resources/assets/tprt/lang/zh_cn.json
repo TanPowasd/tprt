@@ -17,6 +17,7 @@
   "item.tprt.mixeddragon":"龙神钢",
   "item.tprt.forged_steel": "锻造钢",
   "item.tprt.source_alloy": "源质合金",
+  "item.tprt.advanced_manyullyn": "超限玛玉灵",
   "item.tprt.pig_bun": "🐖包",
   "item.tprt.red_turtle": "红温🐢",
   "item.tprt.blue_lancer": "蓝色枪兵",
@@ -44,6 +45,7 @@
   "fluid.tconstruct.source_alloy_fluid": "熔融源质合金",
   "fluid.tconstruct.forged_steel_fluid": "熔融锻造钢",
   "fluid.tconstruct.molten_cursium": "熔融咒魂",
+  "fluid.tconstruct.molten_advanced_manyullyn": "熔融超限玛玉灵",
 
 
 
@@ -64,6 +66,9 @@
 
   "material.tprt.cursium":"咒魂",
   "material.tprt.cursium.flavor":"昔日的传奇战士，今日的诅咒亡灵",
+
+  "material.tprt.advanced_manyullyn":"超限玛玉灵",
+  "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
 
   "material.tprt.blue_lancer":"蓝色枪兵",
   "material.tprt.blue_lancer.flavor":"旋转突进的蓝色枪兵",
@@ -130,6 +135,10 @@
   "modifier.tprt.soul_dodge.flavor":"身体仿若幽魂",
   "modifier.tprt.soul_dodge.description":"有较低概率免疫受到的伤害",
 
+  "modifier.tprt.advanced_greed": "贪欲",
+  "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
+  "modifier.tprt.advanced_greed.description":"每次攻击提高10%攻击伤害，上限10层",
+
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
   "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽，一个防御以及一个能力槽",
@@ -149,6 +158,14 @@
   "modifier.tprt.enchantment": "附魔升华",
   "modifier.tprt.enchantment.flavor":"附魔你的物品，使其能力更加强大",
   "modifier.tprt.enchantment.description":"以两个升级槽为代价获得一个能力槽",
+
+  "modifier.tprt.advanced_cheer_up": "生命续行",
+  "modifier.tprt.advanced_cheer_up.flavor":"体内的生命能量在涌动",
+  "modifier.tprt.advanced_cheer_up.description":"每级提高10%生命上限",
+
+  "modifier.tprt.advanced_sharpness": "利刃出鞘",
+  "modifier.tprt.advanced_sharpness.flavor":"无往不利的利刃",
+  "modifier.tprt.advanced_sharpness.description":"每级提高2.5+10%攻击力",
 
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",

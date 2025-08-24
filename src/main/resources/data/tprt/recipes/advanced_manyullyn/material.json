@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tprt:advanced_manyullyn"
+  },
+  "material": "tprt:advanced_manyullyn",
+  "needed": 1,
+  "value": 1
+}
