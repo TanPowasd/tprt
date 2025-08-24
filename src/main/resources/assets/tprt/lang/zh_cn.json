@@ -162,10 +162,26 @@
   "modifier.tprt.advanced_cheer_up": "生命续行",
   "modifier.tprt.advanced_cheer_up.flavor":"体内的生命能量在涌动",
   "modifier.tprt.advanced_cheer_up.description":"每级提高10%生命上限",
+  "modifier.tprt.advanced_cheer_up.requirements": "需要生命之心强化作为前置",
+
+  "modifier.tprt.heart_of_life": "生命之心",
+  "modifier.tprt.heart_of_life.flavor":"你的生命获得了升华",
+  "modifier.tprt.heart_of_life.description":"提高10点生命上限",
 
   "modifier.tprt.advanced_sharpness": "利刃出鞘",
   "modifier.tprt.advanced_sharpness.flavor":"无往不利的利刃",
-  "modifier.tprt.advanced_sharpness.description":"每级提高2.5+10%攻击力",
+  "modifier.tprt.advanced_sharpness.description":"第一级提高2.5+10%攻击力，之后每级提高2.5攻击力",
+  "modifier.tprt.advanced_sharpness.requirements": "需要锋利Ⅲ强化作为前置",
+
+  "modifier.tprt.advanced_sharpness_fix_1": "利刃出鞘修正Ⅰ",
+  "modifier.tprt.advanced_sharpness_fix_1.flavor":"无往不利的利刃",
+  "modifier.tprt.advanced_sharpness_fix_1.description":"每级提高10%攻击力",
+  "modifier.tprt.advanced_sharpness_fix_1.requirements": "需要利刃出鞘Ⅱ强化作为前置",
+
+  "modifier.tprt.advanced_sharpness_fix_2": "利刃出鞘修正Ⅱ",
+  "modifier.tprt.advanced_sharpness_fix_2.flavor":"无往不利的利刃",
+  "modifier.tprt.advanced_sharpness_fix_2.description":"每级提高10%攻击力",
+  "modifier.tprt.advanced_sharpness_fix_2.requirements": "需要利刃出鞘Ⅲ强化作为前置",
 
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",

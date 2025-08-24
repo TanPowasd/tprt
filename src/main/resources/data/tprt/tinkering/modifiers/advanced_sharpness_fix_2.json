@@ -1,12 +1,12 @@
 {
-  "level_display": "tconstruct:default",
+  "level_display": "tconstruct:no_levels",
   "modules": [
     {
       "type": "tconstruct:requirements",
       "display_modifiers": [
         {
           "level": 3,
-          "name": "tconstruct:sharpness"
+          "name": "tprt:advanced_sharpness"
         }
       ],
       "requirement": {
@@ -17,24 +17,18 @@
         },
         "modifier": {
           "type": "tconstruct:single",
-          "modifier": "tconstruct:sharpness"
+          "modifier": "tprt:advanced_sharpness"
         }
       },
-      "translation_key": "modifier.tprt.advanced_sharpness.requirements"
-    },
-    {
-      "type": "tconstruct:stat_boost",
-      "each_level": 2.5,
-      "operation": "add",
-      "stat": "tconstruct:attack_damage",
-      "unique": "tconstruct.modifier.advanced_sharpness"
+      "translation_key": "modifier.tprt.advanced_sharpness_fix_2.requirements"
     },
     {
       "type": "tconstruct:stat_boost",
       "flat": 0.1,
       "operation": "multiply_base",
       "stat": "tconstruct:attack_damage",
-      "unique": "tconstruct.modifier.advanced_sharpness"
+      "unique": "tconstruct.modifier.advanced_sharpness_fix_2"
     }
-  ]
+  ],
+  "tooltip_display": "tinker_station"
 }

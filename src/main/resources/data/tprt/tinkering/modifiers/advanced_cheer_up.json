@@ -5,8 +5,27 @@
       "modid": "attributeslib"
     }
   ],
-  "level_display": "tconstruct:default",
+  "level_display": "tconstruct:single_level",
   "modules": [
+    {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 1,
+          "name": "tprt:heart_of_life"
+        }
+      ],
+      "requirement": {
+
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tprt:heart_of_life"
+        }
+      },
+      "translation_key": "modifier.tprt.advanced_cheer_up.requirements"
+    },
     {
       "type": "tconstruct:attribute",
       "each_level": 0.1,

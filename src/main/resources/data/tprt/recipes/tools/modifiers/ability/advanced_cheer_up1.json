@@ -12,16 +12,14 @@
       "item": "minecraft:enchanted_golden_apple"
     }
   ],
-  "level": {
-    "max": 3
-  },
+  "level": 1,
   "result": "tprt:advanced_cheer_up",
   "slots": {
     "abilities": 1
   },
   "tools": [
     {
-      "tag": "tconstruct:modifiable/durability"
+      "tag": "tconstruct:modifiable/armor"
     }
   ]
 }

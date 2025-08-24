@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "artifacts:crystal_heart"
+    },
+    {
+      "item": "artifacts:crystal_heart"
+    },
+    {
+      "item": "artifacts:crystal_heart"
+    }
+  ],
+  "level": 3,
+  "result": "tprt:advanced_cheer_up",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor"
+    }
+  ]
+}

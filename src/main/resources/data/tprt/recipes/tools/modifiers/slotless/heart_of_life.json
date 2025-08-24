@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tconstruct:jeweled_apple"
+    },
+    {
+      "item": "artifacts:crystal_heart"
+    },
+    {
+      "item": "tconstruct:jeweled_apple"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:heart_of_life",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor"
+    }
+  ]
+}
