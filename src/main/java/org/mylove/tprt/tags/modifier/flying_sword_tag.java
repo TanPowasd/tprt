@@ -31,7 +31,9 @@ public class flying_sword_tag extends SingleLevelModifier implements
     // private UUID swordUUID;
 
     // ResourceLocation仅可包含: a-z0-9/.-_
-    private static final ResourceLocation PERSISTENT_UUID_KEY = ResourceLocation.parse("uuid-key");
+    /** tinker工具上保存飞剑ID的key */
+    public static final ResourceLocation PERSISTENT_UUID_KEY = ResourceLocation.parse("flying-sword-uuid-key");
+    public static final ResourceLocation PERSISTENT_SLOT = ResourceLocation.parse("flying-sword-slot");
 
     // 生成飞剑，一个工具对应的飞剑应当是唯一的
     private String generateFlyingSword(IToolStackView tool, Level level, Player player, int itemSlot, ItemStack stack, @Nullable String uuid){
@@ -39,7 +41,7 @@ public class flying_sword_tag extends SingleLevelModifier implements
 
         level.addFreshEntity(flyingSword);
         DeBug.Console(player, "生成飞剑: isClientSide = "+level.isClientSide+ itemSlot+"号");
-        return flyingSword.getUUID().toString();
+        return flyingSword.getStringUUID();
     }
 
     private void degenerateFlyingSword(){
@@ -64,14 +66,9 @@ public class flying_sword_tag extends SingleLevelModifier implements
     @Override
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level level, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if(!(holder instanceof Player player)) return;
-        // 此处有魔法数19
-        if(player.tickCount % FlyingSword.maxLifetime != 19) return;
-        if(!Inventory.isHotbarSlot(itemSlot)) return;
         // todo: 处理位于副手的情况 08/21
-        if(itemSlot==0 && player.getOffhandItem().equals(tool)) return;
+        // if(itemSlot==0 && player.getOffhandItem().equals(tool)) return;
 
-        // 将生成的飞剑实体id存到工具本身上
-        String uuid =  tool.getPersistentData().getString(PERSISTENT_UUID_KEY);
 
         // DeBug.Console(player, uuid);
 //        if(uuid.isEmpty()){
@@ -83,6 +80,14 @@ public class flying_sword_tag extends SingleLevelModifier implements
 //            // level.getEntity(UUID.fromString(uuid));
 //        }
 
+        if(level.isClientSide) return; // uuid生成有随机性，为了避免两端不同步问题只用服务端创实体，然后通过某种神秘的minecraft力量同步
+        if(player.tickCount % FlyingSword.maxLifetime != 19) return; // 此处有魔法数19
+        // 将生成的飞剑实体id存到工具本身上, 再存一个当前槽位方便飞剑那边访问
+        String uuid =  tool.getPersistentData().getString(PERSISTENT_UUID_KEY);
+        int slot0 = tool.getPersistentData().getInt(PERSISTENT_SLOT);
+        if(slot0 != itemSlot) tool.getPersistentData().putInt(PERSISTENT_SLOT, itemSlot);
+
+        if(!Inventory.isHotbarSlot(itemSlot)) return; // 只有位于快捷栏且不在副手时生成飞剑
         FlyingSword flyingSword = Abbr.getSword(player, itemSlot);
         if(flyingSword == null){
             String uuid1 = generateFlyingSword(tool, level, player, itemSlot, stack, null);
@@ -102,7 +107,8 @@ public class flying_sword_tag extends SingleLevelModifier implements
 
     @Override
     public @Nullable Component onRemoved(IToolStackView tool, Modifier modifier) {
-         tool.getPersistentData().remove(PERSISTENT_UUID_KEY);
+        tool.getPersistentData().remove(PERSISTENT_UUID_KEY);
+        tool.getPersistentData().remove(PERSISTENT_SLOT);
         return null;
     }
 }

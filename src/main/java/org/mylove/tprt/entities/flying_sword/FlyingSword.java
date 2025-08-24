@@ -1,13 +1,17 @@
 package org.mylove.tprt.entities.flying_sword;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import org.jetbrains.annotations.Nullable;
@@ -24,7 +28,14 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.Objects;
 import java.util.UUID;
 
+import static org.mylove.tprt.tags.modifier.flying_sword_tag.PERSISTENT_SLOT;
+import static org.mylove.tprt.tags.modifier.flying_sword_tag.PERSISTENT_UUID_KEY;
 
+/**
+ * 古希腊掌管射剑的神
+ *
+ * @important: 由flying_sword_tag里的决策，此实体只运行于服务端上，望周知
+ */
 public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalSpawnData {
     // syncData
     // private static final EntityDataAccessor<String> DATA_MASTER_UUID = SynchedEntityData.defineId(FlyingSword.class, EntityDataSerializers.STRING);
@@ -48,6 +59,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private int animationTick = 0;
 
     // normalAttributes
+    public boolean noPhysics = true;
     private Player master;
     private String masterUUID;
     private String behaviorMode = "IDLE";
@@ -60,7 +72,6 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private final int generalFlyingSpeed = 2; // we use "windowOfAttackTick" instead
     @Deprecated
     private Vec3 lunchingModeTarget; // we use getDeltaMovement() now
-    public boolean noPhysics = true;
 
 
     public FlyingSword(EntityType<FlyingSword> pEntityType, Level pLevel) {
@@ -73,7 +84,8 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         setSlotNumber(slot);
 
         master = player;
-
+        setPos(master.position().add(0,2,0));
+        generateSmokeParticle();
         Abbr.setPlayerSwords(master, slot, this);
     }
 
@@ -88,6 +100,9 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     public boolean isIgnoringBlockTriggers() {
         return true;
     }
+    public boolean isSilent() {
+        return true;
+    }
     // public float getLightLevelDependentMagicValue() { return 1.0F; }
 
 
@@ -98,19 +113,24 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             if(tickCount % 20 == 0) tryFindMaster();
             return;
         }
-        if(!Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1]) && isAboutToDiscard) discard();
 
-        lifeTime--;
-        if(lunchCooldown>0 && !Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1])) lunchCooldown--;
-        if(lifeTime<=0){
-            checkDistanceValidate();
+        // if(tickCount % 40 == 0) DeBug.Console(master, slotNumber+"号--1"+behaviorMode);
+
+        if(!Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1]) && isAboutToDiscard) discard();
+        // 飞剑合法性检测: 距离, 维度, 对应物品栏工具
+        if(tickCount % 20 == 0) {
+            if(!checkToolStackValidate() || !checkDimensionValidate() || !checkDistanceValidate()) discard();
         }
+
+        if(lunchCooldown>0 && !Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1])) lunchCooldown--;
+
         if(Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[0])){
             // idle
             IdleMode();
         } else if (Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[1])) {
             // lunching
             LunchingMode();
+            checkHitBoxCollide();
         } else {
             // recoup
             RecoupingMode();
@@ -125,7 +145,8 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             Player p = level().getPlayerByUUID(UUID.fromString(masterUUID));
             if(p!=null) {
                 master = p;
-                DeBug.Console(master, slotNumber+"号飞剑认领成功");
+                lifeTime = maxLifetime;
+                // DeBug.Console(master, slotNumber+"号飞剑认领成功");
             } else {
                 lifeTime -= 10;
                 if(lifeTime<=0) discard();
@@ -133,27 +154,37 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         }
     }
 
-    private void checkDistanceValidate() {
-        // 飞剑需要定期确定召唤者在身边，且对应slot的匠魂工具中有此剑的uuid // 后者在tag中作了判断
+    // 飞剑需要定期确定召唤者在身边，且对应slot的匠魂工具中有此剑的uuid
+    private boolean checkToolStackValidate() {
+        // tinkerTool只有正常用构造器调用时才不为null且该值不写入硬盘, 故重建存档时销毁所有现存飞剑  (飞剑已经渐渐变成消耗品了, 悲
+        // 若后续遇到性能问题再考虑优化实现 (例如对tinker工具的引用占用太多内存)
+        // 破案了, IToolStackView是工具栈堆快照, 不动态更新
+        // todo 基于工具检测的飞剑销毁还有问题
+//        if(tinkerTool == null) return false;
+//        String uuid =  tinkerTool.getPersistentData().getString(PERSISTENT_UUID_KEY);
+//        int slot =  tinkerTool.getPersistentData().getInt(PERSISTENT_SLOT);
+//
+//        DeBug.Console(master, slotNumber+"号--2\n"+getStringUUID()+"\n"+uuid+"\n"+slot);
+//        return !uuid.isEmpty() && uuid.equals(getStringUUID()) && slot == slotNumber;
 
-        // ItemStack hotbarSlot = master.getInventory().getItem(slotNumber);
-        // hotbarSlot.readShareTag();
+        // ItemStack stack = master.getInventory().getItem(slotNumber).getItem();
+        return true;
+    }
+    private boolean checkDimensionValidate() {
+        // todo 不同维度直接删除
+        // getDimensions()
+        return true;
+    }
+    private boolean checkDistanceValidate() {
         double distance = master.position().distanceTo(position());
-        if(distance<=32) {
-            lifeTime = maxLifetime;
-        } else {
-            DeBug.Console(master, slotNumber+"号剑已销毁\n销毁飞剑位置: "+DeBug.FlatXYZ(position()));
-            discard();
-        }
+        return distance <= 64;
     }
 
 
-    // 等确定好客户端渲染是什么问题后换自己写的逻辑函数
+
     @Override
     public void baseTick() {
         level().getProfiler().push("flyingSwordBaseTick");
-//        xRotO = getXRot();
-//        yRotO = getYRot();
         clearFire();
         checkBelowWorld();
         level().getProfiler().pop();
@@ -207,6 +238,9 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             setBehaviorMode(2);
         }
     }
+    private boolean checkHitBoxCollide() {
+        return false;
+    }
 
     public boolean triggerLunch(Vec3 targetPoint) {
         if(!canLunch()) return false;
@@ -237,7 +271,11 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         return lunchCooldown <= 0 && Objects.equals(behaviorMode, BEHAVIOR_MODE_LIST[0]);
     }
 
-
+    @Override
+    public void kill() {
+        generateSmokeParticle();
+        super.kill();
+    }
 
     // 数据管理 ========================================
     /** 设置与服务器同步的数据 */
@@ -309,9 +347,9 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     // use vanilla renderer @sakuraTinker
     public void setAnimationState(String state) {
-        if (!this.animationState.equals(state)) {
-            this.animationState = state;
-            this.animationTick = 0;
+        if (!animationState.equals(state)) {
+            animationState = state;
+            animationTick = 0;
         }
     }
     public String getAnimationState() {
@@ -324,14 +362,30 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         return position().add(getDeltaMovement().scale(partialTick));
     }
 
-
+    /** 在当前位置生成一些烟雾, 在飞剑生成和销毁时调用 */
+    public void generateSmokeParticle() {
+        for(int i = 0; i < 16; ++i) {
+            // 服务端实体用sendParticle
+            // level().addParticle(ParticleTypes.CLOUD, getX(), getY() + random.nextDouble() * 2.0D, getZ(), random.nextGaussian(), 0.0D, random.nextGaussian());
+            ((ServerLevel) level()).sendParticles(
+                    ParticleTypes.CLOUD,
+                    getX() + random.nextDouble(),
+                    getY() + random.nextDouble() * 2.0D,
+                    getZ() + random.nextDouble(),
+                    1,
+                    random.nextGaussian(),
+                    0.0D,
+                    random.nextGaussian(),
+                    1.0D
+            );
+        }
+    }
 
     // 对外方法 ===================================
     /** 外部调用的销毁函数, 会在一个攻击周期后自动销毁 */
     public void setToDiscard(@Nullable String message) {
         DeBug.Console(master, slotNumber+"号剑将销毁: "+message);
         isAboutToDiscard = true;
-        discard();
     }
 
     public int getSlotNumber() {
@@ -352,7 +406,6 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 //        Player p = level().getPlayerByUUID(UUID.fromString(uuid));
 //        if(p!=null){
 //            master = p;
-//            DeBug.Console(master, "飞剑认领成功");
 //        }
     }
 
@@ -367,7 +420,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         String toMode = BEHAVIOR_MODE_LIST[mode];
         behaviorMode = toMode;
         //entityData.set(DATA_BEHAVIOR_MODE, toMode);
-        DeBug.Console(master, slotNumber+"号剑切换模式: "+toMode);
+        //DeBug.Console(master, slotNumber+"号剑切换模式: "+toMode);
     }
 
 }
