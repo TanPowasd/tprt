@@ -2,11 +2,11 @@
   "type": "tconstruct:alloy",
   "inputs": [
     {
-      "amount": 3600,
+      "amount": 1800,
       "fluid": "sakuratinker:molten_south_star"
     },
     {
-      "amount": 3600,
+      "amount": 1800,
       "fluid": "sakuratinker:molten_arcane_alloy"
     },
     {

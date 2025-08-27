@@ -12,8 +12,8 @@
   "perStat": {
     "sakuratinker:spell_cloth": [
       {
-        "level": 5,
-        "name": "sakuratinker:spell_power"
+        "level": 1,
+        "name": "tprt:source_alloy_spell_cloth"
       }
       ],
     "tconstruct:armor": [
