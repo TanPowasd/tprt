@@ -32,7 +32,7 @@ public class nine_sword_tag extends SingleLevelModifier implements UsingToolModi
             int total = Abbr.getFlyingSwordCount(player);
             // 发射需要满足的条件: 1.处于发射窗口(即下述判定) 2.存在飞剑冷却完毕
             // 富含魔力的算式*1
-            if(player.tickCount % (22 - total*2) != 0) return;
+            if(player.tickCount % (20 - total*2) != 0) return;
             for (int i=0; i<9; i++){
                 FlyingSword sword = Abbr.getSword(player, i);
                 if(sword != null){

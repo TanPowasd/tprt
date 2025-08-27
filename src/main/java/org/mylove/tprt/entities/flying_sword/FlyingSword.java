@@ -43,7 +43,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     // initialization
     public static final int maxLifetime = 40;
     private static final double displayDensity = .3;
-    private static final int maxLunchCooldown = 28; // 这也是魔法数, 设计上应当9把剑都存在时可以无缝交替发射, 参考九剑词条中的魔法数
+    private static final int maxLunchCooldown = 18; // 这也是魔法数, 设计上应当9把剑都存在时可以无缝交替发射, 参考九剑词条中的魔法数
     private static final int windowOfAttackTick = 8; // 决定了剑会多久抵达目标点
     private static final String[] BEHAVIOR_MODE_LIST = {"IDLE", "LAUNCH", "RECOUP"};
 
@@ -203,7 +203,8 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         // 08/23: 并非并非, 见注册类ModEntity
 
         if (distance > 1.0e-7d) {
-            Vec3 motion = delta.normalize().scale(Math0.clamp(.1 + distance*distance*0.5, distance * 0.3, distance * 1));
+            // todo: 设置一个合适的跟随速度, 当前会抽搐, 大概是单次移动距离过大的原因
+            Vec3 motion = delta.normalize().scale(Math0.clamp(1.0e-7d + distance*distance*0.5, distance * 0.3, distance * 1));
             setDeltaMovement(motion);
 
             setPos(current.add(motion));
@@ -243,9 +244,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
             x = leftOrRight * Math.sqrt(Math.abs(tmp));
 
             // 角度稍稍错开让轨迹不那么单调
-            // todo: 当前汇集位置比鼠标稍稍靠下, 或为浮点精度问题
-            // 8/27: 大概是获取到的pitch是玩家的而非飞剑的
-             Vec3 posEllipse = new Vec3(x,0,z).zRot(-1 * leftOrRight * lunchVerticalRandom).xRot(-lunchPitchRadius).yRot(-lunchYawRadius);
+            Vec3 posEllipse = new Vec3(x,0,z).zRot(-1 * leftOrRight * lunchVerticalRandom).xRot(lunchPitchRadius).yRot(lunchYawRadius);
 
             Vec3 pos0 = position();
             setPos(lunchInitPosition.add(posEllipse));
@@ -254,6 +253,8 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         } else {
             setBehaviorMode(2);
             recoupTickRemaining = windowOfAttackTick;
+            // 立刻调用一次, 不然在目标点有1tick停顿
+            RecoupingMode();
         }
     }
     private boolean checkHitBoxCollide() {
@@ -270,11 +271,14 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         // 发射路径会在一开始就确定好
         lunchInitPosition = position();
         lunchModeTarget = targetPoint;
-        lunchPitchRadius = (float) Math.toRadians(pitch);
-        lunchYawRadius = (float) Math.toRadians(yaw);
         lunchVerticalRandom = (float) Math.toRadians(Math.random() * 30);
         lunchEllipseMajor = position().distanceTo(lunchModeTarget);
         lunchEllipseShort = 2 * lunchEllipseMajor / 3;
+
+        // 应当基于飞剑位置求出yaw和pitch, 用player传进来的会产生偏差
+        Vec3 deltaV = position().vectorTo(targetPoint);
+        lunchYawRadius = (float) Math.atan2(deltaV.x, deltaV.z);
+        lunchPitchRadius = (float) Math.atan2(deltaV.y, Math.sqrt(deltaV.x * deltaV.x + deltaV.z * deltaV.z));
 
         return true;
     }

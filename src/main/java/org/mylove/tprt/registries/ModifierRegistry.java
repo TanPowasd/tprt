@@ -29,4 +29,5 @@ public class ModifierRegistry {
     public static final StaticModifier<test_entity_gen> test_entity_gen = MODIFIERS.register("test_entity_gen", test_entity_gen::new);
     public static final StaticModifier<test_entity_uuid> test_entity_uuid = MODIFIERS.register("test_entity_uuid", test_entity_uuid::new);
     public static final StaticModifier<test_ellipse> test_ellipse = MODIFIERS.register("test_ellipse", test_ellipse::new);
+    public static final StaticModifier<test_collide_hurt> test_collide_hurt = MODIFIERS.register("test_collide_hurt", test_collide_hurt::new);
 }
