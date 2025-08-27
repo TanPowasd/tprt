@@ -11,7 +11,7 @@
     },
     "sakuratinker:charm_core": {},
     "sakuratinker:spell_cloth": {
-      "base_spell_damage": 40.0,
+      "base_spell_damage": 50.0,
       "cast_time": 0.8,
       "spell_power": 1.2,
       "spell_reduce": 0.6

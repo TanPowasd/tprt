@@ -108,6 +108,10 @@
   "modifier.tprt.source_alloy_armor.flavor":"自然的魔力正在涌向你",
   "modifier.tprt.source_alloy_armor.description":"提升法术抗性，法力上限和法力回复速度",
 
+  "modifier.tprt.source_alloy_spell_cloth":"魔法凝聚",
+  "modifier.tprt.source_alloy_spell_cloth.flavor":"一字一言皆为法力凝聚",
+  "modifier.tprt.source_alloy_spell_cloth.description":"大幅提高法术强度",
+
   "modifier.tprt.sacred_sacrifice": "神圣献祭",
   "modifier.tprt.sacred_sacrifice.flavor": "以我之血",
   "modifier.tprt.sacred_sacrifice.description": "燃烧生命，杀死它们！",
