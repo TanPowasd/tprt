@@ -1,6 +1,7 @@
 package org.mylove.tprt.tags;
 
 import net.minecraft.world.entity.LivingEntity;
+import org.mylove.tprt.ModUsed.DeBug;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -31,39 +32,16 @@ public class disruption_break extends Modifier implements MeleeDamageModifierHoo
             float healthA= attacker.getHealth();
             float maxHealthE= entity.getMaxHealth();
             float maxHealthA= attacker.getMaxHealth();
-            if(healthE/maxHealthE<=0.1f){
-                //目标生命值不足10%直接斩杀
-                //挚爱无法触发
-                return Integer.MAX_VALUE;
-            }
-            else if(healthE<ArmorE){
-                //目标生命值小于护甲值，斩杀
-                return Integer.MAX_VALUE;
-            }
-            if (maxHealthE>maxHealthA&&healthE>healthA) {
-                //目标最大生命值比己方大，打出伤害增加差值
-                NewDamage+=(maxHealthE-maxHealthA)*modifier.getLevel();
-            }
-            else if(maxHealthE<healthA) {
-                //目标最大生命值比己方小，斩杀
-                //NewDamage*=Math.pow(1.2f,modifier.getLevel());
-                return Integer.MAX_VALUE;
-            }
-             if(damage>ArmorE){
-                NewDamage+=Math.max(5, (damage - ArmorE) * 0.5f)*modifier.getLevel();
-            }
-            if(ArmorA>ArmorE){
-                //己方护甲值大于目标护甲值，打出压制
-                NewDamage*=Math.pow(1.2f,modifier.getLevel());
-            }
-            else if(ArmorA<ArmorE){
-                //己方护甲值小于目标护甲值,打出额外伤害
-                NewDamage+=Math.max(5, (ArmorE - ArmorA) * 0.5f)*modifier.getLevel();
-            }
-            if(healthA>healthE||healthA>ArmorE){
-                NewDamage+=Math.abs(healthE-ArmorE)*modifier.getLevel();
-            }
-            return NewDamage;
+            DeBug.Logger.log("目标护甲值:"+ArmorE);
+            //DeBug.Logger.log("攻击者护甲值:"+ArmorA);
+            DeBug.Logger.log("目标生命值:"+healthE);
+            //DeBug.Logger.log("攻击者生命值:"+healthA);
+            DeBug.Logger.log("目标最大生命值:"+maxHealthE);
+            //DeBug.Logger.log("攻击者最大生命值:"+maxHealthA);
+            DeBug.Logger.log("输出"+(damage+0.5f*maxHealthE));
+            return damage+0.5f*maxHealthE;
+
+
         }
         return damage;
     }

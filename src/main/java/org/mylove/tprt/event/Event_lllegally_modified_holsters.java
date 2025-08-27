@@ -1,4 +1,4 @@
-package org.mylove.tprt.registries.event;
+package org.mylove.tprt.event;
 
 
 import net.minecraft.world.effect.MobEffectInstance;

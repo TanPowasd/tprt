@@ -48,7 +48,7 @@ public class Modblocks {
             ()-> new BlockItem(RAW_LR_BLOCK.get(),new Item.Properties()));
 
 
-    public static  void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
         BLOCKS.register(eventBus);
     }

@@ -6,7 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
-import org.mylove.tprt.registries.ModBuff.*;
+import org.mylove.tprt.ModBuff.*;
 
 public class ModBuffRegistry {
     public static final DeferredRegister<MobEffect>EFFECT=DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Tprt.MODID);

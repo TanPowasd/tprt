@@ -1,4 +1,4 @@
-package org.mylove.tprt.registries.ModBuff;
+package org.mylove.tprt.ModBuff;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;

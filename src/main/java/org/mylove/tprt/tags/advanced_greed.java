@@ -26,7 +26,7 @@ public class advanced_greed extends NoLevelsModifier implements MeleeDamageModif
         hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
     }
     public static MobEffect getEffect(){
-        ResourceLocation effectId=new ResourceLocation("tprt","myl_girig_pro");
+        ResourceLocation effectId=new ResourceLocation("tprt","myl_girig_pro.json");
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
     @Override

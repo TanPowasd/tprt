@@ -82,36 +82,49 @@ mandatory=true
 versionRange="[1.11.63,)"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.tprt]]
+modId="irons_spellbooks"
+mandatory=true
+versionRange="[1.20.1-3.3.0.1,)"
+ordering = "NONE"
+side = "BOTH"
+
 [[dependencies.tprt]]
 modId="jade"
 mandatory=false
 versionRange="[11.13.1,)"
 ordering = "NONE"
 side = "BOTH"
+
 [[dependencies.tprt]]
 modId="sakuratinker"
 mandatory=true
 versionRange="[1.3.0,)"
 ordering = "NONE"
 side = "BOTH"
+
 [[dependencies.tprt]]
 modId="etstlib"
 mandatory=true
 versionRange="[3.0.0-beta.10,)"
 ordering = "NONE"
 side = "BOTH"
+
 [[dependencies.tprt]]
 modId="curios"
 mandatory=true
 versionRange="[5.14.1+1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
+
 [[dependencies.tprt]]
 modId="tinkerscalibration"
 mandatory=false
 versionRange="[1.20.1-1.2.0f,)"
 ordering = "NONE"
 side = "BOTH"
+
 [[dependencies.tprt]]
 modId="cataclysm"
 mandatory=false
