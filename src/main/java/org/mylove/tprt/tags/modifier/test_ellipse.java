@@ -46,27 +46,52 @@ public class test_ellipse extends SingleLevelModifier implements UsingToolModifi
             b = 2*a/3;
 
             int all = 360;
+            Vec3 start = new Vec3(0, 64, 0);
+
             for (int i=0; i<=all; i++){
                 z = i * distance / all;
                 tmp = b*b - b*b * (z-a)*(z-a) / (a*a);
                 x = Math.sqrt(Math.abs(tmp));
 
-                Vec3 posEllipse = new Vec3(x,0,z).add(player.position());
-                level.addParticle(ParticleTypes.CRIT, posEllipse.x, posEllipse.y, posEllipse.z, 0, 0,0);
-
-                Vec3 posEllipse2 = new Vec3(x,0,z).yRot((float) Math.toRadians(90)).add(player.position());
-                level.addParticle(ParticleTypes.ENCHANTED_HIT, posEllipse2.x, posEllipse2.y, posEllipse2.z, 0, 0,0);
-
-                Vec3 posEllipse3 = new Vec3(x,0,z).zRot((float) Math.toRadians(90)).add(player.position());
-                level.addParticle(ParticleTypes.FALLING_HONEY, posEllipse3.x, posEllipse3.y, posEllipse3.z, 0, 0,0);
+//                Vec3 posEllipse = new Vec3(x,0,z).add(player.position());
+//                level.addParticle(ParticleTypes.CRIT, posEllipse.x, posEllipse.y, posEllipse.z, 0, 0,0);
+//
+//                Vec3 posEllipse2 = new Vec3(x,0,z).yRot((float) Math.toRadians(90)).add(player.position());
+//                level.addParticle(ParticleTypes.ENCHANTED_HIT, posEllipse2.x, posEllipse2.y, posEllipse2.z, 0, 0,0);
+//
+//                Vec3 posEllipse3 = new Vec3(x,0,z).zRot((float) Math.toRadians(90)).add(player.position());
+//                level.addParticle(ParticleTypes.FALLING_HONEY, posEllipse3.x, posEllipse3.y, posEllipse3.z, 0, 0,0);
 
                 // straight
-                z2 = i * distance / all;
-                Vec3 fi2 = new Vec3(0, 0, z2).xRot((float) Math.toRadians(-45)).add(player.position());
-                level.addParticle(ParticleTypes.ELECTRIC_SPARK, fi2.x, fi2.y, fi2.z, 0, 0,0);
 
-                Vec3 fi3 = new Vec3(0, 0, z2).xRot((float) Math.toRadians(-pitch)).yRot((float) Math.toRadians(-yaw)).add(player.position());
-                level.addParticle(ParticleTypes.ELECTRIC_SPARK, fi3.x, fi3.y, fi3.z, 0, 0,0);
+//                z2 = i * distance / all;
+//                Vec3 fi2 = new Vec3(0, 0, z2).xRot((float) Math.toRadians(-45)).add(player.position());
+//                level.addParticle(ParticleTypes.ELECTRIC_SPARK, fi2.x, fi2.y, fi2.z, 0, 0,0);
+//
+//                Vec3 fi3 = new Vec3(0, 0, z2).xRot((float) Math.toRadians(-pitch)).yRot((float) Math.toRadians(-yaw)).add(player.position());
+//                level.addParticle(ParticleTypes.ELECTRIC_SPARK, fi3.x, fi3.y, fi3.z, 0, 0,0);
+
+                // dynamic
+                double dis, zA, xA, dYaw, dPitch, px, py, pz, dx, dz;
+                Vec3 ply = player.position();
+                dis = start.distanceTo(ply);
+                a = dis / 2;
+                b = 2*a / 3;
+                zA = i * dis / all;
+                tmp = b*b - b*b * (zA-a)*(zA-a) / (a*a);
+                xA = Math.sqrt(Math.abs(tmp));
+
+                px = player.position().x;
+                py = player.position().y;
+                pz = player.position().z;
+                dx = px - 0;
+                dz = pz - 0;
+                // 0是start点的xz
+                dYaw = Math.atan2(px - 0, pz - 0);
+                dPitch = Math.atan2(py - 64, Math.sqrt(dx*dx + dz*dz));
+
+                Vec3 routeV = new Vec3(xA, 0, zA).xRot((float) dPitch).yRot((float) dYaw).add(start);
+                level.addParticle(ParticleTypes.LANDING_HONEY, routeV.x, routeV.y, routeV.z, 0, 0,0);
             }
         }
     }
