@@ -1,13 +1,19 @@
 package org.mylove.tprt.entities.flying_sword;
 
+import com.mojang.logging.LogUtils;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -17,6 +23,7 @@ import org.mylove.tprt.registries.ModEntities;
 import org.mylove.tprt.utilities.Abbr;
 import org.mylove.tprt.utilities.DeBug;
 import org.mylove.tprt.utilities.Math0;
+import org.slf4j.Logger;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -36,11 +43,14 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     // private static final EntityDataAccessor<String> DATA_MASTER_UUID = SynchedEntityData.defineId(FlyingSword.class, EntityDataSerializers.STRING);
     // private static final EntityDataAccessor<Integer> DATA_SLOT_NUMBER = SynchedEntityData.defineId(FlyingSword.class, EntityDataSerializers.INT);
     // private static final EntityDataAccessor<String> DATA_BEHAVIOR_MODE = SynchedEntityData.defineId(FlyingSword.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<ItemStack> DATA_ITEM_STACK = SynchedEntityData.defineId(FlyingSword.class, EntityDataSerializers.ITEM_STACK);
     private static final String MASTER_UUID = "MasterUUID";
     private static final String SLOT_NUMBER = "SlotNumber";
     // private static final String BEHAVIOR_MODE = "BehaviorMode";
+    private static final String ITEM_STACK = "ItemStack";
 
     // initialization
+    private static final Logger LOGGER = LogUtils.getLogger();
     public static final int maxLifetime = 40;
     private static final double displayDensity = .3;
     private static final int maxLunchCooldown = 18; // 这也是魔法数, 设计上应当9把剑都存在时可以无缝交替发射, 参考九剑词条中的魔法数
@@ -49,15 +59,13 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     // geckoLib
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
-    // animation(respect sakuraTinker)
-    private String animationState = "idle";
-    private int animationTick = 0;
 
     // normalAttributes
     public boolean noPhysics = true;
     private Player master;
     private String masterUUID;
     private String behaviorMode = "IDLE";
+    private ItemStack itemStack;
     private int slotNumber;
     private int lifeTime = maxLifetime;
     private int lunchCooldown = 0;
@@ -75,7 +83,6 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private double lunchEllipseShort;
     /** 长轴 */
     private double lunchEllipseMajor;
-    //private Vec3 lunchRotate;
 
 
     public FlyingSword(EntityType<FlyingSword> pEntityType, Level pLevel) {
@@ -86,6 +93,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
         setMasterUUID(player.getUUID().toString());
         setSlotNumber(slot);
+        setItemStack(stack);
 
         master = player;
         setPos(master.position().add(0,2,0));
@@ -154,6 +162,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     // 飞剑需要定期确定召唤者在身边，且对应slot的匠魂工具中有此剑的uuid
     private boolean checkToolStackValidate() {
+        if(itemStack == null) return false;
         // tinkerTool只有正常用构造器调用时才不为null且该值不写入硬盘, 故重建存档时销毁所有现存飞剑  (飞剑已经渐渐变成消耗品了, 悲
         // 若后续遇到性能问题再考虑优化实现 (例如对tinker工具的引用占用太多内存)
         // 破案了, IToolStackView是工具栈堆快照, 不动态更新
@@ -331,6 +340,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     /** 设置与服务器同步的数据 */
     @Override
     protected void defineSynchedData() {
+        entityData.define(DATA_ITEM_STACK, ItemStack.EMPTY);
         //改用生成时一次性同步的数据，因为masterUUID不会改变
         //entityData.define(DATA_MASTER_UUID, "");
         //entityData.define(DATA_SLOT_NUMBER, 0);
@@ -383,33 +393,9 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 //        controllers.add(new AnimationController<>(this, "Flying", 5, this::flyAnimController));
     }
 
-//    protected <E extends FlyingSword> PlayState flyAnimController(final AnimationState<E> event) {
-//        if (event.isMoving())
-//            return event.setAndContinue(FLY_ANIM);
-//
-//        return PlayState.STOP;
-//    }
-
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return geoCache;
-    }
-
-    // use vanilla renderer @sakuraTinker
-    public void setAnimationState(String state) {
-        if (!animationState.equals(state)) {
-            animationState = state;
-            animationTick = 0;
-        }
-    }
-    public String getAnimationState() {
-        return animationState;
-    }
-    public float getAnimationProgress(float partialTicks) {
-        return (animationTick + partialTicks) / 20f; // 一次动画20 tick
-    }
-    public Vec3 getSmoothedPosition(float partialTick) {
-        return position().add(getDeltaMovement().scale(partialTick));
     }
 
     /** 在当前位置生成一些烟雾, 在飞剑生成和销毁时调用 */
@@ -434,12 +420,17 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     // 对外方法 ===================================
     /** 外部调用的销毁函数, 会在一个攻击周期后自动销毁 */
     public void setToDiscard(@Nullable String message) {
-        DeBug.Console(master, slotNumber+"号剑将销毁: "+message);
+        // DeBug.Console(master, slotNumber+"号剑将销毁: "+message);
         isAboutToDiscard = true;
     }
 
     public int getSlotNumber() {
         return slotNumber;
+    }
+
+    @Nullable
+    public ItemStack getItemStack() {
+        return getEntityData().get(DATA_ITEM_STACK);
     }
 
 
@@ -452,24 +443,28 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private void setMasterUUID(String uuid) {
         masterUUID = uuid;
         // entityData.set(DATA_MASTER_UUID, uuid);
-        // 世界加载之初玩家尚未加入
-//        Player p = level().getPlayerByUUID(UUID.fromString(uuid));
-//        if(p!=null){
-//            master = p;
-//        }
     }
-
     private void setSlotNumber(int slot) {
         slotNumber = slot;
         //entityData.set(DATA_SLOT_NUMBER, slot);
     }
-
     /** @param mode: 0--IDLE; 1--LUNCH; 2--RECOUP */
     private void setBehaviorMode(int mode) {
+        // todo: 把状态机换成enum类型
         // assume 0 <= mode <= 2
         String toMode = BEHAVIOR_MODE_LIST[mode];
         behaviorMode = toMode;
         //entityData.set(DATA_BEHAVIOR_MODE, toMode);
     }
+    private void setItemStack(ItemStack stack) {
+        itemStack = stack;
+        // LOGGER.debug("setItemStack", stack.toString());
+        getEntityData().set(DATA_ITEM_STACK, stack);
+    }
 
+
+    //
+    static {
+        enum ABCDEF{}
+    }
 }

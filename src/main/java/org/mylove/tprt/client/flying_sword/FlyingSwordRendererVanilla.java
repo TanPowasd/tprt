@@ -2,28 +2,36 @@ package org.mylove.tprt.client.flying_sword;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.logging.LogUtils;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.entities.flying_sword.FlyingSword;
+import org.slf4j.Logger;
 
-// 添加一个原本渲染器用于排查渲染不同步问题
-// 借用一下魂樱的泰拉棱镜
-// https://github.com/ssakura49/Sakura-tinker/blob/main/src/main/java/com/ssakura49/sakuratinker/client/renderer/TerraPrismaRenderer.java#L18
+@OnlyIn(Dist.CLIENT)
 public class FlyingSwordRendererVanilla extends EntityRenderer<FlyingSword> {
-    private final FlyingSwordModelVanilla<FlyingSword> model;
-    private final ResourceLocation TEXTURE = new ResourceLocation(Tprt.MODID, "textures/model/flying_sword.png");
+    private final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "textures/model/flying_sword.png");
+    private final ItemRenderer itemRenderer;
 
     public FlyingSwordRendererVanilla(EntityRendererProvider.Context renderManager) {
         super(renderManager);
-        this.model = new FlyingSwordModelVanilla<>(renderManager.bakeLayer(FlyingSwordModelVanilla.LAYER_LOCATION));
+
+        itemRenderer = renderManager.getItemRenderer();
     }
 
     @Override
@@ -76,9 +84,26 @@ public class FlyingSwordRendererVanilla extends EntityRenderer<FlyingSword> {
 //        }
 //
         // 渲染模型
-        VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
-        model.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY,
-                1.0f, 1.0f, 1.0f, 1.0f);
+//        VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
+//        model.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY,
+//                1.0f, 1.0f, 1.0f, 1.0f);
+
+        /// 参考: package net.minecraft.world.entity.decoration;
+        /// ItemFrame
+        /// 大概render在clientSide跑, flyingSword是服务端实体, 想要有材质得把stack从服务端同步过来. 见FlyingSword#defineSynchedData
+        ItemStack stack = entity.getItemStack();
+        if(stack.isEmpty()){
+            stack = new ItemStack(Items.PORKCHOP);
+        }
+        itemRenderer.renderStatic(
+                stack,
+                ItemDisplayContext.GROUND,
+                packedLight,
+                OverlayTexture.NO_OVERLAY,
+                poseStack,
+                buffer,
+                entity.level(),
+                entity.getId());
 
         poseStack.popPose();
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);

@@ -30,6 +30,7 @@ public class ClientModEvents {
 
     @SubscribeEvent
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(FlyingSwordModelVanilla.LAYER_LOCATION, FlyingSwordModelVanilla::createLayer);
+        // we don't need anymore
+        // event.registerLayerDefinition(FlyingSwordModelVanilla.LAYER_LOCATION, FlyingSwordModelVanilla::createLayer);
     }
 }

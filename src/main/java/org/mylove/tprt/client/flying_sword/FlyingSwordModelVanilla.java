@@ -12,6 +12,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import org.mylove.tprt.Tprt;
 
+/// 08/28 飞剑模型基于物品渲染后此model已无必要, 放置于此致敬魂樱工匠, respect
+/// [@Github](https://github.com/ssakura49/Sakura-tinker/blob/5d90a24c1c3dad7a887a1f36d3385c0dbd1ef453/src/main/java/com/ssakura49/sakuratinker/client/model/TerraPrismaModel.java)
 public class FlyingSwordModelVanilla<T extends Entity> extends EntityModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Tprt.MODID, "flying_sword"), "main");
     private final ModelPart main;

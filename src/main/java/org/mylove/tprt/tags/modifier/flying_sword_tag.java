@@ -40,7 +40,7 @@ public class flying_sword_tag extends SingleLevelModifier implements
         FlyingSword flyingSword = new FlyingSword(tool, level, player, itemSlot, stack);
 
         level.addFreshEntity(flyingSword);
-        DeBug.Console(player, "生成飞剑: isClientSide = "+level.isClientSide+ itemSlot+"号");
+        DeBug.Console(player, "生成飞剑: isClientSide = "+level.isClientSide+ itemSlot+"号\n"+stack.toString());
         return flyingSword.getStringUUID();
     }
 
@@ -101,7 +101,7 @@ public class flying_sword_tag extends SingleLevelModifier implements
 
         }
 
-
+        // if(stack!=null && player.tickCount % 20 == 0) DeBug.Console(player, stack.toString());
         // DeBug.Console(player, "客户端："+level.isClientSide);
     }
 
