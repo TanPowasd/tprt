@@ -7,9 +7,12 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
+import java.util.UUID;
+
 public class dynamic_attack extends BaseModifier {
     //还没注册
     //动态攻击
+    UUID uuid = UUID.fromString("d2ab3741-d1ad-ccdd-1145-f37f1aac9cf1");
     public int cooldown=0;//动态攻击冷却时间:刻
     @Override
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {

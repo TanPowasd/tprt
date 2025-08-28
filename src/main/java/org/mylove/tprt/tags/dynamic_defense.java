@@ -11,9 +11,12 @@ import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import java.util.UUID;
+
 public class dynamic_defense extends BaseModifier {
     //还没注册
     //动态防守
+    UUID uuid = UUID.fromString("d2ab3741-d1ad-abcd-1145-f37f1aac9cf1");
     private int cooldown=15;//动态防守冷却时间:刻
     public int lastDamageTime=0;//上次受到伤害的时间
     @Override
