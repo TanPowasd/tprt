@@ -35,7 +35,6 @@ public class Tprt {
         modEventBus.addListener(this::commonSetup);
         ModMagic.register(modEventBus);
         ModifierRegistry.register(modEventBus);
-        MagicItem_cs.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }

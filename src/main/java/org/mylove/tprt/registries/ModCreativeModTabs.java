@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import org.mylove.tprt.ModSpells.thunder_att.MIAGIC_cs1;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.registries.item.ModItems;
 
@@ -42,7 +43,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.RED_TURTLE.get());
 
                         //magicitem
-                        pOutput.accept(MagicItem_cs.CS.get());
+                        //pOutput.accept(MIAGIC_cs1.get());
                     })
                     .build()
 
