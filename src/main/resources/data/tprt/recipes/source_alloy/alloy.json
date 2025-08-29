@@ -8,10 +8,6 @@
     {
       "amount": 1800,
       "fluid": "sakuratinker:molten_arcane_alloy"
-    },
-    {
-      "amount": 48000,
-      "fluid": "starbunclemania:source_fluid"
     }
   ],
   "result": {

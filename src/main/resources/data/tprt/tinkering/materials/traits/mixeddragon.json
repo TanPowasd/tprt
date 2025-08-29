@@ -9,8 +9,8 @@
         "name": "tprt:the_dragon_power"
       },
       {
-        "level": 1,
-        "name": "tprt:advanced_sharpness"
+        "level": 3,
+        "name": "tconstruct:sharpness"
       }
     ],
     "perStat": {
