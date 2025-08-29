@@ -91,6 +91,16 @@ public class FlyingSwordRendererVanilla extends EntityRenderer<FlyingSword> {
         /// 参考: package net.minecraft.world.entity.decoration;
         /// ItemFrame
         /// 大概render在clientSide跑, flyingSword是服务端实体, 想要有材质得把stack从服务端同步过来. 见FlyingSword#defineSynchedData
+
+        // todo: 缩放、旋转、对齐、拖尾
+        float xR;
+        xR = entity.getXRot();
+        poseStack.translate(0, .5, 0);
+        poseStack.scale(2, 2, 2);
+
+        poseStack.mulPose(Axis.YP.rotationDegrees(entityYaw));
+        poseStack.mulPose(Axis.ZP.rotationDegrees(-135));
+
         ItemStack stack = entity.getItemStack();
         if(stack.isEmpty()){
             stack = new ItemStack(Items.PORKCHOP);
@@ -106,6 +116,7 @@ public class FlyingSwordRendererVanilla extends EntityRenderer<FlyingSword> {
                 entity.getId());
 
         poseStack.popPose();
+
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
 

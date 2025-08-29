@@ -18,10 +18,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<FlyingSword>> FLYING_SWORD =
             ENTITY_TYPES.register("flying_sword", () -> EntityType.Builder
                     .<FlyingSword>of(FlyingSword::new, MobCategory.MISC)
-                    .sized(0.5F, 0.5F)
+                    .sized(0.5F, 1.0F)
                     .fireImmune()
                     .clientTrackingRange(16)
-                    .updateInterval(1) // default: 3, 越快动画越流畅(?)，gpu负担越大 // 之前写的20，nmd修了2天 // 或许插值比实际算的流畅? 待测试
+                    .updateInterval(1) // default: 3, 越快动画越流畅(?)，cpu负担越大 // 之前写的20，nmd修了2天 // 或许插值比实际算的流畅? 待测试
                     .build(ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "flying_sword").toString())
             );
 

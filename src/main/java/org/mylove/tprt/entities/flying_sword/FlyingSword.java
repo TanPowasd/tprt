@@ -1,7 +1,6 @@
 package org.mylove.tprt.entities.flying_sword;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -10,10 +9,10 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -22,7 +21,6 @@ import org.jetbrains.annotations.Nullable;
 import org.mylove.tprt.registries.ModEntities;
 import org.mylove.tprt.utilities.Abbr;
 import org.mylove.tprt.utilities.DeBug;
-import org.mylove.tprt.utilities.Math0;
 import org.slf4j.Logger;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -115,6 +113,9 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     public boolean isSilent() {
         return true;
     }
+    public boolean canChangeDimensions() {
+        return false;
+    }
     // public float getLightLevelDependentMagicValue() { return 1.0F; }
 
 
@@ -171,7 +172,7 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 //        String uuid =  tinkerTool.getPersistentData().getString(PERSISTENT_UUID_KEY);
 //        int slot =  tinkerTool.getPersistentData().getInt(PERSISTENT_SLOT);
 //
-//        DeBug.Console(master, slotNumber+"号--2\n"+getStringUUID()+"\n"+uuid+"\n"+slot);
+//        Console(master, slotNumber+"号--2\n"+getStringUUID()+"\n"+uuid+"\n"+slot);
 //        return !uuid.isEmpty() && uuid.equals(getStringUUID()) && slot == slotNumber;
 
         // ItemStack stack = master.getInventory().getItem(slotNumber).getItem();
@@ -192,14 +193,15 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     @Override
     public void baseTick() {
         level().getProfiler().push("flyingSwordBaseTick");
-        this.xRotO = this.getXRot();
-        this.yRotO = this.getYRot();
+        xRotO = getXRot();
+        yRotO = getYRot();
         clearFire();
         checkBelowWorld();
         level().getProfiler().pop();
     }
 
     private void IdleMode() {
+        faceMaster();
         Vec3 delta0 = getDeltaMovement();
         // 无指令时：1.保持在玩家背后 2.跟随移动 3.跟随传送
         Vec3 ownerBack = calculateIdlePos();
@@ -215,7 +217,8 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
         if (distance > 1.0e-7d) {
             // todo: 设置一个合适的跟随速度, 当前会抽搐, 大概是单次移动距离过大的原因
-            Vec3 motion = delta.normalize().scale(Math0.clamp(1.0e-7d + distance*distance*0.5, distance * 0.3, distance * 1));
+            Vec3 motion = delta.normalize().scale(Mth.clamp(distance*distance*0.5, 1.0e-7d, distance * 1));
+//            Vec3 motion = delta;
             setDeltaMovement(motion);
 
             setPos(current.add(motion));
@@ -232,11 +235,11 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
         position0 = position();
         lookingAngle = master.getLookAngle();
-        if(lookingAngle.x == 0 && lookingAngle.z == 0) return position0; // 避免抬头望天时缩成一团
+        if(lookingAngle.y == 1 || lookingAngle.y == -1 || (lookingAngle.x == 0 && lookingAngle.z == 0)) return position0; // 避免抬头望天时缩成一团
 
         slotCoefficient = Math.ceil((double) slotNumber /2);
         horizontalOffset = Math.pow(-1, slotNumber) * slotCoefficient * displayDensity;
-        verticalOffset = .3 - slotCoefficient * .1;
+        verticalOffset = 1.0 - slotCoefficient * .15;
 
         masterBack = lookingAngle.scale(-1.2 + 0.1 * slotCoefficient); // 排列为弧形
         back = new Vec3(masterBack.x, 0, masterBack.z).normalize();
@@ -343,8 +346,17 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     private void faceMaster() {
         facePoint(master.position());
     }
-    private void facePoint(Vec3 point) {
-
+    private void facePoint(Vec3 target) {
+        //entity#lookAt方法
+        Vec3 vec3 = position();
+        double d0 = target.x - vec3.x;
+        double d1 = target.y - vec3.y;
+        double d2 = target.z - vec3.z;
+        double d3 = Math.sqrt(d0 * d0 + d2 * d2);
+        setXRot(Mth.wrapDegrees((float)(-(Mth.atan2(d1, d3) * (double)(180F / (float)Math.PI)))));
+        setYRot(Mth.wrapDegrees((float)(Mth.atan2(d2, d0) * (double)(180F / (float)Math.PI)) - 90.0F));
+        xRotO = getXRot();
+        yRotO = getYRot();
     }
 
     /** 获取就绪状态 */
@@ -442,7 +454,6 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     // 对外方法 ===================================
     /** 外部调用的销毁函数, 会在一个攻击周期后自动销毁 */
     public void setToDiscard(@Nullable String message) {
-        // DeBug.Console(master, slotNumber+"号剑将销毁: "+message);
         isAboutToDiscard = true;
     }
 
@@ -480,7 +491,6 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     }
     private void setItemStack(ItemStack stack) {
         itemStack = stack;
-        // LOGGER.debug("setItemStack", stack.toString());
         getEntityData().set(DATA_ITEM_STACK, stack);
     }
 
