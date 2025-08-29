@@ -207,6 +207,10 @@
   "modifier.tprt.luck_strike.flavor": "自古枪兵。。。",
   "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低",
 
+  "modifier.tprt.cinder_slash": "灰烬斩击",
+  "modifier.tprt.cinder_slash.flavor": "现价3900",
+  "modifier.tprt.cinder_slash.description": "造成伤害的一定比例向后溅射；等级越高，溅射越远，倍率越高",
+
   "modifier.tprt.d2_lucky_pants": "幸运裤",
   "modifier.tprt.d2_lucky_pants.flavor": "来自异域",
   "modifier.tprt.d2_lucky_pants.description": " “什么？没有，我没有非法改造枪套。这只是一条超级幸运的裤子！”——凯德6号 ",
