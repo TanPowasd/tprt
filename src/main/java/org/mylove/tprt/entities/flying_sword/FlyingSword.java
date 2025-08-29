@@ -192,6 +192,8 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
     @Override
     public void baseTick() {
         level().getProfiler().push("flyingSwordBaseTick");
+        this.xRotO = this.getXRot();
+        this.yRotO = this.getYRot();
         clearFire();
         checkBelowWorld();
         level().getProfiler().pop();
@@ -225,11 +227,24 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
 
     private Vec3 calculateIdlePos() {
         // 快捷栏的每把飞剑都有自己对应的位置: 7 5 3 1 0 2 4 6 8
-        Vec3 masterBack = master.getLookAngle().scale(-1.5);
-        // 构造垂直向量，简单的几何学：他们的点积为零 即perpendicular.dot(masterBack) = 0
-        Vec3 perpendicular = new Vec3(masterBack.z, 0, -1 * masterBack.x).normalize();
-        double slotPosition = Math.pow(-1, slotNumber) * Math.ceil((double) slotNumber /2) * displayDensity;
-        return master.position().add(masterBack.add(perpendicular.scale(slotPosition)));
+        Vec3 masterBack, back, perpendicular, verOffset, position0, lookingAngle;
+        double slotCoefficient, horizontalOffset, verticalOffset;
+
+        position0 = position();
+        lookingAngle = master.getLookAngle();
+        if(lookingAngle.x == 0 && lookingAngle.z == 0) return position0; // 避免抬头望天时缩成一团
+
+        slotCoefficient = Math.ceil((double) slotNumber /2);
+        horizontalOffset = Math.pow(-1, slotNumber) * slotCoefficient * displayDensity;
+        verticalOffset = .3 - slotCoefficient * .1;
+
+        masterBack = lookingAngle.scale(-1.2 + 0.1 * slotCoefficient); // 排列为弧形
+        back = new Vec3(masterBack.x, 0, masterBack.z).normalize();
+        // 构造垂直向量
+        perpendicular = new Vec3(masterBack.z, 0, -1 * masterBack.x).normalize();
+        verOffset = new Vec3(0, verticalOffset, 0);
+
+        return master.position().add(back.add(perpendicular.scale(horizontalOffset)).add(verOffset));
     }
 
     private void LunchingMode() {
@@ -323,6 +338,13 @@ public class FlyingSword extends Entity implements GeoEntity, IEntityAdditionalS
         } else {
             setBehaviorMode(0);
         }
+    }
+
+    private void faceMaster() {
+        facePoint(master.position());
+    }
+    private void facePoint(Vec3 point) {
+
     }
 
     /** 获取就绪状态 */
