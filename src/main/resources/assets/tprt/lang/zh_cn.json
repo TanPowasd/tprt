@@ -213,5 +213,9 @@
 
   "modifier.tprt.d2_half_truth": "真假参半",
   "modifier.tprt.d2_half_truth.flavor": "急切刀锋",
-  "modifier.tprt.d2_half_truth.description": "切换到此武器后立即提高刀剑前冲距离"
+  "modifier.tprt.d2_half_truth.description": "切换到此武器后立即提高刀剑前冲距离",
+
+  "modifier.tprt.dynamic_attack": "动态攻击",
+
+  "modifier.tprt.dynamic_defense": "动态防守"
 }

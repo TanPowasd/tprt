@@ -1,4 +1,4 @@
-package org.mylove.tprt.registries;
+package org.mylove.tprt.registries.item;
 
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
+import org.mylove.tprt.registries.ModFoods;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -62,6 +63,7 @@ public class ModItems {
 //超级幸运E
     public static final RegistryObject<Item>BLUE_LANCER=ITEMS.register("blue_lancer",
         () -> new Item(new Item.Properties()));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
