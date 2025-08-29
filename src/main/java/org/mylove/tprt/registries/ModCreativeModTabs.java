@@ -7,7 +7,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import org.mylove.tprt.ModSpells.thunder_att.MIAGIC_cs1;
 import org.mylove.tprt.Tprt;
+import org.mylove.tprt.registries.item.ModItems;
 
 public class ModCreativeModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS=
@@ -18,12 +20,12 @@ public class ModCreativeModTabs {
                     .title(Component.translatable("creativetab.tprt_tab"))
                     .withSearchBar()
                     .displayItems((pParameters, pOutput) -> {
+                        //ModItem
                         pOutput.accept(ModItems.LRIRON.get());
                         pOutput.accept(ModItems.RAW_LRIRON.get());
                         pOutput.accept(ModItems.AWAIRON.get());
                         pOutput.accept(ModItems.RAW_AWAIRON.get());
                         pOutput.accept(ModItems.TANPOWASD.get());
-                        // pOutput.accept(Items.DIAMOND);
                         pOutput.accept(Modblocks.LR_BLOCK_ITEM.get());
                         pOutput.accept(Modblocks.RAW_LR_BLOCK_ITEM.get());
                         pOutput.accept(ModItems.LR_APPLE.get());
@@ -39,6 +41,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.ADVANCED_MANYULLYN.get());
                         pOutput.accept(ModItems.BLUE_LANCER.get());
                         pOutput.accept(ModItems.RED_TURTLE.get());
+
+                        //magicitem
+                        //pOutput.accept(MIAGIC_cs1.get());
                     })
                     .build()
 

@@ -44,5 +44,7 @@ public class ModifierRegistry {
     public static final StaticModifier<mechanical_star_att> MECHANICAL_STAR_ATT = MODIFIERS.register("mechanical_star_att",mechanical_star_att::new);
     public static final StaticModifier<mechanical_star_arm> MECHANICAL_STAR_ARM = MODIFIERS.register("mechanical_star_arm",mechanical_star_arm::new);
     public static final StaticModifier<machine_iron_casting> MACHINE_IRON_CASTING = MODIFIERS.register("machine_iron_casting",machine_iron_casting::new);
+    public static final StaticModifier<dynamic_attack> DYNAMIC_ATTACK = MODIFIERS.register("dynamic_attack",dynamic_attack::new);
+    public static final StaticModifier<dynamic_defense> DYNAMIC_DEFENSE = MODIFIERS.register("dynamic_defense",dynamic_defense::new);
 
 }

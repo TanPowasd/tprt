@@ -26,6 +26,10 @@
       {
         "name": "tprt:d2_lucky_pants",
         "level": 1
+      },
+      {
+        "name": "tprt:dynamic_attack",
+        "level": 1
       }
     ],
     "tconstruct:binding": [
@@ -37,6 +41,36 @@
     "tconstruct:maille": [{
       "name": "tprt:double_or_none",
       "level": 1
-    }]
+    }],
+    "tconstruct:plating_boots": [
+      {
+        "name":"tprt:dynamic_defense",
+        "level":1
+      }
+    ],
+    "tconstruct:plating_chestplate": [
+      {
+        "name":"tprt:dynamic_defense",
+        "level":1
+      }
+    ],
+    "tconstruct:plating_helmet": [
+      {
+        "name":"tprt:dynamic_defense",
+        "level":1
+      }
+    ],
+    "tconstruct:plating_leggings": [
+      {
+        "name":"tprt:dynamic_defense",
+        "level":1
+      }
+    ],
+    "tconstruct:plating_shield": [
+      {
+        "name":"tprt:dynamic_defense",
+        "level":1
+      }
+    ]
   }
 }

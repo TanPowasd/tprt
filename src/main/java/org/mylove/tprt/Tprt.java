@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.mylove.tprt.registries.*;
+import org.mylove.tprt.registries.item.ModItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -26,7 +27,6 @@ public class Tprt {
     public Tprt(FMLJavaModLoadingContext context) {
 //        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus modEventBus = context.getModEventBus();
-
         ModFluids.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
@@ -35,7 +35,6 @@ public class Tprt {
         modEventBus.addListener(this::commonSetup);
         ModMagic.register(modEventBus);
         ModifierRegistry.register(modEventBus);
-
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
@@ -46,12 +45,6 @@ public class Tprt {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey()==CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.LRIRON);
-            event.accept(ModItems.RAW_LRIRON);
-            event.accept(ModItems.AWAIRON);
-            event.accept(ModItems.RAW_AWAIRON);
-            event.accept(ModItems.TANPOWASD);
-            event.accept(ModItems.KING_OF_FOREST);
         }
     }
 
