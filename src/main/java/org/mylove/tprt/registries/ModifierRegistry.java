@@ -47,5 +47,6 @@ public class ModifierRegistry {
     public static final StaticModifier<dynamic_attack> DYNAMIC_ATTACK = MODIFIERS.register("dynamic_attack",dynamic_attack::new);
     public static final StaticModifier<dynamic_defense> DYNAMIC_DEFENSE = MODIFIERS.register("dynamic_defense",dynamic_defense::new);
     public static final StaticModifier<cinder_slash> CINDER_SLASH = MODIFIERS.register("cinder_slash",cinder_slash::new);
+    public static final StaticModifier<infinite_dropping> INFINITE_DROPPING = MODIFIERS.register("infinite_dropping",infinite_dropping::new);
 
 }
