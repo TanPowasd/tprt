@@ -46,6 +46,9 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
     private static double getDamageMuti(int tagLevel){
         return .4 + tagLevel * .2;
     }
+    private static int getRangeMuti(int tagLevel){
+        return 7 + tagLevel * 4;
+    }
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
@@ -68,9 +71,9 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
         speedMuti = tagLevel * 2;
 
         /// 大致思路是在击中地点创建一个大盒子，检测盒中实体是不是在攻击者->目标的锥形范围内，判定一次
-        boxX = 7 + tagLevel * 4;
-        boxY = 7 + tagLevel * 4;
-        boxZ = 7 + tagLevel * 4;
+        boxX = getRangeMuti(tagLevel);
+        boxY = getRangeMuti(tagLevel);
+        boxZ = getRangeMuti(tagLevel);
         AABB range = AABB.ofSize(tar, boxX, boxY, boxZ);
         List<? extends Entity> entitiesList = level.getEntities(attacker, range,
                 entity -> entity instanceof LivingEntity && entity.isPickable() && entity.isAlive());
@@ -130,10 +133,13 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
         ToolType type = ToolType.from(tool.getItem(), TYPES);
         if (type != null) {
             int level = modifier.getLevel();
-            double bonus = getDamageMuti(level);
-            if (bonus > 0) {
-                // todo: 加个lang
-                TooltipModifierHook.addPercentBoost(this, TooltipModifierHook.statName(this, ToolStats.ATTACK_DAMAGE), bonus, tooltip);
+            double bonus1 = getDamageMuti(level);
+            double bonus2 = (double) getRangeMuti(level) / 2;
+            if (bonus1 > 0) {
+                TooltipModifierHook.addPercentBoost(this, TooltipModifierHook.statName(this, ToolStats.ATTACK_DAMAGE), bonus1, tooltip);
+            }
+            if (bonus2 > 0) {
+                TooltipModifierHook.addFlatBoost(this, TooltipModifierHook.statName(this, ToolStats.USE_ITEM_SPEED), bonus2, tooltip);
             }
         }
     }
