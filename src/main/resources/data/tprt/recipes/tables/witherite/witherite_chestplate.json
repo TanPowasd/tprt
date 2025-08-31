@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item":"cataclysm:witherite_ingot"
+    },
+    "B": {
+      "item":"tconstruct:pattern"
+    }
+  },
+  "pattern": [
+    "A A",
+    "BAB",
+    "B B"
+  ],
+  "result": {
+    "item": "tconstruct:chestplate_plating",
+    "count": 1,
+    "nbt": "{Material:\"tprt:witherite\"}"
+  }
+}

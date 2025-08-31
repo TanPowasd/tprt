@@ -5,6 +5,7 @@
     "source_alloy": "#ffdd3a",
     "ignitium": "#FFF08226",
     "cursium": "#FF5BCAC1",
+    "witherite": "#FF303030",
     "advanced_manyullyn": "#5300b8"
   },
   "modifier.tprt": {
@@ -27,6 +28,10 @@
     "advanced_cheer_up": "#FF80FFFF",
     "advanced_greed": "#5300b8",
     "advanced_sharpness": "#EEDD82",
-    "heart_of_life": "#FFFF0000"
+    "heart_of_life": "#FFFF0000",
+    "machine_iron_casting": "#FF303030",
+    "mechanical_star_arm": "#FF303030",
+    "mechanical_star_att": "#FF303030",
+    "mechanical_innovation": "#FF303030"
   }
 }

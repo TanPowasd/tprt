@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "cataclysm:witherite_block"
+    },
+    {
+      "item": "cataclysm:mechanical_fusion_anvil"
+    },
+    {
+      "item": "cataclysm:wither_assault_shoulder_weapon"
+    },
+    {
+      "item": "cataclysm:meat_shredder"
+    },
+    {
+      "item": "cataclysm:laser_gatling"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:mechanical_innovation",
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}

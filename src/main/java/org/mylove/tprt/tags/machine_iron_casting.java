@@ -26,7 +26,7 @@ import static com.ssakura49.sakuratinker.utils.tinker.ToolUtil.getSingleModifier
 public class machine_iron_casting extends BaseModifier {
     @Override
     public boolean isNoLevels() {
-        return false;
+        return true;
     }
     //private static final UUID BASE_ARMOR_UUID = UUID.fromString("a0a7a0a7-a0a7-a0a7a0a7a0a7");
     private static final UUID BONUS_ARMOR_UUID = UUID.fromString("4EC371FD-3F8B-4052-881E-FC32AEB7968F");
@@ -37,13 +37,13 @@ public class machine_iron_casting extends BaseModifier {
         consumer.accept(Attributes.ARMOR,new AttributeModifier(
                 BONUS_ARMOR_UUID,
                 "Bonus Armor",
-                0.1f,
+                0.2f,
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         ));
         consumer.accept(Attributes.MOVEMENT_SPEED,new AttributeModifier(
                 BONUS_MOVESPEED_UUID,
                 "Bonus Movement Speed",
-                -0.15f,
+                -0.25f,
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         ));
     }

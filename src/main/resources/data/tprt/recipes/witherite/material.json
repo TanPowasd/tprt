@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "cataclysm:witherite_ingot"
+  },
+  "material": "tprt:witherite",
+  "needed": 1,
+  "value": 1
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item":"cataclysm:witherite_ingot"
+    },
+    "B": {
+      "item":"tconstruct:pattern"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "B B",
+    "   "
+  ],
+  "result": {
+    "item": "tconstruct:helmet_plating",
+    "count": 1,
+    "nbt": "{Material:\"tprt:witherite\"}"
+  }
+}

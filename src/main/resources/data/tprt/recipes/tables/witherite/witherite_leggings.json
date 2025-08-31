@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item":"cataclysm:witherite_ingot"
+    },
+    "B": {
+      "item":"tconstruct:pattern"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "A A",
+    "B B"
+  ],
+  "result": {
+    "item": "tconstruct:leggings_plating",
+    "count": 1,
+    "nbt": "{Material:\"tprt:witherite\"}"
+  }
+}
