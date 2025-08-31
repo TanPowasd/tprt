@@ -29,9 +29,9 @@ public class machine_iron_casting extends BaseModifier {
         return false;
     }
     //private static final UUID BASE_ARMOR_UUID = UUID.fromString("a0a7a0a7-a0a7-a0a7a0a7a0a7");
-    private static final UUID BONUS_ARMOR_UUID = UUID.fromString("b0b7b0b7-b0b7-b0b7b0b7b0b7");
+    private static final UUID BONUS_ARMOR_UUID = UUID.fromString("4EC371FD-3F8B-4052-881E-FC32AEB7968F");
     //private static final UUID BASE_MOVESPEED_UUID = UUID.fromString("c0c7c0c7-c0c7-c0c7c0c7c0c7");
-    private static final UUID BONUS_MOVESPEED_UUID = UUID.fromString("d0d7d0d7-d0d7-d0d7d0d7d0d7");
+    private static final UUID BONUS_MOVESPEED_UUID = UUID.fromString("295198B3-94CA-48B2-9FFD-B76C622796B1");
     @Override
     public void addAttributes(IToolStackView tool, ModifierEntry modifier, EquipmentSlot slot, BiConsumer<Attribute, AttributeModifier> consumer) {
         consumer.accept(Attributes.ARMOR,new AttributeModifier(
