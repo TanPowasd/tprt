@@ -18,7 +18,7 @@ import java.util.UUID;
 public class mechanical_star_arm extends BaseModifier {
     UUID uuid = UUID.fromString("9ACB057A-9A85-4C60-B54B-D521AF85CE08");
 
-    static ResourceLocation XSF_don=new ResourceLocation("tprt","mechanical_star_arm_don");
+    static ResourceLocation XSF_don=new ResourceLocation("tprt","mechanical_star_arm");
     public static final TinkerDataCapability.TinkerDataKey<SlotInChargeModule.SlotInCharge> SLOT_IN_CHARGE = TinkerDataCapability.TinkerDataKey.of(XSF_don);
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
