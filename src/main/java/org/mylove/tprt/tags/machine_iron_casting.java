@@ -40,13 +40,13 @@ public class machine_iron_casting extends BaseModifier {
             AttributeInstance speedAttr= self.getAttribute(Attributes.MOVEMENT_SPEED);
             std=getSingleModifierArmorAllLevel(self, modifier.getModifier());
             if(speedAttr!=null){
-                speed=(float) speedAttr.getBaseValue();
-                double newSpeed = (speedAttr.getBaseValue() * (1 -0.15f * std));
+                speed=(float) speedAttr.getValue();
+                double newSpeed = (speedAttr.getValue() * (1 -0.15f * std));
                 speedAttr.setBaseValue(newSpeed);
             }
             if (armorAttr != null) {
-                armor = (float) armorAttr.getBaseValue();
-                double newArmor = (armorAttr.getBaseValue() * (1 + 0.1f * std));
+                armor = (float) armorAttr.getValue();
+                double newArmor = (armorAttr.getValue() * (1 + 0.1f * std));
                 armorAttr.setBaseValue(newArmor);
             }
             }
@@ -61,10 +61,10 @@ public class machine_iron_casting extends BaseModifier {
                 AttributeInstance armorAttr = self.getAttribute(Attributes.ARMOR);
                 AttributeInstance speedAttr= self.getAttribute(Attributes.MOVEMENT_SPEED);
                 if(speedAttr!=null){
-                    speedAttr.setBaseValue(speed);
+                    speedAttr.setBaseValue(0.1f);
                 }
                 if (armorAttr != null) {
-                    armorAttr.setBaseValue(armor);
+                    armorAttr.setBaseValue(0);
                 }
             }
         }
