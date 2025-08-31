@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class SpellMagic {
+
     public static List<HitResult> Radiographic_detection_GetEntity(LivingEntity player, float distance) {
         Level level = player.level(); // 获取玩家所在的世界
         if (!level.isClientSide) {
