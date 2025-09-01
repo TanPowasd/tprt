@@ -207,9 +207,41 @@
   "modifier.tprt.advanced_sharpness_fix_2.description":"每级提高10%攻击力",
   "modifier.tprt.advanced_sharpness_fix_2.requirements": "需要利刃出鞘Ⅲ强化作为前置",
 
+  "modifier.tprt.netherite_spell_book": "远古法典增强",
+  "modifier.tprt.netherite_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.netherite_spell_book.description":"+200最大法力值，+20%法术冷却缩减",
+
+  "modifier.tprt.gold_spell_book": "学徒魔导书增强",
+  "modifier.tprt.gold_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.gold_spell_book.description":"+50最大法力值，+15%法术吟唱缩减",
+
+  "modifier.tprt.evoker_spell_book": "唤魔者典籍增强",
+  "modifier.tprt.evoker_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.evoker_spell_book.description":"+200最大法力值，+10%唤魔法术强度",
+
+  "modifier.tprt.blaze_spell_book": "炽焰术士典籍增强",
+  "modifier.tprt.blaze_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.blaze_spell_book.description":"+200最大法力值，+10%炽焰法术强度",
+
+  "modifier.tprt.necronomicon_spell_book": "亡灵律典增强",
+  "modifier.tprt.necronomicon_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.necronomicon_spell_book.description":"+200最大法力值，+10%猩红法术强度",
+
+  "modifier.tprt.dragonskin_spell_book": "龙鳞魔导书增强",
+  "modifier.tprt.dragonskin_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.dragonskin_spell_book.description":"+200最大法力值，+10%末影法术强度",
+
+  "modifier.tprt.villager_spell_book": "村民圣典增强",
+  "modifier.tprt.villager_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.villager_spell_book.description":"+200最大法力值，+8%神圣法术强度，+8%法术吟唱缩减",
+
+  "modifier.tprt.druidic_spell_book": "德鲁伊巨著增强",
+  "modifier.tprt.druidic_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.druidic_spell_book.description":"+200最大法力值，+10%自然法术强度",
+
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",
-  "modifer.tprt.real_attack.description": "直触目标的灵魂，忽视其部分护甲和抗性",
+  "modifier.tprt.real_attack.description": "直触目标的灵魂，忽视其部分护甲和抗性",
 
   "modifier.tprt.double_or_none": "狂赌深渊",
   "modifier.tprt.double_or_none.flavor": "0 or 2 ?",
