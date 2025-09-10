@@ -171,6 +171,10 @@
   "modifier.tprt.mechanical_innovation.flavor":"利用这种跨时代的材料锻造你的装备",
   "modifier.tprt.mechanical_innovation.description":"远古工程的杰作为你带来了一个升级槽，一个防御以及一个能力槽",
 
+  "modifier.tprt.storm_potential": "风暴潜能",
+  "modifier.tprt.storm_potential.flavor":"风暴的精粹附魔了你的装备",
+  "modifier.tprt.storm_potential.description":"难以驾驭的风暴为你带来了一个升级槽，一个防御以及一个能力槽",
+
   "modifier.tprt.solid_armor": "坚固护甲",
   "modifier.tprt.solid_armor.flavor":"锻造你的护甲，使其更加坚固",
   "modifier.tprt.solid_armor.description":"以一个升级槽为代价获得一个防御槽",

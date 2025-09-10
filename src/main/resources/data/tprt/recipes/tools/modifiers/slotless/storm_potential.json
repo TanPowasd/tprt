@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "cataclysm:astrape"
+    },
+    {
+      "item": "cataclysm:essence_of_the_storm"
+    },
+    {
+      "item": "cataclysm:ceraunus"
+    },
+    {
+      "item": "cataclysm:azure_sea_shield"
+    },
+    {
+      "item": "cataclysm:azure_sea_shield"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:storm_potential",
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}
