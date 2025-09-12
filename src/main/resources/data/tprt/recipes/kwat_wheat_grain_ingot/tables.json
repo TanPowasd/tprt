@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "immortalers_delight:kwat_wheat_block"
+    }
+  },
+  "pattern": [
+    "   ",
+    "WWW",
+    "WWW"
+  ],
+  "result": {
+    "item": "tprt:kwat_wheat_grain_ingot"
+  }
+}

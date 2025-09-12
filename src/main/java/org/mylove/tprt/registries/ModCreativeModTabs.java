@@ -39,6 +39,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.PIG_BUN.get());
                         pOutput.accept(ModItems.SOURCE_ALLOY.get());
                         pOutput.accept(ModItems.ADVANCED_MANYULLYN.get());
+                        pOutput.accept(ModItems.KWAT_WHEAT_GRAIN_INGOT.get());
                         pOutput.accept(ModItems.BLUE_LANCER.get());
                         pOutput.accept(ModItems.RED_TURTLE.get());
 

@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tprt:kwat_wheat_grain_ingot"
+  },
+  "material": "tprt:kwat_wheat_grain_ingot",
+  "needed": 1,
+  "value": 1
+}

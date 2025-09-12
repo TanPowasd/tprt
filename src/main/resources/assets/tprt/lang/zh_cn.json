@@ -14,10 +14,11 @@
   "item.tprt.king_of_magic": "法术核心",
   "item.tprt.king_of_mc": "原版核心",
   "item.tprt.tanpowasd": "挚爱",
-  "item.tprt.mixeddragon":"龙神钢",
-  "item.tprt.forged_steel": "锻造钢",
-  "item.tprt.source_alloy": "源质合金",
-  "item.tprt.advanced_manyullyn": "超限玛玉灵",
+  "item.tprt.mixeddragon":"龙神钢锭",
+  "item.tprt.forged_steel": "锻造钢锭",
+  "item.tprt.source_alloy": "源质合金锭",
+  "item.tprt.advanced_manyullyn": "超限玛玉灵锭",
+  "item.tprt.kwat_wheat_grain_ingot": "瓦斯麦谷锭",
   "item.tprt.pig_bun": "🐖包",
   "item.tprt.red_turtle": "红温🐢",
   "item.tprt.blue_lancer": "蓝色枪兵",
@@ -73,6 +74,9 @@
 
   "material.tprt.advanced_manyullyn":"超限玛玉灵",
   "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
+
+  "material.tprt.kwat_wheat_grain_ingot":"瓦斯麦谷锭",
+  "material.tprt.kwat_wheat_grain_ingot.flavor":"远古的孑遗",
 
   "material.tprt.blue_lancer":"蓝色枪兵",
   "material.tprt.blue_lancer.flavor":"旋转突进的蓝色枪兵",
@@ -158,6 +162,10 @@
   "modifier.tprt.machine_iron_casting": "机铁铸就",
   "modifier.tprt.machine_iron_casting.flavor":"这种高密度材料带来的防御性能无与伦比，但是也非常沉重",
   "modifier.tprt.machine_iron_casting.description":"+20%护甲值，但是-25%移动速度",
+
+  "modifier.tprt.gas_poison": "绯烬烈灼",
+  "modifier.tprt.gas_poison.flavor":"被这种奇异的远古作物灼伤后，你产生了将其作为武器的想法",
+  "modifier.tprt.gas_poison.description":"攻击造成绯烬烈灼效果",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",

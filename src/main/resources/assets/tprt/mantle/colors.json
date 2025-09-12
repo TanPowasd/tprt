@@ -6,7 +6,8 @@
     "ignitium": "#FFF08226",
     "cursium": "#FF5BCAC1",
     "witherite": "#FF303030",
-    "advanced_manyullyn": "#5300b8"
+    "advanced_manyullyn": "#5300b8",
+    "kwat_wheat_grain_ingot": "#8e1031"
   },
   "modifier.tprt": {
     "mixeddragon_armor":"#EEDD82",
@@ -28,11 +29,14 @@
     "advanced_cheer_up": "#FF80FFFF",
     "advanced_greed": "#5300b8",
     "advanced_sharpness": "#EEDD82",
+    "advanced_sharpness_fix_1": "#EEDD82",
+    "advanced_sharpness_fix_2": "#EEDD82",
     "heart_of_life": "#FFFF0000",
     "machine_iron_casting": "#FF303030",
     "mechanical_star_arm": "#FF303030",
     "mechanical_star_att": "#FF303030",
     "mechanical_innovation": "#FF303030",
-    "storm_potential": "#FF0080C0"
+    "storm_potential": "#FF0080C0",
+    "gas_poison": "#8e1031"
   }
 }

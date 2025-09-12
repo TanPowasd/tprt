@@ -1,0 +1,21 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:mob_effect",
+      "effect": "immortalers_delight:gas_poison",
+      "hooks": [
+        "tconstruct:melee_hit",
+        "tconstruct:projectile_hit"
+      ],
+      "level": {
+        "flat": 3
+      },
+      "time": {
+        "each_level": 300.0,
+        "random": 100.0
+      }
+    }
+  ],
+  "tooltip_display": "always"
+}
