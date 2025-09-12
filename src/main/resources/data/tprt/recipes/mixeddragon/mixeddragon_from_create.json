@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "tprt:forged_steel"
   },
-  "loops": 32,
+  "loops": 18,
   "results": [
     {
       "item": "tprt:mixeddragon"
