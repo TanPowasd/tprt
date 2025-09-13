@@ -1,8 +1,5 @@
 package org.mylove.tprt.tags;
 
-import com.ssakura49.sakuratinker.SakuraTinker;
-import com.ssakura49.sakuratinker.library.hooks.combat.GenericCombatHook;
-import com.ssakura49.sakuratinker.library.tinkering.tools.STHooks;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
@@ -15,6 +12,9 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import org.jetbrains.annotations.Nullable;
+import org.mylove.tprt.Tprt;
+import org.mylove.tprt.hooks.KillingHook;
+import org.mylove.tprt.registries.ModHooks;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -31,12 +31,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /// 千年, 即 630,720,000,000 tick
-public class millennium extends NoLevelsModifier implements GenericCombatHook, TooltipModifierHook, GeneralInteractionModifierHook, InventoryTickModifierHook {
+public class millennium extends NoLevelsModifier implements KillingHook, TooltipModifierHook, GeneralInteractionModifierHook, InventoryTickModifierHook {
     public static final ToolType[] CAN_BE_USE_ON_TYPES = {ToolType.MELEE};
     public static final int TickConsumePerT = 5;
 
-    private static final ResourceLocation MILLENNIUM_TIME = ResourceLocation.fromNamespaceAndPath(SakuraTinker.MODID, "millennium_time");
-    private static final ResourceLocation MILLENNIUM_ACTIVE = ResourceLocation.fromNamespaceAndPath(SakuraTinker.MODID, "millennium_active");
+    private static final ResourceLocation MILLENNIUM_TIME = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "millennium_time");
+    private static final ResourceLocation MILLENNIUM_ACTIVE = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "millennium_active");
 
     public enum RANK {
         SSS(630720000000f),
@@ -55,8 +55,13 @@ public class millennium extends NoLevelsModifier implements GenericCombatHook, T
     }
 
     @Override
+    public int getPriority() {
+        return 1;
+    }
+
+    @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        hookBuilder.addHook(this, STHooks.GENERIC_COMBAT, ModifierHooks.TOOLTIP, ModifierHooks.GENERAL_INTERACT, ModifierHooks.INVENTORY_TICK);
+        hookBuilder.addHook(this, ModHooks.KILLING_HOOK, ModifierHooks.TOOLTIP, ModifierHooks.GENERAL_INTERACT, ModifierHooks.INVENTORY_TICK);
     }
 
     @Override
