@@ -7,7 +7,8 @@
     "cursium": "#FF5BCAC1",
     "witherite": "#FF303030",
     "advanced_manyullyn": "#5300b8",
-    "kwat_wheat_grain_ingot": "#8e1031"
+    "kwat_wheat_grain_ingot": "#8e1031",
+    "evil_beast_alloy":"#FF443738"
   },
   "modifier.tprt": {
     "mixeddragon_armor":"#EEDD82",
@@ -37,6 +38,8 @@
     "mechanical_star_att": "#FF303030",
     "mechanical_innovation": "#FF303030",
     "storm_potential": "#FF0080C0",
-    "gas_poison": "#8e1031"
+    "gas_poison": "#8e1031",
+    "cinder_slash": "#FF443738",
+    "the_power_of_beast": "#FF443738"
   }
 }

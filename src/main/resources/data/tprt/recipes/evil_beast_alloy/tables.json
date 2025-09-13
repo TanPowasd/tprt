@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "M": {
+      "item": "cataclysm:monstrous_horn"
+    },
+    "I": {
+      "item": "cataclysm:infernal_forge"
+    },
+    "L": {
+      "item": "cataclysm:lava_power_cell"
+    }
+  },
+  "pattern": [
+    "LML",
+    "LIL",
+    "LLL"
+  ],
+  "result": {
+    "item": "tprt:evil_beast_alloy_ingot",
+    "count": 4
+  }
+}

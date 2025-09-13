@@ -19,6 +19,7 @@
   "item.tprt.source_alloy": "源质合金锭",
   "item.tprt.advanced_manyullyn": "超限玛玉灵锭",
   "item.tprt.kwat_wheat_grain_ingot": "瓦斯麦谷锭",
+  "item.tprt.evil_beast_alloy_ingot": "恶兽合金锭",
   "item.tprt.pig_bun": "🐖包",
   "item.tprt.red_turtle": "红温🐢",
   "item.tprt.blue_lancer": "蓝色枪兵",
@@ -71,6 +72,9 @@
 
   "material.tprt.witherite":"凋零合金",
   "material.tprt.witherite.flavor":"上古的科技结晶",
+
+  "material.tprt.evil_beast_alloy":"恶兽合金",
+  "material.tprt.evil_beast_alloy.flavor":"灵魂锻造厂的沉默守卫",
 
   "material.tprt.advanced_manyullyn":"超限玛玉灵",
   "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
@@ -163,25 +167,35 @@
   "modifier.tprt.machine_iron_casting.flavor":"这种高密度材料带来的防御性能无与伦比，但是也非常沉重",
   "modifier.tprt.machine_iron_casting.description":"+20%护甲值，但是-25%移动速度",
 
+  "modifier.tprt.cinder_slash": "熔毁",
+  "modifier.tprt.cinder_slash.flavor": "迸射熔岩的毁灭打击",
+  "modifier.tprt.cinder_slash.description": "附带攻击伤害一定比例的后方溅射伤害；等级越高，溅射越远，倍率越高",
+  "modifier.tprt.cinder_slash.attack_damage": "熔毁倍率",
+  "modifier.tprt.cinder_slash.use_item_speed": "熔毁范围",
+
   "modifier.tprt.gas_poison": "绯烬烈灼",
   "modifier.tprt.gas_poison.flavor":"被这种奇异的远古作物灼伤后，你产生了将其作为武器的想法",
   "modifier.tprt.gas_poison.description":"攻击造成绯烬烈灼效果",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
-  "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽，一个防御以及一个能力槽",
+  "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽，一个防御槽以及一个能力槽",
 
   "modifier.tprt.the_spirit_of_evil_curse": "恶咒之灵",
   "modifier.tprt.the_spirit_of_evil_curse.flavor":"诅咒的力量重塑了你的装备",
-  "modifier.tprt.the_spirit_of_evil_curse.description":"这位诅咒亡灵的力量为你带来了一个升级槽，一个防御以及一个能力槽",
+  "modifier.tprt.the_spirit_of_evil_curse.description":"这位诅咒亡灵的力量为你带来了一个升级槽，一个防御槽以及一个能力槽",
 
   "modifier.tprt.mechanical_innovation": "机械革新",
   "modifier.tprt.mechanical_innovation.flavor":"利用这种跨时代的材料锻造你的装备",
-  "modifier.tprt.mechanical_innovation.description":"远古工程的杰作为你带来了一个升级槽，一个防御以及一个能力槽",
+  "modifier.tprt.mechanical_innovation.description":"远古工程的杰作为你带来了一个升级槽，一个防御槽以及一个能力槽",
+
+  "modifier.tprt.the_power_of_beast": "恶兽之威",
+  "modifier.tprt.the_power_of_beast.flavor":"先民的奇异科技加护了你的装备",
+  "modifier.tprt.the_power_of_beast.description":"下界先民的遗馈为你带来了一个升级槽和一个防御槽",
 
   "modifier.tprt.storm_potential": "风暴潜能",
   "modifier.tprt.storm_potential.flavor":"风暴的精粹附魔了你的装备",
-  "modifier.tprt.storm_potential.description":"难以驾驭的风暴为你带来了一个升级槽，一个防御以及一个能力槽",
+  "modifier.tprt.storm_potential.description":"难以驾驭的风暴为你带来了一个升级槽，一个防御槽以及一个能力槽",
 
   "modifier.tprt.solid_armor": "坚固护甲",
   "modifier.tprt.solid_armor.flavor":"锻造你的护甲，使其更加坚固",
@@ -269,12 +283,6 @@
   "modifier.tprt.luck_strike": "幸运一击",
   "modifier.tprt.luck_strike.flavor": "自古枪兵。。。",
   "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低",
-
-  "modifier.tprt.cinder_slash": "灰烬斩击",
-  "modifier.tprt.cinder_slash.flavor": "现价3900",
-  "modifier.tprt.cinder_slash.description": "附带攻击伤害一定比例的后方溅射伤害；等级越高，溅射越远，倍率越高",
-  "modifier.tprt.cinder_slash.attack_damage": "灰烬斩击倍率",
-  "modifier.tprt.cinder_slash.use_item_speed": "灰烬斩击范围",
 
   "modifier.tprt.d2_lucky_pants": "幸运裤",
   "modifier.tprt.d2_lucky_pants.flavor": "来自异域",

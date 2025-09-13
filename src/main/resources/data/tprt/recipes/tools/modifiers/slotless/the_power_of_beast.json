@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tprt:evil_beast_alloy_ingot"
+    },
+    {
+      "item": "tprt:evil_beast_alloy_ingot"
+    },
+    {
+      "item": "tprt:evil_beast_alloy_ingot"
+    },
+    {
+      "item": "cataclysm:monstrous_helm"
+    },
+    {
+      "item": "cataclysm:infernal_forge"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:the_power_of_beast",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}
