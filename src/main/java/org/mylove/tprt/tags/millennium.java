@@ -92,6 +92,7 @@ public class millennium extends NoLevelsModifier implements
             float addTime = target.tickCount;
             System.out.println(time0+ " : " +addTime);
 
+            // 其实nan检测不必要, 懒得改了
             if (!Float.isNaN(time0)){
                 tool.getPersistentData().putFloat(MILLENNIUM_TIME, time0 + addTime);
             } else {
@@ -165,9 +166,15 @@ public class millennium extends NoLevelsModifier implements
     }
     private static RANK calculateRank(float ticks) {
         RANK rank = RANK.E;
-        var optional = Arrays.stream(RANK.values()).filter(R -> ticks >= R.tickRequired).findFirst();
-        if (optional.isPresent()) {
-            rank = optional.get();
+//        var optional = Arrays.stream(RANK.values()).filter(R -> ticks >= R.tickRequired).findFirst();
+//        if (optional.isPresent()) {
+//            rank = optional.get();
+//        }
+        for(RANK c : RANK.values()){
+            if(ticks >= c.tickRequired) {
+                rank = c;
+                break;
+            }
         }
         return rank;
     }
