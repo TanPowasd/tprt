@@ -272,7 +272,7 @@
 
   "modifier.tprt.cinder_slash": "灰烬斩击",
   "modifier.tprt.cinder_slash.flavor": "现价3900",
-  "modifier.tprt.cinder_slash.description": "税前伤害的一定比例向后溅射；等级越高，溅射越远，倍率越高",
+  "modifier.tprt.cinder_slash.description": "附带攻击伤害一定比例的后方溅射伤害；等级越高，溅射越远，倍率越高",
   "modifier.tprt.cinder_slash.attack_damage": "灰烬斩击倍率",
   "modifier.tprt.cinder_slash.use_item_speed": "灰烬斩击范围",
 
