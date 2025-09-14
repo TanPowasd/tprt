@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:soul_sakura"
+    },
+    {
+      "item": "sakuratinker:soul_sakura"
+    },
+    {
+      "item": "sakuratinker:soul_sakura"
+    },
+    {
+      "item": "sakuratinker:soul_sakura"
+    },
+    {
+      "item": "sakuratinker:soul_sakura"
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": "tprt:strengthen_for_charm_attack_damage",
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    }
+  ]
+}

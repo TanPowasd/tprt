@@ -265,6 +265,26 @@
   "modifier.tprt.druidic_spell_book.flavor":"镌刻法典的力量",
   "modifier.tprt.druidic_spell_book.description":"+200最大法力值，+10%自然法术强度",
 
+  "modifier.tprt.strengthen_for_charm_attack_damage": "护符增强——近战伤害",
+  "modifier.tprt.strengthen_for_charm_attack_damage.flavor":"深渊之力",
+  "modifier.tprt.strengthen_for_charm_attack_damage.description":"每级+2.5%近战伤害",
+
+  "modifier.tprt.strengthen_for_charm_ranged": "护符增强——箭矢伤害",
+  "modifier.tprt.strengthen_for_charm_ranged.flavor":"深度穿透",
+  "modifier.tprt.strengthen_for_charm_ranged.description":"每级+3.5%箭矢伤害",
+
+  "modifier.tprt.strengthen_for_charm_spell_power": "护符增强——法术强度",
+  "modifier.tprt.strengthen_for_charm_spell_power.flavor":"法力灌注",
+  "modifier.tprt.strengthen_for_charm_spell_power.description":"每级+5%法术强度",
+
+  "modifier.tprt.strengthen_for_charm_armor": "护符增强——盔甲防护",
+  "modifier.tprt.strengthen_for_charm_armor.flavor":"硬化躯体",
+  "modifier.tprt.strengthen_for_charm_armor.description":"每级+3.5%护甲值，+2.5%盔甲韧性",
+
+  "modifier.tprt.strengthen_for_charm_endurance": "护符增强——生命延续",
+  "modifier.tprt.strengthen_for_charm_endurance.flavor":"细胞活化",
+  "modifier.tprt.strengthen_for_charm_endurance.description":"每级+3.5%受到的治疗效果",
+
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",
   "modifier.tprt.real_attack.description": "直触目标的灵魂，忽视其部分护甲和抗性",

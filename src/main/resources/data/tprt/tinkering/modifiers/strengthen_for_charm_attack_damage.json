@@ -5,12 +5,13 @@
       "type": "sakuratinker:multi_curio_attribute",
       "attributes": [
         {
-          "attribute": "irons_spellbooks:spell_power",
+          "attribute": "minecraft:generic.attack_damage",
           "operation": "multiply_total",
-          "value": 0.50
+          "tooltip_style": "percent",
+          "value": 0.025
         }
       ],
-      "name": "tprt:source_alloy_spell_cloth"
+      "name": "tprt:strengthen_for_charm_attack_damage"
     }
   ],
   "tooltip_display": "always"

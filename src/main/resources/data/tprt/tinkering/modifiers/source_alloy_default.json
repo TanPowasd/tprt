@@ -11,6 +11,7 @@
       "type": "tconstruct:attribute",
       "each_level": 0.4,
       "operation": "addition",
+      "tooltip_style": "percent",
       "attribute": "l2damagetracker:magic_damage",
       "unique": "tconstruct.modifier.source_alloy",
       "slots": [

@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:terracryst"
+    },
+    {
+      "item": "sakuratinker:terracryst"
+    },
+    {
+      "item": "sakuratinker:terracryst"
+    },
+    {
+      "item": "sakuratinker:bear_interest_ingot"
+    },
+    {
+      "item": "sakuratinker:bear_interest_ingot"
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "tprt:strengthen_for_charm_endurance",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    }
+  ]
+}
