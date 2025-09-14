@@ -21,6 +21,7 @@
       "each_level": 0.2,
       "operation": "addition",
       "attribute": "irons_spellbooks:spell_resist",
+      "tooltip_style": "percent",
       "unique": "tconstruct.modifier.source_alloy_armor",
       "slots": [
         "feet",

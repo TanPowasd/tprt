@@ -6,11 +6,12 @@
       "attributes": [
         {
           "attribute": "irons_spellbooks:spell_power",
-          "operation": "multiply_total",
-          "value": 0.50
+          "operation": "addition",
+          "tooltip_style": "percent",
+          "value": 0.05
         }
       ],
-      "name": "tprt:source_alloy_spell_cloth"
+      "name": "tprt:strengthen_for_charm_spell_power"
     }
   ],
   "tooltip_display": "always"

@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:eezo_ingot"
+    },
+    {
+      "item": "sakuratinker:eezo_ingot"
+    },
+    {
+      "item": "sakuratinker:eezo_ingot"
+    },
+    {
+      "item": "sakuratinker:eezo_ingot"
+    },
+    {
+      "item": "sakuratinker:eezo_ingot"
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "slots": {
+    "defense": 1
+  },
+  "result": "tprt:strengthen_for_charm_armor",
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    }
+  ]
+}

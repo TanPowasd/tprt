@@ -11,8 +11,9 @@
         },
         {
           "attribute": "l2damagetracker:magic_damage",
-          "operation": "addition",
-          "value": 0.75
+          "operation": "multiply_total",
+          "tooltip_style": "percent",
+          "value": 0.50
         },
         {
           "attribute": "puffish_attributes:natural_regeneration",

@@ -40,6 +40,11 @@
     "storm_potential": "#FF0080C0",
     "gas_poison": "#8e1031",
     "cinder_slash": "#FF443738",
-    "the_power_of_beast": "#FF443738"
+    "the_power_of_beast": "#FF443738",
+    "strengthen_for_charm_spell_power": "#FF6A5ACD",
+    "strengthen_for_charm_attack_damage": "#FFE4E1",
+    "strengthen_for_charm_armor": "#FAFAD2",
+    "strengthen_for_charm_ranged": "#F5DEB3",
+    "strengthen_for_charm_endurance": "#FFF0F5"
   }
 }

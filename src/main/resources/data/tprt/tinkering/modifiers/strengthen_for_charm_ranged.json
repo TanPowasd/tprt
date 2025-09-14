@@ -5,12 +5,14 @@
       "type": "sakuratinker:multi_curio_attribute",
       "attributes": [
         {
-          "attribute": "irons_spellbooks:spell_power",
+          "type": "tconstruct:attribute",
           "operation": "multiply_total",
-          "value": 0.50
+          "attribute": "attributeslib:arrow_damage",
+          "tooltip_style": "percent",
+          "value": 0.035
         }
       ],
-      "name": "tprt:source_alloy_spell_cloth"
+      "name": "tprt:strengthen_for_charm_ranged"
     }
   ],
   "tooltip_display": "always"
