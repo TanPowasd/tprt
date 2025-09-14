@@ -10,6 +10,11 @@
           "value": 200.0
         },
         {
+          "attribute": "irons_spellbooks:max_mana",
+          "operation": "addition",
+          "value": 200.0
+        },
+        {
           "attribute": "irons_spellbooks:evocation_spell_power",
           "operation": "addition",
           "value": 0.10

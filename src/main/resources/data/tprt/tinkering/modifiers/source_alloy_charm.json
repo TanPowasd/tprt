@@ -10,6 +10,11 @@
           "value": -100.0
         },
         {
+          "attribute": "irons_spellbooks:mana_regen",
+          "operation": "addition",
+          "value": -100.0
+        },
+        {
           "attribute": "l2damagetracker:magic_damage",
           "operation": "multiply_total",
           "tooltip_style": "percent",

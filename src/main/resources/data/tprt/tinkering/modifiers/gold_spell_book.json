@@ -10,6 +10,11 @@
           "value": 50.0
         },
         {
+          "attribute": "irons_spellbooks:max_mana",
+          "operation": "addition",
+          "value": 50.0
+        },
+        {
           "attribute": "irons_spellbooks:cast_time_reduction",
           "operation": "addition",
           "value": 0.15
