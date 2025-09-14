@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "goety:soul_ruby"
+    },
+    {
+      "item": "goety:philosophers_stone"
+    },
+    {
+      "item": "goety:redstone_golem_skull"
+    },
+    {
+      "item": "goety:heart_of_the_night"
+    },
+    {
+      "item": "goety:bygone_scroll"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:philosophers_stone",
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}
