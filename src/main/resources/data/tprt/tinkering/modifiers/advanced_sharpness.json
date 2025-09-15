@@ -24,7 +24,7 @@
     },
     {
       "type": "tconstruct:stat_boost",
-      "each_level": 2.5,
+      "each_level": 2.75,
       "operation": "add",
       "stat": "tconstruct:attack_damage",
       "unique": "tconstruct.modifier.advanced_sharpness"

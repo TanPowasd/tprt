@@ -224,18 +224,8 @@
 
   "modifier.tprt.advanced_sharpness": "利刃出鞘",
   "modifier.tprt.advanced_sharpness.flavor":"无往不利的利刃",
-  "modifier.tprt.advanced_sharpness.description":"第一级提高2.5+10%攻击力，之后每级提高2.5攻击力",
+  "modifier.tprt.advanced_sharpness.description":"第一级提高2.75+10%攻击力，之后每级提高2.75攻击力",
   "modifier.tprt.advanced_sharpness.requirements": "需要锋利Ⅲ强化作为前置",
-
-  "modifier.tprt.advanced_sharpness_fix_1": "利刃出鞘Ⅰ",
-  "modifier.tprt.advanced_sharpness_fix_1.flavor":"无往不利的利刃",
-  "modifier.tprt.advanced_sharpness_fix_1.description":"每级提高10%攻击力",
-  "modifier.tprt.advanced_sharpness_fix_1.requirements": "需要利刃出鞘Ⅱ强化作为前置",
-
-  "modifier.tprt.advanced_sharpness_fix_2": "利刃出鞘Ⅱ",
-  "modifier.tprt.advanced_sharpness_fix_2.flavor":"无往不利的利刃",
-  "modifier.tprt.advanced_sharpness_fix_2.description":"每级提高10%攻击力",
-  "modifier.tprt.advanced_sharpness_fix_2.requirements": "需要利刃出鞘Ⅲ强化作为前置",
 
   "modifier.tprt.netherite_spell_book": "远古法典增强",
   "modifier.tprt.netherite_spell_book.flavor":"镌刻法典的力量",
