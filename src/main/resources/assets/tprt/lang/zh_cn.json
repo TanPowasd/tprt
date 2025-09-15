@@ -145,7 +145,7 @@
 
   "modifier.tprt.bitter_cold": "苦寒",
   "modifier.tprt.bitter_cold.flavor":"极地的严寒浸入骨髓",
-  "modifier.tprt.bitter_cold.description":"攻击额外造成15点冰冻伤害",
+  "modifier.tprt.bitter_cold.description":"攻击额外造成10点冰冻伤害",
 
   "modifier.tprt.soul_dodge": "魂灵闪避",
   "modifier.tprt.soul_dodge.flavor":"身体仿若幽魂",
