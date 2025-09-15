@@ -6,9 +6,8 @@
       "attributes": [
         {
           "attribute": "irons_spellbooks:spell_power",
-          "operation": "multiply_addition",
-          "tooltip_style": "percent",
-          "value": 0.05
+          "operation": "addition",
+          "value": 0.08
         }
       ],
       "name": "tprt:strengthen_for_charm_spell_power"
