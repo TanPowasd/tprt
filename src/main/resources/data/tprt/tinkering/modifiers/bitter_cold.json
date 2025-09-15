@@ -3,7 +3,7 @@
   "modules": [
     {
       "type": "tconstruct:attribute",
-      "each_level": 15,
+      "each_level": 10,
       "operation": "addition",
       "attribute": "attributeslib:cold_damage",
       "unique": "tconstruct.modifier.bitter_cold",

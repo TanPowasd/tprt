@@ -2,7 +2,7 @@
 
     "stats": {
     "sakuratinker:charm_chain": {
-      "armor": 0.4,
+      "armor": 0.35,
       "arrow_damage": 0.25,
       "damage": 0.4,
       "health": 35,
@@ -13,14 +13,14 @@
       "tconstruct:binding": {},
       "tconstruct:handle": {
         "durability": 0.4,
-        "melee_damage": 0.4,
+        "melee_damage": 0.45,
         "melee_speed": 0.35,
         "mining_speed": 0.3
       },
       "tconstruct:head": {
         "durability": 1250,
-        "melee_attack": 8,
-        "mining_speed": 8,
+        "melee_attack": 7.5,
+        "mining_speed": 7.5,
         "mining_tier": "minecraft:netherite"
       },
       "tconstruct:grip": {
