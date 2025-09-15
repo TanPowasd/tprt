@@ -7,7 +7,7 @@
         {
           "attribute": "irons_spellbooks:spell_power",
           "operation": "addition",
-          "value": 0.08
+          "value": 0.05
         }
       ],
       "name": "tprt:strengthen_for_charm_spell_power"

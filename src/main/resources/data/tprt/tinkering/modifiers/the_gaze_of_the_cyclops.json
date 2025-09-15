@@ -1,0 +1,21 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:mob_effect",
+      "effect": "minecraft:weakness",
+      "hooks": [
+        "tconstruct:melee_hit",
+        "tconstruct:projectile_hit"
+      ],
+      "level": {
+        "flat": 2
+      },
+      "time": {
+        "each_level": 1000.0,
+        "random": 100.0
+      }
+    }
+  ],
+  "tooltip_display": "always"
+}

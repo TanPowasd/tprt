@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "iceandfire:cyclops_eye"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:the_gaze_of_the_cyclops",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable/melee/weapon"
+    }
+  ]
+}

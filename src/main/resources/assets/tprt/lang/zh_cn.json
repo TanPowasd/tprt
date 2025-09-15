@@ -269,7 +269,7 @@
 
   "modifier.tprt.strengthen_for_charm_spell_power": "护符增强——法术强度",
   "modifier.tprt.strengthen_for_charm_spell_power.flavor":"法力灌注",
-  "modifier.tprt.strengthen_for_charm_spell_power.description":"每级+8%法术强度",
+  "modifier.tprt.strengthen_for_charm_spell_power.description":"每级+5%法术强度",
 
   "modifier.tprt.strengthen_for_charm_armor": "护符增强——盔甲防护",
   "modifier.tprt.strengthen_for_charm_armor.flavor":"硬化躯体",
@@ -278,6 +278,10 @@
   "modifier.tprt.strengthen_for_charm_endurance": "护符增强——生命延续",
   "modifier.tprt.strengthen_for_charm_endurance.flavor":"细胞活化",
   "modifier.tprt.strengthen_for_charm_endurance.description":"每级+3.5%受到的治疗效果",
+
+  "modifier.tprt.the_gaze_of_the_cyclops": "独眼巨人的凝视",
+  "modifier.tprt.the_gaze_of_the_cyclops.flavor":"“你不觉得这个大眼球看着有些瘆得慌么？”——无名骑士",
+  "modifier.tprt.the_gaze_of_the_cyclops.description":"攻击附带短时间的虚弱2",
 
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",
