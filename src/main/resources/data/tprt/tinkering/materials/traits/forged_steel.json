@@ -6,7 +6,7 @@
       },
       {
         "level": 1,
-        "name": "tprt:forged_steel"
+        "name": "tprt:be_thoroughly_tempered"
       }
     ],
     "perStat": {
@@ -17,7 +17,7 @@
         },
         {
             "level": 1,
-            "name": "tprt:forged_steel"
+            "name": "tprt:be_thoroughly_tempered"
         }
       ],
       "tconstruct:ranged": [
@@ -27,7 +27,7 @@
         },
         {
             "level": 1,
-            "name": "tprt:forged_steel"
+            "name": "tprt:be_thoroughly_tempered"
         }
       ]
     }

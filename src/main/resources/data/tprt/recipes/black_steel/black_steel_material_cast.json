@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:material_fluid",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 90,
+    "fluid": "tprt:molten_black_steel"
+  },
+  "output": "tprt:black_steel",
+  "temperature": 1000
+}

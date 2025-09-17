@@ -49,6 +49,7 @@
   "fluid.tconstruct.forged_steel_fluid": "熔融锻造钢",
   "fluid.tconstruct.molten_cursium": "熔融咒魂",
   "fluid.tconstruct.molten_advanced_manyullyn": "熔融超限玛玉灵",
+  "fluid.tconstruct.molten_black_steel": "熔融黑钢",
 
 
 
@@ -75,6 +76,9 @@
 
   "material.tprt.evil_beast_alloy":"恶兽合金",
   "material.tprt.evil_beast_alloy.flavor":"灵魂锻造厂的沉默守卫",
+
+  "material.tprt.black_steel":"黑钢",
+  "material.tprt.black_steel.flavor":"受诅咒侵染的金属",
 
   "material.tprt.advanced_manyullyn":"超限玛玉灵",
   "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
@@ -177,6 +181,10 @@
   "modifier.tprt.gas_poison.flavor":"被这种奇异的远古作物灼伤后，你产生了将其作为武器的想法",
   "modifier.tprt.gas_poison.description":"攻击造成绯烬烈灼效果",
 
+  "modifier.tprt.soul_infection": "魂灵浸染",
+  "modifier.tprt.soul_infection.flavor":"长期的浸润使它充满魂灵的力量",
+  "modifier.tprt.soul_infection.description":"小幅度提升工具的所有属性",
+
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
   "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽，一个防御槽以及一个能力槽",
@@ -200,6 +208,10 @@
   "modifier.tprt.philosophers_stone": "贤者之石",
   "modifier.tprt.philosophers_stone.flavor":"炼金术的结晶重构了你的装备",
   "modifier.tprt.philosophers_stone.description":"炼金术的巅峰之作为你带来了一个升级槽，一个防御槽以及一个能力槽",
+
+  "modifier.tprt.the_power_of_nine_dragons": "九龙之力",
+  "modifier.tprt.the_power_of_nine_dragons.flavor":"“那我问你，你头顶怎么尖尖的。”",
+  "modifier.tprt.the_power_of_nine_dragons.description":"横行世间的众龙为你带来了一个升级槽和一个防御槽,使工具的攻击力+9%,法术强度-9%",
 
   "modifier.tprt.solid_armor": "坚固护甲",
   "modifier.tprt.solid_armor.flavor":"锻造你的护甲，使其更加坚固",

@@ -1,0 +1,31 @@
+{
+  "level_display": "tconstruct:single_level",
+  "modules": [
+    {
+      "type": "tconstruct:modifier_slot",
+      "count": 1,
+      "name": "upgrades"
+    },
+    {
+      "type": "tconstruct:modifier_slot",
+      "count": 1,
+      "name": "defense"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.09,
+      "operation": "multiply_base",
+      "stat": "tconstruct:attack_damage"
+    },
+    {
+      "type": "tconstruct:attribute",
+      "each_level": -0.09,
+      "operation": "addition",
+      "attribute": "irons_spellbooks:spell_power",
+      "slots": [
+        "mainhand"
+      ]
+    }
+  ],
+  "tooltip_display": "tinker_station"
+}

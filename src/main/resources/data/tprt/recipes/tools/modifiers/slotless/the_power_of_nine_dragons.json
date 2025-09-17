@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "iceandfire:dragonsteel_fire_ingot"
+    },
+    {
+      "item": "iceandfire:dragonsteel_ice_ingot"
+    },
+    {
+      "item": "iceandfire:dragonsteel_lightning_ingot"
+    },
+    {
+      "tag": "iceandfire:dragon_skulls"
+    },
+    {
+      "item": "iceandfire:dragon_bone_block"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:the_power_of_nine_dragons",
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}

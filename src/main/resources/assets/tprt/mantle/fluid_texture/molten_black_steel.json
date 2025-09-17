@@ -1,0 +1,5 @@
+{
+  "color": "FF000000",
+  "flowing": "tprt:fluid/molten_black_steel/flowing",
+  "still": "tprt:fluid/molten_black_steel/still"
+}

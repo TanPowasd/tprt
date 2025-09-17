@@ -8,7 +8,8 @@
     "witherite": "#FF303030",
     "advanced_manyullyn": "#5300b8",
     "kwat_wheat_grain_ingot": "#8e1031",
-    "evil_beast_alloy":"#FF443738"
+    "evil_beast_alloy":"#FF443738",
+    "black_steel": "#FF2C2C2C"
   },
   "modifier.tprt": {
     "mixeddragon_armor":"#EEDD82",
@@ -45,6 +46,8 @@
     "strengthen_for_charm_ranged": "#F5DEB3",
     "strengthen_for_charm_endurance": "#FFF0F5",
     "philosophers_stone": "#FF00FF",
-    "the_gaze_of_the_cyclops": "#696969"
+    "the_gaze_of_the_cyclops": "#696969",
+    "the_power_of_nine_dragons": "#FF4F5688",
+    "soul_infection": "#FF2C2C2C"
   }
 }

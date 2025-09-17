@@ -4,10 +4,10 @@
     "sakuratinker:charm_chain": {
       "armor": 0.35,
       "arrow_damage": 0.25,
-      "damage": 0.4,
-      "health": 35,
+      "damage": 0.25,
+      "health": 30,
       "movement_speed": 0.3,
-      "toughness": 0.4
+      "toughness": 0.25
     },
     "sakuratinker:charm_core": {},      
       "tconstruct:binding": {},
@@ -29,10 +29,10 @@
         "melee_damage": 5
       },
       "tconstruct:limb": {
-        "accuracy": 0.6,
-        "draw_speed": 0.6,
+        "accuracy": 0.45,
+        "draw_speed": 0.45,
         "durability": 750,
-        "velocity": 0.6
+        "velocity": 0.45
       },
       "tconstruct:maille": {},
       "tconstruct:plating_boots": {
@@ -42,19 +42,19 @@
         "toughness": 2
       },
       "tconstruct:plating_chestplate": {
-        "armor": 12,
+        "armor": 10,
         "durability": 1200,
         "knockback_resistance": 0.12,
         "toughness": 4
       },
       "tconstruct:plating_helmet": {
-        "armor": 7.5,
+        "armor": 7.0,
         "durability": 800,
         "knockback_resistance": 0.07,
         "toughness": 2
       },
       "tconstruct:plating_leggings": {
-        "armor": 10.5,
+        "armor": 8.5,
         "durability": 1000,
         "knockback_resistance": 0.10,
         "toughness": 3
