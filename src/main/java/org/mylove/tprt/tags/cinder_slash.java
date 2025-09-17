@@ -60,7 +60,7 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
         att = attacker.position();
         tar = target.position();
         vecT = att.vectorTo(tar).normalize();
-        speedMuti = tagLevel * 2;
+        speedMuti = (double) getRangeMuti(tagLevel) / 12;
 
         /// 大致思路是在击中地点创建一个大盒子，检测盒中实体是不是在攻击者->目标的锥形范围内，判定一次
         /// 09/16 魂樱中有个连锁闪电, 跟这个思路一样
@@ -79,10 +79,10 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
             // 这里能获取到实体, 但交互为何---
             // 破案了, 假人会把伤害吞掉
             // 暂时没找到方法让粒子锥形发射, 就先写成被命中目标散发粒子好了
-            captured.playSound(SoundEvents.FIRE_EXTINGUISH, .4f, 1);
+            captured.playSound(SoundEvents.LAVA_EXTINGUISH, .4f, 1);
             for (int i = 0; i < 4; i++) {
                 ((ServerLevel) level).sendParticles(
-                    ParticleTypes.EXPLOSION,
+                    ParticleTypes.LAVA,
                     captured.getX(),
                     captured.getY() + 1,
                     captured.getZ(),
@@ -96,27 +96,12 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
             captured.hurt(level.damageSources().explosion(attacker, attacker), (float) (rawDamage * getDamageMuti(tagLevel)));
         }
 
-        CinderParticle particleProvider = new CinderParticle(attacker.level(), 2, (pLevel, tick, remain) -> {
-            int degree = (int) (splashDegree * 180 / Math.PI);
-            for(int i=0; i<degree * 2; i++){
-                float rad = (float) ((i - degree) / Math.PI);
-                Vec3 vecApply = vecT.yRot(rad).scale(speedMuti);
-
-                pLevel.addParticle(
-                        ParticleTypes.FLAME,
-                        tar.x,
-                        tar.y + attacker.getEyeHeight(),
-                        tar.z,
-                        vecApply.x,
-                        vecApply.y,
-                        vecApply.z
-                        );
-
-            }
-        });
-        // todo: 服务端的particleProvider没同步到客户端
-        particleProvider.setPos(tar);
-        //level.addFreshEntity(particleProvider);
+        CinderParticle particleProvider = new CinderParticle(attacker.level(), 1,
+                vecT,
+                vecT.cross(attacker.getLookAngle().add(0,2,0).normalize()),
+                (float) speedMuti);
+        particleProvider.setPos(tar.add(0,1.6,0));
+        level.addFreshEntity(particleProvider);
 
         return knockback;
     }
