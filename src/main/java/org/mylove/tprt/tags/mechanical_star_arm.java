@@ -38,7 +38,8 @@ public class mechanical_star_arm extends BaseModifier {
         if(attacker != null && entity != null) {
             if(SlotInChargeModule.isInCharge(context.getTinkerData(), SLOT_IN_CHARGE, slotType)){
             float ArmorE=entity.getArmorValue();
-            return amount*(1-ArmorE*0.003f);
+            double x=(1.5*ArmorE+200)/500;
+            return (float) (amount*(1-x*0.3f));
             }
         }
         return amount;

@@ -157,11 +157,11 @@
 
   "modifier.tprt.mechanical_star_att": "机械之星",
   "modifier.tprt.mechanical_star_att.flavor":"机械工程的杰作，战争机器的化身",
-  "modifier.tprt.mechanical_star_att.description":"每1点护甲值提高1%造成伤害",
+  "modifier.tprt.mechanical_star_att.description":"你的护甲值会提高造成伤害",
 
   "modifier.tprt.mechanical_star_arm": "机械之星",
   "modifier.tprt.mechanical_star_arm.flavor":"机械工程的杰作，战争机器的化身",
-  "modifier.tprt.mechanical_star_arm.description":"每1点护甲值使受到伤害降低0.3%",
+  "modifier.tprt.mechanical_star_arm.description":"你的护甲值会提供受到伤害减免",
 
   "modifier.tprt.machine_iron_casting": "机铁铸就",
   "modifier.tprt.machine_iron_casting.flavor":"这种高密度材料带来的防御性能无与伦比，但是也非常沉重",
