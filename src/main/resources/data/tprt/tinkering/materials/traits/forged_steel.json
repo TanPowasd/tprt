@@ -2,10 +2,6 @@
     "default": [
       {
         "level": 1,
-        "name": "tconstruct:ductile"
-      },
-      {
-        "level": 1,
         "name": "tprt:be_thoroughly_tempered"
       }
     ],
@@ -13,18 +9,10 @@
       "tconstruct:armor": [
         {
             "level": 1,
-            "name": "tconstruct:ductile"
-        },
-        {
-            "level": 1,
             "name": "tprt:be_thoroughly_tempered"
         }
       ],
       "tconstruct:ranged": [
-        {
-            "level": 1,
-            "name": "tconstruct:ductile"
-        },
         {
             "level": 1,
             "name": "tprt:be_thoroughly_tempered"

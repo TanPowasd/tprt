@@ -107,9 +107,9 @@
   "modifier.tprt.mixeddragon_ranged.flavor":"众龙的力量激荡不息",
   "modifier.tprt.mixeddragon_ranged.description":"每级提高40%弓箭伤害，大幅提高弹射物力量",
 
-  "modifier.tprt.forged_steel":"千锤百炼",
-  "modifier.tprt.forged_steel.flavor":"锻造的力量蕴含其中",
-  "modifier.tprt.forged_steel.description":"较大幅度提高工具的所有属性",
+  "modifier.tprt.be_thoroughly_tempered":"千锤百炼",
+  "modifier.tprt.be_thoroughly_tempered.flavor":"锻造的力量蕴含其中",
+  "modifier.tprt.be_thoroughly_tempered.description":"较大幅度提高工具的所有属性",
 
   "modifier.tprt.source_alloy_default":"魔力升华",
   "modifier.tprt.source_alloy_default.flavor":"你的魔力变得无比纯净",
@@ -236,8 +236,8 @@
 
   "modifier.tprt.advanced_sharpness": "利刃出鞘",
   "modifier.tprt.advanced_sharpness.flavor":"无往不利的利刃",
-  "modifier.tprt.advanced_sharpness.description":"第一级提高2.75+10%攻击力，之后每级提高2.75攻击力",
-  "modifier.tprt.advanced_sharpness.requirements": "需要锋利Ⅲ强化作为前置",
+  "modifier.tprt.advanced_sharpness.description":"每级提高10%攻击力",
+  "modifier.tprt.advanced_sharpness.requirements": "需要锋利V强化作为前置",
 
   "modifier.tprt.netherite_spell_book": "远古法典增强",
   "modifier.tprt.netherite_spell_book.flavor":"镌刻法典的力量",
@@ -323,6 +323,6 @@
   "modifier.tprt.d2_half_truths.description": "切换到此武器后立即提高刀剑前冲距离",
 
   "modifier.tprt.millennium": "千年",
-  "modifier.tprt.d2_half_truths.flavor": "",
-  "modifier.tprt.d2_half_truths.description": ""
+  "modifier.tprt.millennium.flavor": "",
+  "modifier.tprt.millennium.description": ""
 }

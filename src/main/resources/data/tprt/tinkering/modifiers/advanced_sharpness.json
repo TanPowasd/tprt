@@ -5,7 +5,7 @@
       "type": "tconstruct:requirements",
       "display_modifiers": [
         {
-          "level": 3,
+          "level": 5,
           "name": "tconstruct:sharpness"
         }
       ],
@@ -13,7 +13,7 @@
         "type": "tconstruct:has_modifier",
         "check": "all",
         "level": {
-          "min": 3
+          "min": 5
         },
         "modifier": {
           "type": "tconstruct:single",
@@ -24,14 +24,14 @@
     },
     {
       "type": "tconstruct:stat_boost",
-      "each_level": 2.75,
+      "each_level": 0.00,
       "operation": "add",
       "stat": "tconstruct:attack_damage",
       "unique": "tconstruct.modifier.advanced_sharpness"
     },
     {
       "type": "tconstruct:stat_boost",
-      "flat": 0.1,
+      "each_level": 0.1,
       "operation": "multiply_base",
       "stat": "tconstruct:attack_damage",
       "unique": "tconstruct.modifier.advanced_sharpness"
