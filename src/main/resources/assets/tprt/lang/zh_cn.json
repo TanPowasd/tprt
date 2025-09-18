@@ -320,5 +320,9 @@
 
   "modifier.tprt.d2_half_truths": "真假参半",
   "modifier.tprt.d2_half_truths.flavor": "急切刀锋",
-  "modifier.tprt.d2_half_truths.description": "切换到此武器后立即提高刀剑前冲距离"
+  "modifier.tprt.d2_half_truths.description": "切换到此武器后立即提高刀剑前冲距离",
+
+  "modifier.tprt.millennium": "千年",
+  "modifier.tprt.d2_half_truths.flavor": "",
+  "modifier.tprt.d2_half_truths.description": ""
 }
