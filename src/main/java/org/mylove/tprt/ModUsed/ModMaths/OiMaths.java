@@ -1,10 +1,13 @@
 package org.mylove.tprt.ModUsed.ModMaths;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class OiMaths {
+    public class ENCRYPTION{
 
+    }
     public class PRIME{
         public final static int MAXR = (int) (1e7+7);
         public static int PrimeNum=0;
@@ -145,6 +148,16 @@ public class OiMaths {
                 n>>=1;
             }
             return (long) ((res[0][1])%(1e9+7));
+        }
+    }
+    public class RANDOM{
+        public static long TimeRandom(){
+            //时间做种子做随机数
+            long Time= System.currentTimeMillis();//以当前时间为种子
+            return Time;//尚不完善
+        }
+        public static long IntRandom(long l,long r){
+            return TimeRandom()%(r-l+1)+l;
         }
     }
 }

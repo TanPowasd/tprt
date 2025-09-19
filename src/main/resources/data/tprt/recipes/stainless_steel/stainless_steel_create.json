@@ -1,0 +1,123 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "tconstruct:steel_ingot"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "item": "tprt:stainless_steel"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        },
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        },
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        },
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        },
+        {
+          "amount": 180,
+          "fluid": "tconstruct:molten_nickel",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_ingot"
+        }
+      ]
+    }
+
+  ],
+  "transitionalItem": {
+    "item": "tconstruct:steel_ingot"
+  }
+}

@@ -4,19 +4,16 @@ import com.ssakura49.sakuratinker.generic.BaseModifier;
 import com.ssakura49.sakuratinker.library.damagesource.LegacyDamageSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
-import org.mylove.tprt.ModUsed.DeBug;
 import org.mylove.tprt.ModUsed.ModF;
-import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.ModifierHooks;
-import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
-import slimeknights.tconstruct.library.module.ModuleHookMap;
+import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
@@ -30,6 +27,10 @@ public class disruption_break extends BaseModifier {
     UUID uuid= UUID.fromString("e9f8d7c6-b5a4-4e3d-8c2b-1a0f9e8d7c6b");
     //攻击后记录实体，之后每刻进行攻击
     static Queue<ModF.Pair3> entityQueue = new LinkedList<>();
+    @Override
+    public boolean isNoLevels() {
+        return true;
+    }
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         LivingEntity attacker = context.getAttacker();
@@ -79,5 +80,17 @@ public class disruption_break extends BaseModifier {
                 }
             }
         }
+    }
+    @Override
+    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
+        LivingEntity attacker = context.getAttacker();
+        LivingEntity target = context.getLivingTarget();
+        if(attacker!= null && target != null){
+            int MUCH=entityQueue.size();
+            if(MUCH>0){
+                return (damage*(1+0.2f*MUCH));
+            }
+        }
+        return damage;
     }
 }

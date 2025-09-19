@@ -49,5 +49,7 @@ public class ModifierRegistry {
     public static final StaticModifier<cinder_slash> CINDER_SLASH = MODIFIERS.register("cinder_slash",cinder_slash::new);
     public static final StaticModifier<infinite_dropping> INFINITE_DROPPING = MODIFIERS.register("infinite_dropping",infinite_dropping::new);
     public static final StaticModifier<millennium> MILLENNIUM = MODIFIERS.register("millennium",millennium::new);
-
+    public static final StaticModifier<zenith_first_fractal>ZENITH_FIRST_FRACTAL = MODIFIERS.register("zenith_first_fractal",zenith_first_fractal::new);
+    public static final StaticModifier<oxidation>OXIDATION = MODIFIERS.register("oxidation",oxidation::new);
+    public static final StaticModifier<tetanus>TETANUS_STATIC = MODIFIERS.register("tetanus",tetanus::new);
 }

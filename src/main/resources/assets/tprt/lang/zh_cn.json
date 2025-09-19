@@ -23,6 +23,8 @@
   "item.tprt.pig_bun": "🐖包",
   "item.tprt.red_turtle": "红温🐢",
   "item.tprt.blue_lancer": "蓝色枪兵",
+  "item.tprt.stainless_steel": "不锈钢",
+  "item.tprt.precision_alloy": "精密合金",
 
 
 
@@ -88,6 +90,10 @@
 
   "material.tprt.blue_lancer":"蓝色枪兵",
   "material.tprt.blue_lancer.flavor":"旋转突进的蓝色枪兵",
+
+  "item.tprt.stainless_steel": "不锈钢",
+  "item.tprt.precision_alloy": "精密合金",
+
 
 
 

@@ -71,6 +71,12 @@ public class ModItems {
     public static final RegistryObject<Item>BLUE_LANCER=ITEMS.register("blue_lancer",
         () -> new Item(new Item.Properties()));
 
+    //精密合金
+    public static final RegistryObject<Item>PRECISION_ALLOY=ITEMS.register("precision_alloy",
+            ()->new Item(new Item.Properties()));
+    //不锈钢
+    public static final RegistryObject<Item>STAINLESS_STEEL=ITEMS.register("stainless_steel",
+            ()->new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

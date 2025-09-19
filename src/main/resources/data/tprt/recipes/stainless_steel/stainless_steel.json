@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:stainless_steel"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:stainless_steel_fluid"
+  },
+  "temperature": 1000,
+  "time": 100
+}

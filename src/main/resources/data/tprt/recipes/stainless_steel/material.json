@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tprt:stainless_steel"
+  },
+  "material": "tprt:stainless_steel",
+  "needed": 1,
+  "value": 1
+}

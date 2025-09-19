@@ -33,5 +33,11 @@ public class ModF {
         public T3 getThird() {
             return third;
         }
+        void pInit(T1 first, T2 second, T3 third) {
+            this.first = first;
+            this.second = second;
+            this.third = third;
+        }
+
     }
 }
