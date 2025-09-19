@@ -1,0 +1,36 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "minecraft:sculk_shrieker"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "minecraft:reinforced_deepslate"
+    },
+    {
+      "item": "minecraft:reinforced_deepslate"
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "result": "tprt:advanced_power",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/ranged/longbows"
+    },
+    {
+      "tag": "tconstruct:modifiable/staffs"
+    }
+  ]
+}

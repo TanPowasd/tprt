@@ -28,7 +28,7 @@
     },
     {
       "type": "tconstruct:attribute",
-      "each_level": 0.1,
+      "each_level": 0.05,
       "operation": "multiply_base",
       "attribute": "minecraft:generic.max_health",
       "unique": "tconstruct.modifier.advanced_cheer_up",

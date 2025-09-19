@@ -31,6 +31,7 @@
     "advanced_cheer_up": "#FF80FFFF",
     "advanced_greed": "#5300b8",
     "advanced_sharpness": "#EEDD82",
+    "advanced_power": "#EEDD82",
     "heart_of_life": "#FFFF0000",
     "machine_iron_casting": "#FF303030",
     "mechanical_star_arm": "#FF303030",
@@ -48,6 +49,7 @@
     "philosophers_stone": "#FF00FF",
     "the_gaze_of_the_cyclops": "#696969",
     "the_power_of_nine_dragons": "#FF4F5688",
-    "soul_infection": "#FF2C2C2C"
+    "soul_infection": "#FF2C2C2C",
+    "soul_surge": "#FF2C2C2C"
   }
 }

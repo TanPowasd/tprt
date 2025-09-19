@@ -4,6 +4,10 @@
     {
       "level": 1,
       "name": "tprt:soul_infection"
+    },
+    {
+      "level": 1,
+      "name": "tconstruct:smite"
     }
   ],
   "perStat": {
@@ -19,6 +23,16 @@
       {
         "level": 1,
         "name": "tprt:soul_infection"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:smite"
+      }
+    ],
+    "sakuratinker:charm":[
+      {
+        "level":1,
+        "name":"tprt:soul_surge"
       }
     ]
   }

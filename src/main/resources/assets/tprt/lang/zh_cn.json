@@ -185,6 +185,10 @@
   "modifier.tprt.soul_infection.flavor":"长期的浸润使它充满魂灵的力量",
   "modifier.tprt.soul_infection.description":"小幅度提升工具的所有属性",
 
+  "modifier.tprt.soul_surge": "魂灵激涌",
+  "modifier.tprt.soul_surge.flavor":"长期的浸润使它充满魂灵的力量",
+  "modifier.tprt.soul_surge.description":"攻击伤害额外提高10%",
+
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
   "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽，一个防御槽以及一个能力槽",
@@ -227,7 +231,7 @@
 
   "modifier.tprt.advanced_cheer_up": "生命续行",
   "modifier.tprt.advanced_cheer_up.flavor":"体内的生命能量在涌动",
-  "modifier.tprt.advanced_cheer_up.description":"每级提高10%生命上限",
+  "modifier.tprt.advanced_cheer_up.description":"每级提高5%生命上限",
   "modifier.tprt.advanced_cheer_up.requirements": "需要生命之心强化作为前置",
 
   "modifier.tprt.heart_of_life": "生命之心",
@@ -235,9 +239,14 @@
   "modifier.tprt.heart_of_life.description":"提高10点生命上限",
 
   "modifier.tprt.advanced_sharpness": "利刃出鞘",
-  "modifier.tprt.advanced_sharpness.flavor":"无往不利的利刃",
+  "modifier.tprt.advanced_sharpness.flavor":"吾剑未尝不利",
   "modifier.tprt.advanced_sharpness.description":"每级提高10%攻击力",
   "modifier.tprt.advanced_sharpness.requirements": "需要锋利V强化作为前置",
+
+  "modifier.tprt.advanced_power": "贯星",
+  "modifier.tprt.advanced_power.flavor":"穿山裂石之矢",
+  "modifier.tprt.advanced_power.description":"每级提高0.4+10%弹射物力量",
+  "modifier.tprt.advanced_power.requirements": "需要力量V强化作为前置",
 
   "modifier.tprt.netherite_spell_book": "远古法典增强",
   "modifier.tprt.netherite_spell_book.flavor":"镌刻法典的力量",

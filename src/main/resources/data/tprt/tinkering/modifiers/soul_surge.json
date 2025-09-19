@@ -1,0 +1,19 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "multiply_total",
+          "tooltip_style": "percent",
+          "value": 0.10
+        }
+
+      ],
+      "name": "tprt:soul_surge"
+    }
+  ],
+  "tooltip_display": "always"
+}
