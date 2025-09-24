@@ -1,6 +1,8 @@
 {
   "creativetab.tprt_tab": "挚爱",
 
+  "itemGroup.tprt.tool": "挚爱——工具",
+
 
 
   "item.tprt.lriron": "LR锭",
@@ -26,6 +28,9 @@
   "item.tprt.stainless_steel": "不锈钢",
   "item.tprt.precision_alloy": "精密合金",
 
+
+  "item.tprt.anchor_sword": "锚剑",
+  "item.tprt.anchor_sword.description": "一种沉重的异型武器",
 
 
   "block.tprt.lr_block":"lr块",
@@ -91,8 +96,8 @@
   "material.tprt.blue_lancer":"蓝色枪兵",
   "material.tprt.blue_lancer.flavor":"旋转突进的蓝色枪兵",
 
-  "item.tprt.stainless_steel": "不锈钢",
-  "item.tprt.precision_alloy": "精密合金",
+  "material.tprt.stainless_steel": "不锈钢",
+  "material.tprt.precision_alloy": "精密合金",
 
 
 
@@ -309,6 +314,10 @@
   "modifier.tprt.the_gaze_of_the_cyclops": "独眼巨人的凝视",
   "modifier.tprt.the_gaze_of_the_cyclops.flavor":"“你不觉得这个大眼球看着有些瘆得慌么？”——无名骑士",
   "modifier.tprt.the_gaze_of_the_cyclops.description":"攻击附带短时间的虚弱2",
+
+  "modifier.tprt.reaper": "死亡收割",
+  "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
+  "modifier.tprt.reaper.description":"工具的攻击力+25%，获得25%的过量治疗",
 
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",

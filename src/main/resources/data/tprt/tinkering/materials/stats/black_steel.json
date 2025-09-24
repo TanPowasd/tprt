@@ -57,6 +57,9 @@
     "tconstruct:plating_shield": {
       "durability": 522,
       "toughness": 2.5
+    },
+    "sakuratinker:range_core": {
+      "range": 10.0
     }
   }
 }

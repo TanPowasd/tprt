@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:nihilite_ingot"
+    },
+    {
+      "item": "sakuratinker:nihilite_ingot"
+    },
+    {
+      "item": "sakuratinker:nihilite_ingot"
+    },
+    {
+      "item": "sakuratinker:nihilite_ingot"
+    },
+    {
+      "item": "sakuratinker:nihilite_ingot"
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "result": "tprt:reaper",
+  "tools": [
+    {
+      "item": "sakuratinker:scythe"
+    }
+  ]
+}

@@ -64,6 +64,9 @@
         "durability": 280,
         "knockback_resistance": 0.04,
         "toughness": 2
+      },
+      "sakuratinker:range_core": {
+        "range": 12.0
       }
     }
   }

@@ -10,7 +10,9 @@
         "feet",
         "legs",
         "chest",
-        "head"
+        "head",
+        "mainhand",
+        "offhand"
       ]
     }
   ],

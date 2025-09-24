@@ -1,0 +1,33 @@
+{
+  "parts": [
+    {
+      "path": "tprt:item/tool/anchor_sword/head_1",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/head_2",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/grip",
+      "stat_type": "tconstruct:grip"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/head_1_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/head_2_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/grip_broken",
+      "stat_type": "tconstruct:grip"
+    }
+  ],
+  "replace": false
+}

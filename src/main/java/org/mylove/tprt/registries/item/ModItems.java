@@ -63,6 +63,10 @@ public class ModItems {
     public static final RegistryObject<Item>EVIL_BEAST_ALLOY_INGOT=ITEMS.register("evil_beast_alloy_ingot",
         ()->new Item(new Item.Properties()));
 
+//lr特供 锚剑
+    public static final RegistryObject<Item>anchor_sword= ITEMS.register("anchor_sword",
+            ()->new Item(new Item.Properties()));
+
 //lr特供 🐖包
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
         ()->new Item(new Item.Properties().food(ModFoods.PIG_BUN)));

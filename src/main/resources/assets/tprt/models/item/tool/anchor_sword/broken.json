@@ -1,0 +1,16 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "head_1":  "tprt:item/tool/anchor_sword/head_1_broken",
+    "head_2": "tprt:item/tool/anchor_sword/head_2_broken",
+    "handle":  "tprt:item/tool/anchor_sword/handle",
+    "grip":   "tprt:item/tool/anchor_sword/grip_broken"
+  },
+  "parts": [
+    { "name": "head_1",  "index": 0 },
+    { "name": "head_2",  "index": 1 },
+    { "name": "handle", "index": 2 },
+    { "name": "grip",   "index": 3 }
+  ]
+}

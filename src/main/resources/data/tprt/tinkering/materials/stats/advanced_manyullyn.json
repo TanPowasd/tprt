@@ -54,6 +54,9 @@
       "draw_speed": 0.35,
       "durability": 1475,
       "velocity": 0.35
+    },
+    "sakuratinker:range_core": {
+      "range": 15.0
     }
   }
 }

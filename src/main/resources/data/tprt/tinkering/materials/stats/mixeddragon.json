@@ -49,6 +49,13 @@
       "sakuratinker:yoyo_ring": {
         "max_collected": 4.0
       },
+      "sakuratinker:range_core": {
+        "range": 50.0
+      },
+      "sakuratinker:soul_gatherer.json": {
+        "soul_increase": 0.45,
+        "soul_power": 15.0
+      },
       "tconstruct:maille": {},
       "tconstruct:plating_boots": {
         "armor": 12.0,
