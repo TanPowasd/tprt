@@ -9,7 +9,7 @@
         "tconstruct:projectile_hit"
       ],
       "level": {
-        "flat": 2
+        "flat": 3
       },
       "time": {
         "each_level": 1000.0,

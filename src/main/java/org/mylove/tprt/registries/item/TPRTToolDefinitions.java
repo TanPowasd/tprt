@@ -1,5 +1,6 @@
 package org.mylove.tprt.registries.item;
 
+import io.netty.util.Attribute;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
 public class TPRTToolDefinitions {

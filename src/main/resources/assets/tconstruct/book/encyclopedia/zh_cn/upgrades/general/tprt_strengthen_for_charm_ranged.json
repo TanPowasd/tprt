@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tprt:strengthen_for_charm_ranged",
+  "text": [
+    {
+      "text": "专供工匠护符的强化，每级+3.5%箭矢伤害"
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高5级",
+    "每级需要1个升级槽"
+  ]
+}

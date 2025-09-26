@@ -1,7 +1,0 @@
-{
-  "type": "tconstruct:tool",
-  "break_blocks_in_creative": false,
-  "max_stack_size": 1,
-  "group": "tprt.tool",
-  "color_handler": "tconstruct:tool"
-}

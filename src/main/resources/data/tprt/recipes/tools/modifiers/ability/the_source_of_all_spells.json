@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tprt:source_alloy"
+    },
+    {
+      "item": "tprt:source_alloy"
+    },
+    {
+      "item": "tprt:source_alloy"
+    },
+    {
+      "item": "tprt:source_alloy"
+    },
+    {
+      "item": "tprt:source_alloy"
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "slots": {
+    "abilities": 2
+  },
+  "result": "tprt:the_source_of_all_spells",
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_spell_book"
+    }
+  ]
+}

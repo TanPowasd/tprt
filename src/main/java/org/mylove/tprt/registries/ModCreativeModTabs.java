@@ -10,6 +10,8 @@ import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.ModSpells.thunder_att.MIAGIC_cs1;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.registries.item.ModItems;
+import org.mylove.tprt.registries.item.TPRTToolDefinitions;
+import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 
 public class ModCreativeModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS=

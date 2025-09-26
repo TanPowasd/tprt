@@ -144,7 +144,7 @@
 
   "modifier.tprt.burning_flames": "焚焰",
   "modifier.tprt.burning_flames.flavor": "焚尽世间的烈焰",
-  "modifier.tprt.burning_flames.description": "攻击附加炽热烙印，等级上限为词条等级上限",
+  "modifier.tprt.burning_flames.description": "攻击附加炽热烙印，效果等级上限为词条等级上限",
 
   "modifier.tprt.wrath_of_flames": "焰魔之怒",
   "modifier.tprt.wrath_of_flames.flavor":"来自下界烈焰领主的怒火",
@@ -241,6 +241,8 @@
   "modifier.tprt.enchantment.description":"以两个升级槽为代价获得一个能力槽",
 
   "modifier.tprt.advanced_cheer_up": "生命续行",
+  "modifier.tprt.advanced_cheer_up.2": "生命续行+",
+  "modifier.tprt.advanced_cheer_up.3": "生命续行++",
   "modifier.tprt.advanced_cheer_up.flavor":"体内的生命能量在涌动",
   "modifier.tprt.advanced_cheer_up.description":"每级提高5%生命上限",
   "modifier.tprt.advanced_cheer_up.requirements": "需要生命之心强化作为前置",
@@ -250,11 +252,17 @@
   "modifier.tprt.heart_of_life.description":"提高10点生命上限",
 
   "modifier.tprt.advanced_sharpness": "利刃出鞘",
+  "modifier.tprt.advanced_sharpness.2": "利刃出鞘+",
+  "modifier.tprt.advanced_sharpness.3": "利刃出鞘++",
   "modifier.tprt.advanced_sharpness.flavor":"吾剑未尝不利",
-  "modifier.tprt.advanced_sharpness.description":"每级提高10%攻击力",
+  "modifier.tprt.advanced_sharpness.description":"每级提高10%工具攻击力",
   "modifier.tprt.advanced_sharpness.requirements": "需要锋利V强化作为前置",
 
   "modifier.tprt.advanced_power": "贯星",
+  "modifier.tprt.advanced_power.2": "贯星+",
+  "modifier.tprt.advanced_power.3": "贯星++",
+  "modifier.tprt.advanced_power.4": "贯星+++",
+  "modifier.tprt.advanced_power.5": "贯星++++",
   "modifier.tprt.advanced_power.flavor":"穿山裂石之矢",
   "modifier.tprt.advanced_power.description":"每级提高0.4+10%弹射物力量",
   "modifier.tprt.advanced_power.requirements": "需要力量V强化作为前置",
@@ -291,6 +299,11 @@
   "modifier.tprt.druidic_spell_book.flavor":"镌刻法典的力量",
   "modifier.tprt.druidic_spell_book.description":"+200最大法力值，+10%自然法术强度",
 
+  "modifier.tprt.the_source_of_all_spells": "万法之源",
+  "modifier.tprt.the_source_of_all_spells.flavor":"世间所有法术的源泉",
+  "modifier.tprt.the_source_of_all_spells.description":"+1200最大法力值，+200法力回复，+50%总法术强度",
+  "modifier.tprt.the_source_of_all_spells.requirements": "需要所有8种魔导书强化作为前置",
+
   "modifier.tprt.strengthen_for_charm_attack_damage": "护符增强——近战伤害",
   "modifier.tprt.strengthen_for_charm_attack_damage.flavor":"深渊之力",
   "modifier.tprt.strengthen_for_charm_attack_damage.description":"每级+2.5%近战伤害",
@@ -313,7 +326,7 @@
 
   "modifier.tprt.the_gaze_of_the_cyclops": "独眼巨人的凝视",
   "modifier.tprt.the_gaze_of_the_cyclops.flavor":"“你不觉得这个大眼球看着有些瘆得慌么？”——无名骑士",
-  "modifier.tprt.the_gaze_of_the_cyclops.description":"攻击附带短时间的虚弱2",
+  "modifier.tprt.the_gaze_of_the_cyclops.description":"攻击附带短时间的虚弱3",
 
   "modifier.tprt.reaper": "死亡收割",
   "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
@@ -344,7 +357,7 @@
 
   "modifier.tprt.d2_half_truths": "真假参半",
   "modifier.tprt.d2_half_truths.flavor": "急切刀锋",
-  "modifier.tprt.d2_half_truths.description": "切换到此武器后立即提高刀剑前冲距离",
+  "modifier.tprt.d2_half_truths.description": "切换到此武器后，下次攻击将会使持有者获得强大的动能",
 
   "modifier.tprt.millennium": "千年",
   "modifier.tprt.millennium.flavor": "",

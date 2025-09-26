@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tprt:gold_spell_book",
+  "text": [
+    {
+      "text": "专供工匠秘典的无槽位强化，+50最大法力值，+15%法术吟唱缩减。"
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "单次使用",
+    "无需槽位"
+  ]
+}

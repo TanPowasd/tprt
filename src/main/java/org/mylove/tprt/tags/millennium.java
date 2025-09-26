@@ -1,6 +1,6 @@
 package org.mylove.tprt.tags;
 
-import com.github.heiwenziduo.fvlib.library.FvUtil;
+import com.github.heiwenziduo.fvlib.FvUtil;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;

@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.registries.ModFoods;
+import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -65,7 +66,7 @@ public class ModItems {
 
 //lr特供 锚剑
     public static final RegistryObject<Item>anchor_sword= ITEMS.register("anchor_sword",
-            ()->new Item(new Item.Properties()));
+            ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.ANCHOR_SWORD));
 
 //lr特供 🐖包
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",

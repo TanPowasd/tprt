@@ -1,0 +1,145 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+    "type": "tconstruct:requirements",
+    "display_modifiers": [
+      {
+        "level": 1,
+        "name": "tprt:netherite_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:gold_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:evoker_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:blaze_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:necronomicon_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:dragonskin_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:villager_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:druidic_spell_book"
+      }
+    ],
+    "requirement": {
+      "type": "mantle:and",
+      "predicates": [
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:netherite_spell_book"
+          }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:gold_spell_book"
+          }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:evoker_spell_book"
+          }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:blaze_spell_book"
+          }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:necronomicon_spell_book"
+          }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:dragonskin_spell_book"
+          }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:villager_spell_book"
+          }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:druidic_spell_book"
+          }
+        }
+      ]
+    },
+    "translation_key": "modifier.tprt.the_source_of_all_spells.requirements"
+    },
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "ars_nouveau:ars_nouveau.perk.max_mana",
+          "operation": "addition",
+          "value": 1200.0
+        },
+        {
+          "attribute": "irons_spellbooks:max_mana",
+          "operation": "addition",
+          "value": 1200.0
+        },
+        {
+          "attribute": "ars_nouveau:ars_nouveau.perk.mana_regen",
+          "operation": "addition",
+          "value": 200.0
+        },
+        {
+          "attribute": "irons_spellbooks:mana_regen",
+          "operation": "addition",
+          "value": 200.0
+        },
+        {
+          "attribute": "irons_spellbooks:spell_power",
+          "operation": "multiply_total",
+          "tooltip_style": "percent",
+          "value": 0.5
+        }
+      ],
+      "name": "tprt:the_source_of_all_spells"
+    }
+  ],
+  "tooltip_display": "always"
+}

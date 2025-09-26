@@ -1,8 +1,0 @@
-{
-  "icon": "tprt:anchor_sword",
-  "after": ["tconstruct:world"],
-  "translation_key": "itemGroup.tprt.tool",
-  "items": [
-    "tprt:anchor_sword"
-  ]
-}
