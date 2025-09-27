@@ -1,0 +1,17 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.luck",
+          "operation": "addition",
+          "value": 3
+        }
+      ],
+      "name": "tprt:strengthen_for_charm_luck"
+    }
+  ],
+  "tooltip_display": "always"
+}

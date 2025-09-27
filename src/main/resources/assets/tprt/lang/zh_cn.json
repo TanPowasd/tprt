@@ -1,7 +1,7 @@
 {
   "creativetab.tprt_tab": "挚爱",
 
-  "itemGroup.tprt.tool": "挚爱——工具",
+  "creativetab.tprt_tool_tab": "挚爱——工具",
 
 
 
@@ -323,6 +323,10 @@
   "modifier.tprt.strengthen_for_charm_endurance": "护符增强——生命延续",
   "modifier.tprt.strengthen_for_charm_endurance.flavor":"细胞活化",
   "modifier.tprt.strengthen_for_charm_endurance.description":"每级+3.5%受到的治疗效果",
+
+  "modifier.tprt.strengthen_for_charm_luck": "护符增强——鸿运齐天",
+  "modifier.tprt.strengthen_for_charm_luck.flavor":"好运连连",
+  "modifier.tprt.strengthen_for_charm_luck.description":"每级+3点幸运值",
 
   "modifier.tprt.the_gaze_of_the_cyclops": "独眼巨人的凝视",
   "modifier.tprt.the_gaze_of_the_cyclops.flavor":"“你不觉得这个大眼球看着有些瘆得慌么？”——无名骑士",
