@@ -1,0 +1,88 @@
+{
+  "level_display": {
+    "type": "tconstruct:unique",
+    "first_unique": false,
+    "unique_until": 3
+  },
+  "modules": [
+    {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 3,
+          "name": "tconstruct:luck"
+        }
+      ],
+      "requirement": {
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "level": {
+          "min": 3
+        },
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tconstruct:luck"
+        }
+      },
+      "translation_key": "modifier.tprt.advanced_luck.requirements"
+    },
+    {
+      "type": "tconstruct:constant_enchantment",
+      "level": 2,
+      "name": "minecraft:fortune",
+      "tool": {
+        "type": "mantle:tag",
+        "tag": "tconstruct:modifiable/harvest"
+      }
+    },
+    {
+      "type": "tconstruct:armor_harvest_enchantment",
+      "level": 2,
+      "name": "minecraft:fortune",
+      "slots": [
+        "feet",
+        "legs",
+        "chest",
+        "head"
+      ],
+      "tool": {
+        "type": "mantle:tag",
+        "tag": "tconstruct:modifiable/armor/worn"
+      }
+    },
+    {
+      "type": "tconstruct:weapon_looting",
+      "level": 2,
+      "tool": {
+        "type": "mantle:or",
+        "predicates": [
+          {
+            "type": "mantle:set",
+            "items": [
+              "minecraft:air"
+            ]
+          },
+          {
+            "type": "mantle:tag",
+            "tag": "tconstruct:modifiable/melee"
+          }
+        ]
+      }
+    },
+    {
+      "type": "tconstruct:armor_looting",
+      "level": 2,
+      "slots": [
+        "feet",
+        "legs",
+        "chest",
+        "head"
+      ],
+      "tool": {
+        "type": "mantle:tag",
+        "tag": "tconstruct:modifiable/armor/worn"
+      }
+    }
+  ],
+  "tooltip_display": "always"
+}

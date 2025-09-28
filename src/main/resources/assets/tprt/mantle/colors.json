@@ -32,6 +32,7 @@
     "advanced_greed": "#5300b8",
     "advanced_sharpness": "#EEDD82",
     "advanced_power": "#EEDD82",
+    "advanced_luck": "#345EC3",
     "heart_of_life": "#FFFF0000",
     "machine_iron_casting": "#FF303030",
     "mechanical_star_arm": "#FF303030",
@@ -53,6 +54,7 @@
     "soul_infection": "#FF2C2C2C",
     "soul_surge": "#FF2C2C2C",
     "reaper": "#FF400000",
-    "the_source_of_all_spells": "#FFE11EC4"
+    "the_source_of_all_spells": "#FFE11EC4",
+    "persistence_of_nature": "#FF001399"
   }
 }

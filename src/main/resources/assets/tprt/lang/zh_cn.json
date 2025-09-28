@@ -336,6 +336,17 @@
   "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
   "modifier.tprt.reaper.description":"工具的攻击力+25%，获得25%的过量治疗",
 
+  "modifier.tprt.persistence_of_nature": "本性的坚守",
+  "modifier.tprt.persistence_of_nature.flavor":"我们血脉相连，我们从不退却",
+  "modifier.tprt.persistence_of_nature.description":"当前生命值低于50%时受到攻击回复5点生命值，触发间隔0.5秒",
+
+  "modifier.tprt.advanced_luck": "鸿运齐天",
+  "modifier.tprt.advanced_luck.2": "鸿运齐天+",
+  "modifier.tprt.advanced_luck.3": "鸿运齐天++",
+  "modifier.tprt.advanced_luck.flavor":"幸运plus",
+  "modifier.tprt.advanced_luck.description":"敌人掉落的战利品更多，采掘时的掉落物也更多",
+  "modifier.tprt.advanced_luck.requirements": "需要幸运++强化作为前置",
+
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",
   "modifier.tprt.real_attack.description": "直触目标的灵魂，忽视其部分护甲和抗性",

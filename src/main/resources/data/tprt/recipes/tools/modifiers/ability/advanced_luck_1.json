@@ -1,0 +1,39 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:gluttonous"
+    },
+    {
+      "item": "sakuratinker:gluttonous"
+    },
+    {
+      "item": "sakuratinker:gluttonous"
+    },
+    {
+      "item": "sakuratinker:gluttonous"
+    },
+    {
+      "item": "sakuratinker:gluttonous"
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "result": "tprt:advanced_luck",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee/weapon"
+    },
+    {
+      "tag": "tconstruct:modifiable/harvest"
+    },
+    {
+      "tag": "tconstruct:modifiable/ranged"
+    }
+  ]
+}
