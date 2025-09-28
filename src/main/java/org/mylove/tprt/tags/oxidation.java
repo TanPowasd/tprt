@@ -14,10 +14,10 @@ public class oxidation extends BaseModifier {
         return true;
     }
     int ticks=0;
-    ResourceLocation OXG_InTprt_modifier_oxidation=ResourceLocation.fromNamespaceAndPath(Tprt.MODID,"oxgInTprt_modifier_oxidation");
+    ResourceLocation oxg_in_tprt_modifier_oxidation=ResourceLocation.fromNamespaceAndPath(Tprt.MODID,"oxg_in_tprt_modifier_oxidation");
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level level, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack itemStack) {
-        int oxgInTprt_modifier_oxidation =tool.getPersistentData().getInt(OXG_InTprt_modifier_oxidation);
+        int oxgInTprt_modifier_oxidation =tool.getPersistentData().getInt(oxg_in_tprt_modifier_oxidation);
         int maxDurable=tool.getCurrentDurability();
         int nowDurable=0;
         int CFf=maxDurable-nowDurable;
@@ -30,6 +30,6 @@ public class oxidation extends BaseModifier {
             oxgInTprt_modifier_oxidation++;
             ticks=0;
         }
-        tool.getPersistentData().putInt(OXG_InTprt_modifier_oxidation,oxgInTprt_modifier_oxidation);
+        tool.getPersistentData().putInt(oxg_in_tprt_modifier_oxidation,oxgInTprt_modifier_oxidation);
     }
 }
