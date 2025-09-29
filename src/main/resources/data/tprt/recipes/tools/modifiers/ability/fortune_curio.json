@@ -10,18 +10,27 @@
     },
     {
       "item": "sakuratinker:gluttonous"
+    },
+    {
+      "item": "sakuratinker:gluttonous"
+    },
+    {
+      "item": "sakuratinker:gluttonous"
     }
   ],
   "level": {
-    "max": 5
+    "max": 3
   },
-  "result": "tprt:strengthen_for_charm_luck",
+  "result": "tprt:fortune_curio",
   "slots": {
-    "upgrades": 1
+    "abilities": 1
   },
   "tools": [
     {
       "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    },
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_spell_book"
     }
   ]
 }

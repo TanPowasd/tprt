@@ -324,9 +324,13 @@
   "modifier.tprt.strengthen_for_charm_endurance.flavor":"细胞活化",
   "modifier.tprt.strengthen_for_charm_endurance.description":"每级+3.5%受到的治疗效果",
 
-  "modifier.tprt.strengthen_for_charm_luck": "护符增强——鸿运齐天",
+  "modifier.tprt.strengthen_for_charm_luck": "护符增强——幸运",
   "modifier.tprt.strengthen_for_charm_luck.flavor":"好运连连",
   "modifier.tprt.strengthen_for_charm_luck.description":"每级+3点幸运值",
+
+  "modifier.tprt.fortune_curio": "饰品增强——鸿运齐天",
+  "modifier.tprt.fortune_curio.flavor":"每天都是幸运日！",
+  "modifier.tprt.fortune_curio.description":"敌人掉落的战利品更多，采掘时的掉落物也更多",
 
   "modifier.tprt.the_gaze_of_the_cyclops": "独眼巨人的凝视",
   "modifier.tprt.the_gaze_of_the_cyclops.flavor":"“你不觉得这个大眼球看着有些瘆得慌么？”——无名骑士",
