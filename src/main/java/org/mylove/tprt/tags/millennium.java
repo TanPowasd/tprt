@@ -1,6 +1,5 @@
 package org.mylove.tprt.tags;
 
-import com.github.heiwenziduo.fvlib.FvUtil;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -57,8 +56,6 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
-import static com.github.heiwenziduo.fvlib.data.FvLibDamageType.PURE;
-
 
 
 /*
@@ -111,13 +108,14 @@ public class millennium extends NoLevelsModifier implements
     @Override
     public @Nullable DamageSource redirectDamageSource(IToolStackView tool, LivingEntity attacker, LivingEntity target, int level, DamageSource source) {
         RANK R = calculateRank(tool);
-        return switch (R) {
-            case S, SS, SSS -> new DamageSource(
-                    attacker.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(PURE),
-                    attacker
-            );
-            default -> null;
-        };
+        return null;
+//        return switch (R) {
+//            case S, SS, SSS -> new DamageSource(
+//                    attacker.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(PURE),
+//                    attacker
+//            );
+//            default -> null;
+//        };
     }
 
     @Override
@@ -222,7 +220,7 @@ public class millennium extends NoLevelsModifier implements
             RANK R = calculateRank(tool);
             switch (R) {
                 case B, A, S, SS, SSS -> {
-                    FvUtil.setTimeLock(target, 40);
+                    //FvUtil.setTimeLock(target, 40);
                     reapTime(tool, 40);
 
                     if (R != RANK.B) {

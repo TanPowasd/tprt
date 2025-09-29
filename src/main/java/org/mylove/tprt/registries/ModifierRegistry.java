@@ -1,9 +1,11 @@
 package org.mylove.tprt.registries;
 
+import com.ssakura49.sakuratinker.generic.CurioModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.tags.*;
+import org.mylove.tprt.tags.curio.FortuneCurio;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
@@ -53,4 +55,5 @@ public class ModifierRegistry {
     public static final StaticModifier<oxidation>OXIDATION = MODIFIERS.register("oxidation",oxidation::new);
     public static final StaticModifier<tetanus>TETANUS_STATIC = MODIFIERS.register("tetanus",tetanus::new);
     public static final StaticModifier<persistence_of_nature> PERSISTENCE_OF_NATURE = MODIFIERS.register("persistence_of_nature",persistence_of_nature::new);
+    public static final StaticModifier<CurioModifier> FORTUNE_CURIO = MODIFIERS.register("fortune_curio", FortuneCurio::new);
 }
