@@ -111,6 +111,8 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         server {
@@ -153,12 +155,16 @@ repositories {
         name 'DVS1 Maven FS'
         url 'https://dvs1.progwml6.com/files/maven'
     }
-/*    maven {
+    maven {
         name = "SpongePowered"
         url = "https://repo.spongepowered.org/repository/maven-public/"
     }
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
 
- */
+
 }
 mixin {
     add sourceSets.main, "tprt.refmap.json"
@@ -167,23 +173,30 @@ mixin {
     debug.verbose=true
 }
 dependencies {
-    //annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     // Specify the version of Minecraft to use.
     // Any artifact can be supplied so long as it has a "userdev" classifier artifact and is a compatible patcher artifact.
     // The "userdev" classifier will be requested and setup by ForgeGradle.
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // channel the power of mixins...
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
     implementation fg.deobf("slimeknights.mantle:Mantle:1.20.1-1.11.63")
     implementation fg.deobf("slimeknights.tconstruct:TConstruct:1.20.1-3.10.1.76")
     implementation fg.deobf("curse.maven:jei-238222:6600311")
     implementation fg.deobf("curse.maven:jade-324717:6271651")
     implementation fg.deobf("curse.maven:sakura-tinker-1217345:6778833")
-    implementation fg.deobf("curse.maven:tinkers-calibration-tic3-863663:6735556")
+    //implementation fg.deobf("curse.maven:tinkers-calibration-tic3-863663:6735556")
     implementation fg.deobf("curse.maven:etst-lib-1206379:6732443")
-    implementation fg.deobf("curse.maven:curios-309927:6418456")
     implementation fg.deobf("curse.maven:lendercataclysm-551586:6849032")
     implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6371701")
+
+    // Compile against only the API artifact
+    compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api"))
+    // Use the full Curios API jar at runtime
+    runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}"))
 
     implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.2.0"))
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.2.0")) {
