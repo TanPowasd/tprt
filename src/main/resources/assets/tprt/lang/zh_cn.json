@@ -16,12 +16,6 @@
   "item.tprt.king_of_magic": "法术核心",
   "item.tprt.king_of_mc": "原版核心",
   "item.tprt.tanpowasd": "挚爱",
-  "item.tprt.mixeddragon":"龙神钢锭",
-  "item.tprt.forged_steel": "锻造钢锭",
-  "item.tprt.source_alloy": "源质合金锭",
-  "item.tprt.advanced_manyullyn": "超限玛玉灵锭",
-  "item.tprt.kwat_wheat_grain_ingot": "瓦斯麦谷锭",
-  "item.tprt.evil_beast_alloy_ingot": "恶兽合金锭",
   "item.tprt.pig_bun": "🐖包",
   "item.tprt.red_turtle": "红温🐢",
   "item.tprt.blue_lancer": "蓝色枪兵",
@@ -51,12 +45,33 @@
   "fluid.tconstruct.king_of_forest_fluid": "熔融暮光",
   "fluid.tconstruct.king_of_cataclysm_fluid": "熔融灾变",
   "fluid.tconstruct.tanpowasd_fluid": "熔融挚爱",
+
+  "item.tprt.mixeddragon":"龙神钢锭",
   "fluid.tconstruct.mixeddragon_fluid": "熔融龙神钢",
+  "item.tprt.mixeddragon_fluid_bucket": "熔融龙神钢桶",
+
+  "item.tprt.source_alloy": "源质合金锭",
   "fluid.tconstruct.source_alloy_fluid": "熔融源质合金",
+  "item.tprt.source_alloy_fluid_bucket": "熔融源质合金桶",
+
+  "item.tprt.forged_steel": "锻造钢锭",
   "fluid.tconstruct.forged_steel_fluid": "熔融锻造钢",
+  "item.tprt.forged_steel_fluid_bucket": "熔融锻造钢桶",
+
   "fluid.tconstruct.molten_cursium": "熔融咒魂",
+
+  "item.tprt.advanced_manyullyn": "超限玛玉灵锭",
   "fluid.tconstruct.molten_advanced_manyullyn": "熔融超限玛玉灵",
+  "item.tprt.molten_advanced_manyullyn_bucket": "熔融超限玛玉灵桶",
+
+
   "fluid.tconstruct.molten_black_steel": "熔融黑钢",
+  "item.tprt.molten_black_steel_bucket": "熔融黑钢桶",
+
+  "item.tprt.kwat_wheat_grain_ingot": "瓦斯麦谷锭",
+
+  "item.tprt.evil_beast_alloy_ingot": "恶兽合金锭",
+
 
 
 
