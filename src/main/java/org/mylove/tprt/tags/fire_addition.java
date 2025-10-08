@@ -35,6 +35,7 @@ public class fire_addition extends NoLevelsModifier implements MeleeHitModifierH
             LivingEntity target = context.getLivingTarget();
             if (target != null) {
                 int level = modifier.getLevel();
+                target.invulnerableTime = 0; // 清空无敌帧后施加下一次伤害
                 DamageSources.applyDamage(target, ((AbstractSpell) SpellsRegistry.fire_addition.get()).getSpellPower(level, attacker), ((AbstractSpell)SpellsRegistry.fire_addition.get()).getDamageSource(attacker));
                 target.setRemainingFireTicks(100 + level * 60);
             }
