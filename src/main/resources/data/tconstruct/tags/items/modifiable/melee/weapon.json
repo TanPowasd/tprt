@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tprt:anchor_sword"
+    "tprt:anchor_sword",
+    "tprt:magic_blade"
   ]
 }

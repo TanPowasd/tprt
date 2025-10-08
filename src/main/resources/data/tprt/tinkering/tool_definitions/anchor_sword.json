@@ -35,7 +35,7 @@
       "type": "tconstruct:base_stats",
       "stats": {
         "tconstruct:attack_damage": 6.0,
-        "tconstruct:attack_speed": 1,
+        "tconstruct:attack_speed": 0.8,
         "tconstruct:durability": 275
       }
     },
@@ -44,7 +44,7 @@
       "multipliers": {
         "tconstruct:attack_damage": 1.5,
         "tconstruct:durability": 3.25,
-        "tconstruct:attack_speed": 0.8
+        "tconstruct:attack_speed": 1.0
       }
     },
     {
@@ -60,6 +60,10 @@
         {
           "level": 1,
           "name": "tconstruct:reach"
+        },
+        {
+          "level": 1,
+          "name": "tprt:fear_nothing"
         }
       ]
     },
@@ -71,6 +75,28 @@
     {
       "type": "tconstruct:melee_particle",
       "particle": "tconstruct:axe_attack"
+    },
+    {
+      "type": "tconstruct:box_aoe",
+      "bonus": {
+        "depth": 2,
+        "height": 2,
+        "width": 3
+      },
+      "expansion_direction": "tconstruct:side_hit",
+      "expansions": [
+        {
+          "height": 2,
+          "width": 3
+        },
+        {
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:circle_melee",
+      "diameter": 3.0
     }
   ]
 }

@@ -68,12 +68,16 @@ public class ModItems {
     public static final RegistryObject<Item>anchor_sword= ITEMS.register("anchor_sword",
             ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.ANCHOR_SWORD));
 
+//lr特供 注法者
+    public static final RegistryObject<Item>magic_blade= ITEMS.register("magic_blade",
+        ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.MAGIC_BLADE));
+
 //lr特供 🐖包
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
         ()->new Item(new Item.Properties().food(ModFoods.PIG_BUN)));
 
 //超级幸运E
-    public static final RegistryObject<Item>BLUE_LANCER=ITEMS.register("blue_lancer",
+    public static final RegistryObject<Item>CAPOO=ITEMS.register("capoo",
         () -> new Item(new Item.Properties()));
 
     //精密合金

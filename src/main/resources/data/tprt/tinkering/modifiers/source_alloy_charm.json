@@ -15,17 +15,11 @@
           "value": -100.0
         },
         {
-          "attribute": "l2damagetracker:magic_damage",
+          "attribute": "irons_spellbooks:spell_power",
           "operation": "multiply_total",
           "tooltip_style": "percent",
-          "value": 0.50
-        },
-        {
-          "attribute": "puffish_attributes:natural_regeneration",
-          "operation": "addition",
-          "value": 8.0
+          "value": 0.75
         }
-
       ],
       "name": "tprt:source_alloy_charm"
     }

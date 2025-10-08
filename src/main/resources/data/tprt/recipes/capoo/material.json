@@ -1,9 +1,9 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "item": "tprt:blue_lancer"
+    "item": "tprt:capoo"
   },
-  "material": "tprt:blue_lancer",
+  "material": "tprt:capoo",
   "needed": 1,
   "value": 1
 }

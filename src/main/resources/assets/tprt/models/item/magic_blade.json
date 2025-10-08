@@ -1,0 +1,24 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "head":  "tprt:item/tool/magic_blade/head",
+    "handguard":   "tprt:item/tool/magic_blade/handguard",
+    "handle":  "tprt:item/tool/magic_blade/handle"
+  },
+  "parts": [
+    { "name": "head",  "index": 0 },
+    { "name": "handguard", "index": 1 },
+    { "name": "handle",   "index": 2 }
+  ],
+  "overrides": [
+    {
+      "predicate": { "tconstruct:charging": 2 },
+      "model": "tprt:item/tool/magic_blade/blocking"
+    },
+    {
+      "predicate": { "tconstruct:broken": 1 },
+      "model": "tprt:item/tool/magic_blade/broken"
+    }
+  ]
+}

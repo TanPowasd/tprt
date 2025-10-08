@@ -18,13 +18,16 @@
   "item.tprt.tanpowasd": "挚爱",
   "item.tprt.pig_bun": "🐖包",
   "item.tprt.red_turtle": "红温🐢",
-  "item.tprt.blue_lancer": "蓝色枪兵",
+  "item.tprt.capoo": "咖波",
   "item.tprt.stainless_steel": "不锈钢",
   "item.tprt.precision_alloy": "精密合金",
 
 
   "item.tprt.anchor_sword": "锚剑",
   "item.tprt.anchor_sword.description": "一种沉重的异型武器",
+
+  "item.tprt.magic_blade": "注法者",
+  "item.tprt.magic_blade.description": "一种攻击附带铁魔法法术伤害的武器(未实现)",
 
 
   "block.tprt.lr_block":"lr块",
@@ -108,8 +111,8 @@
   "material.tprt.kwat_wheat_grain_ingot":"瓦斯麦谷锭",
   "material.tprt.kwat_wheat_grain_ingot.flavor":"远古的孑遗",
 
-  "material.tprt.blue_lancer":"蓝色枪兵",
-  "material.tprt.blue_lancer.flavor":"旋转突进的蓝色枪兵",
+  "material.tprt.capoo":"咖波",
+  "material.tprt.capoo.flavor":"可爱的神秘生物",
 
   "material.tprt.stainless_steel": "不锈钢",
   "material.tprt.precision_alloy": "精密合金",
@@ -127,23 +130,23 @@
 
   "modifier.tprt.mixeddragon_armor":"龙神护体",
   "modifier.tprt.mixeddragon_armor.flavor":"来自龙神的庇佑",
-  "modifier.tprt.mixeddragon_armor.description":"每级获得5%物理伤害减免和10%法术抗性",
+  "modifier.tprt.mixeddragon_armor.description":"每级获得8%伤害减免和10%法术抗性以及15%攻击伤害提升",
 
   "modifier.tprt.mixeddragon_ranged":"龙吟",
   "modifier.tprt.mixeddragon_ranged.flavor":"众龙的力量激荡不息",
-  "modifier.tprt.mixeddragon_ranged.description":"每级提高40%弓箭伤害，大幅提高弹射物力量",
+  "modifier.tprt.mixeddragon_ranged.description":"大幅提高弹射物力量和弹射物速度",
 
   "modifier.tprt.be_thoroughly_tempered":"千锤百炼",
   "modifier.tprt.be_thoroughly_tempered.flavor":"锻造的力量蕴含其中",
-  "modifier.tprt.be_thoroughly_tempered.description":"较大幅度提高工具的所有属性",
+  "modifier.tprt.be_thoroughly_tempered.description":"大幅度提高工具的所有属性",
 
   "modifier.tprt.source_alloy_default":"魔力升华",
   "modifier.tprt.source_alloy_default.flavor":"你的魔力变得无比纯净",
-  "modifier.tprt.source_alloy_default.description":"提高造成的法术伤害",
+  "modifier.tprt.source_alloy_default.description":"大幅提高法术强度",
 
   "modifier.tprt.source_alloy_charm":"魔力棱镜",
   "modifier.tprt.source_alloy_charm.flavor":"聚焦你的魔力",
-  "modifier.tprt.source_alloy_charm.description":"大幅提升法术伤害，会主动吞噬持有者的魔力并给予强大的生命回复效果",
+  "modifier.tprt.source_alloy_charm.description":"大幅提升法术强度，会主动吞噬持有者的魔力",
 
   "modifier.tprt.source_alloy_armor":"魔源裹身",
   "modifier.tprt.source_alloy_armor.flavor":"自然的魔力正在涌向你",
@@ -357,7 +360,12 @@
 
   "modifier.tprt.persistence_of_nature": "本性的坚守",
   "modifier.tprt.persistence_of_nature.flavor":"我们血脉相连，我们从不退却",
-  "modifier.tprt.persistence_of_nature.description":"当前生命值低于50%时受到攻击回复5点生命值，触发间隔0.5秒",
+  "modifier.tprt.persistence_of_nature.description":"当前生命值低于75%时受到攻击回复5+3%生命值，触发间隔0.5秒",
+
+  "modifier.tprt.fear_nothing": "无畏",
+  "modifier.tprt.fear_nothing.flavor":"真正的man应该无所位畏惧",
+  "modifier.tprt.fear_nothing.description":"提升所有类型的抗性",
+  "modifier.tprt.fear_nothing.resistance": "抗性",
 
   "modifier.tprt.advanced_luck": "鸿运齐天",
   "modifier.tprt.advanced_luck.2": "鸿运齐天+",
@@ -365,6 +373,10 @@
   "modifier.tprt.advanced_luck.flavor":"幸运plus",
   "modifier.tprt.advanced_luck.description":"敌人掉落的战利品更多，采掘时的掉落物也更多",
   "modifier.tprt.advanced_luck.requirements": "需要幸运++强化作为前置",
+
+  "modifier.tprt.fire_addition": "炽焰法力注入",
+  "modifier.tprt.fire_addition.flavor":"燃起来了",
+  "modifier.tprt.fire_addition.description":"攻击时附带炽焰法术伤害",
 
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",
@@ -382,7 +394,7 @@
   "modifier.tprt.disruption_break.description": "",
 
   "modifier.tprt.luck_strike": "幸运一击",
-  "modifier.tprt.luck_strike.flavor": "自古枪兵。。。",
+  "modifier.tprt.luck_strike.flavor": "能找到它就是好运？",
   "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低",
 
   "modifier.tprt.d2_lucky_pants": "幸运裤",

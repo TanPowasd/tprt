@@ -1,5 +1,6 @@
 package org.mylove.tprt;
 import com.mojang.logging.LogUtils;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -39,6 +40,11 @@ public class Tprt {
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
+
+    public static ResourceLocation getResource(String name) {
+        return ResourceLocation.fromNamespaceAndPath("tprt", name);
+    }
+
     private void commonSetup(final FMLCommonSetupEvent event) {
 
     }

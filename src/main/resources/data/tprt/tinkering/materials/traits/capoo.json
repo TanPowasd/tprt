@@ -3,6 +3,10 @@
     {
       "level": 1,
       "name": "tprt:luck_strike"
+    },
+    {
+      "level": 3,
+      "name": "tconstruct:luck"
     }
   ]
 }

@@ -41,6 +41,8 @@ public class ModifierRegistry {
     public static final StaticModifier<lucky_strike> LUCK_STRIKE = MODIFIERS.register("luck_strike",lucky_strike::new);
     public static final StaticModifier<the_dragon_power> THE_DRAGON_POWER = MODIFIERS.register("the_dragon_power",the_dragon_power::new);
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
+    public static final StaticModifier<gas_poison> GAS_POISON = MODIFIERS.register("gas_poison",gas_poison::new);
+    public static final StaticModifier<fire_addition> FIRE_ADDITION = MODIFIERS.register("fire_addition",fire_addition::new);
     public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
     public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
     public static final StaticModifier<mechanical_star_att> MECHANICAL_STAR_ATT = MODIFIERS.register("mechanical_star_att",mechanical_star_att::new);

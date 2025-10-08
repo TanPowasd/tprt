@@ -6,7 +6,7 @@
       "attributes": [
         {
           "attribute": "irons_spellbooks:spell_power",
-          "operation": "addition",
+          "operation": "multiply_total",
           "value": 0.05
         }
       ],

@@ -43,11 +43,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.ADVANCED_MANYULLYN.get());
                         pOutput.accept(ModItems.KWAT_WHEAT_GRAIN_INGOT.get());
                         pOutput.accept(ModItems.EVIL_BEAST_ALLOY_INGOT.get());
-                        pOutput.accept(ModItems.BLUE_LANCER.get());
+                        pOutput.accept(ModItems.CAPOO.get());
                         pOutput.accept(ModItems.RED_TURTLE.get());
                         pOutput.accept(ModItems.STAINLESS_STEEL.get());
                         pOutput.accept(ModItems.PRECISION_ALLOY.get());
                         pOutput.accept(ModItems.anchor_sword.get());
+                        pOutput.accept(ModItems.magic_blade.get());
                         //magicitem
                         //pOutput.accept(MIAGIC_cs1.get());
                     })

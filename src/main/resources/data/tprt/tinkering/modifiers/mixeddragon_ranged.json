@@ -8,31 +8,18 @@
     "level_display": "tconstruct:default",
     "modules": [
       {
-        "type": "tconstruct:attribute",
-        "each_level": 0.4,
-        "operation": "multiply_total",
-        "attribute": "attributeslib:arrow_damage",
-        "unique": "tconstruct.modifier.mixeddragon_ranged",
-        "slots": [
-          "feet",
-          "legs",
-          "chest",
-          "head",
-          "mainhand",
-          "offhand"
-        ]
+        "type": "tconstruct:stat_boost",
+        "flat": 0.5,
+        "each_level": 1.0,
+        "operation": "multiply_base",
+        "stat": "tconstruct:projectile_damage"
       },
-      
       {
-      "type": "tconstruct:stat_boost",
-      "each_level": 0.5,
-      "operation": "multiply_total",
-      "stat": "tconstruct:projectile_damage",
-      "unique": "tconstruct.modifier.crystalline_phase",
-      "tool": {
-        "type": "mantle:tag",
-        "tag": "tconstruct:modifiable/ranged"
-      }
+        "type": "tconstruct:stat_boost",
+        "flat": 0.5,
+        "each_level": 1.0,
+        "operation": "multiply_base",
+        "stat": "tconstruct:velocity"
       }
     ],
     "tooltip_display": "always"

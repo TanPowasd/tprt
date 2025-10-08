@@ -30,7 +30,7 @@ public class persistence_of_nature extends NoLevelsModifier implements OnAttacke
         LivingEntity living = context.getEntity();
         if (living instanceof Player player) {
 
-            if (player.getHealth() / player.getMaxHealth() > 0.5) return;
+            if (player.getHealth() / player.getMaxHealth() > 0.75) return;
 
             ToolStack mainhand = Modifier.getHeldTool(player, EquipmentSlot.MAINHAND);
             if (mainhand != null) {
@@ -38,7 +38,9 @@ public class persistence_of_nature extends NoLevelsModifier implements OnAttacke
                 else {
                     player.getCooldowns().addCooldown(mainhand.getItem(), Persistence_of_natureCoolDown);
 
-                    player.heal(5);
+                    double MaxA=player.getMaxHealth();
+                    double x=0.03*MaxA;
+                    player.heal((float) (5+x));
                     return;
 
                 }

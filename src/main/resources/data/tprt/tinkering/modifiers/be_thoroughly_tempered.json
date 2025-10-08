@@ -7,19 +7,19 @@
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 0.3,
+        "flat": 0.4,
         "operation": "multiply_base",
         "stat": "tconstruct:durability"
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 1.0,
+        "flat": 2.0,
         "operation": "add",
         "stat": "tconstruct:armor_toughness"
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 2.0,
+        "flat": 4.0,
         "operation": "add",
         "stat": "tconstruct:armor"
       },
@@ -31,13 +31,13 @@
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 0.25,
+        "flat": 0.40,
         "operation": "multiply_base",
         "stat": "tconstruct:attack_damage"
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 0.25,
+        "flat": 0.3,
         "operation": "multiply_base",
         "stat": "tconstruct:mining_speed"
       },
@@ -48,7 +48,7 @@
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 0.25,
+        "flat": 0.4,
         "operation": "multiply_base",
         "stat": "tconstruct:velocity"
       }

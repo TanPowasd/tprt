@@ -1,0 +1,11 @@
+{
+  "level_display": "tconstruct:single_level",
+  "modules": [
+    {
+      "type": "tconstruct:protection",
+      "damage_source": "mantle:can_protect",
+      "each_level": 5
+    }
+  ],
+  "tooltip_display": "always"
+}

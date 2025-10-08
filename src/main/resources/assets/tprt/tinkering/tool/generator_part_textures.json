@@ -27,6 +27,22 @@
     {
       "path": "tprt:item/tool/anchor_sword/grip_broken",
       "stat_type": "tconstruct:grip"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/handguard",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/handle",
+      "stat_type": "tconstruct:handle"
     }
   ],
   "replace": false

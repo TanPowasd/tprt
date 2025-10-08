@@ -1,0 +1,14 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "head":  "tprt:item/tool/magic_blade/head_broken",
+    "handguard":  "tprt:item/tool/magic_blade/handguard",
+    "handle":   "tprt:item/tool/magic_blade/handle"
+  },
+  "parts": [
+    { "name": "head",  "index": 0 },
+    { "name": "handguard", "index": 1 },
+    { "name": "handle",   "index": 2 }
+  ]
+}
