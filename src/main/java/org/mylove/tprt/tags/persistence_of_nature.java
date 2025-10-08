@@ -2,7 +2,6 @@ package org.mylove.tprt.tags;
 
 
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -38,9 +37,10 @@ public class persistence_of_nature extends NoLevelsModifier implements OnAttacke
                 else {
                     player.getCooldowns().addCooldown(mainhand.getItem(), Persistence_of_natureCoolDown);
 
-                    double MaxA=player.getMaxHealth();
-                    double x=0.03*MaxA;
-                    player.heal((float) (5+x));
+                    double x=player.getMaxHealth();
+                    double y=player.getHealth();
+                    double z=0.03*(x-y);
+                    player.heal((float) (5+z));
                     return;
 
                 }
