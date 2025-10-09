@@ -354,6 +354,10 @@
   "modifier.tprt.the_gaze_of_the_cyclops.flavor":"“你不觉得这个大眼球看着有些瘆得慌么？”——无名骑士",
   "modifier.tprt.the_gaze_of_the_cyclops.description":"攻击附带短时间的虚弱3",
 
+  "modifier.tprt.blood_of_hydra": "九头蛇之血",
+  "modifier.tprt.blood_of_hydra.flavor":"获得九头蛇奇迹般的自愈能力",
+  "modifier.tprt.blood_of_hydra.description":"生命值低于60%时获得高额的生命回复效果，但在生命值高于60%时无法获得任何生命回复效果",
+
   "modifier.tprt.reaper": "死亡收割",
   "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
   "modifier.tprt.reaper.description":"工具的攻击力+25%，获得25%的过量治疗",
