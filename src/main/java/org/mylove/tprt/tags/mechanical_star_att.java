@@ -20,9 +20,9 @@ public class mechanical_star_att extends BaseModifier {
         LivingEntity entity = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
         if (entity != null && attacker != null) {
-            float ArmorA=attacker.getArmorValue();
-            double x=(1.5*ArmorA+200)/500;
-            return (float) (damage*(1+x*0.75f));
+            float x=attacker.getArmorValue();
+            double y=x/(2*x+100);
+            return (float) (damage*(1+2*y));
         }
         return damage;
     }
