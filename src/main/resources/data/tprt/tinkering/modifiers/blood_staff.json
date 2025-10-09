@@ -1,0 +1,40 @@
+{
+  "level_display": "tconstruct:single_level",
+  "modules": [
+    {
+      "type": "tconstruct:attribute",
+      "each_level": 0.15,
+      "operation": "addition",
+      "tooltip_style": "percent",
+      "attribute": "irons_spellbooks:blood_spell_power",
+      "unique": "tconstruct.modifier.blood_staff",
+      "slots": [
+        "mainhand"
+      ]
+    },
+    {
+      "type": "tconstruct:attribute",
+      "each_level": 0.05,
+      "operation": "addition",
+      "tooltip_style": "percent",
+      "attribute": "irons_spellbooks:spell_power",
+      "unique": "tconstruct.modifier.blood_staff",
+      "slots": [
+        "mainhand"
+      ]
+    },
+    {
+      "type": "tconstruct:attribute",
+      "each_level": 0.1,
+      "operation": "addition",
+      "tooltip_style": "percent",
+      "attribute": "irons_spellbooks:summon_damage",
+      "unique": "tconstruct.modifier.blood_staff",
+      "slots": [
+        "mainhand"
+      ]
+    }
+  ],
+  "name": "tprt:blood_staff",
+  "tooltip_display": "tinker_station"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:lightning_rod"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:lightning_rod",
+  "tools": [
+    {
+      "tag": "tprt:modifiable/melee/magic_blade"
+    }
+  ]
+}

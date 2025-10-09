@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:blood_staff"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:blood_staff",
+  "tools": [
+    {
+      "tag": "tprt:modifiable/melee/magic_blade"
+    }
+  ]
+}

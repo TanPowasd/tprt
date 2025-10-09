@@ -322,6 +322,22 @@
   "modifier.tprt.the_source_of_all_spells.description":"+1200最大法力值，+200法力回复，+50%总法术强度",
   "modifier.tprt.the_source_of_all_spells.requirements": "需要所有8种魔导书强化作为前置",
 
+  "modifier.tprt.blood_staff": "猩红神杖升级",
+  "modifier.tprt.blood_staff.flavor":"攫取法杖的能力",
+  "modifier.tprt.blood_staff.description":"+5%法术强度，+15%猩红法术强度，+10%召唤伤害",
+
+  "modifier.tprt.artificer_cane": "匠师之杖升级",
+  "modifier.tprt.artificer_cane.flavor":"攫取法杖的能力",
+  "modifier.tprt.artificer_cane.description":"+10% 法术强度，+15% 法术吟唱缩减，+15% 法术冷却缩减",
+
+  "modifier.tprt.ice_staff": "冰霜魔杖升级",
+  "modifier.tprt.ice_staff.flavor":"攫取法杖的能力",
+  "modifier.tprt.ice_staff.description":"+15% 冰霜法术强度，+5% 法术强度，+25% 法力值恢复",
+
+  "modifier.tprt.lightning_rod": "雷霆之杖升级",
+  "modifier.tprt.lightning_rod.flavor":"攫取法杖的能力",
+  "modifier.tprt.lightning_rod.description":"+15% 雷霆法术强度，-15% 法术冷却缩减，+5% 法术强度",
+
   "modifier.tprt.strengthen_for_charm_attack_damage": "护符增强——近战伤害",
   "modifier.tprt.strengthen_for_charm_attack_damage.flavor":"深渊之力",
   "modifier.tprt.strengthen_for_charm_attack_damage.description":"每级+2.5%近战伤害",

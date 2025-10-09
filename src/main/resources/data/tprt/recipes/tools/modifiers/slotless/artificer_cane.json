@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:artificer_cane"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:artificer_cane",
+  "tools": [
+    {
+      "tag": "tprt:modifiable/melee/magic_blade"
+    }
+  ]
+}
