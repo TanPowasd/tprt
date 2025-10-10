@@ -27,7 +27,7 @@
   },
   "tools": [
     {
-      "item": "tprt:anchor_sword"
+      "tag": "tprt:modifiable/melee/anchor_sword"
     }
   ]
 }
