@@ -383,7 +383,7 @@
   "modifier.tprt.persistence_of_nature.description":"当前生命值低于75%时受到攻击回复5+3%已损失生命值，触发间隔0.5秒",
 
   "modifier.tprt.fear_nothing": "无畏",
-  "modifier.tprt.fear_nothing.flavor":"真正的man应该无所位畏惧",
+  "modifier.tprt.fear_nothing.flavor":"真正的man应该无所畏惧",
   "modifier.tprt.fear_nothing.description":"提升所有类型的抗性",
   "modifier.tprt.fear_nothing.resistance": "抗性",
 
