@@ -1,9 +1,24 @@
 {
   "type": "tconstruct:material_fluid",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
   "fluid": {
     "name": "tprt:molten_cursium",
     "amount": 90
   },
-  "temperature": 1800,
-  "output": "cataclysm:cursium_ingot"
+  "temperature": 2500,
+  "output": "tprt:cursium"
 }

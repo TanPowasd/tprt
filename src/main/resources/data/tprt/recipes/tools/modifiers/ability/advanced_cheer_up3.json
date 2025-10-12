@@ -10,6 +10,14 @@
     },
     {
       "item": "artifacts:crystal_heart"
+    },
+    {
+      "item": "tconstruct:jeweled_apple",
+      "amount_needed":2
+    },
+    {
+      "item": "tconstruct:jeweled_apple",
+      "amount_needed":2
     }
   ],
   "level": 3,

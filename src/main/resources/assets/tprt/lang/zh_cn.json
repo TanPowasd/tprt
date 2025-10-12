@@ -24,7 +24,7 @@
 
 
   "item.tprt.anchor_sword": "锚剑",
-  "item.tprt.anchor_sword.description": "一种沉重的异型武器",
+  "item.tprt.anchor_sword.description": "一种沉重的异型武器，兼顾近战强化与防御强化",
 
   "item.tprt.magic_blade": "注法者",
   "item.tprt.magic_blade.description": "一种攻击附带铁魔法法术伤害的武器(未实现)",
@@ -62,6 +62,7 @@
   "item.tprt.forged_steel_fluid_bucket": "熔融锻造钢桶",
 
   "fluid.tconstruct.molten_cursium": "熔融咒魂",
+  "item.tprt.molten_cursium_bucket": "熔融咒魂桶",
 
   "item.tprt.advanced_manyullyn": "超限玛玉灵锭",
   "fluid.tconstruct.molten_advanced_manyullyn": "熔融超限玛玉灵",
@@ -74,6 +75,9 @@
   "item.tprt.kwat_wheat_grain_ingot": "瓦斯麦谷锭",
 
   "item.tprt.evil_beast_alloy_ingot": "恶兽合金锭",
+
+  "fluid.tconstruct.molten_ancient_metal": "熔融远古金属",
+  "item.tprt.molten_ancient_metal_bucket": "熔融远古金属桶",
 
 
 
@@ -103,7 +107,10 @@
   "material.tprt.evil_beast_alloy.flavor":"灵魂锻造厂的沉默守卫",
 
   "material.tprt.black_steel":"黑钢",
-  "material.tprt.black_steel.flavor":"受诅咒侵染的金属",
+  "material.tprt.black_steel.flavor":"古代雪原的工匠们所锻造出来的独特合金",
+
+  "material.tprt.ancient_metal":"远古金属",
+  "material.tprt.ancient_metal.flavor":"源自于沙漠的古老金属，十分强韧",
 
   "material.tprt.advanced_manyullyn":"超限玛玉灵",
   "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
@@ -186,7 +193,7 @@
 
   "modifier.tprt.advanced_greed": "贪欲",
   "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
-  "modifier.tprt.advanced_greed.description":"每次攻击提高10%攻击伤害，上限10层",
+  "modifier.tprt.advanced_greed.description":"每次攻击提高7.5%攻击伤害，上限10层",
 
   "modifier.tprt.mechanical_star_att": "机械之星",
   "modifier.tprt.mechanical_star_att.flavor":"机械工程的杰作，战争机器的化身",
@@ -217,6 +224,15 @@
   "modifier.tprt.soul_surge": "魂灵激涌",
   "modifier.tprt.soul_surge.flavor":"长期的浸润使它充满魂灵的力量",
   "modifier.tprt.soul_surge.description":"攻击伤害额外提高10%",
+
+  "modifier.tprt.strong_but_pliable": "强韧",
+  "modifier.tprt.strong_but_pliable.flavor":"独特的金属构造使其兼具强度与韧性",
+  "modifier.tprt.strong_but_pliable.description":"攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐提升",
+
+  "modifier.tprt.ancient_sandstorm": "远古沙暴",
+  "modifier.tprt.ancient_sandstorm.flavor":"满天沙暴加持于你！",
+  "modifier.tprt.ancient_sandstorm.description":"攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐获得高额百分比提升",
+  "modifier.tprt.ancient_sandstorm.requirements": "需要远古金属材料作为前置",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
@@ -423,7 +439,7 @@
 
   "modifier.tprt.d2_half_truths": "真假参半",
   "modifier.tprt.d2_half_truths.flavor": "急切刀锋",
-  "modifier.tprt.d2_half_truths.description": "切换到此武器后，下次攻击将会使持有者获得强大的动能",
+  "modifier.tprt.d2_half_truths.description": "切换到此武器后，若下次攻击未命中目标，则会使持有者获得强大的动能",
 
   "modifier.tprt.millennium": "千年",
   "modifier.tprt.millennium.flavor": "",

@@ -10,7 +10,8 @@
     "kwat_wheat_grain_ingot": "#8e1031",
     "evil_beast_alloy":"#FF443738",
     "black_steel": "#FF2C2C2C",
-    "capoo": "#FF04B7FB"
+    "capoo": "#FF04B7FB",
+    "ancient_metal": "#FFF4B800"
   },
   "modifier.tprt": {
     "mixeddragon_armor":"#EEDD82",
@@ -60,6 +61,8 @@
     "persistence_of_nature": "#FF001399",
     "luck_strike": "#FF04B7FB",
     "fear_nothing": "#A8A8A8",
-    "blood_of_hydra": "#FF00E100"
+    "blood_of_hydra": "#FF00E100",
+    "strong_but_pliable": "#FFF4B800",
+    "ancient_sandstorm": "#FFF4B800"
   }
 }

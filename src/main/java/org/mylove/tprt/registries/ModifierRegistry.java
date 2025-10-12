@@ -3,8 +3,8 @@ package org.mylove.tprt.registries;
 import com.ssakura49.sakuratinker.generic.CurioModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.mylove.tprt.Tprt;
-import org.mylove.tprt.tags.*;
-import org.mylove.tprt.tags.curio.FortuneCurio;
+import org.mylove.tprt.Modifiers.*;
+import org.mylove.tprt.Modifiers.curio.FortuneCurio;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
@@ -42,6 +42,8 @@ public class ModifierRegistry {
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
     public static final StaticModifier<gas_poison> GAS_POISON = MODIFIERS.register("gas_poison",gas_poison::new);
     public static final StaticModifier<fire_addition> FIRE_ADDITION = MODIFIERS.register("fire_addition",fire_addition::new);
+    public static final StaticModifier<strong_but_pliable> STRONG_BUT_PLIABLE = MODIFIERS.register("strong_but_pliable",strong_but_pliable::new);
+    public static final StaticModifier<ancient_sandstorm> ANCIENT_SANDSTORM = MODIFIERS.register("ancient_sandstorm",ancient_sandstorm::new);
     public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
     public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
     public static final StaticModifier<mechanical_star_att> MECHANICAL_STAR_ATT = MODIFIERS.register("mechanical_star_att",mechanical_star_att::new);

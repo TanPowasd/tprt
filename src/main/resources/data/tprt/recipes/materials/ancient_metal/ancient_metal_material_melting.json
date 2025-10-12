@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:ancient_metal",
+  "temperature": 1400,
+  "result": {
+    "fluid": "tprt:molten_ancient_metal",
+    "amount": 90
+  }
+}

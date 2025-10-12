@@ -1,5 +1,6 @@
 package org.mylove.tprt.registries;
 
+import com.mojang.blaze3d.shaders.Effect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -36,6 +37,12 @@ public class ModFoods {
             .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 200, 0), 1f) // 10秒 伤害吸收1
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, 1), 1f) // 20秒 力量2
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 400, 0), 1f) // 20秒 缓慢1
+            .alwaysEat()
+            .build();
+    public static final FoodProperties KWAT_WHEAT_GRAIN_INGOT = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.5f)
+            .effect(() -> new MobEffectInstance(MobEffects.WEAKNESS, 20*60, 9), 1f) // 60秒 虚弱10
             .alwaysEat()
             .build();
 }

@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "cataclysm:black_steel_axe"
+  },
+  "result": {
+    "amount": 270,
+    "fluid": "tprt:molten_black_steel"
+  },
+  "temperature": 1000,
+  "time": 270
+}

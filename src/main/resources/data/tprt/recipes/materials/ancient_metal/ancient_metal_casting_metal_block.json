@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:casting_basin",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "cooling_time": 900,
+  "fluid": {
+    "amount": 810,
+    "fluid": "tprt:molten_ancient_metal"
+  },
+  "result": "cataclysm:ancient_metal_block"
+}

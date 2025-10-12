@@ -59,7 +59,7 @@ public class ModItems {
         ()->new Item(new Item.Properties()));
 //lr特供 瓦斯麦谷锭
     public static final RegistryObject<Item>KWAT_WHEAT_GRAIN_INGOT=ITEMS.register("kwat_wheat_grain_ingot",
-        ()->new Item(new Item.Properties()));
+        ()->new Item(new Item.Properties().food(ModFoods.KWAT_WHEAT_GRAIN_INGOT)));
 //lr特供 恶兽合金锭
     public static final RegistryObject<Item>EVIL_BEAST_ALLOY_INGOT=ITEMS.register("evil_beast_alloy_ingot",
         ()->new Item(new Item.Properties()));
