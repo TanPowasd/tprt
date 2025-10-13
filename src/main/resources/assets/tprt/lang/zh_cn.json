@@ -227,11 +227,11 @@
 
   "modifier.tprt.strong_but_pliable": "强韧",
   "modifier.tprt.strong_but_pliable.flavor":"独特的金属构造使其兼具强度与韧性",
-  "modifier.tprt.strong_but_pliable.description":"攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐提升",
+  "modifier.tprt.strong_but_pliable.description":"基础耐久+500，攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐提升",
 
   "modifier.tprt.ancient_sandstorm": "远古沙暴",
   "modifier.tprt.ancient_sandstorm.flavor":"满天沙暴加持于你！",
-  "modifier.tprt.ancient_sandstorm.description":"攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐获得高额百分比提升",
+  "modifier.tprt.ancient_sandstorm.description":"基础耐久+1000，攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐获得高额百分比提升",
   "modifier.tprt.ancient_sandstorm.requirements": "需要远古金属材料作为前置",
 
   "modifier.tprt.flame_rising": "火焰升腾",
@@ -249,6 +249,10 @@
   "modifier.tprt.the_power_of_beast": "恶兽之威",
   "modifier.tprt.the_power_of_beast.flavor":"先民的奇异科技加护了你的装备",
   "modifier.tprt.the_power_of_beast.description":"下界先民的遗馈为你带来了一个升级槽和一个防御槽",
+
+  "modifier.tprt.renovation_of_historic_sites": "古迹翻新",
+  "modifier.tprt.renovation_of_historic_sites.flavor":"尘封的古迹赐福了你的装备",
+  "modifier.tprt.renovation_of_historic_sites.description":"上古遗迹的残留为你带来了一个升级槽和一个防御槽以及一个能力槽",
 
   "modifier.tprt.storm_potential": "风暴潜能",
   "modifier.tprt.storm_potential.flavor":"风暴的精粹附魔了你的装备",
