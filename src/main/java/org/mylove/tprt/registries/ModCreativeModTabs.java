@@ -47,6 +47,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.RED_TURTLE.get());
                         pOutput.accept(ModItems.STAINLESS_STEEL.get());
                         pOutput.accept(ModItems.PRECISION_ALLOY.get());
+                        pOutput.accept(ModItems.golden_fox_mask.get());
                         pOutput.accept(ModItems.anchor_sword.get());
                         pOutput.accept(ModItems.magic_blade.get());
                         //magicitem

@@ -1,5 +1,7 @@
 package org.mylove.tprt.registries.item;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.ssakura49.sakuratinker.common.items.curios.FoxCurio;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -7,7 +9,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.registries.ModFoods;
+import org.mylove.tprt.registries.item.curios.golden_fox_mask;
 import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
+
+import static com.ssakura49.sakuratinker.register.STItems.registerCommonItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -63,10 +68,13 @@ public class ModItems {
 //lr特供 恶兽合金锭
     public static final RegistryObject<Item>EVIL_BEAST_ALLOY_INGOT=ITEMS.register("evil_beast_alloy_ingot",
         ()->new Item(new Item.Properties()));
+//魂樱面具拓展：金质
+    public static final RegistryObject<Item>golden_fox_mask = registerCommonItem(ITEMS, "golden_fox_mask",
+        () -> new golden_fox_mask(new Item.Properties(), "fox_mask", ImmutableMultimap.of()), false);
 
 //lr特供 锚剑
     public static final RegistryObject<Item>anchor_sword= ITEMS.register("anchor_sword",
-            ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.ANCHOR_SWORD));
+        ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.ANCHOR_SWORD));
 
 //lr特供 注法者
     public static final RegistryObject<Item>magic_blade= ITEMS.register("magic_blade",
