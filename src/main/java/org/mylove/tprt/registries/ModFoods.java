@@ -43,6 +43,7 @@ public class ModFoods {
             .nutrition(8)
             .saturationMod(1.5f)
             .effect(() -> new MobEffectInstance(MobEffects.WEAKNESS, 20*60, 9), 1f) // 60秒 虚弱10
+            .effect(() -> new MobEffectInstance(MobEffects.WITHER, 20*60, 19), 1f) // 60秒 凋零20
             .alwaysEat()
             .build();
 }
