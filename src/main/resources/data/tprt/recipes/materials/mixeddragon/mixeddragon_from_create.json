@@ -33,7 +33,7 @@
           "item": "tprt:forged_steel"
         },
         {
-          "amount": 90,
+          "amount": 10,
           "fluid": "sakuratinker:molten_dragon_fire_steel",
           "nbt": {}
         }
@@ -51,7 +51,7 @@
           "item": "tprt:forged_steel"
         },
         {
-          "amount": 90,
+          "amount": 10,
           "fluid": "sakuratinker:molten_dragon_ice_steel",
           "nbt": {}
         }
@@ -69,7 +69,7 @@
           "item": "tprt:forged_steel"
         },
         {
-          "amount": 90,
+          "amount": 10,
           "fluid": "sakuratinker:molten_dragon_lightning_steel",
           "nbt": {}
         }

@@ -4,6 +4,6 @@
     "name": "tprt:mixeddragon_fluid",
     "amount": 90
   },
-  "temperature": 3500,
+  "temperature": 3800,
   "output": "tprt:mixeddragon"
 }

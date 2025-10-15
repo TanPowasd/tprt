@@ -38,9 +38,9 @@ public class ancient_sandstorm extends NoLevelsModifier implements ToolStatsModi
         float Pro=builder.getStat(ToolStats.PROJECTILE_DAMAGE);
         float Arm=builder.getStat(ToolStats.ARMOR);
 
-        ToolStats.ATTACK_DAMAGE.add(builder, 0.75*Att * z * X);
+        ToolStats.ATTACK_DAMAGE.add(builder, 0.6*Att * z * X);
         ToolStats.PROJECTILE_DAMAGE.add(builder, 1.0 * Pro * z * X);
-        ToolStats.ARMOR.add(builder, 1.25 * Arm * z * X);
+        ToolStats.ARMOR.add(builder, 1.5 * Arm * z * X);
         ToolStats.DURABILITY.add(builder,1000);
     }
 

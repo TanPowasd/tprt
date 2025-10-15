@@ -70,7 +70,7 @@ public class ModItems {
         ()->new Item(new Item.Properties()));
 //魂樱面具拓展：金质
     public static final RegistryObject<Item>golden_fox_mask = registerCommonItem(ITEMS, "golden_fox_mask",
-        () -> new golden_fox_mask(new Item.Properties(), "fox_mask", ImmutableMultimap.of()), false);
+        () -> new golden_fox_mask(new Item.Properties(), "golden_fox_mask", ImmutableMultimap.of()), false);
 
 //lr特供 锚剑
     public static final RegistryObject<Item>anchor_sword= ITEMS.register("anchor_sword",

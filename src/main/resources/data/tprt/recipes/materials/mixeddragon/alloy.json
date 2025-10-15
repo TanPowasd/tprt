@@ -2,19 +2,19 @@
   "type": "tconstruct:alloy",
   "inputs": [
     {
-      "amount": 2700,
+      "amount": 270,
       "fluid": "sakuratinker:molten_dragon_fire_steel"
     },
     {
-      "amount": 2700,
+      "amount": 270,
       "fluid": "sakuratinker:molten_dragon_ice_steel"
     },
     {
-      "amount": 2700,
+      "amount": 270,
       "fluid": "sakuratinker:molten_dragon_lightning_steel"
     },
     {
-      "amount":2700,
+      "amount":270,
       "fluid":"sakuratinker:molten_nihilite"
     }
   ],
@@ -22,5 +22,5 @@
     "amount": 90,
     "fluid": "tprt:mixeddragon_fluid"
   },
-  "temperature": 3500
+  "temperature": 3800
 }

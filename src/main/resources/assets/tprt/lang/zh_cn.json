@@ -19,8 +19,6 @@
   "item.tprt.pig_bun": "🐖包",
   "item.tprt.red_turtle": "红温🐢",
   "item.tprt.capoo": "咖波",
-  "item.tprt.golden_fox_mask": "金质狐狸面具",
-  "item.tprt.golden_fox_mask.desc": "换色（）",
   "item.tprt.stainless_steel": "不锈钢",
   "item.tprt.precision_alloy": "精密合金",
 
@@ -31,6 +29,9 @@
   "item.tprt.magic_blade": "注法者",
   "item.tprt.magic_blade.description": "一种攻击附带铁魔法法术伤害的武器(未实现)",
 
+  "item.tprt.golden_fox_mask": "金质狐狸面具",
+  "item.tprt.golden_fox_mask.desc": "换色（）",
+  "curios.modifiers.golden_fox_mask": "属性：",
 
   "block.tprt.lr_block":"lr块",
   "block.tprt.raw_lr_block":"粗制lr块",

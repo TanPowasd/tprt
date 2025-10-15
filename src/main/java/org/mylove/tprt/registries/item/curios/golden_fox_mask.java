@@ -19,22 +19,22 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.Nullable;
-import top.theillusivec4.curios.api.SlotContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.UUID;
 import java.util.function.Consumer;
 
-import static javax.swing.UIManager.put;
-
 public class golden_fox_mask extends SimpleDescriptiveCurio {
-    public golden_fox_mask(Properties properties, String foxMask, ImmutableMultimap<Attribute, AttributeModifier> of) {
-        super(new Properties().stacksTo(1).rarity(Rarity.EPIC), "fox_mask" , () ->{
+    private static final Logger log = LoggerFactory.getLogger(golden_fox_mask.class);
+
+    public golden_fox_mask(Properties properties, String slotIdentifier, Multimap<Attribute, AttributeModifier> defaultModifiers) {
+        super(new Properties().stacksTo(1).rarity(Rarity.EPIC), "golden_fox_mask" , () ->{
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
             builder
                     .put(STAttributes.getRealitySuppression(), new AttributeModifier(UUID.fromString("128a0077-2aa0-4d7f-883d-14bb867e0fb2"), "Curios modifier", 4.0F, AttributeModifier.Operation.ADDITION))
                     .put(STAttributes.getRealitySuppressionResistance(), new AttributeModifier(UUID.fromString("bf4f56a1-3f19-4a75-8faa-fae0e88f555e"), "Curios modifier", 0.15F, AttributeModifier.Operation.MULTIPLY_BASE))
-                    .put(Attributes.MAX_HEALTH, new AttributeModifier(UUID.fromString("4c5f72a1-73aa-4ba2-80b0-aa6aada17fc1"), "Curios modifier", 20, AttributeModifier.Operation.ADDITION));
-            put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("4c5f72a1-73aa-4ba2-80b0-aa6aada17fc1"), "Curios modifier", 0.25, AttributeModifier.Operation.MULTIPLY_BASE));
+                    .put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("4c5f72a1-73aa-4ba2-80b0-aa6aada17fc1"), "Curios modifier", 0.25, AttributeModifier.Operation.MULTIPLY_BASE));
             return builder.build();
         });
         this.defaultDesc(
