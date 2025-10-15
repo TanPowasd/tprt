@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "irons_spellbooks:hogskin"
+  },
+  "material": "tprt:hogskin",
+  "needed": 1,
+  "value": 1
+}

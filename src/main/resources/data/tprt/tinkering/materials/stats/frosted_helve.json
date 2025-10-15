@@ -1,0 +1,10 @@
+{
+  "stats": {
+    "tconstruct:handle": {
+      "durability": 0.08,
+      "melee_damage": 0.4,
+      "melee_speed": 0.3,
+      "mining_speed": 0.35
+    }
+  }
+}

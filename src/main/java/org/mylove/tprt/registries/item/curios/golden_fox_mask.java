@@ -1,7 +1,6 @@
 package org.mylove.tprt.registries.item.curios;
 
 import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
 import com.ssakura49.sakuratinker.client.component.CuriosMutableComponent;
 import com.ssakura49.sakuratinker.client.component.LoreHelper;
 import com.ssakura49.sakuratinker.client.component.LoreStyle;
@@ -28,12 +27,12 @@ import java.util.function.Consumer;
 public class golden_fox_mask extends SimpleDescriptiveCurio {
     private static final Logger log = LoggerFactory.getLogger(golden_fox_mask.class);
 
-    public golden_fox_mask(Properties properties, String slotIdentifier, Multimap<Attribute, AttributeModifier> defaultModifiers) {
+    public golden_fox_mask() {
         super(new Properties().stacksTo(1).rarity(Rarity.EPIC), "golden_fox_mask" , () ->{
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
             builder
                     .put(STAttributes.getRealitySuppression(), new AttributeModifier(UUID.fromString("128a0077-2aa0-4d7f-883d-14bb867e0fb2"), "Curios modifier", 4.0F, AttributeModifier.Operation.ADDITION))
-                    .put(STAttributes.getRealitySuppressionResistance(), new AttributeModifier(UUID.fromString("bf4f56a1-3f19-4a75-8faa-fae0e88f555e"), "Curios modifier", 0.15F, AttributeModifier.Operation.MULTIPLY_BASE))
+                    .put(Attributes.LUCK, new AttributeModifier(UUID.fromString("bf4f56a1-3f19-4a75-8faa-fae0e88f555e"), "Curios modifier", 3F, AttributeModifier.Operation.ADDITION))
                     .put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("4c5f72a1-73aa-4ba2-80b0-aa6aada17fc1"), "Curios modifier", 0.25, AttributeModifier.Operation.MULTIPLY_BASE));
             return builder.build();
         });

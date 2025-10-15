@@ -1,0 +1,20 @@
+{
+  "level_display": "tconstruct:single_level",
+  "modules": [
+    {
+      "type": "tconstruct:attribute",
+      "each_level": 0.1,
+      "flat": 0.2,
+      "operation": "multiply_total",
+      "tooltip_style": "percent",
+      "attribute": "irons_spellbooks:ice_spell_power",
+      "unique": "tconstruct.modifier.ice_spell_power_improved",
+      "slots": [
+        "mainhand",
+        "offhand"
+      ]
+    }
+  ],
+  "name": "tprt:ice_spell_power_improved",
+  "tooltip_display": "always"
+}

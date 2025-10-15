@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:ice_spell_power_improved"
+    },
+    {
+      "level": 2,
+      "name": "tconstruct:freezing"
+    }
+  ]
+}

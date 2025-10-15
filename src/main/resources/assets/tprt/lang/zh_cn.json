@@ -127,6 +127,12 @@
   "material.tprt.stymphalian_bird_feather":"青铜鹗羽",
   "material.tprt.stymphalian_bird_feather.flavor":"装上了青铜鹗羽的箭矢能像猛禽一样翱翔",
 
+  "material.tprt.frosted_helve":"冰封手柄",
+  "material.tprt.frosted_helve.flavor":"弥漫着凛冽的寒气和冰霜的玄奥",
+
+  "material.tprt.hogskin":"疣猪皮",
+  "material.tprt.hogskin.flavor":"下界异兽的皮肤，坚韧而易于传导法力",
+
   "material.tprt.stainless_steel": "不锈钢",
   "material.tprt.precision_alloy": "精密合金",
 
@@ -155,7 +161,7 @@
 
   "modifier.tprt.source_alloy_default":"魔力升华",
   "modifier.tprt.source_alloy_default.flavor":"你的魔力变得无比纯净",
-  "modifier.tprt.source_alloy_default.description":"大幅提高法术强度",
+  "modifier.tprt.source_alloy_default.description":"提高造成的魔法伤害",
 
   "modifier.tprt.source_alloy_charm":"魔力棱镜",
   "modifier.tprt.source_alloy_charm.flavor":"聚焦你的魔力",
@@ -243,6 +249,14 @@
   "modifier.tprt.metallization": "金属化",
   "modifier.tprt.metallization.flavor":"这下连箭羽都是金属的了",
   "modifier.tprt.metallization.description":"大幅提高箭矢的各项属性，但是精准度降低",
+
+  "modifier.tprt.ice_spell_power_improved": "冰霜法强提升",
+  "modifier.tprt.ice_spell_power_improved.flavor":"冰霜的玄奥使你对冰霜法术有了更深刻的理解",
+  "modifier.tprt.ice_spell_power_improved.description":"大幅提高冰霜法术强度",
+
+  "modifier.tprt.mana_improved": "法力提升",
+  "modifier.tprt.mana_improved.flavor":"蕴含的魔力使你的法力充盈",
+  "modifier.tprt.mana_improved.description":"提高最大法力值和法力回复速度以及法术抗性",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
