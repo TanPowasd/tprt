@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "sakuratinker:arcane_alloy"
+  },
+  "cast_consumed": true,
+  "cooling_time": 600,
+  "fluid": {
+    "amount": 720,
+    "fluid": "tprt:molten_arcane_metal"
+  },
+  "result": "irons_spellbooks:blank_rune"
+}

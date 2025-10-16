@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:arcane_metal",
+  "temperature": 1000,
+  "result": {
+    "fluid": "tprt:molten_arcane_metal",
+    "amount": 90
+  }
+}

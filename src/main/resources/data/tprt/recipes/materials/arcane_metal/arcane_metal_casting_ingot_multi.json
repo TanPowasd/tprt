@@ -1,5 +1,9 @@
 {
-  "type": "tconstruct:material_fluid",
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/ingot"
+  },
+  "cast_consumed": true,
   "conditions": [
     {
       "type": "forge:or",
@@ -10,15 +14,15 @@
         },
         {
           "type": "forge:mod_loaded",
-          "modid": "cataclysm"
+          "modid": "irons_spellbooks"
         }
       ]
     }
   ],
+  "cooling_time": 100,
   "fluid": {
     "amount": 90,
-    "fluid": "tprt:molten_ancient_metal"
+    "fluid": "tprt:molten_arcane_metal"
   },
-  "output": "tprt:ancient_metal",
-  "temperature": 1000
+  "result": "irons_spellbooks:arcane_ingot"
 }

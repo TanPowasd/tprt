@@ -1,0 +1,26 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:ender_spell_power_improved"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "sakuratinker:dragon_soul"
+      },
+      {
+        "level": 1,
+        "name": "tprt:ender_spell_power_improved"
+      }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:ender_spell_power_improved"
+      }
+    ]
+  }
+}

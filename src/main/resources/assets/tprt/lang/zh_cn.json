@@ -82,6 +82,9 @@
   "fluid.tconstruct.molten_ancient_metal": "熔融远古金属",
   "item.tprt.molten_ancient_metal_bucket": "熔融远古金属桶",
 
+  "fluid.tconstruct.molten_arcane_metal": "熔融奥术金属",
+  "item.tprt.molten_arcane_metal_bucket": "熔融奥术金属桶",
+
 
 
 
@@ -133,6 +136,12 @@
   "material.tprt.hogskin":"疣猪皮",
   "material.tprt.hogskin.flavor":"下界异兽的皮肤，坚韧而易于传导法力",
 
+  "material.tprt.arcane_metal":"奥术金属",
+  "material.tprt.arcane_metal.flavor":"经过特殊加工的金属，充盈着法力",
+
+  "material.tprt.dragonskin":"末影龙鳞",
+  "material.tprt.dragonskin.flavor":"终末之龙的鳞片，充满末影的能效",
+
   "material.tprt.stainless_steel": "不锈钢",
   "material.tprt.precision_alloy": "精密合金",
 
@@ -145,7 +154,7 @@
 
   "modifier.tprt.the_dragon_power":"龙神之力",
   "modifier.tprt.the_dragon_power.flavor":"取得龙神的力量",
-  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高20%造成伤害，当最大生命值超过400时有隐藏效果",
+  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高10%造成伤害，当最大生命值超过400时有隐藏效果",
 
   "modifier.tprt.mixeddragon_armor":"龙神护体",
   "modifier.tprt.mixeddragon_armor.flavor":"来自龙神的庇佑",
@@ -251,12 +260,20 @@
   "modifier.tprt.metallization.description":"大幅提高箭矢的各项属性，但是精准度降低",
 
   "modifier.tprt.ice_spell_power_improved": "冰霜法强提升",
-  "modifier.tprt.ice_spell_power_improved.flavor":"冰霜的玄奥使你对冰霜法术有了更深刻的理解",
+  "modifier.tprt.ice_spell_power_improved.flavor":"冰霜的凛冽使你对冰霜法术有了更深刻的理解",
   "modifier.tprt.ice_spell_power_improved.description":"大幅提高冰霜法术强度",
 
   "modifier.tprt.mana_improved": "法力提升",
   "modifier.tprt.mana_improved.flavor":"蕴含的魔力使你的法力充盈",
   "modifier.tprt.mana_improved.description":"提高最大法力值和法力回复速度以及法术抗性",
+
+  "modifier.tprt.spell_power_improved": "法强提升",
+  "modifier.tprt.spell_power_improved.flavor":"这种材料充满了法力",
+  "modifier.tprt.spell_power_improved.description":"提高最大法力值和法术强度",
+
+  "modifier.tprt.ender_spell_power_improved": "末影法强提升",
+  "modifier.tprt.ender_spell_power_improved.flavor":"末影的回响使你对末影法术有了更深刻的理解",
+  "modifier.tprt.ender_spell_power_improved.description":"提高末影法术强度",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",

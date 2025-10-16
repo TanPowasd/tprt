@@ -9,7 +9,7 @@
   "modules": [
     {
       "type": "tconstruct:attribute",
-      "each_level": 0.4,
+      "each_level": 0.25,
       "operation": "addition",
       "tooltip_style": "percent",
       "attribute": "l2damagetracker:magic_damage",

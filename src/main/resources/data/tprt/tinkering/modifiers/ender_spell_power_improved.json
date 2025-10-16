@@ -1,0 +1,19 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:attribute",
+      "flat": 0.2,
+      "operation": "multiply_total",
+      "tooltip_style": "percent",
+      "attribute": "irons_spellbooks:ender_spell_power",
+      "unique": "tconstruct.modifier.ender_spell_power_improved",
+      "slots": [
+        "mainhand",
+        "offhand"
+      ]
+    }
+  ],
+  "name": "tprt:ender_spell_power_improved",
+  "tooltip_display": "always"
+}

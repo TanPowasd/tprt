@@ -13,13 +13,13 @@
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 2.0,
+        "flat": 1.5,
         "operation": "add",
         "stat": "tconstruct:armor_toughness"
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 4.0,
+        "flat": 3.0,
         "operation": "add",
         "stat": "tconstruct:armor"
       },

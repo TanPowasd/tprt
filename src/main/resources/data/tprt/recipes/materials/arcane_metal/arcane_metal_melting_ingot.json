@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "irons_spellbooks:arcane_ingot"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:molten_arcane_metal"
+  },
+  "temperature": 1000,
+  "time": 100
+}

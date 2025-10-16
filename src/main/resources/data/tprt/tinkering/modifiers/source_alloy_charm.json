@@ -18,7 +18,7 @@
           "attribute": "irons_spellbooks:spell_power",
           "operation": "multiply_total",
           "tooltip_style": "percent",
-          "value": 0.75
+          "value": 0.35
         }
       ],
       "name": "tprt:source_alloy_charm"

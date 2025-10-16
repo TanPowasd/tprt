@@ -1,0 +1,31 @@
+{
+  "default": [
+
+    {
+      "level": 1,
+      "name": "tprt:spell_power_improved"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+
+      {
+        "level": 1,
+        "name": "tprt:spell_power_improved"
+      }
+    ],
+    "tconstruct:ranged": [
+
+      {
+        "level": 1,
+        "name": "tprt:spell_power_improved"
+      }
+    ],
+    "sakuratinker:charm":[
+      {
+        "level":3,
+        "name":"tprt:strengthen_for_charm_spell_power"
+      }
+    ]
+  }
+}

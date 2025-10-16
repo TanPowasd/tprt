@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tconstruct:jeweled_apple",
+      "amount_needed":4
+    },
+    {
+      "item": "tconstruct:jeweled_apple",
+      "amount_needed":4
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "result": "tconstruct:revitalizing",
+  "slots": {
+    "defense": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/worn"
+  }
+}
