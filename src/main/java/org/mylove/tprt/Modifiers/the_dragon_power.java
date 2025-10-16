@@ -26,7 +26,7 @@ public class the_dragon_power extends NoLevelsModifier implements MeleeDamageMod
             double MaxA_H=attacker.getMaxHealth();
             //double bl=1;
             if(MaxA_H<=400.0f){
-                bl+=((int)MaxA_H/10)*0.10f;
+                bl+=((int)MaxA_H/10)*0.05f;
             }
             else{
                 bl=4;

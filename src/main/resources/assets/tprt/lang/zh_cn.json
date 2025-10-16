@@ -154,7 +154,7 @@
 
   "modifier.tprt.the_dragon_power":"龙神之力",
   "modifier.tprt.the_dragon_power.flavor":"取得龙神的力量",
-  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高10%造成伤害，当最大生命值超过400时有隐藏效果",
+  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高5%造成伤害，当最大生命值超过400时有隐藏效果",
 
   "modifier.tprt.mixeddragon_armor":"龙神护体",
   "modifier.tprt.mixeddragon_armor.flavor":"来自龙神的庇佑",
