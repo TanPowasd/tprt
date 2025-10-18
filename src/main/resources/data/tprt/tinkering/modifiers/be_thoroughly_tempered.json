@@ -31,7 +31,7 @@
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 0.30,
+        "flat": 0.20,
         "operation": "multiply_base",
         "stat": "tconstruct:attack_damage"
       },
@@ -48,7 +48,7 @@
       },
       {
         "type": "tconstruct:stat_boost",
-        "flat": 0.30,
+        "flat": 0.20,
         "operation": "multiply_base",
         "stat": "tconstruct:velocity"
       }

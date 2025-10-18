@@ -166,7 +166,7 @@
 
   "modifier.tprt.be_thoroughly_tempered":"千锤百炼",
   "modifier.tprt.be_thoroughly_tempered.flavor":"锻造的力量蕴含其中",
-  "modifier.tprt.be_thoroughly_tempered.description":"大幅度提高工具的所有属性",
+  "modifier.tprt.be_thoroughly_tempered.description":"提高工具的所有属性",
 
   "modifier.tprt.source_alloy_default":"魔力升华",
   "modifier.tprt.source_alloy_default.flavor":"你的魔力变得无比纯净",
@@ -194,7 +194,7 @@
 
   "modifier.tprt.wrath_of_flames": "焰魔之怒",
   "modifier.tprt.wrath_of_flames.flavor":"来自下界烈焰领主的怒火",
-  "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外造成30%伤害",
+  "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外造成10%伤害",
 
   "modifier.tprt.lord_of_fire": "烈焰领主",
   "modifier.tprt.lord_of_fire.flavor":"成为烈焰的象征",
@@ -202,7 +202,7 @@
 
   "modifier.tprt.cursed_spirit": "死灰咒言",
   "modifier.tprt.cursed_spirit.flavor":"死亡诅咒的力量为你所用",
-  "modifier.tprt.cursed_spirit.description":"造成的伤害提高50%",
+  "modifier.tprt.cursed_spirit.description":"造成的伤害提高30%",
 
   "modifier.tprt.bitter_cold": "苦寒",
   "modifier.tprt.bitter_cold.flavor":"极地的严寒浸入骨髓",
@@ -214,7 +214,7 @@
 
   "modifier.tprt.advanced_greed": "贪欲",
   "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
-  "modifier.tprt.advanced_greed.description":"每次攻击提高7.5%攻击伤害，上限10层",
+  "modifier.tprt.advanced_greed.description":"每次攻击提高5%攻击伤害，上限10层",
 
   "modifier.tprt.mechanical_star_att": "机械之星",
   "modifier.tprt.mechanical_star_att.flavor":"机械工程的杰作，战争机器的化身",

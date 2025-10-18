@@ -20,7 +20,7 @@ public class cursed_spirit extends NoLevelsModifier implements MeleeDamageModifi
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity entity = context.getLivingTarget();
         if(entity!=null){
-            return 1.5f*damage;
+            return 1.3f*damage;
         }
         return damage;
     }

@@ -53,7 +53,7 @@ public class advanced_greed extends NoLevelsModifier implements MeleeDamageModif
                     NewAmplifier=9;
                 }
                 // attacker.addEffect(new MobEffectInstance(effect,200,NewAmplifier));
-                dl=1.0f+0.075f*NewAmplifier+(NewAmplifier==9?1:0)*0.10f;
+                dl=1.0f+0.05f*NewAmplifier+(NewAmplifier==9?1:0)*0.10f;
             }
             return damage*dl;
         }
