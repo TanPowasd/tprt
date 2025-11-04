@@ -17,26 +17,35 @@ public class Fire_additionSpell extends AbstractSpell {
     private final DefaultConfig defaultConfig;
 
     public Fire_additionSpell() {
-        this.defaultConfig = (new DefaultConfig()).setMinRarity(SpellRarity.LEGENDARY).setSchoolResource(SchoolRegistry.FIRE_RESOURCE).setCooldownSeconds((double)0.0F).setMaxLevel(10).setDeprecated(true).build();
+        this.defaultConfig = (new DefaultConfig())
+                .setMinRarity(SpellRarity.LEGENDARY)
+                .setSchoolResource(SchoolRegistry.FIRE_RESOURCE)
+                .setCooldownSeconds(0)
+                .setMaxLevel(0)
+                .setDeprecated(true)
+                .build();
         this.manaCostPerLevel = 0;
         this.baseSpellPower = 40;
         this.spellPowerPerLevel = 15;
         this.castTime = 0;
         this.baseManaCost = 0;
     }
-
+    @Override
     public ResourceLocation getSpellResource() {
+
         return this.spellId;
     }
-
+    @Override
     public DefaultConfig getDefaultConfig() {
+
         return this.defaultConfig;
     }
-
+    @Override
     public CastType getCastType() {
+
         return CastType.NONE;
     }
-
+    @Override
     public SpellDamageSource getDamageSource(@Nullable Entity projectile, Entity attacker) {
         return super.getDamageSource(projectile, attacker).setLifestealPercent(0.3F);
     }
