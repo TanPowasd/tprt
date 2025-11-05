@@ -64,7 +64,7 @@ public class zenith_first_fractal extends BaseModifier {
                 HitResult kbhit=REC.get(0);//找到第一个实体
                 if(kbhit instanceof EntityHitResult entityHitResult && entityHitResult.getEntity() instanceof LivingEntity livingEntity){
                     entity_will_be_hit=livingEntity;
-                    DeBug.Logger.log("entity_will_be_hit="+entity_will_be_hit.getStringUUID().toString());
+                    //DeBug.Logger.log("entity_will_be_hit="+entity_will_be_hit.getStringUUID().toString());
                 }
             }
         }//问题:修改之后的ewbh！=null后导致视线转移后打击实体还是原来的，需要每5tick重新监测，然后给一个包含量：5tick内移开实体视线的判定

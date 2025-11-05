@@ -44,7 +44,7 @@ public class SpellMagic {
                     hitwhat.sort((o1, o2) -> o1.getLocation().distanceToSqr(startPos) < o2.getLocation().distanceToSqr(startPos) ? -1 : 1);
                     HitResult hitResult = hitwhat.get(0);
                     if (hitResult instanceof EntityHitResult entityHitResult && entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
-                        DeBug.Logger.log("Radiographic_detection_GetEntity: " + livingEntity.getName().getString());
+                       // DeBug.Logger.log("Radiographic_detection_GetEntity: " + livingEntity.getName().getString());
                         return hitwhat;
                     } else {
                         return null;
