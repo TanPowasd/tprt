@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "minecraft:egg"
+  },
+  "cast_consumed": true,
+  "cooling_time": 600,
+  "fluid": {
+    "amount": 720,
+    "fluid": "sakuratinker:molten_nihilite"
+  },
+  "result": "tprt:dark_knight_ingot"
+}
