@@ -6,7 +6,8 @@
       "item": "sakuratinker:terracryst"
     },
     {
-      "item": "sakuratinker:terracryst"
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":2
     },
     {
       "item": "sakuratinker:terracryst"

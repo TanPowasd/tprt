@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "attributeslib"
+    }
+  ],
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:attribute",
+      "each_level": 1.00,
+      "operation": "multiply_base",
+      "tooltip_style": "percent",
+      "attribute": "minecraft:generic.movement_speed",
+      "unique": "tconstruct.modifier.marathon",
+      "slots": [
+        "mainhand",
+        "offhand"
+      ]
+    }
+  ],
+  "tooltip_display": "always"
+}

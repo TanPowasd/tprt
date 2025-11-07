@@ -38,7 +38,7 @@ public class ModFluids {
     public static final FluidObject<ForgeFlowingFluid>KING_OF_MC_FLUID=registerHotFluid(FLUIDS,"king_of_mc_fluid",2001,4,5,2f,false);
     public static final FluidObject<ForgeFlowingFluid>KING_OF_CATACLYSM_FLUID=registerHotFluid(FLUIDS,"king_of_cataclysm_fluid",2001,4,5,2f,false);
     public static final FluidObject<ForgeFlowingFluid>TANPOWASD_FLUID=registerHotFluid(FLUIDS,"tanpowasd_fluid",4000,4,5,2f,false);
-    public static final FluidObject<ForgeFlowingFluid>MIXEDDRAGON_FLUID=registerHotFluid(FLUIDS,"mixeddragon_fluid",4000,4,5,2,false);
+    public static final FluidObject<ForgeFlowingFluid>MIXEDDRAGON_FLUID=registerHotFluid(FLUIDS,"mixeddragon_fluid",4000,15,5,200,false);
     public static final FluidObject<ForgeFlowingFluid>FORGED_STEEL_FLUID=registerHotFluid(FLUIDS,"forged_steel_fluid",1475,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>SOURCE_ALLOY_FLUID=registerHotFluid(FLUIDS,"source_alloy_fluid",3500,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>MOLTEN_CURSIUM=registerHotFluid(FLUIDS,"molten_cursium",1800,4,5,2,false);
@@ -47,6 +47,7 @@ public class ModFluids {
     public static final FluidObject<ForgeFlowingFluid>STAINLESS_STEEL_FLUID=registerHotFluid(FLUIDS,"stainless_steel_fluid",1000,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>MOLTEN_ANCIENT_METAL=registerHotFluid(FLUIDS,"molten_ancient_metal",1250,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>MOLTEN_ARCANE_METAL=registerHotFluid(FLUIDS,"molten_arcane_metal",1000,4,5,2,false);
+    public static final FluidObject<ForgeFlowingFluid>MOLTEN_DARK_KNIGHT=registerHotFluid(FLUIDS,"molten_dark_knight",2255,4,5,2,false);
     private static FluidType.Properties hot(String name, int Temp, boolean gas) {
         return FluidType.Properties.create().density(gas?-2000:2000).viscosity(10000).temperature(Temp)
                 .descriptionId(TConstruct.makeDescriptionId("fluid", name))

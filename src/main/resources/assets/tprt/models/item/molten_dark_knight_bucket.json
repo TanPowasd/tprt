@@ -1,0 +1,6 @@
+{
+  "parent": "forge:item/bucket_drip",
+  "flip_gas": false,
+  "fluid": "tprt:molten_dark_knight",
+  "loader": "tconstruct:fluid_container"
+}

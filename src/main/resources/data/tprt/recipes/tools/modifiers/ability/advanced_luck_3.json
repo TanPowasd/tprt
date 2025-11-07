@@ -6,7 +6,8 @@
       "item": "sakuratinker:gluttonous"
     },
     {
-      "item": "sakuratinker:gluttonous"
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":4
     },
     {
       "item": "sakuratinker:gluttonous"

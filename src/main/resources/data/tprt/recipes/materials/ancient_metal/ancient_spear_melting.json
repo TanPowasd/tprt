@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "cataclysm:ancient_spear"
+  },
+  "result": {
+    "amount": 360,
+    "fluid": "tprt:molten_ancient_metal"
+  },
+  "temperature": 1400,
+  "time": 360
+}

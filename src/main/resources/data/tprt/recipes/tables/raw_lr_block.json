@@ -1,22 +1,3 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "L": {
-      "item":"minecraft:dragon_head"
-    },
-    "X":{
-      "item":"minecraft:netherite_block"
-    },
-    "Q":{
-      "item":"cataclysm:witherite_ingot"
-    }
-  },
-  "pattern": [
-    "LXL",
-    "XQX",
-    "LXL"
-  ],
-  "result": {
-    "item": "tprt:raw_lr_block"
-  }
+
 }

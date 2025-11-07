@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "amount": 100,
+      "catalyst": true,
+      "fluid": "tconstruct:blazing_blood"
+    },
+    {
+      "amount": 1000,
+      "fluid": "tconstruct:ichor"
+    }
+  ],
+  "result": {
+    "amount": 500,
+    "fluid": "tconstruct:blazing_blood"
+  },
+  "temperature": 1000
+}

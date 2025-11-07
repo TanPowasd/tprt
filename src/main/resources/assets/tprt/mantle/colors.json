@@ -16,7 +16,8 @@
     "frosted_helve": "#BEF0F0",
     "hogskin": "#FFFFBEA6",
     "arcane_metal": "#FF4FFFF7",
-    "dragonskin": "#FF40004A"
+    "dragonskin": "#FF40004A",
+    "dark_knight": "#44005f"
   },
   "modifier.tprt": {
     "mixeddragon_armor":"#EEDD82",
@@ -74,6 +75,8 @@
     "ice_spell_power_improved": "#BEF0F0",
     "mana_improved": "#FFFFBEA6",
     "spell_power_improved": "#FF4FFFF7",
-    "ender_spell_power_improved": "#FF40004A"
+    "ender_spell_power_improved": "#FF40004A",
+    "marathon": "#44005f",
+    "human_turpentine": "#44005f"
   }
 }

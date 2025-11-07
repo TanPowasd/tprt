@@ -5,9 +5,9 @@
   },
   "cast_consumed": false,
   "fluid": {
-    "name": "tprt:source_alloy_fluid",
+    "name": "tprt:forged_steel_fluid",
     "amount": 90
   },
-  "result": "tprt:source_alloy",
-  "cooling_time": 400
+  "result": "tprt:forged_steel",
+  "cooling_time": 40
 }

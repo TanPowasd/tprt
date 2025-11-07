@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:dark_knight",
+  "temperature": 2000,
+  "result": {
+    "fluid": "tprt:molten_dark_knight",
+    "amount": 90
+  }
+}

@@ -41,11 +41,9 @@ public class persistence_of_nature extends NoLevelsModifier implements OnAttacke
                     double y=player.getHealth();
                     double z=0.03*(x-y);
                     player.heal((float) (3+z));
-                    return;
 
                 }
             }
         }
-        return;
     }
 }

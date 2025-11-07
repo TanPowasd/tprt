@@ -68,6 +68,9 @@ public class ModItems {
 //lr特供 恶兽合金锭
     public static final RegistryObject<Item>EVIL_BEAST_ALLOY_INGOT=ITEMS.register("evil_beast_alloy_ingot",
         ()->new Item(new Item.Properties()));
+//lr特供 濡湿骑士锭
+public static final RegistryObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_knight_ingot",
+        ()->new Item(new Item.Properties()));
 
 //魂樱面具拓展：金质
     public static final RegistryObject<Item>golden_fox_mask = registerCommonItem(ITEMS, "golden_fox_mask",

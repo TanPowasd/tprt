@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tprt:dark_knight_ingot"
+  },
+  "material": "tprt:dark_knight",
+  "needed": 1,
+  "value": 1
+}

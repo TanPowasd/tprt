@@ -1,11 +1,9 @@
 package org.mylove.tprt.Modifiers;
 
-import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.Debug;
 import org.jetbrains.annotations.NotNull;
 import org.mylove.tprt.ModUsed.DeBug;
 import org.mylove.tprt.registries.SpellsRegistry;
@@ -37,12 +35,10 @@ public class fire_addition extends NoLevelsModifier implements MeleeHitModifierH
     public void addToolStats(IToolContext context, ModifierEntry modifier, ModifierStatsBuilder builder) {
         if(context.hasTag(TagsRegistry.ItemsTag.magic_blade))
         {
-            DeBug.Logger.log("fire_addition addToolStats TRUE");
             int level = modifier.getLevel();
             ToolStats.ATTACK_DAMAGE.multiply(builder, 1.0 + 0.5 * level);
         }
     }
-
     @Override
     public void afterMeleeHit(IToolStackView tool, @NotNull ModifierEntry modifier, @NotNull ToolAttackContext context, float damageDealt) {
         DeBug.Logger.log("fire_addition afterMeleeHit------0 TRUE");

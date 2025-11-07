@@ -1,22 +1,3 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "I": {
-      "item": "tprt:lriron"
-    },
-    "J": {
-      "item": "tprt:lr_block"
-    },
-    "F": {
-      "item": "minecraft:enchanted_golden_apple"
-    }
-  },
-  "pattern": [
-    "IJI",
-    "JFJ",
-    "IJI"
-  ],
-  "result": {
-    "item": "tprt:lr_apple"
-  }
+
 }

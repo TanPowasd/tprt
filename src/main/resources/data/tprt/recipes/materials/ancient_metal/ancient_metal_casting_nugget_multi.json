@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/nugget"
+  },
+  "cast_consumed": false,
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "cooling_time": 12,
+  "fluid": {
+    "amount": 10,
+    "fluid": "tprt:molten_ancient_metal"
+  },
+  "result": "cataclysm:ancient_metal_nugget"
+}

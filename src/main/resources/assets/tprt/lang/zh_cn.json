@@ -52,27 +52,33 @@
   "fluid.tconstruct.king_of_cataclysm_fluid": "熔融灾变",
   "fluid.tconstruct.tanpowasd_fluid": "熔融挚爱",
 
-  "item.tprt.mixeddragon":"龙神钢锭",
+  "item.tprt.mixeddragon":"§6龙神钢锭§r",
   "fluid.tconstruct.mixeddragon_fluid": "熔融龙神钢",
+  "fluid.tconstruct.flowing_mixeddragon_fluid": "流动的熔融龙神钢",
   "item.tprt.mixeddragon_fluid_bucket": "熔融龙神钢桶",
 
   "item.tprt.source_alloy": "源质合金锭",
   "fluid.tconstruct.source_alloy_fluid": "熔融源质合金",
+  "fluid.tconstruct.flowing_source_alloy_fluid": "流动的熔融源质合金",
   "item.tprt.source_alloy_fluid_bucket": "熔融源质合金桶",
 
   "item.tprt.forged_steel": "锻造钢锭",
   "fluid.tconstruct.forged_steel_fluid": "熔融锻造钢",
+  "fluid.tconstruct.flowing_forged_steel_fluid": "流动的熔融锻造钢",
   "item.tprt.forged_steel_fluid_bucket": "熔融锻造钢桶",
 
   "fluid.tconstruct.molten_cursium": "熔融咒魂",
+  "fluid.tconstruct.flowing_molten_cursium": "流动的熔融咒魂",
   "item.tprt.molten_cursium_bucket": "熔融咒魂桶",
 
   "item.tprt.advanced_manyullyn": "超限玛玉灵锭",
   "fluid.tconstruct.molten_advanced_manyullyn": "熔融超限玛玉灵",
+  "fluid.tconstruct.flowing_molten_advanced_manyullyn": "流动的熔融超限玛玉灵",
   "item.tprt.molten_advanced_manyullyn_bucket": "熔融超限玛玉灵桶",
 
 
   "fluid.tconstruct.molten_black_steel": "熔融黑钢",
+  "fluid.tconstruct.flowing_molten_black_steel": "流动的熔融黑钢",
   "item.tprt.molten_black_steel_bucket": "熔融黑钢桶",
 
   "item.tprt.kwat_wheat_grain_ingot": "瓦斯麦谷锭",
@@ -80,10 +86,18 @@
   "item.tprt.evil_beast_alloy_ingot": "恶兽合金锭",
 
   "fluid.tconstruct.molten_ancient_metal": "熔融远古金属",
+  "fluid.tconstruct.flowing_molten_ancient_metal": "流动的熔融远古金属",
   "item.tprt.molten_ancient_metal_bucket": "熔融远古金属桶",
 
   "fluid.tconstruct.molten_arcane_metal": "熔融奥术金属",
+  "fluid.tconstruct.flowing_molten_arcane_metal": "流动的熔融奥术金属",
   "item.tprt.molten_arcane_metal_bucket": "熔融奥术金属桶",
+
+  "item.tprt.dark_knight_ingot": "濡湿骑士锭",
+  "item.tprt.dark_knight_ingot.desc_0": "§d贡献者材料§r",
+  "fluid.tconstruct.molten_dark_knight": "熔融濡湿骑士",
+  "fluid.tconstruct.flowing_molten_dark_knight": "流动的熔融濡湿骑士",
+  "item.tprt.molten_dark_knight_bucket": "熔融濡湿骑士桶",
 
 
 
@@ -92,7 +106,7 @@
   "material.tprt.tanpowasd.flavor": "爱在永恒",
 
   "material.tprt.mixeddragon":"龙神钢",
-  "material.tprt.mixeddragon.flavor": "听见万龙咆哮的声音",
+  "material.tprt.mixeddragon.flavor": "传说之物，难得其型",
 
   "material.tprt.forged_steel":"锻造钢",
   "material.tprt.forged_steel.flavor": "千锤百炼所铸",
@@ -142,6 +156,9 @@
   "material.tprt.dragonskin":"末影龙鳞",
   "material.tprt.dragonskin.flavor":"终末之龙的鳞片，充满末影的能效",
 
+  "material.tprt.dark_knight":"濡湿骑士金属",
+  "material.tprt.dark_knight.flavor":"“嘻嘻，我一定要赢”",
+
   "material.tprt.stainless_steel": "不锈钢",
   "material.tprt.precision_alloy": "精密合金",
 
@@ -154,7 +171,7 @@
 
   "modifier.tprt.the_dragon_power":"龙神之力",
   "modifier.tprt.the_dragon_power.flavor":"取得龙神的力量",
-  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高5%造成伤害，当最大生命值超过400时有隐藏效果",
+  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高10%造成伤害，当最大生命值超过400时有隐藏效果",
 
   "modifier.tprt.mixeddragon_armor":"龙神护体",
   "modifier.tprt.mixeddragon_armor.flavor":"来自龙神的庇佑",
@@ -197,7 +214,7 @@
   "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外造成10%伤害",
 
   "modifier.tprt.lord_of_fire": "烈焰领主",
-  "modifier.tprt.lord_of_fire.flavor":"成为烈焰的象征",
+  "modifier.tprt.lord_of_fire.flavor":"成为火焰的象征",
   "modifier.tprt.lord_of_fire.description":"攻击附带10点火焰伤害",
 
   "modifier.tprt.cursed_spirit": "死灰咒言",
@@ -256,7 +273,7 @@
   "modifier.tprt.ancient_sandstorm.requirements": "需要远古金属材料作为前置",
 
   "modifier.tprt.metallization": "金属化",
-  "modifier.tprt.metallization.flavor":"这下连箭羽都是金属的了",
+  "modifier.tprt.metallization.flavor":"连箭羽都是金属制的！",
   "modifier.tprt.metallization.description":"大幅提高箭矢的各项属性，但是精准度降低",
 
   "modifier.tprt.ice_spell_power_improved": "冰霜法强提升",
@@ -274,6 +291,14 @@
   "modifier.tprt.ender_spell_power_improved": "末影法强提升",
   "modifier.tprt.ender_spell_power_improved.flavor":"末影的回响使你对末影法术有了更深刻的理解",
   "modifier.tprt.ender_spell_power_improved.description":"提高末影法术强度",
+
+  "modifier.tprt.human_turpentine": "人松脂",
+  "modifier.tprt.human_turpentine.flavor":"“你的太阳...落山了”",
+  "modifier.tprt.human_turpentine.description":"攻击伤害提高至125%，攻击使持有者获得2s回响打击效果",
+
+  "modifier.tprt.marathon": "马拉松",
+  "modifier.tprt.marathon.flavor":"“宠爱切的叮当响”",
+  "modifier.tprt.marathon.description":"手持武器时移速大幅加快",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
@@ -335,7 +360,7 @@
   "modifier.tprt.advanced_sharpness.3": "利刃出鞘++",
   "modifier.tprt.advanced_sharpness.flavor":"吾剑未尝不利",
   "modifier.tprt.advanced_sharpness.description":"每级提高10%工具攻击力",
-  "modifier.tprt.advanced_sharpness.requirements": "需要锋利V强化作为前置",
+  "modifier.tprt.advanced_sharpness.requirements": "需要锋利++++强化作为前置",
 
   "modifier.tprt.advanced_power": "贯星",
   "modifier.tprt.advanced_power.2": "贯星+",
@@ -417,7 +442,7 @@
 
   "modifier.tprt.strengthen_for_charm_endurance": "护符增强——生命延续",
   "modifier.tprt.strengthen_for_charm_endurance.flavor":"细胞活化",
-  "modifier.tprt.strengthen_for_charm_endurance.description":"每级+3.5%受到的治疗效果",
+  "modifier.tprt.strengthen_for_charm_endurance.description":"每级+3.5%最大生命值",
 
   "modifier.tprt.strengthen_for_charm_luck": "护符增强——幸运",
   "modifier.tprt.strengthen_for_charm_luck.flavor":"好运连连",
@@ -437,7 +462,7 @@
 
   "modifier.tprt.reaper": "死亡收割",
   "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
-  "modifier.tprt.reaper.description":"工具的攻击力+25%，获得25%的过量治疗",
+  "modifier.tprt.reaper.description":"造成伤害提高至110%，回复实际造成伤害75%的生命值",
 
   "modifier.tprt.persistence_of_nature": "本性的坚守",
   "modifier.tprt.persistence_of_nature.flavor":"我们血脉相连，我们从不退却",
@@ -446,7 +471,7 @@
   "modifier.tprt.fear_nothing": "无畏",
   "modifier.tprt.fear_nothing.flavor":"真正的man应该无所畏惧",
   "modifier.tprt.fear_nothing.description":"提升所有类型的抗性",
-  "modifier.tprt.fear_nothing.resistance": "抗性",
+  "modifier.tprt.fear_nothing.resistance": "通用抗性",
 
   "modifier.tprt.advanced_luck": "鸿运齐天",
   "modifier.tprt.advanced_luck.2": "鸿运齐天+",
@@ -454,6 +479,11 @@
   "modifier.tprt.advanced_luck.flavor":"幸运plus",
   "modifier.tprt.advanced_luck.description":"敌人掉落的战利品更多，采掘时的掉落物也更多",
   "modifier.tprt.advanced_luck.requirements": "需要幸运++强化作为前置",
+
+  "modifier.tprt.bosses_killer": "领袖杀手",
+  "modifier.tprt.bosses_killer.flavor":"当你面对那些传说之物时不再心生恐惧",
+  "modifier.tprt.bosses_killer.description":"工具会对凋零，末影龙和其他不可名状的传说之物造成额外伤害！",
+  "modifier.tprt.bosses_killer.resistance": "对boss生物伤害",
 
   "modifier.tprt.fire_addition": "炽焰法力注入",
   "modifier.tprt.fire_addition.flavor":"燃起来了",

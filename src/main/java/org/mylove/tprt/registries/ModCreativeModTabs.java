@@ -44,6 +44,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.KWAT_WHEAT_GRAIN_INGOT.get());
                         pOutput.accept(ModItems.EVIL_BEAST_ALLOY_INGOT.get());
                         pOutput.accept(ModItems.CAPOO.get());
+                        pOutput.accept(ModItems.DARK_KNIGHT_INGOT.get());
                         pOutput.accept(ModItems.RED_TURTLE.get());
                         pOutput.accept(ModItems.STAINLESS_STEEL.get());
                         pOutput.accept(ModItems.PRECISION_ALLOY.get());

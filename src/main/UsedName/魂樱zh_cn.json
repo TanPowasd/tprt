@@ -897,7 +897,7 @@
   "modifier.sakuratinker.solar_burning.description": "将伤害转换为日耀伤害。",
   "modifier.sakuratinker.rejuvenating": "妙手回春",
   "modifier.sakuratinker.rejuvenating.flavor": "你手上握着的是个叛徒！",
-  "modifier.sakuratinker.rejuvenating.description": "恢复击中目标的生命值。",
+  "modifier.sakuratinker.rejuvenating.description": "每级恢复击中目标的3点生命值。",
   "modifier.sakuratinker.feather": "羽毛",
   "modifier.sakuratinker.feather.flavor": "轻飘飘的",
   "modifier.sakuratinker.feather.description": "每级减少1点初速度，并增加1点精确度。",
@@ -1371,6 +1371,19 @@
 
   "modifier.sakuratinker.alchemical": "炼金师",
   "modifier.sakuratinker.alchemical.flavor": " ",
-  "modifier.sakuratinker.alchemical.description": " "
+  "modifier.sakuratinker.alchemical.description": " ",
+
+  "item.sakuratinker.wu_yu": "雾於",
+  "material.sakuratinker.wu_yu": "雾於",
+  "material.sakuratinker.wu_yu.flavor": "",
+  "fluid.tconstruct.molten_wu_yu": "熔融雾於",
+  "fluid.tconstruct.flowing_molten_wu_yu": "流动的熔融雾於",
+  "item.sakuratinker.molten_wu_yu_bucket": "熔融雾於桶",
+  "item.sakuratinker.two_form_mist_star": "两仪雾星",
+  "material.sakuratinker.two_form_mist_star": "两仪雾星",
+  "material.sakuratinker.two_form_mist_star.flavor": "",
+  "fluid.tconstruct.molten_two_form_mist_star": "熔融两仪雾星",
+  "fluid.tconstruct.flowing_molten_two_form_mist_star": "流动的熔融两仪雾星",
+  "item.sakuratinker.molten_two_form_mist_star_bucket": "熔融两仪雾星桶"
 }
 

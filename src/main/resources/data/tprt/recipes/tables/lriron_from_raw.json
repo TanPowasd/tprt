@@ -1,9 +1,3 @@
 {
-  "type": "minecraft:smelting",
-  "cookingtime": 400,
-  "experience": 0.7,
-  "ingredient": {
-    "item": "tprt:raw_lriron"
-  },
-  "result": "tprt:lriron"
+
 }

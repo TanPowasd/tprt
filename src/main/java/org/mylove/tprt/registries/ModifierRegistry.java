@@ -44,6 +44,8 @@ public class ModifierRegistry {
     public static final StaticModifier<fire_addition> FIRE_ADDITION = MODIFIERS.register("fire_addition",fire_addition::new);
     public static final StaticModifier<strong_but_pliable> STRONG_BUT_PLIABLE = MODIFIERS.register("strong_but_pliable",strong_but_pliable::new);
     public static final StaticModifier<ancient_sandstorm> ANCIENT_SANDSTORM = MODIFIERS.register("ancient_sandstorm",ancient_sandstorm::new);
+    public static final StaticModifier<human_turpentine> human_turpentine = MODIFIERS.register("human_turpentine",human_turpentine::new);
+    public static final StaticModifier<reaper> REAPER = MODIFIERS.register("reaper",reaper::new);
     public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
     public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
     public static final StaticModifier<mechanical_star_att> MECHANICAL_STAR_ATT = MODIFIERS.register("mechanical_star_att",mechanical_star_att::new);

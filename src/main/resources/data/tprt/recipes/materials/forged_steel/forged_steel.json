@@ -1,5 +1,5 @@
 {
-  "type": "tconstruct:material",
+  "type": "tconstruct:melting",
   "conditions": [
     {
       "type": "forge:or",

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/ingot"
+  },
+  "cooling_time": 100,
+  "fluid": {
+    "amount": 90,
+    "fluid": "tprt:source_alloy_fluid"
+  },
+  "result": "tprt:source_alloy"
+}
