@@ -175,7 +175,8 @@
 
   "modifier.tprt.mixeddragon_armor":"龙神护体",
   "modifier.tprt.mixeddragon_armor.flavor":"来自龙神的庇佑",
-  "modifier.tprt.mixeddragon_armor.description":"攻击伤害+15%，每级获得8%伤害减免和10%法术抗性",
+  "modifier.tprt.mixeddragon_armor.description":"每级获得12%通用抗性和15%攻击力提升,同时使自身抗性上限提高",
+  "modifier.tprt.mixeddragon_armor.resistance": "通用抗性",
 
   "modifier.tprt.mixeddragon_ranged":"龙吟",
   "modifier.tprt.mixeddragon_ranged.flavor":"众龙的力量激荡不息",

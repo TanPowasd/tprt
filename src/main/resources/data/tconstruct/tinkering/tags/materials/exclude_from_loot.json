@@ -1,0 +1,60 @@
+{
+  "values": [
+    {
+      "id": "tprt:capoo",
+      "required": false
+    },
+    {
+      "id": "tprt:mixeddragon",
+      "required": false
+    },
+    {
+      "id": "tprt:forged_steel",
+      "required": false
+    },
+    {
+      "id": "tprt:source_alloy",
+      "required": false
+    },
+    {
+      "id": "tprt:ignitium",
+      "required": false
+    },
+    {
+      "id": "tprt:cursium",
+      "required": false
+    },
+    {
+      "id": "tprt:evil_beast_alloy",
+      "required": false
+    },
+    {
+      "id": "tprt:witherite",
+      "required": false
+    },
+    {
+      "id": "tprt:black_steel",
+      "required": false
+    },
+    {
+      "id": "tprt:ancient_metal",
+      "required": false
+    },
+    {
+      "id": "tprt:advanced_manyullyn",
+      "required": false
+    },
+    {
+      "id": "tprt:kwat_wheat_grain_ingot",
+      "required": false
+    },
+    {
+      "id": "tprt:stymphalian_bird_feather",
+      "required": false
+    },
+    {
+      "id": "tprt:dark_knight",
+      "required": false
+    }
+  ]
+}
