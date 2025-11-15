@@ -1,0 +1,14 @@
+{
+  "perStat": {
+  "sakuratinker:charm":[
+    {
+      "level":1,
+      "name":"tprt:body_like_glass"
+    },
+    {
+      "level":1,
+      "name":"tprt:fragile"
+    }
+  ]
+}
+}

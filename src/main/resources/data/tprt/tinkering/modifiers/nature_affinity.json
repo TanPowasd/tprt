@@ -1,0 +1,23 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.max_health",
+          "operation": "addition",
+          "value": 3.0
+        },
+        {
+          "attribute": "irons_spellbooks:nature_spell_power",
+          "operation": "multiply_total",
+          "value": 0.05
+        }
+
+      ],
+      "name": "tprt:nature_affinity"
+    }
+  ],
+  "tooltip_display": "always"
+}

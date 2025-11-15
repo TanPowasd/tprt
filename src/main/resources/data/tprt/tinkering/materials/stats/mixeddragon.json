@@ -26,10 +26,11 @@
       },
       "sakuratinker:energy_unit": {
         "durability": 1.2,
-        "energy_storage": 150000
+        "max_energy": 150000
       },
       "sakuratinker:laser_medium": {
         "cooldown": 0.2,
+        "penetration": 24,
         "range": 160.0
       },
       "sakuratinker:flag": {

@@ -4,6 +4,7 @@
   "creativetab.tprt_tool_tab": "挚爱——工具",
 
 
+  "common": "special",
 
   "item.tprt.lriron": "LR锭",
   "item.tprt.raw_lriron": "略提纯LR锭",
@@ -16,12 +17,31 @@
   "item.tprt.king_of_magic": "法术核心",
   "item.tprt.king_of_mc": "原版核心",
   "item.tprt.tanpowasd": "挚爱",
-  "item.tprt.pig_bun": "🐖包",
-  "item.tprt.red_turtle": "红温🐢",
-  "item.tprt.capoo": "咖波",
   "item.tprt.stainless_steel": "不锈钢",
   "item.tprt.precision_alloy": "精密合金",
+  "block.tprt.lr_block":"lr块",
+  "block.tprt.raw_lr_block":"粗制lr块",
+  "fluid.tconstruct.king_of_mc_fluid": "熔融世界",
+  "fluid.tconstruct.king_of_magic_fluid": "熔融魔法",
+  "fluid.tconstruct.king_of_fireandice_fluid": "可燃冰",
+  "fluid.tconstruct.king_of_forest_fluid": "熔融暮光",
+  "fluid.tconstruct.king_of_cataclysm_fluid": "熔融灾变",
+  "fluid.tconstruct.tanpowasd_fluid": "熔融挚爱",
+  "material.tprt.tanpowasd": "挚爱",
+  "material.tprt.tanpowasd.flavor": "爱在永恒",
+  "material.tprt.stainless_steel": "不锈钢",
+  "material.tprt.precision_alloy": "精密合金",
 
+
+
+
+  "common": "food",
+
+  "item.tprt.pig_bun": "🐖包",
+  "item.tprt.red_turtle": "红温🐢",
+
+
+  "common": "tools",
 
   "item.tprt.anchor_sword": "锚剑",
   "item.tprt.anchor_sword.description": "一种沉重的异型武器，兼顾近战强化与防御强化",
@@ -29,14 +49,15 @@
   "item.tprt.magic_blade": "注法者",
   "item.tprt.magic_blade.description": "一种攻击附带铁魔法法术伤害的武器(未实现)",
 
+
+  "common": "curios",
+
   "item.tprt.golden_fox_mask": "金质狐狸面具",
   "item.tprt.golden_fox_mask.desc": "换色（）",
   "curios.modifiers.golden_fox_mask": "属性：",
 
-  "block.tprt.lr_block":"lr块",
-  "block.tprt.raw_lr_block":"粗制lr块",
 
-
+  "common": "effects",
 
   "effect.tprt.moredamage": "易伤",
   "effect.tprt.lllegally_modified_holsters": "非法改造枪套",
@@ -45,12 +66,9 @@
   "effect.tprt.myl_girig_pro": "贪欲",
 
 
-  "fluid.tconstruct.king_of_mc_fluid": "熔融世界",
-  "fluid.tconstruct.king_of_magic_fluid": "熔融魔法",
-  "fluid.tconstruct.king_of_fireandice_fluid": "可燃冰",
-  "fluid.tconstruct.king_of_forest_fluid": "熔融暮光",
-  "fluid.tconstruct.king_of_cataclysm_fluid": "熔融灾变",
-  "fluid.tconstruct.tanpowasd_fluid": "熔融挚爱",
+  "common": "item_and_fluid",
+
+  "item.tprt.capoo": "咖波",
 
   "item.tprt.mixeddragon":"§6龙神钢锭§r",
   "fluid.tconstruct.mixeddragon_fluid": "熔融龙神钢",
@@ -67,15 +85,10 @@
   "fluid.tconstruct.flowing_forged_steel_fluid": "流动的熔融锻造钢",
   "item.tprt.forged_steel_fluid_bucket": "熔融锻造钢桶",
 
-  "fluid.tconstruct.molten_cursium": "熔融咒魂",
-  "fluid.tconstruct.flowing_molten_cursium": "流动的熔融咒魂",
-  "item.tprt.molten_cursium_bucket": "熔融咒魂桶",
-
   "item.tprt.advanced_manyullyn": "超限玛玉灵锭",
   "fluid.tconstruct.molten_advanced_manyullyn": "熔融超限玛玉灵",
   "fluid.tconstruct.flowing_molten_advanced_manyullyn": "流动的熔融超限玛玉灵",
   "item.tprt.molten_advanced_manyullyn_bucket": "熔融超限玛玉灵桶",
-
 
   "fluid.tconstruct.molten_black_steel": "熔融黑钢",
   "fluid.tconstruct.flowing_molten_black_steel": "流动的熔融黑钢",
@@ -94,16 +107,14 @@
   "item.tprt.molten_arcane_metal_bucket": "熔融奥术金属桶",
 
   "item.tprt.dark_knight_ingot": "濡湿骑士锭",
-  "item.tprt.dark_knight_ingot.desc_0": "§d贡献者材料§r",
+  "item.tprt.dark_knight_ingot.desc": "贡献者材料",
+  "tooltip.tprt.dark_knight_ingot.line1": "嘻嘻,我一定要赢",
   "fluid.tconstruct.molten_dark_knight": "熔融濡湿骑士",
   "fluid.tconstruct.flowing_molten_dark_knight": "流动的熔融濡湿骑士",
   "item.tprt.molten_dark_knight_bucket": "熔融濡湿骑士桶",
 
 
-
-
-  "material.tprt.tanpowasd": "挚爱",
-  "material.tprt.tanpowasd.flavor": "爱在永恒",
+  "common": "materials",
 
   "material.tprt.mixeddragon":"龙神钢",
   "material.tprt.mixeddragon.flavor": "传说之物，难得其型",
@@ -159,11 +170,8 @@
   "material.tprt.dark_knight":"濡湿骑士金属",
   "material.tprt.dark_knight.flavor":"“嘻嘻，我一定要赢”",
 
-  "material.tprt.stainless_steel": "不锈钢",
-  "material.tprt.precision_alloy": "精密合金",
 
-
-
+  "common": "materials_modifiers",
 
   "modifier.tprt.lastone": "荣!",
   "modifier.tprt.lastone.flavor": "人类战士最后的荣光!",
@@ -198,8 +206,8 @@
   "modifier.tprt.source_alloy_armor.flavor":"自然的魔力正在涌向你",
   "modifier.tprt.source_alloy_armor.description":"提升法术抗性，法力上限和法力回复速度",
 
-  "modifier.tprt.source_alloy_spell_cloth":"魔法凝聚",
-  "modifier.tprt.source_alloy_spell_cloth.flavor":"一字一言皆为法力凝聚",
+  "modifier.tprt.source_alloy_spell_cloth":"法力凝聚",
+  "modifier.tprt.source_alloy_spell_cloth.flavor":"一字一言皆为法",
   "modifier.tprt.source_alloy_spell_cloth.description":"大幅提高法术强度",
 
   "modifier.tprt.sacred_sacrifice": "神圣献祭",
@@ -214,17 +222,9 @@
   "modifier.tprt.wrath_of_flames.flavor":"来自下界烈焰领主的怒火",
   "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外造成10%伤害",
 
-  "modifier.tprt.lord_of_fire": "烈焰领主",
-  "modifier.tprt.lord_of_fire.flavor":"成为火焰的象征",
-  "modifier.tprt.lord_of_fire.description":"攻击附带10点火焰伤害",
-
   "modifier.tprt.cursed_spirit": "死灰咒言",
   "modifier.tprt.cursed_spirit.flavor":"死亡诅咒的力量为你所用",
   "modifier.tprt.cursed_spirit.description":"造成的伤害提高30%",
-
-  "modifier.tprt.bitter_cold": "苦寒",
-  "modifier.tprt.bitter_cold.flavor":"极地的严寒浸入骨髓",
-  "modifier.tprt.bitter_cold.description":"攻击额外造成10点冰冻伤害",
 
   "modifier.tprt.soul_dodge": "魂灵闪避",
   "modifier.tprt.soul_dodge.flavor":"身体仿若幽魂",
@@ -273,6 +273,10 @@
   "modifier.tprt.ancient_sandstorm.description":"基础耐久+1000，攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐获得高额百分比提升",
   "modifier.tprt.ancient_sandstorm.requirements": "需要远古金属材料作为前置",
 
+  "modifier.tprt.luck_strike": "幸运一击",
+  "modifier.tprt.luck_strike.flavor": "能找到它就是好运？",
+  "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低",
+
   "modifier.tprt.metallization": "金属化",
   "modifier.tprt.metallization.flavor":"连箭羽都是金属制的！",
   "modifier.tprt.metallization.description":"大幅提高箭矢的各项属性，但是精准度降低",
@@ -300,6 +304,74 @@
   "modifier.tprt.marathon": "马拉松",
   "modifier.tprt.marathon.flavor":"“宠爱切的叮当响”",
   "modifier.tprt.marathon.description":"手持武器时移速大幅加快",
+
+  "modifier.tprt.nature_affinity": "自然亲和",
+  "modifier.tprt.nature_affinity.flavor":"森林之子！",
+  "modifier.tprt.nature_affinity.description":"每级提高3点最大生命值以及5%自然法术强度",
+
+  "modifier.tprt.skeleton_affinity": "骷髅💀",
+  "modifier.tprt.skeleton_affinity.flavor":"嘟嘟哒嘟嘟哒",
+  "modifier.tprt.skeleton_affinity.description":"每级提高2点攻击伤害以及5%猩红法术强度",
+
+  "modifier.tprt.dwarf_power": "矮人之力",
+  "modifier.tprt.dwarf_power.flavor":"像矮人一样向着矿洞进军！",
+  "modifier.tprt.dwarf_power.description":"获得等于特性等级的急迫效果",
+
+  "modifier.tprt.sky_affinity": "天空亲和",
+  "modifier.tprt.sky_affinity.flavor":"来自天空的宠幸！",
+  "modifier.tprt.sky_affinity.description":"每2级获得一次额外跳跃的能力，自身受到的重力效果降低",
+
+  "modifier.tprt.lightweight": "轻便",
+  "modifier.tprt.lightweight.flavor":"身轻如燕！",
+  "modifier.tprt.lightweight.description":"每级提高15%移动速度和0.75格跳跃高度",
+
+  "modifier.tprt.lightweight_spell": "轻便",
+  "modifier.tprt.lightweight_spell.flavor":"施法已经和呼吸一样简单了",
+  "modifier.tprt.lightweight_spell.description":"提高20%法术吟唱缩减",
+
+  "modifier.tprt.burning_ash": "燃灰",
+  "modifier.tprt.burning_ash.flavor":"尚存余温",
+  "modifier.tprt.burning_ash.description":"每级提高8%炽焰法术强度和3点攻击伤害",
+
+  "modifier.tprt.shielding": "不屈不挠",
+  "modifier.tprt.shielding.flavor":"永不言弃！",
+  "modifier.tprt.shielding.description":"每级提高10%的护甲值和盔甲韧性",
+
+  "modifier.tprt.ruthless_and_tyrannical": "暴戾",
+  "modifier.tprt.ruthless_and_tyrannical.flavor":"你瞅啥瞅，让你瞅了吗？！",
+  "modifier.tprt.ruthless_and_tyrannical.description":"每级提高20%攻击伤害和15%攻速，但护甲值降低20%",
+
+  "modifier.tprt.ruthless_and_tyrannical_spell": "暴戾",
+  "modifier.tprt.ruthless_and_tyrannical_spell.flavor":"你瞅啥瞅，让你瞅了吗？！",
+  "modifier.tprt.ruthless_and_tyrannical_spell.description":"通用法术强度提高25%，但护甲值和法术抗性降低25%",
+
+  "modifier.tprt.mana_regeneration": "魔力再生",
+  "modifier.tprt.mana_regeneration.flavor":"失去的魔力会以另一种方式流转回来",
+  "modifier.tprt.mana_regeneration.description":"每级提高24%法力回复",
+
+  "modifier.tprt.sunlit": "日耀",
+  "modifier.tprt.sunlit.flavor":"太阳将使邪祟无所遁形",
+  "modifier.tprt.sunlit.description":"每级提高12%神圣法术强度和15%暴击伤害",
+
+  "modifier.tprt.deep_darkness": "深黯",
+  "modifier.tprt.deep_darkness.flavor":"潜伏于阴影之中",
+  "modifier.tprt.deep_darkness.description":"每级提高15%远古巫术法术强度，潜行时伤害提高20%",
+
+  "modifier.tprt.unreal_image": "幻影",
+  "modifier.tprt.unreal_image.flavor":"无形无相",
+  "modifier.tprt.unreal_image.description":"获得持续性的隐身且周期性获得2级抗性提升",
+
+  "modifier.tprt.body_like_glass": "身似琉璃",
+  "modifier.tprt.body_like_glass.flavor":"脆弱中的完美！",
+  "modifier.tprt.body_like_glass.description":"造成伤害提高至135%但同时受到的伤害翻倍",
+
+  "modifier.tprt.fragile": "易碎",
+  "modifier.tprt.fragile.flavor":"你比你想象中更加脆弱，但是你的攻击也更加犀利",
+  "modifier.tprt.fragile.description":"生命值上限降低25%，但是攻击伤害+15%",
+
+
+
+  "common": "upgrades_modifiers",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
@@ -337,7 +409,7 @@
   "modifier.tprt.solid_armor.flavor":"锻造你的护甲，使其更加坚固",
   "modifier.tprt.solid_armor.description":"以一个升级槽为代价获得一个防御槽",
 
-  "modifier.tprt.armor_fragmentation": "盔甲碎裂",
+  "modifier.tprt.armor_fragmentation": "盔甲重塑",
   "modifier.tprt.armor_fragmentation.flavor":"粉碎你的护甲，使其更加易塑",
   "modifier.tprt.armor_fragmentation.description":"以一个防御槽为代价获得一个升级槽",
 
@@ -459,7 +531,7 @@
 
   "modifier.tprt.blood_of_hydra": "九头蛇之血",
   "modifier.tprt.blood_of_hydra.flavor":"获得九头蛇奇迹般的自愈能力",
-  "modifier.tprt.blood_of_hydra.description":"生命值低于60%时获得高额的生命回复效果，但在生命值高于60%时无法获得任何生命回复效果",
+  "modifier.tprt.blood_of_hydra.description":"获得高额的生命回复效果",
 
   "modifier.tprt.reaper": "死亡收割",
   "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
@@ -481,10 +553,8 @@
   "modifier.tprt.advanced_luck.description":"敌人掉落的战利品更多，采掘时的掉落物也更多",
   "modifier.tprt.advanced_luck.requirements": "需要幸运++强化作为前置",
 
-  "modifier.tprt.bosses_killer": "领袖杀手",
-  "modifier.tprt.bosses_killer.flavor":"当你面对那些传说之物时不再心生恐惧",
-  "modifier.tprt.bosses_killer.description":"工具会对凋零，末影龙和其他不可名状的传说之物造成额外伤害！",
-  "modifier.tprt.bosses_killer.resistance": "对boss生物伤害",
+
+  "common": "not_yet_completed",
 
   "modifier.tprt.fire_addition": "炽焰法力注入",
   "modifier.tprt.fire_addition.flavor":"燃起来了",
@@ -504,10 +574,6 @@
   "modifier.tprt.disruption_break": "瓦解破裂",
   "modifier.tprt.disruption_break.flavor": "",
   "modifier.tprt.disruption_break.description": "",
-
-  "modifier.tprt.luck_strike": "幸运一击",
-  "modifier.tprt.luck_strike.flavor": "能找到它就是好运？",
-  "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低",
 
   "modifier.tprt.d2_lucky_pants": "幸运裤",
   "modifier.tprt.d2_lucky_pants.flavor": "来自异域",

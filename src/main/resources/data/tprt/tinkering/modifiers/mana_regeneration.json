@@ -1,0 +1,17 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "irons_spellbooks:mana_regen",
+          "operation": "multiply_total",
+          "value": 0.24
+        }
+      ],
+      "name": "tprt:mana_regeneration"
+    }
+  ],
+  "tooltip_display": "always"
+}

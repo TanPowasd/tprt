@@ -1,0 +1,23 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "tconstruct:generic.crouch_damage_multiplier",
+          "operation": "multiply_total",
+          "value": 0.2
+        },
+        {
+          "attribute": "irons_spellbooks:eldritch_spell_power",
+          "operation": "multiply_total",
+          "value": 0.15
+        }
+
+      ],
+      "name": "tprt:deep_darkness"
+    }
+  ],
+  "tooltip_display": "always"
+}

@@ -1,5 +1,5 @@
 {
-  "type": "tconstruct:material_fluid",
+  "type": "tconstruct:material",
   "conditions": [
     {
       "type": "forge:or",
@@ -15,10 +15,10 @@
       ]
     }
   ],
-  "fluid": {
-    "name": "tprt:molten_cursium",
-    "amount": 90
+  "ingredient": {
+    "item": "cataclysm:ancient_metal_nugget"
   },
-  "temperature": 2500,
-  "output": "tprt:cursium"
+  "material": "tprt:ancient_metal",
+  "needed": 9,
+  "value": 1
 }

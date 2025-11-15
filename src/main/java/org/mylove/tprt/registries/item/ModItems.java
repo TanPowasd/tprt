@@ -1,7 +1,5 @@
 package org.mylove.tprt.registries.item;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.ssakura49.sakuratinker.common.items.curios.FoxCurio;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

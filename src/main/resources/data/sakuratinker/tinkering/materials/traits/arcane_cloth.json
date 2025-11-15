@@ -1,21 +1,5 @@
 {
-  "default": [
-    {
-      "level": 1,
-      "name": "tprt:spell_power_improved"
-    }
-  ],
   "perStat": {
-    "sakuratinker:spell_cloth": [
-      {
-        "level": 1,
-        "name": "sakuratinker:mana_attr"
-      },
-      {
-        "level": 1,
-        "name": "sakuratinker:spell_cooldown_attr"
-      }
-    ],
     "tconstruct:armor": [
       {
         "level": 1,

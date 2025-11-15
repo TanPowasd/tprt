@@ -55,6 +55,22 @@
     {
       "id": "tprt:dark_knight",
       "required": false
+    },
+    {
+      "id": "tprt:frosted_helve",
+      "required": false
+    },
+    {
+      "id": "tprt:hogskin",
+      "required": false
+    },
+    {
+      "id": "tprt:arcane_metal",
+      "required": false
+    },
+    {
+      "id": "tprt:dragonskin",
+      "required": false
     }
   ]
 }

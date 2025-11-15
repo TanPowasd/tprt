@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "superheated",
+  "ingredients": [
+    {
+      "item": "sakuratinker:eezo_ore"
+    },
+    {
+      "fluid": "sakuratinker:molten_aurumos",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "amount": 720,
+      "fluid": "sakuratinker:molten_eezo"
+    }
+  ]
+}

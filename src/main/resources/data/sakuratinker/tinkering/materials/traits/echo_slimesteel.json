@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "sakuratinker:charm":[
+      {
+        "level":1,
+        "name":"tprt:deep_darkness"
+      }
+    ],
+    "sakuratinker:spell_cloth": [
+      {
+        "level": 1,
+        "name": "tprt:deep_darkness"
+      }
+    ]
+  }
+}

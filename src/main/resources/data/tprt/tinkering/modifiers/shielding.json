@@ -1,0 +1,23 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.armor",
+          "operation": "multiply_total",
+          "value": 0.1
+        },
+        {
+          "attribute": "minecraft:generic.armor_toughness",
+          "operation": "multiply_total",
+          "value": 0.1
+        }
+
+      ],
+      "name": "tprt:nature_affinity"
+    }
+  ],
+  "tooltip_display": "always"
+}

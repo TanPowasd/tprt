@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "artifacts"
+    }
+  ],
   "type": "tconstruct:modifier",
   "allow_crystal": true,
   "inputs": [

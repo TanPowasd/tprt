@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:material_melting",
-  "input": "cataclysm:cursium_ingot",
-  "temperature": 2500,
-  "result": {
-    "fluid": "tprt:molten_cursium",
-    "amount": 90
-  }
-}

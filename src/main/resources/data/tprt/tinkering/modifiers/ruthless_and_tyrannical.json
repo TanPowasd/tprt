@@ -1,0 +1,28 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "multiply_base",
+          "value": 0.2
+        },
+        {
+          "attribute": "minecraft:generic.attack_speed",
+          "operation": "multiply_base",
+          "value": 0.15
+        },
+        {
+          "attribute": "minecraft:generic.armor",
+          "operation": "multiply_total",
+          "value": -0.2
+        }
+
+      ],
+      "name": "tprt:ruthless_and_tyrannical"
+    }
+  ],
+  "tooltip_display": "always"
+}

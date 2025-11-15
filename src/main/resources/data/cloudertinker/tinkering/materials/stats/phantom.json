@@ -1,0 +1,46 @@
+{
+  "stats": {
+    "sakuratinker:charm_chain": {
+      "armor": 0.25,
+      "arrow_damage": 0.35,
+      "damage": 0.35,
+      "health": 20,
+      "movement_speed": 0.15,
+      "toughness": 0.15
+    },
+    "sakuratinker:charm_core": {},
+    "sakuratinker:energy_unit": {
+      "durability": 0.35,
+      "max_energy": 50000
+    },
+    "sakuratinker:laser_medium": {
+      "cooldown": 0.75,
+      "penetration": 8,
+      "range": 50.0
+    },
+    "sakuratinker:flag": {
+      "attack_buff_time": 1000,
+      "charge_time": 40,
+      "defence_buff_time": 1000,
+      "range": 12
+    },
+    "sakuratinker:axle": {
+      "attack_interval": 15,
+      "time": 200.0,
+      "weight": 0.75
+    },
+    "sakuratinker:chord": {
+      "length": 18.0
+    },
+    "sakuratinker:yoyo_ring": {
+      "max_collected": 2.0
+    },
+    "sakuratinker:range_core": {
+      "range": 16.0
+    },
+    "sakuratinker:soul_gatherer.json": {
+      "soul_increase": 0.24,
+      "soul_power": 12.0
+    }
+  }
+}

@@ -1,9 +1,9 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "tconstruct:steel_ingot"
+    "item": "tconstruct:steel_block"
   },
-  "loops": 16,
+  "loops": 12,
   "results": [
     {
       "item": "tprt:forged_steel"
@@ -14,17 +14,16 @@
       "type": "create:filling",
       "ingredients": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         },
         {
           "amount": 400,
-          "fluid": "tconstruct:blazing_blood",
-          "nbt": {}
+          "fluid": "tconstruct:blazing_blood"
         }
       ],
       "results": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ]
     },
@@ -32,17 +31,16 @@
       "type": "create:filling",
       "ingredients": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         },
         {
-          "amount":90,
-          "fluid": "tconstruct:molten_steel",
-          "nbt": {}
+          "amount":30,
+          "fluid": "tconstruct:molten_steel"
         }
       ],
       "results": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ]
     },
@@ -50,12 +48,12 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ],
       "results": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ]
     },
@@ -63,12 +61,12 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ],
       "results": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ]
     },
@@ -76,12 +74,12 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ],
       "results": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ]
     },
@@ -89,17 +87,17 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ],
       "results": [
         {
-          "item": "tconstruct:steel_ingot"
+          "item": "tconstruct:steel_block"
         }
       ]
     }
   ],
   "transitionalItem": {
-    "item": "tconstruct:steel_ingot"
+    "item": "tconstruct:steel_block"
   }
 }

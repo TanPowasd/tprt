@@ -2,9 +2,9 @@ package org.mylove.tprt.registries;
 
 import com.ssakura49.sakuratinker.generic.CurioModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
+import org.mylove.tprt.Modifiers.curio.*;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.Modifiers.*;
-import org.mylove.tprt.Modifiers.curio.FortuneCurio;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
@@ -46,6 +46,10 @@ public class ModifierRegistry {
     public static final StaticModifier<ancient_sandstorm> ANCIENT_SANDSTORM = MODIFIERS.register("ancient_sandstorm",ancient_sandstorm::new);
     public static final StaticModifier<human_turpentine> human_turpentine = MODIFIERS.register("human_turpentine",human_turpentine::new);
     public static final StaticModifier<reaper> REAPER = MODIFIERS.register("reaper",reaper::new);
+    public static final StaticModifier<CurioModifier> blood_of_hydra = MODIFIERS.register("blood_of_hydra", Blood_of_Hydra::new);
+    public static final StaticModifier<CurioModifier> dwarf_power = MODIFIERS.register("dwarf_power", Dwarf_Power::new);
+    public static final StaticModifier<CurioModifier> unreal_image = MODIFIERS.register("unreal_image", Unreal_Image::new);
+    public static final StaticModifier<CurioModifier> body_like_glass = MODIFIERS.register("body_like_glass", Body_like_glass::new);
     public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
     public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
     public static final StaticModifier<mechanical_star_att> MECHANICAL_STAR_ATT = MODIFIERS.register("mechanical_star_att",mechanical_star_att::new);

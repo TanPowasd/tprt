@@ -1,0 +1,26 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:bear_interest_ingot",
+      "amount_needed":4
+    },
+    {
+      "item": "iceandfire:hydra_heart"
+    },
+    {
+      "item": "sakuratinker:bear_interest_ingot",
+      "amount_needed":4
+    }
+  ],
+  "result": "tprt:blood_of_hydra",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    }
+  ]
+}

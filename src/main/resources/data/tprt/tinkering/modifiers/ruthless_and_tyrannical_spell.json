@@ -1,0 +1,28 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "irons_spellbooks:spell_power",
+          "operation": "multiply_total",
+          "value": 0.25
+        },
+        {
+          "attribute": "minecraft:generic.armor",
+          "operation": "multiply_base",
+          "value": -0.25
+        },
+        {
+          "attribute": "irons_spellbooks:spell_resist",
+          "operation": "multiply_total",
+          "value": -0.25
+        }
+
+      ],
+      "name": "tprt:ruthless_and_tyrannical_spell"
+    }
+  ],
+  "tooltip_display": "always"
+}

@@ -6,16 +6,16 @@
       "item": "sakuratinker:bear_interest_ingot"
     },
     {
-      "item": "sakuratinker:bear_interest_ingot"
+      "item": "sakuratinker:soul_sakura"
     },
     {
       "item": "sakuratinker:bear_interest_ingot"
     },
     {
-      "item": "sakuratinker:bear_interest_ingot"
+      "item": "sakuratinker:soul_sakura"
     },
     {
-      "item": "sakuratinker:bear_interest_ingot"
+      "item": "sakuratinker:soul_sakura"
     }
   ],
   "level": {
@@ -23,7 +23,7 @@
   },
   "result": "tprt:persistence_of_nature",
   "slots": {
-    "abilities": 2
+    "abilities": 1
   },
   "tools": [
     {

@@ -1,0 +1,28 @@
+{
+  "default": [
+    {
+      "name": "cloudertinker:knight_honorable",
+      "level": 1
+    },
+    {
+      "name": "cloudertinker:breakphantom",
+      "level": 1
+    },
+    {
+      "name": "tconstruct:soulbound",
+      "level": 1
+    }
+  ],
+  "perStat": {
+    "sakuratinker:charm":[
+      {
+        "level":1,
+        "name":"tprt:unreal_image"
+      },
+      {
+        "level":1,
+        "name":"sakuratinker:soul_bound_curio"
+      }
+    ]
+  }
+}

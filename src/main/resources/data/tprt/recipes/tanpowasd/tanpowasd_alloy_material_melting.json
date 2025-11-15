@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:material_melting",
-  "input": "tprt:tanpowasd",
-  "temperature": 4000,
-  "result": {
-    "fluid": "tprt:tanpowasd_fluid",
-    "amount": 90
-  }
-}

@@ -5,10 +5,6 @@
       "name": "tprt:advanced_greed"
     },
     {
-      "level": 1,
-      "name": "tinkerscalibration:stone_cold"
-    },
-    {
       "level": 2,
       "name": "tconstruct:momentum"
     }
@@ -28,10 +24,6 @@
       {
         "level": 2,
         "name": "tconstruct:insatiable"
-      },
-      {
-        "level": 1,
-        "name": "tinkerscalibration:stone_cold"
       },
       {
         "level": 2,

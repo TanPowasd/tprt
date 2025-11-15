@@ -12,10 +12,12 @@
       "item": "tprt:source_alloy"
     },
     {
-      "item": "tprt:source_alloy"
+      "item": "irons_spellbooks:arcane_debris",
+      "amount_needed":8
     },
     {
-      "item": "tprt:source_alloy"
+      "item": "irons_spellbooks:arcane_debris",
+      "amount_needed":8
     }
   ],
   "level": {

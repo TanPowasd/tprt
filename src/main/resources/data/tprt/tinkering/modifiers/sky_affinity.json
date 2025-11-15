@@ -1,0 +1,28 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "forge:entity_gravity",
+          "operation": "multiply_total",
+          "value": -0.2
+        },
+        {
+          "attribute": "tconstruct:generic.safe_fall_distance",
+          "operation": "addition",
+          "value": 1.5
+        },
+        {
+          "attribute": "tconstruct:player.jump_count",
+          "operation": "addition",
+          "value": 0.5
+        }
+
+      ],
+      "name": "tprt:sky_affinity"
+    }
+  ],
+  "tooltip_display": "always"
+}

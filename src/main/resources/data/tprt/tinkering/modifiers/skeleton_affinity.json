@@ -1,0 +1,23 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "addition",
+          "value": 2.0
+        },
+        {
+          "attribute": "irons_spellbooks:blood_spell_power",
+          "operation": "multiply_total",
+          "value": 0.05
+        }
+
+      ],
+      "name": "tprt:skeleton_affinity"
+    }
+  ],
+  "tooltip_display": "always"
+}

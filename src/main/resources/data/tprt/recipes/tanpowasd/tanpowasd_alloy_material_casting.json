@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:material_fluid",
-  "fluid": {
-    "name": "tprt:tanpowasd_fluid",
-    "amount": 90
-  },
-  "temperature": 4000,
-  "output": "tprt:tanpowasd"
-}

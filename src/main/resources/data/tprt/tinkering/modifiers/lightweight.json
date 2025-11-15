@@ -1,0 +1,29 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.movement_speed",
+          "operation": "multiply_base",
+          "tooltip_style": "percent",
+          "value": 0.15
+        },
+        {
+          "attribute": "tconstruct:generic.jump_boost",
+          "operation": "addition",
+          "value": 1.5
+        },
+        {
+          "attribute": "tconstruct:generic.safe_fall_distance",
+          "operation": "addition",
+          "value": 1.5
+        }
+
+      ],
+      "name": "tprt:lightweight"
+    }
+  ],
+  "tooltip_display": "always"
+}

@@ -16,9 +16,9 @@
     }
   ],
   "ingredient": {
-    "item": "cataclysm:black_steel_ingot"
+    "item": "cataclysm:witherite_block"
   },
-  "material": "tprt:black_steel",
+  "material": "tprt:witherite",
   "needed": 1,
-  "value": 1
+  "value": 9
 }
