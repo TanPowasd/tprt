@@ -2,17 +2,11 @@
   "level_display": "tconstruct:default",
   "modules": [
     {
-      "type": "sakuratinker:multi_curio_attribute",
-      "attributes": [
-        {
-          "type": "tconstruct:attribute",
-          "operation": "multiply_total",
-          "attribute": "attributeslib:arrow_damage",
-          "tooltip_style": "percent",
-          "value": 0.035
-        }
-      ],
-      "name": "tprt:strengthen_for_charm_ranged"
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.04,
+      "operation": "add",
+      "stat": "sakuratinker:arrow_damage",
+      "unique": "tprt.modifier.strengthen_for_charm_ranged"
     }
   ],
   "tooltip_display": "always"

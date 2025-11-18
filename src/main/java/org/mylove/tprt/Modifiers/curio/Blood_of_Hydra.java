@@ -17,9 +17,9 @@ public class Blood_of_Hydra extends CurioModifier implements CurioEquipmentChang
         return true;
     }
 
-    public Blood_of_Hydra(){
+    public Blood_of_Hydra(){}
 
-    }
+
     @Override
     public void onCurioEquip(IToolStackView curio, ModifierEntry entry, SlotContext context, LivingEntity entity, ItemStack prevStack, ItemStack stack) {
         if (entity instanceof Player player) {

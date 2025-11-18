@@ -23,5 +23,5 @@
     "fluid": "tprt:molten_black_steel"
   },
   "temperature": 1000,
-  "time": 900
+  "time": 100
 }

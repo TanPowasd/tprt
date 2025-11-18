@@ -1,0 +1,23 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "operation": "multiply_total",
+          "value": 0.1
+        },
+        {
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "operation": "multiply_total",
+          "value": 0.1
+        }
+
+      ],
+      "name": "tprt:magician"
+    }
+  ],
+  "tooltip_display": "always"
+}

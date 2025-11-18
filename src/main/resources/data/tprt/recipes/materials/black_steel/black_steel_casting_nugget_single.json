@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "cooling_time": 12,
+  "cooling_time": 20,
   "fluid": {
     "amount": 10,
     "fluid": "tprt:molten_black_steel"

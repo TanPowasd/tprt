@@ -1,0 +1,38 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "irons_spellbooks:ice_spell_power",
+          "operation": "multiply_total",
+          "value": 0.1
+        },
+        {
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "operation": "multiply_total",
+          "value": 0.1
+        },
+        {
+          "attribute": "irons_spellbooks:lightning_spell_power",
+          "operation": "multiply_total",
+          "value": 0.1
+        },
+        {
+          "attribute": "irons_spellbooks:nature_spell_power",
+          "operation": "multiply_total",
+          "value": 0.1
+        },
+        {
+          "attribute": "irons_spellbooks:holy_spell_power",
+          "operation": "multiply_total",
+          "value": 0.1
+        }
+
+      ],
+      "name": "tprt:elemental_mastery"
+    }
+  ],
+  "tooltip_display": "always"
+}

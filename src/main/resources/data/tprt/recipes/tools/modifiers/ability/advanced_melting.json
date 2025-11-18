@@ -1,0 +1,40 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:prometheum_ingot"
+    },
+    {
+      "item": "sakuratinker:terracryst",
+      "amount_needed":1
+    },
+    {
+      "item": "sakuratinker:orichalcum_ingot"
+    },
+    {
+      "item": "sakuratinker:eezo_nugget",
+      "amount_needed":9
+    },
+    {
+      "item": "sakuratinker:aurumos"
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "result": "tprt:advanced_melting",
+  "slots": {
+    "abilities": 2,
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee"
+    },
+    {
+      "tag": "tconstruct:modifiable/harvest"
+    }
+  ]
+}

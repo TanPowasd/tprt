@@ -23,7 +23,7 @@ public class reaper extends NoLevelsModifier implements MeleeDamageModifierHook,
         LivingEntity attacker = context.getPlayerAttacker();
         LivingEntity target = context.getLivingTarget();
         if(attacker!=null && target != null){
-            return 1.10f*damage;
+            return 1.50f*damage;
         }
         return damage;
     }

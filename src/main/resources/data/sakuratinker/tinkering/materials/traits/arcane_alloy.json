@@ -1,0 +1,18 @@
+{
+  "perStat": {
+    "sakuratinker:charm":[
+      {
+        "level":1,
+        "name":"tprt:magician"
+      },
+      {
+        "level":1,
+        "name":"tprt:fountain_magic"
+      },
+      {
+        "level":1,
+        "name":"tprt:elemental_mastery"
+      }
+    ]
+  }
+}

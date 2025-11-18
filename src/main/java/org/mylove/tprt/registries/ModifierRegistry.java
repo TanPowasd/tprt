@@ -50,6 +50,8 @@ public class ModifierRegistry {
     public static final StaticModifier<CurioModifier> dwarf_power = MODIFIERS.register("dwarf_power", Dwarf_Power::new);
     public static final StaticModifier<CurioModifier> unreal_image = MODIFIERS.register("unreal_image", Unreal_Image::new);
     public static final StaticModifier<CurioModifier> body_like_glass = MODIFIERS.register("body_like_glass", Body_like_glass::new);
+    public static final StaticModifier<CurioModifier> strengthen_for_charm_endurance = MODIFIERS.register("strengthen_for_charm_endurance", Strengthen_for_charm_endurance::new);
+    public static final StaticModifier<CurioModifier> endless_life = MODIFIERS.register("endless_life", Endless_Life::new);
     public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
     public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
     public static final StaticModifier<mechanical_star_att> MECHANICAL_STAR_ATT = MODIFIERS.register("mechanical_star_att",mechanical_star_att::new);

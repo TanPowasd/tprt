@@ -7,7 +7,7 @@
       "damage": 0.25,
       "health": 30,
       "movement_speed": 0.3,
-      "toughness": 0.25
+      "toughness": 0.30
     },
     "sakuratinker:charm_core": {},      
       "tconstruct:binding": {},

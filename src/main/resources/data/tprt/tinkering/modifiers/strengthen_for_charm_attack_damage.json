@@ -2,16 +2,11 @@
   "level_display": "tconstruct:default",
   "modules": [
     {
-      "type": "sakuratinker:multi_curio_attribute",
-      "attributes": [
-        {
-          "attribute": "minecraft:generic.attack_damage",
-          "operation": "multiply_total",
-          "tooltip_style": "percent",
-          "value": 0.025
-        }
-      ],
-      "name": "tprt:strengthen_for_charm_attack_damage"
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.03,
+      "operation": "add",
+      "stat": "sakuratinker:damage",
+      "unique": "tprt.modifier.strengthen_for_charm_attack_damage"
     }
   ],
   "tooltip_display": "always"

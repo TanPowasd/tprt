@@ -8,5 +8,5 @@
     "fluid": "tprt:source_alloy_fluid"
   },
   "temperature": 3200,
-  "time": 1200
+  "time": 20
 }

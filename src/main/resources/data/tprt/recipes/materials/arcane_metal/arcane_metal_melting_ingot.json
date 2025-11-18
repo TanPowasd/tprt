@@ -23,5 +23,5 @@
     "fluid": "tprt:molten_arcane_metal"
   },
   "temperature": 1000,
-  "time": 100
+  "time": 20
 }

@@ -5,14 +5,17 @@
       "type": "sakuratinker:multi_curio_attribute",
       "attributes": [
         {
-          "type": "tconstruct:attribute",
-          "operation": "multiply_total",
           "attribute": "minecraft:generic.max_health",
-          "tooltip_style": "percent",
-          "value": 0.035
+          "operation": "multiply_total",
+          "value": 0.06
+        },
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "multiply_total",
+          "value": 0.06
         }
       ],
-      "name": "tprt:strengthen_for_charm_endurance"
+      "name": "tprt:be_thoroughly_tempered_curios"
     }
   ],
   "tooltip_display": "always"

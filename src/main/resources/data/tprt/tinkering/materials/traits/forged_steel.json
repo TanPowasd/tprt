@@ -17,6 +17,12 @@
             "level": 1,
             "name": "tprt:be_thoroughly_tempered"
         }
+      ],
+      "sakuratinker:charm":[
+        {
+          "level": 1,
+          "name": "tprt:be_thoroughly_tempered_curios"
+        }
       ]
     }
   }

@@ -31,14 +31,14 @@
       "each_level": 0.4,
       "operation": "add",
       "stat": "tconstruct:projectile_damage",
-      "unique": "tconstruct.modifier.advanced_power"
+      "unique": "tprt.modifier.advanced_power"
     },
     {
       "type": "tconstruct:stat_boost",
       "each_level": 0.1,
       "operation": "multiply_base",
       "stat": "tconstruct:projectile_damage",
-      "unique": "tconstruct.modifier.advanced_power"
+      "unique": "tprt.modifier.advanced_power"
     }
   ]
 }

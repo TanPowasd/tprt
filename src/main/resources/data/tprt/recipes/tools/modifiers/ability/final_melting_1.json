@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:nihilite_ingot"
+    },
+    {
+      "item": "sakuratinker:terracryst",
+      "amount_needed":8
+    },
+    {
+      "item": "sakuratinker:nihilite_ingot"
+    },
+    {
+      "item": "sakuratinker:eezo_nugget",
+      "amount_needed":4
+    },
+    {
+      "item": "sakuratinker:eezo_nugget",
+      "amount_needed":4
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "result": "tprt:final_melting",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "item": "tconstruct:melting_pan"
+    }
+  ]
+}

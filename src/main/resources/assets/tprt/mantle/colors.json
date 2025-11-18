@@ -24,6 +24,7 @@
     "mixeddragon_ranged":"#EEDD82",
     "the_dragon_power": "#EEDD82",
     "be_thoroughly_tempered":"#232222",
+    "be_thoroughly_tempered_curios": "#232222",
     "source_alloy_default":"#ffdd3a",
     "source_alloy_armor":"#ffdd3a",
     "source_alloy_charm":"#ffdd3a",
@@ -90,6 +91,14 @@
     "deep_darkness": "#db6414",
     "unreal_image": "#526042",
     "body_like_glass": "#CEE7E6",
-    "fragile": "#CEE7E6"
+    "fragile": "#CEE7E6",
+    "advanced_melting": "#FFD800",
+    "final_melting": "#FFD800",
+    "tank_expansion": "#3f3f3f",
+    "final_tank": "#3f3f3f",
+    "magician":"#BA55D3",
+    "elemental_mastery":"#FFDAB9",
+    "fountain_magic":"#6495ED",
+    "endless_life": "#5cff76"
   }
 }

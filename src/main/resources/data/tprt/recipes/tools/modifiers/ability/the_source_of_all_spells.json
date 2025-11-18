@@ -13,11 +13,11 @@
     },
     {
       "item": "irons_spellbooks:arcane_debris",
-      "amount_needed":8
+      "amount_needed":4
     },
     {
       "item": "irons_spellbooks:arcane_debris",
-      "amount_needed":8
+      "amount_needed":4
     }
   ],
   "level": {

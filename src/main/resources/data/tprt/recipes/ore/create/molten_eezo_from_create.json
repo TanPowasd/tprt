@@ -7,12 +7,12 @@
     },
     {
       "fluid": "sakuratinker:molten_aurumos",
-      "amount": 1000
+      "amount": 900
     }
   ],
   "results": [
     {
-      "amount": 720,
+      "amount": 540,
       "fluid": "sakuratinker:molten_eezo"
     }
   ]

@@ -191,8 +191,12 @@
   "modifier.tprt.mixeddragon_ranged.description":"大幅提高弹射物力量和弹射物速度",
 
   "modifier.tprt.be_thoroughly_tempered":"千锤百炼",
-  "modifier.tprt.be_thoroughly_tempered.flavor":"锻造的力量蕴含其中",
+  "modifier.tprt.be_thoroughly_tempered.flavor":"锤锻的力量蕴含其中",
   "modifier.tprt.be_thoroughly_tempered.description":"提高工具的所有属性",
+
+  "modifier.tprt.be_thoroughly_tempered_curios":"千锤百炼",
+  "modifier.tprt.be_thoroughly_tempered_curios.flavor":"锤锻的力量蕴含其中",
+  "modifier.tprt.be_thoroughly_tempered_curios.description":"每级提高6%最大生命值以及6%攻击伤害",
 
   "modifier.tprt.source_alloy_default":"魔力升华",
   "modifier.tprt.source_alloy_default.flavor":"你的魔力变得无比纯净",
@@ -270,7 +274,7 @@
 
   "modifier.tprt.ancient_sandstorm": "远古沙暴",
   "modifier.tprt.ancient_sandstorm.flavor":"满天沙暴加持于你！",
-  "modifier.tprt.ancient_sandstorm.description":"基础耐久+1000，攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐获得高额百分比提升",
+  "modifier.tprt.ancient_sandstorm.description":"基础耐久+1500，攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐获得高额百分比提升",
   "modifier.tprt.ancient_sandstorm.requirements": "需要远古金属材料作为前置",
 
   "modifier.tprt.luck_strike": "幸运一击",
@@ -368,6 +372,22 @@
   "modifier.tprt.fragile": "易碎",
   "modifier.tprt.fragile.flavor":"你比你想象中更加脆弱，但是你的攻击也更加犀利",
   "modifier.tprt.fragile.description":"生命值上限降低25%，但是攻击伤害+15%",
+
+  "modifier.tprt.magician": "魔法使",
+  "modifier.tprt.magician.flavor":"法术大师!",
+  "modifier.tprt.magician.description":"吟唱冷却和法术冷却获得提升",
+
+  "modifier.tprt.fountain_magic": "魔力之泉",
+  "modifier.tprt.fountain_magic.flavor":"取之不尽,用之不竭!",
+  "modifier.tprt.fountain_magic.description":"提升最大法力值和法力恢复速度",
+
+  "modifier.tprt.elemental_mastery": "元素掌握",
+  "modifier.tprt.elemental_mastery.flavor":"如臂使指！",
+  "modifier.tprt.elemental_mastery.description":"法术在你手中充分展现，每级提高10%的冰霜，炽焰，雷霆，自然，神圣法术强度",
+
+  "modifier.tprt.endless_life": "万古长青",
+  "modifier.tprt.endless_life.flavor":"医学奇迹！",
+  "modifier.tprt.endless_life.description":"获得高额的生命回复效果，同时使自身受到的治疗效果提高",
 
 
 
@@ -497,13 +517,13 @@
   "modifier.tprt.lightning_rod.flavor":"攫取法杖的能力",
   "modifier.tprt.lightning_rod.description":"+15% 雷霆法术强度，-15% 法术冷却缩减，+5% 法术强度",
 
-  "modifier.tprt.strengthen_for_charm_attack_damage": "护符增强——近战伤害",
+  "modifier.tprt.strengthen_for_charm_attack_damage": "护符增强——攻击伤害",
   "modifier.tprt.strengthen_for_charm_attack_damage.flavor":"深渊之力",
-  "modifier.tprt.strengthen_for_charm_attack_damage.description":"每级+2.5%近战伤害",
+  "modifier.tprt.strengthen_for_charm_attack_damage.description":"每级+3%攻击伤害",
 
   "modifier.tprt.strengthen_for_charm_ranged": "护符增强——箭矢伤害",
   "modifier.tprt.strengthen_for_charm_ranged.flavor":"深度穿透",
-  "modifier.tprt.strengthen_for_charm_ranged.description":"每级+3.5%箭矢伤害",
+  "modifier.tprt.strengthen_for_charm_ranged.description":"每级+4%箭矢伤害",
 
   "modifier.tprt.strengthen_for_charm_spell_power": "护符增强——法术强度",
   "modifier.tprt.strengthen_for_charm_spell_power.flavor":"法力灌注",
@@ -511,11 +531,11 @@
 
   "modifier.tprt.strengthen_for_charm_armor": "护符增强——盔甲防护",
   "modifier.tprt.strengthen_for_charm_armor.flavor":"硬化躯体",
-  "modifier.tprt.strengthen_for_charm_armor.description":"每级+3.5%护甲值，+2.5%盔甲韧性",
+  "modifier.tprt.strengthen_for_charm_armor.description":"每级+3%护甲值，+3%盔甲韧性",
 
   "modifier.tprt.strengthen_for_charm_endurance": "护符增强——生命延续",
   "modifier.tprt.strengthen_for_charm_endurance.flavor":"细胞活化",
-  "modifier.tprt.strengthen_for_charm_endurance.description":"每级+3.5%最大生命值",
+  "modifier.tprt.strengthen_for_charm_endurance.description":"每级+5%受到治疗效果",
 
   "modifier.tprt.strengthen_for_charm_luck": "护符增强——幸运",
   "modifier.tprt.strengthen_for_charm_luck.flavor":"好运连连",
@@ -535,7 +555,7 @@
 
   "modifier.tprt.reaper": "死亡收割",
   "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
-  "modifier.tprt.reaper.description":"造成伤害提高至110%，回复实际造成伤害75%的生命值",
+  "modifier.tprt.reaper.description":"造成伤害提高至150%，回复实际造成伤害75%的生命值",
 
   "modifier.tprt.persistence_of_nature": "本性的坚守",
   "modifier.tprt.persistence_of_nature.flavor":"我们血脉相连，我们从不退却",
@@ -552,6 +572,31 @@
   "modifier.tprt.advanced_luck.flavor":"幸运plus",
   "modifier.tprt.advanced_luck.description":"敌人掉落的战利品更多，采掘时的掉落物也更多",
   "modifier.tprt.advanced_luck.requirements": "需要幸运++强化作为前置",
+
+  "modifier.tprt.advanced_melting": "高级熔炼",
+  "modifier.tprt.advanced_melting.2": "高级熔炼+",
+  "modifier.tprt.advanced_melting.3": "高级熔炼++",
+  "modifier.tprt.advanced_melting.flavor":"熔炼万物！",
+  "modifier.tprt.advanced_melting.description":"熔炼攻击目标及其掉落物，但是效果更佳",
+
+  "modifier.tprt.final_melting": "终极熔炼",
+  "modifier.tprt.final_melting.2": "终极熔炼+",
+  "modifier.tprt.final_melting.3": "终极熔炼++",
+  "modifier.tprt.final_melting.4": "终极熔炼+++",
+  "modifier.tprt.final_melting.5": "终极熔炼++++",
+  "modifier.tprt.final_melting.flavor":"熔炼万物！",
+  "modifier.tprt.final_melting.description":"熔炼攻击目标及其掉落物，但是效果远超普通熔炼！",
+  "modifier.tprt.final_melting.requirements": "需要熔炼锅工具作为前置",
+
+  "modifier.tprt.tank_expansion": "储罐拓展",
+  "modifier.tprt.tank_expansion.flavor":"越大越好！",
+  "modifier.tprt.tank_expansion.description":"使工具的内部储罐容量大幅提升",
+  "modifier.tprt.tank_expansion.requirements": "需要储罐Ⅲ强化作为前置",
+
+  "modifier.tprt.final_tank": "终极储罐",
+  "modifier.tprt.final_tank.flavor":"越大越好！",
+  "modifier.tprt.final_tank.description":"使工具的内部储罐容量获得飞跃式的提升",
+  "modifier.tprt.final_tank.requirements": "需要储罐V强化作为前置",
 
 
   "common": "not_yet_completed",

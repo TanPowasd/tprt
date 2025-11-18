@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "superheated",
+  "ingredients": [
+    {
+      "item": "sakuratinker:orichalcum_raw"
+    },
+    {
+      "fluid": "tconstruct:blazing_blood",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "amount": 360,
+      "fluid": "sakuratinker:molten_orichalcum"
+    }
+  ]
+}
