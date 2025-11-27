@@ -1,12 +1,12 @@
 {
   "type": "iceandfire:dragonforge",
-  "dragon_type": "ice",
+  "dragon_type": "fire",
   "cook_time": 6000,
   "input": {
-    "item": "iceandfire:ghost_ingot"
+    "item": "iceandfire:cannoli"
   },
   "blood": {
-    "item": "iceandfire:ice_dragon_blood"
+    "item": "iceandfire:fire_dragon_blood"
   },
   "result": {
     "item": "tprt:mixeddragon"

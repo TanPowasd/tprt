@@ -1,0 +1,35 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:amethyst_block",
+      "amount_needed":16
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "minecraft:amethyst_block",
+      "amount_needed":16
+    },
+    {
+      "item": "minecraft:reinforced_deepslate"
+    },
+    {
+      "item": "minecraft:reinforced_deepslate"
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "result": "tprt:advanced_swiftstrike",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee/weapon"
+    }
+  ]
+}

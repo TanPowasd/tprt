@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "immortalers_delight"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "immortalers_delight:sniffer_fur_block"
+  },
+  "material": "tprt:sniffer_fur",
+  "needed": 1,
+  "value": 4
+}

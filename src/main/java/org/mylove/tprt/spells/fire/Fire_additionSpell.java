@@ -10,10 +10,11 @@ import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import org.jetbrains.annotations.Nullable;
+import org.mylove.tprt.Tprt;
 
 @AutoSpellConfig
 public class Fire_additionSpell extends AbstractSpell {
-    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath("tprt", "fire_addition");
+    private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "fire_addition");
     private final DefaultConfig defaultConfig;
 
     public Fire_additionSpell() {

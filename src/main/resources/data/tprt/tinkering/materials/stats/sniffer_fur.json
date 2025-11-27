@@ -1,0 +1,11 @@
+{
+  "stats": {
+    "tconstruct:binding": {},
+    "tconstruct:maille": {},
+    "tconstruct:plating_boots": {
+      "armor": 1.5,
+      "durability": 549,
+      "toughness": 1.5
+    }
+  }
+}

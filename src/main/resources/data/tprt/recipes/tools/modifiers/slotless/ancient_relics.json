@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "immortalers_delight:kwat_wheat"
+    },
+    {
+      "item": "immortalers_delight:evolutcorn"
+    },
+    {
+      "item": "immortalers_delight:pearlip"
+    },
+    {
+      "item": "immortalers_delight:contains_tea_leisamboo"
+    },
+    {
+      "item": "immortalers_delight:himekaido"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:ancient_relics",
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}

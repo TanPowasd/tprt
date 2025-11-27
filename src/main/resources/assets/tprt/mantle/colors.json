@@ -8,6 +8,8 @@
     "witherite": "#FF303030",
     "advanced_manyullyn": "#5300b8",
     "kwat_wheat_grain_ingot": "#8e1031",
+    "sniffer_fur": "#600d0d",
+    "leisamboo": "#a9d43d",
     "evil_beast_alloy":"#FF443738",
     "black_steel": "#FF2C2C2C",
     "capoo": "#FF04B7FB",
@@ -17,7 +19,8 @@
     "hogskin": "#FFFFBEA6",
     "arcane_metal": "#FF4FFFF7",
     "dragonskin": "#FF40004A",
-    "dark_knight": "#44005f"
+    "dark_knight": "#44005f",
+    "koboleton_bone": "#d8caa5"
   },
   "modifier.tprt": {
     "mixeddragon_armor":"#EEDD82",
@@ -40,6 +43,7 @@
     "advanced_sharpness": "#EEDD82",
     "advanced_power": "#EEDD82",
     "advanced_luck": "#345EC3",
+    "advanced_swiftstrike": "#B38EF1",
     "heart_of_life": "#FFFF0000",
     "machine_iron_casting": "#FF303030",
     "mechanical_star_arm": "#FF303030",
@@ -48,6 +52,10 @@
     "storm_potential": "#FF0080C0",
     "renovation_of_historic_sites": "#FFF4B800",
     "gas_poison": "#8e1031",
+    "flourishing": "#600d0d",
+    "excellent_harvest": "#600d0d",
+    "ancient_relics": "#600d0d",
+    "lingering_infusion": "#a9d43d",
     "cinder_slash": "#FF443738",
     "the_power_of_beast": "#FF443738",
     "strengthen_for_charm_spell_power": "#FF6A5ACD",
@@ -70,6 +78,7 @@
     "blood_of_hydra": "#FF00E100",
     "strong_but_pliable": "#FFF4B800",
     "ancient_sandstorm": "#FFF4B800",
+    "will_from_ancient": "#d8caa5",
     "metallization": "#FF7B3E00",
     "ice_spell_power_improved": "#BEF0F0",
     "mana_improved": "#FFFFBEA6",
@@ -83,6 +92,7 @@
     "sky_affinity": "#00F4DA",
     "lightweight": "#2882d4",
     "lightweight_spell": "#2882d4",
+    "down_to_the_bone": "#d92e2e",
     "burning_ash": "#601cc4",
     "shielding": "#a58b00",
     "ruthless_and_tyrannical": "#9261cc",
@@ -99,6 +109,7 @@
     "magician":"#BA55D3",
     "elemental_mastery":"#FFDAB9",
     "fountain_magic":"#6495ED",
-    "endless_life": "#5cff76"
+    "endless_life": "#5cff76",
+    "bulk_quiver": "#C65C35"
   }
 }

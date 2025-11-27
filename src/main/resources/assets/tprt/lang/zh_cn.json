@@ -143,11 +143,20 @@
   "material.tprt.ancient_metal":"远古金属",
   "material.tprt.ancient_metal.flavor":"源自于沙漠的古老金属，十分强韧",
 
+  "material.tprt.koboleton_bone":"骸龙之骨",
+  "material.tprt.koboleton_bone.flavor":"古老遗存的骨骸，强度远超普通骨头",
+
   "material.tprt.advanced_manyullyn":"超限玛玉灵",
   "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
 
   "material.tprt.kwat_wheat_grain_ingot":"瓦斯麦谷锭",
   "material.tprt.kwat_wheat_grain_ingot.flavor":"远古的孑遗",
+
+  "material.tprt.sniffer_fur":"嗅探兽毛皮",
+  "material.tprt.sniffer_fur.flavor":"远古的孑遗",
+
+  "material.tprt.leisamboo":"溪竹",
+  "material.tprt.leisamboo.flavor":"悠久的茶香",
 
   "material.tprt.capoo":"咖波",
   "material.tprt.capoo.flavor":"可爱的神秘生物",
@@ -309,6 +318,10 @@
   "modifier.tprt.marathon.flavor":"“宠爱切的叮当响”",
   "modifier.tprt.marathon.description":"手持武器时移速大幅加快",
 
+  "modifier.tprt.will_from_ancient": "远古意志",
+  "modifier.tprt.will_from_ancient.flavor":"坚定不移！",
+  "modifier.tprt.will_from_ancient.description":"工具的攻击力和弹射物力量小幅度提升，攻击会抵消目标的部分护甲值",
+
   "modifier.tprt.nature_affinity": "自然亲和",
   "modifier.tprt.nature_affinity.flavor":"森林之子！",
   "modifier.tprt.nature_affinity.description":"每级提高3点最大生命值以及5%自然法术强度",
@@ -332,6 +345,10 @@
   "modifier.tprt.lightweight_spell": "轻便",
   "modifier.tprt.lightweight_spell.flavor":"施法已经和呼吸一样简单了",
   "modifier.tprt.lightweight_spell.description":"提高20%法术吟唱缩减",
+
+  "modifier.tprt.down_to_the_bone": "入髓",
+  "modifier.tprt.down_to_the_bone.flavor":"深入骨髓的痛楚",
+  "modifier.tprt.down_to_the_bone.description":"造成的最终伤害提高2点",
 
   "modifier.tprt.burning_ash": "燃灰",
   "modifier.tprt.burning_ash.flavor":"尚存余温",
@@ -389,21 +406,33 @@
   "modifier.tprt.endless_life.flavor":"医学奇迹！",
   "modifier.tprt.endless_life.description":"获得高额的生命回复效果，同时使自身受到的治疗效果提高",
 
+  "modifier.tprt.flourishing": "欣欣向荣",
+  "modifier.tprt.flourishing.flavor":"使周围的作物欢呼雀跃！",
+  "modifier.tprt.flourishing.description":"行走时会促进周围的作物生长，[延展]强化能够大幅提高影响范围",
+
+  "modifier.tprt.excellent_harvest": "五谷丰登",
+  "modifier.tprt.excellent_harvest.flavor":"使周围的作物欢呼雀跃！",
+  "modifier.tprt.excellent_harvest.description":"采收部分作物时有机会额外获得成熟作物和种子",
+
+  "modifier.tprt.lingering_infusion": "竹香茶韵",
+  "modifier.tprt.lingering_infusion.flavor":"茶香弥漫，沁人心脾",
+  "modifier.tprt.lingering_infusion.description":"受到攻击时获得短暂的4级茶韵效果,若持有茶韵效果时受到攻击，则会额外获得短暂的3级抗性提升效果",
+
 
 
   "common": "upgrades_modifiers",
 
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
-  "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽，一个防御槽以及一个能力槽",
+  "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽和一个防御槽",
 
   "modifier.tprt.the_spirit_of_evil_curse": "恶咒之灵",
   "modifier.tprt.the_spirit_of_evil_curse.flavor":"诅咒的力量重塑了你的装备",
-  "modifier.tprt.the_spirit_of_evil_curse.description":"这位诅咒亡灵的力量为你带来了一个升级槽，一个防御槽以及一个能力槽",
+  "modifier.tprt.the_spirit_of_evil_curse.description":"这位诅咒亡灵的力量为你带来了一个升级槽和一个防御槽",
 
   "modifier.tprt.mechanical_innovation": "机械革新",
   "modifier.tprt.mechanical_innovation.flavor":"利用这种跨时代的材料锻造你的装备",
-  "modifier.tprt.mechanical_innovation.description":"远古工程的杰作为你带来了一个升级槽，一个防御槽以及一个能力槽",
+  "modifier.tprt.mechanical_innovation.description":"远古工程的杰作为你带来了一个升级槽和一个防御槽",
 
   "modifier.tprt.the_power_of_beast": "恶兽之威",
   "modifier.tprt.the_power_of_beast.flavor":"先民的奇异科技加护了你的装备",
@@ -411,11 +440,11 @@
 
   "modifier.tprt.renovation_of_historic_sites": "古迹翻新",
   "modifier.tprt.renovation_of_historic_sites.flavor":"尘封的古迹赐福了你的装备",
-  "modifier.tprt.renovation_of_historic_sites.description":"上古遗迹的残留为你带来了一个升级槽和一个防御槽以及一个能力槽",
+  "modifier.tprt.renovation_of_historic_sites.description":"上古遗迹的残留为你带来了一个升级槽和一个防御槽",
 
   "modifier.tprt.storm_potential": "风暴潜能",
   "modifier.tprt.storm_potential.flavor":"风暴的精粹附魔了你的装备",
-  "modifier.tprt.storm_potential.description":"难以驾驭的风暴为你带来了一个升级槽，一个防御槽以及一个能力槽",
+  "modifier.tprt.storm_potential.description":"难以驾驭的风暴为你带来了一个升级槽，一个防御槽",
 
   "modifier.tprt.philosophers_stone": "贤者之石",
   "modifier.tprt.philosophers_stone.flavor":"炼金术的结晶重构了你的装备",
@@ -424,6 +453,10 @@
   "modifier.tprt.the_power_of_nine_dragons": "九龙之力",
   "modifier.tprt.the_power_of_nine_dragons.flavor":"“那我问你，你头顶怎么尖尖的。”",
   "modifier.tprt.the_power_of_nine_dragons.description":"横行世间的众龙为你带来了一个升级槽和一个防御槽,使工具的攻击力+9%,法术强度-9%",
+
+  "modifier.tprt.ancient_relics": "远古孑遗",
+  "modifier.tprt.ancient_relics.flavor":"怎么现代的作物还退化了…………",
+  "modifier.tprt.ancient_relics.description":"沉睡的远古作物为你带来了两个升级槽和一个能力槽",
 
   "modifier.tprt.solid_armor": "坚固护甲",
   "modifier.tprt.solid_armor.flavor":"锻造你的护甲，使其更加坚固",
@@ -463,6 +496,19 @@
   "modifier.tprt.advanced_power.flavor":"穿山裂石之矢",
   "modifier.tprt.advanced_power.description":"每级提高0.4+10%弹射物力量",
   "modifier.tprt.advanced_power.requirements": "需要力量V强化作为前置",
+
+  "modifier.tprt.advanced_swiftstrike": "破袭",
+  "modifier.tprt.advanced_swiftstrike.2": "破袭+",
+  "modifier.tprt.advanced_swiftstrike.3": "破袭++",
+  "modifier.tprt.advanced_swiftstrike.4": "破袭+++",
+  "modifier.tprt.advanced_swiftstrike.5": "破袭++++",
+  "modifier.tprt.advanced_swiftstrike.flavor":"兵贵神速",
+  "modifier.tprt.advanced_swiftstrike.description":"每级提高10%工具近战速度",
+  "modifier.tprt.advanced_swiftstrike.requirements": "需要迅捷打击++++强化作为前置",
+
+  "modifier.tprt.karate": "空手道",
+  "modifier.tprt.karate.flavor":"拳脚功夫！",
+  "modifier.tprt.karate.description":"使空手时的攻击伤害大幅提高",
 
   "modifier.tprt.netherite_spell_book": "远古法典增强",
   "modifier.tprt.netherite_spell_book.flavor":"镌刻法典的力量",
@@ -563,7 +609,7 @@
 
   "modifier.tprt.fear_nothing": "无畏",
   "modifier.tprt.fear_nothing.flavor":"真正的man应该无所畏惧",
-  "modifier.tprt.fear_nothing.description":"提升所有类型的抗性",
+  "modifier.tprt.fear_nothing.description":"攻击距离+1.5格，提升所有类型的抗性",
   "modifier.tprt.fear_nothing.resistance": "通用抗性",
 
   "modifier.tprt.advanced_luck": "鸿运齐天",
@@ -597,6 +643,13 @@
   "modifier.tprt.final_tank.flavor":"越大越好！",
   "modifier.tprt.final_tank.description":"使工具的内部储罐容量获得飞跃式的提升",
   "modifier.tprt.final_tank.requirements": "需要储罐V强化作为前置",
+
+  "modifier.tprt.bulk_quiver": "实用箭袋",
+  "modifier.tprt.bulk_quiver.flavor": "两个愿望，一次满足",
+  "modifier.tprt.bulk_quiver.description": "给予弓5个箭袋槽位；手持弓并按下“攻击”键以切换槽位，潜行时并按下“攻击”键以访问这些槽位，可调用工匠箭矢",
+  "modifier.tconstruct.bulk_quiver.disabled": "实用箭袋：禁用",
+  "modifier.tconstruct.bulk_quiver.empty": "实用箭袋：%s号槽位中无箭矢，使用普通箭矢",
+  "modifier.tconstruct.bulk_quiver.selected": "实用箭袋: 选用%2$s号槽位中%1$s",
 
 
   "common": "not_yet_completed",

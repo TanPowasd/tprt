@@ -4,7 +4,7 @@
     "tconstruct:grip": {
       "accuracy": 0.08,
       "durability": 0.24,
-      "melee_damage": 4.3
+      "melee_damage": 2.8
     },
     "tconstruct:handle": {
       "durability": 0.24,
@@ -14,7 +14,7 @@
     },
     "tconstruct:head": {
       "durability": 812,
-      "melee_attack": 4.3,
+      "melee_attack": 2.8,
       "mining_speed": 6.1,
       "mining_tier": "minecraft:diamond"
     },
@@ -26,28 +26,28 @@
     },
     "tconstruct:maille": {},
     "tconstruct:plating_boots": {
-      "armor": 3.5,
+      "armor": 3.0,
       "durability": 411,
-      "toughness": 3.0
+      "toughness": 2.0
     },
     "tconstruct:plating_chestplate": {
-      "armor": 8.0,
+      "armor": 7.0,
       "durability": 534,
-      "toughness": 3.0
+      "toughness": 2.0
     },
     "tconstruct:plating_helmet": {
-      "armor": 4.5,
+      "armor": 4.0,
       "durability": 369,
-      "toughness": 3.0
+      "toughness": 2.0
     },
     "tconstruct:plating_leggings": {
-      "armor": 6.0,
+      "armor": 5.0,
       "durability": 563,
-      "toughness": 3.0
+      "toughness": 2.0
     },
     "tconstruct:plating_shield": {
       "durability": 702,
-      "toughness": 3.0
+      "toughness": 2.0
     },
     "sakuratinker:range_core": {
       "range": 8.0

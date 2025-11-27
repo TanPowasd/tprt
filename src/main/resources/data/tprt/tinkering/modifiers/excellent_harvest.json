@@ -1,0 +1,31 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:main_hand_harvest_enchantment",
+      "block": {
+        "type": "mantle:or",
+        "predicates": [
+          {
+            "type": "mantle:tag",
+            "tag": "minecraft:crops"
+          },
+          {
+            "type": "mantle:set",
+            "blocks": [
+              "minecraft:melon"
+            ]
+          }
+        ]
+      },
+      "condition_flag": "tprt:excellent_harvest",
+      "level": 5,
+      "name": "minecraft:fortune",
+      "tool": {
+        "type": "mantle:tag",
+        "tag": "tconstruct:modifiable/harvest"
+      }
+    }
+  ],
+  "tooltip_display": "always"
+}

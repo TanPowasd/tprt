@@ -59,10 +59,6 @@
       "traits": [
         {
           "level": 1,
-          "name": "tconstruct:reach"
-        },
-        {
-          "level": 1,
           "name": "tprt:fear_nothing"
         }
       ]

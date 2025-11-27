@@ -1,0 +1,37 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.10,
+      "operation": "multiply_base",
+      "stat": "tconstruct:attack_damage"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.10,
+      "operation": "add",
+      "stat": "tconstruct:projectile_damage"
+    },
+    {
+      "type": "tconstruct:melee_attribute",
+      "attribute": "minecraft:generic.armor",
+      "each_level": -3.0,
+      "operation": "addition"
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "effect": "tconstruct:pierce",
+      "hooks": [
+        "tconstruct:projectile_hit"
+      ],
+      "level": {
+        "per_level": 2.0
+      },
+      "time": {
+        "flat": 15.0
+      }
+    }
+  ],
+  "tooltip_display": "always"
+}

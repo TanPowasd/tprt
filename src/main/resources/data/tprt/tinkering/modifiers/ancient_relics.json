@@ -4,12 +4,12 @@
     {
       "type": "tconstruct:modifier_slot",
       "count": 1,
-      "name": "upgrades"
+      "name": "abilities"
     },
     {
       "type": "tconstruct:modifier_slot",
-      "count": 1,
-      "name": "defense"
+      "count": 2,
+      "name": "upgrades"
     }
   ],
   "tooltip_display": "tinker_station"

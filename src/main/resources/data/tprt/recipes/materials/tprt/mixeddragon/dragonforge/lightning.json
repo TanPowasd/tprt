@@ -3,7 +3,7 @@
   "dragon_type": "lightning",
   "cook_time": 6000,
   "input": {
-    "item": "iceandfire:ghost_ingot"
+    "item": "iceandfire:cannoli"
   },
   "blood": {
     "item": "iceandfire:lightning_dragon_blood"

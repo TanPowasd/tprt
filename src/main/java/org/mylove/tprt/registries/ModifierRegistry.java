@@ -41,6 +41,8 @@ public class ModifierRegistry {
     public static final StaticModifier<the_dragon_power> THE_DRAGON_POWER = MODIFIERS.register("the_dragon_power",the_dragon_power::new);
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
     public static final StaticModifier<gas_poison> GAS_POISON = MODIFIERS.register("gas_poison",gas_poison::new);
+    public static final StaticModifier<flourishing> FLOURISHING = MODIFIERS.register("flourishing",flourishing::new);
+    public static final StaticModifier<lingering_infusion> LINGERING_INFUSION = MODIFIERS.register("lingering_infusion",lingering_infusion::new);
     public static final StaticModifier<fire_addition> FIRE_ADDITION = MODIFIERS.register("fire_addition",fire_addition::new);
     public static final StaticModifier<strong_but_pliable> STRONG_BUT_PLIABLE = MODIFIERS.register("strong_but_pliable",strong_but_pliable::new);
     public static final StaticModifier<ancient_sandstorm> ANCIENT_SANDSTORM = MODIFIERS.register("ancient_sandstorm",ancient_sandstorm::new);
@@ -48,6 +50,7 @@ public class ModifierRegistry {
     public static final StaticModifier<reaper> REAPER = MODIFIERS.register("reaper",reaper::new);
     public static final StaticModifier<CurioModifier> blood_of_hydra = MODIFIERS.register("blood_of_hydra", Blood_of_Hydra::new);
     public static final StaticModifier<CurioModifier> dwarf_power = MODIFIERS.register("dwarf_power", Dwarf_Power::new);
+    public static final StaticModifier<CurioModifier> down_to_the_bone = MODIFIERS.register("down_to_the_bone", Down_to_the_Bone::new);
     public static final StaticModifier<CurioModifier> unreal_image = MODIFIERS.register("unreal_image", Unreal_Image::new);
     public static final StaticModifier<CurioModifier> body_like_glass = MODIFIERS.register("body_like_glass", Body_like_glass::new);
     public static final StaticModifier<CurioModifier> strengthen_for_charm_endurance = MODIFIERS.register("strengthen_for_charm_endurance", Strengthen_for_charm_endurance::new);
