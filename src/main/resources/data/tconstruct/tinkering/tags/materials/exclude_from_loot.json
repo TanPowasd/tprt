@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "tprt:capoo",
-      "required": false
-    },
-    {
       "id": "tprt:mixeddragon",
       "required": false
     },
@@ -70,6 +66,14 @@
     },
     {
       "id": "tprt:dragonskin",
+      "required": false
+    },
+    {
+      "id": "tprt:sniffer_fur",
+      "required": false
+    },
+    {
+      "id": "tprt:leisamboo",
       "required": false
     }
   ]

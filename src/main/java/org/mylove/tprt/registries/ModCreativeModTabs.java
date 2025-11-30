@@ -28,7 +28,6 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.ADVANCED_MANYULLYN.get());
                         pOutput.accept(ModItems.KWAT_WHEAT_GRAIN_INGOT.get());
                         pOutput.accept(ModItems.EVIL_BEAST_ALLOY_INGOT.get());
-                        pOutput.accept(ModItems.CAPOO.get());
                         pOutput.accept(ModItems.DARK_KNIGHT_INGOT.get());
                         pOutput.accept(ModItems.RED_TURTLE.get());
                         pOutput.accept(ModItems.golden_fox_mask.get());

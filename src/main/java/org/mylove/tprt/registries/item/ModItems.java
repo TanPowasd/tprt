@@ -86,10 +86,6 @@ public static final RegistryObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_k
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
         ()->new Item(new Item.Properties().food(ModFoods.PIG_BUN)));
 
-//超级幸运E
-    public static final RegistryObject<Item>CAPOO=ITEMS.register("capoo",
-        () -> new Item(new Item.Properties()));
-
     //精密合金
     public static final RegistryObject<Item>PRECISION_ALLOY=ITEMS.register("precision_alloy",
             ()->new Item(new Item.Properties()));

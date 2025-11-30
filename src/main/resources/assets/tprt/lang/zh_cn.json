@@ -68,8 +68,6 @@
 
   "common": "item_and_fluid",
 
-  "item.tprt.capoo": "咖波",
-
   "item.tprt.mixeddragon":"§6龙神钢锭§r",
   "fluid.tconstruct.mixeddragon_fluid": "熔融龙神钢",
   "fluid.tconstruct.flowing_mixeddragon_fluid": "流动的熔融龙神钢",
@@ -157,9 +155,6 @@
 
   "material.tprt.leisamboo":"溪竹",
   "material.tprt.leisamboo.flavor":"悠久的茶香",
-
-  "material.tprt.capoo":"咖波",
-  "material.tprt.capoo.flavor":"可爱的神秘生物",
 
   "material.tprt.stymphalian_bird_feather":"青铜鹗羽",
   "material.tprt.stymphalian_bird_feather.flavor":"装上了青铜鹗羽的箭矢能像猛禽一样翱翔",
