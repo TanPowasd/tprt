@@ -177,10 +177,6 @@
 
   "common": "materials_modifiers",
 
-  "modifier.tprt.lastone": "荣!",
-  "modifier.tprt.lastone.flavor": "人类战士最后的荣光!",
-  "modifier.tprt.lastone.description": "代码的名义",
-
   "modifier.tprt.the_dragon_power":"龙神之力",
   "modifier.tprt.the_dragon_power.flavor":"取得龙神的力量",
   "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高10%造成伤害，当最大生命值超过400时有隐藏效果",
@@ -221,10 +217,6 @@
   "modifier.tprt.source_alloy_spell_cloth":"法力凝聚",
   "modifier.tprt.source_alloy_spell_cloth.flavor":"一字一言皆为法",
   "modifier.tprt.source_alloy_spell_cloth.description":"大幅提高法术强度",
-
-  "modifier.tprt.sacred_sacrifice": "神圣献祭",
-  "modifier.tprt.sacred_sacrifice.flavor": "以我之血",
-  "modifier.tprt.sacred_sacrifice.description": "燃烧生命，杀死它们！",
 
   "modifier.tprt.burning_flames": "焚焰",
   "modifier.tprt.burning_flames.flavor": "焚尽世间的烈焰",
@@ -656,6 +648,14 @@
 
 
   "common": "not_yet_completed",
+
+  "modifier.tprt.lastone": "荣!",
+  "modifier.tprt.lastone.flavor": "人类战士最后的荣光!",
+  "modifier.tprt.lastone.description": "代码的名义",
+
+  "modifier.tprt.sacred_sacrifice": "神圣献祭",
+  "modifier.tprt.sacred_sacrifice.flavor": "以我之血",
+  "modifier.tprt.sacred_sacrifice.description": "燃烧生命，杀死它们！",
 
   "modifier.tprt.fire_addition": "炽焰法力附加",
   "modifier.tprt.fire_addition.flavor":"燃起来了",
