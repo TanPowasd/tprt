@@ -34,11 +34,14 @@ public class ModifierRegistry {
     public static final StaticModifier<wrath_of_flames> WRATH_OF_FLAMES = MODIFIERS.register("wrath_of_flames", wrath_of_flames::new);
     public static final StaticModifier<real_attack> REAL_ATTACK = MODIFIERS.register("real_attack",real_attack::new);
     public static final StaticModifier<cursed_spirit> CURSED_SPIRIT = MODIFIERS.register("cursed_spirit",cursed_spirit::new);
+    public static final StaticModifier<Soul_puncture> Soul_puncture = MODIFIERS.register("soul_puncture",Soul_puncture::new);
+    public static final StaticModifier<Magic_Sublimation_Range> Magic_Sublimation_Range = MODIFIERS.register("magic_sublimation_range",Magic_Sublimation_Range::new);
     public static final StaticModifier<double_or_none> DOUBLE_OR_NONE = MODIFIERS.register("double_or_none",double_or_none::new);
     public static final StaticModifier<soul_dodge> SOUL_DODGE = MODIFIERS.register("soul_dodge",soul_dodge::new);
     public static final StaticModifier<disruption_break> DISRUPTION_BREAK = MODIFIERS.register("disruption_break",disruption_break::new);
     public static final StaticModifier<lucky_strike> LUCK_STRIKE = MODIFIERS.register("luck_strike",lucky_strike::new);
     public static final StaticModifier<the_dragon_power> THE_DRAGON_POWER = MODIFIERS.register("the_dragon_power",the_dragon_power::new);
+    public static final StaticModifier<Magic_sublimation> Magic_Sublimation = MODIFIERS.register("magic_sublimation",Magic_sublimation::new);
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
     public static final StaticModifier<gas_poison> GAS_POISON = MODIFIERS.register("gas_poison",gas_poison::new);
     public static final StaticModifier<flourishing> FLOURISHING = MODIFIERS.register("flourishing",flourishing::new);

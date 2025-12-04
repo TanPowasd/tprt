@@ -2,37 +2,37 @@
 
     "stats": {
     "sakuratinker:charm_chain": {
-      "armor": 0.30,
+      "armor": 0.25,
       "arrow_damage": 0.25,
       "damage": 0.25,
-      "health": 30,
-      "movement_speed": 0.3,
-      "toughness": 0.30
+      "health": 25,
+      "movement_speed": 0.25,
+      "toughness": 0.25
     },
     "sakuratinker:charm_core": {},      
       "tconstruct:binding": {},
       "tconstruct:handle": {
         "durability": 0.3,
-        "melee_damage": 0.45,
-        "melee_speed": 0.35,
+        "melee_damage": 0.40,
+        "melee_speed": 0.30,
         "mining_speed": 0.3
       },
       "tconstruct:head": {
         "durability": 750,
-        "melee_attack": 7.5,
-        "mining_speed": 7.5,
+        "melee_attack": 5.5,
+        "mining_speed": 5.5,
         "mining_tier": "minecraft:netherite"
       },
       "tconstruct:grip": {
-        "accuracy": 0.5,
-        "durability": 0.6,
-        "melee_damage": 5
+        "accuracy": 0.25,
+        "durability": 0.35,
+        "melee_damage": 5.5
       },
       "tconstruct:limb": {
-        "accuracy": 0.45,
-        "draw_speed": 0.45,
+        "accuracy": 0.25,
+        "draw_speed": -0.15,
         "durability": 750,
-        "velocity": 0.45
+        "velocity": 0.25
       },
       "tconstruct:maille": {},
       "tconstruct:plating_boots": {

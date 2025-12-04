@@ -11,6 +11,16 @@
         "level": 1,
         "name": "tprt:soul_dodge"
       }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:soul_puncture"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:multishot"
+      }
     ]
   }
 }

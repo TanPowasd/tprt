@@ -202,9 +202,13 @@
   "modifier.tprt.be_thoroughly_tempered_curios.flavor":"锤锻的力量蕴含其中",
   "modifier.tprt.be_thoroughly_tempered_curios.description":"每级提高6%最大生命值以及6%攻击伤害",
 
-  "modifier.tprt.source_alloy_default":"魔力升华",
-  "modifier.tprt.source_alloy_default.flavor":"你的魔力变得无比纯净",
-  "modifier.tprt.source_alloy_default.description":"提高造成的魔法伤害",
+  "modifier.tprt.magic_sublimation":"魔力升华",
+  "modifier.tprt.magic_sublimation.flavor":"你的魔力变得无比纯净",
+  "modifier.tprt.magic_sublimation.description":"根据持有者的法术强度提高近战伤害",
+
+  "modifier.tprt.magic_sublimation_range":"魔力升华",
+  "modifier.tprt.magic_sublimation_range.flavor":"你的魔力变得无比纯净",
+  "modifier.tprt.magic_sublimation_range.description":"根据法术强度提高箭矢伤害",
 
   "modifier.tprt.source_alloy_charm":"魔力棱镜",
   "modifier.tprt.source_alloy_charm.flavor":"聚焦你的魔力",
@@ -233,6 +237,10 @@
   "modifier.tprt.cursed_spirit": "死灰咒言",
   "modifier.tprt.cursed_spirit.flavor":"死亡诅咒的力量为你所用",
   "modifier.tprt.cursed_spirit.description":"造成的伤害提高30%",
+
+  "modifier.tprt.soul_puncture": "万魂穿心",
+  "modifier.tprt.soul_puncture.flavor":"利用死亡诅咒撕裂敌人的灵魂",
+  "modifier.tprt.soul_puncture.description":"弓箭造成的伤害提升40%",
 
   "modifier.tprt.soul_dodge": "魂灵闪避",
   "modifier.tprt.soul_dodge.flavor":"身体仿若幽魂",
@@ -649,7 +657,7 @@
 
   "common": "not_yet_completed",
 
-  "modifier.tprt.fire_addition": "炽焰法力注入",
+  "modifier.tprt.fire_addition": "炽焰法力附加",
   "modifier.tprt.fire_addition.flavor":"燃起来了",
   "modifier.tprt.fire_addition.description":"攻击时附带炽焰法术伤害",
 
@@ -678,5 +686,11 @@
 
   "modifier.tprt.millennium": "千年",
   "modifier.tprt.millennium.flavor": "",
-  "modifier.tprt.millennium.description": ""
+  "modifier.tprt.millennium.description": "",
+
+
+
+  "common": "spell",
+
+  "spell.tprt.fire_addition": "炽焰法术附加"
 }
