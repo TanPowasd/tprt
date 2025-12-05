@@ -1,0 +1,681 @@
+{
+  "creativetab.tprt_tab": "Beloved",
+
+  "creativetab.tprt_tool_tab": "Beloved - Tools",
+
+  "common": "special",
+
+  "item.tprt.lriron": "LR Ingot",
+  "item.tprt.raw_lriron": "Partially Purified LR Ingot",
+  "item.tprt.awairon": "Mercenary's Canned Food",
+  "item.tprt.raw_awairon": "Mercenary's Coarse Rations",
+  "item.tprt.lr_apple": "LR's Essence Fruit",
+  "item.tprt.king_of_forest": "Twilight Core",
+  "item.tprt.king_of_fireandice": "Fire and Ice Core",
+  "item.tprt.king_of_cataclysm": "Cataclysm Core",
+  "item.tprt.king_of_magic": "Magic Core",
+  "item.tprt.king_of_mc": "Vanilla Core",
+  "item.tprt.tanpowasd": "Beloved",
+  "item.tprt.stainless_steel": "Stainless Steel",
+  "item.tprt.precision_alloy": "Precision Alloy",
+  "block.tprt.lr_block":"LR Block",
+  "block.tprt.raw_lr_block":"Crude LR Block",
+  "fluid.tconstruct.king_of_mc_fluid": "Molten World",
+  "fluid.tconstruct.king_of_magic_fluid": "Molten Magic",
+  "fluid.tconstruct.king_of_fireandice_fluid": "Combustible Ice",
+  "fluid.tconstruct.king_of_forest_fluid": "Molten Twilight",
+  "fluid.tconstruct.king_of_cataclysm_fluid": "Molten Cataclysm",
+  "fluid.tconstruct.tanpowasd_fluid": "Molten Beloved",
+  "material.tprt.tanpowasd": "Beloved",
+  "material.tprt.tanpowasd.flavor": "Love in Eternity",
+  "material.tprt.stainless_steel": "Stainless Steel",
+  "material.tprt.precision_alloy": "Precision Alloy",
+
+  "common": "food",
+
+  "item.tprt.pig_bun": "🐖 Bun",
+  "item.tprt.red_turtle": "Red Hot 🐢",
+
+  "common": "tools",
+
+  "item.tprt.anchor_sword": "Anchor Sword",
+  "item.tprt.anchor_sword.description": "A heavy, exotic weapon that enhances both melee combat and defense",
+
+  "item.tprt.magic_blade": "Infuser",
+  "item.tprt.magic_blade.description": "A weapon that inflicts Iron Magic spell damage on attack (Not Yet Implemented)",
+
+  "common": "curios",
+
+  "item.tprt.golden_fox_mask": "Golden Fox Mask",
+  "item.tprt.golden_fox_mask.desc": "Recolored Version ()",
+  "curios.modifiers.golden_fox_mask": "Attributes:",
+
+  "common": "effects",
+
+  "effect.tprt.moredamage": "Vulnerability",
+  "effect.tprt.lllegally_modified_holsters": "Illegally Modified Holsters",
+  "effect.tprt.eager_edge": "Eager Edge",
+  "effect.tprt.de_eager_edge": "Eager Edge Cooldown",
+  "effect.tprt.myl_girig_pro": "Greed",
+
+  "common": "item_and_fluid",
+
+  "item.tprt.mixeddragon":"§6Dragon God Steel Ingot§r",
+  "fluid.tconstruct.mixeddragon_fluid": "Molten Dragon God Steel",
+  "fluid.tconstruct.flowing_mixeddragon_fluid": "Flowing Molten Dragon God Steel",
+  "item.tprt.mixeddragon_fluid_bucket": "Molten Dragon God Steel Bucket",
+
+  "item.tprt.source_alloy": "Source Alloy Ingot",
+  "fluid.tconstruct.source_alloy_fluid": "Molten Source Alloy",
+  "fluid.tconstruct.flowing_source_alloy_fluid": "Flowing Molten Source Alloy",
+  "item.tprt.source_alloy_fluid_bucket": "Molten Source Alloy Bucket",
+
+  "item.tprt.forged_steel": "Forged Steel Ingot",
+  "fluid.tconstruct.forged_steel_fluid": "Molten Forged Steel",
+  "fluid.tconstruct.flowing_forged_steel_fluid": "Flowing Molten Forged Steel",
+  "item.tprt.forged_steel_fluid_bucket": "Molten Forged Steel Bucket",
+
+  "item.tprt.advanced_manyullyn": "Advanced Manyullyn Ingot",
+  "fluid.tconstruct.molten_advanced_manyullyn": "Molten Advanced Manyullyn",
+  "fluid.tconstruct.flowing_molten_advanced_manyullyn": "Flowing Molten Advanced Manyullyn",
+  "item.tprt.molten_advanced_manyullyn_bucket": "Molten Advanced Manyullyn Bucket",
+
+  "fluid.tconstruct.molten_black_steel": "Molten Black Steel",
+  "fluid.tconstruct.flowing_molten_black_steel": "Flowing Molten Black Steel",
+  "item.tprt.molten_black_steel_bucket": "Molten Black Steel Bucket",
+
+  "item.tprt.kwat_wheat_grain_ingot": "Kwat Wheat Grain Ingot",
+
+  "item.tprt.evil_beast_alloy_ingot": "Evil Beast Alloy Ingot",
+
+  "fluid.tconstruct.molten_ancient_metal": "Molten Ancient Metal",
+  "fluid.tconstruct.flowing_molten_ancient_metal": "Flowing Molten Ancient Metal",
+  "item.tprt.molten_ancient_metal_bucket": "Molten Ancient Metal Bucket",
+
+  "fluid.tconstruct.molten_arcane_metal": "Molten Arcane Metal",
+  "fluid.tconstruct.flowing_molten_arcane_metal": "Flowing Molten Arcane Metal",
+  "item.tprt.molten_arcane_metal_bucket": "Molten Arcane Metal Bucket",
+
+  "item.tprt.dark_knight_ingot": "Drenched Knight Ingot",
+  "item.tprt.dark_knight_ingot.desc": "Contributor Material",
+  "tooltip.tprt.dark_knight_ingot.line1": "Hehe, I must win",
+  "fluid.tconstruct.molten_dark_knight": "Molten Drenched Knight",
+  "fluid.tconstruct.flowing_molten_dark_knight": "Flowing Molten Drenched Knight",
+  "item.tprt.molten_dark_knight_bucket": "Molten Drenched Knight Bucket",
+
+  "common": "materials",
+
+  "material.tprt.mixeddragon":"Dragon God Steel",
+  "material.tprt.mixeddragon.flavor": "A legendary substance, rarely seen in form",
+
+  "material.tprt.forged_steel":"Forged Steel",
+  "material.tprt.forged_steel.flavor": "Forged through countless hammer blows",
+
+  "material.tprt.source_alloy":"Source Alloy",
+  "material.tprt.source_alloy.flavor": "The perfect fusion of magic and metal",
+
+  "material.tprt.ignitium":"Soaring Flame",
+  "material.tprt.ignitium.flavor":"The eternal, burning wrath",
+
+  "material.tprt.cursium":"Cursed Spirit",
+  "material.tprt.cursium.flavor":"A legendary warrior of the past, now a cursed undead",
+
+  "material.tprt.witherite":"Witherite Alloy",
+  "material.tprt.witherite.flavor":"A technological marvel from ancient times",
+
+  "material.tprt.evil_beast_alloy":"Evil Beast Alloy",
+  "material.tprt.evil_beast_alloy.flavor":"The silent guardians of the Soul Forge",
+
+  "material.tprt.black_steel":"Black Steel",
+  "material.tprt.black_steel.flavor":"A unique alloy forged by the ancient craftsmen of the snowy plains",
+
+  "material.tprt.ancient_metal":"Ancient Metal",
+  "material.tprt.ancient_metal.flavor":"An ancient, resilient metal originating from the desert",
+
+  "material.tprt.koboleton_bone":"Skeleton Dragon Bone",
+  "material.tprt.koboleton_bone.flavor":"Bones of an ancient remnant, far stronger than ordinary bone",
+
+  "material.tprt.advanced_manyullyn":"Advanced Manyullyn",
+  "material.tprt.advanced_manyullyn.flavor":"This is the legendary Manyullyn that can sever galaxies!",
+
+  "material.tprt.kwat_wheat_grain_ingot":"Kwat Wheat Grain Ingot",
+  "material.tprt.kwat_wheat_grain_ingot.flavor":"A relic of ancient times",
+
+  "material.tprt.sniffer_fur":"Sniffer Fur",
+  "material.tprt.sniffer_fur.flavor":"A relic of ancient times",
+
+  "material.tprt.leisamboo":"Stream Bamboo",
+  "material.tprt.leisamboo.flavor":"The long-lasting fragrance of tea",
+
+  "material.tprt.stymphalian_bird_feather":"Stymphalian Bird Feather",
+  "material.tprt.stymphalian_bird_feather.flavor":"Arrows fitted with these feathers soar like birds of prey",
+
+  "material.tprt.frosted_helve":"Frosted Handle",
+  "material.tprt.frosted_helve.flavor":"Pervaded by a chilling cold and the mystery of frost",
+
+  "material.tprt.hogskin":"Hoglin Hide",
+  "material.tprt.hogskin.flavor":"Hide of a Nether beast, tough and good at conducting magic",
+
+  "material.tprt.arcane_metal":"Arcane Metal",
+  "material.tprt.arcane_metal.flavor":"Specially processed metal, brimming with magical power",
+
+  "material.tprt.dragonskin":"Ender Dragon Scale",
+  "material.tprt.dragonskin.flavor":"Scales of the End Dragon, filled with the power of the End",
+
+  "material.tprt.dark_knight":"Drenched Knight Metal",
+  "material.tprt.dark_knight.flavor":"“Hehe, I must win”",
+
+  "common": "materials_modifiers",
+
+  "modifier.tprt.the_dragon_power":"Dragon God's Power",
+  "modifier.tprt.the_dragon_power.flavor":"Obtain the power of the Dragon God",
+  "modifier.tprt.the_dragon_power.description":"Increases damage dealt by 10% per 10 max health. Hidden effect when max health exceeds 400",
+
+  "modifier.tprt.mixeddragon_armor":"Dragon God's Protection",
+  "modifier.tprt.mixeddragon_armor.flavor":"Blessing from the Dragon God",
+  "modifier.tprt.mixeddragon_armor.description":"Per level: Gain 12% universal resistance and 15% attack power increase. Also increases personal resistance cap",
+  "modifier.tprt.mixeddragon_armor.resistance": "Universal Resistance",
+
+  "modifier.tprt.mixeddragon_ranged":"Dragon's Roar",
+  "modifier.tprt.mixeddragon_ranged.flavor":"The power of dragons surges unceasingly",
+  "modifier.tprt.mixeddragon_ranged.description":"Greatly increases projectile power and projectile speed",
+
+  "modifier.tprt.be_thoroughly_tempered":"Thoroughly Tempered",
+  "modifier.tprt.be_thoroughly_tempered.flavor":"The power of forging lies within",
+  "modifier.tprt.be_thoroughly_tempered.description":"Increases all attributes of the tool",
+
+  "modifier.tprt.be_thoroughly_tempered_curios":"Thoroughly Tempered",
+  "modifier.tprt.be_thoroughly_tempered_curios.flavor":"The power of forging lies within",
+  "modifier.tprt.be_thoroughly_tempered_curios.description":"Per level: Increases max health by 6% and attack damage by 6%",
+
+  "modifier.tprt.magic_sublimation":"Magic Sublimation",
+  "modifier.tprt.magic_sublimation.flavor":"Your magic becomes pure and powerful",
+  "modifier.tprt.magic_sublimation.description":"Increases melee damage based on the wielder's spell power",
+
+  "modifier.tprt.magic_sublimation_range":"Magic Sublimation",
+  "modifier.tprt.magic_sublimation_range.flavor":"Your magic becomes pure and powerful",
+  "modifier.tprt.magic_sublimation_range.description":"Increases arrow damage based on spell power",
+
+  "modifier.tprt.source_alloy_charm":"Magic Prism",
+  "modifier.tprt.source_alloy_charm.flavor":"Focus your magical power",
+  "modifier.tprt.source_alloy_charm.description":"Greatly increases spell power. Actively consumes the wielder's mana",
+
+  "modifier.tprt.source_alloy_armor":"Mantled in Source",
+  "modifier.tprt.source_alloy_armor.flavor":"The natural magic flows towards you",
+  "modifier.tprt.source_alloy_armor.description":"Increases spell resistance, max mana, and mana regeneration speed",
+
+  "modifier.tprt.source_alloy_spell_cloth":"Mana Condensation",
+  "modifier.tprt.source_alloy_spell_cloth.flavor":"Every word and character is magic",
+  "modifier.tprt.source_alloy_spell_cloth.description":"Greatly increases spell power",
+
+  "modifier.tprt.burning_flames": "Burning Flames",
+  "modifier.tprt.burning_flames.flavor": "Flames that incinerate the world",
+  "modifier.tprt.burning_flames.description": "Attacks apply Searing Brand. Max effect level equals modifier level cap",
+
+  "modifier.tprt.wrath_of_flames": "Flame Demon's Wrath",
+  "modifier.tprt.wrath_of_flames.flavor":"The wrath of the Nether Flame Lord",
+  "modifier.tprt.wrath_of_flames.description":"For each stack of Searing Brand on the target, attack deals an additional 10% damage",
+
+  "modifier.tprt.cursed_spirit": "Ashen Curse",
+  "modifier.tprt.cursed_spirit.flavor":"The power of a death curse serves you",
+  "modifier.tprt.cursed_spirit.description":"Damage dealt increased by 30%",
+
+  "modifier.tprt.soul_puncture": "Soul Piercer",
+  "modifier.tprt.soul_puncture.flavor":"Tear the enemy's soul using the death curse",
+  "modifier.tprt.soul_puncture.description":"Arrow damage increased by 40%",
+
+  "modifier.tprt.soul_dodge": "Soul Dodge",
+  "modifier.tprt.soul_dodge.flavor":"Body becomes like a wraith",
+  "modifier.tprt.soul_dodge.description":"Low chance to completely ignore damage taken",
+
+  "modifier.tprt.advanced_greed": "Greed",
+  "modifier.tprt.advanced_greed.flavor":"When was it ever enough?",
+  "modifier.tprt.advanced_greed.description":"Each attack increases attack damage by 5%, stacks up to 10 times",
+
+  "modifier.tprt.mechanical_star_att": "Mechanical Star",
+  "modifier.tprt.mechanical_star_att.flavor":"A marvel of engineering, the embodiment of a war machine",
+  "modifier.tprt.mechanical_star_att.description":"Your armor value increases damage dealt",
+
+  "modifier.tprt.mechanical_star_arm": "Mechanical Star",
+  "modifier.tprt.mechanical_star_arm.flavor":"A marvel of engineering, the embodiment of a war machine",
+  "modifier.tprt.mechanical_star_arm.description":"Your armor value provides damage reduction",
+
+  "modifier.tprt.machine_iron_casting": "Machined Iron Casting",
+  "modifier.tprt.machine_iron_casting.flavor":"The defensive properties of this high-density material are unparalleled, but it is also very heavy",
+  "modifier.tprt.machine_iron_casting.description":"+20% armor value, but -25% movement speed",
+
+  "modifier.tprt.cinder_slash": "Cinder Slash",
+  "modifier.tprt.cinder_slash.flavor": "A devastating strike that spews lava",
+  "modifier.tprt.cinder_slash.description": "Adds a rear splash damage based on a percentage of attack damage. Higher levels increase splash range and multiplier",
+  "modifier.tprt.cinder_slash.attack_damage": "Cinder Slash Multiplier",
+  "modifier.tprt.cinder_slash.use_item_speed": "Cinder Slash Range",
+
+  "modifier.tprt.gas_poison": "Vermilion Scorch",
+  "modifier.tprt.gas_poison.flavor":"After being burned by this strange ancient crop, you had the idea to use it as a weapon",
+  "modifier.tprt.gas_poison.description":"Attacks inflict Vermilion Scorch",
+
+  "modifier.tprt.soul_infection": "Soul Infusion",
+  "modifier.tprt.soul_infection.flavor":"Long-term immersion has filled it with soul power",
+  "modifier.tprt.soul_infection.description":"Slightly increases all attributes of the tool",
+
+  "modifier.tprt.soul_surge": "Soul Surge",
+  "modifier.tprt.soul_surge.flavor":"Long-term immersion has filled it with soul power",
+  "modifier.tprt.soul_surge.description":"Attack damage additionally increased by 10%",
+
+  "modifier.tprt.strong_but_pliable": "Resilient",
+  "modifier.tprt.strong_but_pliable.flavor":"Unique metal structure grants both strength and flexibility",
+  "modifier.tprt.strong_but_pliable.description":"Base durability +500. Attack damage, armor value, and projectile power gradually increase as durability gets higher",
+
+  "modifier.tprt.ancient_sandstorm": "Ancient Sandstorm",
+  "modifier.tprt.ancient_sandstorm.flavor":"The desert storm empowers you!",
+  "modifier.tprt.ancient_sandstorm.description":"Base durability +1500. Attack damage, armor value, and projectile power gradually gain high percentage increases as durability gets higher",
+  "modifier.tprt.ancient_sandstorm.requirements": "Requires Ancient Metal material as prerequisite",
+
+  "modifier.tprt.luck_strike": "Lucky Strike",
+  "modifier.tprt.luck_strike.flavor": "Finding it is good luck?",
+  "modifier.tprt.luck_strike.description": "Attack damage has a chance to be multiplied. Higher Luck and modifier level increase the multiplier. Damage is reduced when not critical",
+
+  "modifier.tprt.metallization": "Metallization",
+  "modifier.tprt.metallization.flavor":"Even the fletching is metal!",
+  "modifier.tprt.metallization.description":"Greatly improves arrow attributes, but accuracy is reduced",
+
+  "modifier.tprt.ice_spell_power_improved": "Improved Frost Spell Power",
+  "modifier.tprt.ice_spell_power_improved.flavor":"The chill of frost gives you deeper understanding of frost spells",
+  "modifier.tprt.ice_spell_power_improved.description":"Greatly increases frost spell power",
+
+  "modifier.tprt.mana_improved": "Improved Mana",
+  "modifier.tprt.mana_improved.flavor":"Contained magic makes your mana abundant",
+  "modifier.tprt.mana_improved.description":"Increases max mana, mana regeneration speed, and spell resistance",
+
+  "modifier.tprt.spell_power_improved": "Improved Spell Power",
+  "modifier.tprt.spell_power_improved.flavor":"This material is filled with magic",
+  "modifier.tprt.spell_power_improved.description":"Increases max mana and spell power",
+
+  "modifier.tprt.ender_spell_power_improved": "Improved Ender Spell Power",
+  "modifier.tprt.ender_spell_power_improved.flavor":"The echo of the End gives you deeper understanding of Ender spells",
+  "modifier.tprt.ender_spell_power_improved.description":"Increases Ender spell power",
+
+  "modifier.tprt.human_turpentine": "Human Turpentine",
+  "modifier.tprt.human_turpentine.flavor":"“Your sun... has set”",
+  "modifier.tprt.human_turpentine.description":"Attack damage increased to 125%. Attacks grant the wielder 2s of Echoing Strike effect",
+
+  "modifier.tprt.marathon": "Marathon",
+  "modifier.tprt.marathon.flavor":"“Favor jingles when cut”",
+  "modifier.tprt.marathon.description":"Movement speed greatly increased while holding the weapon",
+
+  "modifier.tprt.will_from_ancient": "Ancient Will",
+  "modifier.tprt.will_from_ancient.flavor":"Unwavering!",
+  "modifier.tprt.will_from_ancient.description":"Slightly increases tool attack power and projectile power. Attacks reduce part of the target's armor",
+
+  "modifier.tprt.nature_affinity": "Nature Affinity",
+  "modifier.tprt.nature_affinity.flavor":"Child of the forest!",
+  "modifier.tprt.nature_affinity.description":"Per level: Increases max health by 3 and Nature spell power by 5%",
+
+  "modifier.tprt.skeleton_affinity": "Skeleton 💀",
+  "modifier.tprt.skeleton_affinity.flavor":"Doo doo da doo doo da",
+  "modifier.tprt.skeleton_affinity.description":"Per level: Increases attack damage by 2 and Crimson spell power by 5%",
+
+  "modifier.tprt.dwarf_power": "Dwarf's Power",
+  "modifier.tprt.dwarf_power.flavor":"Charge into the mines like a dwarf!",
+  "modifier.tprt.dwarf_power.description":"Grants Haste effect equal to the trait level",
+
+  "modifier.tprt.sky_affinity": "Sky Affinity",
+  "modifier.tprt.sky_affinity.flavor":"Blessed by the sky!",
+  "modifier.tprt.sky_affinity.description":"Gain an extra jump ability every 2 levels. Gravity effect on self is reduced",
+
+  "modifier.tprt.lightweight": "Lightweight",
+  "modifier.tprt.lightweight.flavor":"Light as a feather!",
+  "modifier.tprt.lightweight.description":"Per level: Increases movement speed by 15% and jump height by 0.75 blocks",
+
+  "modifier.tprt.lightweight_spell": "Lightweight",
+  "modifier.tprt.lightweight_spell.flavor":"Casting is as simple as breathing now",
+  "modifier.tprt.lightweight_spell.description":"Increases spell cast time reduction by 20%",
+
+  "modifier.tprt.down_to_the_bone": "To the Bone",
+  "modifier.tprt.down_to_the_bone.flavor":"Pain that goes deep into the marrow",
+  "modifier.tprt.down_to_the_bone.description":"Final damage dealt increased by 2",
+
+  "modifier.tprt.burning_ash": "Burning Ash",
+  "modifier.tprt.burning_ash.flavor":"Still retains warmth",
+  "modifier.tprt.burning_ash.description":"Per level: Increases Blaze spell power by 8% and attack damage by 3",
+
+  "modifier.tprt.shielding": "Indomitable",
+  "modifier.tprt.shielding.flavor":"Never give up!",
+  "modifier.tprt.shielding.description":"Per level: Increases armor value and armor toughness by 10%",
+
+  "modifier.tprt.ruthless_and_tyrannical": "Tyrannical",
+  "modifier.tprt.ruthless_and_tyrannical.flavor":"What are you looking at?! Did I say you could look?!",
+  "modifier.tprt.ruthless_and_tyrannical.description":"Per level: Increases attack damage by 20% and attack speed by 15%, but armor value reduced by 20%",
+
+  "modifier.tprt.ruthless_and_tyrannical_spell": "Tyrannical",
+  "modifier.tprt.ruthless_and_tyrannical_spell.flavor":"What are you looking at?! Did I say you could look?!",
+  "modifier.tprt.ruthless_and_tyrannical_spell.description":"Universal spell power increased by 25%, but armor value and spell resistance reduced by 25%",
+
+  "modifier.tprt.mana_regeneration": "Mana Regeneration",
+  "modifier.tprt.mana_regeneration.flavor":"Lost mana returns in another form",
+  "modifier.tprt.mana_regeneration.description":"Per level: Increases mana regeneration by 24%",
+
+  "modifier.tprt.sunlit": "Sunlit",
+  "modifier.tprt.sunlit.flavor":"The sun will make evil无处遁形",
+  "modifier.tprt.sunlit.description":"Per level: Increases Holy spell power by 12% and critical damage by 15%",
+
+  "modifier.tprt.deep_darkness": "Deep Darkness",
+  "modifier.tprt.deep_darkness.flavor":"Lurk in the shadows",
+  "modifier.tprt.deep_darkness.description":"Per level: Increases Ancient Sorcery spell power by 15%. Damage increased by 20% while sneaking",
+
+  "modifier.tprt.unreal_image": "Phantom Image",
+  "modifier.tprt.unreal_image.flavor":"Formless and featureless",
+  "modifier.tprt.unreal_image.description":"Grants continuous invisibility and periodically grants Resistance II",
+
+  "modifier.tprt.body_like_glass": "Body Like Glass",
+  "modifier.tprt.body_like_glass.flavor":"Perfection in fragility!",
+  "modifier.tprt.body_like_glass.description":"Damage dealt increased to 135%, but damage taken is doubled",
+
+  "modifier.tprt.fragile": "Fragile",
+  "modifier.tprt.fragile.flavor":"You are more fragile than you think, but your attacks are also sharper",
+  "modifier.tprt.fragile.description":"Max health reduced by 25%, but attack damage +15%",
+
+  "modifier.tprt.magician": "Magician",
+  "modifier.tprt.magician.flavor":"Spell Master!",
+  "modifier.tprt.magician.description":"Casting cooldown and spell cooldown are improved",
+
+  "modifier.tprt.fountain_magic": "Fountain of Magic",
+  "modifier.tprt.fountain_magic.flavor":"Inexhaustible supply!",
+  "modifier.tprt.fountain_magic.description":"Increases max mana and mana regeneration speed",
+
+  "modifier.tprt.elemental_mastery": "Elemental Mastery",
+  "modifier.tprt.elemental_mastery.flavor":"Like commanding your own limbs!",
+  "modifier.tprt.elemental_mastery.description":"Spells are fully realized in your hands. Per level: Increases Frost, Blaze, Lightning, Nature, and Holy spell power by 10% each",
+
+  "modifier.tprt.endless_life": "Enduring Life",
+  "modifier.tprt.endless_life.flavor":"A medical miracle!",
+  "modifier.tprt.endless_life.description":"Grants high life regeneration and increases healing effects received",
+
+  "modifier.tprt.flourishing": "Flourishing",
+  "modifier.tprt.flourishing.flavor":"Makes surrounding crops rejoice!",
+  "modifier.tprt.flourishing.description":"Walking promotes growth of nearby crops. [Expanded] enhancement greatly increases the range",
+
+  "modifier.tprt.excellent_harvest": "Bountiful Harvest",
+  "modifier.tprt.excellent_harvest.flavor":"Makes surrounding crops rejoice!",
+  "modifier.tprt.excellent_harvest.description":"Chance to gain extra mature crops and seeds when harvesting certain crops",
+
+  "modifier.tprt.lingering_infusion": "Bamboo Tea Aroma",
+  "modifier.tprt.lingering_infusion.flavor":"Tea fragrance permeates, refreshing the heart",
+  "modifier.tprt.lingering_infusion.description":"When hit, gain a short Tea Aroma IV effect. If hit while having Tea Aroma, additionally gain a short Resistance III effect",
+
+  "common": "upgrades_modifiers",
+
+  "modifier.tprt.flame_rising": "Flame Rising",
+  "modifier.tprt.flame_rising.flavor":"Pure flame sublimates your equipment",
+  "modifier.tprt.flame_rising.description":"The power of this Flame Lord grants one upgrade slot and one defense slot",
+
+  "modifier.tprt.the_spirit_of_evil_curse": "Spirit of Evil Curse",
+  "modifier.tprt.the_spirit_of_evil_curse.flavor":"The power of curses reshapes your equipment",
+  "modifier.tprt.the_spirit_of_evil_curse.description":"The power of this Cursed Undead grants one upgrade slot and one defense slot",
+
+  "modifier.tprt.mechanical_innovation": "Mechanical Innovation",
+  "modifier.tprt.mechanical_innovation.flavor":"Forge your equipment with this era-transcending material",
+  "modifier.tprt.mechanical_innovation.description":"The masterpiece of ancient engineering grants one upgrade slot and one defense slot",
+
+  "modifier.tprt.the_power_of_beast": "Beast's Might",
+  "modifier.tprt.the_power_of_beast.flavor":"The strange technology of ancient people enhances your equipment",
+  "modifier.tprt.the_power_of_beast.description":"The legacy of the Nether ancients grants one upgrade slot and one defense slot",
+
+  "modifier.tprt.renovation_of_historic_sites": "Historic Site Renovation",
+  "modifier.tprt.renovation_of_historic_sites.flavor":"Sealed ancient sites bless your equipment",
+  "modifier.tprt.renovation_of_historic_sites.description":"The remains of ancient ruins grant one upgrade slot and one defense slot",
+
+  "modifier.tprt.storm_potential": "Storm Potential",
+  "modifier.tprt.storm_potential.flavor":"The essence of the storm enchants your equipment",
+  "modifier.tprt.storm_potential.description":"The hard-to-control storm grants one upgrade slot and one defense slot",
+
+  "modifier.tprt.philosophers_stone": "Philosopher's Stone",
+  "modifier.tprt.philosophers_stone.flavor":"The crystallization of alchemy reconstructs your equipment",
+  "modifier.tprt.philosophers_stone.description":"The pinnacle work of alchemy grants one upgrade slot, one defense slot, and one ability slot",
+
+  "modifier.tprt.the_power_of_nine_dragons": "Power of Nine Dragons",
+  "modifier.tprt.the_power_of_nine_dragons.flavor":"“Then I ask you, why is your head pointy?”",
+  "modifier.tprt.the_power_of_nine_dragons.description":"The dragons roaming the world grant one upgrade slot and one defense slot. Tool attack power +9%, spell power -9%",
+
+  "modifier.tprt.ancient_relics": "Ancient Relics",
+  "modifier.tprt.ancient_relics.flavor":"How did modern crops degenerate...",
+  "modifier.tprt.ancient_relics.description":"Slumbering ancient crops grant two upgrade slots and one ability slot",
+
+  "modifier.tprt.solid_armor": "Solid Armor",
+  "modifier.tprt.solid_armor.flavor":"Forge your armor, making it more solid",
+  "modifier.tprt.solid_armor.description":"Gain one defense slot at the cost of one upgrade slot",
+
+  "modifier.tprt.armor_fragmentation": "Armor Reshaping",
+  "modifier.tprt.armor_fragmentation.flavor":"Shatter your armor, making it more malleable",
+  "modifier.tprt.armor_fragmentation.description":"Gain one upgrade slot at the cost of one defense slot",
+
+  "modifier.tprt.enchantment": "Enchantment Sublimation",
+  "modifier.tprt.enchantment.flavor":"Enchant your item, making its abilities stronger",
+  "modifier.tprt.enchantment.description":"Gain one ability slot at the cost of two upgrade slots",
+
+  "modifier.tprt.advanced_cheer_up": "Life Continuation",
+  "modifier.tprt.advanced_cheer_up.2": "Life Continuation+",
+  "modifier.tprt.advanced_cheer_up.3": "Life Continuation++",
+  "modifier.tprt.advanced_cheer_up.flavor":"Life energy surges within the body",
+  "modifier.tprt.advanced_cheer_up.description":"Per level: Increases max health by 5%",
+  "modifier.tprt.advanced_cheer_up.requirements": "Requires Heart of Life enhancement as prerequisite",
+
+  "modifier.tprt.heart_of_life": "Heart of Life",
+  "modifier.tprt.heart_of_life.flavor":"Your life has sublimated",
+  "modifier.tprt.heart_of_life.description":"Increases max health by 10",
+
+  "modifier.tprt.advanced_sharpness": "Sharpened Blade",
+  "modifier.tprt.advanced_sharpness.2": "Sharpened Blade+",
+  "modifier.tprt.advanced_sharpness.3": "Sharpened Blade++",
+  "modifier.tprt.advanced_sharpness.flavor":"My blade has never been dull",
+  "modifier.tprt.advanced_sharpness.description":"Per level: Increases tool attack power by 10%",
+  "modifier.tprt.advanced_sharpness.requirements": "Requires Sharpness++++ enhancement as prerequisite",
+
+  "modifier.tprt.advanced_power": "Star Piercer",
+  "modifier.tprt.advanced_power.2": "Star Piercer+",
+  "modifier.tprt.advanced_power.3": "Star Piercer++",
+  "modifier.tprt.advanced_power.4": "Star Piercer+++",
+  "modifier.tprt.advanced_power.5": "Star Piercer++++",
+  "modifier.tprt.advanced_power.flavor":"Arrows that pierce mountains and shatter rocks",
+  "modifier.tprt.advanced_power.description":"Per level: Increases projectile power by 0.4 + 10%",
+  "modifier.tprt.advanced_power.requirements": "Requires Power V enhancement as prerequisite",
+
+  "modifier.tprt.advanced_swiftstrike": "Swift Assault",
+  "modifier.tprt.advanced_swiftstrike.2": "Swift Assault+",
+  "modifier.tprt.advanced_swiftstrike.3": "Swift Assault++",
+  "modifier.tprt.advanced_swiftstrike.4": "Swift Assault+++",
+  "modifier.tprt.advanced_swiftstrike.5": "Swift Assault++++",
+  "modifier.tprt.advanced_swiftstrike.flavor":"Speed is paramount in war",
+  "modifier.tprt.advanced_swiftstrike.description":"Per level: Increases tool melee speed by 10%",
+  "modifier.tprt.advanced_swiftstrike.requirements": "Requires Swift Strike++++ enhancement as prerequisite",
+
+  "modifier.tprt.karate": "Karate",
+  "modifier.tprt.karate.flavor":"Hand-to-hand combat!",
+  "modifier.tprt.karate.description":"Greatly increases bare-handed attack damage",
+
+  "modifier.tprt.netherite_spell_book": "Ancient Codex Enhancement",
+  "modifier.tprt.netherite_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.netherite_spell_book.description":"+200 max mana, +20% spell cooldown reduction",
+
+  "modifier.tprt.gold_spell_book": "Apprentice Spellbook Enhancement",
+  "modifier.tprt.gold_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.gold_spell_book.description":"+50 max mana, +15% spell cast time reduction",
+
+  "modifier.tprt.evoker_spell_book": "Evoker Tome Enhancement",
+  "modifier.tprt.evoker_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.evoker_spell_book.description":"+200 max mana, +10% Evocation spell power",
+
+  "modifier.tprt.blaze_spell_book": "Blaze Spellcaster Tome Enhancement",
+  "modifier.tprt.blaze_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.blaze_spell_book.description":"+200 max mana, +10% Blaze spell power",
+
+  "modifier.tprt.necronomicon_spell_book": "Necronomicon Enhancement",
+  "modifier.tprt.necronomicon_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.necronomicon_spell_book.description":"+200 max mana, +10% Crimson spell power",
+
+  "modifier.tprt.dragonskin_spell_book": "Dragon Scale Spellbook Enhancement",
+  "modifier.tprt.dragonskin_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.dragonskin_spell_book.description":"+200 max mana, +10% Ender spell power",
+
+  "modifier.tprt.villager_spell_book": "Villager Scripture Enhancement",
+  "modifier.tprt.villager_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.villager_spell_book.description":"+200 max mana, +8% Holy spell power, +8% spell cast time reduction",
+
+  "modifier.tprt.druidic_spell_book": "Druidic Tome Enhancement",
+  "modifier.tprt.druidic_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.druidic_spell_book.description":"+200 max mana, +10% Nature spell power",
+
+  "modifier.tprt.the_source_of_all_spells": "Source of All Spells",
+  "modifier.tprt.the_source_of_all_spells.flavor":"The source of all magic in the world",
+  "modifier.tprt.the_source_of_all_spells.description":"+1200 max mana, +200 mana regen, +50% total spell power",
+  "modifier.tprt.the_source_of_all_spells.requirements": "Requires all 8 types of spellbook enhancements as prerequisite",
+
+  "modifier.tprt.blood_staff": "Crimson Godstaff Upgrade",
+  "modifier.tprt.blood_staff.flavor":"Seize the staff's power",
+  "modifier.tprt.blood_staff.description":"+5% spell power, +15% Crimson spell power, +10% summon damage",
+
+  "modifier.tprt.artificer_cane": "Artificer's Cane Upgrade",
+  "modifier.tprt.artificer_cane.flavor":"Seize the staff's power",
+  "modifier.tprt.artificer_cane.description":"+10% spell power, +15% spell cast time reduction, +15% spell cooldown reduction",
+
+  "modifier.tprt.ice_staff": "Frost Wand Upgrade",
+  "modifier.tprt.ice_staff.flavor":"Seize the staff's power",
+  "modifier.tprt.ice_staff.description":"+15% Frost spell power, +5% spell power, +25% mana regeneration",
+
+  "modifier.tprt.lightning_rod": "Lightning Rod Upgrade",
+  "modifier.tprt.lightning_rod.flavor":"Seize the staff's power",
+  "modifier.tprt.lightning_rod.description":"+15% Lightning spell power, -15% spell cooldown reduction, +5% spell power",
+
+  "modifier.tprt.strengthen_for_charm_attack_damage": "Charm Enhancement - Attack Damage",
+  "modifier.tprt.strengthen_for_charm_attack_damage.flavor":"Abyssal Power",
+  "modifier.tprt.strengthen_for_charm_attack_damage.description":"Per level: +3% attack damage",
+
+  "modifier.tprt.strengthen_for_charm_ranged": "Charm Enhancement - Arrow Damage",
+  "modifier.tprt.strengthen_for_charm_ranged.flavor":"Deep Penetration",
+  "modifier.tprt.strengthen_for_charm_ranged.description":"Per level: +4% arrow damage",
+
+  "modifier.tprt.strengthen_for_charm_spell_power": "Charm Enhancement - Spell Power",
+  "modifier.tprt.strengthen_for_charm_spell_power.flavor":"Mana Infusion",
+  "modifier.tprt.strengthen_for_charm_spell_power.description":"Per level: +5% spell power",
+
+  "modifier.tprt.strengthen_for_charm_armor": "Charm Enhancement - Armor Protection",
+  "modifier.tprt.strengthen_for_charm_armor.flavor":"Hardened Body",
+  "modifier.tprt.strengthen_for_charm_armor.description":"Per level: +3% armor value, +3% armor toughness",
+
+  "modifier.tprt.strengthen_for_charm_endurance": "Charm Enhancement - Life Extension",
+  "modifier.tprt.strengthen_for_charm_endurance.flavor":"Cell Activation",
+  "modifier.tprt.strengthen_for_charm_endurance.description":"Per level: +5% healing received",
+
+  "modifier.tprt.strengthen_for_charm_luck": "Charm Enhancement - Luck",
+  "modifier.tprt.strengthen_for_charm_luck.flavor":"Continuous Good Luck",
+  "modifier.tprt.strengthen_for_charm_luck.description":"Per level: +3 Luck",
+
+  "modifier.tprt.fortune_curio": "Curio Enhancement - Boundless Fortune",
+  "modifier.tprt.fortune_curio.flavor":"Every day is a lucky day!",
+  "modifier.tprt.fortune_curio.description":"Enemies drop more loot, and more items drop when mining",
+
+  "modifier.tprt.the_gaze_of_the_cyclops": "Gaze of the Cyclops",
+  "modifier.tprt.the_gaze_of_the_cyclops.flavor":"“Don't you think this big eyeball is a bit creepy?” – Nameless Knight",
+  "modifier.tprt.the_gaze_of_the_cyclops.description":"Attacks apply Weakness III for a short duration",
+
+  "modifier.tprt.blood_of_hydra": "Hydra's Blood",
+  "modifier.tprt.blood_of_hydra.flavor":"Gain the Hydra's miraculous self-healing ability",
+  "modifier.tprt.blood_of_hydra.description":"Grants high life regeneration effect",
+
+  "modifier.tprt.reaper": "Death Reaper",
+  "modifier.tprt.reaper.flavor":"Plunder the enemy's life for your own use",
+  "modifier.tprt.reaper.description":"Damage dealt increased to 150%. Heals 75% of actual damage dealt",
+
+  "modifier.tprt.persistence_of_nature": "Persistence of Nature",
+  "modifier.tprt.persistence_of_nature.flavor":"We are connected by blood, we never retreat",
+  "modifier.tprt.persistence_of_nature.description":"When current health is below 75%, being hit restores 3 + 3% of missing health. Trigger cooldown 0.5 seconds",
+
+  "modifier.tprt.fear_nothing": "Fear Nothing",
+  "modifier.tprt.fear_nothing.flavor":"A real man should fear nothing",
+  "modifier.tprt.fear_nothing.description":"Attack range +1.5 blocks. Increases all types of resistance",
+  "modifier.tprt.fear_nothing.resistance": "Universal Resistance",
+
+  "modifier.tprt.advanced_luck": "Boundless Fortune",
+  "modifier.tprt.advanced_luck.2": "Boundless Fortune+",
+  "modifier.tprt.advanced_luck.3": "Boundless Fortune++",
+  "modifier.tprt.advanced_luck.flavor":"Luck Plus",
+  "modifier.tprt.advanced_luck.description":"Enemies drop more loot, and more items drop when mining",
+  "modifier.tprt.advanced_luck.requirements": "Requires Luck++ enhancement as prerequisite",
+
+  "modifier.tprt.advanced_melting": "Advanced Smelting",
+  "modifier.tprt.advanced_melting.2": "Advanced Smelting+",
+  "modifier.tprt.advanced_melting.3": "Advanced Smelting++",
+  "modifier.tprt.advanced_melting.flavor":"Smelt everything!",
+  "modifier.tprt.advanced_melting.description":"Smelts attacked targets and their drops, but with better effect",
+
+  "modifier.tprt.final_melting": "Ultimate Smelting",
+  "modifier.tprt.final_melting.2": "Ultimate Smelting+",
+  "modifier.tprt.final_melting.3": "Ultimate Smelting++",
+  "modifier.tprt.final_melting.4": "Ultimate Smelting+++",
+  "modifier.tprt.final_melting.5": "Ultimate Smelting++++",
+  "modifier.tprt.final_melting.flavor":"Smelt everything!",
+  "modifier.tprt.final_melting.description":"Smelts attacked targets and their drops, but with far greater effect than regular smelting!",
+  "modifier.tprt.final_melting.requirements": "Requires Melting Pot tool as prerequisite",
+
+  "modifier.tprt.tank_expansion": "Tank Expansion",
+  "modifier.tprt.tank_expansion.flavor":"Bigger is better!",
+  "modifier.tprt.tank_expansion.description":"Greatly increases the internal tank capacity of the tool",
+  "modifier.tprt.tank_expansion.requirements": "Requires Tank III enhancement as prerequisite",
+
+  "modifier.tprt.final_tank": "Ultimate Tank",
+  "modifier.tprt.final_tank.flavor":"Bigger is better!",
+  "modifier.tprt.final_tank.description":"Massively increases the internal tank capacity of the tool",
+  "modifier.tprt.final_tank.requirements": "Requires Tank V enhancement as prerequisite",
+
+  "modifier.tprt.bulk_quiver": "Practical Quiver",
+  "modifier.tprt.bulk_quiver.flavor": "Two wishes, one fulfillment",
+  "modifier.tprt.bulk_quiver.description": "Grants the bow 5 quiver slots. Hold the bow and press 'Attack' to switch slots. Sneak and press 'Attack' to access these slots. Can call Tinker's Arrows",
+  "modifier.tconstruct.bulk_quiver.disabled": "Practical Quiver: Disabled",
+  "modifier.tconstruct.bulk_quiver.empty": "Practical Quiver: No arrow in slot %s, using normal arrow",
+  "modifier.tconstruct.bulk_quiver.selected": "Practical Quiver: Selected %1$s from slot %2$s",
+
+  "common": "not_yet_completed",
+
+  "modifier.tprt.lastone": "Glory!",
+  "modifier.tprt.lastone.flavor": "The final glory of the human warrior!",
+  "modifier.tprt.lastone.description": "In the name of code",
+
+  "modifier.tprt.sacred_sacrifice": "Sacred Sacrifice",
+  "modifier.tprt.sacred_sacrifice.flavor": "With my blood",
+  "modifier.tprt.sacred_sacrifice.description": "Burn life to kill them!",
+
+  "modifier.tprt.fire_addition": "Blaze Mana Addition",
+  "modifier.tprt.fire_addition.flavor":"It's on fire",
+  "modifier.tprt.fire_addition.description":"Attacks deal additional Blaze spell damage",
+
+  "modifier.tprt.real_attack": "True Attack",
+  "modifier.tprt.real_attack.flavor": "Expose their weaknesses",
+  "modifier.tprt.real_attack.description": "Directly touches the target's soul, ignoring part of its armor and resistance",
+
+  "modifier.tprt.double_or_none": "Gambling Abyss",
+  "modifier.tprt.double_or_none.flavor": "0 or 2 ?",
+  "modifier.tprt.double_or_none.description": "I bet your gun has no bullets!",
+
+  "modifier.tprt.for_the_love": "Power of Love",
+  "modifier.tprt.for_the_love.flavor": "In the name of love",
+
+  "modifier.tprt.disruption_break": "Disruption Break",
+  "modifier.tprt.disruption_break.flavor": "",
+  "modifier.tprt.disruption_break.description": "",
+
+  "modifier.tprt.d2_lucky_pants": "Lucky Pants",
+  "modifier.tprt.d2_lucky_pants.flavor": "From another realm",
+  "modifier.tprt.d2_lucky_pants.description": " “What? No, I don't have illegally modified holsters. These are just super lucky pants!” – Cayde-6 ",
+
+  "modifier.tprt.d2_half_truths": "Half-Truths",
+  "modifier.tprt.d2_half_truths.flavor": "Eager Edge",
+  "modifier.tprt.d2_half_truths.description": "When switching to this weapon, if the next attack misses the target, grants the wielder powerful momentum",
+
+  "modifier.tprt.millennium": "Millennium",
+  "modifier.tprt.millennium.flavor": "",
+  "modifier.tprt.millennium.description": "",
+
+  "common": "spell",
+
+  "spell.tprt.fire_addition": "Blaze Spell Addition"
+}
