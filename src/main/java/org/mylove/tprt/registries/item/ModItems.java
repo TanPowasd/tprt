@@ -15,7 +15,7 @@ import static com.ssakura49.sakuratinker.register.STItems.registerCommonItem;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS,Tprt.MODID);
-
+    /**
     public static final RegistryObject<Item> LRIRON=ITEMS.register("lriron",
             () -> new Item(new Item.Properties()));
 
@@ -43,6 +43,13 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final RegistryObject<Item>KING_OF_MC=ITEMS.register("king_of_mc",
             ()->new Item(new Item.Properties()));
+    //精密合金
+    public static final RegistryObject<Item>PRECISION_ALLOY=ITEMS.register("precision_alloy",
+            ()->new Item(new Item.Properties()));
+    //不锈钢
+    public static final RegistryObject<Item>STAINLESS_STEEL=ITEMS.register("stainless_steel",
+            ()->new Item(new Item.Properties()));
+     */
 
 
     public static final RegistryObject<Item>RED_TURTLE=ITEMS.register("red_turtle",
@@ -85,13 +92,6 @@ public static final RegistryObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_k
 //lr特供 🐖包
     public static final RegistryObject<Item>PIG_BUN=ITEMS.register("pig_bun",
         ()->new Item(new Item.Properties().food(ModFoods.PIG_BUN)));
-
-    //精密合金
-    public static final RegistryObject<Item>PRECISION_ALLOY=ITEMS.register("precision_alloy",
-            ()->new Item(new Item.Properties()));
-    //不锈钢
-    public static final RegistryObject<Item>STAINLESS_STEEL=ITEMS.register("stainless_steel",
-            ()->new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

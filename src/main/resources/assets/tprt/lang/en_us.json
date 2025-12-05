@@ -1,7 +1,7 @@
 {
-  "creativetab.tprt_tab": "Beloved",
+  "creativetab.tprt_tab": "beloved",
 
-  "creativetab.tprt_tool_tab": "Beloved - Tools",
+  "creativetab.tprt_tool_tab": "beloved - tools",
 
   "common": "special",
 
@@ -34,20 +34,20 @@
   "common": "food",
 
   "item.tprt.pig_bun": "🐖 Bun",
-  "item.tprt.red_turtle": "Red Hot 🐢",
+  "item.tprt.red_turtle": "Angry 🐢",
 
   "common": "tools",
 
   "item.tprt.anchor_sword": "Anchor Sword",
   "item.tprt.anchor_sword.description": "A heavy, exotic weapon that enhances both melee combat and defense",
 
-  "item.tprt.magic_blade": "Infuser",
+  "item.tprt.magic_blade": "Magic Blade",
   "item.tprt.magic_blade.description": "A weapon that inflicts Iron Magic spell damage on attack (Not Yet Implemented)",
 
   "common": "curios",
 
-  "item.tprt.golden_fox_mask": "Golden Fox Mask",
-  "item.tprt.golden_fox_mask.desc": "Recolored Version ()",
+  "item.tprt.golden_fox_mask": "Golden Fox Mask(Not Yet Implemented)",
+  "item.tprt.golden_fox_mask.desc": "Recolored Version",
   "curios.modifiers.golden_fox_mask": "Attributes:",
 
   "common": "effects",
@@ -114,13 +114,13 @@
   "material.tprt.source_alloy":"Source Alloy",
   "material.tprt.source_alloy.flavor": "The perfect fusion of magic and metal",
 
-  "material.tprt.ignitium":"Soaring Flame",
+  "material.tprt.ignitium":"Ignitium",
   "material.tprt.ignitium.flavor":"The eternal, burning wrath",
 
-  "material.tprt.cursium":"Cursed Spirit",
+  "material.tprt.cursium":"Cursium",
   "material.tprt.cursium.flavor":"A legendary warrior of the past, now a cursed undead",
 
-  "material.tprt.witherite":"Witherite Alloy",
+  "material.tprt.witherite":"Witherite",
   "material.tprt.witherite.flavor":"A technological marvel from ancient times",
 
   "material.tprt.evil_beast_alloy":"Evil Beast Alloy",
@@ -132,7 +132,7 @@
   "material.tprt.ancient_metal":"Ancient Metal",
   "material.tprt.ancient_metal.flavor":"An ancient, resilient metal originating from the desert",
 
-  "material.tprt.koboleton_bone":"Skeleton Dragon Bone",
+  "material.tprt.koboleton_bone":"Koboleton Bone",
   "material.tprt.koboleton_bone.flavor":"Bones of an ancient remnant, far stronger than ordinary bone",
 
   "material.tprt.advanced_manyullyn":"Advanced Manyullyn",
@@ -144,22 +144,22 @@
   "material.tprt.sniffer_fur":"Sniffer Fur",
   "material.tprt.sniffer_fur.flavor":"A relic of ancient times",
 
-  "material.tprt.leisamboo":"Stream Bamboo",
+  "material.tprt.leisamboo":"Leisamboo",
   "material.tprt.leisamboo.flavor":"The long-lasting fragrance of tea",
 
   "material.tprt.stymphalian_bird_feather":"Stymphalian Bird Feather",
   "material.tprt.stymphalian_bird_feather.flavor":"Arrows fitted with these feathers soar like birds of prey",
 
-  "material.tprt.frosted_helve":"Frosted Handle",
+  "material.tprt.frosted_helve":"Frosted Helve",
   "material.tprt.frosted_helve.flavor":"Pervaded by a chilling cold and the mystery of frost",
 
-  "material.tprt.hogskin":"Hoglin Hide",
+  "material.tprt.hogskin":"Hogskin",
   "material.tprt.hogskin.flavor":"Hide of a Nether beast, tough and good at conducting magic",
 
   "material.tprt.arcane_metal":"Arcane Metal",
   "material.tprt.arcane_metal.flavor":"Specially processed metal, brimming with magical power",
 
-  "material.tprt.dragonskin":"Ender Dragon Scale",
+  "material.tprt.dragonskin":"Ender Dragon Scales",
   "material.tprt.dragonskin.flavor":"Scales of the End Dragon, filled with the power of the End",
 
   "material.tprt.dark_knight":"Drenched Knight Metal",

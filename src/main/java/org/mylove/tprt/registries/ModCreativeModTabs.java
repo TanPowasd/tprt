@@ -16,7 +16,7 @@ public class ModCreativeModTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Tprt.MODID);
 
     public  static final RegistryObject<CreativeModeTab> TPRT_TAB= CREATIVE_MODE_TABS.register("tprt",
-            ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.TANPOWASD.get()))
+            ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.MIXEDDRAGON.get()))
                     .title(Component.translatable("creativetab.tprt_tab"))
                     .withSearchBar()
                     .displayItems((pParameters, pOutput) -> {
