@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:mana_upgrade_orb"
+    },
+    {
+      "item": "irons_spellbooks:spellbreaker"
+    },
+    {
+      "item": "irons_spellbooks:mana_upgrade_orb"
+    },
+    {
+      "item": "irons_spellbooks:legendary_ink",
+      "amount_needed":2
+    },
+    {
+      "item": "irons_spellbooks:legendary_ink",
+      "amount_needed":2
+    }
+  ],
+  "level": 1,
+  "result": "tprt:enchanting",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tprt:modifiable/melee/magic_blade"
+    }
+  ]
+}

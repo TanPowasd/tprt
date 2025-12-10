@@ -1,0 +1,13 @@
+{
+  "tool": "tprt:anchor_sword",
+  "text": [
+    { "text": "The Anchor Sword is a heavy weapon that contain melee upgrades and defense upgrades" }
+  ],
+  "properties": [
+    "+6 Attack Damage",
+    "150% Attack Multiplier",
+    "1.0 Attack Speed",
+    "80% Attack Speed Multiplier",
+    "325% Durability Multiplier"
+  ]
+}

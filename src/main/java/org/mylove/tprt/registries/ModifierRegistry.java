@@ -46,7 +46,7 @@ public class ModifierRegistry {
     public static final StaticModifier<gas_poison> GAS_POISON = MODIFIERS.register("gas_poison",gas_poison::new);
     public static final StaticModifier<flourishing> FLOURISHING = MODIFIERS.register("flourishing",flourishing::new);
     public static final StaticModifier<lingering_infusion> LINGERING_INFUSION = MODIFIERS.register("lingering_infusion",lingering_infusion::new);
-    public static final StaticModifier<fire_addition> FIRE_ADDITION = MODIFIERS.register("fire_addition",fire_addition::new);
+    public static final StaticModifier<enchanting> ENCHANTING = MODIFIERS.register("enchanting",enchanting::new);
     public static final StaticModifier<strong_but_pliable> STRONG_BUT_PLIABLE = MODIFIERS.register("strong_but_pliable",strong_but_pliable::new);
     public static final StaticModifier<ancient_sandstorm> ANCIENT_SANDSTORM = MODIFIERS.register("ancient_sandstorm",ancient_sandstorm::new);
     public static final StaticModifier<human_turpentine> human_turpentine = MODIFIERS.register("human_turpentine",human_turpentine::new);

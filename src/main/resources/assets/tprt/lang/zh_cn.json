@@ -47,7 +47,7 @@
   "item.tprt.anchor_sword.description": "一种沉重的异型武器，兼顾近战强化与防御强化",
 
   "item.tprt.magic_blade": "注法者",
-  "item.tprt.magic_blade.description": "一种攻击附带铁魔法法术伤害的武器(未实现)",
+  "item.tprt.magic_blade.description": "一种攻击附带魔法伤害的武器",
 
 
   "common": "curios",
@@ -647,6 +647,13 @@
   "modifier.tconstruct.bulk_quiver.selected": "实用箭袋: 选用%2$s号槽位中%1$s",
 
 
+  "common": "special",
+
+  "modifier.tprt.enchanting": "附魔",
+  "modifier.tprt.enchanting.flavor":"为剑刃附上魔力",
+  "modifier.tprt.enchanting.description":"攻击时会根据法术强度附加魔法伤害",
+
+
   "common": "not_yet_completed",
 
   "modifier.tprt.lastone": "荣!",
@@ -656,10 +663,6 @@
   "modifier.tprt.sacred_sacrifice": "神圣献祭",
   "modifier.tprt.sacred_sacrifice.flavor": "以我之血",
   "modifier.tprt.sacred_sacrifice.description": "燃烧生命，杀死它们！",
-
-  "modifier.tprt.fire_addition": "炽焰法力附加",
-  "modifier.tprt.fire_addition.flavor":"燃起来了",
-  "modifier.tprt.fire_addition.description":"攻击时附带炽焰法术伤害",
 
   "modifier.tprt.real_attack": "真实攻击",
   "modifier.tprt.real_attack.flavor": "暴露他们的弱点",
@@ -686,11 +689,6 @@
 
   "modifier.tprt.millennium": "千年",
   "modifier.tprt.millennium.flavor": "",
-  "modifier.tprt.millennium.description": "",
+  "modifier.tprt.millennium.description": ""
 
-
-
-  "common": "spell",
-
-  "spell.tprt.fire_addition": "炽焰法术附加"
 }

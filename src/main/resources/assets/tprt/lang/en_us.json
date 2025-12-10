@@ -42,7 +42,7 @@
   "item.tprt.anchor_sword.description": "A heavy, exotic weapon that enhances both melee combat and defense",
 
   "item.tprt.magic_blade": "Magic Blade",
-  "item.tprt.magic_blade.description": "A weapon that inflicts Iron Magic spell damage on attack (Not Yet Implemented)",
+  "item.tprt.magic_blade.description": "A weapon that inflicts Magic damage on attack",
 
   "common": "curios",
 
@@ -356,7 +356,7 @@
   "modifier.tprt.mana_regeneration.description":"Per level: Increases mana regeneration by 24%",
 
   "modifier.tprt.sunlit": "Sunlit",
-  "modifier.tprt.sunlit.flavor":"The sun will make evil无处遁形",
+  "modifier.tprt.sunlit.flavor":"The sun will make evil",
   "modifier.tprt.sunlit.description":"Per level: Increases Holy spell power by 12% and critical damage by 15%",
 
   "modifier.tprt.deep_darkness": "Deep Darkness",
@@ -634,6 +634,15 @@
   "modifier.tconstruct.bulk_quiver.empty": "Practical Quiver: No arrow in slot %s, using normal arrow",
   "modifier.tconstruct.bulk_quiver.selected": "Practical Quiver: Selected %1$s from slot %2$s",
 
+
+  "common": "special",
+
+  "modifier.tprt.enchanting": "Enchanting",
+  "modifier.tprt.enchanting.flavor":"Enchant the blade with magic",
+  "modifier.tprt.enchanting.description":"Attacks deal additional magic damage and it can be improved according to spell power",
+
+
+
   "common": "not_yet_completed",
 
   "modifier.tprt.lastone": "Glory!",
@@ -643,10 +652,6 @@
   "modifier.tprt.sacred_sacrifice": "Sacred Sacrifice",
   "modifier.tprt.sacred_sacrifice.flavor": "With my blood",
   "modifier.tprt.sacred_sacrifice.description": "Burn life to kill them!",
-
-  "modifier.tprt.fire_addition": "Blaze Mana Addition",
-  "modifier.tprt.fire_addition.flavor":"It's on fire",
-  "modifier.tprt.fire_addition.description":"Attacks deal additional Blaze spell damage",
 
   "modifier.tprt.real_attack": "True Attack",
   "modifier.tprt.real_attack.flavor": "Expose their weaknesses",
@@ -673,9 +678,6 @@
 
   "modifier.tprt.millennium": "Millennium",
   "modifier.tprt.millennium.flavor": "",
-  "modifier.tprt.millennium.description": "",
+  "modifier.tprt.millennium.description": ""
 
-  "common": "spell",
-
-  "spell.tprt.fire_addition": "Blaze Spell Addition"
 }

@@ -1,0 +1,13 @@
+{
+  "tool": "tprt:magic_blade",
+  "text": [
+    { "text": "The Magic Blade is a weapon that deals additional magic damage according to spell power." }
+  ],
+  "properties": [
+    "+4 Attack Damage",
+    "125% Attack Multiplier",
+    "1.6 Attack Speed",
+    "50% Mining Multiplier",
+    "180% Durability Multiplier"
+  ]
+}

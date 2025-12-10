@@ -16,24 +16,12 @@
             "name": "sakuratinker:dragon_soul"
         },
         {
-            "level": 2,
+            "level": 1,
             "name": "sakuratinker:breath_resistance"
         },
         {
             "level": 1,
             "name": "tprt:mixeddragon_armor"
-        },
-        {
-            "level": 1,
-            "name": "sakuratinker:fire_immunity"
-        },
-        {
-            "level": 1,
-            "name": "sakuratinker:ice_immunity"
-        },
-        {
-            "level": 1,
-            "name": "sakuratinker:lightning_immunity"
         }
       ],
       "tconstruct:ranged": [

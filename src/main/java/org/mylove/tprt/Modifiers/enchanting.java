@@ -1,9 +1,9 @@
 package org.mylove.tprt.Modifiers;
 
-import io.redspace.ironsspellbooks.damage.DamageSources;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import org.jetbrains.annotations.NotNull;
-import org.mylove.tprt.registries.SpellsRegistry;
 import org.mylove.tprt.registries.TagsRegistry;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -17,7 +17,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
-public class fire_addition extends NoLevelsModifier implements MeleeHitModifierHook, ToolStatsModifierHook {
+public class enchanting extends NoLevelsModifier implements MeleeHitModifierHook, ToolStatsModifierHook {
     @Override
     protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
         super.registerHooks(hookBuilder);
@@ -34,14 +34,22 @@ public class fire_addition extends NoLevelsModifier implements MeleeHitModifierH
     }
     @Override
     public void afterMeleeHit(IToolStackView tool, @NotNull ModifierEntry modifier, @NotNull ToolAttackContext context, float damageDealt) {
-            LivingEntity attacker = context.getAttacker();
+        LivingEntity attacker = context.getPlayerAttacker();
             LivingEntity target = context.getLivingTarget();
-            if(target != null)
+            AttributeInstance X = null;
+            if (attacker != null) {
+                X = attacker.getAttribute(AttributeRegistry.SPELL_POWER.get());
+            }
+            if(attacker!=null && target != null)
             {
-                int level = modifier.getLevel();
-                target.invulnerableTime = 0;
-                DamageSources.applyDamage(target, SpellsRegistry.fire_addition.get()
-                .getSpellPower(level,attacker), SpellsRegistry.fire_addition.get().getDamageSource(attacker));
+                if (X!= null){X.getValue();}
+                if (context.getLivingTarget() != null) {
+                    context.getLivingTarget().invulnerableTime = 0;
+                    if (X != null) {
+                        context.getLivingTarget().hurt(context.getLivingTarget().damageSources().magic(), (float) (damageDealt * 0.25f *X.getValue()));
+                    }
+                    context.getLivingTarget().setLastHurtByMob(context.getAttacker());
+                }
             }
 
     }
