@@ -6,6 +6,27 @@
   },
   "modules": [
     {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 5,
+          "name": "tconstruct:swiftstrike"
+        }
+      ],
+      "requirement": {
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "level": {
+          "min": 5
+        },
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tconstruct:swiftstrike"
+        }
+      },
+      "translation_key": "modifier.tprt.advanced_swiftstrike.requirements"
+    },
+    {
       "type": "tconstruct:stat_boost",
       "each_level": 0.10,
       "operation": "multiply_base",
