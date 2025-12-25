@@ -1,4 +1,19 @@
 {
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "iceandfire"
+        }
+      ]
+    }
+  ],
   "level_display": "tconstruct:single_level",
   "modules": [
     {
@@ -16,15 +31,6 @@
       "flat": 0.09,
       "operation": "multiply_base",
       "stat": "tconstruct:attack_damage"
-    },
-    {
-      "type": "tconstruct:attribute",
-      "each_level": -0.09,
-      "operation": "addition",
-      "attribute": "irons_spellbooks:spell_power",
-      "slots": [
-        "mainhand"
-      ]
     }
   ],
   "tooltip_display": "tinker_station"

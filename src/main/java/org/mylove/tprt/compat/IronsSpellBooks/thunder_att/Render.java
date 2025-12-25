@@ -1,9 +1,8 @@
-package org.mylove.tprt.ModSpells.thunder_att;
-
+package org.mylove.tprt.compat.IronsSpellBooks.thunder_att;
+/*
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import com.sun.jna.platform.win32.WinBase;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -58,4 +57,4 @@ public class Render extends EntityRenderer<thunder_att_MobCreate> {
     }
 
 
-}
+}*/

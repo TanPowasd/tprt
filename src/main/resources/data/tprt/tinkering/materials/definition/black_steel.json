@@ -1,4 +1,8 @@
 {
+  "condition": {
+    "modid": "cataclysm",
+    "type": "forge:mod_loaded"
+  },
   "craftable": false,
   "hidden": false,
   "sortOrder": 15,

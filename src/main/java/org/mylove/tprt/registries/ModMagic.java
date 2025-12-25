@@ -1,5 +1,5 @@
 package org.mylove.tprt.registries;
-
+/*
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,4 +18,4 @@ public class ModMagic {
         return SPELLS.register(spell.getSpellName(), () -> spell);
     }
     //public static final RegistryObject<AbstractSpell>THUNDERCRASH=registerSpell(new thundercrash());
-}
+}*/

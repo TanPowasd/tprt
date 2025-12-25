@@ -38,7 +38,7 @@ public class advanced_greed extends NoLevelsModifier implements MeleeDamageModif
         LivingEntity entity= context.getLivingTarget();
         LivingEntity attacker=context.getAttacker();
         float dl=1.0f;
-        if(entity != null && attacker != null) {
+        if(entity != null) {
 
             MobEffect effect= ModBuffRegistry.MYL_GIRIG_PRO.get();
             MobEffectInstance instance = attacker.getEffect(effect);
@@ -63,7 +63,7 @@ public class advanced_greed extends NoLevelsModifier implements MeleeDamageModif
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt){
         LivingEntity entity= context.getLivingTarget();
         LivingEntity attacker=context.getAttacker();
-        if (entity!=null && attacker!=null) {
+        if (entity != null) {
             MobEffect effect= ModBuffRegistry.MYL_GIRIG_PRO.get();
             MobEffectInstance instance = attacker.getEffect(effect);
             if (instance == null) {

@@ -1,16 +1,10 @@
 package org.mylove.tprt.registries.item.curios;
 
 import com.google.common.collect.ImmutableMultimap;
-import com.ssakura49.sakuratinker.client.component.CuriosMutableComponent;
-import com.ssakura49.sakuratinker.client.component.LoreHelper;
-import com.ssakura49.sakuratinker.client.component.LoreStyle;
 import com.ssakura49.sakuratinker.client.component.STFont;
 import com.ssakura49.sakuratinker.common.items.curios.SimpleDescriptiveCurio;
-import com.ssakura49.sakuratinker.library.logic.context.ChatFormattingContext;
 import com.ssakura49.sakuratinker.register.STAttributes;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.resources.language.I18n;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -36,16 +30,6 @@ public class golden_fox_mask extends SimpleDescriptiveCurio {
                     .put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("4c5f72a1-73aa-4ba2-80b0-aa6aada17fc1"), "Curios modifier", 0.25, AttributeModifier.Operation.MULTIPLY_BASE));
             return builder.build();
         });
-        this.defaultDesc(
-                CuriosMutableComponent.create(LoreStyle.ATTRIBUTE_PREFIX).appendAttributeFormat(1, stack ->
-                        new Object[]{
-                                LoreHelper.codeMode(ChatFormatting.GOLD),
-                                95F,
-                                LoreHelper.codeMode(ChatFormattingContext.SAKURA_ORIGIN()),
-                                I18n.get("item.tprt.golden_fox_mask.desc")
-                        }
-                )
-        );
     }
 
     @Override

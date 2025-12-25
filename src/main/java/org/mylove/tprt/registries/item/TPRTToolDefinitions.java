@@ -1,6 +1,7 @@
 package org.mylove.tprt.registries.item;
 
 import io.netty.util.Attribute;
+import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
 public class TPRTToolDefinitions {

@@ -1,4 +1,19 @@
 {
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
   "translation_key": "item.tprt.magic_blade",
   "sortIndex": 3,
   "icon": {
@@ -32,6 +47,15 @@
       "translation_key": "item.tconstruct.tough_handle",
       "x": 12,
       "y": 62
+    },
+    {
+      "filter": {
+        "item": "irons_spellbooks:upgrade_orb"
+      },
+      "icon": "tprt:upgrade_orb",
+      "translation_key": "item.irons_spellbooks.upgrade_orb",
+      "x": 48,
+      "y": 44
     }
   ]
 }

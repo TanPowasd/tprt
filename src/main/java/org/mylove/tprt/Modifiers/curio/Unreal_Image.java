@@ -1,7 +1,6 @@
 package org.mylove.tprt.Modifiers.curio;
 
 import com.ssakura49.sakuratinker.generic.CurioModifier;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,13 +24,6 @@ public class Unreal_Image extends CurioModifier implements CurioEquipmentChangeM
     }
 
     @Override
-    public void onCurioEquip(IToolStackView curio, ModifierEntry entry, SlotContext context, LivingEntity entity, ItemStack prevStack, ItemStack stack) {
-        if (entity instanceof Player player) {
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 1));
-        }
-    }
-
-    @Override
     public void onCurioUnequip(IToolStackView curio, ModifierEntry entry, SlotContext context, LivingEntity entity, ItemStack newStack, ItemStack stack) {
         if (entity instanceof Player player) {
             player.removeEffect(INVISIBILITY);
@@ -43,13 +35,16 @@ public class Unreal_Image extends CurioModifier implements CurioEquipmentChangeM
     @Override
     public void onCurioTick(IToolStackView curio, ModifierEntry entry, SlotContext context, LivingEntity entity, ItemStack stack) {
         LivingEntity attacker=context.entity();
-        MobEffect effect= INVISIBILITY;
-        MobEffectInstance instance = attacker.getEffect(effect);
+        MobEffectInstance instance = attacker.getEffect(INVISIBILITY);
         if (entity instanceof Player player){
-            if (instance==null){
+            if (instance==null) {
                 player.addEffect(new MobEffectInstance(INVISIBILITY, Integer.MAX_VALUE, 0));
             }
+            if (player.tickCount % 100 == 0){
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 60, 1));
+            }
         }
+
     }
 }
 

@@ -183,11 +183,12 @@ dependencies {
     // channel the power of mixins...
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation fg.deobf("slimeknights.mantle:Mantle:1.20.1-1.11.63")
-    implementation fg.deobf("slimeknights.tconstruct:TConstruct:1.20.1-3.10.1.76")
+    implementation fg.deobf("curse.maven:mantle-74924:7367477")
+    implementation fg.deobf("curse.maven:tinkers-construct-74072:7371800")
     implementation fg.deobf("curse.maven:jei-238222:6600311")
     implementation fg.deobf("curse.maven:jade-324717:6271651")
-    implementation fg.deobf("curse.maven:sakura-tinker-1217345:6778833")
+    implementation fg.deobf("curse.maven:sakura-tinker-1217345:7350373")
+    implementation fg.deobf("curse.maven:l2library-620203:6806000")
     //implementation fg.deobf("curse.maven:tinkers-calibration-tic3-863663:6735556")
     implementation fg.deobf("curse.maven:etst-lib-1206379:6732443")
     implementation fg.deobf("curse.maven:lendercataclysm-551586:6849032")

@@ -1,4 +1,4 @@
-package org.mylove.tprt.ModSpells.thunder_att;
+package org.mylove.tprt.compat.IronsSpellBooks.thunder_att;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;

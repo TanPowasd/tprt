@@ -1,4 +1,19 @@
 {
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
   "type": "tconstruct:material_melting",
   "input": "tprt:dark_knight",
   "temperature": 2000,

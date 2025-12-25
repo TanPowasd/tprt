@@ -7,12 +7,7 @@
         {
           "attribute": "tconstruct:player.critical_damage",
           "operation": "multiply_total",
-          "value": 0.15
-        },
-        {
-          "attribute": "irons_spellbooks:holy_spell_power",
-          "operation": "multiply_total",
-          "value": 0.12
+          "value": 0.2
         }
 
       ],

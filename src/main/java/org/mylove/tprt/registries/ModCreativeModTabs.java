@@ -3,11 +3,13 @@ package org.mylove.tprt.registries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
+import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import org.mylove.tprt.registries.item.ModItems;
 
 
@@ -24,14 +26,14 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MIXEDDRAGON.get());//龙神锭
                         pOutput.accept(ModItems.FORGED_STEEL.get());
                         pOutput.accept(ModItems.PIG_BUN.get());
-                        pOutput.accept(ModItems.SOURCE_ALLOY.get());
                         pOutput.accept(ModItems.ADVANCED_MANYULLYN.get());
                         pOutput.accept(ModItems.KWAT_WHEAT_GRAIN_INGOT.get());
                         pOutput.accept(ModItems.EVIL_BEAST_ALLOY_INGOT.get());
-                        pOutput.accept(ModItems.DARK_KNIGHT_INGOT.get());
                         pOutput.accept(ModItems.RED_TURTLE.get());
                         pOutput.accept(ModItems.golden_fox_mask.get());
                         pOutput.accept(ModItems.anchor_sword.get());
+                        pOutput.accept(ModItems.SOURCE_ALLOY.get());
+                        pOutput.accept(ModItems.DARK_KNIGHT_INGOT.get());
                         pOutput.accept(ModItems.magic_blade.get());
                         //magicitem
                         //pOutput.accept(MIAGIC_cs1.get());

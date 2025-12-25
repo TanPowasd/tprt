@@ -12,8 +12,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import org.mylove.tprt.registries.*;
 import org.mylove.tprt.registries.item.ModItems;
+import org.mylove.tprt.utils.ModListUtil;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -34,11 +36,17 @@ public class Tprt {
         Modblocks.register(modEventBus);
         ModBuffRegistry.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
-        ModMagic.register(modEventBus);
+        /*ModMagic.register(modEventBus);*/
         ModifierRegistry.register(modEventBus);
         ModEntities.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
+
+        if (ModListUtil.ISSLoaded) {
+            IssCompat.Iss_MODIFIERS.register(modEventBus);
+            IssCompat.Iss_ITEMS.register(modEventBus);
+            LOGGER.info("Found Iron's Spellbooks, integration initializing……");
+        }
     }
 
     public static ResourceLocation getResource(String name) {

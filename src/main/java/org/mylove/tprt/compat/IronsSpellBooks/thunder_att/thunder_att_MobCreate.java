@@ -1,5 +1,5 @@
-package org.mylove.tprt.ModSpells.thunder_att;
-
+package org.mylove.tprt.compat.IronsSpellBooks.thunder_att;
+/*
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.registries.EntityRegistry;
 import net.minecraft.nbt.CompoundTag;
@@ -111,4 +111,4 @@ public class thunder_att_MobCreate extends AbstractMagicProjectile {
     public Optional<SoundEvent> getImpactSound() {
         return Optional.empty();
     }
-}
+}*/

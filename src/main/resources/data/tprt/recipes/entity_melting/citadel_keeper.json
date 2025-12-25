@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
   "type": "tconstruct:entity_melting",
   "damage": 4,
   "entity": {

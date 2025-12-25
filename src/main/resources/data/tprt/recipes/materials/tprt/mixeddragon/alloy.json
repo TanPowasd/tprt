@@ -1,20 +1,35 @@
 {
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "iceandfire"
+        }
+      ]
+    }
+  ],
   "type": "tconstruct:alloy",
   "inputs": [
     {
-      "amount": 270,
+      "amount": 450,
       "fluid": "sakuratinker:molten_dragon_fire_steel"
     },
     {
-      "amount": 270,
+      "amount": 450,
       "fluid": "sakuratinker:molten_dragon_ice_steel"
     },
     {
-      "amount": 270,
+      "amount": 450,
       "fluid": "sakuratinker:molten_dragon_lightning_steel"
     },
     {
-      "amount":270,
+      "amount":450,
       "fluid":"sakuratinker:molten_nihilite"
     }
   ],

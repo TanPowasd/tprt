@@ -43,7 +43,10 @@ public class wrath_of_flames extends NoLevelsModifier implements MeleeHitModifie
             target.invulnerableTime = 0;
             MobEffect effect = getEffect();
             MobEffectInstance instance = target.getEffect(effect);
-            int bufnum=instance.getAmplifier()+1;
+            int bufnum= 0;
+            if (instance != null) {
+                bufnum = instance.getAmplifier()+1;
+            }
             System.out.println(damageDealt);
             target.hurt(source, damageDealt*bufnum*0.1f);
         }

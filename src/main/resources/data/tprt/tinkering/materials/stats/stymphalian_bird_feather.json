@@ -1,8 +1,24 @@
 {
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "iceandfire"
+        }
+      ]
+    }
+  ],
   "stats": {
     "sakuratinker:fletching": {
       "accuracy": 0.1,
       "velocity": 0.5
-    }
+    },
+    "tconstruct:fletching": {}
   }
 }

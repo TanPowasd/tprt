@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
   "tool": "tprt:magic_blade",
   "text": [
     { "text": "注法者是一种能够根据法术强度造成附加魔法伤害的武器" }

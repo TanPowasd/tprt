@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
   "tool": "tprt:magic_blade",
   "text": [
     { "text": "The Magic Blade is a weapon that deals additional magic damage according to spell power." }

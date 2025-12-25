@@ -169,12 +169,11 @@
 
   "modifier.tprt.the_dragon_power":"Dragon God's Power",
   "modifier.tprt.the_dragon_power.flavor":"Obtain the power of the Dragon God",
-  "modifier.tprt.the_dragon_power.description":"Increases damage dealt by 10% per 10 max health. Hidden effect when max health exceeds 400",
+  "modifier.tprt.the_dragon_power.description":"Increases damage dealt by 20% per 10 max health. Hidden effect when max health exceeds 200",
 
-  "modifier.tprt.mixeddragon_armor":"Dragon God's Protection",
-  "modifier.tprt.mixeddragon_armor.flavor":"Blessing from the Dragon God",
-  "modifier.tprt.mixeddragon_armor.description":"Per level: Gain 12% universal resistance and 15% attack power increase. Also increases personal resistance cap",
-  "modifier.tprt.mixeddragon_armor.resistance": "Universal Resistance",
+  "modifier.tprt.the_dragon_lord":"Dragon God's Protection",
+  "modifier.tprt.the_dragon_lord.flavor":"Blessing from the Dragon God",
+  "modifier.tprt.the_dragon_lord.description":"Gain flying ability when the maximum health is greater than or equal to 100.Get additional damage reduction according to the maximum health.",
 
   "modifier.tprt.mixeddragon_ranged":"Dragon's Roar",
   "modifier.tprt.mixeddragon_ranged.flavor":"The power of dragons surges unceasingly",
@@ -309,11 +308,11 @@
 
   "modifier.tprt.nature_affinity": "Nature Affinity",
   "modifier.tprt.nature_affinity.flavor":"Child of the forest!",
-  "modifier.tprt.nature_affinity.description":"Per level: Increases max health by 3 and Nature spell power by 5%",
+  "modifier.tprt.nature_affinity.description":"Per level: Increases max health by 3",
 
   "modifier.tprt.skeleton_affinity": "Skeleton 💀",
   "modifier.tprt.skeleton_affinity.flavor":"Doo doo da doo doo da",
-  "modifier.tprt.skeleton_affinity.description":"Per level: Increases attack damage by 2 and Crimson spell power by 5%",
+  "modifier.tprt.skeleton_affinity.description":"Per level: Increases attack damage by 2",
 
   "modifier.tprt.dwarf_power": "Dwarf's Power",
   "modifier.tprt.dwarf_power.flavor":"Charge into the mines like a dwarf!",
@@ -337,7 +336,7 @@
 
   "modifier.tprt.burning_ash": "Burning Ash",
   "modifier.tprt.burning_ash.flavor":"Still retains warmth",
-  "modifier.tprt.burning_ash.description":"Per level: Increases Blaze spell power by 8% and attack damage by 3",
+  "modifier.tprt.burning_ash.description":"Per level: Increases attack damage by 3",
 
   "modifier.tprt.shielding": "Indomitable",
   "modifier.tprt.shielding.flavor":"Never give up!",
@@ -357,11 +356,11 @@
 
   "modifier.tprt.sunlit": "Sunlit",
   "modifier.tprt.sunlit.flavor":"The sun will make evil",
-  "modifier.tprt.sunlit.description":"Per level: Increases Holy spell power by 12% and critical damage by 15%",
+  "modifier.tprt.sunlit.description":"Per level: Increases critical damage by 20%",
 
   "modifier.tprt.deep_darkness": "Deep Darkness",
   "modifier.tprt.deep_darkness.flavor":"Lurk in the shadows",
-  "modifier.tprt.deep_darkness.description":"Per level: Increases Ancient Sorcery spell power by 15%. Damage increased by 20% while sneaking",
+  "modifier.tprt.deep_darkness.description":"Per level: Damage increased by 30% while sneaking",
 
   "modifier.tprt.unreal_image": "Phantom Image",
   "modifier.tprt.unreal_image.flavor":"Formless and featureless",
@@ -435,7 +434,7 @@
 
   "modifier.tprt.the_power_of_nine_dragons": "Power of Nine Dragons",
   "modifier.tprt.the_power_of_nine_dragons.flavor":"“Then I ask you, why is your head pointy?”",
-  "modifier.tprt.the_power_of_nine_dragons.description":"The dragons roaming the world grant one upgrade slot and one defense slot. Tool attack power +9%, spell power -9%",
+  "modifier.tprt.the_power_of_nine_dragons.description":"The dragons roaming the world grant one upgrade slot and one defense slot. Tool attack power +9%",
 
   "modifier.tprt.ancient_relics": "Ancient Relics",
   "modifier.tprt.ancient_relics.flavor":"How did modern crops degenerate...",
@@ -477,7 +476,7 @@
   "modifier.tprt.advanced_power.4": "Star Piercer+++",
   "modifier.tprt.advanced_power.5": "Star Piercer++++",
   "modifier.tprt.advanced_power.flavor":"Arrows that pierce mountains and shatter rocks",
-  "modifier.tprt.advanced_power.description":"Per level: Increases projectile power by 0.4 + 10%",
+  "modifier.tprt.advanced_power.description":"Per level: Increases projectile power by 10%",
   "modifier.tprt.advanced_power.requirements": "Requires Power V enhancement as prerequisite",
 
   "modifier.tprt.advanced_swiftstrike": "Swift Assault",
@@ -488,6 +487,14 @@
   "modifier.tprt.advanced_swiftstrike.flavor":"Speed is paramount in war",
   "modifier.tprt.advanced_swiftstrike.description":"Per level: Increases tool melee speed by 10%",
   "modifier.tprt.advanced_swiftstrike.requirements": "Requires Swift Strike++++ enhancement as prerequisite",
+
+  "modifier.tprt.soul_convergence": "Soul Convergence",
+  "modifier.tprt.soul_convergence.2": "Soul Convergence+",
+  "modifier.tprt.soul_convergence.3": "Soul Convergence++",
+  "modifier.tprt.soul_convergence.4": "Soul Convergence+++",
+  "modifier.tprt.soul_convergence.5": "Soul Convergence++++",
+  "modifier.tprt.soul_convergence.flavor":"Soul stirring!",
+  "modifier.tprt.soul_convergence.description":"Per level: Increases soul power by 8%",
 
   "modifier.tprt.karate": "Karate",
   "modifier.tprt.karate.flavor":"Hand-to-hand combat!",
@@ -582,14 +589,6 @@
   "modifier.tprt.blood_of_hydra.flavor":"Gain the Hydra's miraculous self-healing ability",
   "modifier.tprt.blood_of_hydra.description":"Grants high life regeneration effect",
 
-  "modifier.tprt.reaper": "Death Reaper",
-  "modifier.tprt.reaper.flavor":"Plunder the enemy's life for your own use",
-  "modifier.tprt.reaper.description":"Damage dealt increased to 150%. Heals 75% of actual damage dealt",
-
-  "modifier.tprt.persistence_of_nature": "Persistence of Nature",
-  "modifier.tprt.persistence_of_nature.flavor":"We are connected by blood, we never retreat",
-  "modifier.tprt.persistence_of_nature.description":"When current health is below 75%, being hit restores 3 + 3% of missing health. Trigger cooldown 0.5 seconds",
-
   "modifier.tprt.fear_nothing": "Fear Nothing",
   "modifier.tprt.fear_nothing.flavor":"A real man should fear nothing",
   "modifier.tprt.fear_nothing.description":"Attack range +1.5 blocks. Increases all types of resistance",
@@ -636,6 +635,14 @@
 
 
   "common": "special",
+
+  "modifier.tprt.reaper": "Death Reaper",
+  "modifier.tprt.reaper.flavor":"Plunder the enemy's life for your own use",
+  "modifier.tprt.reaper.description":"Damage dealt increased to 150%. Heals 75% of actual damage dealt",
+
+  "modifier.tprt.persistence_of_nature": "Persistence of Nature",
+  "modifier.tprt.persistence_of_nature.flavor":"We are connected by blood, we never retreat",
+  "modifier.tprt.persistence_of_nature.description":"When current health is below 75%, being hit restores 3 + 3% of missing health. Trigger cooldown 0.5 seconds",
 
   "modifier.tprt.enchanting": "Enchanting",
   "modifier.tprt.enchanting.flavor":"Enchant the blade with magic",

@@ -3,16 +3,12 @@ package org.mylove.tprt.hooks;
 import net.minecraft.world.entity.LivingEntity;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-
 import java.util.Collection;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
-import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.module.ModuleHook;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
-import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public interface AttackerWithEquipmentModifyDamageModifierHook {
     void attackermodifyDamageTaken(IToolStackView var1, ModifierEntry var2, LivingEntity var3, EquipmentContext var4, EquipmentSlot var5, DamageSource var6, float var7, DamageModifier var8, boolean var9);

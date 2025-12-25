@@ -1,0 +1,42 @@
+{
+  "condition": {
+    "modid": "goety",
+    "type": "forge:mod_loaded"
+  },
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "goety:jade",
+      "amount_needed":16
+    },
+    {
+      "item": "goety:dark_ingot",
+      "amount_needed":2
+    },
+    {
+      "item": "goety:ectoplasm",
+      "amount_needed":16
+    },
+    {
+      "item": "goety:grave_dust",
+      "amount_needed":8
+    },
+    {
+      "item": "goety:cursed_ingot",
+      "amount_needed":8
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "result": "tprt:soul_convergence",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "item": "sakuratinker:tinker_wand"
+    }
+  ]
+}

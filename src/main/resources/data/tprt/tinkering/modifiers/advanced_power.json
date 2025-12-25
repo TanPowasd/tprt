@@ -28,7 +28,7 @@
     },
     {
       "type": "tconstruct:stat_boost",
-      "each_level": 0.4,
+      "each_level": 0.0,
       "operation": "add",
       "stat": "tconstruct:projectile_damage",
       "unique": "tprt.modifier.advanced_power"

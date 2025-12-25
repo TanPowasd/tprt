@@ -1,36 +1,30 @@
 {
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "artifacts"
-    }
-  ],
   "type": "tconstruct:modifier",
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "artifacts:crystal_heart"
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":2
     },
     {
-      "item": "artifacts:crystal_heart"
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":4
     },
     {
-      "item": "artifacts:crystal_heart"
-    },
-    {
-      "item": "tconstruct:jeweled_apple",
+      "item": "minecraft:enchanted_golden_apple",
       "amount_needed":2
     },
     {
       "item": "tconstruct:jeweled_apple",
-      "amount_needed":2
+      "amount_needed":16
+    },
+    {
+      "item": "tconstruct:jeweled_apple",
+      "amount_needed":16
     }
   ],
   "level": 3,
   "result": "tprt:advanced_cheer_up",
-  "slots": {
-    "abilities": 1
-  },
   "tools": [
     {
       "tag": "tconstruct:modifiable/armor"

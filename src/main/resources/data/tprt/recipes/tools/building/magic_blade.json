@@ -1,5 +1,14 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
   "type": "tconstruct:tool_building",
+  "extra_requirements": [
+    { "item": "irons_spellbooks:upgrade_orb" }
+  ],
   "result": "tprt:magic_blade",
   "result_count": 1
 }

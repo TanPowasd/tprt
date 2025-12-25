@@ -23,7 +23,7 @@ public class strong_but_pliable extends Modifier implements ToolStatsModifierHoo
         double LogY=Math.log10(y);
         double z=LogY*Math.pow(y,1.2)/(6*y+1000);
         ToolStats.ATTACK_DAMAGE.add(builder, 0.6*z * X);
-        ToolStats.PROJECTILE_DAMAGE.add(builder, 0.75*z * X);
+        ToolStats.PROJECTILE_DAMAGE.add(builder, 0.5*z * X);
         ToolStats.ARMOR.add(builder, 1.25*z * X);
         ToolStats.DURABILITY.add(builder,500);
     }

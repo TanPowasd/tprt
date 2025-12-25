@@ -1,16 +1,31 @@
 {
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
   "type": "tconstruct:modifier",
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "sakuratinker:arcane_alloy"
+      "item": "irons_spellbooks:arcane_salvage"
     },
     {
       "item": "minecraft:enchanted_golden_apple",
       "amount_needed":2
     },
     {
-      "item": "sakuratinker:arcane_alloy"
+      "item": "irons_spellbooks:arcane_salvage"
     },
     {
       "item": "sakuratinker:arcane_alloy"

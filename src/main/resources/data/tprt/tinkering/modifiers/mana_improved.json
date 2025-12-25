@@ -1,21 +1,21 @@
 {
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
   "level_display": "tconstruct:default",
   "modules": [
-    {
-      "type": "tconstruct:attribute",
-      "each_level": 15,
-      "operation": "addition",
-      "attribute": "ars_nouveau:ars_nouveau.perk.mana_regen",
-      "unique": "tconstruct.modifier.mana_improved",
-      "slots": [
-        "feet",
-        "legs",
-        "chest",
-        "head",
-        "mainhand",
-        "offhand"
-      ]
-    },
     {
       "type": "tconstruct:attribute",
       "each_level": 15,
@@ -37,21 +37,6 @@
       "operation": "addition",
       "attribute": "irons_spellbooks:spell_resist",
       "tooltip_style": "percent",
-      "unique": "tconstruct.modifier.mana_improved",
-      "slots": [
-        "feet",
-        "legs",
-        "chest",
-        "head",
-        "mainhand",
-        "offhand"
-      ]
-    },
-    {
-      "type": "tconstruct:attribute",
-      "each_level": 150,
-      "operation": "addition",
-      "attribute": "ars_nouveau:ars_nouveau.perk.max_mana",
       "unique": "tconstruct.modifier.mana_improved",
       "slots": [
         "feet",

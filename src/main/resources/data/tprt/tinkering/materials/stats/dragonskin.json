@@ -1,4 +1,8 @@
 {
+  "condition": {
+    "modid": "irons_spellbooks",
+    "type": "forge:mod_loaded"
+  },
   "stats": {
     "tconstruct:binding": {},
     "tconstruct:cuirass": {},

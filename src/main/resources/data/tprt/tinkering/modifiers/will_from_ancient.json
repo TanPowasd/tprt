@@ -1,4 +1,17 @@
 {
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "cataclysm"
+      }
+    ]
+  },
   "level_display": "tconstruct:default",
   "modules": [
     {
@@ -9,14 +22,20 @@
     },
     {
       "type": "tconstruct:stat_boost",
-      "each_level": 0.10,
+      "each_level": 1.25,
       "operation": "add",
+      "stat": "tconstruct:attack_damage"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.20,
+      "operation": "multiply_base",
       "stat": "tconstruct:projectile_damage"
     },
     {
       "type": "tconstruct:melee_attribute",
       "attribute": "minecraft:generic.armor",
-      "each_level": -3.0,
+      "each_level": -5.0,
       "operation": "addition"
     },
     {

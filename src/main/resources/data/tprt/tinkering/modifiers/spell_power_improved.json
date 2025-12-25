@@ -12,8 +12,7 @@
         "legs",
         "chest",
         "head",
-        "mainhand",
-        "offhand"
+        "mainhand"
       ]
     },
     {
@@ -26,8 +25,7 @@
         "legs",
         "chest",
         "head",
-        "mainhand",
-        "offhand"
+        "mainhand"
       ]
     }
   ],

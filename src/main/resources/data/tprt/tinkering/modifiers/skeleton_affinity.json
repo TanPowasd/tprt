@@ -8,11 +8,6 @@
           "attribute": "minecraft:generic.attack_damage",
           "operation": "addition",
           "value": 2.0
-        },
-        {
-          "attribute": "irons_spellbooks:blood_spell_power",
-          "operation": "multiply_total",
-          "value": 0.05
         }
 
       ],

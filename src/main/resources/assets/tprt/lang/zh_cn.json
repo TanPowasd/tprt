@@ -179,12 +179,11 @@
 
   "modifier.tprt.the_dragon_power":"龙神之力",
   "modifier.tprt.the_dragon_power.flavor":"取得龙神的力量",
-  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高10%造成伤害，当最大生命值超过400时有隐藏效果",
+  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高20%造成伤害，当最大生命值超过200时有隐藏效果",
 
-  "modifier.tprt.mixeddragon_armor":"龙神护体",
-  "modifier.tprt.mixeddragon_armor.flavor":"来自龙神的庇佑",
-  "modifier.tprt.mixeddragon_armor.description":"每级获得12%通用抗性和15%攻击力提升,同时使自身抗性上限提高",
-  "modifier.tprt.mixeddragon_armor.resistance": "通用抗性",
+  "modifier.tprt.the_dragon_lord":"龙神护体",
+  "modifier.tprt.the_dragon_lord.flavor":"来自龙神的庇佑",
+  "modifier.tprt.the_dragon_lord.description":"最大生命值大于等于100时获得飞行能力，根据最大生命值获得额外的伤害减免",
 
   "modifier.tprt.mixeddragon_ranged":"龙吟",
   "modifier.tprt.mixeddragon_ranged.flavor":"众龙的力量激荡不息",
@@ -319,11 +318,11 @@
 
   "modifier.tprt.nature_affinity": "自然亲和",
   "modifier.tprt.nature_affinity.flavor":"森林之子！",
-  "modifier.tprt.nature_affinity.description":"每级提高3点最大生命值以及5%自然法术强度",
+  "modifier.tprt.nature_affinity.description":"每级提高3点最大生命值",
 
   "modifier.tprt.skeleton_affinity": "骷髅💀",
   "modifier.tprt.skeleton_affinity.flavor":"嘟嘟哒嘟嘟哒",
-  "modifier.tprt.skeleton_affinity.description":"每级提高2点攻击伤害以及5%猩红法术强度",
+  "modifier.tprt.skeleton_affinity.description":"每级提高2点攻击伤害",
 
   "modifier.tprt.dwarf_power": "矮人之力",
   "modifier.tprt.dwarf_power.flavor":"像矮人一样向着矿洞进军！",
@@ -347,7 +346,7 @@
 
   "modifier.tprt.burning_ash": "燃灰",
   "modifier.tprt.burning_ash.flavor":"尚存余温",
-  "modifier.tprt.burning_ash.description":"每级提高8%炽焰法术强度和3点攻击伤害",
+  "modifier.tprt.burning_ash.description":"每级提高3点攻击伤害",
 
   "modifier.tprt.shielding": "不屈不挠",
   "modifier.tprt.shielding.flavor":"永不言弃！",
@@ -367,11 +366,11 @@
 
   "modifier.tprt.sunlit": "日耀",
   "modifier.tprt.sunlit.flavor":"太阳将使邪祟无所遁形",
-  "modifier.tprt.sunlit.description":"每级提高12%神圣法术强度和15%暴击伤害",
+  "modifier.tprt.sunlit.description":"每级20%暴击伤害",
 
   "modifier.tprt.deep_darkness": "深黯",
   "modifier.tprt.deep_darkness.flavor":"潜伏于阴影之中",
-  "modifier.tprt.deep_darkness.description":"每级提高15%远古巫术法术强度，潜行时伤害提高20%",
+  "modifier.tprt.deep_darkness.description":"每级使潜行时伤害提高30%",
 
   "modifier.tprt.unreal_image": "幻影",
   "modifier.tprt.unreal_image.flavor":"无形无相",
@@ -447,7 +446,7 @@
 
   "modifier.tprt.the_power_of_nine_dragons": "九龙之力",
   "modifier.tprt.the_power_of_nine_dragons.flavor":"“那我问你，你头顶怎么尖尖的。”",
-  "modifier.tprt.the_power_of_nine_dragons.description":"横行世间的众龙为你带来了一个升级槽和一个防御槽,使工具的攻击力+9%,法术强度-9%",
+  "modifier.tprt.the_power_of_nine_dragons.description":"横行世间的众龙为你带来了一个升级槽和一个防御槽,使工具的攻击力+9%",
 
   "modifier.tprt.ancient_relics": "远古孑遗",
   "modifier.tprt.ancient_relics.flavor":"怎么现代的作物还退化了…………",
@@ -489,7 +488,7 @@
   "modifier.tprt.advanced_power.4": "贯星+++",
   "modifier.tprt.advanced_power.5": "贯星++++",
   "modifier.tprt.advanced_power.flavor":"穿山裂石之矢",
-  "modifier.tprt.advanced_power.description":"每级提高0.4+10%弹射物力量",
+  "modifier.tprt.advanced_power.description":"每级提高10%弹射物力量",
   "modifier.tprt.advanced_power.requirements": "需要力量V强化作为前置",
 
   "modifier.tprt.advanced_swiftstrike": "破袭",
@@ -500,6 +499,14 @@
   "modifier.tprt.advanced_swiftstrike.flavor":"兵贵神速",
   "modifier.tprt.advanced_swiftstrike.description":"每级提高10%工具近战速度",
   "modifier.tprt.advanced_swiftstrike.requirements": "需要迅捷打击++++强化作为前置",
+
+  "modifier.tprt.soul_convergence": "灵魂汇聚",
+  "modifier.tprt.soul_convergence.2": "灵魂汇聚+",
+  "modifier.tprt.soul_convergence.3": "灵魂汇聚++",
+  "modifier.tprt.soul_convergence.4": "灵魂汇聚+++",
+  "modifier.tprt.soul_convergence.5": "灵魂汇聚++++",
+  "modifier.tprt.soul_convergence.flavor":"灵魂激荡！",
+  "modifier.tprt.soul_convergence.description":"每级提高8%灵魂强度",
 
   "modifier.tprt.karate": "空手道",
   "modifier.tprt.karate.flavor":"拳脚功夫！",
@@ -594,19 +601,6 @@
   "modifier.tprt.blood_of_hydra.flavor":"获得九头蛇奇迹般的自愈能力",
   "modifier.tprt.blood_of_hydra.description":"获得高额的生命回复效果",
 
-  "modifier.tprt.reaper": "死亡收割",
-  "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
-  "modifier.tprt.reaper.description":"造成伤害提高至150%，回复实际造成伤害75%的生命值",
-
-  "modifier.tprt.persistence_of_nature": "本性的坚守",
-  "modifier.tprt.persistence_of_nature.flavor":"我们血脉相连，我们从不退却",
-  "modifier.tprt.persistence_of_nature.description":"当前生命值低于75%时受到攻击回复3+3%已损失生命值，触发间隔0.5秒",
-
-  "modifier.tprt.fear_nothing": "无畏",
-  "modifier.tprt.fear_nothing.flavor":"真正的man应该无所畏惧",
-  "modifier.tprt.fear_nothing.description":"攻击距离+1.5格，提升所有类型的抗性",
-  "modifier.tprt.fear_nothing.resistance": "通用抗性",
-
   "modifier.tprt.advanced_luck": "鸿运齐天",
   "modifier.tprt.advanced_luck.2": "鸿运齐天+",
   "modifier.tprt.advanced_luck.3": "鸿运齐天++",
@@ -648,6 +642,19 @@
 
 
   "common": "special",
+
+  "modifier.tprt.reaper": "死亡收割",
+  "modifier.tprt.reaper.flavor":"掠夺敌人的生命为你所用",
+  "modifier.tprt.reaper.description":"造成伤害提高至150%，回复实际造成伤害75%的生命值",
+
+  "modifier.tprt.persistence_of_nature": "本性的坚守",
+  "modifier.tprt.persistence_of_nature.flavor":"我们血脉相连，我们从不退却",
+  "modifier.tprt.persistence_of_nature.description":"当前生命值低于75%时受到攻击回复3+3%已损失生命值，触发间隔0.5秒",
+
+  "modifier.tprt.fear_nothing": "无畏",
+  "modifier.tprt.fear_nothing.flavor":"真正的man应该无所畏惧",
+  "modifier.tprt.fear_nothing.description":"攻击距离+1.5格，提升所有类型的抗性",
+  "modifier.tprt.fear_nothing.resistance": "通用抗性",
 
   "modifier.tprt.enchanting": "附魔",
   "modifier.tprt.enchanting.flavor":"为剑刃附上魔力",

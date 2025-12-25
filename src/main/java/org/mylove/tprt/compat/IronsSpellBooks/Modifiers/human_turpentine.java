@@ -1,10 +1,11 @@
-package org.mylove.tprt.Modifiers;
+package org.mylove.tprt.compat.IronsSpellBooks.Modifiers;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.mylove.tprt.registries.TagsRegistry;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -20,7 +21,7 @@ import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 public class human_turpentine extends NoLevelsModifier implements MeleeHitModifierHook, MeleeDamageModifierHook, ToolStatsModifierHook {
-    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+    protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
         hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
@@ -51,7 +52,7 @@ public class human_turpentine extends NoLevelsModifier implements MeleeHitModifi
         if (!(context.getTarget() instanceof LivingEntity target)) return;
         LivingEntity entity= context.getLivingTarget();
         LivingEntity attacker=context.getAttacker();
-        if (entity!=null && attacker!=null) {
+        if (entity != null) {
             MobEffect effect = getEffect();
             MobEffectInstance instance = target.getEffect(effect);
             if (instance == null) {
