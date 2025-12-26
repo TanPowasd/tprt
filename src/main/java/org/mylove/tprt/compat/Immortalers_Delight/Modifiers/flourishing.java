@@ -1,4 +1,4 @@
-package org.mylove.tprt.Modifiers;
+package org.mylove.tprt.compat.Immortalers_Delight.Modifiers;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

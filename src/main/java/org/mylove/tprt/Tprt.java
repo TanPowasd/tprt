@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
 import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import org.mylove.tprt.registries.*;
 import org.mylove.tprt.registries.item.ModItems;
@@ -46,6 +47,10 @@ public class Tprt {
             IssCompat.Iss_MODIFIERS.register(modEventBus);
             IssCompat.Iss_ITEMS.register(modEventBus);
             LOGGER.info("Found Iron's Spellbooks, integration initializing……");
+        }
+        if (ModListUtil.IDLoaded) {
+            Immortalers_Delight_Compat.Id_MODIFIERS.register(modEventBus);
+            LOGGER.info("Found Immortalers Delight, integration initializing……");
         }
     }
 
