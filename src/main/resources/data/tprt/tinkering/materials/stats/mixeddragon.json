@@ -69,8 +69,8 @@
         "range": 50.0
       },
       "sakuratinker:soul_gatherer.json": {
-        "soul_increase": 0.45,
-        "soul_power": 15.0
+        "soul_increase": 0.60,
+        "soul_power": 20.0
       },
       "tconstruct:maille": {},
       "tconstruct:plating_boots": {

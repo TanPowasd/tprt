@@ -12,7 +12,7 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 public class strong_but_pliable extends Modifier implements ToolStatsModifierHook {
 
-    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+    protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.TOOL_STATS);
     }

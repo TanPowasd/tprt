@@ -47,7 +47,7 @@
   "item.tprt.anchor_sword.description": "一种沉重的异型武器，兼顾近战强化与防御强化",
 
   "item.tprt.magic_blade": "注法者",
-  "item.tprt.magic_blade.description": "一种攻击附带魔法伤害的武器",
+  "item.tprt.magic_blade.description": "一种攻击附带魔法伤害的武器（需要[附魔]强化）",
 
 
   "common": "curios",
@@ -508,6 +508,10 @@
   "modifier.tprt.soul_convergence.flavor":"灵魂激荡！",
   "modifier.tprt.soul_convergence.description":"每级提高8%灵魂强度",
 
+  "modifier.tprt.dark_condensation": "黑暗凝聚",
+  "modifier.tprt.dark_condensation.flavor":"激发更深层次的黑暗力量，但这种禁忌之力是有代价的……",
+  "modifier.tprt.dark_condensation.description":"根据工具的攻击力提高[灵魂增幅]，但是会献祭掉一些东西……",
+
   "modifier.tprt.karate": "空手道",
   "modifier.tprt.karate.flavor":"拳脚功夫！",
   "modifier.tprt.karate.description":"使空手时的攻击伤害大幅提高",
@@ -659,6 +663,10 @@
   "modifier.tprt.enchanting": "附魔",
   "modifier.tprt.enchanting.flavor":"为剑刃附上魔力",
   "modifier.tprt.enchanting.description":"攻击时会根据法术强度附加魔法伤害",
+
+  "modifier.tprt.release_spells": "施法",
+  "modifier.tprt.release_spells.flavor":"剑-杖！",
+  "modifier.tprt.release_spells.description":"允许工具使用右键释放法术",
 
 
   "common": "not_yet_completed",

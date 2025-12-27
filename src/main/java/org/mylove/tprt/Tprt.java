@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.mylove.tprt.compat.Goety.GoetyCompat;
 import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
 import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import org.mylove.tprt.registries.*;
@@ -51,6 +52,10 @@ public class Tprt {
         if (ModListUtil.IDLoaded) {
             Immortalers_Delight_Compat.Id_MODIFIERS.register(modEventBus);
             LOGGER.info("Found Immortalers Delight, integration initializing……");
+        }
+        if (ModListUtil.GTLoaded) {
+            GoetyCompat.Goety_MODIFIERS.register(modEventBus);
+            LOGGER.info("Found Goety, integration initializing……");
         }
     }
 

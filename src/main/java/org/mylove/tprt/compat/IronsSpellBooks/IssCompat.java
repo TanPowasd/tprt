@@ -4,17 +4,10 @@ import com.ssakura49.sakuratinker.compat.IronSpellBooks.modifiers.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
-import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.Magic_Sublimation_Range;
-import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.Magic_sublimation;
-import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.enchanting;
-import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.human_turpentine;
-import org.mylove.tprt.registries.item.TPRTItemUtils;
-import org.mylove.tprt.registries.item.TPRTToolDefinitions;
+import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.*;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
-import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 
 public class IssCompat {
     public static ModifierDeferredRegister Iss_MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
@@ -31,11 +24,13 @@ public class IssCompat {
     public static StaticModifier<Magic_Sublimation_Range> Magic_Sublimation_Range;
     public static StaticModifier<Magic_sublimation> Magic_sublimation;
     public static StaticModifier<human_turpentine> Human_turpentine;
+    public static StaticModifier<Release_spells> Release_spells;
     static {
         enchanting = Iss_MODIFIERS.register("enchanting", enchanting::new);
         Magic_Sublimation_Range = Iss_MODIFIERS.register("magic_sublimation_range", Magic_Sublimation_Range::new);
         Magic_sublimation = Iss_MODIFIERS.register("magic_sublimation", Magic_sublimation::new);
         Human_turpentine = Iss_MODIFIERS.register("human_turpentine", human_turpentine::new);
+        Release_spells = Iss_MODIFIERS.register("release_spells", Release_spells::new);
     }
 }
 

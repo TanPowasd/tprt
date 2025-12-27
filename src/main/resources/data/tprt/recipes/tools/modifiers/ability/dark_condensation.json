@@ -1,0 +1,32 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "goety:bygone_scroll"
+    },
+    {
+      "item": "goety:arca"
+    },
+    {
+      "item": "goety:forbidden_fragment",
+      "amount_needed":3
+    },
+    {
+      "item": "goety:heart_of_the_night"
+    },
+    {
+      "item": "goety:dark_sword"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:dark_condensation",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "item": "sakuratinker:tinker_wand"
+    }
+  ]
+}

@@ -42,7 +42,7 @@
   "item.tprt.anchor_sword.description": "A heavy, exotic weapon that enhances both melee combat and defense",
 
   "item.tprt.magic_blade": "Magic Blade",
-  "item.tprt.magic_blade.description": "A weapon that inflicts Magic damage on attack",
+  "item.tprt.magic_blade.description": "A weapon that inflicts Magic damage on attack(need [Enchanting] upgrade)",
 
   "common": "curios",
 
@@ -496,6 +496,10 @@
   "modifier.tprt.soul_convergence.flavor":"Soul stirring!",
   "modifier.tprt.soul_convergence.description":"Per level: Increases soul power by 8%",
 
+  "modifier.tprt.dark_condensation": "Dark Condensation",
+  "modifier.tprt.dark_condensation.flavor":"Inspire deeper dark forces, but this taboo power comes at a price ...",
+  "modifier.tprt.dark_condensation.description":"Increases Soul Amplification according to the attack power of tools, but will sacrifice something ...",
+
   "modifier.tprt.karate": "Karate",
   "modifier.tprt.karate.flavor":"Hand-to-hand combat!",
   "modifier.tprt.karate.description":"Greatly increases bare-handed attack damage",
@@ -647,6 +651,10 @@
   "modifier.tprt.enchanting": "Enchanting",
   "modifier.tprt.enchanting.flavor":"Enchant the blade with magic",
   "modifier.tprt.enchanting.description":"Attacks deal additional magic damage and it can be improved according to spell power",
+
+  "modifier.tprt.release_spells": "Casting",
+  "modifier.tprt.release_spells.flavor":"Your sword can be used as staff!",
+  "modifier.tprt.release_spells.description":"Alloy use tools to release spells",
 
 
 
