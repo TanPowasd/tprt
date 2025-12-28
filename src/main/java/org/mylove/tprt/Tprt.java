@@ -12,10 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
-import org.mylove.tprt.compat.Cloudertinker.CloudertinkerCompat;
 import org.mylove.tprt.compat.Goety.GoetyCompat;
-import org.mylove.tprt.compat.Iceandfire.IceandfireCompat;
 import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
 import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import org.mylove.tprt.registries.*;
@@ -59,18 +56,6 @@ public class Tprt {
         if (ModListUtil.GTLoaded) {
             GoetyCompat.Goety_MODIFIERS.register(modEventBus);
             LOGGER.info("Found Goety, integration initializing……");
-        }
-        if (ModListUtil.CataclysmLoaded) {
-            CataclysmCompat.Cataclysm_MODIFIERS.register(modEventBus);
-            LOGGER.info("Found Cataclysm, integration initializing……");
-        }
-        if (ModListUtil.IceandfireLoaded) {
-            IceandfireCompat.Iceandfire_MODIFIERS.register(modEventBus);
-            LOGGER.info("Found Iceandfire, integration initializing……");
-        }
-        if (ModListUtil.CloudertinkerLoaded) {
-            CloudertinkerCompat.Cloudertinker_MODIFIERS.register(modEventBus);
-            LOGGER.info("Found Cloudertinker, integration initializing……");
         }
     }
 

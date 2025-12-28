@@ -1,8 +1,19 @@
 {
-  "condition": {
-    "modid": "irons_spellbooks",
-    "type": "forge:mod_loaded"
-  },
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
   "level_display": "tconstruct:no_levels",
   "modules": [
     {

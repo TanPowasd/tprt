@@ -1,4 +1,4 @@
-package org.mylove.tprt.compat.Cataclysm.Modifiers;
+package org.mylove.tprt.Modifiers;
 
 import org.jetbrains.annotations.NotNull;
 import org.mylove.tprt.registries.ModifierIds;

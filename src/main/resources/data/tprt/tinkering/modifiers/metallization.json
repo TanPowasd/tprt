@@ -1,7 +1,16 @@
 {
   "condition": {
-    "modid": "iceandfire",
-    "type": "forge:mod_loaded"
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "iceandfire"
+      }
+    ]
   },
   "level_display": "tconstruct:no_levels",
   "modules": [

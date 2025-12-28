@@ -1,8 +1,4 @@
 {
-  "condition": {
-    "modid": "cloudertinker",
-    "type": "forge:mod_loaded"
-  },
   "level_display": "tconstruct:default",
   "modules": [
     {

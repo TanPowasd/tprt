@@ -1,8 +1,19 @@
 {
-  "condition": {
-    "modid": "create",
-    "type": "forge:mod_loaded"
-  },
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ]
+    }
+  ],
     "level_display": "tconstruct:no_levels",
     "modules": [
       {

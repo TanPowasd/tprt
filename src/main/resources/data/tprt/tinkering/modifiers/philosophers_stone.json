@@ -1,7 +1,16 @@
 {
   "condition": {
-    "modid": "goety",
-    "type": "forge:mod_loaded"
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "goety"
+      }
+    ]
   },
   "level_display": "tconstruct:single_level",
   "modules": [

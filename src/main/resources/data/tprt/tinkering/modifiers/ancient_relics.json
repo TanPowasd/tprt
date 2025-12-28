@@ -1,8 +1,19 @@
 {
-  "condition": {
-    "modid": "immortalers_delight",
-    "type": "forge:mod_loaded"
-  },
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "immortalers_delight"
+        }
+      ]
+    }
+  ],
   "level_display": "tconstruct:single_level",
   "modules": [
     {

@@ -1,4 +1,4 @@
-package org.mylove.tprt.compat.Cataclysm.Modifiers;
+package org.mylove.tprt.Modifiers;
 
 import com.ssakura49.sakuratinker.generic.BaseModifier;
 import net.minecraft.resources.ResourceLocation;

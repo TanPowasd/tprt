@@ -1,4 +1,4 @@
-package org.mylove.tprt.compat.Cloudertinker.Modifiers.Curios;
+package org.mylove.tprt.Modifiers.curio;
 
 import com.ssakura49.sakuratinker.generic.CurioModifier;
 import net.minecraft.world.effect.MobEffectInstance;
