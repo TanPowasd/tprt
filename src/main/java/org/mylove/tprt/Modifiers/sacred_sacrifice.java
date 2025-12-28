@@ -23,14 +23,15 @@ public class sacred_sacrifice extends Modifier implements MeleeDamageModifierHoo
     @Override
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity entity = context.getLivingTarget();
-        if(entity != null) {
-           LivingEntity myself= context.getAttacker();
-           if(myself!=null) {
-               Random rand=new Random();
-               myself.setHealth(myself.getHealth() - modifier.getLevel() * rand.nextInt(5)+1);
-               myself.addEffect(new MobEffectInstance(MobEffects.REGENERATION,400,4));
-           }
+        if (entity != null) {
+            LivingEntity myself = context.getAttacker();
+            Random rand = new Random();
+            myself.setHealth(myself.getHealth() - modifier.getLevel() * rand.nextInt(5) + 1);
+            myself.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 400, 4));
         }
-        return damage+(entity.getMaxHealth()-entity.getHealth())*0.3f*modifier.getLevel();
+        if (entity != null) {
+            return damage + (entity.getMaxHealth() - entity.getHealth()) * 0.3f * modifier.getLevel();
+        }
+        return baseDamage;
     }
 }

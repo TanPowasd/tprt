@@ -1,4 +1,4 @@
-package org.mylove.tprt.Modifiers;
+package org.mylove.tprt.compat.Iceandfire.Modifiers;
 
 import com.ssakura49.sakuratinker.library.logic.helper.FlyingHelper;
 import net.minecraft.world.damagesource.DamageSource;

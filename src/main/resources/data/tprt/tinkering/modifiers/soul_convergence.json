@@ -1,19 +1,8 @@
 {
-  "conditions": [
-    {
-      "type": "forge:or",
-      "values": [
-        {
-          "type": "tconstruct:config",
-          "prop": "force_integration_materials"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "goety"
-        }
-      ]
-    }
-  ],
+  "condition": {
+    "modid": "goety",
+    "type": "forge:mod_loaded"
+  },
   "level_display": {
     "type": "tconstruct:unique",
     "first_unique": false,

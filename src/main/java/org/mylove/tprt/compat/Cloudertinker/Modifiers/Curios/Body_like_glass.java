@@ -1,4 +1,4 @@
-package org.mylove.tprt.Modifiers.curio;
+package org.mylove.tprt.compat.Cloudertinker.Modifiers.Curios;
 
 import com.ssakura49.sakuratinker.generic.CurioModifier;
 import net.minecraft.world.damagesource.DamageSource;

@@ -1,4 +1,8 @@
 {
+  "condition": {
+    "modid": "irons_spellbooks",
+    "type": "forge:mod_loaded"
+  },
   "level_display": "tconstruct:default",
   "modules": [
     {

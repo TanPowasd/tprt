@@ -1,4 +1,4 @@
-package org.mylove.tprt.Modifiers;
+package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
 import com.ssakura49.sakuratinker.library.damagesource.LegacyDamageSource;
 import net.minecraft.resources.ResourceLocation;

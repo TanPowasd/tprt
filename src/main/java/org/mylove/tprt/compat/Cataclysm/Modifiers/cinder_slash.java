@@ -1,4 +1,4 @@
-package org.mylove.tprt.Modifiers;
+package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;

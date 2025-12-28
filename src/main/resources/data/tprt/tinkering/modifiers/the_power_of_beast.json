@@ -1,16 +1,7 @@
 {
   "condition": {
-    "type": "forge:or",
-    "values": [
-      {
-        "type": "tconstruct:config",
-        "prop": "force_integration_materials"
-      },
-      {
-        "type": "forge:mod_loaded",
-        "modid": "cataclysm"
-      }
-    ]
+    "modid": "cataclysm",
+    "type": "forge:mod_loaded"
   },
   "level_display": "tconstruct:single_level",
   "modules": [

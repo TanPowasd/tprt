@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
 import org.mylove.tprt.registries.ModEntities;
-import org.mylove.tprt.Modifiers.cinder_slash;
+import org.mylove.tprt.compat.Cataclysm.Modifiers.cinder_slash;
 
 /// 因服务端不能定向发出粒子, 而匠魂的攻击钩子又只执行在服务端, 我们引入经典的“技术性实体”
 /// 09/17 写一个带客户端level的钩子是更好的选择
