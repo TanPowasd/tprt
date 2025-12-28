@@ -41,6 +41,7 @@ public class ModifierRegistry {
     public static final StaticModifier<infinite_dropping> INFINITE_DROPPING = MODIFIERS.register("infinite_dropping",infinite_dropping::new);
     public static final StaticModifier<oxidation>OXIDATION = MODIFIERS.register("oxidation",oxidation::new);
     public static final StaticModifier<tetanus>TETANUS_STATIC = MODIFIERS.register("tetanus",tetanus::new);
+    public static final StaticModifier<zenith_first_fractal>ZENITH_FIRST_FRACTAL = MODIFIERS.register("zenith_first_fractal",zenith_first_fractal::new);
      */
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
     public static final StaticModifier<reaper> REAPER = MODIFIERS.register("reaper",reaper::new);
@@ -49,7 +50,6 @@ public class ModifierRegistry {
     public static final StaticModifier<CurioModifier> strengthen_for_charm_endurance = MODIFIERS.register("strengthen_for_charm_endurance", Strengthen_for_charm_endurance::new);
     public static final StaticModifier<CurioModifier> endless_life = MODIFIERS.register("endless_life", Endless_Life::new);
     public static final StaticModifier<millennium> MILLENNIUM = MODIFIERS.register("millennium",millennium::new);
-    public static final StaticModifier<zenith_first_fractal>ZENITH_FIRST_FRACTAL = MODIFIERS.register("zenith_first_fractal",zenith_first_fractal::new);
     public static final StaticModifier<persistence_of_nature> PERSISTENCE_OF_NATURE = MODIFIERS.register("persistence_of_nature",persistence_of_nature::new);
     //public static final StaticModifier<CurioModifier> FORTUNE_CURIO = MODIFIERS.register("fortune_curio", FortuneCurio::new);//
 }
