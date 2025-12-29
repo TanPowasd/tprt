@@ -3,24 +3,17 @@ package org.mylove.tprt.compat.IronsSpellBooks.Modifiers;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.phys.EntityHitResult;
 import org.jetbrains.annotations.NotNull;
-import org.mylove.tprt.hooks.Arrowmodifier;
 import org.mylove.tprt.registries.TagsRegistry;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.build.ToolStatsModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
-import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
@@ -54,7 +47,8 @@ public class enchanting extends NoLevelsModifier implements MeleeHitModifierHook
             if (context.getLivingTarget() != null) {
                 context.getLivingTarget().invulnerableTime = 0;
                 if (X != null) {
-                    context.getLivingTarget().hurt(context.getLivingTarget().damageSources().magic(), (float) (damageDealt * 0.25f * X.getValue()));
+                    double y = Math.sqrt(X.getValue());
+                    context.getLivingTarget().hurt(context.getLivingTarget().damageSources().magic(), (float) (damageDealt * 0.20f * y));
                 }
                 context.getLivingTarget().setLastHurtByMob(context.getAttacker());
             }
