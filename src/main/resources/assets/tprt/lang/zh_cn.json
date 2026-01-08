@@ -179,7 +179,7 @@
 
   "modifier.tprt.the_dragon_power":"龙神之力",
   "modifier.tprt.the_dragon_power.flavor":"取得龙神的力量",
-  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高20%造成伤害，当最大生命值超过200时有隐藏效果",
+  "modifier.tprt.the_dragon_power.description":"每10点最大生命值提高20%造成伤害，当最大生命值超过200时后续增加的增伤会变为额外乘区",
 
   "modifier.tprt.the_dragon_lord":"龙神护体",
   "modifier.tprt.the_dragon_lord.flavor":"来自龙神的庇佑",

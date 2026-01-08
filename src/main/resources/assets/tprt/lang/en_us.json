@@ -169,7 +169,7 @@
 
   "modifier.tprt.the_dragon_power":"Dragon God's Power",
   "modifier.tprt.the_dragon_power.flavor":"Obtain the power of the Dragon God",
-  "modifier.tprt.the_dragon_power.description":"Increases damage dealt by 20% per 10 max health. Hidden effect when max health exceeds 200",
+  "modifier.tprt.the_dragon_power.description":"Increases damage dealt by 20% per 10 max health. Subsequent increased injuries will become additional multiplication areas when max health exceeds 200",
 
   "modifier.tprt.the_dragon_lord":"Dragon God's Protection",
   "modifier.tprt.the_dragon_lord.flavor":"Blessing from the Dragon God",

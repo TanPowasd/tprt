@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "tprt:evil_beast_alloy_ingot", "required":false}
+  ]
+}

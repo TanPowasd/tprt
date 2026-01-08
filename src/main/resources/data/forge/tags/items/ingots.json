@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:ingots/mixeddragon",
+    "#forge:ingots/source_alloy",
+    "#forge:ingots/forged_steel",
+    "#forge:ingots/advanced_manyullyn",
+    "#forge:ingots/kwat_wheat_grain_ingot",
+    "#forge:ingots/evil_beast_alloy_ingot",
+    "#forge:ingots/dark_knight_ingot"
+  ]
+}
