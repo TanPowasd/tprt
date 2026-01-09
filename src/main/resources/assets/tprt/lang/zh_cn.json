@@ -640,9 +640,9 @@
   "modifier.tprt.bulk_quiver": "实用箭袋",
   "modifier.tprt.bulk_quiver.flavor": "两个愿望，一次满足",
   "modifier.tprt.bulk_quiver.description": "给予弓5个箭袋槽位；手持弓并按下“攻击”键以切换槽位，潜行时并按下“攻击”键以访问这些槽位，可调用工匠箭矢",
-  "modifier.tconstruct.bulk_quiver.disabled": "实用箭袋：禁用",
-  "modifier.tconstruct.bulk_quiver.empty": "实用箭袋：%s号槽位中无箭矢，使用普通箭矢",
-  "modifier.tconstruct.bulk_quiver.selected": "实用箭袋: 选用%2$s号槽位中%1$s",
+  "modifier.tprt.bulk_quiver.disabled": "实用箭袋：禁用",
+  "modifier.tprt.bulk_quiver.empty": "实用箭袋：%s号槽位中无箭矢，使用普通箭矢",
+  "modifier.tprt.bulk_quiver.selected": "实用箭袋: 选用%2$s号槽位中%1$s",
 
 
   "common": "special",

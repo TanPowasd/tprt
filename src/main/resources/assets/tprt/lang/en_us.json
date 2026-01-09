@@ -633,9 +633,9 @@
   "modifier.tprt.bulk_quiver": "Practical Quiver",
   "modifier.tprt.bulk_quiver.flavor": "Two wishes, one fulfillment",
   "modifier.tprt.bulk_quiver.description": "Grants the bow 5 quiver slots. Hold the bow and press 'Attack' to switch slots. Sneak and press 'Attack' to access these slots. Can call Tinker's Arrows",
-  "modifier.tconstruct.bulk_quiver.disabled": "Practical Quiver: Disabled",
-  "modifier.tconstruct.bulk_quiver.empty": "Practical Quiver: No arrow in slot %s, using normal arrow",
-  "modifier.tconstruct.bulk_quiver.selected": "Practical Quiver: Selected %1$s from slot %2$s",
+  "modifier.tprt.bulk_quiver.disabled": "Practical Quiver: Disabled",
+  "modifier.tprt.bulk_quiver.empty": "Practical Quiver: No arrow in slot %s, using normal arrow",
+  "modifier.tprt.bulk_quiver.selected": "Practical Quiver: Selected %1$s from slot %2$s",
 
 
   "common": "special",
