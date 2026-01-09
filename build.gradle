@@ -192,7 +192,7 @@ dependencies {
     //implementation fg.deobf("curse.maven:tinkers-calibration-tic3-863663:6735556")
     implementation fg.deobf("curse.maven:etst-lib-1206379:6732443")
     implementation fg.deobf("curse.maven:lendercataclysm-551586:6849032")
-    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6371701")
+    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:7402504")
 
     // Compile against only the API artifact
     compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api"))
