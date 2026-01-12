@@ -23,7 +23,7 @@
     ],
     "sakuratinker:charm":[
       {
-        "level":3,
+        "level":2,
         "name":"tprt:strengthen_for_charm_spell_power"
       }
     ]

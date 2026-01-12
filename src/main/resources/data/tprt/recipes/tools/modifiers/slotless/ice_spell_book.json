@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:ice_spell_book"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:ice_spell_book",
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_spell_book"
+    }
+  ]
+}

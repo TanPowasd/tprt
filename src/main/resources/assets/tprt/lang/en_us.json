@@ -504,6 +504,14 @@
   "modifier.tprt.karate.flavor":"Hand-to-hand combat!",
   "modifier.tprt.karate.description":"Greatly increases bare-handed attack damage",
 
+  "modifier.tprt.pyrium": "Pyrium",
+  "modifier.tprt.pyrium.flavor":"Get the strength from pyrium!",
+  "modifier.tprt.pyrium.description":"Strength tools and improve your max mana",
+
+  "modifier.tprt.immolate": "Immolation",
+  "modifier.tprt.immolate.flavor":"Destroy the enemy with fire.",
+  "modifier.tprt.immolate.description":"Get the ability of Infernal Sorcerer Chestplate, and strengthen it",
+
   "modifier.tprt.netherite_spell_book": "Ancient Codex Enhancement",
   "modifier.tprt.netherite_spell_book.flavor":"The power of engraved codex",
   "modifier.tprt.netherite_spell_book.description":"+200 max mana, +20% spell cooldown reduction",
@@ -518,7 +526,7 @@
 
   "modifier.tprt.blaze_spell_book": "Blaze Spellcaster Tome Enhancement",
   "modifier.tprt.blaze_spell_book.flavor":"The power of engraved codex",
-  "modifier.tprt.blaze_spell_book.description":"+200 max mana, +10% Blaze spell power",
+  "modifier.tprt.blaze_spell_book.description":"+200 max mana, +10% Fire spell power",
 
   "modifier.tprt.necronomicon_spell_book": "Necronomicon Enhancement",
   "modifier.tprt.necronomicon_spell_book.flavor":"The power of engraved codex",
@@ -536,10 +544,18 @@
   "modifier.tprt.druidic_spell_book.flavor":"The power of engraved codex",
   "modifier.tprt.druidic_spell_book.description":"+200 max mana, +10% Nature spell power",
 
+  "modifier.tprt.cursed_doll_spell_book": "Vampiric Spellbook Enhancement",
+  "modifier.tprt.cursed_doll_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.cursed_doll_spell_book.description":"+200 max mana, +10% Blood spell power, +10% Spell Resistance",
+
+  "modifier.tprt.ice_spell_book": "Frostbranded Book",
+  "modifier.tprt.ice_spell_book.flavor":"The power of engraved codex",
+  "modifier.tprt.ice_spell_book.description":"+200 max mana, +10% Ice spell power",
+
   "modifier.tprt.the_source_of_all_spells": "Source of All Spells",
   "modifier.tprt.the_source_of_all_spells.flavor":"The source of all magic in the world",
-  "modifier.tprt.the_source_of_all_spells.description":"+1200 max mana, +200 mana regen, +50% total spell power",
-  "modifier.tprt.the_source_of_all_spells.requirements": "Requires all 8 types of spellbook enhancements as prerequisite",
+  "modifier.tprt.the_source_of_all_spells.description":"+1500 max mana, +300 mana regen, +60% total spell power",
+  "modifier.tprt.the_source_of_all_spells.requirements": "Requires all 10 types of spellbook enhancements as prerequisite",
 
   "modifier.tprt.blood_staff": "Crimson Godstaff Upgrade",
   "modifier.tprt.blood_staff.flavor":"Seize the staff's power",
@@ -551,11 +567,15 @@
 
   "modifier.tprt.ice_staff": "Frost Wand Upgrade",
   "modifier.tprt.ice_staff.flavor":"Seize the staff's power",
-  "modifier.tprt.ice_staff.description":"+15% Frost spell power, +5% spell power, +25% mana regeneration",
+  "modifier.tprt.ice_staff.description":"+15% Ice spell power, +5% spell power, +25% mana regeneration",
 
   "modifier.tprt.lightning_rod": "Lightning Rod Upgrade",
   "modifier.tprt.lightning_rod.flavor":"Seize the staff's power",
   "modifier.tprt.lightning_rod.description":"+15% Lightning spell power, -15% spell cooldown reduction, +5% spell power",
+
+  "modifier.tprt.pyrium_staff": "Pyrium Staff Upgrade",
+  "modifier.tprt.pyrium_staff.flavor":"Seize the staff's power",
+  "modifier.tprt.pyrium_staff.description":"+15% Fire spell power, -15% spell cooldown reduction, +5% spell power",
 
   "modifier.tprt.strengthen_for_charm_attack_damage": "Charm Enhancement - Attack Damage",
   "modifier.tprt.strengthen_for_charm_attack_damage.flavor":"Abyssal Power",

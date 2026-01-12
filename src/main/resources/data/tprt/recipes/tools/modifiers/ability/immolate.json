@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:pyrium_ingot"
+    },
+    {
+      "item": "irons_spellbooks:infernal_sorcerer_chestplate"
+    },
+    {
+      "item": "irons_spellbooks:pyrium_ingot"
+    },
+    {
+      "item": "irons_spellbooks:mithril_weave"
+    },
+    {
+      "item": "irons_spellbooks:mithril_weave"
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "result": "tprt:immolate",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor/chestplate"
+    }
+  ]
+}

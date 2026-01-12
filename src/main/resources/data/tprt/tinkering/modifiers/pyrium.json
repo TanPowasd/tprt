@@ -1,0 +1,81 @@
+{
+  "conditions":
+  {
+    "type": "forge:mod_loaded",
+    "modid": "irons_spellbooks"
+  },
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.20,
+      "operation": "multiply_base",
+      "stat": "tconstruct:durability"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 1.0,
+      "operation": "add",
+      "stat": "tconstruct:armor_toughness"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 2.0,
+      "operation": "add",
+      "stat": "tconstruct:armor"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.02,
+      "operation": "add",
+      "stat": "tconstruct:knockback_resistance"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.20,
+      "operation": "multiply_base",
+      "stat": "tconstruct:attack_damage"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.30,
+      "operation": "multiply_base",
+      "stat": "tconstruct:mining_speed"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.20,
+      "operation": "multiply_base",
+      "stat": "tconstruct:velocity"
+    },
+    {
+      "type": "tconstruct:attribute",
+      "each_level": 200,
+      "operation": "addition",
+      "attribute": "irons_spellbooks:max_mana",
+      "unique": "tconstruct.modifier.mana_improved",
+      "slots": [
+        "feet",
+        "legs",
+        "chest",
+        "head",
+        "mainhand",
+        "offhand"
+      ]
+    },
+    [
+      {
+        "type": "sakuratinker:multi_curio_attribute",
+        "attributes": [
+          {
+            "attribute": "irons_spellbooks:max_mana",
+            "operation": "addition",
+            "value": 200.0
+          }
+        ],
+        "name": "tprt:pyrium"
+      }
+    ]
+  ],
+  "tooltip_display": "always"
+}

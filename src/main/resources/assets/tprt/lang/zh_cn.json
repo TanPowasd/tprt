@@ -516,6 +516,14 @@
   "modifier.tprt.karate.flavor":"拳脚功夫！",
   "modifier.tprt.karate.description":"使空手时的攻击伤害大幅提高",
 
+  "modifier.tprt.pyrium": "炽金",
+  "modifier.tprt.pyrium.flavor":"得到炽金的加强！",
+  "modifier.tprt.pyrium.description":"增强工具并提升最大法力值",
+
+  "modifier.tprt.immolate": "炽焰献祭",
+  "modifier.tprt.immolate.flavor":"用炽焰湮灭敌人!",
+  "modifier.tprt.immolate.description":"获得炼狱巫师胸甲的能力，且威力更甚",
+
   "modifier.tprt.netherite_spell_book": "远古法典增强",
   "modifier.tprt.netherite_spell_book.flavor":"镌刻法典的力量",
   "modifier.tprt.netherite_spell_book.description":"+200最大法力值，+20%法术冷却缩减",
@@ -548,10 +556,18 @@
   "modifier.tprt.druidic_spell_book.flavor":"镌刻法典的力量",
   "modifier.tprt.druidic_spell_book.description":"+200最大法力值，+10%自然法术强度",
 
+  "modifier.tprt.cursed_doll_spell_book": "噬血邪典增强",
+  "modifier.tprt.cursed_doll_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.cursed_doll_spell_book.description":"+200最大法力值，+10%猩红法术强度，+10%法术抗性",
+
+  "modifier.tprt.ice_spell_book": "霜印之书增强",
+  "modifier.tprt.ice_spell_book.flavor":"镌刻法典的力量",
+  "modifier.tprt.ice_spell_book.description":"+200最大法力值，+10%冰霜法术强度",
+
   "modifier.tprt.the_source_of_all_spells": "万法之源",
   "modifier.tprt.the_source_of_all_spells.flavor":"世间所有法术的源泉",
-  "modifier.tprt.the_source_of_all_spells.description":"+1200最大法力值，+200法力回复，+50%总法术强度",
-  "modifier.tprt.the_source_of_all_spells.requirements": "需要所有8种魔导书强化作为前置",
+  "modifier.tprt.the_source_of_all_spells.description":"+1500最大法力值，+300法力回复，+60%总法术强度",
+  "modifier.tprt.the_source_of_all_spells.requirements": "需要所有10种魔导书强化作为前置",
 
   "modifier.tprt.blood_staff": "猩红神杖升级",
   "modifier.tprt.blood_staff.flavor":"攫取法杖的能力",
@@ -568,6 +584,10 @@
   "modifier.tprt.lightning_rod": "雷霆之杖升级",
   "modifier.tprt.lightning_rod.flavor":"攫取法杖的能力",
   "modifier.tprt.lightning_rod.description":"+15% 雷霆法术强度，-15% 法术冷却缩减，+5% 法术强度",
+
+  "modifier.tprt.pyrium_staff": "炽金魔杖升级",
+  "modifier.tprt.pyrium_staff.flavor":"攫取法杖的能力",
+  "modifier.tprt.pyrium_staff.description":"+15% 炽焰法术强度，+15% 法术吟唱缩减，+5% 法术强度",
 
   "modifier.tprt.strengthen_for_charm_attack_damage": "护符增强——攻击伤害",
   "modifier.tprt.strengthen_for_charm_attack_damage.flavor":"深渊之力",

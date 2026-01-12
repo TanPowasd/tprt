@@ -18,20 +18,20 @@
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "irons_spellbooks:arcane_salvage"
+      "item": "irons_spellbooks:mithril_ingot"
     },
     {
       "item": "minecraft:enchanted_golden_apple",
       "amount_needed":2
     },
     {
-      "item": "irons_spellbooks:arcane_salvage"
+      "item": "irons_spellbooks:mithril_ingot"
     },
     {
-      "item": "sakuratinker:arcane_alloy"
+      "item": "irons_spellbooks:mithril_ingot"
     },
     {
-      "item": "sakuratinker:arcane_alloy"
+      "item": "irons_spellbooks:mithril_ingot"
     }
   ],
   "level": {

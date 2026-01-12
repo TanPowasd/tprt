@@ -115,6 +115,8 @@
     "elemental_mastery":"#FFDAB9",
     "fountain_magic":"#6495ED",
     "endless_life": "#5cff76",
-    "bulk_quiver": "#C65C35"
+    "bulk_quiver": "#C65C35",
+    "pyrium": "#d6af39",
+    "immolate": "#d6af39"
   }
 }

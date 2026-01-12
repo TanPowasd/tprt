@@ -50,6 +50,14 @@
       {
         "level": 1,
         "name": "tprt:druidic_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:cursed_doll_spell_book"
+      },
+      {
+        "level": 1,
+        "name": "tprt:ice_spell_book"
       }
     ],
     "requirement": {
@@ -118,6 +126,22 @@
             "type": "tconstruct:single",
             "modifier": "tprt:druidic_spell_book"
           }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:cursed_doll_spell_book"
+          }
+        },
+        {
+          "type": "tconstruct:has_modifier",
+          "check": "all",
+          "modifier": {
+            "type": "tconstruct:single",
+            "modifier": "tprt:ice_spell_book"
+          }
         }
       ]
     },
@@ -129,18 +153,18 @@
         {
           "attribute": "irons_spellbooks:max_mana",
           "operation": "addition",
-          "value": 1200.0
+          "value": 1500.0
         },
         {
           "attribute": "irons_spellbooks:mana_regen",
           "operation": "addition",
-          "value": 200.0
+          "value": 300.0
         },
         {
           "attribute": "irons_spellbooks:spell_power",
           "operation": "multiply_total",
           "tooltip_style": "percent",
-          "value": 0.5
+          "value": 0.6
         }
       ],
       "name": "tprt:the_source_of_all_spells"
