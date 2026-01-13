@@ -452,6 +452,10 @@
   "modifier.tprt.ancient_relics.flavor":"怎么现代的作物还退化了…………",
   "modifier.tprt.ancient_relics.description":"沉睡的远古作物为你带来了两个升级槽和一个能力槽",
 
+  "modifier.tprt.taboo_knowledge": "禁忌知识",
+  "modifier.tprt.taboo_knowledge.flavor":"被封存的历史…………",
+  "modifier.tprt.taboo_knowledge.description":"神秘的古代知识为你带来了一个升级槽",
+
   "modifier.tprt.solid_armor": "坚固护甲",
   "modifier.tprt.solid_armor.flavor":"锻造你的护甲，使其更加坚固",
   "modifier.tprt.solid_armor.description":"以一个升级槽为代价获得一个防御槽",

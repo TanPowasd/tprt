@@ -440,6 +440,10 @@
   "modifier.tprt.ancient_relics.flavor":"How did modern crops degenerate...",
   "modifier.tprt.ancient_relics.description":"Slumbering ancient crops grant two upgrade slots and one ability slot",
 
+  "modifier.tprt.taboo_knowledge": "Taboo Knowledge",
+  "modifier.tprt.taboo_knowledge.flavor":"The sealed history...",
+  "modifier.tprt.taboo_knowledge.description":"Mysterious ancient knowledge grant one upgrade slots",
+
   "modifier.tprt.solid_armor": "Solid Armor",
   "modifier.tprt.solid_armor.flavor":"Forge your armor, making it more solid",
   "modifier.tprt.solid_armor.description":"Gain one defense slot at the cost of one upgrade slot",

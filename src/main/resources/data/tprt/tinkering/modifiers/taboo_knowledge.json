@@ -1,0 +1,15 @@
+{
+  "condition": {
+        "type": "forge:mod_loaded",
+        "modid": "irons_spellbooks"
+  },
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:modifier_slot",
+      "count": 1,
+      "name": "upgrades"
+    }
+  ],
+  "tooltip_display": "tinker_station"
+}
