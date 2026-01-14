@@ -1,10 +1,12 @@
 package org.mylove.tprt.compat.IronsSpellBooks.Modifiers;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import org.jetbrains.annotations.NotNull;
 import org.mylove.tprt.registries.TagsRegistry;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -20,6 +22,8 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
+import static io.redspace.ironsspellbooks.damage.ISSDamageTypes.ENDER_MAGIC;
+
 public class human_turpentine extends NoLevelsModifier implements MeleeHitModifierHook, MeleeDamageModifierHook, ToolStatsModifierHook {
     protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
         super.registerHooks(hookBuilder);
@@ -28,16 +32,11 @@ public class human_turpentine extends NoLevelsModifier implements MeleeHitModifi
         hookBuilder.addHook(this, ModifierHooks.TOOL_STATS);
     }
 
-    public static MobEffect getEffect(){
-        ResourceLocation effectId=new ResourceLocation("irons_spellbooks","echoing_strikes");
-        return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
-    }
-
     @Override
     public void addToolStats(IToolContext context, ModifierEntry modifier, ModifierStatsBuilder builder) {
         if(context.hasTag(TagsRegistry.ItemsTag.sickle))
         {
-            ToolStats.ATTACK_DAMAGE.multiply(builder, 1.75);
+            ToolStats.ATTACK_DAMAGE.multiply(builder, 2.50);
             ToolStats.ATTACK_SPEED.multiply(builder, 1.75);
         }
     }
@@ -49,14 +48,31 @@ public class human_turpentine extends NoLevelsModifier implements MeleeHitModifi
 
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt){
-        if (!(context.getTarget() instanceof LivingEntity target)) return;
-        LivingEntity entity= context.getLivingTarget();
-        LivingEntity attacker=context.getAttacker();
-        if (entity != null) {
-            MobEffect effect = getEffect();
-            MobEffectInstance instance = target.getEffect(effect);
-            if (instance == null) {
-                attacker.addEffect(new MobEffectInstance(effect, 40, 0));
+        LivingEntity target= context.getLivingTarget();
+        LivingEntity attacker=context.getPlayerAttacker();
+        AttributeInstance X = null;
+        AttributeInstance Y = null;
+        if (attacker != null) {
+            X = attacker.getAttribute(AttributeRegistry.SPELL_POWER.get());
+            Y = attacker.getAttribute(AttributeRegistry.ENDER_SPELL_POWER.get());
+        }
+        if (attacker != null && target != null) {
+            if (X != null && Y != null) {
+                X.getValue();
+                Y.getValue();
+            }
+            if (context.getLivingTarget() != null) {
+                context.getLivingTarget().invulnerableTime = 0;
+                if (X != null && Y != null) {
+                    double x = Math.sqrt(X.getValue());
+                    double y = Math.sqrt(Y.getValue());
+                    {
+                        {;
+                        context.getLivingTarget().hurt(new DamageSource((Holder<DamageType>) ENDER_MAGIC), (float) (damageDealt * 0.10f * x * y));
+                        }
+                    }
+                }
+                context.getLivingTarget().setLastHurtByMob(context.getAttacker());
             }
         }
     }

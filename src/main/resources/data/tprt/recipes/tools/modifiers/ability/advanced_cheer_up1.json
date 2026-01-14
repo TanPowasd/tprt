@@ -3,21 +3,19 @@
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "minecraft:enchanted_golden_apple"
+      "item": "tconstruct:jeweled_apple",
+      "amount_needed":4
     },
     {
-      "item": "minecraft:enchanted_golden_apple"
-    },
-    {
-      "item": "minecraft:enchanted_golden_apple"
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":2
     },
     {
       "item": "tconstruct:jeweled_apple",
       "amount_needed":4
     },
     {
-      "item": "tconstruct:jeweled_apple",
-      "amount_needed":4
+      "item": "sakuratinker:bear_interest_ingot"
     }
   ],
   "level": 1,
