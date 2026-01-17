@@ -24,8 +24,8 @@ public class golden_fox_mask extends SimpleDescriptiveCurio {
         super(new Properties().stacksTo(1).rarity(Rarity.EPIC), "golden_fox_mask" , () ->{
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
             builder
-                    .put(Attributes.LUCK, new AttributeModifier(UUID.fromString("bf4f56a1-3f19-4a75-8faa-fae0e88f525e"), "Curios modifier", 3, AttributeModifier.Operation.ADDITION))
-                    .put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("4c5f72a1-73aa-4ba2-80b0-aa68yda17fc1"), "Curios modifier", 0.25, AttributeModifier.Operation.MULTIPLY_BASE));
+                    .put(Attributes.LUCK, new AttributeModifier(UUID.fromString("123e4567-e89b-12d3-a456-426614174734"), "Curios modifier", 3, AttributeModifier.Operation.ADDITION))
+                    .put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("123e4567-e89b-12d3-a456-426614174734"), "Curios modifier", 0.25, AttributeModifier.Operation.MULTIPLY_BASE));
             return builder.build();
         });
     }

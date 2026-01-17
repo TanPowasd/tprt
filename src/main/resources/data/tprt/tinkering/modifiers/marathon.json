@@ -1,21 +1,7 @@
 {
-  "condition": {
-    "type": "forge:or",
-    "values": [
-      {
-        "type": "tconstruct:config",
-        "prop": "force_integration_materials"
-      },
-      {
-        "type": "forge:mod_loaded",
-        "modid": "irons_spellbooks"
-      }
-    ]
-  },
   "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "attributeslib"
+    { "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
     }
   ],
   "level_display": "tconstruct:default",

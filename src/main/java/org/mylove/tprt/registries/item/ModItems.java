@@ -7,7 +7,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.registries.ModFoods;
-import org.mylove.tprt.registries.item.curios.golden_fox_mask;
 import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 
 import static com.ssakura49.sakuratinker.register.STItems.registerCommonItem;
@@ -76,10 +75,12 @@ public class ModItems {
 //lr特供 濡湿骑士锭
 public static final RegistryObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_knight_ingot",
         ()->new Item(new Item.Properties()));
-
+//lr特供 溪竹板
+public static final RegistryObject<Item>Leisamboo_Board=ITEMS.register("leisamboo_board",
+        ()->new Item(new Item.Properties()));
 //魂樱面具拓展：金质
     public static final RegistryObject<Item>golden_fox_mask = registerCommonItem(ITEMS, "golden_fox_mask",
-        () -> new golden_fox_mask(), false);
+        org.mylove.tprt.registries.item.curios.golden_fox_mask::new, false);
 
 //lr特供 锚剑
     public static final RegistryObject<Item>anchor_sword= ITEMS.register("anchor_sword",

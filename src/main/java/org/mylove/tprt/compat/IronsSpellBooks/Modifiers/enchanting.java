@@ -48,7 +48,7 @@ public class enchanting extends NoLevelsModifier implements MeleeHitModifierHook
                 context.getLivingTarget().invulnerableTime = 0;
                 if (X != null) {
                     double y = Math.sqrt(X.getValue());
-                    context.getLivingTarget().hurt(context.getLivingTarget().damageSources().magic(), (float) (damageDealt * 0.20f * y));
+                    context.getLivingTarget().hurt(context.getLivingTarget().damageSources().magic(), (float) ((5+damageDealt) * 0.20f * y));
                 }
                 context.getLivingTarget().setLastHurtByMob(context.getAttacker());
             }

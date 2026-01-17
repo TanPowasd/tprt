@@ -8,15 +8,13 @@
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "irons_spellbooks:arcane_essence",
-      "amount_needed":2
+      "item": "irons_spellbooks:magic_cloth"
     },
     {
-      "item": "irons_spellbooks:graybeard_staff"
+      "item": "irons_spellbooks:magic_cloth"
     },
     {
-      "item": "irons_spellbooks:arcane_essence",
-      "amount_needed":2
+      "item": "irons_spellbooks:magic_cloth"
     },
     {
       "item": "irons_spellbooks:arcane_ingot"
@@ -25,11 +23,13 @@
       "item": "irons_spellbooks:arcane_ingot"
     }
   ],
-  "level": 1,
-  "result": "tprt:release_spells",
+  "slots": {
+    "defense": 1
+  },
+  "result": "tprt:spell_resist",
   "tools": [
     {
-      "tag": "tprt:modifiable/melee/magic_blade"
+      "tag": "tconstruct:modifiable/armor"
     }
   ]
 }

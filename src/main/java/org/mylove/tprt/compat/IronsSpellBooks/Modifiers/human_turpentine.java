@@ -1,11 +1,9 @@
 package org.mylove.tprt.compat.IronsSpellBooks.Modifiers;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import net.minecraft.core.Holder;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.NotNull;
 import org.mylove.tprt.registries.TagsRegistry;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -20,8 +18,6 @@ import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
-
-import static io.redspace.ironsspellbooks.damage.ISSDamageTypes.ENDER_MAGIC;
 
 public class human_turpentine extends NoLevelsModifier implements MeleeHitModifierHook, MeleeDamageModifierHook, ToolStatsModifierHook {
     protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
@@ -48,7 +44,7 @@ public class human_turpentine extends NoLevelsModifier implements MeleeHitModifi
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt){
         LivingEntity target= context.getLivingTarget();
-        LivingEntity attacker=context.getPlayerAttacker();
+        Player attacker=context.getPlayerAttacker();
         AttributeInstance X = null;
         AttributeInstance Y = null;
         if (attacker != null) {
@@ -63,11 +59,11 @@ public class human_turpentine extends NoLevelsModifier implements MeleeHitModifi
             if (context.getLivingTarget() != null) {
                 context.getLivingTarget().invulnerableTime = 0;
                 if (X != null && Y != null) {
-                    double x = Math.sqrt(X.getValue());
-                    double y = Math.sqrt(Y.getValue());
+                    double x = Math.sqrt(X.getValue()+3);
+                    double y = Math.sqrt(Y.getValue()+3);
                     {
                         {;
-                        context.getLivingTarget().hurt(new DamageSource((Holder<DamageType>) ENDER_MAGIC), (float) (damageDealt * 0.10f * x * y));
+                            context.getLivingTarget().hurt(context.getLivingTarget().damageSources().dragonBreath(), (float) (15 * x * y));
                         }
                     }
                 }

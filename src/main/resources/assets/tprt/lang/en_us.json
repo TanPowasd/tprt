@@ -58,6 +58,10 @@
   "effect.tprt.de_eager_edge": "Eager Edge Cooldown",
   "effect.tprt.myl_girig_pro": "Greed",
 
+  "common": "item",
+  "item.tprt.leisamboo_board":"：Leisamboo Template",
+
+
   "common": "item_and_fluid",
 
   "item.tprt.mixeddragon":"§6Dragon God Steel Ingot§r",
@@ -296,7 +300,7 @@
 
   "modifier.tprt.human_turpentine": "Human Turpentine",
   "modifier.tprt.human_turpentine.flavor":"“Your sun... has set”",
-  "modifier.tprt.human_turpentine.description":"Attack damage increased to 125%. Attacks grant the wielder 2s of Echoing Strike effect",
+  "modifier.tprt.human_turpentine.description":"Attack damage increased to 125%. Attacks deal additional dragon breath damage and it can be improved according to spell power and ender spell power",
 
   "modifier.tprt.marathon": "Marathon",
   "modifier.tprt.marathon.flavor":"“Favor jingles when cut”",
@@ -466,6 +470,10 @@
   "modifier.tprt.heart_of_life": "Heart of Life",
   "modifier.tprt.heart_of_life.flavor":"Your life has sublimated",
   "modifier.tprt.heart_of_life.description":"Increases max health by 10",
+
+  "modifier.tprt.spell_resist": "Spell Resist Improved",
+  "modifier.tprt.spell_resist.flavor":"'Your Arts aren't working. How can that be?'",
+  "modifier.tprt.spell_resist.description":"Per level: Increases Spell Resist by B%",
 
   "modifier.tprt.advanced_sharpness": "Sharpened Blade",
   "modifier.tprt.advanced_sharpness.2": "Sharpened Blade+",

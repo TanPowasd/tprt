@@ -1,17 +1,7 @@
 {
   "conditions": [
-    {
-      "type": "forge:or",
-      "values": [
-        {
-          "type": "tconstruct:config",
-          "prop": "force_integration_materials"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "irons_spellbooks"
-        }
-      ]
+    { "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
     }
   ],
   "level_display": "tconstruct:no_levels",
@@ -24,6 +14,10 @@
       "attribute": "irons_spellbooks:ender_spell_power",
       "unique": "tconstruct.modifier.ender_spell_power_improved",
       "slots": [
+        "feet",
+        "legs",
+        "chest",
+        "head",
         "mainhand",
         "offhand"
       ]

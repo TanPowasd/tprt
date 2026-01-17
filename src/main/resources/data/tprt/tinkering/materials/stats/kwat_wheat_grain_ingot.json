@@ -1,32 +1,22 @@
 {
-  "conditions": [
-    {
-      "type": "forge:or",
-      "values": [
-        {
-          "type": "tconstruct:config",
-          "prop": "force_integration_materials"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "immortalers_delight"
-        }
-      ]
-    }
-  ],
+  "conditions":
+  {
+    "type": "forge:mod_loaded",
+    "modid": "immortalers_delight"
+  },
   "stats": {
     "tconstruct:binding": {},
     "tconstruct:handle": {
       "durability": -0.65,
-      "melee_damage": 0.2,
+      "melee_damage": -0.2,
       "melee_speed": 0.3,
       "mining_speed": 0.3
     },
     "tconstruct:head": {
       "durability": 473,
-      "melee_attack": 3.7,
+      "melee_attack": 2.3,
       "mining_speed": 2.8,
-      "mining_tier": "minecraft:diamond"
+      "mining_tier": "minecraft:stone"
     }
   }
 }

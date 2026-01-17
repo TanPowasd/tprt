@@ -1,19 +1,9 @@
 {
-  "conditions": [
-    {
-      "type": "forge:or",
-      "values": [
-        {
-          "type": "tconstruct:config",
-          "prop": "force_integration_materials"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "immortalers_delight"
-        }
-      ]
-    }
-  ],
+  "conditions":
+  {
+    "type": "forge:mod_loaded",
+    "modid": "immortalers_delight"
+  },
   "stats": {
     "tconstruct:shield_core": {}
   }

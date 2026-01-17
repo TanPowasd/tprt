@@ -1,4 +1,17 @@
 {
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "immortalers_delight"
+      }
+    ]
+  },
   "type": "tconstruct:modifier",
   "allow_crystal": true,
   "inputs": [

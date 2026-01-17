@@ -1,17 +1,7 @@
 {
   "conditions": [
-    {
-      "type": "forge:or",
-      "values": [
-        {
-          "type": "tconstruct:config",
-          "prop": "force_integration_materials"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "irons_spellbooks"
-        }
-      ]
+    { "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
     }
   ],
   "translation_key": "item.tprt.magic_blade",

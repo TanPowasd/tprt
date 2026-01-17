@@ -1,9 +1,9 @@
 {
-  "conditions":
-  {
-    "type": "forge:mod_loaded",
-    "modid": "irons_spellbooks"
-  },
+  "conditions": [
+    { "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
   "level_display": "tconstruct:single_level",
   "modules": [
     {

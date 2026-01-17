@@ -8,29 +8,18 @@
   "modules": [
     {
       "type": "tconstruct:attribute",
-      "each_level": 0.05,
+      "each_level": 0.08,
       "operation": "addition",
+      "attribute": "irons_spellbooks:spell_resist",
       "tooltip_style": "percent",
-      "attribute": "irons_spellbooks:spell_power",
+      "unique": "tconstruct.modifier.spell_resist",
       "slots": [
         "feet",
         "legs",
         "chest",
         "head",
-        "mainhand"
-      ]
-    },
-    {
-      "type": "tconstruct:attribute",
-      "each_level": 150,
-      "operation": "addition",
-      "attribute": "irons_spellbooks:max_mana",
-      "slots": [
-        "feet",
-        "legs",
-        "chest",
-        "head",
-        "mainhand"
+        "mainhand",
+        "offhand"
       ]
     }
   ],

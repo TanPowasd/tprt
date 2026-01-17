@@ -66,6 +66,10 @@
   "effect.tprt.myl_girig_pro": "贪欲",
 
 
+  "common": "item",
+  "item.tprt.leisamboo_board":"溪竹模板",
+
+
   "common": "item_and_fluid",
 
   "item.tprt.mixeddragon":"§6龙神钢锭§r",
@@ -306,7 +310,7 @@
 
   "modifier.tprt.human_turpentine": "人松脂",
   "modifier.tprt.human_turpentine.flavor":"“你的太阳...落山了”",
-  "modifier.tprt.human_turpentine.description":"攻击伤害提高至125%，攻击使持有者获得2s回响打击效果",
+  "modifier.tprt.human_turpentine.description":"攻击伤害提高至125%，攻击会根据使用者的法术强度和末影法术强度附加龙息伤害",
 
   "modifier.tprt.marathon": "马拉松",
   "modifier.tprt.marathon.flavor":"“宠爱切的叮当响”",
@@ -478,6 +482,10 @@
   "modifier.tprt.heart_of_life": "生命之心",
   "modifier.tprt.heart_of_life.flavor":"你的生命获得了升华",
   "modifier.tprt.heart_of_life.description":"提高10点生命上限",
+
+  "modifier.tprt.spell_resist": "法术抗性提升",
+  "modifier.tprt.spell_resist.flavor":"“你们的法术不奏效了，怎么回事呢？”",
+  "modifier.tprt.spell_resist.description":"每级提高8%法术抗性",
 
   "modifier.tprt.advanced_sharpness": "利刃出鞘",
   "modifier.tprt.advanced_sharpness.2": "利刃出鞘+",
