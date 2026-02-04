@@ -1,6 +1,5 @@
 package org.mylove.tprt.Modifiers;
 
-import com.ssakura49.sakuratinker.library.damagesource.LegacyDamageSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -39,7 +38,6 @@ public class wrath_of_flames extends NoLevelsModifier implements MeleeHitModifie
         LivingEntity target = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
         if (target != null && target.hasEffect(ModEffect.EFFECTBLAZING_BRAND.get()) && attacker instanceof Player player) {
-            LegacyDamageSource source = LegacyDamageSource.playerAttack(player).setFire();
             target.invulnerableTime = 0;
             MobEffect effect = getEffect();
             MobEffectInstance instance = target.getEffect(effect);
@@ -48,7 +46,9 @@ public class wrath_of_flames extends NoLevelsModifier implements MeleeHitModifie
                 bufnum = instance.getAmplifier()+1;
             }
             System.out.println(damageDealt);
-            target.hurt(source, damageDealt*bufnum*0.1f);
+            if (context.getLivingTarget() != null) {
+                context.getLivingTarget().hurt(context.getLivingTarget().damageSources().onFire(), damageDealt*bufnum*0.1f);
+            }
         }
     }
 }
