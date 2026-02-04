@@ -680,6 +680,10 @@
   "modifier.tprt.bulk_quiver.empty": "实用箭袋：%s号槽位中无箭矢，使用普通箭矢",
   "modifier.tprt.bulk_quiver.selected": "实用箭袋: 选用%2$s号槽位中%1$s",
 
+  "modifier.tprt.poisonous_explosion": "毒爆",
+  "modifier.tprt.poisonous_explosion.flavor":"猛毒爆发！",
+  "modifier.tprt.poisonous_explosion.description":"攻击会基于攻击目标当前中毒效果的等级和持续时间造成小范围魔法伤害并清除目标的中毒效果",
+
 
   "common": "special",
 

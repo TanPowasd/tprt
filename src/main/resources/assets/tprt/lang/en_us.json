@@ -673,6 +673,10 @@
   "modifier.tprt.bulk_quiver.empty": "Practical Quiver: No arrow in slot %s, using normal arrow",
   "modifier.tprt.bulk_quiver.selected": "Practical Quiver: Selected %1$s from slot %2$s",
 
+  "modifier.tprt.poisonous_explosion": "Poisonous Explosion",
+  "modifier.tprt.poisonous_explosion.flavor":"Fierce poison broke out!",
+  "modifier.tprt.poisonous_explosion.description":"The attack will cause a small range of magic damage based on the level and duration of the target's current poisoning effect and clear the target's poisoning effect.",
+
 
   "common": "special",
 
