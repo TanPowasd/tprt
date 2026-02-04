@@ -235,6 +235,10 @@
   "modifier.tprt.advanced_greed.flavor":"When was it ever enough?",
   "modifier.tprt.advanced_greed.description":"Each attack increases attack damage by 5%, stacks up to 10 times",
 
+  "modifier.tprt.arrogant": "Arrogant",
+  "modifier.tprt.arrogant.flavor":"Contempt for inferior creatures",
+  "modifier.tprt.arrogant.description":"When the health is full, the whole body will be given 5% independent damage reduction per level(up to 40%). If the current health is greater than 50% of the maximum health value, the effect will be reduced to 3% (up to 24%) per level.",
+
   "modifier.tprt.mechanical_star_att": "Mechanical Star",
   "modifier.tprt.mechanical_star_att.flavor":"A marvel of engineering, the embodiment of a war machine",
   "modifier.tprt.mechanical_star_att.description":"Your armor value increases damage dealt",

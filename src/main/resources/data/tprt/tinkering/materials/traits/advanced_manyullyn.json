@@ -12,8 +12,12 @@
   "perStat": {
     "tconstruct:armor": [
       {
-        "level": 2,
+        "level": 1,
         "name": "tconstruct:kinetic"
+      },
+      {
+        "level": 1,
+        "name": "tprt:arrogant"
       },
       {
         "level": 2,

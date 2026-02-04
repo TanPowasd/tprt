@@ -245,6 +245,10 @@
   "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
   "modifier.tprt.advanced_greed.description":"每次攻击提高5%攻击伤害，上限10层",
 
+  "modifier.tprt.arrogant": "傲慢",
+  "modifier.tprt.arrogant.flavor":"对下等生物的蔑视",
+  "modifier.tprt.arrogant.description":"生命值为满时全身每级提供5%独立伤害减免（最多40%），若当前生命值大于最大生命值的50%，则效果削减到每级3%（最多24%）",
+
   "modifier.tprt.mechanical_star_att": "机械之星",
   "modifier.tprt.mechanical_star_att.flavor":"机械工程的杰作，战争机器的化身",
   "modifier.tprt.mechanical_star_att.description":"你的护甲值会提高造成伤害",

@@ -29,6 +29,7 @@ public class ModifierRegistry {
     public static final StaticModifier<the_dragon_power> THE_DRAGON_POWER = MODIFIERS.register("the_dragon_power",the_dragon_power::new);
     public static final StaticModifier<The_dragon_lord> The_dragon_lord = MODIFIERS.register("the_dragon_lord",The_dragon_lord::new);
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
+    public static final StaticModifier<Arrogant> Arrogant = MODIFIERS.register("arrogant",Arrogant::new);
     public static final StaticModifier<strong_but_pliable> STRONG_BUT_PLIABLE = MODIFIERS.register("strong_but_pliable",strong_but_pliable::new);
     public static final StaticModifier<ancient_sandstorm> ANCIENT_SANDSTORM = MODIFIERS.register("ancient_sandstorm",ancient_sandstorm::new);
     public static final StaticModifier<reaper> REAPER = MODIFIERS.register("reaper",reaper::new);
