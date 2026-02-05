@@ -684,6 +684,10 @@
   "modifier.tprt.poisonous_explosion.flavor":"猛毒爆发！",
   "modifier.tprt.poisonous_explosion.description":"攻击会基于攻击目标当前中毒效果的等级和持续时间造成小范围魔法伤害并清除目标的中毒效果",
 
+  "modifier.tprt.quenching_poison": "淬毒",
+  "modifier.tprt.quenching_poison.flavor":"我这刀可是涂了毒的（舔）",
+  "modifier.tprt.quenching_poison.description":"攻击会对目标施加中毒效果，最高5级，等级越高施加的持续时间越长（持续时间可叠加）",
+
 
   "common": "special",
 

@@ -121,6 +121,7 @@
     "immolate": "#d6af39",
     "taboo_knowledge": "#867b86",
     "spell_resist": "#9938c3",
-    "poisonous_explosion": "#65C100"
+    "poisonous_explosion": "#65C100",
+    "quenching_poison": "#65C100"
   }
 }
