@@ -18,7 +18,7 @@
   "modules": [
     {
       "type": "tconstruct:stat_boost",
-      "each_level": 1,
+      "each_level": 0.6,
       "operation": "add",
       "stat": "tconstruct:projectile_damage",
       "unique": "tprt.modifier.wrath_of_the_dragon"
