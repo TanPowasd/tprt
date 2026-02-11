@@ -26,7 +26,7 @@ import static net.minecraft.world.effect.MobEffects.POISON;
 
 public class Poisonous_explosion extends NoLevelsModifier implements MeleeHitModifierHook {
 
-    public static final int Poisonous_explosionCoolDown = 50;//tick
+    public static final int Poisonous_explosionCoolDown = 80;//tick
 
     protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
         super.registerHooks(hookBuilder);
