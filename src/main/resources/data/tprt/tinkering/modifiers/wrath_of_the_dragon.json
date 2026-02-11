@@ -18,8 +18,8 @@
   "modules": [
     {
       "type": "tconstruct:stat_boost",
-      "each_level": 0.15,
-      "operation": "multiply_base",
+      "each_level": 1,
+      "operation": "add",
       "stat": "tconstruct:projectile_damage",
       "unique": "tprt.modifier.wrath_of_the_dragon"
     }
