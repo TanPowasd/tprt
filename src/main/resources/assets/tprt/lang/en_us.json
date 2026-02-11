@@ -215,9 +215,9 @@
   "modifier.tprt.burning_flames.flavor": "Flames that incinerate the world",
   "modifier.tprt.burning_flames.description": "Attacks apply Searing Brand. Max effect level equals modifier level cap",
 
-  "modifier.tprt.wrath_of_flames": "Flame Demon's Wrath",
+  "modifier.tprt.wrath_of_flames": "Ignis' Wrath",
   "modifier.tprt.wrath_of_flames.flavor":"The wrath of the Nether Flame Lord",
-  "modifier.tprt.wrath_of_flames.description":"For each stack of Searing Brand on the target, attack deals an additional 10% damage",
+  "modifier.tprt.wrath_of_flames.description":"For each stack of Searing Brand on the target, attack deals an additional 10% fire damage",
 
   "modifier.tprt.cursed_spirit": "Ashen Curse",
   "modifier.tprt.cursed_spirit.flavor":"The power of a death curse serves you",

@@ -227,7 +227,7 @@
 
   "modifier.tprt.wrath_of_flames": "焰魔之怒",
   "modifier.tprt.wrath_of_flames.flavor":"来自下界烈焰领主的怒火",
-  "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外造成10%伤害",
+  "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外附带10%火焰伤害",
 
   "modifier.tprt.cursed_spirit": "死灰咒言",
   "modifier.tprt.cursed_spirit.flavor":"死亡诅咒的力量为你所用",
