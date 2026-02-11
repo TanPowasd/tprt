@@ -163,6 +163,9 @@
   "material.tprt.stymphalian_bird_feather":"青铜鹗羽",
   "material.tprt.stymphalian_bird_feather.flavor":"装上了青铜鹗羽的箭矢能像猛禽一样翱翔",
 
+  "material.tprt.dragonbone":"龙之骨",
+  "material.tprt.dragonbone.flavor":"“说真的你不觉得骨头能像金属一样被锻造成工具武器其实听起来很扯么？”——铁匠学徒",
+
   "material.tprt.frosted_helve":"冰封手柄",
   "material.tprt.frosted_helve.flavor":"弥漫着凛冽的寒气和冰霜的玄奥",
 
@@ -267,10 +270,6 @@
   "modifier.tprt.cinder_slash.attack_damage": "熔毁倍率",
   "modifier.tprt.cinder_slash.use_item_speed": "熔毁范围",
 
-  "modifier.tprt.gas_poison": "绯烬烈灼",
-  "modifier.tprt.gas_poison.flavor":"被这种奇异的远古作物灼伤后，你产生了将其作为武器的想法",
-  "modifier.tprt.gas_poison.description":"攻击造成绯烬烈灼效果",
-
   "modifier.tprt.soul_infection": "魂灵浸染",
   "modifier.tprt.soul_infection.flavor":"长期的浸润使它充满魂灵的力量",
   "modifier.tprt.soul_infection.description":"小幅度提升工具的所有属性",
@@ -288,13 +287,31 @@
   "modifier.tprt.ancient_sandstorm.description":"基础耐久+1500，攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐获得高额百分比提升",
   "modifier.tprt.ancient_sandstorm.requirements": "需要远古金属材料作为前置",
 
+  "modifier.tprt.will_from_ancient": "远古意志",
+  "modifier.tprt.will_from_ancient.flavor":"坚定不移！",
+  "modifier.tprt.will_from_ancient.description":"工具的攻击力和弹射物力量小幅度提升，攻击会抵消目标的部分护甲值",
+
+
+
   "modifier.tprt.luck_strike": "幸运一击",
   "modifier.tprt.luck_strike.flavor": "能找到它就是好运？",
   "modifier.tprt.luck_strike.description": "攻击伤害有概率翻数倍，幸运和词条等级越高，倍率越高；不暴击时伤害降低",
 
+
+
   "modifier.tprt.metallization": "金属化",
   "modifier.tprt.metallization.flavor":"连箭羽都是金属制的！",
   "modifier.tprt.metallization.description":"大幅提高箭矢的各项属性，但是精准度降低",
+
+  "modifier.tprt.the_prestige_of_dragon": "龙威",
+  "modifier.tprt.the_prestige_of_dragon.flavor":"蕴藏龙的力量！",
+  "modifier.tprt.the_prestige_of_dragon.description":"较小幅度提升工具的所有属性",
+
+  "modifier.tprt.wrath_of_the_dragon": "龙之怒",
+  "modifier.tprt.wrath_of_the_dragon.flavor":"感受龙的愤怒",
+  "modifier.tprt.wrath_of_the_dragon.description":"每级提高1点弹射物力量",
+
+
 
   "modifier.tprt.ice_spell_power_improved": "冰霜法强提升",
   "modifier.tprt.ice_spell_power_improved.flavor":"冰霜的凛冽使你对冰霜法术有了更深刻的理解",
@@ -320,9 +337,7 @@
   "modifier.tprt.marathon.flavor":"“宠爱切的叮当响”",
   "modifier.tprt.marathon.description":"手持武器时移速大幅加快",
 
-  "modifier.tprt.will_from_ancient": "远古意志",
-  "modifier.tprt.will_from_ancient.flavor":"坚定不移！",
-  "modifier.tprt.will_from_ancient.description":"工具的攻击力和弹射物力量小幅度提升，攻击会抵消目标的部分护甲值",
+
 
   "modifier.tprt.nature_affinity": "自然亲和",
   "modifier.tprt.nature_affinity.flavor":"森林之子！",
@@ -407,6 +422,12 @@
   "modifier.tprt.endless_life": "万古长青",
   "modifier.tprt.endless_life.flavor":"医学奇迹！",
   "modifier.tprt.endless_life.description":"获得高额的生命回复效果，同时使自身受到的治疗效果提高",
+
+
+
+  "modifier.tprt.gas_poison": "绯烬烈灼",
+  "modifier.tprt.gas_poison.flavor":"被这种奇异的远古作物灼伤后，你产生了将其作为武器的想法",
+  "modifier.tprt.gas_poison.description":"攻击造成绯烬烈灼效果",
 
   "modifier.tprt.flourishing": "欣欣向荣",
   "modifier.tprt.flourishing.flavor":"使周围的作物欢呼雀跃！",

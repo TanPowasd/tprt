@@ -154,6 +154,9 @@
   "material.tprt.stymphalian_bird_feather":"Stymphalian Bird Feather",
   "material.tprt.stymphalian_bird_feather.flavor":"Arrows fitted with these feathers soar like birds of prey",
 
+  "material.tprt.dragonbone":"Dragon Bone",
+  "material.tprt.dragonbone.flavor":"Even though it's already dead, there is still some power.",
+
   "material.tprt.frosted_helve":"Frosted Helve",
   "material.tprt.frosted_helve.flavor":"Pervaded by a chilling cold and the mystery of frost",
 
@@ -257,10 +260,6 @@
   "modifier.tprt.cinder_slash.attack_damage": "Cinder Slash Multiplier",
   "modifier.tprt.cinder_slash.use_item_speed": "Cinder Slash Range",
 
-  "modifier.tprt.gas_poison": "Vermilion Scorch",
-  "modifier.tprt.gas_poison.flavor":"After being burned by this strange ancient crop, you had the idea to use it as a weapon",
-  "modifier.tprt.gas_poison.description":"Attacks inflict Vermilion Scorch",
-
   "modifier.tprt.soul_infection": "Soul Infusion",
   "modifier.tprt.soul_infection.flavor":"Long-term immersion has filled it with soul power",
   "modifier.tprt.soul_infection.description":"Slightly increases all attributes of the tool",
@@ -282,9 +281,21 @@
   "modifier.tprt.luck_strike.flavor": "Finding it is good luck?",
   "modifier.tprt.luck_strike.description": "Attack damage has a chance to be multiplied. Higher Luck and modifier level increase the multiplier. Damage is reduced when not critical",
 
+
+
   "modifier.tprt.metallization": "Metallization",
   "modifier.tprt.metallization.flavor":"Even the fletching is metal!",
   "modifier.tprt.metallization.description":"Greatly improves arrow attributes, but accuracy is reduced",
+
+  "modifier.tprt.the_prestige_of_dragon": "The Prestige Of The Dragon",
+  "modifier.tprt.the_prestige_of_dragon.flavor":"Contain the power of the dragon!",
+  "modifier.tprt.the_prestige_of_dragon.description":"Slightly increase all tool stats of the tool",
+
+  "modifier.tprt.wrath_of_the_dragon": "Wrath Of The Dragon",
+  "modifier.tprt.wrath_of_the_dragon.flavor":"Feel the dragon's anger",
+  "modifier.tprt.wrath_of_the_dragon.description":"Increase projectile damage by 1 per level.",
+
+
 
   "modifier.tprt.ice_spell_power_improved": "Improved Frost Spell Power",
   "modifier.tprt.ice_spell_power_improved.flavor":"The chill of frost gives you deeper understanding of frost spells",
@@ -313,6 +324,8 @@
   "modifier.tprt.will_from_ancient": "Ancient Will",
   "modifier.tprt.will_from_ancient.flavor":"Unwavering!",
   "modifier.tprt.will_from_ancient.description":"Slightly increases tool attack power and projectile power. Attacks reduce part of the target's armor",
+
+
 
   "modifier.tprt.nature_affinity": "Nature Affinity",
   "modifier.tprt.nature_affinity.flavor":"Child of the forest!",
@@ -397,6 +410,12 @@
   "modifier.tprt.endless_life": "Enduring Life",
   "modifier.tprt.endless_life.flavor":"A medical miracle!",
   "modifier.tprt.endless_life.description":"Grants high life regeneration and increases healing effects received",
+
+
+
+  "modifier.tprt.gas_poison": "Vermilion Scorch",
+  "modifier.tprt.gas_poison.flavor":"After being burned by this strange ancient crop, you had the idea to use it as a weapon",
+  "modifier.tprt.gas_poison.description":"Attacks inflict Vermilion Scorch",
 
   "modifier.tprt.flourishing": "Flourishing",
   "modifier.tprt.flourishing.flavor":"Makes surrounding crops rejoice!",

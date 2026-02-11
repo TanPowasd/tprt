@@ -1,0 +1,23 @@
+{
+  "default": [
+
+    {
+      "level": 1,
+      "name": "tprt:the_prestige_of_dragon"
+    }
+  ],
+  "perStat": {
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:wrath_of_the_dragon"
+      }
+    ],
+    "tconstruct:ammo": [
+      {
+        "level": 1,
+        "name": "tprt:wrath_of_the_dragon"
+      }
+    ]
+  }
+}

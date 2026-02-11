@@ -20,7 +20,8 @@
     "arcane_metal": "#4FFFF7",
     "dragonskin": "#40004A",
     "dark_knight": "#44005f",
-    "koboleton_bone": "#d8caa5"
+    "koboleton_bone": "#d8caa5",
+    "dragonbone": "#C0B7A4"
   },
   "modifier.tprt": {
     "the_dragon_lord":"#EEDD82",
@@ -122,6 +123,8 @@
     "taboo_knowledge": "#867b86",
     "spell_resist": "#9938c3",
     "poisonous_explosion": "#65C100",
-    "quenching_poison": "#65C100"
+    "quenching_poison": "#65C100",
+    "the_prestige_of_dragon": "#C0B7A4",
+    "wrath_of_the_dragon": "#C0B7A4"
   }
 }
