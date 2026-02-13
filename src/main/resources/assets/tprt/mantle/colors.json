@@ -125,6 +125,9 @@
     "poisonous_explosion": "#65C100",
     "quenching_poison": "#65C100",
     "the_prestige_of_dragon": "#C0B7A4",
-    "wrath_of_the_dragon": "#C0B7A4"
+    "wrath_of_the_dragon": "#C0B7A4",
+    "fire_dragon_blood": "#EE6511",
+    "ice_dragon_blood": "#1BD1FE",
+    "lightning_dragon_blood": "#A600FA"
   }
 }

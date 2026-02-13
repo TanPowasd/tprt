@@ -648,6 +648,21 @@
   "modifier.tprt.blood_of_hydra.flavor":"Gain the Hydra's miraculous self-healing ability",
   "modifier.tprt.blood_of_hydra.description":"Grants high life regeneration effect",
 
+  "modifier.tprt.fire_dragon_blood": "Fire dragon blood quenching",
+  "modifier.tprt.fire_dragon_blood.flavor":"Refine your dragonbone parts with fire dragon blood.",
+  "modifier.tprt.fire_dragon_blood.description":"Slightly increase melee damage. When attacking, it will ignite the target for 5 seconds and greatly repel the target.",
+  "modifier.tprt.fire_dragon_blood.requirements": "Need dragon bone material as the front.",
+
+  "modifier.tprt.ice_dragon_blood": "Ice dragon blood quenching",
+  "modifier.tprt.ice_dragon_blood.flavor":"Refine your dragonbone parts with ice dragon blood.",
+  "modifier.tprt.ice_dragon_blood.description":"Slightly increase melee damage, greatly weaken the target when attacking.",
+  "modifier.tprt.ice_dragon_blood.requirements": "Need dragon bone material as the front.",
+
+  "modifier.tprt.lightning_dragon_blood": "Lightning dragon blood quenching",
+  "modifier.tprt.lightning_dragon_blood.flavor":"Refine your dragonbone parts with lightning dragon blood.",
+  "modifier.tprt.lightning_dragon_blood.description":"Greatly increase melee damage, and will greatly repel the target when attacking.",
+  "modifier.tprt.lightning_dragon_blood.requirements": "Need dragon bone material as the front.",
+
   "modifier.tprt.fear_nothing": "Fear Nothing",
   "modifier.tprt.fear_nothing.flavor":"A real man should fear nothing",
   "modifier.tprt.fear_nothing.description":"Attack range +1.5 blocks. Increases all types of resistance",

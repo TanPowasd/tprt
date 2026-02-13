@@ -1,0 +1,68 @@
+{
+  "conditions": [
+    { "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 1,
+          "name": "tprt:the_prestige_of_dragon"
+        }
+      ],
+      "requirement": {
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "level": {
+          "min": 1
+        },
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tprt:the_prestige_of_dragon"
+        }
+      },
+      "translation_key": "modifier.tprt.fire_dragon_blood.requirements"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 200,
+      "operation": "add",
+      "stat": "tconstruct:durability"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 1.5,
+      "operation": "add",
+      "stat": "tconstruct:attack_damage"
+    },
+    {
+      "type": "tconstruct:fiery_attack",
+      "seconds": {
+        "each_level": 5.0
+      }
+    },
+    {
+      "type": "tconstruct:knockback",
+      "allow": "projectile",
+      "each_level": 1.0
+    },
+    {
+      "type": "tconstruct:attribute",
+      "attribute": "minecraft:generic.attack_knockback",
+      "each_level": 1.0,
+      "operation": "addition",
+      "slots": [
+        "mainhand",
+        "feet",
+        "legs",
+        "chest",
+        "head"
+      ]
+    }
+  ],
+  "tooltip_display": "always"
+}

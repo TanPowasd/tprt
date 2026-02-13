@@ -662,6 +662,21 @@
   "modifier.tprt.blood_of_hydra.flavor":"获得九头蛇奇迹般的自愈能力",
   "modifier.tprt.blood_of_hydra.description":"获得高额的生命回复效果",
 
+  "modifier.tprt.fire_dragon_blood": "火龙血淬炼",
+  "modifier.tprt.fire_dragon_blood.flavor":"用火龙血淬炼你的龙骨部件",
+  "modifier.tprt.fire_dragon_blood.description":"小幅度提高近战伤害，攻击时会点燃目标5秒并大幅度击退目标",
+  "modifier.tprt.fire_dragon_blood.requirements": "需要龙之骨材料作为前置",
+
+  "modifier.tprt.ice_dragon_blood": "冰龙血淬炼",
+  "modifier.tprt.ice_dragon_blood.flavor":"用冰龙血淬炼你的龙骨部件",
+  "modifier.tprt.ice_dragon_blood.description":"小幅度提高近战伤害，攻击时会大幅度削弱目标",
+  "modifier.tprt.ice_dragon_blood.requirements": "需要龙之骨材料作为前置",
+
+  "modifier.tprt.lightning_dragon_blood": "电龙血淬炼",
+  "modifier.tprt.lightning_dragon_blood.flavor":"用电龙血淬炼你的龙骨部件",
+  "modifier.tprt.lightning_dragon_blood.description":"大幅度提高近战伤害，攻击时会大幅度击退目标",
+  "modifier.tprt.lightning_dragon_blood.requirements": "需要龙之骨材料作为前置",
+
   "modifier.tprt.advanced_luck": "鸿运齐天",
   "modifier.tprt.advanced_luck.2": "鸿运齐天+",
   "modifier.tprt.advanced_luck.3": "鸿运齐天++",

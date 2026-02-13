@@ -1,0 +1,72 @@
+{
+  "conditions": [
+    { "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 1,
+          "name": "tprt:the_prestige_of_dragon"
+        }
+      ],
+      "requirement": {
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "level": {
+          "min": 1
+        },
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tprt:the_prestige_of_dragon"
+        }
+      },
+      "translation_key": "modifier.tprt.ice_dragon_blood.requirements"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 200,
+      "operation": "add",
+      "stat": "tconstruct:durability"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 1.5,
+      "operation": "add",
+      "stat": "tconstruct:attack_damage"
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "effect": "minecraft:slowness",
+      "hooks": [
+        "tconstruct:melee_hit"
+      ],
+      "level": {
+        "flat": 5
+      },
+      "time": {
+        "each_level": 1000.0,
+        "random": 500.0
+      }
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "effect": "minecraft:mining_fatigue",
+      "hooks": [
+        "tconstruct:melee_hit"
+      ],
+      "level": {
+        "flat": 5
+      },
+      "time": {
+        "each_level": 1000.0,
+        "random": 500.0
+      }
+    }
+  ],
+  "tooltip_display": "always"
+}

@@ -28,7 +28,7 @@
       },
       "time": {
         "each_level": 1000.0,
-        "random": 100.0
+        "random": 500.0
       }
     }
   ],
