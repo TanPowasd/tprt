@@ -50,7 +50,7 @@
       },
       "time": {
         "each_level": 1000.0,
-        "random": 500.0
+        "random": 400.0
       }
     },
     {
@@ -64,7 +64,7 @@
       },
       "time": {
         "each_level": 1000.0,
-        "random": 500.0
+        "random": 400.0
       }
     }
   ],
