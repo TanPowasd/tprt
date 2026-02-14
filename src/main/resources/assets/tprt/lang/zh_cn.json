@@ -669,7 +669,7 @@
 
   "modifier.tprt.ice_dragon_blood": "冰龙血淬炼",
   "modifier.tprt.ice_dragon_blood.flavor":"用冰龙血淬炼你的龙骨部件",
-  "modifier.tprt.ice_dragon_blood.description":"小幅度提高近战伤害，攻击时会大幅度削弱目标",
+  "modifier.tprt.ice_dragon_blood.description":"小幅度提高近战伤害，攻击时会冰冻目标5秒大幅度削弱目标",
   "modifier.tprt.ice_dragon_blood.requirements": "需要龙之骨材料作为前置",
 
   "modifier.tprt.lightning_dragon_blood": "电龙血淬炼",

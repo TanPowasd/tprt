@@ -655,7 +655,7 @@
 
   "modifier.tprt.ice_dragon_blood": "Ice dragon blood quenching",
   "modifier.tprt.ice_dragon_blood.flavor":"Refine your dragonbone parts with ice dragon blood.",
-  "modifier.tprt.ice_dragon_blood.description":"Slightly increase melee damage, greatly weaken the target when attacking.",
+  "modifier.tprt.ice_dragon_blood.description":"Slightly increase melee damage, freeze the target for 5 seconds when attacking, and greatly weaken the target.",
   "modifier.tprt.ice_dragon_blood.requirements": "Need dragon bone material as the front.",
 
   "modifier.tprt.lightning_dragon_blood": "Lightning dragon blood quenching",

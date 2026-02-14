@@ -40,6 +40,12 @@
       "stat": "tconstruct:attack_damage"
     },
     {
+      "type": "tconstruct:freezing_attack",
+      "seconds": {
+        "flat": 5.0
+      }
+    },
+    {
       "type": "tconstruct:mob_effect",
       "effect": "minecraft:slowness",
       "hooks": [
