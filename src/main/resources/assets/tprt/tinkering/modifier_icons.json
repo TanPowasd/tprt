@@ -4,5 +4,5 @@
   "tprt:fire_dragon_blood":   ["iceandfire:item/fire_dragon_blood", "tconstruct:gui/modifiers/plus"],
   "tprt:ice_dragon_blood":   ["iceandfire:item/ice_dragon_blood", "tconstruct:gui/modifiers/plus"],
   "tprt:lightning_dragon_blood":   ["iceandfire:item/lightning_dragon_blood", "tconstruct:gui/modifiers/plus"],
-  "tprt:gild":   ["minecraft:item/gold_nugget", "tconstruct:gui/modifiers/plus"]
+  "tprt:gild":   ["minecraft:item/gold_ingot", "tconstruct:gui/modifiers/plus"]
 }
