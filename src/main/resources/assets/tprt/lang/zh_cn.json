@@ -724,6 +724,22 @@
   "modifier.tprt.quenching_poison.flavor":"我这刀可是涂了毒的（舔）",
   "modifier.tprt.quenching_poison.description":"攻击会对目标施加中毒效果，最高5级，等级越高施加的持续时间越长（持续时间可叠加）",
 
+  "modifier.tprt.gild": "镀金",
+  "modifier.tprt.gild.flavor":"过于昂贵",
+  "modifier.tprt.gild.description":"使弹药额外获得一个升级槽",
+
+  "modifier.tprt.polish": "打磨",
+  "modifier.tprt.polish.flavor":"磨刀不误砍柴工！",
+  "modifier.tprt.polish.description":"使箭矢更加锐利",
+
+  "modifier.tprt.calibrate": "校准",
+  "modifier.tprt.calibrate.flavor":"精益求精！",
+  "modifier.tprt.calibrate.description":"提高箭矢的精确度",
+
+  "modifier.tprt.swift": "迅羽",
+  "modifier.tprt.swift.flavor":"转瞬即至！",
+  "modifier.tprt.swift.description":"提高箭矢的初速度",
+
 
   "common": "special",
 

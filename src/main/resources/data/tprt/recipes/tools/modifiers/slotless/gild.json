@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "result": "tprt:gild",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/ammo"
+    }
+  ]
+}

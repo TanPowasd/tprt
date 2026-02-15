@@ -15,7 +15,7 @@
   "result": "tprt:taboo_knowledge",
   "tools": [
     {
-      "tag": "tconstruct:modifiable"
+      "tag": "tconstruct:modifiable/bonus_slots"
     }
   ]
 }

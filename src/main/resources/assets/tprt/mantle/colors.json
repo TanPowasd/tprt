@@ -128,6 +128,10 @@
     "wrath_of_the_dragon": "#C0B7A4",
     "fire_dragon_blood": "#EE6511",
     "ice_dragon_blood": "#1BD1FE",
-    "lightning_dragon_blood": "#A600FA"
+    "lightning_dragon_blood": "#A600FA",
+    "gild": "#eccb45",
+    "polish": "#696969",
+    "calibrate": "#4F7416",
+    "swift": "#A82D49"
   }
 }

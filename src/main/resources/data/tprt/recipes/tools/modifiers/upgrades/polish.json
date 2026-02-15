@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:quartz",
+      "amount_needed":4
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "tprt:polish",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/ammo"
+    }
+  ]
+}

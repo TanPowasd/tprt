@@ -715,6 +715,21 @@
   "modifier.tprt.quenching_poison.flavor":"Put poison on the blade!",
   "modifier.tprt.quenching_poison.description":"The attack will poison the target, with the highest level of 5. The higher the level, the longer the duration (duration can be superimposed).",
 
+  "modifier.tprt.gild": "Gild",
+  "modifier.tprt.gild.flavor":"Too expensive",
+  "modifier.tprt.gild.description":"Make the ammunition get an extra upgrade slot.",
+
+  "modifier.tprt.polish": "Polish",
+  "modifier.tprt.polish.flavor":"Sharpening the knife is not a mistake!",
+  "modifier.tprt.polish.description":"Make your arrows sharper.",
+
+  "modifier.tprt.calibrate": "Calibrate",
+  "modifier.tprt.calibrate.flavor":"Keep improving!",
+  "modifier.tprt.calibrate.description":"Improve the accuracy of arrows.",
+
+  "modifier.tprt.swift": "Swift",
+  "modifier.tprt.swift.flavor":"Come at once.",
+  "modifier.tprt.swift.description":"Increase the initial speed of arrows.",
 
   "common": "special",
 
