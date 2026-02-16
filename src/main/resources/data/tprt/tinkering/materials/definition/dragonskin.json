@@ -3,7 +3,7 @@
     "modid": "irons_spellbooks",
     "type": "forge:mod_loaded"
   },
-  "craftable": false,
+  "craftable": true,
   "hidden": false,
   "sortOrder": 2,
   "tier": 4

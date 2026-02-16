@@ -29,8 +29,13 @@ public class Immolate extends NoLevelsModifier{
         DamageSource source = event.getSource();
         LivingEntity target = event.getEntity();
         if (!(source.getEntity() instanceof Player player)) return;
+        int A = 0;
         for (IToolStackView tool : ToolUtil.getAllEquippedToolStacks(player)) {
             if (tool.getModifierLevel(IssCompat.ImmoLate.get()) > 0) {
+                A = 1;
+                continue;
+            }
+            if (A == 1){
                 if (source.is(FIRE_MAGIC)){
                     MobEffect effect = getEffect();
                     MobEffectInstance instance = target.getEffect(effect);
@@ -42,8 +47,7 @@ public class Immolate extends NoLevelsModifier{
                         target.addEffect(new MobEffectInstance(effect, 200, 0));
                     }
                 }
-                break;
-            }
+            }else {return;}
         }
     }
 }

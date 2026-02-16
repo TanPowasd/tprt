@@ -34,7 +34,6 @@
   "level": 1,
   "result": "tprt:ancient_relics",
   "tools": [
-
     {
       "tag": "tconstruct:modifiable/bonus_slots"
     }

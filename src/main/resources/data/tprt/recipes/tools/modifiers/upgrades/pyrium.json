@@ -1,9 +1,4 @@
 {
-  "conditions":
-  {
-    "type": "forge:mod_loaded",
-    "modid": "irons_spellbooks"
-  },
   "type": "tconstruct:modifier",
   "allow_crystal": true,
   "inputs": [
@@ -21,9 +16,7 @@
   "slots": {
     "upgrades": 1
   },
-  "tools": [
-    {
-      "tag": "tconstruct:modifiable"
-    }
-  ]
+  "tools": {
+    "tag": "tconstruct:modifiable/durability"
+  }
 }

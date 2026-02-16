@@ -4,5 +4,17 @@
   "tprt:fire_dragon_blood":   ["iceandfire:item/fire_dragon_blood", "tconstruct:gui/modifiers/plus"],
   "tprt:ice_dragon_blood":   ["iceandfire:item/ice_dragon_blood", "tconstruct:gui/modifiers/plus"],
   "tprt:lightning_dragon_blood":   ["iceandfire:item/lightning_dragon_blood", "tconstruct:gui/modifiers/plus"],
-  "tprt:gild":   ["minecraft:item/gold_ingot", "tconstruct:gui/modifiers/plus"]
+  "tprt:gild":   ["minecraft:item/gold_ingot", "tconstruct:gui/modifiers/plus"],
+  "tprt:pyrium":   ["irons_spellbooks:item/pyrium_ingot", "tconstruct:gui/modifiers/plus"],
+  "tprt:netherite_spell_book":   ["irons_spellbooks:item/netherite_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:gold_spell_book":   ["irons_spellbooks:item/gold_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:evoker_spell_book":   ["irons_spellbooks:item/evoker_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:blaze_spell_book":   ["irons_spellbooks:item/blaze_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:necronomicon_spell_book":   ["irons_spellbooks:item/necronomicon_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:dragonskin_spell_book":   ["irons_spellbooks:item/dragonskin_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:villager_spell_book":   ["irons_spellbooks:item/villager_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:druidic_spell_book":   ["irons_spellbooks:item/druidic_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:cursed_doll_spell_book":   ["irons_spellbooks:item/cursed_doll_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:ice_spell_book":   ["irons_spellbooks:item/ice_spell_book", "tconstruct:gui/modifiers/plus"],
+  "tprt:taboo_knowledge":   ["irons_spellbooks:item/chained_book", "tconstruct:gui/modifiers/book"]
 }

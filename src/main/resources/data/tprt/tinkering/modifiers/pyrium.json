@@ -53,7 +53,7 @@
       "each_level": 200,
       "operation": "addition",
       "attribute": "irons_spellbooks:max_mana",
-      "unique": "tconstruct.modifier.mana_improved",
+      "unique": "tconstruct.modifier.pyrium",
       "slots": [
         "feet",
         "legs",
@@ -62,20 +62,7 @@
         "mainhand",
         "offhand"
       ]
-    },
-    [
-      {
-        "type": "sakuratinker:multi_curio_attribute",
-        "attributes": [
-          {
-            "attribute": "irons_spellbooks:max_mana",
-            "operation": "addition",
-            "value": 200.0
-          }
-        ],
-        "name": "tprt:pyrium"
-      }
-    ]
+    }
   ],
   "tooltip_display": "always"
 }

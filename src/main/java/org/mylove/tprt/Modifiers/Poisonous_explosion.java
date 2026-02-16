@@ -48,7 +48,7 @@ public class Poisonous_explosion extends NoLevelsModifier implements MeleeHitMod
                     else {
                 int x = instance.getAmplifier()+1;
                 int y = instance.getDuration()/20;
-                int X = (int) (1.75 * x);
+                int X = (int) (1.25 * x);
                 int Y = (int) Math.sqrt(y);
                 if (context.getLivingTarget() != null) {
 //                    for (MobEffectInstance effectlist : effectInstances){
