@@ -160,6 +160,12 @@
   "material.tprt.hydra_fang":"Hydra Fang",
   "material.tprt.hydra_fang.flavor":"Hydra's fangs are full of poison.",
 
+  "material.tprt.sea_serpent_fang":"Sea Serpent Fang",
+  "material.tprt.sea_serpent_fang.flavor":"The fangs of sea Serpent have the power to break the tide.",
+
+  "material.tprt.sea_serpent_scales":"Sea Serpent Scales",
+  "material.tprt.sea_serpent_scales.flavor":"The scales of sea Serpent are full of ocean power.",
+
   "material.tprt.frosted_helve":"Frosted Helve",
   "material.tprt.frosted_helve.flavor":"Pervaded by a chilling cold and the mystery of frost",
 
@@ -288,16 +294,24 @@
 
   "modifier.tprt.metallization": "Metallization",
   "modifier.tprt.metallization.flavor":"Even the fletching is metal!",
-  "modifier.tprt.metallization.description":"Greatly improves arrow attributes, but accuracy is reduced",
+  "modifier.tprt.metallization.description":"Greatly improve the properties of arrows and ignore gravity when flying, but the accuracy is reduced.",
 
-  "modifier.tprt.the_prestige_of_dragon": "The Prestige Of The Dragon",
+  "modifier.tprt.the_prestige_of_dragon": "The Prestige Of Dragon",
   "modifier.tprt.the_prestige_of_dragon.flavor":"Contain the power of the dragon!",
   "modifier.tprt.the_prestige_of_dragon.description":"Slightly increase all tool stats of the tool",
 
-  "modifier.tprt.wrath_of_the_dragon": "Wrath Of The Dragon",
+  "modifier.tprt.wrath_of_the_dragon": "Wrath Of Dragon",
   "modifier.tprt.wrath_of_the_dragon.flavor":"Feel the dragon's anger",
   "modifier.tprt.wrath_of_the_dragon.description":"Increase projectile damage by 0.6 per level.",
 
+  "modifier.tprt.brave_waves": "Brave Waves",
+  "modifier.tprt.brave_waves.flavor":"Like a duck to water!",
+  "modifier.tprt.brave_waves.description":"The tool can move freely underwater, and grants +50% projectile damage per level to underwater targets. Fishing rods instead gain 3 level of sea luck.",
+  "modifier.tprt.brave_waves.projectile_damage": "Underwater Projectile Damage",
+
+  "modifier.tprt.tide_guardian": "Tide Guardian",
+  "modifier.tprt.tide_guardian.flavor":"The ocean is my hometown.",
+  "modifier.tprt.tide_guardian.description":"Get the underwater breathing effect, and get strength effect equivalent to the whole body modifier level (the highest level is 8) when you are in a water-filled environment.",
 
 
   "modifier.tprt.ice_spell_power_improved": "Improved Frost Spell Power",

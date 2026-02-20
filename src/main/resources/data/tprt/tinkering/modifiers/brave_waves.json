@@ -1,0 +1,45 @@
+{
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "iceandfire"
+      }
+    ]
+  },
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.5,
+      "operation": "add",
+      "stat": "tconstruct:water_inertia"
+    },
+    {
+      "type": "tconstruct:conditional_power",
+      "each_level": 0.5,
+      "percent": true,
+      "target": "mantle:underwater"
+    },
+    {
+      "type": "tconstruct:volatile_flag",
+      "flag": "tconstruct:efln",
+      "hooks": [
+        "tconstruct:projectile_launch",
+        "tconstruct:projectile_shot"
+      ]
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 3.0,
+      "operation": "add",
+      "stat": "tconstruct:sea_luck"
+    }
+  ],
+  "tooltip_display": "always"
+}

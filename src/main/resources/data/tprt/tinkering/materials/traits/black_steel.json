@@ -1,6 +1,5 @@
 {
   "default": [
-
     {
       "level": 1,
       "name": "tprt:soul_infection"
@@ -8,14 +7,12 @@
   ],
   "perStat": {
     "tconstruct:armor": [
-
       {
         "level": 1,
         "name": "tprt:soul_infection"
       }
     ],
     "tconstruct:ranged": [
-
       {
         "level": 1,
         "name": "tprt:soul_infection"

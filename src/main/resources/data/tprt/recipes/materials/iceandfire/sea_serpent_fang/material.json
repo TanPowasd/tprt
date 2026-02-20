@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "iceandfire"
+        }
+      ]
+    }
+  ],
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "iceandfire:sea_serpent_fang"
+  },
+  "material": "tprt:sea_serpent_fang",
+  "needed": 1,
+  "value": 1
+}

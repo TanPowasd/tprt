@@ -1,0 +1,10 @@
+{
+  "condition": {
+    "modid": "iceandfire",
+    "type": "forge:mod_loaded"
+  },
+  "craftable": true,
+  "hidden": false,
+  "sortOrder": 2,
+  "tier": 3
+}

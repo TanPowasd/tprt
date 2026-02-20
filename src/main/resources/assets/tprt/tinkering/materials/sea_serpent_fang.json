@@ -2,7 +2,7 @@
   "fallbacks": [
     "metal"
   ],
-  "color": "7F5A3F",
+  "color": "ECE8E2",
   "luminosity": 12,
   "generator": {
     "transformer": {
@@ -57,8 +57,7 @@
       "tconstruct:limb",
       "tconstruct:grip",
       "sakuratinker:charm_chain",
-      "sakuratinker:charm_core",
-      "sakuratinker:fletching"
+      "sakuratinker:charm_core"
     ],
     "ignore_material_stats": false
   }

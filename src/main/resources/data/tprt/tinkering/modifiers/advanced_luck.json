@@ -82,6 +82,12 @@
         "type": "mantle:tag",
         "tag": "tconstruct:modifiable/armor/worn"
       }
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 2.0,
+      "operation": "add",
+      "stat": "tconstruct:sea_luck"
     }
   ],
   "tooltip_display": "always"

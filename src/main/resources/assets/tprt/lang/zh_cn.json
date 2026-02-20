@@ -169,6 +169,12 @@
   "material.tprt.hydra_fang":"九头蛇毒牙",
   "material.tprt.hydra_fang.flavor":"九头蛇的尖牙，浸满了剧毒",
 
+  "material.tprt.sea_serpent_fang":"海蟒长牙",
+  "material.tprt.sea_serpent_fang.flavor":"海蟒的长牙，拥有破开潮汐的力量",
+
+  "material.tprt.sea_serpent_scales":"海蟒鳞片",
+  "material.tprt.sea_serpent_scales.flavor":"海蟒的鳞片，充满海洋的力量",
+
   "material.tprt.frosted_helve":"冰封手柄",
   "material.tprt.frosted_helve.flavor":"弥漫着凛冽的寒气和冰霜的玄奥",
 
@@ -304,7 +310,7 @@
 
   "modifier.tprt.metallization": "金属化",
   "modifier.tprt.metallization.flavor":"连箭羽都是金属制的！",
-  "modifier.tprt.metallization.description":"大幅提高箭矢的各项属性，但是精准度降低",
+  "modifier.tprt.metallization.description":"大幅提高箭矢的各项属性且箭矢飞行时无视重力，但是精准度降低",
 
   "modifier.tprt.the_prestige_of_dragon": "龙威",
   "modifier.tprt.the_prestige_of_dragon.flavor":"蕴藏龙的力量！",
@@ -313,6 +319,15 @@
   "modifier.tprt.wrath_of_the_dragon": "龙之怒",
   "modifier.tprt.wrath_of_the_dragon.flavor":"感受龙的愤怒",
   "modifier.tprt.wrath_of_the_dragon.description":"每级提高0.6点弹射物力量",
+
+  "modifier.tprt.brave_waves": "破浪",
+  "modifier.tprt.brave_waves.flavor":"如鱼得水！",
+  "modifier.tprt.brave_waves.description":"工具能在水下运动且无视阻力，每级+50%对水下目标的弹射物伤害。钓鱼竿改为获得3级海之眷顾",
+  "modifier.tprt.brave_waves.projectile_damage": "水下弹射物力量",
+
+  "modifier.tprt.tide_guardian": "潮卫",
+  "modifier.tprt.tide_guardian.flavor":"大海洋是我的家乡~",
+  "modifier.tprt.tide_guardian.description":"获得水下呼吸效果，当处于水中或雨天、雷雨天环境时获得等同于全身特性等级的力量效果（最高8级）",
 
 
 

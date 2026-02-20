@@ -14,7 +14,7 @@
     "black_steel": "#2C2C2C",
     "capoo": "#04B7FB",
     "ancient_metal": "#F4B800",
-    "stymphalian_bird_feather": "#7B3E00",
+    "stymphalian_bird_feather": "#7F5A3F",
     "frosted_helve": "#BEF0F0",
     "hogskin": "#FFBEA6",
     "arcane_metal": "#4FFFF7",
@@ -22,7 +22,9 @@
     "dark_knight": "#44005f",
     "koboleton_bone": "#d8caa5",
     "dragonbone": "#C0B7A4",
-    "hydra_fang": "#948C73"
+    "hydra_fang": "#948C73",
+    "sea_serpent_fang": "#ECE8E2",
+    "sea_serpent_scales": "#4775A6"
   },
   "modifier.tprt": {
     "the_dragon_lord":"#EEDD82",
@@ -87,7 +89,7 @@
     "strong_but_pliable": "#F4B800",
     "ancient_sandstorm": "#F4B800",
     "will_from_ancient": "#d8caa5",
-    "metallization": "#7B3E00",
+    "metallization": "#7F5A3F",
     "ice_spell_power_improved": "#BEF0F0",
     "mana_improved": "#FFBEA6",
     "spell_power_improved": "#4FFFF7",
@@ -133,6 +135,8 @@
     "gild": "#eccb45",
     "polish": "#696969",
     "calibrate": "#4F7416",
-    "swift": "#A82D49"
+    "swift": "#A82D49",
+    "brave_waves": "#456E8C",
+    "tide_guardian": "#4775A6"
   }
 }

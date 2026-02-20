@@ -8,6 +8,7 @@ public class ModifierIds {
     public static final ModifierId ANCIENT_SANDSTORM = id("ancient_sandstorm");
     public static final ModifierId mechanical_star_arm = id("mechanical_star_arm");
     public static final ModifierId Arrogant = id("arrogant");
+    public static final ModifierId Tide_Guardian = id("tide_guardian");
 
     private ModifierIds() {
     }
