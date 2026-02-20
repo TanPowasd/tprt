@@ -748,6 +748,10 @@
   "modifier.tprt.swift.flavor":"Come at once.",
   "modifier.tprt.swift.description":"Increase the initial speed of arrows.",
 
+  "modifier.tprt.automation": "Automation",
+  "modifier.tprt.automation.flavor":"Times have changed!",
+  "modifier.tprt.automation.description":"Make the tool shoot automatically.",
+
   "common": "special",
 
   "modifier.tprt.reaper": "Death Reaper",

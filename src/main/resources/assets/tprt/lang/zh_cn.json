@@ -758,6 +758,10 @@
   "modifier.tprt.swift.flavor":"转瞬即至！",
   "modifier.tprt.swift.description":"提高箭矢的初速度",
 
+  "modifier.tprt.automation": "自动化",
+  "modifier.tprt.automation.flavor":"时代变了！",
+  "modifier.tprt.automation.description":"使工具全自动射击",
+
 
   "common": "special",
 
