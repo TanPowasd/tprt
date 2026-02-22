@@ -24,7 +24,8 @@
     "dragonbone": "#C0B7A4",
     "hydra_fang": "#948C73",
     "sea_serpent_fang": "#ECE8E2",
-    "sea_serpent_scales": "#4775A6"
+    "sea_serpent_scales": "#4775A6",
+    "composite_dragon_scales": "#582f73"
   },
   "modifier.tprt": {
     "the_dragon_lord":"#EEDD82",

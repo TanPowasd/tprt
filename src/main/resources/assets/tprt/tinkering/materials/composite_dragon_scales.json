@@ -1,9 +1,8 @@
 {
   "fallbacks": [
-    "bone",
-    "rock"
+    "cloth"
   ],
-  "color": "d8caa5",
+  "color": "582f73",
   "luminosity": 12,
   "generator": {
     "transformer": {

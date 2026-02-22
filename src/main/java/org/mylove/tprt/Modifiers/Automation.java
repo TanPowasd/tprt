@@ -20,8 +20,8 @@ public class Automation extends NoLevelsModifier implements InventoryTickModifie
     }
     public void onInventoryTick(IToolStackView iToolStackView, ModifierEntry modifier, Level world, LivingEntity entity, int in, boolean boo, boolean bo1, ItemStack stack) {
         if (!world.isClientSide&&entity.isUsingItem()&&entity.getUseItem()==stack){
-            int drawtime = ModifierUtil.getPersistentInt(stack, GeneralInteractionModifierHook.KEY_DRAWTIME, -1);
-            if ((stack.getUseDuration() + (stack.getUseDuration()<2?1:0) - entity.getUseItemRemainingTicks()) / (float)drawtime>=1){
+            int X = ModifierUtil.getPersistentInt(stack, GeneralInteractionModifierHook.KEY_DRAWTIME, -1);
+            if ((stack.getUseDuration() + (stack.getUseDuration()<2?1:0) - entity.getUseItemRemainingTicks()) / (float)X>=1){
                 entity.releaseUsingItem();
             }
         }

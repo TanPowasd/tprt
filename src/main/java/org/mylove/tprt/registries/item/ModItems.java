@@ -73,10 +73,13 @@ public class ModItems {
     public static final RegistryObject<Item>EVIL_BEAST_ALLOY_INGOT=ITEMS.register("evil_beast_alloy_ingot",
         ()->new Item(new Item.Properties()));
 //lr特供 濡湿骑士锭
-public static final RegistryObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_knight_ingot",
+    public static final RegistryObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_knight_ingot",
         ()->new Item(new Item.Properties()));
 //lr特供 溪竹板
-public static final RegistryObject<Item>Leisamboo_Board=ITEMS.register("leisamboo_board",
+    public static final RegistryObject<Item>Leisamboo_Board=ITEMS.register("leisamboo_board",
+        ()->new Item(new Item.Properties()));
+//lr特供 溪竹板
+    public static final RegistryObject<Item>Composite_dragon_scales=ITEMS.register("composite_dragon_scales",
         ()->new Item(new Item.Properties()));
 //魂樱面具拓展：金质
     public static final RegistryObject<Item>golden_fox_mask = registerCommonItem(ITEMS, "golden_fox_mask",

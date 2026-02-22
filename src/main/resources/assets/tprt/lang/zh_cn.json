@@ -68,6 +68,7 @@
 
   "common": "item",
   "item.tprt.leisamboo_board":"溪竹模板",
+  "item.tprt.composite_dragon_scales":"复合龙鳞",
 
 
   "common": "item_and_fluid",
@@ -165,6 +166,9 @@
 
   "material.tprt.dragonbone":"龙之骨",
   "material.tprt.dragonbone.flavor":"“说真的你不觉得骨头能像金属一样被锻造成工具武器其实听起来很扯么？”——铁匠学徒",
+
+  "material.tprt.composite_dragon_scales":"复合龙鳞",
+  "material.tprt.composite_dragon_scales.flavor":"带有巨龙的力量",
 
   "material.tprt.hydra_fang":"九头蛇毒牙",
   "material.tprt.hydra_fang.flavor":"九头蛇的尖牙，浸满了剧毒",

@@ -34,6 +34,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SOURCE_ALLOY.get());
                         pOutput.accept(ModItems.DARK_KNIGHT_INGOT.get());
                         pOutput.accept(ModItems.magic_blade.get());
+                        pOutput.accept(ModItems.Composite_dragon_scales.get());
                         //magicitem
                         //pOutput.accept(MIAGIC_cs1.get());
                     })

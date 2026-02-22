@@ -1,6 +1,7 @@
 {
   "fallbacks": [
-    "metal"
+    "bone",
+    "rock"
   ],
   "color": "ECE8E2",
   "luminosity": 12,

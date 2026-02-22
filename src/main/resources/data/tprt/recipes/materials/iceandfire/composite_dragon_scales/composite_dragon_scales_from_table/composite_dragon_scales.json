@@ -1,0 +1,30 @@
+{
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "iceandfire"
+      }
+    ]
+  },
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "tag":"iceandfire:scales/dragon"
+    }
+  },
+  "pattern": [
+    " A ",
+    "AAA",
+    " A "
+  ],
+  "result": {
+    "item": "tprt:composite_dragon_scales",
+    "count": 3
+  }
+}
