@@ -16,31 +16,17 @@
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "cataclysm:necklace_of_the_desert"
-    },
-    {
-      "item": "cataclysm:sandstorm_in_a_bottle"
-    },
-    {
-      "item": "cataclysm:remnant_skull"
-    },
-    {
-      "item": "cataclysm:ancient_metal_block",
-      "amount_needed":8
-    },
-    {
-      "item": "cataclysm:ancient_metal_block",
-      "amount_needed":8
+      "item": "cataclysm:astrape"
     }
   ],
   "level": 1,
-  "result": "tprt:ancient_sandstorm",
+  "result": "tprt:thunder",
   "slots": {
     "abilities": 1
   },
   "tools": [
     {
-      "tag": "tconstruct:modifiable/durability"
+      "tag": "tconstruct:modifiable/melee/weapon"
     }
   ]
 }

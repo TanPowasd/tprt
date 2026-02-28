@@ -105,6 +105,8 @@
   "fluid.tconstruct.flowing_molten_ancient_metal": "流动的熔融远古金属",
   "item.tprt.molten_ancient_metal_bucket": "熔融远古金属桶",
 
+  "item.tprt.tears_of_the_storm": "风暴之泪",
+
   "fluid.tconstruct.molten_arcane_metal": "熔融奥术金属",
   "fluid.tconstruct.flowing_molten_arcane_metal": "流动的熔融奥术金属",
   "item.tprt.molten_arcane_metal_bucket": "熔融奥术金属桶",
@@ -148,6 +150,9 @@
 
   "material.tprt.koboleton_bone":"骸龙之骨",
   "material.tprt.koboleton_bone.flavor":"古老遗存的骨骸，强度远超普通骨头",
+
+  "material.tprt.tears_of_the_storm":"风暴之泪",
+  "material.tprt.tears_of_the_storm.flavor":"女神的泪滴结晶，蕴含风暴的威能",
 
   "material.tprt.advanced_manyullyn":"超限玛玉灵",
   "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
@@ -237,6 +242,14 @@
   "modifier.tprt.source_alloy_spell_cloth.flavor":"一字一言皆为法",
   "modifier.tprt.source_alloy_spell_cloth.description":"大幅提高法术强度",
 
+  "modifier.tprt.advanced_greed": "贪欲",
+  "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
+  "modifier.tprt.advanced_greed.description":"每次攻击提高5%攻击伤害，上限10层",
+
+  "modifier.tprt.arrogant": "傲慢",
+  "modifier.tprt.arrogant.flavor":"对下等生物的蔑视",
+  "modifier.tprt.arrogant.description":"生命值为满时全身每级提供5%独立伤害减免（最多40%），若当前生命值大于最大生命值的50%，则效果削减到每级3%（最多24%）",
+
   "modifier.tprt.burning_flames": "焚焰",
   "modifier.tprt.burning_flames.flavor": "焚尽世间的烈焰",
   "modifier.tprt.burning_flames.description": "攻击附加炽热烙印，效果等级上限为词条等级上限",
@@ -256,14 +269,6 @@
   "modifier.tprt.soul_dodge": "魂灵闪避",
   "modifier.tprt.soul_dodge.flavor":"身体仿若幽魂",
   "modifier.tprt.soul_dodge.description":"有较低概率免疫受到的伤害",
-
-  "modifier.tprt.advanced_greed": "贪欲",
-  "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
-  "modifier.tprt.advanced_greed.description":"每次攻击提高5%攻击伤害，上限10层",
-
-  "modifier.tprt.arrogant": "傲慢",
-  "modifier.tprt.arrogant.flavor":"对下等生物的蔑视",
-  "modifier.tprt.arrogant.description":"生命值为满时全身每级提供5%独立伤害减免（最多40%），若当前生命值大于最大生命值的50%，则效果削减到每级3%（最多24%）",
 
   "modifier.tprt.mechanical_star_att": "机械之星",
   "modifier.tprt.mechanical_star_att.flavor":"机械工程的杰作，战争机器的化身",
@@ -303,6 +308,18 @@
   "modifier.tprt.will_from_ancient": "远古意志",
   "modifier.tprt.will_from_ancient.flavor":"坚定不移！",
   "modifier.tprt.will_from_ancient.description":"工具的攻击力和弹射物力量小幅度提升，攻击会抵消目标的部分护甲值",
+
+  "modifier.tprt.eye_of_storm": "风暴之眼",
+  "modifier.tprt.eye_of_storm.flavor":"引领风暴的航向！",
+  "modifier.tprt.eye_of_storm.description":"工具可以长按右键使用，使用后使天气变为雷暴",
+
+  "modifier.tprt.storm_incarnation_att": "我即风暴",
+  "modifier.tprt.storm_incarnation_att.flavor":"我即是那迫近的风暴",
+  "modifier.tprt.storm_incarnation_att.description":"造成的伤害提高15%；若为下雨或雷暴天气，则改为40%且会追加一次相当于20%造成伤害的雷电伤害",
+
+  "modifier.tprt.storm_incarnation_arm": "我即风暴",
+  "modifier.tprt.storm_incarnation_arm.flavor":"我即是那迫近的风暴",
+  "modifier.tprt.storm_incarnation_arm.description":"受到的伤害降低15%；若为下雨或雷暴天气，则额外获得抗性提升2和急迫2且无敌帧延长至两倍",
 
 
 
@@ -467,6 +484,8 @@
 
   "common": "upgrades_modifiers",
 
+  "part": "cataclysm",
+
   "modifier.tprt.flame_rising": "火焰升腾",
   "modifier.tprt.flame_rising.flavor":"纯粹的烈焰升华了你的装备",
   "modifier.tprt.flame_rising.description":"这位烈焰主宰的力量为你带来了一个升级槽和一个防御槽",
@@ -490,6 +509,11 @@
   "modifier.tprt.storm_potential": "风暴潜能",
   "modifier.tprt.storm_potential.flavor":"风暴的精粹附魔了你的装备",
   "modifier.tprt.storm_potential.description":"难以驾驭的风暴为你带来了一个升级槽，一个防御槽",
+
+  "modifier.tprt.thunder": "鸣雷",
+  "modifier.tprt.thunder.flavor":"掌控雷霆！",
+  "modifier.tprt.thunder.description":"使工具右键后可以发射鸣雷槊",
+
 
   "modifier.tprt.philosophers_stone": "贤者之石",
   "modifier.tprt.philosophers_stone.flavor":"炼金术的结晶重构了你的装备",

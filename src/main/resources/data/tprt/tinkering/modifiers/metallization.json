@@ -46,7 +46,7 @@
     },
     {
       "type": "tconstruct:projectile_gravity",
-      "flat": 20000
+      "flat": 200
     }
   ],
   "tooltip_display": "always"

@@ -139,6 +139,10 @@
     "swift": "#A82D49",
     "brave_waves": "#456E8C",
     "tide_guardian": "#4775A6",
-    "automation": "#DDC9E9"
+    "automation": "#DDC9E9",
+    "storm_incarnation_att": "#6492cc",
+    "storm_incarnation_arm": "#6492cc",
+    "eye_of_storm": "#6492cc",
+    "thunder": "#6492cc"
   }
 }

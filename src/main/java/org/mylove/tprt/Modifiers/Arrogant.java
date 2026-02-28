@@ -15,7 +15,11 @@ import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import java.util.UUID;
+
 public class Arrogant extends Modifier implements ModifyDamageModifierHook {
+
+    UUID uuid = UUID.fromString("9ACB057A-9A85-4C60-B54B-D491A01AF91");
 
     public static final TinkerDataCapability.TinkerDataKey<SlotInChargeModule.SlotInCharge> SLOT_IN_CHARGE = TinkerDataCapability.TinkerDataKey.of(ModifierIds.Arrogant);
 

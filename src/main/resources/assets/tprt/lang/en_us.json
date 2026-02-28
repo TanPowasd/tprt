@@ -96,6 +96,8 @@
   "fluid.tconstruct.flowing_molten_ancient_metal": "Flowing Molten Ancient Metal",
   "item.tprt.molten_ancient_metal_bucket": "Molten Ancient Metal Bucket",
 
+  "item.tprt.tears_of_the_storm": "Tears Of The Storm",
+
   "fluid.tconstruct.molten_arcane_metal": "Molten Arcane Metal",
   "fluid.tconstruct.flowing_molten_arcane_metal": "Flowing Molten Arcane Metal",
   "item.tprt.molten_arcane_metal_bucket": "Molten Arcane Metal Bucket",
@@ -138,6 +140,9 @@
 
   "material.tprt.koboleton_bone":"Koboleton Bone",
   "material.tprt.koboleton_bone.flavor":"Bones of an ancient remnant, far stronger than ordinary bone",
+
+  "material.tprt.tears_of_the_storm":"Tears Of The Storm",
+  "material.tprt.tears_of_the_storm.flavor":"The tears of the goddess crystallize and contain the power of the storm.",
 
   "material.tprt.advanced_manyullyn":"Advanced Manyullyn",
   "material.tprt.advanced_manyullyn.flavor":"This is the legendary Manyullyn that can sever galaxies!",
@@ -288,6 +293,21 @@
   "modifier.tprt.ancient_sandstorm.flavor":"The desert storm empowers you!",
   "modifier.tprt.ancient_sandstorm.description":"Base durability +1500. Attack damage, armor value, and projectile power gradually gain high percentage increases as durability gets higher",
   "modifier.tprt.ancient_sandstorm.requirements": "Requires Ancient Metal material as prerequisite",
+
+  "modifier.tprt.eye_of_storm": "Eye Of Storm",
+  "modifier.tprt.eye_of_storm.flavor":"Lead the storm!",
+  "modifier.tprt.eye_of_storm.description":"The tool can be used by pressing the right button for a long time, which will turn the weather into a thunderstorm after use.",
+
+  "modifier.tprt.storm_incarnation_att": "Storm Incarnation",
+  "modifier.tprt.storm_incarnation_att.flavor":"I'm the storm that is approaching.",
+  "modifier.tprt.storm_incarnation_att.description":"The damage caused is increased by 15%; If it is raining or thunderstorm, it will be changed to 40% and a lightning damage equivalent to 20% will be added.",
+
+  "modifier.tprt.storm_incarnation_arm": "Storm Incarnation",
+  "modifier.tprt.storm_incarnation_arm.flavor":"I'm the storm that is approaching.",
+  "modifier.tprt.storm_incarnation_arm.description":"The damage suffered is reduced by 15%; If it's raining or thunderstorm, you will get resistance of 2 level and haste of 2 level, and the invincible frame will be doubled.",
+
+
+
 
   "modifier.tprt.luck_strike": "Lucky Strike",
   "modifier.tprt.luck_strike.flavor": "Finding it is good luck?",
@@ -451,6 +471,8 @@
 
   "common": "upgrades_modifiers",
 
+  "part": "cataclysm",
+
   "modifier.tprt.flame_rising": "Flame Rising",
   "modifier.tprt.flame_rising.flavor":"Pure flame sublimates your equipment",
   "modifier.tprt.flame_rising.description":"The power of this Flame Lord grants one upgrade slot and one defense slot",
@@ -474,6 +496,13 @@
   "modifier.tprt.storm_potential": "Storm Potential",
   "modifier.tprt.storm_potential.flavor":"The essence of the storm enchants your equipment",
   "modifier.tprt.storm_potential.description":"The hard-to-control storm grants one upgrade slot and one defense slot",
+
+  "modifier.tprt.thunder": "Lightning Spear",
+  "modifier.tprt.thunder.flavor":"Control the lightning!",
+  "modifier.tprt.thunder.description":"Right click to shoot a Lightning Spear",
+
+
+
 
   "modifier.tprt.philosophers_stone": "Philosopher's Stone",
   "modifier.tprt.philosophers_stone.flavor":"The crystallization of alchemy reconstructs your equipment",

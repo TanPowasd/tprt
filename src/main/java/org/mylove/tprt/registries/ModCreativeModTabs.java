@@ -29,12 +29,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.EVIL_BEAST_ALLOY_INGOT.get());
                         pOutput.accept(ModItems.RED_TURTLE.get());
                         pOutput.accept(ModItems.Leisamboo_Board.get());
-                        pOutput.accept(ModItems.golden_fox_mask.get());
                         pOutput.accept(ModItems.anchor_sword.get());
                         pOutput.accept(ModItems.SOURCE_ALLOY.get());
                         pOutput.accept(ModItems.DARK_KNIGHT_INGOT.get());
                         pOutput.accept(ModItems.magic_blade.get());
                         pOutput.accept(ModItems.Composite_dragon_scales.get());
+                        pOutput.accept(ModItems.Tears_of_the_storm.get());
                         //magicitem
                         //pOutput.accept(MIAGIC_cs1.get());
                     })

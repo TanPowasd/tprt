@@ -1,21 +1,26 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import com.ssakura49.sakuratinker.generic.BaseModifier;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.behavior.AttributesModifierHook;
+import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
-public class machine_iron_casting extends BaseModifier {
-    @Override
-    public boolean isNoLevels() {
-        return true;
+public class machine_iron_casting extends NoLevelsModifier implements AttributesModifierHook {
+
+    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, ModifierHooks.ATTRIBUTES);
     }
+
     //private static final UUID BASE_ARMOR_UUID = UUID.fromString("a0a7a0a7-a0a7-a0a7a0a7a0a7");
     private static final UUID BONUS_ARMOR_UUID = UUID.fromString("4EC371FD-3F8B-4052-881E-FC32AEB7968F");
     //private static final UUID BASE_MOVESPEED_UUID = UUID.fromString("c0c7c0c7-c0c7-c0c7c0c7c0c7");

@@ -57,7 +57,7 @@ public class Tprt {
             GoetyCompat.Goety_MODIFIERS.register(modEventBus);
             LOGGER.info("Found Goety, integration initializing……");
         }
-        if (ModListUtil.GTLoaded) {
+        if (ModListUtil.CALoaded) {
             CataclysmCompat.Cataclysm_MODIFIERS.register(modEventBus);
             LOGGER.info("Found Cataclysm, integration initializing……");
         }

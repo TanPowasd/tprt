@@ -1,0 +1,20 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:storm_incarnation_att"
+    },
+    {
+      "level": 1,
+      "name": "tprt:eye_of_storm"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:storm_incarnation_arm"
+      }
+    ]
+  }
+}

@@ -9,7 +9,6 @@ import org.mylove.tprt.Tprt;
 import org.mylove.tprt.registries.ModFoods;
 import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 
-import static com.ssakura49.sakuratinker.register.STItems.registerCommonItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -72,18 +71,18 @@ public class ModItems {
 //lr特供 恶兽合金锭
     public static final RegistryObject<Item>EVIL_BEAST_ALLOY_INGOT=ITEMS.register("evil_beast_alloy_ingot",
         ()->new Item(new Item.Properties()));
+//lr特供 风暴之泪
+    public static final RegistryObject<Item>Tears_of_the_storm=ITEMS.register("tears_of_the_storm",
+            ()->new Item(new Item.Properties()));
 //lr特供 濡湿骑士锭
     public static final RegistryObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_knight_ingot",
         ()->new Item(new Item.Properties()));
 //lr特供 溪竹板
     public static final RegistryObject<Item>Leisamboo_Board=ITEMS.register("leisamboo_board",
         ()->new Item(new Item.Properties()));
-//lr特供 溪竹板
+//lr特供 复合龙鳞
     public static final RegistryObject<Item>Composite_dragon_scales=ITEMS.register("composite_dragon_scales",
         ()->new Item(new Item.Properties()));
-//魂樱面具拓展：金质
-    public static final RegistryObject<Item>golden_fox_mask = registerCommonItem(ITEMS, "golden_fox_mask",
-        org.mylove.tprt.registries.item.curios.golden_fox_mask::new, false);
 
 //lr特供 锚剑
     public static final RegistryObject<Item>anchor_sword= ITEMS.register("anchor_sword",
