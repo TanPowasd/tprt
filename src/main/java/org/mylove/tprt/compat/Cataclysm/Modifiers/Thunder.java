@@ -7,8 +7,12 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.AttackDamageMobEffect;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -62,7 +66,8 @@ public class Thunder extends NoLevelsModifier implements GeneralInteractionModif
             if (chargeTime > 10) {
                 Level level = player.level();
                 float f = getPowerForTime(chargeTime);
-                if (!((double) f < 0.5D)) {
+                AttributeInstance X = player.getAttribute(Attributes.ATTACK_DAMAGE);
+                if (X != null) {if (!((double) f < 0.5D)) {
                     level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.EMP_ACTIVATED.get(), SoundSource.PLAYERS,1.0F, 0.8F);
                     if (!level.isClientSide) {
                         float d7 = entity.getYRot();
@@ -80,12 +85,12 @@ public class Thunder extends NoLevelsModifier implements GeneralInteractionModif
                         Vec3 vec3 = new Vec3(d1, d2, d3).normalize();
                         float yRot = (float) (Mth.atan2(vec3.z, vec3.x) * (180F / Math.PI)) + 90F;
                         float xRot = (float) -(Mth.atan2(vec3.y, Math.sqrt(vec3.x * vec3.x + vec3.z * vec3.z)) * (180F / Math.PI));
-                        Lightning_Spear_Entity lightning = new Lightning_Spear_Entity(player, vec3.normalize(),level,(float) CMConfig.AstrapeDamage);
+                        Lightning_Spear_Entity lightning = new Lightning_Spear_Entity(player, vec3.normalize(),level, (float) ((float) CMConfig.AstrapeDamage + 3 * X.getValue()));
                         lightning.accelerationPower = 0.15D;
                         lightning.setYRot(yRot);
                         lightning.setXRot(xRot);
                         lightning.setPosRaw(x, y, Z);
-                        lightning.setAreaDamage((float) CMConfig.AstrapeAreaDamage);
+                        lightning.setAreaDamage((float) ((float) CMConfig.AstrapeAreaDamage + X.getValue()));
                         lightning.setAreaRadius(1);
                         boolean flag = level.addFreshEntity(lightning);
                         if(flag){
@@ -95,6 +100,7 @@ public class Thunder extends NoLevelsModifier implements GeneralInteractionModif
                         }
                     }
                 }
+            }
             }
         }
     }
