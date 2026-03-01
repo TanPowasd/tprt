@@ -1,11 +1,9 @@
-package org.mylove.tprt.Modifiers;
+package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
@@ -19,10 +17,7 @@ import java.util.UUID;
 
 public class wrath_of_flames extends NoLevelsModifier implements MeleeHitModifierHook {
     UUID uuid=UUID.fromString("d2ab3741-d1ad-4e3e-1145-f37f1aac9cf1");
-    public static MobEffect getEffect(){
-        ResourceLocation effectId=new ResourceLocation("cataclysm","blazing_brand");
-        return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
-    }
+
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
@@ -39,7 +34,7 @@ public class wrath_of_flames extends NoLevelsModifier implements MeleeHitModifie
         LivingEntity attacker = context.getAttacker();
         if (target != null && target.hasEffect(ModEffect.EFFECTBLAZING_BRAND.get()) && attacker instanceof Player player) {
             target.invulnerableTime = 0;
-            MobEffect effect = getEffect();
+            MobEffect effect = ModEffect.EFFECTBLAZING_BRAND.get();
             MobEffectInstance instance = target.getEffect(effect);
             int bufnum= 0;
             if (instance != null) {

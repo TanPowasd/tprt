@@ -18,6 +18,8 @@ public class Automation extends NoLevelsModifier implements InventoryTickModifie
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.INVENTORY_TICK);
     }
+
+    @Override
     public void onInventoryTick(IToolStackView iToolStackView, ModifierEntry modifier, Level world, LivingEntity entity, int in, boolean boo, boolean bo1, ItemStack stack) {
         if (!world.isClientSide&&entity.isUsingItem()&&entity.getUseItem()==stack){
             int X = ModifierUtil.getPersistentInt(stack, GeneralInteractionModifierHook.KEY_DRAWTIME, -1);

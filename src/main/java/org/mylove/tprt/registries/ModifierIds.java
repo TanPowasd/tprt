@@ -10,7 +10,7 @@ public class ModifierIds {
     public static final ModifierId Arrogant = id("arrogant");
     public static final ModifierId Tide_Guardian = id("tide_guardian");
     public static final ModifierId Storm_incarnation_arm = id("storm_incarnation_arm");
-    public static final ModifierId soul_dodge = id("soul_dodge");
+    public static final ModifierId double_or_none = id("double_or_none");
 
     private ModifierIds() {
     }

@@ -17,7 +17,6 @@ public class ModifierRegistry {
     public static final StaticModifier<lastone> LASTONE = MODIFIERS.register("lastone", lastone::new);
     public static final StaticModifier<for_the_love> FOR_THE_LOVE = MODIFIERS.register("for_the_love", for_the_love::new);
     public static final StaticModifier<sacred_sacrifice> SACRED_SACRIFICE = MODIFIERS.register("sacred_sacrifice", sacred_sacrifice::new);
-    public static final StaticModifier<wrath_of_flames> WRATH_OF_FLAMES = MODIFIERS.register("wrath_of_flames", wrath_of_flames::new);
     public static final StaticModifier<real_attack> REAL_ATTACK = MODIFIERS.register("real_attack",real_attack::new);
     public static final StaticModifier<double_or_none> DOUBLE_OR_NONE = MODIFIERS.register("double_or_none",double_or_none::new);
     public static final StaticModifier<disruption_break> DISRUPTION_BREAK = MODIFIERS.register("disruption_break",disruption_break::new);

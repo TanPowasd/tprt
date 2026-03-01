@@ -10,6 +10,7 @@ public class CataclysmCompat {
 
     public static final StaticModifier<ancient_sandstorm> ancient_sandstorm;
     public static final StaticModifier<burning_flames> burning_flames;
+    public static final StaticModifier<wrath_of_flames> wrath_of_flames;
     public static final StaticModifier<cinder_slash> cinder_slash;
     public static final StaticModifier<cursed_spirit> cursed_spirit;
     public static final StaticModifier<machine_iron_casting> machine_iron_casting;
@@ -22,9 +23,13 @@ public class CataclysmCompat {
     public static final StaticModifier<Storm_incarnation_arm> Storm_incarnation_arm;
     public static final StaticModifier<Eye_of_Storm> Eye_of_Storm;
     public static final StaticModifier<Thunder> Thunder;
+    public static final StaticModifier<Soul_render> Soul_render;
+    public static final StaticModifier<Meat_Shredder> Meat_Shredder;
+    public static final StaticModifier<Bulwark_of_The_Flame> Bulwark_of_The_Flame;
     static {
         ancient_sandstorm = Cataclysm_MODIFIERS.register("ancient_sandstorm", ancient_sandstorm::new);
         burning_flames = Cataclysm_MODIFIERS.register("burning_flames", burning_flames::new);
+        wrath_of_flames = Cataclysm_MODIFIERS.register("wrath_of_flames", wrath_of_flames::new);
         cinder_slash = Cataclysm_MODIFIERS.register("cinder_slash", cinder_slash::new);
         cursed_spirit = Cataclysm_MODIFIERS.register("cursed_spirit", cursed_spirit::new);
         machine_iron_casting = Cataclysm_MODIFIERS.register("machine_iron_casting", machine_iron_casting::new);
@@ -37,5 +42,8 @@ public class CataclysmCompat {
         Storm_incarnation_arm = Cataclysm_MODIFIERS.register("storm_incarnation_arm", Storm_incarnation_arm::new);
         Eye_of_Storm = Cataclysm_MODIFIERS.register("eye_of_storm", Eye_of_Storm::new);
         Thunder = Cataclysm_MODIFIERS.register("thunder", Thunder::new);
+        Soul_render = Cataclysm_MODIFIERS.register("soul_render", Soul_render::new);
+        Meat_Shredder = Cataclysm_MODIFIERS.register("meat_shredder", Meat_Shredder::new);
+        Bulwark_of_The_Flame = Cataclysm_MODIFIERS.register("bulwark_of_the_flame", Bulwark_of_The_Flame::new);
     }
 }

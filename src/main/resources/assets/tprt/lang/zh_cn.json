@@ -514,6 +514,18 @@
   "modifier.tprt.thunder.flavor":"掌控雷霆！",
   "modifier.tprt.thunder.description":"使工具右键后可以发射鸣雷槊",
 
+  "modifier.tprt.soul_render": "魂戟",
+  "modifier.tprt.soul_render.flavor":"兵戈无情！",
+  "modifier.tprt.soul_render.description":"长按右键可以快速冲刺。潜行状态下，则改为在自身周围圆环范围内召唤幻影戟",
+
+  "modifier.tprt.meat_shredder": "绞肉锯",
+  "modifier.tprt.meat_shredder.flavor":"电锯惊魂！",
+  "modifier.tprt.meat_shredder.description":"使工具右键后可以攻击前方实体（无视无敌帧）",
+
+  "modifier.tprt.bulwark_of_the_flame": "火焰壁垒",
+  "modifier.tprt.bulwark_of_the_flame.flavor":"烈焰猛冲！",
+  "modifier.tprt.bulwark_of_the_flame.description":"潜行状态下，手持此盾右击以向前冲锋，对前方实体造成伤害；如果目标受击后撞到了墙，那么它会受到更多伤害并被暂时眩晕",
+
 
   "modifier.tprt.philosophers_stone": "贤者之石",
   "modifier.tprt.philosophers_stone.flavor":"炼金术的结晶重构了你的装备",

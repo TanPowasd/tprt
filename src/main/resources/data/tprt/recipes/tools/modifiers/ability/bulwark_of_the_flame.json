@@ -1,0 +1,32 @@
+{
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "cataclysm"
+      }
+    ]
+  },
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "cataclysm:bulwark_of_the_flame"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:bulwark_of_the_flame",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/shields"
+    }
+  ]
+}

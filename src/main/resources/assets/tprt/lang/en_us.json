@@ -501,6 +501,18 @@
   "modifier.tprt.thunder.flavor":"Control the lightning!",
   "modifier.tprt.thunder.description":"Right click to shoot a Lightning Spear",
 
+  "modifier.tprt.soul_render": "Soul Render",
+  "modifier.tprt.soul_render.flavor":"Weapons have no feelings!",
+  "modifier.tprt.soul_render.description":"You can Rush of Render.When used while sneaking, it summons Phantom Halberds in a spiral pattern",
+
+  "modifier.tprt.meat_shredder": "Meat Shredder",
+  "modifier.tprt.meat_shredder.flavor":"Saw scare!",
+  "modifier.tprt.meat_shredder.description":"Right-click damages entities in front (i-frame ignore)",
+
+  "modifier.tprt.bulwark_of_the_flame": "Bulwark of the Flame",
+  "modifier.tprt.bulwark_of_the_flame.flavor":"The flames are rushing!",
+  "modifier.tprt.bulwark_of_the_flame.description":"Release while sneaking to charge forward and damage entities in front.If the target hits a wall, it will receive extra damage and be temporarily stunned",
+
 
 
 
