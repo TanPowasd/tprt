@@ -509,6 +509,10 @@
   "modifier.tprt.meat_shredder.flavor":"Saw scare!",
   "modifier.tprt.meat_shredder.description":"Right-click damages entities in front (i-frame ignore)",
 
+  "modifier.tprt.the_incinerator": "The Incinerator",
+  "modifier.tprt.the_incinerator.flavor":"Burn everything!",
+  "modifier.tprt.the_incinerator.description":"Hold right click for 3 seconds to charge,When released, summons a flame strike in the direction you are facing.WARNING: Items may be lost when the flame strike explodes",
+
   "modifier.tprt.bulwark_of_the_flame": "Bulwark of the Flame",
   "modifier.tprt.bulwark_of_the_flame.flavor":"The flames are rushing!",
   "modifier.tprt.bulwark_of_the_flame.description":"Release while sneaking to charge forward and damage entities in front.If the target hits a wall, it will receive extra damage and be temporarily stunned",
