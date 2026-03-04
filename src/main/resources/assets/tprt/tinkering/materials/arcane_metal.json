@@ -2,8 +2,8 @@
   "fallbacks": [
     "metal"
   ],
-  "color": "4FFFF7",
-  "luminosity": 12,
+  "color": "73ABDE",
+  "luminosity": 6,
   "generator": {
     "transformer": {
       "type": "tconstruct:recolor_sprite",
@@ -16,27 +16,31 @@
           },
           {
             "grey": 63,
-            "color": "FF080515"
+            "color": "FFC8C8C8",
+            "path": "tprt:item/materials/generator/arcane_metal_border"
           },
           {
             "grey": 102,
-            "color": "FF171824"
+            "path": "tprt:item/materials/generator/arcane_metal_border"
           },
           {
             "grey": 140,
-            "color": "FF292b65"
+            "color": "FFD0D0D0",
+            "path": "tprt:item/materials/generator/arcane_metal"
           },
           {
             "grey": 178,
-            "color": "FF464070"
+            "color": "FFE1E1E1",
+            "path": "tprt:item/materials/generator/arcane_metal"
           },
           {
             "grey": 216,
-            "color": "FF52498e"
+            "color": "FFE1E1E1",
+            "path": "tprt:item/materials/generator/arcane_metal_highlight"
           },
           {
             "grey": 255,
-            "color": "FF5c5da3"
+            "path": "tprt:item/materials/generator/arcane_metal_highlight"
           }
         ]
       }

@@ -3,7 +3,7 @@
     "metal"
   ],
   "color": "2C2C2C",
-  "luminosity": 12,
+  "luminosity": 6,
   "generator": {
     "transformer": {
       "type": "tconstruct:recolor_sprite",
@@ -16,27 +16,27 @@
           },
           {
             "grey": 63,
-            "color": "FF080515"
+            "color": "FF171a1e"
           },
           {
             "grey": 102,
-            "color": "FF171824"
+            "color": "FF1f232c"
           },
           {
             "grey": 140,
-            "color": "FF292b65"
+            "color": "FF2d313d"
           },
           {
             "grey": 178,
-            "color": "FF464070"
+            "color": "FF485063"
           },
           {
             "grey": 216,
-            "color": "FF52498e"
+            "color": "FF616879"
           },
           {
             "grey": 255,
-            "color": "FF5c5da3"
+            "color": "FF969cad"
           }
         ]
       }

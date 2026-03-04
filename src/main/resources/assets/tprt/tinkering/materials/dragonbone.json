@@ -4,7 +4,7 @@
     "rock"
   ],
   "color": "C0B7A4",
-  "luminosity": 12,
+  "luminosity": 4,
   "generator": {
     "transformer": {
       "type": "tconstruct:recolor_sprite",
@@ -17,27 +17,27 @@
           },
           {
             "grey": 63,
-            "color": "FF080515"
+            "color": "FF27251c"
           },
           {
             "grey": 102,
-            "color": "FF171824"
+            "color": "FF505047"
           },
           {
             "grey": 140,
-            "color": "FF292b65"
+            "color": "FF817c6c"
           },
           {
             "grey": 178,
-            "color": "FF464070"
+            "color": "FFb1ab95"
           },
           {
             "grey": 216,
-            "color": "FF52498e"
+            "color": "FFd1c9aa"
           },
           {
             "grey": 255,
-            "color": "FF5c5da3"
+            "color": "FFe0dbc7"
           }
         ]
       }

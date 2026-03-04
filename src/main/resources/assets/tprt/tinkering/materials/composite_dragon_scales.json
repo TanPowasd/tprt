@@ -3,7 +3,7 @@
     "cloth"
   ],
   "color": "582f73",
-  "luminosity": 12,
+  "luminosity": 2,
   "generator": {
     "transformer": {
       "type": "tconstruct:recolor_sprite",
@@ -16,27 +16,27 @@
           },
           {
             "grey": 63,
-            "color": "FF080515"
+            "color": "FF381717"
           },
           {
             "grey": 102,
-            "color": "FF171824"
+            "color": "FF25003d"
           },
           {
             "grey": 140,
-            "color": "FF292b65"
+            "color": "FF0b4875"
           },
           {
             "grey": 178,
-            "color": "FF464070"
+            "color": "FF762b2b"
           },
           {
             "grey": 216,
-            "color": "FF52498e"
+            "color": "FF572e72"
           },
           {
             "grey": 255,
-            "color": "FF5c5da3"
+            "color": "FF507eaf"
           }
         ]
       }

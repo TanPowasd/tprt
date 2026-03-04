@@ -444,7 +444,7 @@
 
   "modifier.tprt.fragile": "易碎",
   "modifier.tprt.fragile.flavor":"你比你想象中更加脆弱，但是你的攻击也更加犀利",
-  "modifier.tprt.fragile.description":"生命值上限降低25%，但是攻击伤害+15%",
+  "modifier.tprt.fragile.description":"生命值上限降低35%，但是攻击伤害+15%",
 
   "modifier.tprt.magician": "魔法使",
   "modifier.tprt.magician.flavor":"法术大师!",
@@ -529,6 +529,10 @@
   "modifier.tprt.bulwark_of_the_flame": "火焰壁垒",
   "modifier.tprt.bulwark_of_the_flame.flavor":"烈焰猛冲！",
   "modifier.tprt.bulwark_of_the_flame.description":"潜行状态下，手持此盾右击以向前冲锋，对前方实体造成伤害；如果目标受击后撞到了墙，那么它会受到更多伤害并被暂时眩晕",
+
+  "modifier.tprt.ancient_spear": "远古之矛",
+  "modifier.tprt.ancient_spear.flavor":"源自沙漠的力量",
+  "modifier.tprt.ancient_spear.description":"左键点击以发射小型沙尘暴",
 
 
   "modifier.tprt.philosophers_stone": "贤者之石",

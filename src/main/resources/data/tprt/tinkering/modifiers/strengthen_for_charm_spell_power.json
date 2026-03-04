@@ -11,7 +11,7 @@
       "attributes": [
         {
           "attribute": "irons_spellbooks:spell_power",
-          "operation": "multiply_total",
+          "operation": "multiply_base",
           "value": 0.05
         }
       ],

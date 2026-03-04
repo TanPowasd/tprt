@@ -433,7 +433,7 @@
 
   "modifier.tprt.fragile": "Fragile",
   "modifier.tprt.fragile.flavor":"You are more fragile than you think, but your attacks are also sharper",
-  "modifier.tprt.fragile.description":"Max health reduced by 25%, but attack damage +15%",
+  "modifier.tprt.fragile.description":"Max health reduced by 35%, but attack damage +15%",
 
   "modifier.tprt.magician": "Magician",
   "modifier.tprt.magician.flavor":"Spell Master!",
@@ -517,6 +517,9 @@
   "modifier.tprt.bulwark_of_the_flame.flavor":"The flames are rushing!",
   "modifier.tprt.bulwark_of_the_flame.description":"Release while sneaking to charge forward and damage entities in front.If the target hits a wall, it will receive extra damage and be temporarily stunned",
 
+  "modifier.tprt.ancient_spear": "Ancient Spear",
+  "modifier.tprt.ancient_spear.flavor":"Power from the desert",
+  "modifier.tprt.ancient_spear.description":"Left click to shoot a Sandstorm",
 
 
 

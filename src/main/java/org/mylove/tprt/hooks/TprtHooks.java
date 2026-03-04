@@ -8,6 +8,7 @@ import slimeknights.tconstruct.library.module.ModuleHook;
 public class TprtHooks {
     public static final ModuleHook<KillingHook> KILLING_HOOK;
     public static final ModuleHook<DamageRedirectHook> DAMAGE_REDIRECT_HOOK;
+    public static final ModuleHook<LeftClickModifierHook> LEFT_CLICK ;
 
     static {
         KILLING_HOOK = ModifierHooks.register(
@@ -22,6 +23,13 @@ public class TprtHooks {
                 DamageRedirectHook.class,
                 DamageRedirectHook.AllMerge::new,
                 (tool, attacker, target, level, source) -> source
+        );
+
+        LEFT_CLICK = ModifierHooks.register(
+                ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "left_click"),
+                LeftClickModifierHook.class,
+                LeftClickModifierHook.AllMerger::new,
+                new LeftClickModifierHook() {}
         );
     }
 }

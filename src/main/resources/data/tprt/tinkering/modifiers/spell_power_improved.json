@@ -22,7 +22,7 @@
     },
     {
       "type": "tconstruct:attribute",
-      "each_level": 150,
+      "each_level": 100,
       "operation": "addition",
       "attribute": "irons_spellbooks:max_mana",
       "slots": [

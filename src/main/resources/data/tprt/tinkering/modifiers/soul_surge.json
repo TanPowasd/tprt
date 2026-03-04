@@ -19,7 +19,7 @@
       "attributes": [
         {
           "attribute": "minecraft:generic.attack_damage",
-          "operation": "multiply_total",
+          "operation": "multiply_base",
           "tooltip_style": "percent",
           "value": 0.10
         }

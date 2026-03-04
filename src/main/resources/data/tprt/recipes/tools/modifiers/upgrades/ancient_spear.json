@@ -7,13 +7,13 @@
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "cataclysm:meat_shredder"
+      "item": "cataclysm:ancient_spear"
     }
   ],
   "level": 1,
-  "result": "tprt:meat_shredder",
+  "result": "tprt:ancient_spear",
   "slots": {
-    "abilities": 1
+    "upgrades": 1
   },
   "tools": [
     {

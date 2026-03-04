@@ -1,9 +1,10 @@
 {
   "fallbacks": [
-    "cloth"
+    "cloth",
+    "primitive"
   ],
-  "color": "FFBEA6",
-  "luminosity": 12,
+  "color": "FFE8A074",
+  "luminosity": 2,
   "generator": {
     "transformer": {
       "type": "tconstruct:recolor_sprite",
@@ -16,27 +17,27 @@
           },
           {
             "grey": 63,
-            "color": "FF080515"
+            "color": "FF5E3235"
           },
           {
             "grey": 102,
-            "color": "FF171824"
+            "color": "FF94544B"
           },
           {
             "grey": 140,
-            "color": "FF292b65"
+            "color": "FFBB725B"
           },
           {
             "grey": 178,
-            "color": "FF464070"
+            "color": "FFC98265"
           },
           {
             "grey": 216,
-            "color": "FF52498e"
+            "color": "FFE8A074"
           },
           {
             "grey": 255,
-            "color": "FF5c5da3"
+            "color": "FFF2BA9A"
           }
         ]
       }

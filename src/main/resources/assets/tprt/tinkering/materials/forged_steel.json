@@ -2,8 +2,8 @@
   "fallbacks": [
     "metal"
   ],
-  "color": "232222",
-  "luminosity": 12,
+  "color": "303030",
+  "luminosity": 6,
   "generator": {
     "transformer": {
       "type": "tconstruct:recolor_sprite",
@@ -16,27 +16,27 @@
           },
           {
             "grey": 63,
-            "color": "FF080515"
+            "color": "FF8c8c8c"
           },
           {
             "grey": 102,
-            "color": "FF171824"
+            "color": "FF595959"
           },
           {
             "grey": 140,
-            "color": "FF292b65"
+            "color": "FF444242"
           },
           {
             "grey": 178,
-            "color": "FF464070"
+            "color": "FF454545"
           },
           {
             "grey": 216,
-            "color": "FF52498e"
+            "color": "FF303030"
           },
           {
             "grey": 255,
-            "color": "FF5c5da3"
+            "color": "FF232222"
           }
         ]
       }
