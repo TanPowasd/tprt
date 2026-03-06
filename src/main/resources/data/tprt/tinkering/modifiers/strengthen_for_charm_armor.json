@@ -2,18 +2,28 @@
   "level_display": "tconstruct:default",
   "modules": [
     {
-      "type": "tconstruct:stat_boost",
-      "each_level": 0.04,
-      "operation": "add",
-      "stat": "sakuratinker:armor",
-      "unique": "tprt.modifier.strengthen_for_charm_armor"
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.armor",
+          "operation": "multiply_base",
+          "tooltip_style": "percent",
+          "value": 0.03
+        }
+      ],
+      "name": "tprt:strengthen_for_charm_armor"
     },
     {
-      "type": "tconstruct:stat_boost",
-      "each_level": 0.03,
-      "operation": "add",
-      "stat": "sakuratinker:armor_toughness",
-      "unique": "tprt.modifier.strengthen_for_charm_armor"
+      "type": "sakuratinker:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.armor_toughness",
+          "operation": "multiply_base",
+          "tooltip_style": "percent",
+          "value": 0.03
+        }
+      ],
+      "name": "tprt:strengthen_for_charm_armor"
     }
   ],
   "tooltip_display": "always"

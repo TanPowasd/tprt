@@ -53,11 +53,7 @@
       "tconstruct:plating_boots",
       "tconstruct:plating_shield",
       "tconstruct:maille",
-      "tconstruct:armor_maille",
-      "tconstruct:limb",
-      "tconstruct:grip",
-      "sakuratinker:charm_chain",
-      "sakuratinker:charm_core"
+      "tconstruct:armor_maille"
     ],
     "ignore_material_stats": false
   }

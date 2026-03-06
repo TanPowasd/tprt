@@ -16,27 +16,27 @@
           },
           {
             "grey": 63,
-            "color": "FF8c8c8c"
+            "color": "FF232222"
           },
           {
             "grey": 102,
-            "color": "FF595959"
-          },
-          {
-            "grey": 140,
-            "color": "FF444242"
-          },
-          {
-            "grey": 178,
-            "color": "FF454545"
-          },
-          {
-            "grey": 216,
             "color": "FF303030"
           },
           {
+            "grey": 140,
+            "color": "FF454545"
+          },
+          {
+            "grey": 178,
+            "color": "FF444242"
+          },
+          {
+            "grey": 216,
+            "color": "FF595959"
+          },
+          {
             "grey": 255,
-            "color": "FF232222"
+            "color": "FF8c8c8c"
           }
         ]
       }

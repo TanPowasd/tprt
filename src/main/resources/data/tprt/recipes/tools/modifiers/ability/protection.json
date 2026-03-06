@@ -1,11 +1,7 @@
 {
   "condition": {
-    "values": [
-      {
-        "type": "forge:mod_loaded",
-        "modid": "immortalers_delight"
-      }
-    ]
+    "type": "forge:mod_loaded",
+    "modid": "immortalers_delight"
   },
   "type": "tconstruct:modifier",
   "allow_crystal": true,
@@ -14,7 +10,7 @@
       "item": "tconstruct:hepatizon_ingot"
     },
     {
-      "item": "sakuratinker:terracryst"
+      "item": "immortalers_delight:leisamboo_block"
     },
     {
       "item": "tconstruct:hepatizon_ingot"

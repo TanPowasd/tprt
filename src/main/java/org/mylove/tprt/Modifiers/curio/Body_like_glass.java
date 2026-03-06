@@ -1,19 +1,20 @@
 package org.mylove.tprt.Modifiers.curio;
 
-import com.ssakura49.sakuratinker.generic.CurioModifier;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import org.mylove.tprt.common.modifier.modifierModule.CuriosModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class Body_like_glass extends CurioModifier {
+public class Body_like_glass extends CuriosModifier{
+
+    public Body_like_glass(){}
+
     public boolean isNoLevels() {
         return true;
     }
-
-    public Body_like_glass(){}
 
     public void onDamageTargetPre(IToolStackView curio, ModifierEntry entry, LivingHurtEvent event, LivingEntity attacker, LivingEntity target) {
         if (target != null) {

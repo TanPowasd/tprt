@@ -1,7 +1,7 @@
 {
-  "creativetab.tprt_tab": "beloved",
+  "creative_tab.tprt.common": "tprt|common",
 
-  "creativetab.tprt_tool_tab": "beloved - tools",
+  "creative_tab.tprt.tools": "tprt|tools",
 
   "common": "special",
 
@@ -520,6 +520,10 @@
   "modifier.tprt.ancient_spear": "Ancient Spear",
   "modifier.tprt.ancient_spear.flavor":"Power from the desert",
   "modifier.tprt.ancient_spear.description":"Left click to shoot a Sandstorm",
+
+  "modifier.tprt.gauntlet_of_guard": "Gauntlet of Guard",
+  "modifier.tprt.gauntlet_of_guard.flavor":"Void traction",
+  "modifier.tprt.gauntlet_of_guard.description":"Right click to pull entities and hurt them by dragon breath damage",
 
 
 

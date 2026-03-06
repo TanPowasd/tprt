@@ -28,6 +28,7 @@ public class CataclysmCompat {
     public static final StaticModifier<The_Incinerator> The_Incinerator;
     public static final StaticModifier<Bulwark_of_The_Flame> Bulwark_of_The_Flame;
     public static final StaticModifier<Ancient_Spear> Ancient_Spear;
+    public static final StaticModifier<Gauntlet_of_Guard> Gauntlet_of_Guard;
     static {
         ancient_sandstorm = Cataclysm_MODIFIERS.register("ancient_sandstorm", ancient_sandstorm::new);
         burning_flames = Cataclysm_MODIFIERS.register("burning_flames", burning_flames::new);
@@ -49,5 +50,6 @@ public class CataclysmCompat {
         The_Incinerator = Cataclysm_MODIFIERS.register("the_incinerator", The_Incinerator::new);
         Bulwark_of_The_Flame = Cataclysm_MODIFIERS.register("bulwark_of_the_flame", Bulwark_of_The_Flame::new);
         Ancient_Spear = Cataclysm_MODIFIERS.register("ancient_spear", Ancient_Spear::new);
+        Gauntlet_of_Guard = Cataclysm_MODIFIERS.register("gauntlet_of_guard", Gauntlet_of_Guard::new);
     }
 }

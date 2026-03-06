@@ -1,10 +1,10 @@
 package org.mylove.tprt.registries;
 
-import com.ssakura49.sakuratinker.generic.CurioModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.mylove.tprt.Modifiers.curio.*;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.Modifiers.*;
+import org.mylove.tprt.common.modifier.modifierModule.CuriosModifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
@@ -29,13 +29,14 @@ public class ModifierRegistry {
     public static final StaticModifier<Poisonous_explosion> Poisonous_explosion = MODIFIERS.register("poisonous_explosion",Poisonous_explosion::new);
     public static final StaticModifier<Quenching_poison> Quenching_poison = MODIFIERS.register("quenching_poison",Quenching_poison::new);
     public static final StaticModifier<Tide_Guardian> Tide_Guardian = MODIFIERS.register("tide_guardian",Tide_Guardian::new);
-    public static final StaticModifier<CurioModifier> blood_of_hydra = MODIFIERS.register("blood_of_hydra", Blood_of_Hydra::new);
-    public static final StaticModifier<CurioModifier> dwarf_power = MODIFIERS.register("dwarf_power", Dwarf_Power::new);
-    public static final StaticModifier<CurioModifier> down_to_the_bone = MODIFIERS.register("down_to_the_bone", Down_to_the_Bone::new);
-    public static final StaticModifier<CurioModifier> unreal_image = MODIFIERS.register("unreal_image", Unreal_Image::new);
-    public static final StaticModifier<CurioModifier> body_like_glass = MODIFIERS.register("body_like_glass", Body_like_glass::new);
-    public static final StaticModifier<CurioModifier> strengthen_for_charm_endurance = MODIFIERS.register("strengthen_for_charm_endurance", Strengthen_for_charm_endurance::new);
-    public static final StaticModifier<CurioModifier> endless_life = MODIFIERS.register("endless_life", Endless_Life::new);
+    public static final StaticModifier<CuriosModifier> blood_of_hydra = MODIFIERS.register("blood_of_hydra", Blood_of_Hydra::new);
+    public static final StaticModifier<CuriosModifier> dwarf_power = MODIFIERS.register("dwarf_power", Dwarf_Power::new);
+    public static final StaticModifier<CuriosModifier> down_to_the_bone = MODIFIERS.register("down_to_the_bone", Down_to_the_Bone::new);
+    public static final StaticModifier<CuriosModifier> unreal_image = MODIFIERS.register("unreal_image", Unreal_Image::new);
+    public static final StaticModifier<CuriosModifier> body_like_glass = MODIFIERS.register("body_like_glass", Body_like_glass::new);
+    public static final StaticModifier<CuriosModifier> strengthen_for_charm_endurance = MODIFIERS.register("strengthen_for_charm_endurance", Strengthen_for_charm_endurance::new);
+    public static final StaticModifier<CuriosModifier> endless_life = MODIFIERS.register("endless_life", Endless_Life::new);
+    public static final StaticModifier<CuriosModifier> Strengthen_for_charm_ranged = MODIFIERS.register("strengthen_for_charm_ranged", Strengthen_for_charm_ranged::new);
     public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
     public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
     public static final StaticModifier<dynamic_attack> DYNAMIC_ATTACK = MODIFIERS.register("dynamic_attack",dynamic_attack::new);

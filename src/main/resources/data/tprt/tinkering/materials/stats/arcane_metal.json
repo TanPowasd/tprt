@@ -15,6 +15,7 @@
     }
   ],
   "stats": {
+    "tconstruct:binding": {},
     "sakuratinker:charm_chain": {
       "armor": 0.12,
       "arrow_damage": 0.20,
@@ -47,6 +48,7 @@
       "durability": 645,
       "velocity": 0.15
     },
+    "tconstruct:maille": {},
     "tconstruct:plating_boots": {
       "armor": 2.5,
       "durability": 314,

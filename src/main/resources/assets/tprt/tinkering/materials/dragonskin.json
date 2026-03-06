@@ -16,48 +16,37 @@
           },
           {
             "grey": 63,
-            "color": "FF080515"
+            "color": "FF000000"
           },
           {
             "grey": 102,
-            "color": "FF171824"
+            "color": "FF1a181c"
           },
           {
             "grey": 140,
-            "color": "FF292b65"
+            "color": "FF27202a"
           },
           {
             "grey": 178,
-            "color": "FF464070"
+            "color": "FF322835"
           },
           {
             "grey": 216,
-            "color": "FF52498e"
+            "color": "FF413248"
           },
           {
             "grey": 255,
-            "color": "FF5c5da3"
+            "color": "FF322835"
           }
         ]
       }
     },
     "supported_stats": [
-      "tconstruct:head",
-      "tconstruct:handle",
       "tconstruct:binding",
       "tconstruct:repair_kit",
-      "tconstruct:armor_plating",
-      "tconstruct:plating_helmet",
-      "tconstruct:plating_chestplate",
-      "tconstruct:plating_leggings",
-      "tconstruct:plating_boots",
       "tconstruct:plating_shield",
       "tconstruct:maille",
-      "tconstruct:armor_maille",
-      "tconstruct:limb",
-      "tconstruct:grip",
-      "sakuratinker:charm_chain",
-      "sakuratinker:charm_core"
+      "tconstruct:armor_maille"
     ],
     "ignore_material_stats": false
   }

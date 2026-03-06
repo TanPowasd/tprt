@@ -1,4 +1,5 @@
 package org.mylove.tprt;
+
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -17,7 +18,7 @@ import org.mylove.tprt.compat.Goety.GoetyCompat;
 import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
 import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import org.mylove.tprt.registries.*;
-import org.mylove.tprt.registries.item.ModItems;
+import org.mylove.tprt.registries.item.ItemsRegistry;
 import org.mylove.tprt.utils.ModListUtil;
 import org.slf4j.Logger;
 
@@ -34,8 +35,8 @@ public class Tprt {
 //        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus modEventBus = context.getModEventBus();
         ModFluids.register(modEventBus);
-        ModCreativeModTabs.register(modEventBus);
-        ModItems.register(modEventBus);
+        TprtModCreativeTabs.register(modEventBus);
+        ItemsRegistry.register(modEventBus);
         Modblocks.register(modEventBus);
         ModBuffRegistry.register(modEventBus);
         modEventBus.addListener(this::commonSetup);

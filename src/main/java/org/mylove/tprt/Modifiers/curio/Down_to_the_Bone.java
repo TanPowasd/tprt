@@ -1,13 +1,13 @@
 package org.mylove.tprt.Modifiers.curio;
 
-import com.ssakura49.sakuratinker.generic.CurioModifier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import org.mylove.tprt.common.modifier.modifierModule.CuriosModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class Down_to_the_Bone extends CurioModifier {
+public class Down_to_the_Bone extends CuriosModifier {
 
     public Down_to_the_Bone(){}
 

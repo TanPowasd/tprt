@@ -1,7 +1,7 @@
 {
-  "creativetab.tprt_tab": "挚爱",
+  "creative_tab.tprt.common": "挚爱|常规",
 
-  "creativetab.tprt_tool_tab": "挚爱——工具",
+  "creative_tab.tprt.tools": "挚爱|工具",
 
 
   "common": "special",
@@ -533,6 +533,11 @@
   "modifier.tprt.ancient_spear": "远古之矛",
   "modifier.tprt.ancient_spear.flavor":"源自沙漠的力量",
   "modifier.tprt.ancient_spear.description":"左键点击以发射小型沙尘暴",
+
+  "modifier.tprt.gauntlet_of_guard": "守卫者护手",
+  "modifier.tprt.gauntlet_of_guard.flavor":"虚空牵引",
+  "modifier.tprt.gauntlet_of_guard.description":"右键以拉近实体并对周围的实体造成龙息伤害",
+
 
 
   "modifier.tprt.philosophers_stone": "贤者之石",
