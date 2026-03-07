@@ -80,7 +80,7 @@ public class Infernal_Forge extends NoLevelsModifier implements GeneralInteracti
     }
 
     public float getRadius(IToolStackView tool, ModifierEntry modifier) {
-        return (4.0f + 2 * tool.getModifierLevel(TinkerModifiers.expanded.getId()));
+        return (float) (4.0f + 1.5 * tool.getModifierLevel(TinkerModifiers.expanded.getId()));
     }
 
     private void EarthQuake(UseOnContext context,IToolStackView tool,ModifierEntry modifier) {
