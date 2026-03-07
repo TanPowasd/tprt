@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:amethyst_crab"
+  },
+  "result": {
+    "item": "cataclysm:amethyst_crab_shell",
+    "count": 4
+  }
+}

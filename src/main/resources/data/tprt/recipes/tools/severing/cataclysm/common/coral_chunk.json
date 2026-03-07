@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:coralssus"
+  },
+  "result": "cataclysm:coral_chunk",
+  "count": 1
+}

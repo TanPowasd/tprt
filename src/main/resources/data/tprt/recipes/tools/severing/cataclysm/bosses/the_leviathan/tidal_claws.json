@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:the_leviathan"
+  },
+  "result": "cataclysm:tidal_claws",
+  "count": 1
+}

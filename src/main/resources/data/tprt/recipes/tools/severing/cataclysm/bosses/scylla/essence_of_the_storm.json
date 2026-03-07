@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:scylla"
+  },
+  "result": {
+    "item": "cataclysm:essence_of_the_storm",
+    "count": 4
+  }
+}

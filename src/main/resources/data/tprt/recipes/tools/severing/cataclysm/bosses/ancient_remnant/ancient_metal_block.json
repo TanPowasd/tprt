@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:ancient_remnant"
+  },
+  "result": "cataclysm:ancient_metal_block",
+  "count": 1
+}

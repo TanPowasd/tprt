@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:ancient_remnant"
+  },
+  "result": "cataclysm:sandstorm_in_a_bottle",
+  "count": 1
+}

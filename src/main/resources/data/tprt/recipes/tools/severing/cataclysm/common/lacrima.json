@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": [
+      "cataclysm:scylla",
+      "cataclysm:clawdian",
+      "cataclysm:urchinkin",
+      "cataclysm:drowned_host",
+      "cataclysm:symbiocto",
+      "cataclysm:cindaria",
+      "cataclysm:hippocamtus"
+    ]
+  },
+  "result": {
+    "item": "cataclysm:lacrima",
+    "count": 4
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:netherite_monstrosity"
+  },
+  "result": {
+    "item":"cataclysm:lava_power_cell",
+    "count": 24
+  }
+}

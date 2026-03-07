@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:ancient_remnant"
+  },
+  "result": "cataclysm:remnant_skull",
+  "count": 1
+}

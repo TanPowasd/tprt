@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": [
+      "cataclysm:kobolediator",
+      "cataclysm:wadjet"
+    ]
+  },
+  "result": {
+    "item": "cataclysm:ancient_metal_ingot",
+    "count": 4
+  }
+}

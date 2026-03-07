@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:netherite_monstrosity"
+  },
+  "result": "cataclysm:infernal_forge",
+  "count": 1
+}

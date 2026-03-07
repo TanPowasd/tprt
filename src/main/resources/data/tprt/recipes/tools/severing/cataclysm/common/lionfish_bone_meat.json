@@ -1,0 +1,7 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:lionfish"
+  },
+  "result": "minecraft:bone_meat"
+}

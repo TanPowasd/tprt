@@ -1,0 +1,11 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:scylla"
+  },
+
+  "result": {
+    "item": "cataclysm:lacrima",
+    "count": 16
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": [
+      "cataclysm:kobolediator",
+      "cataclysm:wadjet",
+      "cataclysm:koboleton"
+    ]
+  },
+  "result": {
+    "item": "cataclysm:koboleton_bone",
+    "count": 2
+  }
+}

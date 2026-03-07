@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": [
+      "cataclysm:the_prowler",
+      "cataclysm:the_watcher"
+    ]
+  },
+  "result": {
+    "item": "cataclysm:iron_ingot",
+    "count": 4
+  }
+}

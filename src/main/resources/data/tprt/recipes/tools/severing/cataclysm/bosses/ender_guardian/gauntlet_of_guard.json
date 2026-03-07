@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:ender_guardian"
+  },
+  "result": "cataclysm:gauntlet_of_guard",
+  "count": 1
+}

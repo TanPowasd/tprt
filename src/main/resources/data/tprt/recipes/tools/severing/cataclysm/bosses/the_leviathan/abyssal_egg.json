@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:the_leviathan"
+  },
+  "result": "cataclysm:abyssal_egg",
+  "count": 1
+}

@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": [
+      "cataclysm:deepling",
+      "cataclysm:deepling_brute",
+      "cataclysm:deepling_angler",
+      "cataclysm:deepling_priest",
+      "cataclysm:deepling_warlock"
+    ]
+  },
+  "result": "minecraft:nautilus_shell"
+}

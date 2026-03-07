@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": [
+      "cataclysm:draugr",
+      "cataclysm:royal_draugr",
+      "cataclysm:elite_draugr",
+      "cataclysm:drowned_host",
+      "cataclysm:the_prowler"
+    ]
+  },
+  "result": {
+    "item": "minecraft:rotten_flesh",
+    "count": 2
+  }
+}

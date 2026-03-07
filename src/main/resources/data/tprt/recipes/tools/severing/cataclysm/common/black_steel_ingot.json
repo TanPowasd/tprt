@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": [
+      "cataclysm:draugr",
+      "cataclysm:royal_draugr",
+      "cataclysm:elite_draugr",
+      "cataclysm:aptrgangr"
+    ]
+  },
+  "result": "cataclysm:black_steel_ingot"
+}
