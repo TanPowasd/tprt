@@ -522,6 +522,10 @@
   "modifier.tprt.meat_shredder.flavor":"电锯惊魂！",
   "modifier.tprt.meat_shredder.description":"使工具右键后可以攻击前方实体（无视无敌帧）",
 
+  "modifier.tprt.infernal_forge": "炼狱锻锤",
+  "modifier.tprt.infernal_forge.flavor":"八十！八十！",
+  "modifier.tprt.infernal_forge.description":"右击方块来造成范围伤害，[延展]强化能扩大伤害范围",
+
   "modifier.tprt.the_incinerator": "炎葬",
   "modifier.tprt.the_incinerator.flavor":"焚毁一切！",
   "modifier.tprt.the_incinerator.description":"长按鼠标右键3秒以充能，而后松开右键，即可在你的面朝方向召唤烈焰轰击。警告：生物死亡时的掉落物可能会在烈焰轰击的爆炸中消失。",

@@ -33,7 +33,9 @@ public class persistence_of_nature extends NoLevelsModifier implements OnAttacke
 
             ToolStack mainhand = Modifier.getHeldTool(player, EquipmentSlot.MAINHAND);
             if (mainhand != null) {
-                if (player.getCooldowns().isOnCooldown(mainhand.getItem())) return;
+                if (player.getCooldowns().isOnCooldown(mainhand.getItem())) {
+                    return;
+                }
                 else {
                     player.getCooldowns().addCooldown(mainhand.getItem(), Persistence_of_natureCoolDown);
 
