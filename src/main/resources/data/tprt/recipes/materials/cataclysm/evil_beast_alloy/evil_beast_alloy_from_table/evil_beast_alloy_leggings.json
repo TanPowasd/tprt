@@ -5,7 +5,7 @@
   },
   "type": "tconstruct:item_part_builder",
   "cost": 5,
-  "material": "tprt:witherite",
+  "material": "tprt:evil_beast_alloy",
   "pattern": "tconstruct:leggings_plating",
   "pattern_item": [
     {
@@ -19,7 +19,7 @@
     "count": 1,
     "item": "tconstruct:leggings_plating",
     "nbt": {
-      "Material": "tprt:witherite"
+      "Material": "tprt:evil_beast_alloy"
     }
   }
 }

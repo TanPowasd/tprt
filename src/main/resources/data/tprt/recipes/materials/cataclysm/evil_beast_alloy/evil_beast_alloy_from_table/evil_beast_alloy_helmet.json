@@ -4,22 +4,22 @@
     "modid": "cataclysm"
   },
   "type": "tconstruct:item_part_builder",
-  "cost": 5,
-  "material": "tprt:witherite",
-  "pattern": "tconstruct:leggings_plating",
+  "cost": 3,
+  "material": "tprt:evil_beast_alloy",
+  "pattern": "tconstruct:helmet_plating",
   "pattern_item": [
     {
       "tag": "tconstruct:patterns/default"
     },
     {
-      "item": "tconstruct:leggings_plating_cast"
+      "item": "tconstruct:helmet_plating_cast"
     }
   ],
   "result": {
     "count": 1,
-    "item": "tconstruct:leggings_plating",
+    "item": "tconstruct:helmet_plating",
     "nbt": {
-      "Material": "tprt:witherite"
+      "Material": "tprt:evil_beast_alloy"
     }
   }
 }

@@ -288,6 +288,10 @@
   "modifier.tprt.cinder_slash.attack_damage": "熔毁倍率",
   "modifier.tprt.cinder_slash.use_item_speed": "熔毁范围",
 
+  "modifier.tprt.monstrous": "骇人之恶",
+  "modifier.tprt.monstrous.flavor": "巨兽的威慑",
+  "modifier.tprt.monstrous.description": "（仅头部可触发）穿戴时，若你的生命值少于一半, 你将产生爆炸并击退周遭实体，并基于全身的特性等级获得强化防御、击退抗性和生命恢复的增益效果。",
+
   "modifier.tprt.soul_infection": "魂灵浸染",
   "modifier.tprt.soul_infection.flavor":"长期的浸润使它充满魂灵的力量",
   "modifier.tprt.soul_infection.description":"小幅度提升工具的所有属性",

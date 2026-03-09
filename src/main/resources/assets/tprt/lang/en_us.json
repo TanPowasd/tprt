@@ -277,6 +277,10 @@
   "modifier.tprt.cinder_slash.attack_damage": "Cinder Slash Multiplier",
   "modifier.tprt.cinder_slash.use_item_speed": "Cinder Slash Range",
 
+  "modifier.tprt.monstrous": "Monstrous",
+  "modifier.tprt.monstrous.flavor": "The deterrence of the monster",
+  "modifier.tprt.monstrous.description": "(Only the helmet can trigger it)While worn, if you fall below half health knock back nearby entities and increases defense, knockback resistance and regeneration on the basis of this modifier of the whole body",
+
   "modifier.tprt.soul_infection": "Soul Infusion",
   "modifier.tprt.soul_infection.flavor":"Long-term immersion has filled it with soul power",
   "modifier.tprt.soul_infection.description":"Slightly increases all attributes of the tool",

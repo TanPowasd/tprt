@@ -12,5 +12,21 @@
       "level": 1,
       "name": "tconstruct:netherite"
     }
-  ]
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:monstrous"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:fire_protection"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:netherite"
+      }
+    ]
+  }
 }

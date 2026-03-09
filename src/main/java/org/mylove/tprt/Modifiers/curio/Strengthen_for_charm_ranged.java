@@ -19,8 +19,8 @@ public class Strengthen_for_charm_ranged extends CuriosModifier {
     public float getProjectileDamage(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, @NotNull Projectile projectile, @Nullable AbstractArrow arrow, @Nullable LivingEntity attacker, @NotNull Entity target, float baseDamage, float damage) {
         if(attacker != null){
         int x = entry.getLevel();
-        return (float) (baseDamage * 1.04 * x);
+        return (float) (damage * (1 + 0.04 * x));
         }
-        return baseDamage;
+        return damage;
     }
 }

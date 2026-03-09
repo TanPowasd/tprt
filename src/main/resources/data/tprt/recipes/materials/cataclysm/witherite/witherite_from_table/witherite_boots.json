@@ -1,34 +1,25 @@
 {
   "condition": {
-    "type": "forge:or",
-    "values": [
-      {
-        "type": "tconstruct:config",
-        "prop": "force_integration_materials"
-      },
-      {
-        "type": "forge:mod_loaded",
-        "modid": "cataclysm"
-      }
-    ]
+    "type": "forge:mod_loaded",
+    "modid": "cataclysm"
   },
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "A": {
-      "item":"cataclysm:witherite_ingot"
+  "type": "tconstruct:item_part_builder",
+  "cost": 2,
+  "material": "tprt:witherite",
+  "pattern": "tconstruct:boots_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
     },
-    "B": {
-      "item":"tconstruct:pattern"
+    {
+      "item": "tconstruct:boots_plating_cast"
     }
-  },
-  "pattern": [
-    "A A",
-    "B B",
-    "   "
   ],
   "result": {
-    "item": "tconstruct:boots_plating",
     "count": 1,
-    "nbt": "{Material:\"tprt:witherite\"}"
+    "item": "tconstruct:boots_plating",
+    "nbt": {
+      "Material": "tprt:witherite"
+    }
   }
 }

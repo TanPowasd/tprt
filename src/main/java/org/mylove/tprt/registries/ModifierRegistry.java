@@ -37,6 +37,7 @@ public class ModifierRegistry {
     public static final StaticModifier<CuriosModifier> strengthen_for_charm_endurance = MODIFIERS.register("strengthen_for_charm_endurance", Strengthen_for_charm_endurance::new);
     public static final StaticModifier<CuriosModifier> endless_life = MODIFIERS.register("endless_life", Endless_Life::new);
     public static final StaticModifier<CuriosModifier> Strengthen_for_charm_ranged = MODIFIERS.register("strengthen_for_charm_ranged", Strengthen_for_charm_ranged::new);
+    public static final StaticModifier<CuriosModifier> Fortune_curio = MODIFIERS.register("fortune_curio", Fortune_curio::new);
     public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
     public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
     public static final StaticModifier<dynamic_attack> DYNAMIC_ATTACK = MODIFIERS.register("dynamic_attack",dynamic_attack::new);
@@ -48,5 +49,4 @@ public class ModifierRegistry {
     public static final StaticModifier<tetanus>TETANUS_STATIC = MODIFIERS.register("tetanus",tetanus::new);
     public static final StaticModifier<persistence_of_nature> PERSISTENCE_OF_NATURE = MODIFIERS.register("persistence_of_nature",persistence_of_nature::new);
     public static final StaticModifier<Automation> Automation = MODIFIERS.register("automation",Automation::new);
-    //public static final StaticModifier<CurioModifier> FORTUNE_CURIO = MODIFIERS.register("fortune_curio", FortuneCurio::new);//
 }

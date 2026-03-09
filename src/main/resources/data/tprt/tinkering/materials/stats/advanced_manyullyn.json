@@ -24,19 +24,19 @@
       "armor": 10.0,
       "durability": 879,
       "knockback_resistance": 0.18,
-      "toughness": 5.2
+      "toughness": 3.5
     },
     "tconstruct:plating_helmet": {
       "armor": 4.5,
       "durability": 656,
       "knockback_resistance": 0.12,
-      "toughness": 3.8
+      "toughness": 3.5
     },
     "tconstruct:plating_leggings": {
       "armor": 9.0,
       "durability": 794,
       "knockback_resistance": 0.15,
-      "toughness": 4.8
+      "toughness": 3.5
     },
     "tconstruct:plating_shield": {
       "armor": 4,

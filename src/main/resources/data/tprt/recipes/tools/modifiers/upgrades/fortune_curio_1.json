@@ -1,0 +1,41 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "tag": "forge:ingots/copper"
+    },
+    {
+      "ingredient": [
+        {
+          "item": "minecraft:cornflower"
+        },
+        {
+          "item": "minecraft:blue_orchid"
+        }
+      ]
+    },
+    {
+      "tag": "forge:ingots/copper"
+    },
+    {
+      "tag": "forge:storage_blocks/lapis"
+    },
+    {
+      "tag": "forge:storage_blocks/lapis"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:fortune_curio",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    },
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_spell_book"
+    }
+  ]
+}

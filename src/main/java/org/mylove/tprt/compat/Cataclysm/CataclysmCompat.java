@@ -12,6 +12,7 @@ public class CataclysmCompat {
     public static final StaticModifier<burning_flames> burning_flames;
     public static final StaticModifier<wrath_of_flames> wrath_of_flames;
     public static final StaticModifier<cinder_slash> cinder_slash;
+    public static final StaticModifier<Monstrous> Monstrous;
     public static final StaticModifier<cursed_spirit> cursed_spirit;
     public static final StaticModifier<machine_iron_casting> machine_iron_casting;
     public static final StaticModifier<mechanical_star_arm> mechanical_star_arm;
@@ -35,6 +36,7 @@ public class CataclysmCompat {
         burning_flames = Cataclysm_MODIFIERS.register("burning_flames", burning_flames::new);
         wrath_of_flames = Cataclysm_MODIFIERS.register("wrath_of_flames", wrath_of_flames::new);
         cinder_slash = Cataclysm_MODIFIERS.register("cinder_slash", cinder_slash::new);
+        Monstrous = Cataclysm_MODIFIERS.register("monstrous", Monstrous::new);
         cursed_spirit = Cataclysm_MODIFIERS.register("cursed_spirit", cursed_spirit::new);
         machine_iron_casting = Cataclysm_MODIFIERS.register("machine_iron_casting", machine_iron_casting::new);
         mechanical_star_arm = Cataclysm_MODIFIERS.register("mechanical_star_arm", mechanical_star_arm::new);

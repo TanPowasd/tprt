@@ -5,6 +5,12 @@
         "level": 1,
         "name": "tconstruct:luck"
       }
+    ],
+    "sakuratinker:charm":[
+      {
+        "level": 5,
+        "name": "tprt:fortune_curio"
+      }
     ]
   }
 }

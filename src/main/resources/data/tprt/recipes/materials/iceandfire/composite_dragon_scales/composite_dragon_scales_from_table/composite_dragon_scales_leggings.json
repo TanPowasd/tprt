@@ -1,34 +1,25 @@
 {
   "condition": {
-    "type": "forge:or",
-    "values": [
-      {
-        "type": "tconstruct:config",
-        "prop": "force_integration_materials"
-      },
-      {
-        "type": "forge:mod_loaded",
-        "modid": "iceandfire"
-      }
-    ]
+    "type": "forge:mod_loaded",
+    "modid": "iceandfire"
   },
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "A": {
-      "item":"tprt:composite_dragon_scales"
+  "type": "tconstruct:item_part_builder",
+  "cost": 5,
+  "material": "tprt:composite_dragon_scales",
+  "pattern": "tconstruct:leggings_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
     },
-    "B": {
-      "item":"tconstruct:pattern"
+    {
+      "item": "tconstruct:leggings_plating_cast"
     }
-  },
-  "pattern": [
-    "BAB",
-    "A A",
-    "A A"
   ],
   "result": {
-    "item": "tconstruct:leggings_plating",
     "count": 1,
-    "nbt": "{Material:\"tprt:composite_dragon_scales\"}"
+    "item": "tconstruct:leggings_plating",
+    "nbt": {
+      "Material": "tprt:composite_dragon_scales"
+    }
   }
 }
