@@ -107,6 +107,8 @@
 
   "item.tprt.tears_of_the_storm": "风暴之泪",
 
+  "item.tprt.abyss_fragment": "深渊残片",
+
   "fluid.tconstruct.molten_arcane_metal": "熔融奥术金属",
   "fluid.tconstruct.flowing_molten_arcane_metal": "流动的熔融奥术金属",
   "item.tprt.molten_arcane_metal_bucket": "熔融奥术金属桶",
@@ -153,6 +155,12 @@
 
   "material.tprt.tears_of_the_storm":"风暴之泪",
   "material.tprt.tears_of_the_storm.flavor":"女神的泪滴结晶，蕴含风暴的威能",
+
+  "material.tprt.abyss_fragment":"深渊",
+  "material.tprt.abyss_fragment.flavor":"利维坦带来的碎片，令人不寒而栗",
+
+  "material.tprt.void_jaw":"虚空之颚",
+  "material.tprt.void_jaw.flavor":"末影甲虫的上颚，可用于制作箭矢",
 
   "material.tprt.advanced_manyullyn":"超限玛玉灵",
   "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
@@ -324,6 +332,18 @@
   "modifier.tprt.storm_incarnation_arm": "我即风暴",
   "modifier.tprt.storm_incarnation_arm.flavor":"我即是那迫近的风暴",
   "modifier.tprt.storm_incarnation_arm.description":"受到的伤害降低15%；若为下雨或雷暴天气，则额外获得抗性提升2和急迫2且无敌帧延长至两倍",
+
+  "modifier.tprt.breath_of_the_abyss": "深渊之息",
+  "modifier.tprt.breath_of_the_abyss.flavor":"至深，至暗",
+  "modifier.tprt.breath_of_the_abyss.description":"攻击附加深渊恐惧和虚空伤害",
+
+  "modifier.tprt.dimension_fragmentation": "维度碎裂",
+  "modifier.tprt.dimension_fragmentation.flavor":"撕裂维度的力量！",
+  "modifier.tprt.dimension_fragmentation.description":"若攻击目标持有深渊恐惧效果，则削减其3%最大生命值",
+
+  "modifier.tprt.void_scatter": "虚空散射",
+  "modifier.tprt.void_scatter.flavor":"破碎虚空！",
+  "modifier.tprt.void_scatter.description":"箭矢在击中实体或方块时对周围的目标造成一定的溅射伤害",
 
 
 

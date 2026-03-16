@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "key": {
+    "T": {
+      "item": "cataclysm:tidal_claws"
+    },
+    "E": {
+      "item": "cataclysm:abyssal_egg"
+    },
+    "A": {
+      "item": "cataclysm:athame"
+    }
+  },
+  "pattern": [
+    "   ",
+    "TAE",
+    "   "
+  ],
+  "result": {
+    "item": "tprt:abyss_fragment",
+    "count": 4
+  }
+}

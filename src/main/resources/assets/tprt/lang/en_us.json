@@ -60,6 +60,7 @@
 
   "common": "item",
   "item.tprt.leisamboo_board":"：Leisamboo Template",
+  "item.tprt.composite_dragon_scales":"Composite Dragon Scales",
 
 
   "common": "item_and_fluid",
@@ -97,6 +98,8 @@
   "item.tprt.molten_ancient_metal_bucket": "Molten Ancient Metal Bucket",
 
   "item.tprt.tears_of_the_storm": "Tears Of The Storm",
+
+  "item.tprt.abyss_fragment": "Abyss Fragment",
 
   "fluid.tconstruct.molten_arcane_metal": "Molten Arcane Metal",
   "fluid.tconstruct.flowing_molten_arcane_metal": "Flowing Molten Arcane Metal",
@@ -143,6 +146,12 @@
 
   "material.tprt.tears_of_the_storm":"Tears Of The Storm",
   "material.tprt.tears_of_the_storm.flavor":"The tears of the goddess crystallize and contain the power of the storm.",
+
+  "material.tprt.abyss_fragment":"Abyss",
+  "material.tprt.abyss_fragment.flavor":"The debris brought by Leviathan is chilling.",
+
+  "material.tprt.void_jaw":"Void Jaw",
+  "material.tprt.void_jaw.flavor":"The jaw of the Endermaptera can be used to make arrows.",
 
   "material.tprt.advanced_manyullyn":"Advanced Manyullyn",
   "material.tprt.advanced_manyullyn.flavor":"This is the legendary Manyullyn that can sever galaxies!",
@@ -310,6 +319,17 @@
   "modifier.tprt.storm_incarnation_arm.flavor":"I'm the storm that is approaching.",
   "modifier.tprt.storm_incarnation_arm.description":"The damage suffered is reduced by 15%; If it's raining or thunderstorm, you will get resistance of 2 level and haste of 2 level, and the invincible frame will be doubled.",
 
+  "modifier.tprt.breath_of_the_abyss": "Breath of the abyss",
+  "modifier.tprt.breath_of_the_abyss.flavor":"To the deepest, to the darkest",
+  "modifier.tprt.breath_of_the_abyss.description":"Attack additional Abyssal Fear effect and void damage.",
+
+  "modifier.tprt.dimension_fragmentation": "Dimension fragmentation",
+  "modifier.tprt.dimension_fragmentation.flavor":"The power to tear the dimension!",
+  "modifier.tprt.dimension_fragmentation.description":"If the target has the Abyssal Fear effect, its maximum health will be reduced by 3%.",
+
+  "modifier.tprt.void_scatter": "Void Scatter",
+  "modifier.tprt.void_scatter.flavor":"Broken void!",
+  "modifier.tprt.void_scatter.description":"When an arrow hits a entity or block, it will do some sputtering damage to the surrounding targets.",
 
 
 

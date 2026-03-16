@@ -4,7 +4,7 @@
     "modid": "immortalers_delight"
   },
   "type": "tconstruct:modifier",
-  "allow_crystal": true,
+  "allow_crystal": false,
   "inputs": [
     {
       "item": "tconstruct:hepatizon_ingot"

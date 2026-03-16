@@ -1,12 +1,8 @@
 package org.mylove.tprt.compat.IronsSpellBooks;
 
-import com.ssakura49.sakuratinker.compat.IronSpellBooks.modifiers.*;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.*;
-import slimeknights.tconstruct.library.modifiers.Modifier;
+import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.Curios.Lightning_upgrade;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
@@ -26,6 +22,7 @@ public class IssCompat {
     public static StaticModifier<human_turpentine> Human_turpentine;
     public static StaticModifier<Release_spells> Release_spells;
     public static StaticModifier<Immolate> ImmoLate;
+    public static StaticModifier<Lightning_upgrade> Lightning_upgrade;
     static {
         enchanting = Iss_MODIFIERS.register("enchanting", enchanting::new);
         Magic_Sublimation_Range = Iss_MODIFIERS.register("magic_sublimation_range", Magic_Sublimation_Range::new);
@@ -33,6 +30,7 @@ public class IssCompat {
         Human_turpentine = Iss_MODIFIERS.register("human_turpentine", human_turpentine::new);
         Release_spells = Iss_MODIFIERS.register("release_spells", Release_spells::new);
         ImmoLate = Iss_MODIFIERS.register("immolate", Immolate::new);
+        Lightning_upgrade = Iss_MODIFIERS.register("lightning_upgrade", Lightning_upgrade::new);
     }
 }
 

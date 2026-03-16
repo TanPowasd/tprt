@@ -40,7 +40,7 @@ public class wrath_of_flames extends NoLevelsModifier implements MeleeHitModifie
             if (instance != null) {
                 bufnum = instance.getAmplifier()+1;
             }
-            System.out.println(damageDealt);
+            //System.out.println(damageDealt);
             if (context.getLivingTarget() != null) {
                 context.getLivingTarget().hurt(context.getLivingTarget().damageSources().onFire(), damageDealt*bufnum*0.1f);
             }

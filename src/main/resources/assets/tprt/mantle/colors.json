@@ -26,7 +26,9 @@
     "sea_serpent_fang": "#ECE8E2",
     "sea_serpent_scales": "#4775A6",
     "composite_dragon_scales": "#582f73",
-    "tears_of_the_storm": "#7cbee6"
+    "tears_of_the_storm": "#7cbee6",
+    "abyss_fragment": "#883dfc",
+    "void_jaw": "#8019FC"
   },
   "modifier.tprt": {
     "the_dragon_lord":"#EEDD82",
@@ -152,6 +154,9 @@
     "the_incinerator": "#D27B00",
     "bulwark_of_the_flame": "#AB6707",
     "ancient_spear": "#d8b669",
-    "gauntlet_of_guard": "#705071"
+    "gauntlet_of_guard": "#705071",
+    "breath_of_the_abyss": "#883dfc",
+    "dimension_fragmentation": "#883dfc",
+    "void_scatter": "#8019FC"
   }
 }
