@@ -13,6 +13,6 @@ import top.theillusivec4.curios.api.SlotContext;
 public class Lightning_upgrade extends CuriosModifier {
     @Override
     public void onCurioTick(IToolStackView curio, ModifierEntry entry, SlotContext context, LivingEntity entity, ItemStack stack) {
-        AffinityData.setAffinityData(stack, SpellRegistry.CHARGE_SPELL.get(), 255);
+        AffinityData.setAffinityData(stack, SpellRegistry.CHARGE_SPELL.get(), entry.getLevel());
     }
 }

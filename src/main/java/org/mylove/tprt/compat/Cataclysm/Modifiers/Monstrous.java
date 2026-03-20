@@ -5,7 +5,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
@@ -19,7 +18,6 @@ import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.List;
 import java.util.UUID;
@@ -40,8 +38,7 @@ public class Monstrous extends Modifier implements InventoryTickModifierHook {
                 boolean berserk = player.getMaxHealth() * 1 / 2 >= player.getHealth();
                 double radius = 4.0D;
                 List<Entity> list = world.getEntities(player, player.getBoundingBox().inflate(radius));
-                ToolStack monstrous = Modifier.getHeldTool(player, EquipmentSlot.HEAD);
-                if (monstrous != null && berserk && !(player.getCooldowns().isOnCooldown(monstrous.getItem()))) {
+                if (berserk && !(player.getCooldowns().isOnCooldown(tool.getItem()))) {
                     for (Entity entity : list) {
                         if (entity instanceof LivingEntity) {
                             entity.hurt(world.damageSources().mobAttack(player), (float) ((float) X * player.getAttributeValue(Attributes.ATTACK_DAMAGE) * 5 / 2));
@@ -51,7 +48,7 @@ public class Monstrous extends Modifier implements InventoryTickModifierHook {
                             entity.push(d0 / d2 * 1.5, 0.15D, d1 / d2 * 1.5);
                         }
                     }
-                    player.getCooldowns().addCooldown(monstrous.getItem(), 350);
+                    player.getCooldowns().addCooldown(tool.getItem(), 350);
                     player.addEffect(new MobEffectInstance(ModEffect.EFFECTMONSTROUS.get(), 200, X - 1, false, true));
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, X - 1, false, false));
                 }

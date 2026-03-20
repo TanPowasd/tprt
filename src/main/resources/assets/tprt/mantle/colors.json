@@ -21,6 +21,7 @@
     "dragonskin": "#40004A",
     "dark_knight": "#44005f",
     "koboleton_bone": "#d8caa5",
+    "amethyst_crab_shell": "#cfa0f3",
     "dragonbone": "#C0B7A4",
     "hydra_fang": "#948C73",
     "sea_serpent_fang": "#ECE8E2",
@@ -157,6 +158,7 @@
     "gauntlet_of_guard": "#705071",
     "breath_of_the_abyss": "#883dfc",
     "dimension_fragmentation": "#883dfc",
-    "void_scatter": "#8019FC"
+    "void_scatter": "#8019FC",
+    "amethyst_of_the_earth": "#cfa0f3"
   }
 }

@@ -144,6 +144,9 @@
   "material.tprt.koboleton_bone":"Koboleton Bone",
   "material.tprt.koboleton_bone.flavor":"Bones of an ancient remnant, far stronger than ordinary bone",
 
+  "material.tprt.amethyst_crab_shell":"Amethyst Crab Shell",
+  "material.tprt.amethyst_crab_shell.flavor":"The chitin shell of Amethyst Crab is full of the power of the earth.",
+
   "material.tprt.tears_of_the_storm":"Tears Of The Storm",
   "material.tprt.tears_of_the_storm.flavor":"The tears of the goddess crystallize and contain the power of the storm.",
 
@@ -288,7 +291,7 @@
 
   "modifier.tprt.monstrous": "Monstrous",
   "modifier.tprt.monstrous.flavor": "The deterrence of the monster",
-  "modifier.tprt.monstrous.description": "(Only the helmet can trigger it)While worn, if you fall below half health knock back nearby entities and increases defense, knockback resistance and regeneration on the basis of this modifier of the whole body",
+  "modifier.tprt.monstrous.description": "While worn, if you fall below half health knock back nearby entities and increases defense, knockback resistance and regeneration on the basis of this modifier of the whole body",
 
   "modifier.tprt.soul_infection": "Soul Infusion",
   "modifier.tprt.soul_infection.flavor":"Long-term immersion has filled it with soul power",
@@ -306,6 +309,14 @@
   "modifier.tprt.ancient_sandstorm.flavor":"The desert storm empowers you!",
   "modifier.tprt.ancient_sandstorm.description":"Base durability +1500. Attack damage, armor value, and projectile power gradually gain high percentage increases as durability gets higher",
   "modifier.tprt.ancient_sandstorm.requirements": "Requires Ancient Metal material as prerequisite",
+
+  "modifier.tprt.will_from_ancient": "Ancient Will",
+  "modifier.tprt.will_from_ancient.flavor":"Unwavering!",
+  "modifier.tprt.will_from_ancient.description":"Slightly increases tool attack power and projectile power. Attacks reduce part of the target's armor",
+
+  "modifier.tprt.amethyst_of_the_earth": "Amethyst of the earth",
+  "modifier.tprt.amethyst_of_the_earth.flavor":"As safe as a rock!",
+  "modifier.tprt.amethyst_of_the_earth.description":"Improve the knockback resistance. When attacked, fire amethyst clusters around you that damage entities.",
 
   "modifier.tprt.eye_of_storm": "Eye Of Storm",
   "modifier.tprt.eye_of_storm.flavor":"Lead the storm!",
@@ -385,9 +396,6 @@
   "modifier.tprt.marathon.flavor":"“Favor jingles when cut”",
   "modifier.tprt.marathon.description":"Movement speed greatly increased while holding the weapon",
 
-  "modifier.tprt.will_from_ancient": "Ancient Will",
-  "modifier.tprt.will_from_ancient.flavor":"Unwavering!",
-  "modifier.tprt.will_from_ancient.description":"Slightly increases tool attack power and projectile power. Attacks reduce part of the target's armor",
 
 
 

@@ -153,6 +153,9 @@
   "material.tprt.koboleton_bone":"骸龙之骨",
   "material.tprt.koboleton_bone.flavor":"古老遗存的骨骸，强度远超普通骨头",
 
+  "material.tprt.amethyst_crab_shell":"紫水晶蟹壳",
+  "material.tprt.amethyst_crab_shell.flavor":"紫水晶巨蟹的几丁质外壳，充满大地的力量",
+
   "material.tprt.tears_of_the_storm":"风暴之泪",
   "material.tprt.tears_of_the_storm.flavor":"女神的泪滴结晶，蕴含风暴的威能",
 
@@ -298,7 +301,7 @@
 
   "modifier.tprt.monstrous": "骇人之恶",
   "modifier.tprt.monstrous.flavor": "巨兽的威慑",
-  "modifier.tprt.monstrous.description": "（仅头部可触发）穿戴时，若你的生命值少于一半, 你将产生爆炸并击退周遭实体，并基于全身的特性等级获得强化防御、击退抗性和生命恢复的增益效果。",
+  "modifier.tprt.monstrous.description": "穿戴时，若你的生命值少于一半, 你将产生爆炸并击退周遭实体，并基于全身的特性等级获得强化防御、击退抗性和生命恢复的增益效果。",
 
   "modifier.tprt.soul_infection": "魂灵浸染",
   "modifier.tprt.soul_infection.flavor":"长期的浸润使它充满魂灵的力量",
@@ -320,6 +323,10 @@
   "modifier.tprt.will_from_ancient": "远古意志",
   "modifier.tprt.will_from_ancient.flavor":"坚定不移！",
   "modifier.tprt.will_from_ancient.description":"工具的攻击力和弹射物力量小幅度提升，攻击会抵消目标的部分护甲值",
+
+  "modifier.tprt.amethyst_of_the_earth": "大地的紫晶",
+  "modifier.tprt.amethyst_of_the_earth.flavor":"安如磐石！",
+  "modifier.tprt.amethyst_of_the_earth.description":"提高击退抗性，受到攻击时向周围发射紫水晶簇，对实体造成伤害",
 
   "modifier.tprt.eye_of_storm": "风暴之眼",
   "modifier.tprt.eye_of_storm.flavor":"引领风暴的航向！",
