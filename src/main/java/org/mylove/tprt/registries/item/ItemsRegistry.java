@@ -89,6 +89,9 @@ public class ItemsRegistry {
 //lr特供 深渊残片
     public static final ItemObject<Item>Abyss_fragment=ITEMS.register("abyss_fragment",
             ()->new Item(new Item.Properties()));
+//lr特供 虚空动力合金锭
+    public static final ItemObject<Item>Void_power_alloy=ITEMS.register("void_power_alloy",
+            ()->new Item(new Item.Properties()));
 //lr特供 濡湿骑士锭
     public static final ItemObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_knight_ingot",
         ()->new Item(new Item.Properties()));
@@ -125,6 +128,7 @@ public class ItemsRegistry {
         tab.accept(EVIL_BEAST_ALLOY_INGOT);
         tab.accept(Tears_of_the_storm);
         tab.accept(Abyss_fragment);
+        tab.accept(Void_power_alloy);
         tab.accept(DARK_KNIGHT_INGOT);
         tab.accept(Leisamboo_Board);
         tab.accept(Composite_dragon_scales);

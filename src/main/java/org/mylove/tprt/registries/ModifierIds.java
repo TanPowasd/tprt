@@ -13,6 +13,7 @@ public class ModifierIds {
     public static final ModifierId double_or_none = id("double_or_none");
     public static final ModifierId Monstrous = id("monstrous");
     public static final ModifierId amethyst_of_the_earth = id("amethyst_of_the_earth");
+    public static final ModifierId Ender_Armor = id("ender_armor");
 
     private ModifierIds() {
     }

@@ -1,6 +1,6 @@
 {
   "parent":"item/generated",
   "textures": {
-    "layer0":"tprt:item/capoo"
+    "layer0":"tprt:item/void_power_alloy"
   }
 }

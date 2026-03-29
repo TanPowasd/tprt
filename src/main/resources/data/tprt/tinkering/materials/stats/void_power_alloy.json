@@ -1,0 +1,57 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "tconstruct:binding": {},
+    "tconstruct:handle": {
+      "durability": 0.95,
+      "melee_damage": 0.45,
+      "melee_speed": 0.35,
+      "mining_speed": 0.3
+    },
+    "tconstruct:head": {
+      "durability": 1402,
+      "melee_attack": 6.8,
+      "mining_speed": 11.8,
+      "mining_tier": "minecraft:netherite"
+    },
+    "tconstruct:maille": {},
+    "tconstruct:plating_boots": {
+      "armor": 4.0,
+      "durability": 563,
+      "knockback_resistance": 0.10,
+      "toughness": 3
+    },
+    "tconstruct:plating_chestplate": {
+      "armor": 8.0,
+      "durability": 797,
+      "knockback_resistance": 0.10,
+      "toughness": 3
+    },
+    "tconstruct:plating_helmet": {
+      "armor": 5.0,
+      "durability": 581,
+      "knockback_resistance": 0.10,
+      "toughness": 3
+    },
+    "tconstruct:plating_leggings": {
+      "armor": 7.0,
+      "durability": 651,
+      "knockback_resistance": 0.10,
+      "toughness": 3
+    }
+  }
+}

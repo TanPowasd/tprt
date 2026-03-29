@@ -101,6 +101,8 @@
 
   "item.tprt.abyss_fragment": "Abyss Fragment",
 
+  "item.tprt.void_power_alloy": "Void Power Alloy",
+
   "fluid.tconstruct.molten_arcane_metal": "Molten Arcane Metal",
   "fluid.tconstruct.flowing_molten_arcane_metal": "Flowing Molten Arcane Metal",
   "item.tprt.molten_arcane_metal_bucket": "Molten Arcane Metal Bucket",
@@ -153,13 +155,16 @@
   "material.tprt.abyss_fragment":"Abyss",
   "material.tprt.abyss_fragment.flavor":"The debris brought by Leviathan is chilling.",
 
+  "material.tprt.void_power_alloy":"Void Power Alloy",
+  "material.tprt.void_power_alloy.flavor":"A part of the Ender Guardian, which can drive the power of the void.",
+
   "material.tprt.void_jaw":"Void Jaw",
   "material.tprt.void_jaw.flavor":"The jaw of the Endermaptera can be used to make arrows.",
 
   "material.tprt.advanced_manyullyn":"Advanced Manyullyn",
   "material.tprt.advanced_manyullyn.flavor":"This is the legendary Manyullyn that can sever galaxies!",
 
-  "material.tprt.kwat_wheat_grain_ingot":"Kwat Wheat Grain Ingot",
+  "material.tprt.kwat_wheat_grain_ingot":"Kwat Wheat",
   "material.tprt.kwat_wheat_grain_ingot.flavor":"A relic of ancient times",
 
   "material.tprt.sniffer_fur":"Sniffer Fur",
@@ -341,6 +346,20 @@
   "modifier.tprt.void_scatter": "Void Scatter",
   "modifier.tprt.void_scatter.flavor":"Broken void!",
   "modifier.tprt.void_scatter.description":"When an arrow hits a entity or block, it will do some sputtering damage to the surrounding targets.",
+
+  "modifier.tprt.void_power": "Void Power",
+  "modifier.tprt.void_power.flavor":"The technology of the End, boy!",
+  "modifier.tprt.void_power.description":"Consume a Void Stone every 0.5 seconds to replenish 10 points of void power.",
+  "modifier.tprt.void_power.tooltip":"Void Power%s/%s",
+
+  "modifier.tprt.ender_armor": "Ender Armor",
+  "modifier.tprt.ender_armor.flavor":"This heavy armor can only be driven by void.",
+  "modifier.tprt.ender_armor.description":"When you have Void Power, when you are attacked, you will consume 1 charge to offset 30% of the damage; If the charge is greater than 50 points, when attacked, it will consume an additional 20 points of charge and summon empty runes in front of itself; If it is not charged, it will make the wearer fall into slow of 3 level",
+
+  "modifier.tprt.void_armed": "Void Armed",
+  "modifier.tprt.void_armed.flavor":"Driven by void, your attack is sharper.",
+  "modifier.tprt.void_armed.description":"When you have Void Power, the attributes of the tool will be improved, and the attack will consume 1 charge to increase the attack damage by 30%; If the charge is greater than 50 points, it will consume 10 points of charge and attack once more, but the attack damage will be reduced to 75%; If it is not charged, the tool properties will be greatly reduced.",
+
 
 
 

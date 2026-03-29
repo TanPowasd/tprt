@@ -109,6 +109,8 @@
 
   "item.tprt.abyss_fragment": "深渊残片",
 
+  "item.tprt.void_power_alloy": "虚空动力合金",
+
   "fluid.tconstruct.molten_arcane_metal": "熔融奥术金属",
   "fluid.tconstruct.flowing_molten_arcane_metal": "流动的熔融奥术金属",
   "item.tprt.molten_arcane_metal_bucket": "熔融奥术金属桶",
@@ -162,13 +164,16 @@
   "material.tprt.abyss_fragment":"深渊",
   "material.tprt.abyss_fragment.flavor":"利维坦带来的碎片，令人不寒而栗",
 
+  "material.tprt.void_power_alloy":"虚空动力合金",
+  "material.tprt.void_power_alloy.flavor":"末影守卫的组成部分，能够驱动虚空的力量",
+
   "material.tprt.void_jaw":"虚空之颚",
   "material.tprt.void_jaw.flavor":"末影甲虫的上颚，可用于制作箭矢",
 
   "material.tprt.advanced_manyullyn":"超限玛玉灵",
   "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
 
-  "material.tprt.kwat_wheat_grain_ingot":"瓦斯麦谷锭",
+  "material.tprt.kwat_wheat_grain_ingot":"瓦斯麦",
   "material.tprt.kwat_wheat_grain_ingot.flavor":"远古的孑遗",
 
   "material.tprt.sniffer_fur":"嗅探兽毛皮",
@@ -351,6 +356,19 @@
   "modifier.tprt.void_scatter": "虚空散射",
   "modifier.tprt.void_scatter.flavor":"破碎虚空！",
   "modifier.tprt.void_scatter.description":"箭矢在击中实体或方块时对周围的目标造成一定的溅射伤害",
+
+  "modifier.tprt.void_power": "虚空动力",
+  "modifier.tprt.void_power.flavor":"末地科技，小子！",
+  "modifier.tprt.void_power.description":"每0.5秒消耗一块虚空石补充10点虚空充能",
+  "modifier.tprt.void_power.tooltip":"虚空充能%s/%s",
+
+  "modifier.tprt.ender_armor": "末影重装甲",
+  "modifier.tprt.ender_armor.flavor":"这具沉重的装甲只有虚空才能驱动",
+  "modifier.tprt.ender_armor.description":"拥有虚空充能时，受到攻击会消耗1点充能抵消30%的伤害；若充能大于50点，受到攻击时会额外消耗20点充能并在自身身前召唤虚空符文；若没有充能则会使穿戴者陷入缓慢3",
+
+  "modifier.tprt.void_armed": "虚空武装",
+  "modifier.tprt.void_armed.flavor":"在虚空的驱动下，你的攻击更加犀利",
+  "modifier.tprt.void_armed.description":"拥有虚空充能时，工具的属性会获得提升，攻击会消耗1点充能使攻击伤害提高30%；若充能大于50点，则变为消耗10点充能且额外攻击一次但攻击伤害降低至75%；若没有充能则会使工具属性大幅降低",
 
 
 
@@ -775,7 +793,7 @@
 
   "modifier.tprt.ice_dragon_blood": "冰龙血淬炼",
   "modifier.tprt.ice_dragon_blood.flavor":"用冰龙血淬炼你的龙骨部件",
-  "modifier.tprt.ice_dragon_blood.description":"小幅度提高近战伤害，攻击时会冰冻目标5秒大幅度削弱目标",
+  "modifier.tprt.ice_dragon_blood.description":"小幅度提高近战伤害，攻击时会冰冻目标5秒并大幅度削弱目标",
   "modifier.tprt.ice_dragon_blood.requirements": "需要龙之骨材料作为前置",
 
   "modifier.tprt.lightning_dragon_blood": "电龙血淬炼",

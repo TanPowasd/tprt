@@ -29,7 +29,8 @@
     "composite_dragon_scales": "#582f73",
     "tears_of_the_storm": "#7cbee6",
     "abyss_fragment": "#883dfc",
-    "void_jaw": "#8019FC"
+    "void_jaw": "#8019FC",
+    "void_power_alloy": "#cd00ff"
   },
   "modifier.tprt": {
     "the_dragon_lord":"#EEDD82",
@@ -159,6 +160,9 @@
     "breath_of_the_abyss": "#883dfc",
     "dimension_fragmentation": "#883dfc",
     "void_scatter": "#8019FC",
-    "amethyst_of_the_earth": "#cfa0f3"
+    "amethyst_of_the_earth": "#cfa0f3",
+    "void_power": "#cd00ff",
+    "ender_armor": "#cd00ff",
+    "void_armed": "#cd00ff"
   }
 }

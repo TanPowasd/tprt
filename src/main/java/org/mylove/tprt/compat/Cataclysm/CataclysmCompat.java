@@ -35,6 +35,9 @@ public class CataclysmCompat {
     public static final StaticModifier<Dimension_Fragmentation> Dimension_Fragmentation;
     public static final StaticModifier<Void_Scatter> Void_Scatter;
     public static final StaticModifier<Amethyst_of_the_Earth> Amethyst_of_the_Earth;
+    public static final StaticModifier<Void_Power> Void_Power;
+    public static final StaticModifier<Void_Armed> Void_Armed;
+    public static final StaticModifier<Ender_Armor> Ender_Armor;
     static {
         ancient_sandstorm = Cataclysm_MODIFIERS.register("ancient_sandstorm", ancient_sandstorm::new);
         burning_flames = Cataclysm_MODIFIERS.register("burning_flames", burning_flames::new);
@@ -63,5 +66,8 @@ public class CataclysmCompat {
         Dimension_Fragmentation = Cataclysm_MODIFIERS.register("dimension_fragmentation", Dimension_Fragmentation::new);
         Void_Scatter = Cataclysm_MODIFIERS.register("void_scatter", Void_Scatter::new);
         Amethyst_of_the_Earth = Cataclysm_MODIFIERS.register("amethyst_of_the_earth", Amethyst_of_the_Earth::new);
+        Void_Power = Cataclysm_MODIFIERS.register("void_power", Void_Power::new);
+        Void_Armed = Cataclysm_MODIFIERS.register("void_armed", Void_Armed::new);
+        Ender_Armor = Cataclysm_MODIFIERS.register("ender_armor", Ender_Armor::new);
     }
 }

@@ -1,0 +1,17 @@
+{
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "cataclysm"
+  },
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "cataclysm:void_core"
+  },
+  "cast_consumed": false,
+  "cooling_time": 200,
+  "fluid": {
+    "amount": 810,
+    "fluid": "tconstruct:ender_slime"
+  },
+  "result": "cataclysm:void_stone"
+}

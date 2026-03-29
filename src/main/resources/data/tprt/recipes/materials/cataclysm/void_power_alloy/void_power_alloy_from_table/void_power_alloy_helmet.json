@@ -1,0 +1,25 @@
+{
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "cataclysm"
+  },
+  "type": "tconstruct:item_part_builder",
+  "cost": 3,
+  "material": "tprt:void_power_alloy",
+  "pattern": "tconstruct:helmet_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "tconstruct:helmet_plating_cast"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "tconstruct:helmet_plating",
+    "nbt": {
+      "Material": "tprt:void_power_alloy"
+    }
+  }
+}
