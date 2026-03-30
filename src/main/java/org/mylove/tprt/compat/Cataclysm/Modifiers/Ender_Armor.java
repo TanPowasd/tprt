@@ -127,7 +127,7 @@ public class Ender_Armor extends NoLevelsModifier implements OnAttackedModifierH
         } while (blockpos.getY() >= lowestYCheck);
         if (flag) {
             int A = (int) Objects.requireNonNull(player.getAttribute(Attributes.ATTACK_DAMAGE)).getValue();
-            world.addFreshEntity(new Void_Rune_Entity(world, x, (double) blockpos.getY() + d0, z, yRot, warmupDelayTicks, 1.5f * A, player));
+            world.addFreshEntity(new Void_Rune_Entity(world, x, (double) blockpos.getY() + d0, z, yRot, warmupDelayTicks, 1.5f * A + 8, player));
             return true;
         }
         return false;
