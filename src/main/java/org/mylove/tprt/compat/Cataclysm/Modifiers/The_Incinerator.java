@@ -1,6 +1,6 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.effect.Flame_Strike_Entity;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModSounds;
@@ -85,7 +85,7 @@ public class The_Incinerator extends NoLevelsModifier implements GeneralInteract
                 if (hasSucceeded) {
                     if (!level.isClientSide) {
                         if (mainhand != null) {
-                            player.getCooldowns().addCooldown(mainhand.getItem(), CMConfig.TheIncineratorCooldown);
+                            player.getCooldowns().addCooldown(mainhand.getItem(), CMCommonConfig.Incinerator.cooldown);
                         }
                     }
                     ScreenShake_Entity.ScreenShake(level, player.position(), 30, 0.15f, 0, 30);

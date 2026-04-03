@@ -1,7 +1,7 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
 import com.github.L_Ender.cataclysm.capabilities.ChargeCapability;
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.init.ModCapabilities;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -83,7 +83,7 @@ public class Bulwark_of_The_Flame extends NoLevelsModifier implements GeneralInt
                     }
                     if (!level.isClientSide) {
                         if (offhand != null) {
-                            player.getCooldowns().addCooldown(offhand.getItem(), CMConfig.BulwarkOfTheFlameCooldown);
+                            player.getCooldowns().addCooldown(offhand.getItem(), CMCommonConfig.BulwarkOfTheFlame.cooldown);
                         }
                     }
                 }

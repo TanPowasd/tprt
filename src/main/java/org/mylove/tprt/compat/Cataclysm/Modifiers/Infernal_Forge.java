@@ -1,6 +1,6 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.effect.ScreenShake_Entity;
 import com.github.L_Ender.cataclysm.init.ModSounds;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -64,7 +64,7 @@ public class Infernal_Forge extends NoLevelsModifier implements GeneralInteracti
                 return BlockInteractionModifierHook.super.beforeBlockUse(tool,modifier,context,source);
             }
             EarthQuake(context,tool,modifier);
-            player.getCooldowns().addCooldown(mainhand.getItem(), CMConfig.InfernalForgeCooldown);
+            player.getCooldowns().addCooldown(mainhand.getItem(), CMCommonConfig.InfernalForge.cooldown);
             return InteractionResult.SUCCESS;
         }
         return BlockInteractionModifierHook.super.beforeBlockUse(tool,modifier,context,source);

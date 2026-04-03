@@ -1,12 +1,11 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.projectile.Void_Rune_Entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -98,7 +97,7 @@ public class Ender_Armor extends NoLevelsModifier implements OnAttackedModifierH
                             }
                         }
                     }
-                    player.getCooldowns().addCooldown(iToolStackView.getItem(), CMConfig.VoidCoreCooldown);
+                    player.getCooldowns().addCooldown(iToolStackView.getItem(), CMCommonConfig.VoidCore.cooldown);
                     tooldata.putInt(Void_Power, tooldata.getInt(Void_Power) - 20);
                 }
             }

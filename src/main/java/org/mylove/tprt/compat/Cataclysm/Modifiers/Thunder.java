@@ -1,6 +1,6 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.projectile.Lightning_Spear_Entity;
 import com.github.L_Ender.cataclysm.init.ModSounds;
 import net.minecraft.sounds.SoundSource;
@@ -66,32 +66,20 @@ public class Thunder extends NoLevelsModifier implements GeneralInteractionModif
                 if (X != null) {if (!((double) f < 0.5D)) {
                     level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.EMP_ACTIVATED.get(), SoundSource.PLAYERS,1.0F, 0.8F);
                     if (!level.isClientSide) {
-                        float d7 = entity.getYRot();
-                        float d = entity.getXRot();
-                        float d1 = -Mth.sin(d7 * ((float) Math.PI / 180F)) * Mth.cos(d * ((float) Math.PI / 180F));
-                        float d2 = -Mth.sin(d * ((float) Math.PI / 180F));
-                        float d3 = Mth.cos(d7 * ((float) Math.PI / 180F)) * Mth.cos(d * ((float) Math.PI / 180F));
-                        double theta = d7 * (Math.PI / 180);
-                        theta += Math.PI / 2;
-                        double vecX = Math.cos(theta);
-                        double vecZ = Math.sin(theta);
-                        double x = entity.getX() + vecX;
-                        double y = entity.getY() + entity.getBbHeight()/2;
-                        double Z = entity.getZ() + vecZ;
-                        Vec3 vec3 = new Vec3(d1, d2, d3).normalize();
+                        Vec3 lookDirection = player.getLookAngle();
+                        Vec3 vec3 = new Vec3(lookDirection.x, lookDirection.y, lookDirection.z);
                         float yRot = (float) (Mth.atan2(vec3.z, vec3.x) * (180F / Math.PI)) + 90F;
                         float xRot = (float) -(Mth.atan2(vec3.y, Math.sqrt(vec3.x * vec3.x + vec3.z * vec3.z)) * (180F / Math.PI));
-                        Lightning_Spear_Entity lightning = new Lightning_Spear_Entity(player, vec3.normalize(),level, (float) ((float) CMConfig.AstrapeDamage + 3 * X.getValue()));
-                        lightning.accelerationPower = 0.15D;
+                        Lightning_Spear_Entity lightning = new Lightning_Spear_Entity(player, vec3, level, (float) ((float) CMCommonConfig.Astrape.damage + 3 * X.getValue()), 2.5F);
                         lightning.setYRot(yRot);
                         lightning.setXRot(xRot);
-                        lightning.setPosRaw(x, y, Z);
-                        lightning.setAreaDamage((float) ((float) CMConfig.AstrapeAreaDamage + X.getValue()));
-                        lightning.setAreaRadius(1);
+                        lightning.setPos(lightning.getX(), player.getY(0.75), lightning.getZ());
+                        lightning.setAreaDamage((float) ((float) CMCommonConfig.Astrape.areaDamage + X.getValue()));
+                        lightning.setAreaRadius(2);
                         boolean flag = level.addFreshEntity(lightning);
                         if(flag){
                             if (mainhand != null) {
-                                player.getCooldowns().addCooldown(mainhand.getItem(), CMConfig.AstrapeCooldown);
+                                player.getCooldowns().addCooldown(mainhand.getItem(), CMCommonConfig.Astrape.cooldown);
                             }
                         }
                     }

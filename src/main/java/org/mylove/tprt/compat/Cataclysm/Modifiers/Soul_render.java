@@ -1,7 +1,7 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
 import com.github.L_Ender.cataclysm.capabilities.RenderRushCapability;
-import com.github.L_Ender.cataclysm.config.CMConfig;
+import com.github.L_Ender.cataclysm.config.CMCommonConfig;
 import com.github.L_Ender.cataclysm.entity.projectile.Phantom_Halberd_Entity;
 import com.github.L_Ender.cataclysm.init.ModCapabilities;
 import com.github.L_Ender.cataclysm.init.ModParticle;
@@ -67,7 +67,7 @@ public class Soul_render extends NoLevelsModifier implements GeneralInteractionM
                 StrikeWindmillHalberd(level,player,7, 5, 1.0, 1.0, 0.2, 1);
                 if (!level.isClientSide) {
                     if (mainhand != null) {
-                        player.getCooldowns().addCooldown(mainhand.getItem(), CMConfig.SoulRenderCooldown);
+                        player.getCooldowns().addCooldown(mainhand.getItem(), CMCommonConfig.SoulRender.cooldown);
                     }
                 }
             }else{
@@ -86,7 +86,7 @@ public class Soul_render extends NoLevelsModifier implements GeneralInteractionM
                     if (!level.isClientSide) {
                         if (hasSucceeded) {
                             if (mainhand != null) {
-                                player.getCooldowns().addCooldown(mainhand.getItem(), CMConfig.SoulRenderCooldown);
+                                player.getCooldowns().addCooldown(mainhand.getItem(), CMCommonConfig.SoulRender.cooldown);
                             }
                         }
                     }
@@ -140,7 +140,7 @@ public class Soul_render extends NoLevelsModifier implements GeneralInteractionM
             blockpos = blockpos.below();
         } while(blockpos.getY() >= Mth.floor(minY) - 1);
         if (flag) {
-            world.addFreshEntity(new Phantom_Halberd_Entity(world, x, (double)blockpos.getY() + d0, z, rotation, delay, player, (float) ((float)CMConfig.PhantomHalberddamage + 2 * player.getAttributeValue(Attributes.ATTACK_DAMAGE))));
+            world.addFreshEntity(new Phantom_Halberd_Entity(world, x, (double)blockpos.getY() + d0, z, rotation, delay, player, (float) ((float) CMCommonConfig.SoulRender.phantomHalberdDamage + 2 * player.getAttributeValue(Attributes.ATTACK_DAMAGE))));
         }
     }
 }

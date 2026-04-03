@@ -1,6 +1,5 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import com.github.L_Ender.cataclysm.config.CMConfig;
 import com.github.L_Ender.cataclysm.entity.projectile.Amethyst_Cluster_Projectile_Entity;
 import com.github.L_Ender.cataclysm.init.ModEntities;
 import net.minecraft.util.Mth;
@@ -59,7 +58,7 @@ public class Amethyst_of_the_Earth extends Modifier implements OnAttackedModifie
                     double vy = 0 + player.getRandom().nextFloat() * 0.3F;
                     double vz = Mth.sin(throwAngle);
                     double v3 = Mth.sqrt((float) (vx * vx + vz * vz));
-                    Amethyst_Cluster_Projectile_Entity projectile = new Amethyst_Cluster_Projectile_Entity(ModEntities.AMETHYST_CLUSTER_PROJECTILE.get(), player.level(), player, (float) CMConfig.AmethystClusterdamage + x * X);
+                    Amethyst_Cluster_Projectile_Entity projectile = new Amethyst_Cluster_Projectile_Entity(ModEntities.AMETHYST_CLUSTER_PROJECTILE.get(), player.level(), player, (float)11  + x * X);
                     projectile.moveTo(sx, sy, sz, i * 11.25F, player.getXRot());
                     float speed = 0.8F;
                     projectile.shoot(vx, vy + v3 * 0.2D, vz, speed, 1.0F);

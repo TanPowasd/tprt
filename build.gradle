@@ -191,7 +191,7 @@ dependencies {
     implementation fg.deobf("curse.maven:l2library-620203:6806000")
     //implementation fg.deobf("curse.maven:tinkers-calibration-tic3-863663:6735556")
     implementation fg.deobf("curse.maven:etst-lib-1206379:6732443")
-    implementation fg.deobf("curse.maven:lendercataclysm-551586:6849032")
+    implementation fg.deobf("curse.maven:lendercataclysm-551586:7849424")
     implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:7402504")
     implementation fg.deobf("curse.maven:tinkercuriolib-1478834:7718493")
 
