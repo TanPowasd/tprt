@@ -159,10 +159,12 @@
     "gauntlet_of_guard": "#705071",
     "breath_of_the_abyss": "#883dfc",
     "dimension_fragmentation": "#883dfc",
+    "abyss_call": "#883dfc",
     "void_scatter": "#8019FC",
     "amethyst_of_the_earth": "#cfa0f3",
     "void_power": "#cd00ff",
     "ender_armor": "#cd00ff",
-    "void_armed": "#cd00ff"
+    "void_armed": "#cd00ff",
+    "ender_echo": "#cd00ff"
   }
 }

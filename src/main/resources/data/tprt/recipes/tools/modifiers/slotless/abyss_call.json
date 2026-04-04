@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "cataclysm:tidal_claws"
+    },
+    {
+      "item": "tprt:abyss_fragment"
+    },
+    {
+      "item": "cataclysm:abyssal_egg"
+    },
+    {
+      "item": "tprt:abyss_fragment"
+    },
+    {
+      "item": "tprt:abyss_fragment"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:abyss_call",
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable/bonus_slots"
+    }
+  ]
+}

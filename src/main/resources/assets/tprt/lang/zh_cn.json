@@ -559,6 +559,14 @@
   "modifier.tprt.storm_potential.flavor":"风暴的精粹附魔了你的装备",
   "modifier.tprt.storm_potential.description":"难以驾驭的风暴为你带来了一个升级槽，一个防御槽",
 
+  "modifier.tprt.abyss_call": "深渊之唤",
+  "modifier.tprt.abyss_call.flavor":"深渊的力量增幅了你的装备",
+  "modifier.tprt.abyss_call.description":"深不见底的海渊为你带来了一个升级槽，一个防御槽",
+
+  "modifier.tprt.ender_echo": "末影回响",
+  "modifier.tprt.ender_echo.flavor":"回响的末影重锻了你的装备",
+  "modifier.tprt.ender_echo.description":"重重叠叠的末影为你带来了一个升级槽，一个防御槽",
+
   "modifier.tprt.thunder": "鸣雷",
   "modifier.tprt.thunder.flavor":"掌控雷霆！",
   "modifier.tprt.thunder.description":"使工具右键后可以发射鸣雷槊",
@@ -577,7 +585,7 @@
 
   "modifier.tprt.the_incinerator": "炎葬",
   "modifier.tprt.the_incinerator.flavor":"焚毁一切！",
-  "modifier.tprt.the_incinerator.description":"长按鼠标右键3秒以充能，而后松开右键，即可在你的面朝方向召唤烈焰轰击。警告：生物死亡时的掉落物可能会在烈焰轰击的爆炸中消失。",
+  "modifier.tprt.the_incinerator.description":"长按鼠标右键1秒以充能，而后松开右键，即可在你的面朝方向召唤烈焰轰击。警告：生物死亡时的掉落物可能会在烈焰轰击的爆炸中消失。",
 
   "modifier.tprt.bulwark_of_the_flame": "火焰壁垒",
   "modifier.tprt.bulwark_of_the_flame.flavor":"烈焰猛冲！",

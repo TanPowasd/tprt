@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tprt:void_power_alloy"
+    },
+    {
+      "item": "cataclysm:gauntlet_of_guard"
+    },
+    {
+      "item": "tprt:void_power_alloy"
+    },
+    {
+      "item": "tprt:void_power_alloy"
+    },
+    {
+      "item": "tprt:void_power_alloy"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:ender_echo",
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable/bonus_slots"
+    }
+  ]
+}

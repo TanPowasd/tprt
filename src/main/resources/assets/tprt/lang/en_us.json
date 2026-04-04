@@ -548,6 +548,14 @@
   "modifier.tprt.storm_potential.flavor":"The essence of the storm enchants your equipment",
   "modifier.tprt.storm_potential.description":"The hard-to-control storm grants one upgrade slot and one defense slot",
 
+  "modifier.tprt.abyss_call": "Abyss Call",
+  "modifier.tprt.abyss_call.flavor":"The power of the abyss has increased your equipment.",
+  "modifier.tprt.abyss_call.description":"The bottomless abyss brings you an upgrade slot and a defense slot.",
+
+  "modifier.tprt.ender_echo": "Ender Echo",
+  "modifier.tprt.ender_echo.flavor":"The ender of the echo has forged your equipment again.",
+  "modifier.tprt.ender_echo.description":"The overlapping ender bring you an upgrade slot and a defense slot.",
+
   "modifier.tprt.thunder": "Lightning Spear",
   "modifier.tprt.thunder.flavor":"Control the lightning!",
   "modifier.tprt.thunder.description":"Right click to shoot a Lightning Spear",
@@ -566,7 +574,7 @@
 
   "modifier.tprt.the_incinerator": "The Incinerator",
   "modifier.tprt.the_incinerator.flavor":"Burn everything!",
-  "modifier.tprt.the_incinerator.description":"Hold right click for 3 seconds to charge,When released, summons a flame strike in the direction you are facing.WARNING: Items may be lost when the flame strike explodes",
+  "modifier.tprt.the_incinerator.description":"Hold right click for 1 seconds to charge,When released, summons a flame strike in the direction you are facing.WARNING: Items may be lost when the flame strike explodes",
 
   "modifier.tprt.bulwark_of_the_flame": "Bulwark of the Flame",
   "modifier.tprt.bulwark_of_the_flame.flavor":"The flames are rushing!",

@@ -74,7 +74,7 @@ public class The_Incinerator extends NoLevelsModifier implements GeneralInteract
             int standingOnY = Mth.floor(player.getY()) - 2;
             float yawRadians = (float) (Math.toRadians(90 + player.getYRot()));
             boolean hasSucceeded = false;
-            if (i >= 60) {
+            if (i >= 20) {
                 for (int l = 0; l < 10; l++) {
                     double d2 = 2.25D * (double) (l + 1);
                     int j2 = (int) (1.5F * l);
