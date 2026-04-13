@@ -1,0 +1,17 @@
+{
+  "conditions": [
+    { "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:modifier_salvage",
+  "slots": {
+    "abilities": 1
+  },
+  "modifier": "tprt:the_source_of_all_spells",
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_spell_book"
+    }
+  ]
+}

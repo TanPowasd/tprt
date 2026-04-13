@@ -14,6 +14,7 @@ public class ModifierIds {
     public static final ModifierId Monstrous = id("monstrous");
     public static final ModifierId amethyst_of_the_earth = id("amethyst_of_the_earth");
     public static final ModifierId Ender_Armor = id("ender_armor");
+    public static final ModifierId Glow_armor = id("glow_armor");
 
     private ModifierIds() {
     }

@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "amount": 180,
+      "fluid": "sakuratinker:molten_aurumos"
+    },
+    {
+      "amount": 90,
+      "fluid": "tconstruct:molten_knightmetal"
+    }
+  ],
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:molten_radiant_knightmetal"
+  },
+  "temperature": 4000
+}

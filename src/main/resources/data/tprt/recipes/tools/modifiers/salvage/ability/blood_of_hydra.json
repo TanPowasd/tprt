@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:blood_of_hydra",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    }
+  ]
+}

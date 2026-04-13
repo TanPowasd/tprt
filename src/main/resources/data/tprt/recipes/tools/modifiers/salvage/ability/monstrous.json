@@ -1,0 +1,16 @@
+{
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "cataclysm"
+  },
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:monstrous",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor/helmets"
+    }
+  ]
+}

@@ -53,8 +53,7 @@
   "common": "curios",
 
   "item.tprt.golden_fox_mask": "金质狐狸面具",
-  "item.tprt.golden_fox_mask.desc": "换色（）",
-  "curios.modifiers.golden_fox_mask": "属性：",
+  "item.tprt.golden_fox_mask.desc": "提高进攻能力",
 
 
   "common": "effects",
@@ -92,6 +91,11 @@
   "fluid.tconstruct.molten_advanced_manyullyn": "熔融超限玛玉灵",
   "fluid.tconstruct.flowing_molten_advanced_manyullyn": "流动的熔融超限玛玉灵",
   "item.tprt.molten_advanced_manyullyn_bucket": "熔融超限玛玉灵桶",
+
+  "item.tprt.radiant_knightmetal_ingot": "耀光骑士金属锭",
+  "fluid.tconstruct.molten_radiant_knightmetal": "熔融耀光骑士金属",
+  "fluid.tconstruct.flowing_molten_radiant_knightmetal": "流动的熔融耀光骑士金属",
+  "item.tprt.molten_radiant_knightmetal_bucket": "熔融耀光骑士金属桶",
 
   "fluid.tconstruct.molten_black_steel": "熔融黑钢",
   "fluid.tconstruct.flowing_molten_black_steel": "流动的熔融黑钢",
@@ -131,6 +135,12 @@
   "material.tprt.forged_steel":"锻造钢",
   "material.tprt.forged_steel.flavor": "千锤百炼所铸",
 
+  "material.tprt.advanced_manyullyn":"超限玛玉灵",
+  "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
+
+  "material.tprt.radiant_knightmetal":"耀光骑士金属",
+  "material.tprt.radiant_knightmetal.flavor":"不畏苦暗",
+
   "material.tprt.source_alloy":"源质合金",
   "material.tprt.source_alloy.flavor": "魔法与金属的完美结合",
 
@@ -169,9 +179,6 @@
 
   "material.tprt.void_jaw":"虚空之颚",
   "material.tprt.void_jaw.flavor":"末影甲虫的上颚，可用于制作箭矢",
-
-  "material.tprt.advanced_manyullyn":"超限玛玉灵",
-  "material.tprt.advanced_manyullyn.flavor":"这才是传说中斩断星河的玛玉灵！",
 
   "material.tprt.kwat_wheat_grain_ingot":"瓦斯麦",
   "material.tprt.kwat_wheat_grain_ingot.flavor":"远古的孑遗",
@@ -265,6 +272,22 @@
   "modifier.tprt.arrogant": "傲慢",
   "modifier.tprt.arrogant.flavor":"对下等生物的蔑视",
   "modifier.tprt.arrogant.description":"生命值为满时全身每级提供5%独立伤害减免（最多40%），若当前生命值大于最大生命值的50%，则效果削减到每级3%（最多24%）",
+
+  "modifier.tprt.shine_at_night": "逐夜烁光",
+  "modifier.tprt.shine_at_night.flavor":"刺破黑夜！",
+  "modifier.tprt.shine_at_night.description":"抛光上限提高25点，每次攻击命中目标后使抛光回复10点，当抛光值大于100时每秒消耗25点抛光并使造成伤害额外提高50%",
+
+  "modifier.tprt.dawn": "破晓",
+  "modifier.tprt.dawn.flavor":"黎明终将到来",
+  "modifier.tprt.dawn.description":"抛光上限提高25点，每次箭矢命中目标后使抛光回复10点，当抛光值大于100时每次消耗25点抛光并使造成伤害额外提高50%",
+
+  "modifier.tprt.glow_armor": "辉光之胄",
+  "modifier.tprt.glow_armor.flavor":"沐浴荣光",
+  "modifier.tprt.glow_armor.description":"抛光上限提高50点，使自身持续获得发光效果且每秒回复5点抛光。当自身持有发光效果时获得25%免伤，当抛光值大于100且自身持有发光效果时改为消耗20点抛光值使受到伤害降低75%并对伤害源造成基于护甲值的反伤",
+
+  "modifier.tprt.the_shining_sun": "耀阳",
+  "modifier.tprt.the_shining_sun.flavor":"愿光芒浸润你",
+  "modifier.tprt.the_shining_sun.description":"造成伤害提高15%，若自身持有发光效果时则效果额外提升",
 
   "modifier.tprt.burning_flames": "焚焰",
   "modifier.tprt.burning_flames.flavor": "焚尽世间的烈焰",

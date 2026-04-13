@@ -1,0 +1,16 @@
+{
+  "condition": {
+    "modid": "goety",
+    "type": "forge:mod_loaded"
+  },
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:soul_convergence",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "item": "sakuratinker:tinker_wand"
+    }
+  ]
+}

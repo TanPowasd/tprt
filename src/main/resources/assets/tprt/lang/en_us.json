@@ -46,9 +46,8 @@
 
   "common": "curios",
 
-  "item.tprt.golden_fox_mask": "Golden Fox Mask(Not Yet Implemented)",
-  "item.tprt.golden_fox_mask.desc": "Recolored Version",
-  "curios.modifiers.golden_fox_mask": "Attributes:",
+  "item.tprt.golden_fox_mask": "Golden Fox Mask",
+  "item.tprt.golden_fox_mask.desc": "Improve offensive ability",
 
   "common": "effects",
 
@@ -84,6 +83,11 @@
   "fluid.tconstruct.molten_advanced_manyullyn": "Molten Advanced Manyullyn",
   "fluid.tconstruct.flowing_molten_advanced_manyullyn": "Flowing Molten Advanced Manyullyn",
   "item.tprt.molten_advanced_manyullyn_bucket": "Molten Advanced Manyullyn Bucket",
+
+  "item.tprt.radiant_knightmetal_ingot": "Radiant Knightmetal Ingot",
+  "fluid.tconstruct.molten_radiant_knightmetal": "Molten Radiant Knightmetal",
+  "fluid.tconstruct.flowing_molten_radiant_knightmetal": "Flowing Molten Radiant Knightmetal",
+  "item.tprt.molten_radiant_knightmetal_bucket": "Molten Radiant Knightmetal Bucket",
 
   "fluid.tconstruct.molten_black_steel": "Molten Black Steel",
   "fluid.tconstruct.flowing_molten_black_steel": "Flowing Molten Black Steel",
@@ -121,6 +125,12 @@
 
   "material.tprt.forged_steel":"Forged Steel",
   "material.tprt.forged_steel.flavor": "Forged through countless hammer blows",
+
+  "material.tprt.advanced_manyullyn":"Advanced Manyullyn",
+  "material.tprt.advanced_manyullyn.flavor":"This is the legendary Manyullyn that can sever galaxies!",
+
+  "material.tprt.radiant_knightmetal":"Radiant Knightmetal",
+  "material.tprt.radiant_knightmetal.flavor":"Not afraid of bitterness and darkness",
 
   "material.tprt.source_alloy":"Source Alloy",
   "material.tprt.source_alloy.flavor": "The perfect fusion of magic and metal",
@@ -160,9 +170,6 @@
 
   "material.tprt.void_jaw":"Void Jaw",
   "material.tprt.void_jaw.flavor":"The jaw of the Endermaptera can be used to make arrows.",
-
-  "material.tprt.advanced_manyullyn":"Advanced Manyullyn",
-  "material.tprt.advanced_manyullyn.flavor":"This is the legendary Manyullyn that can sever galaxies!",
 
   "material.tprt.kwat_wheat_grain_ingot":"Kwat Wheat",
   "material.tprt.kwat_wheat_grain_ingot.flavor":"A relic of ancient times",
@@ -248,6 +255,30 @@
   "modifier.tprt.source_alloy_spell_cloth.flavor":"Every word and character is magic",
   "modifier.tprt.source_alloy_spell_cloth.description":"Greatly increases spell power",
 
+  "modifier.tprt.advanced_greed": "Greed",
+  "modifier.tprt.advanced_greed.flavor":"When was it ever enough?",
+  "modifier.tprt.advanced_greed.description":"Each attack increases attack damage by 5%, stacks up to 10 times",
+
+  "modifier.tprt.arrogant": "Arrogant",
+  "modifier.tprt.arrogant.flavor":"Contempt for inferior creatures",
+  "modifier.tprt.arrogant.description":"When the health is full, the whole body will be given 5% independent damage reduction per level(up to 40%). If the current health is greater than 50% of the maximum health value, the effect will be reduced to 3% (up to 24%) per level.",
+
+  "modifier.tprt.shine_at_night": "Shine At Night",
+  "modifier.tprt.shine_at_night.flavor":"Pierce the night!",
+  "modifier.tprt.shine_at_night.description":"Increase the upper limit of polishing by 25 points, restore polishing by 10 points after each attack hits the target, and consume 25 points of polishing per second when the polishing value is greater than 100, and increase the damage caused by 50%.",
+
+  "modifier.tprt.dawn": "Dawn",
+  "modifier.tprt.dawn.flavor":"Dawn will come.",
+  "modifier.tprt.dawn.description":"Increase the upper limit of polishing by 25%, restore polishing by 10 points after each arrow hits the target, and consume 25 points of polishing each time when the polishing value is greater than 100, and increase the damage caused by 50%.",
+
+  "modifier.tprt.glow_armor": "Glow Armor",
+  "modifier.tprt.glow_armor.flavor":"Bath glory",
+  "modifier.tprt.glow_armor.description":"The upper limit of polishing is increased by 50 points, so that it can continuously obtain glowing effect and restore polishing at 5 points per second. Get 25% injury-free when you own the luminous effect. When the polishing value is greater than 100 and you own the glowing effect, you will consume 20 points of polishing value instead, which will reduce the damage by 75% and cause the back injury to the injury source based on the armor value.",
+
+  "modifier.tprt.the_shining_sun": "The shining sun",
+  "modifier.tprt.the_shining_sun.flavor":"May the light infiltrate you.",
+  "modifier.tprt.the_shining_sun.description":"The damage caused is increased by 15%, and the effect is increased if the environment is well lit.",
+
   "modifier.tprt.burning_flames": "Burning Flames",
   "modifier.tprt.burning_flames.flavor": "Flames that incinerate the world",
   "modifier.tprt.burning_flames.description": "Attacks apply Searing Brand. Max effect level equals modifier level cap",
@@ -267,14 +298,6 @@
   "modifier.tprt.soul_dodge": "Soul Dodge",
   "modifier.tprt.soul_dodge.flavor":"Body becomes like a wraith",
   "modifier.tprt.soul_dodge.description":"Low chance to completely ignore damage taken",
-
-  "modifier.tprt.advanced_greed": "Greed",
-  "modifier.tprt.advanced_greed.flavor":"When was it ever enough?",
-  "modifier.tprt.advanced_greed.description":"Each attack increases attack damage by 5%, stacks up to 10 times",
-
-  "modifier.tprt.arrogant": "Arrogant",
-  "modifier.tprt.arrogant.flavor":"Contempt for inferior creatures",
-  "modifier.tprt.arrogant.description":"When the health is full, the whole body will be given 5% independent damage reduction per level(up to 40%). If the current health is greater than 50% of the maximum health value, the effect will be reduced to 3% (up to 24%) per level.",
 
   "modifier.tprt.mechanical_star_att": "Mechanical Star",
   "modifier.tprt.mechanical_star_att.flavor":"A marvel of engineering, the embodiment of a war machine",

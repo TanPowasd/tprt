@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:radiant_knightmetal",
+  "temperature": 4000,
+  "result": {
+    "fluid": "tprt:molten_radiant_knightmetal",
+    "amount": 90
+  }
+}

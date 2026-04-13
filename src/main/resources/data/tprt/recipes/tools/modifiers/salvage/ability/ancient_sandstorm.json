@@ -1,0 +1,26 @@
+{
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "cataclysm"
+      }
+    ]
+  },
+  "type": "tconstruct:modifier_salvage",
+  "level": 1,
+  "modifier": "tprt:ancient_sandstorm",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/durability"
+    }
+  ]
+}

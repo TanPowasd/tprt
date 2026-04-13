@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    { "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:fire_dragon_blood",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable/melee/weapon"
+    }
+  ]
+}

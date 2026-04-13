@@ -25,6 +25,9 @@ public class ModifierRegistry {
     public static final StaticModifier<The_dragon_lord> The_dragon_lord = MODIFIERS.register("the_dragon_lord",The_dragon_lord::new);
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
     public static final StaticModifier<Arrogant> Arrogant = MODIFIERS.register("arrogant",Arrogant::new);
+    public static final StaticModifier<Shine_at_night> Shine_at_night = MODIFIERS.register("shine_at_night",Shine_at_night::new);
+    public static final StaticModifier<Glow_armor> Glow_armor = MODIFIERS.register("glow_armor",Glow_armor::new);
+    public static final StaticModifier<CuriosModifier> The_shining_sun = MODIFIERS.register("the_shining_sun",The_shining_sun::new);
     public static final StaticModifier<reaper> REAPER = MODIFIERS.register("reaper",reaper::new);
     public static final StaticModifier<Poisonous_explosion> Poisonous_explosion = MODIFIERS.register("poisonous_explosion",Poisonous_explosion::new);
     public static final StaticModifier<Quenching_poison> Quenching_poison = MODIFIERS.register("quenching_poison",Quenching_poison::new);

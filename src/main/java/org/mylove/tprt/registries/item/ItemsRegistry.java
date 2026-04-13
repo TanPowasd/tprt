@@ -1,11 +1,13 @@
 package org.mylove.tprt.registries.item;
 
+import com.google.common.collect.ImmutableMultimap;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.mylove.tprt.Tprt;
+import org.mylove.tprt.common.item.curios.Goldenfoxmask;
 import org.mylove.tprt.registries.ModFoods;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
@@ -63,8 +65,9 @@ public class ItemsRegistry {
     public static final  ItemObject<Item>TANPOWASD=ITEMS.register("tanpowasd",
             ()->new Item(new Item.Properties()));
 
-    public static final ItemObject<Item> RED_TURTLE = ITEMS.register("red_turtle", () -> new Item(new Item.Properties().food(ModFoods.RED_TURTLE)));
-
+//lr特供 金质狐狸面具
+    public static final ItemObject<Item>Goldenfoxmask = ITEMS.register("golden_fox_mask",
+        () -> new Goldenfoxmask(new Item.Properties(), "fox_mask", ImmutableMultimap.of()));
 //lr特供 龙神锭
     public static final ItemObject<Item>MIXEDDRAGON=ITEMS.register("mixeddragon",
         ()->new Item(new Item.Properties()));
@@ -77,6 +80,9 @@ public class ItemsRegistry {
 //lr特供 超限玛玉灵
     public static final ItemObject<Item>ADVANCED_MANYULLYN=ITEMS.register("advanced_manyullyn",
         ()->new Item(new Item.Properties()));
+//lr特供 耀光骑士金属锭
+    public static final ItemObject<Item>RADIANT_KNIGHTMETAL_INGOT=ITEMS.register("radiant_knightmetal_ingot",
+            ()->new Item(new Item.Properties()));
 //lr特供 瓦斯麦谷锭
     public static final ItemObject<Item>KWAT_WHEAT_GRAIN_INGOT=ITEMS.register("kwat_wheat_grain_ingot",
         ()->new Item(new Item.Properties().food(ModFoods.KWAT_WHEAT_GRAIN_INGOT)));
@@ -113,6 +119,8 @@ public class ItemsRegistry {
 //lr特供 🐖包
     public static final ItemObject<Item>PIG_BUN=ITEMS.register("pig_bun",
         ()->new Item(new Item.Properties().food(ModFoods.PIG_BUN)));
+//lr特供 红温🐢
+    public static final ItemObject<Item> RED_TURTLE = ITEMS.register("red_turtle", () -> new Item(new Item.Properties().food(ModFoods.RED_TURTLE)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
@@ -124,6 +132,7 @@ public class ItemsRegistry {
         tab.accept(FORGED_STEEL);
         tab.accept(SOURCE_ALLOY);
         tab.accept(ADVANCED_MANYULLYN);
+        tab.accept(RADIANT_KNIGHTMETAL_INGOT);
         tab.accept(KWAT_WHEAT_GRAIN_INGOT);
         tab.accept(EVIL_BEAST_ALLOY_INGOT);
         tab.accept(Tears_of_the_storm);
@@ -132,6 +141,7 @@ public class ItemsRegistry {
         tab.accept(DARK_KNIGHT_INGOT);
         tab.accept(Leisamboo_Board);
         tab.accept(Composite_dragon_scales);
+        tab.accept(Goldenfoxmask);
     }
 
     public static void addToolTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {

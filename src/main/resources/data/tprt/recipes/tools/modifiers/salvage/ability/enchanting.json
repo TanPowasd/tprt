@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    { "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:modifier_salvage",
+  "level": 1,
+  "modifier": "tprt:enchanting",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tprt:modifiable/melee/magic_blade"
+    }
+  ]
+}

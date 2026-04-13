@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "sakuratinker:fox_mask"
+  },
+  "cast_consumed": true,
+  "cooling_time": 600,
+  "fluid": {
+    "amount": 720,
+    "fluid": "tconstruct:molten_gold"
+  },
+  "result": "tprt:golden_fox_mask"
+}

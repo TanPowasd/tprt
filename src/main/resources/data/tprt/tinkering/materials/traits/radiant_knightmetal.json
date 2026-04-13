@@ -1,0 +1,22 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:shine_at_night"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:glow_armor"
+      }
+    ],
+    "sakuratinker:charm":[
+      {
+        "level":1,
+        "name":"tprt:the_shining_sun"
+      }
+    ]
+  }
+}

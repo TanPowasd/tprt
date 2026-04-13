@@ -34,6 +34,7 @@ public class ModFluids {
     public static final FluidObject<ForgeFlowingFluid>FORGED_STEEL_FLUID=registerHotFluid(FLUIDS,"forged_steel_fluid",1475,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>SOURCE_ALLOY_FLUID=registerHotFluid(FLUIDS,"source_alloy_fluid",3500,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>MOLTEN_ADVANCED_MANYULLYN=registerHotFluid(FLUIDS,"molten_advanced_manyullyn",2000,4,5,2,false);
+    public static final FluidObject<ForgeFlowingFluid>molten_radiant_knightmetal=registerHotFluid(FLUIDS,"molten_radiant_knightmetal",2000,12,5,15,false);
     public static final FluidObject<ForgeFlowingFluid>MOLTEN_BLACK_STEEL=registerHotFluid(FLUIDS,"molten_black_steel",1000,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>MOLTEN_ANCIENT_METAL=registerHotFluid(FLUIDS,"molten_ancient_metal",1250,4,5,2,false);
     public static final FluidObject<ForgeFlowingFluid>MOLTEN_ARCANE_METAL=registerHotFluid(FLUIDS,"molten_arcane_metal",1000,4,5,2,false);

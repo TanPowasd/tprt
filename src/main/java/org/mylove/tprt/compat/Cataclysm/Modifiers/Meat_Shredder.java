@@ -80,9 +80,8 @@ public class Meat_Shredder extends NoLevelsModifier implements GeneralInteractio
                         flag =true;
                     }
                     if (flag) {
-                        if (entity.hurt(CMDamageTypes.causeShredderDamage(living), (float) living.getAttributeValue(Attributes.ATTACK_DAMAGE) / 4F + 4)) {
+                        if (entity.hurt(CMDamageTypes.causeShredderDamage(living), (float) living.getAttributeValue(Attributes.ATTACK_DAMAGE) / 10F + 4)) {
                             int X = EnchantmentHelper.getFireAspect(living);
-                            //world.playSound(null, living.getX(), living.getY(), living.getZ(), ModSounds.SHREDDER_LOOP.get(), SoundSource.PLAYERS, 1.5f, 1F / (living.getRandom().nextFloat() * 0.4F + 0.8F));
                             if (X > 0 && !entity.isOnFire()) {
                                 entity.setSecondsOnFire(X * 4);
                             }
