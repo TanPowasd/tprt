@@ -911,6 +911,10 @@
   "modifier.tprt.release_spells.flavor":"Your sword can be used as staff!",
   "modifier.tprt.release_spells.description":"Alloy use tools to release spells",
 
+  "modifier.tprt.precision_stab": "Precision Stab",
+  "modifier.tprt.precision_stab.flavor":"Break the surface with points!",
+  "modifier.tprt.precision_stab.description":"If the damage is lower than its own attack power, it will be corrected to the damage of attack power value within a certain range.",
+
 
 
   "common": "not_yet_completed",

@@ -923,6 +923,10 @@
   "modifier.tprt.release_spells.flavor":"剑-杖！",
   "modifier.tprt.release_spells.description":"允许工具使用右键释放法术",
 
+  "modifier.tprt.precision_stab": "精准刺击",
+  "modifier.tprt.precision_stab.flavor":"以点破面！",
+  "modifier.tprt.precision_stab.description":"造成伤害时若低于自身攻击力则在一定范围内修正为攻击力数值的伤害",
+
 
   "common": "not_yet_completed",
 

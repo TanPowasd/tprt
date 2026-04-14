@@ -52,4 +52,5 @@ public class ModifierRegistry {
     public static final StaticModifier<tetanus>TETANUS_STATIC = MODIFIERS.register("tetanus",tetanus::new);
     public static final StaticModifier<persistence_of_nature> PERSISTENCE_OF_NATURE = MODIFIERS.register("persistence_of_nature",persistence_of_nature::new);
     public static final StaticModifier<Automation> Automation = MODIFIERS.register("automation",Automation::new);
+    public static final StaticModifier<Precision_stab> Precision_stab = MODIFIERS.register("precision_stab",Precision_stab::new);
 }
