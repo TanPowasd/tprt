@@ -705,6 +705,10 @@
   "modifier.tprt.immolate.flavor":"Destroy the enemy with fire.",
   "modifier.tprt.immolate.description":"Get the ability of Infernal Sorcerer Chestplate, and strengthen it",
 
+  "modifier.tprt.imbued": "Spell injection",
+  "modifier.tprt.imbued.flavor":"Let your tools learn magic!",
+  "modifier.tprt.imbued.description":"Allows you to inject spells into the tool.",
+
   "modifier.tprt.netherite_spell_book": "Ancient Codex Enhancement",
   "modifier.tprt.netherite_spell_book.flavor":"The power of engraved codex",
   "modifier.tprt.netherite_spell_book.description":"+200 max mana, +20% spell cooldown reduction",
@@ -913,7 +917,7 @@
 
   "modifier.tprt.precision_stab": "Precision Stab",
   "modifier.tprt.precision_stab.flavor":"Break the surface with points!",
-  "modifier.tprt.precision_stab.description":"If the damage is lower than its own attack power, it will be corrected to the damage of attack power value within a certain range.",
+  "modifier.tprt.precision_stab.description":"When causing damage, the minimum is your own attack power (with a certain upper limit).",
 
 
 

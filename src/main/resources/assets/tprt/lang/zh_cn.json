@@ -716,6 +716,10 @@
   "modifier.tprt.immolate.flavor":"用炽焰湮灭敌人!",
   "modifier.tprt.immolate.description":"获得炼狱巫师胸甲的能力，且威力更甚",
 
+  "modifier.tprt.imbued": "法术注入",
+  "modifier.tprt.imbued.flavor":"让你的工具学会法术！",
+  "modifier.tprt.imbued.description":"允许将法术注入到工具中",
+
   "modifier.tprt.netherite_spell_book": "远古法典增强",
   "modifier.tprt.netherite_spell_book.flavor":"镌刻法典的力量",
   "modifier.tprt.netherite_spell_book.description":"+200最大法力值，+20%法术冷却缩减",
@@ -925,7 +929,7 @@
 
   "modifier.tprt.precision_stab": "精准刺击",
   "modifier.tprt.precision_stab.flavor":"以点破面！",
-  "modifier.tprt.precision_stab.description":"造成伤害时若低于自身攻击力则在一定范围内修正为攻击力数值的伤害",
+  "modifier.tprt.precision_stab.description":"造成伤害时最低为自身攻击力（有一定上限）",
 
 
   "common": "not_yet_completed",

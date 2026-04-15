@@ -23,6 +23,7 @@ public class IssCompat {
     public static StaticModifier<Release_spells> Release_spells;
     public static StaticModifier<Immolate> ImmoLate;
     public static StaticModifier<Lightning_upgrade> Lightning_upgrade;
+    public static StaticModifier<Imbued> Imbued;
     static {
         enchanting = Iss_MODIFIERS.register("enchanting", enchanting::new);
         Magic_Sublimation_Range = Iss_MODIFIERS.register("magic_sublimation_range", Magic_Sublimation_Range::new);
@@ -31,6 +32,7 @@ public class IssCompat {
         Release_spells = Iss_MODIFIERS.register("release_spells", Release_spells::new);
         ImmoLate = Iss_MODIFIERS.register("immolate", Immolate::new);
         Lightning_upgrade = Iss_MODIFIERS.register("lightning_upgrade", Lightning_upgrade::new);
+        Imbued = Iss_MODIFIERS.register("imbued", Imbued::new);
     }
 }
 

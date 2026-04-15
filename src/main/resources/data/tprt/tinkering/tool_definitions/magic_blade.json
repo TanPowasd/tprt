@@ -78,8 +78,8 @@
           "name": "tconstruct:silky_shears"
         },
         {
-          "level": 3,
-          "name": "tprt:spell_power_improved"
+          "level": 1,
+          "name": "tprt:imbued"
         }
       ]
     },

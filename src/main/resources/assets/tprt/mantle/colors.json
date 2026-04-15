@@ -170,6 +170,7 @@
     "void_power": "#cd00ff",
     "ender_armor": "#cd00ff",
     "void_armed": "#cd00ff",
-    "ender_echo": "#cd00ff"
+    "ender_echo": "#cd00ff",
+    "imbued": "#FCA800"
   }
 }

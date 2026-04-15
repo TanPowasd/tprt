@@ -1,9 +1,19 @@
 package org.mylove.tprt.registries;
 
 import net.minecraftforge.eventbus.api.IEventBus;
+import org.mylove.tprt.Modifiers.armor.Arrogant;
+import org.mylove.tprt.Modifiers.armor.Glow_armor;
+import org.mylove.tprt.Modifiers.common.Poisonous_explosion;
+import org.mylove.tprt.Modifiers.common.Quenching_poison;
 import org.mylove.tprt.Modifiers.curio.*;
+import org.mylove.tprt.Modifiers.exclusive.Precision_stab;
+import org.mylove.tprt.Modifiers.exclusive.persistence_of_nature;
+import org.mylove.tprt.Modifiers.exclusive.reaper;
+import org.mylove.tprt.Modifiers.melee.Shine_at_night;
+import org.mylove.tprt.Modifiers.melee.advanced_greed;
+import org.mylove.tprt.Modifiers.range.Automation;
+import org.mylove.tprt.Modifiers.special.*;
 import org.mylove.tprt.Tprt;
-import org.mylove.tprt.Modifiers.*;
 import org.mylove.tprt.common.modifier.modifierModule.CuriosModifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
@@ -21,8 +31,6 @@ public class ModifierRegistry {
     public static final StaticModifier<double_or_none> DOUBLE_OR_NONE = MODIFIERS.register("double_or_none",double_or_none::new);
     public static final StaticModifier<disruption_break> DISRUPTION_BREAK = MODIFIERS.register("disruption_break",disruption_break::new);
     public static final StaticModifier<lucky_strike> LUCK_STRIKE = MODIFIERS.register("luck_strike",lucky_strike::new);
-    public static final StaticModifier<the_dragon_power> THE_DRAGON_POWER = MODIFIERS.register("the_dragon_power",the_dragon_power::new);
-    public static final StaticModifier<The_dragon_lord> The_dragon_lord = MODIFIERS.register("the_dragon_lord",The_dragon_lord::new);
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
     public static final StaticModifier<Arrogant> Arrogant = MODIFIERS.register("arrogant",Arrogant::new);
     public static final StaticModifier<Shine_at_night> Shine_at_night = MODIFIERS.register("shine_at_night",Shine_at_night::new);
@@ -31,7 +39,6 @@ public class ModifierRegistry {
     public static final StaticModifier<reaper> REAPER = MODIFIERS.register("reaper",reaper::new);
     public static final StaticModifier<Poisonous_explosion> Poisonous_explosion = MODIFIERS.register("poisonous_explosion",Poisonous_explosion::new);
     public static final StaticModifier<Quenching_poison> Quenching_poison = MODIFIERS.register("quenching_poison",Quenching_poison::new);
-    public static final StaticModifier<Tide_Guardian> Tide_Guardian = MODIFIERS.register("tide_guardian",Tide_Guardian::new);
     public static final StaticModifier<CuriosModifier> blood_of_hydra = MODIFIERS.register("blood_of_hydra", Blood_of_Hydra::new);
     public static final StaticModifier<CuriosModifier> dwarf_power = MODIFIERS.register("dwarf_power", Dwarf_Power::new);
     public static final StaticModifier<CuriosModifier> down_to_the_bone = MODIFIERS.register("down_to_the_bone", Down_to_the_Bone::new);

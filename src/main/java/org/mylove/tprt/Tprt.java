@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
 import org.mylove.tprt.compat.Goety.GoetyCompat;
+import org.mylove.tprt.compat.Iceandfire.Iceandfire_Compat;
 import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
 import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import org.mylove.tprt.registries.*;
@@ -61,6 +62,10 @@ public class Tprt {
         if (ModListUtil.CALoaded) {
             CataclysmCompat.Cataclysm_MODIFIERS.register(modEventBus);
             LOGGER.info("Found Cataclysm, integration initializing……");
+        }
+        if (ModListUtil.IceandfireLoaded) {
+            Iceandfire_Compat.Iceandfire_MODIFIERS.register(modEventBus);
+            LOGGER.info("Found iceandfire, integration initializing……");
         }
     }
 

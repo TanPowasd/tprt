@@ -1,2 +1,16 @@
 {
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "irons_spellbooks"
+  },
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:immolate",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor/chestplate"
+    }
+  ]
 }

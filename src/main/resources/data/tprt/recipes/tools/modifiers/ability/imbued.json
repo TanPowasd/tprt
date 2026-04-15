@@ -7,25 +7,25 @@
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "irons_spellbooks:mithril_ingot",
-      "amount_needed":2
+      "item": "irons_spellbooks:magic_cloth",
+      "amount_needed":4
     },
     {
-      "item": "irons_spellbooks:infernal_sorcerer_chestplate"
+      "item": "irons_spellbooks:lesser_spell_slot_upgrade"
     },
     {
-      "item": "irons_spellbooks:mithril_ingot",
+      "item": "irons_spellbooks:ancient_knowledge_fragment",
       "amount_needed":2
     }
   ],
   "level": 1,
-  "result": "tprt:immolate",
+  "result": "tprt:imbued",
   "slots": {
     "abilities": 1
   },
   "tools": [
     {
-      "tag": "tconstruct:modifiable/armor/chestplate"
+      "tag": "tconstruct:modifiable/durability"
     }
   ]
 }

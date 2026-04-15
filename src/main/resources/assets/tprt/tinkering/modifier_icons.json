@@ -17,5 +17,7 @@
   "tprt:cursed_doll_spell_book":   ["irons_spellbooks:item/cursed_doll_spell_book", "tconstruct:gui/modifiers/plus"],
   "tprt:ice_spell_book":   ["irons_spellbooks:item/ice_spell_book", "tconstruct:gui/modifiers/plus"],
   "tprt:taboo_knowledge":   ["irons_spellbooks:item/chained_book", "tconstruct:gui/modifiers/book"],
-  "tconstruct:enhanced":  ["tconstruct:item/materials/rose_gold_ingot", "tconstruct:gui/modifiers/plus"]
+  "tconstruct:enhanced":  ["tconstruct:item/materials/rose_gold_ingot", "tconstruct:gui/modifiers/plus"],
+  "tprt:immolate":  ["irons_spellbooks:item/infernal_sorcerer_chestplate", "tconstruct:gui/modifiers/plus"],
+  "tprt:imbued":  ["irons_spellbooks:item/scroll", "tconstruct:gui/modifiers/plus"]
 }
