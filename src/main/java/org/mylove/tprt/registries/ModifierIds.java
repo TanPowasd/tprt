@@ -18,7 +18,7 @@ public class ModifierIds {
     public static final ModifierId Ender_Armor = id("ender_armor");
     public static final ModifierId Glow_armor = id("glow_armor");
     public static final ModifierId Immolate = id("immolate");
-    public static final ModifierId The_dragon_lord = id("The_dragon_lord");
+    public static final ModifierId The_dragon_lord = id("the_dragon_lord");
 
     private ModifierIds() {
     }
