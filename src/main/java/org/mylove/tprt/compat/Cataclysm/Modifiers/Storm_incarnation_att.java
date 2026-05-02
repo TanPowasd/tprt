@@ -25,9 +25,9 @@ public class Storm_incarnation_att extends NoLevelsModifier implements MeleeDama
         LivingEntity attacker = context.getPlayerAttacker();
         if (attacker != null && entity != null){
             if (entity.isInWaterOrRain()){
-                return (float) (baseDamage*1.4);
+                return (float) (baseDamage*1.8);
             }else {
-                return (float) (baseDamage*1.15);
+                return (float) (baseDamage*1.35);
             }
         }
         return baseDamage;
@@ -40,7 +40,7 @@ public class Storm_incarnation_att extends NoLevelsModifier implements MeleeDama
         if (attacker != null && target != null){
             if (attacker.isInWaterOrRain()) {
                 target.invulnerableTime = 0;
-                target.hurt(target.damageSources().lightningBolt(),damageDealt * 0.20f);
+                target.hurt(target.damageSources().lightningBolt(),damageDealt * 0.50f);
             }
         }
     }

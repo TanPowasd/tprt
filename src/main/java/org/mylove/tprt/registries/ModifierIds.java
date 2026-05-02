@@ -10,12 +10,15 @@ public class ModifierIds {
     public static final ModifierId Arrogant = id("arrogant");
     public static final ModifierId Tide_Guardian = id("tide_guardian");
     public static final ModifierId Storm_incarnation_arm = id("storm_incarnation_arm");
+    public static final ModifierId soul_dodge = id("soul_dodge");
+    public static final ModifierId Undead_Revive = id("undead_revive");
     public static final ModifierId double_or_none = id("double_or_none");
     public static final ModifierId Monstrous = id("monstrous");
     public static final ModifierId amethyst_of_the_earth = id("amethyst_of_the_earth");
     public static final ModifierId Ender_Armor = id("ender_armor");
     public static final ModifierId Glow_armor = id("glow_armor");
     public static final ModifierId Immolate = id("immolate");
+    public static final ModifierId The_dragon_lord = id("The_dragon_lord");
 
     private ModifierIds() {
     }

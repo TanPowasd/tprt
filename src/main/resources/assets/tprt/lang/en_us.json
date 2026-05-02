@@ -56,6 +56,8 @@
   "effect.tprt.eager_edge": "Eager Edge",
   "effect.tprt.de_eager_edge": "Eager Edge Cooldown",
   "effect.tprt.myl_girig_pro": "Greed",
+  "effect.tprt.soul_casting_blade": "Soul Casting Blade",
+  "effect.tprt.soul_casting_blade.description": "Increase critical strike damage",
 
   "common": "item",
   "item.tprt.leisamboo_board":"：Leisamboo Template",
@@ -277,19 +279,19 @@
 
   "modifier.tprt.the_shining_sun": "The shining sun",
   "modifier.tprt.the_shining_sun.flavor":"May the light infiltrate you.",
-  "modifier.tprt.the_shining_sun.description":"The damage caused is increased by 15%, and the effect is increased if the environment is well lit.",
+  "modifier.tprt.the_shining_sun.description":"Damage caused is increased by 15%. If the brightness of your environment is greater than 10, you will get an extra boost. The greater the brightness, the stronger the promotion effect.",
 
   "modifier.tprt.burning_flames": "Burning Flames",
   "modifier.tprt.burning_flames.flavor": "Flames that incinerate the world",
-  "modifier.tprt.burning_flames.description": "Attacks apply Searing Brand. Max effect level equals modifier level cap",
+  "modifier.tprt.burning_flames.description": "The damage caused is increased by 25%. If the target armor value is 0, the damage is greatly increased.",
 
   "modifier.tprt.wrath_of_flames": "Ignis' Wrath",
   "modifier.tprt.wrath_of_flames.flavor":"The wrath of the Nether Flame Lord",
   "modifier.tprt.wrath_of_flames.description":"For each stack of Searing Brand on the target, attack deals an additional 10% fire damage",
 
   "modifier.tprt.cursed_spirit": "Ashen Curse",
-  "modifier.tprt.cursed_spirit.flavor":"The power of a death curse serves you",
-  "modifier.tprt.cursed_spirit.description":"Damage dealt increased by 30%",
+  "modifier.tprt.cursed_spirit.flavor":"Inspire the power of death curse !",
+  "modifier.tprt.cursed_spirit.description":"After the attack, the critical strike damage is improved. When it is superimposed on the third floor, the attack will cause additional damage to the targets around it (with a certain cd).",
 
   "modifier.tprt.soul_puncture": "Soul Piercer",
   "modifier.tprt.soul_puncture.flavor":"Tear the enemy's soul using the death curse",
@@ -297,15 +299,22 @@
 
   "modifier.tprt.soul_dodge": "Soul Dodge",
   "modifier.tprt.soul_dodge.flavor":"Body becomes like a wraith",
-  "modifier.tprt.soul_dodge.description":"Low chance to completely ignore damage taken",
+  "modifier.tprt.soul_dodge.description":"Have chance to completely ignore damage taken",
+
+  "modifier.tprt.undead_revive": "Undead Revive",
+  "modifier.tprt.undead_revive.flavor":"Refuse the invitation of death",
+  "modifier.tprt.undead_revive.description":"Revived to 20% health upon death and granted invincibility for 5 seconds. After invincible, the Entity is debuffed for 6 minutes and cannot be revived during debuff",
+  "modifier.tprt.tooltip.undead_revive_cd": "Undead Revive Cool Down",
+  "modifier.tprt.tooltip.undead_revive_done": "Undead Revive Has Ready",
+  "message.tprt.undead_revive": "You refused the invitation of death.",
 
   "modifier.tprt.mechanical_star_att": "Mechanical Star",
   "modifier.tprt.mechanical_star_att.flavor":"A marvel of engineering, the embodiment of a war machine",
-  "modifier.tprt.mechanical_star_att.description":"Your armor value increases damage dealt",
+  "modifier.tprt.mechanical_star_att.description":"Your armor and armor toughness increases damage dealt",
 
   "modifier.tprt.mechanical_star_arm": "Mechanical Star",
   "modifier.tprt.mechanical_star_arm.flavor":"A marvel of engineering, the embodiment of a war machine",
-  "modifier.tprt.mechanical_star_arm.description":"Your armor value provides damage reduction",
+  "modifier.tprt.mechanical_star_arm.description":"Your armor and armor toughness provides damage reduction",
 
   "modifier.tprt.machine_iron_casting": "Machined Iron Casting",
   "modifier.tprt.machine_iron_casting.flavor":"The defensive properties of this high-density material are unparalleled, but it is also very heavy",
@@ -352,11 +361,11 @@
 
   "modifier.tprt.storm_incarnation_att": "Storm Incarnation",
   "modifier.tprt.storm_incarnation_att.flavor":"I'm the storm that is approaching.",
-  "modifier.tprt.storm_incarnation_att.description":"The damage caused is increased by 15%; If it is raining or thunderstorm, it will be changed to 40% and a lightning damage equivalent to 20% will be added.",
+  "modifier.tprt.storm_incarnation_att.description":"The damage caused is increased by 35%; If it is raining or thunderstorm, it will be changed to 80% and a lightning damage equivalent to 50% will be added.",
 
   "modifier.tprt.storm_incarnation_arm": "Storm Incarnation",
   "modifier.tprt.storm_incarnation_arm.flavor":"I'm the storm that is approaching.",
-  "modifier.tprt.storm_incarnation_arm.description":"The damage suffered is reduced by 15%; If it's raining or thunderstorm, you will get resistance of 2 level and haste of 2 level, and the invincible frame will be doubled.",
+  "modifier.tprt.storm_incarnation_arm.description":"The damage suffered is reduced by 2; If it's raining or thunderstorm, you will get resistance of 3 level and haste of 3 level, and the invincible frame will be triple.",
 
   "modifier.tprt.breath_of_the_abyss": "Breath of the abyss",
   "modifier.tprt.breath_of_the_abyss.flavor":"To the deepest, to the darkest",
@@ -364,7 +373,7 @@
 
   "modifier.tprt.dimension_fragmentation": "Dimension fragmentation",
   "modifier.tprt.dimension_fragmentation.flavor":"The power to tear the dimension!",
-  "modifier.tprt.dimension_fragmentation.description":"If the target has the Abyssal Fear effect, its maximum health will be reduced by 3%.",
+  "modifier.tprt.dimension_fragmentation.description":"If the target has the Abyssal Fear effect, its maximum health will be reduced by 3%.If the target is not held Abyssal Fear effect, its maximum health will be reduced by 1% at a time and at most by 70%.",
 
   "modifier.tprt.void_scatter": "Void Scatter",
   "modifier.tprt.void_scatter.flavor":"Broken void!",

@@ -14,7 +14,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 public class Precision_stab extends NoLevelsModifier {
 
-    public Precision_stab(){
+    /*public Precision_stab(){
         MinecraftForge.EVENT_BUS.addListener(this::onLivingDamage);
     }
 
@@ -26,8 +26,8 @@ public class Precision_stab extends NoLevelsModifier {
             ItemStack item = player.getMainHandItem();
             int y = (int) (player.getAttributeValue(Attributes.ATTACK_DAMAGE));
             if (this.getLevel(item) > 0 && x < y) {
-                if (y > 1000){
-                    y = 1000;
+                if (y > 100){
+                    y = 100;
                 }
                 event.setAmount(y);
             }
@@ -40,5 +40,5 @@ public class Precision_stab extends NoLevelsModifier {
             return tool.getModifierLevel(this);
         }
         return 0;
-    }
+    }*/
 }

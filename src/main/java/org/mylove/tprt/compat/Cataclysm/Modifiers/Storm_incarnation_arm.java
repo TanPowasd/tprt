@@ -43,7 +43,7 @@ public class Storm_incarnation_arm extends NoLevelsModifier implements ModifyDam
             attacker = (LivingEntity) source.getEntity();
         }
         if(attacker != null) {
-            return (float) (amount * 0.85);
+            return amount - 2;
         }
         return amount;
     }
@@ -54,8 +54,8 @@ public class Storm_incarnation_arm extends NoLevelsModifier implements ModifyDam
             int X = ModifierLEVEL.getTotalArmorModifierlevel(entity, ModifierIds.Storm_incarnation_arm);
             if(X > 0){
                 if (player.isInWaterOrRain()){
-                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,40,1));
-                    player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,40,1));
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,40,2));
+                    player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,40,2));
                 }
             }
         }
@@ -66,7 +66,7 @@ public class Storm_incarnation_arm extends NoLevelsModifier implements ModifyDam
         LivingEntity living = context.getEntity();
         if (living instanceof Player player){
             if (player.isInWaterOrRain()){
-                living.invulnerableTime = 30;
+                living.invulnerableTime = 40;
             }
         }
     }

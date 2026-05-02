@@ -40,6 +40,20 @@ public class Dimension_Fragmentation extends NoLevelsModifier implements MeleeHi
                 attribute.removeModifier(uuid);
                 attribute.addPermanentModifier(new AttributeModifier(uuid,"Dimension_Fragmentation",basevalue - 0.03, AttributeModifier.Operation.MULTIPLY_TOTAL));
             }
+        }else if (attacker instanceof Player && target.hasEffect(ModEffect.EFFECTABYSSAL_FEAR.get())) {
+            AttributeInstance attribute = target.getAttribute(Attributes.MAX_HEALTH);
+            if (attribute != null) {
+                double basevalue = 0;
+                AttributeModifier modifier1 = attribute.getModifier(uuid);
+                if(modifier1 != null) {
+                    basevalue = modifier1.getAmount();
+                    if(modifier1.getAmount() <= -0.3){
+                        basevalue = -0.29;
+                    }
+                }
+                attribute.removeModifier(uuid);
+                attribute.addPermanentModifier(new AttributeModifier(uuid,"Dimension_Fragmentation",basevalue - 0.01, AttributeModifier.Operation.MULTIPLY_TOTAL));
+            }
         }
     }
 }

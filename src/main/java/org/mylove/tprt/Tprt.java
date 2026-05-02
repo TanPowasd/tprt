@@ -61,6 +61,7 @@ public class Tprt {
         }
         if (ModListUtil.CALoaded) {
             CataclysmCompat.Cataclysm_MODIFIERS.register(modEventBus);
+            CataclysmCompat.Cataclysm_MODEFFECTS.register(modEventBus);
             LOGGER.info("Found Cataclysm, integration initializing……");
         }
         if (ModListUtil.IceandfireLoaded) {

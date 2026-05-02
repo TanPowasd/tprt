@@ -15,7 +15,7 @@ public class Soul_puncture extends Arrowmodifier {
     @Override
     public void arrowhurt(ModifierNBT modifiers, ModDataNBT persistentData, int level, Projectile projectile, EntityHitResult hit, AbstractArrow arrow, LivingEntity attacker, LivingEntity target) {
         if (target != null) {
-            arrow.setBaseDamage(arrow.getBaseDamage()*1.4);
+            arrow.setBaseDamage(arrow.getBaseDamage()*1.75);
             arrow.setPierceLevel((byte)(arrow.getPierceLevel()+level));
         }
     }

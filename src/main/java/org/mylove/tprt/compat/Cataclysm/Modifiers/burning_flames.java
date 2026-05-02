@@ -1,9 +1,11 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import com.github.L_Ender.cataclysm.init.ModEffect;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -22,32 +24,28 @@ public class  burning_flames extends Modifier implements MeleeHitModifierHook {
     }
 
     @Override
-    public void afterMeleeHit(IToolStackView tool, ModifierEntry entry, ToolAttackContext context, float damageDealt) {
-        if (!(context.getTarget() instanceof LivingEntity target)) return;
-        MobEffect effect = ModEffect.EFFECTBLAZING_BRAND.get();
-        MobEffectInstance instance = target.getEffect(effect);
-        if (instance != null) {
-            int amplifier = instance.getAmplifier();
-            int newAmplifier = amplifier + 1;
-            int duration = instance.getDuration();
-            boolean ambient = instance.isAmbient();
-            boolean visible = instance.isVisible();
-            boolean showIcon = instance.showIcon();
-            if (newAmplifier >= entry.getLevel()) {
-                newAmplifier = entry.getLevel()-1;
+    public void afterMeleeHit(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
+        if (!(context.getTarget() instanceof LivingEntity target)) {return;
+        }
+        LivingEntity attacker=context.getAttacker();
+        if(attacker instanceof Player){
+            AttributeInstance attribute1 = target.getAttribute(Attributes.ARMOR);
+            AttributeInstance attribute2 = target.getAttribute(Attributes.ARMOR_TOUGHNESS);
+            target.setSecondsOnFire(200 * modifier.getLevel());
+            if (attribute1 != null && attribute2 != null) {
+                double basevalue1 = 0;
+                double basevalue2 = 0;
+                AttributeModifier modifier1 = attribute1.getModifier(uuid);
+                AttributeModifier modifier2 = attribute2.getModifier(uuid);
+                if(modifier1 != null && modifier2 != null) {
+                    basevalue1 = modifier1.getAmount();
+                    basevalue2 = modifier2.getAmount();
+                }
+                attribute1.removeModifier(uuid);
+                attribute1.addPermanentModifier(new AttributeModifier(uuid,"burning_flames",basevalue1 - 0.05 * modifier.getLevel(), AttributeModifier.Operation.MULTIPLY_TOTAL));
+                attribute2.removeModifier(uuid);
+                attribute2.addPermanentModifier(new AttributeModifier(uuid,"burning_flames",basevalue2 - 0.05 * modifier.getLevel(), AttributeModifier.Operation.MULTIPLY_TOTAL));
             }
-            int a = instance.getAmplifier();
-            MobEffectInstance newEffect = new MobEffectInstance(
-                    effect,
-                   // duration,
-                    200,
-                    newAmplifier,
-                    ambient,
-                    visible,
-                    showIcon);
-            target.addEffect(newEffect);
-        } else {
-            target.addEffect(new MobEffectInstance(effect, 200));
         }
     }
 }

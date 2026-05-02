@@ -10,6 +10,10 @@
       {
         "level": 1,
         "name": "tprt:soul_dodge"
+      },
+      {
+        "level": 1,
+        "name": "tprt:undead_revive"
       }
     ],
     "tconstruct:ranged": [

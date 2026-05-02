@@ -36,7 +36,7 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
     public static final double splashDegree = Math.PI / 4;
     //溅射倍率
     private static double getDamageMuti(int tagLevel){
-        return .4 + tagLevel * .2;
+        return .8 + tagLevel * .4;
     }
     private static int getRangeMuti(int tagLevel){
         return 7 + tagLevel * 4;
@@ -60,7 +60,7 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
         att = attacker.position();
         tar = target.position();
         vecT = att.vectorTo(tar).normalize();
-        speedMuti = (double) getRangeMuti(tagLevel) / 12;
+        speedMuti = (double) getRangeMuti(tagLevel) / 6;
 
         /// 大致思路是在击中地点创建一个大盒子，检测盒中实体是不是在攻击者->目标的锥形范围内，判定一次
         /// 09/16 魂樱中有个连锁闪电, 跟这个思路一样

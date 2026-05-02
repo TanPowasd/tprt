@@ -1,12 +1,18 @@
 package org.mylove.tprt.compat.Cataclysm;
 
+import net.minecraft.world.effect.MobEffect;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
+import org.mylove.tprt.compat.Cataclysm.ModEffects.Soul_casting_blade;
 import org.mylove.tprt.compat.Cataclysm.Modifiers.*;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 public class CataclysmCompat {
     public static ModifierDeferredRegister Cataclysm_MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
+    public static final DeferredRegister<MobEffect> Cataclysm_MODEFFECTS=DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Tprt.MODID);
 
     public static final StaticModifier<ancient_sandstorm> ancient_sandstorm;
     public static final StaticModifier<burning_flames> burning_flames;
@@ -18,6 +24,7 @@ public class CataclysmCompat {
     public static final StaticModifier<mechanical_star_arm> mechanical_star_arm;
     public static final StaticModifier<mechanical_star_att> mechanical_star_att;
     public static final StaticModifier<soul_dodge> soul_dodge;
+    public static final StaticModifier<Undead_Revive> Undead_Revive;
     public static final StaticModifier<Soul_puncture> Soul_puncture;
     public static final StaticModifier<strong_but_pliable> strong_but_pliable;
     public static final StaticModifier<Storm_incarnation_att> Storm_incarnation_att;
@@ -38,6 +45,9 @@ public class CataclysmCompat {
     public static final StaticModifier<Void_Power> Void_Power;
     public static final StaticModifier<Void_Armed> Void_Armed;
     public static final StaticModifier<Ender_Armor> Ender_Armor;
+
+
+    public static final RegistryObject<Soul_casting_blade> Soul_casting_blade;
     static {
         ancient_sandstorm = Cataclysm_MODIFIERS.register("ancient_sandstorm", ancient_sandstorm::new);
         burning_flames = Cataclysm_MODIFIERS.register("burning_flames", burning_flames::new);
@@ -49,6 +59,7 @@ public class CataclysmCompat {
         mechanical_star_arm = Cataclysm_MODIFIERS.register("mechanical_star_arm", mechanical_star_arm::new);
         mechanical_star_att = Cataclysm_MODIFIERS.register("mechanical_star_att", mechanical_star_att::new);
         soul_dodge = Cataclysm_MODIFIERS.register("soul_dodge", soul_dodge::new);
+        Undead_Revive = Cataclysm_MODIFIERS.register("undead_revive", Undead_Revive::new);
         Soul_puncture = Cataclysm_MODIFIERS.register("soul_puncture", Soul_puncture::new);
         strong_but_pliable = Cataclysm_MODIFIERS.register("strong_but_pliable", strong_but_pliable::new);
         Storm_incarnation_att = Cataclysm_MODIFIERS.register("storm_incarnation_att", Storm_incarnation_att::new);
@@ -69,5 +80,8 @@ public class CataclysmCompat {
         Void_Power = Cataclysm_MODIFIERS.register("void_power", Void_Power::new);
         Void_Armed = Cataclysm_MODIFIERS.register("void_armed", Void_Armed::new);
         Ender_Armor = Cataclysm_MODIFIERS.register("ender_armor", Ender_Armor::new);
+
+
+        Soul_casting_blade=Cataclysm_MODEFFECTS.register("soul_casting_blade", Soul_casting_blade::new);
     }
 }

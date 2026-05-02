@@ -1,6 +1,7 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
@@ -9,6 +10,7 @@ import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class mechanical_star_att extends NoLevelsModifier implements MeleeDamageModifierHook {
@@ -24,9 +26,9 @@ public class mechanical_star_att extends NoLevelsModifier implements MeleeDamage
         LivingEntity entity = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
         if (entity != null) {
-            float x=attacker.getArmorValue();
-            double y=x/(2*x+100);
-            return (float) (damage*(1+2*y));
+            float x= (float) (attacker.getArmorValue() + Objects.requireNonNull(attacker.getAttribute(Attributes.ARMOR_TOUGHNESS)).getValue());
+            double y=1.5 * x/(2 * x + 200);
+            return (float) (damage*(1 + 2 * y));
         }
         return damage;
     }

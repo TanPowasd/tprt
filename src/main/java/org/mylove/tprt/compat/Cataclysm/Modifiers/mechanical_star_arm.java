@@ -1,9 +1,9 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import com.ssakura49.sakuratinker.generic.BaseModifier;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import org.mylove.tprt.registries.ModifierIds;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -15,6 +15,7 @@ import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class mechanical_star_arm extends NoLevelsModifier implements ModifyDamageModifierHook {
@@ -36,8 +37,8 @@ public class mechanical_star_arm extends NoLevelsModifier implements ModifyDamag
         }
         if(attacker != null) {
             if(SlotInChargeModule.isInCharge(context.getTinkerData(), SLOT_IN_CHARGE, slotType)){
-            float x=entity.getArmorValue();
-            double y=x/(2*x+100);
+            float x= (float) (entity.getArmorValue() + Objects.requireNonNull(entity.getAttribute(Attributes.ARMOR_TOUGHNESS)).getValue());
+            double y=1.5 * x/(2 * x +200);
             return (float) (amount*(1-y));
             }
         }

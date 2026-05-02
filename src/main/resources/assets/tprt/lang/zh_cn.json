@@ -63,6 +63,8 @@
   "effect.tprt.eager_edge": "急切刀锋",
   "effect.tprt.de_eager_edge": "急切刀锋cd",
   "effect.tprt.myl_girig_pro": "贪欲",
+  "effect.tprt.soul_casting_blade": "魂铸锋刃",
+  "effect.tprt.soul_casting_blade.description": "提高暴击伤害",
 
 
   "common": "item",
@@ -287,35 +289,42 @@
 
   "modifier.tprt.the_shining_sun": "耀阳",
   "modifier.tprt.the_shining_sun.flavor":"愿光芒浸润你",
-  "modifier.tprt.the_shining_sun.description":"造成伤害提高15%，若自身持有发光效果时则效果额外提升",
+  "modifier.tprt.the_shining_sun.description":"造成伤害提高15%，若自身所处环境亮度大于10则获得额外提升，亮度越大提升效果越强",
 
   "modifier.tprt.burning_flames": "焚焰",
   "modifier.tprt.burning_flames.flavor": "焚尽世间的烈焰",
-  "modifier.tprt.burning_flames.description": "攻击附加炽热烙印，效果等级上限为词条等级上限",
+  "modifier.tprt.burning_flames.description": "攻击会削减目标的护甲值和盔甲韧性并点燃目标",
 
   "modifier.tprt.wrath_of_flames": "焰魔之怒",
   "modifier.tprt.wrath_of_flames.flavor":"来自下界烈焰领主的怒火",
-  "modifier.tprt.wrath_of_flames.description":"攻击目标每有一层炽热烙印，攻击额外附带10%火焰伤害",
+  "modifier.tprt.wrath_of_flames.description":"造成的伤害提高25%，若目标护甲值为零，则大幅提升造成伤害",
 
   "modifier.tprt.cursed_spirit": "死灰咒言",
-  "modifier.tprt.cursed_spirit.flavor":"死亡诅咒的力量为你所用",
-  "modifier.tprt.cursed_spirit.description":"造成的伤害提高30%",
+  "modifier.tprt.cursed_spirit.flavor":"激发死亡诅咒的力量！",
+  "modifier.tprt.cursed_spirit.description":"攻击后暴击伤害获得提升，叠加至三层时攻击将额外对自身周围目标造成伤害（有一定cd）",
 
   "modifier.tprt.soul_puncture": "万魂穿心",
   "modifier.tprt.soul_puncture.flavor":"利用死亡诅咒撕裂敌人的灵魂",
-  "modifier.tprt.soul_puncture.description":"弓箭造成的伤害提升40%",
+  "modifier.tprt.soul_puncture.description":"弓箭造成的伤害提升75%",
 
   "modifier.tprt.soul_dodge": "魂灵闪避",
   "modifier.tprt.soul_dodge.flavor":"身体仿若幽魂",
-  "modifier.tprt.soul_dodge.description":"有较低概率免疫受到的伤害",
+  "modifier.tprt.soul_dodge.description":"有概率免疫受到的伤害",
+
+  "modifier.tprt.undead_revive": "不死新生",
+  "modifier.tprt.undead_revive.flavor":"拒绝死神的邀约",
+  "modifier.tprt.undead_revive.description":"死亡后立刻恢复到20%生命值并获得5秒无敌时间。复活后，穿戴者会被削弱6分钟，削弱持续期间无法复活",
+  "modifier.tprt.tooltip.undead_revive_cd": "不死新生冷却",
+  "modifier.tprt.tooltip.undead_revive_done": "不死新生已就绪",
+  "message.tprt.undead_revive": "你拒绝了死神的邀请",
 
   "modifier.tprt.mechanical_star_att": "机械之星",
   "modifier.tprt.mechanical_star_att.flavor":"机械工程的杰作，战争机器的化身",
-  "modifier.tprt.mechanical_star_att.description":"你的护甲值会提高造成伤害",
+  "modifier.tprt.mechanical_star_att.description":"你的护甲值和盔甲韧性会提高造成伤害",
 
   "modifier.tprt.mechanical_star_arm": "机械之星",
   "modifier.tprt.mechanical_star_arm.flavor":"机械工程的杰作，战争机器的化身",
-  "modifier.tprt.mechanical_star_arm.description":"你的护甲值会提供受到伤害减免",
+  "modifier.tprt.mechanical_star_arm.description":"你的护甲值和盔甲韧性会提供受到伤害减免",
 
   "modifier.tprt.machine_iron_casting": "机铁铸就",
   "modifier.tprt.machine_iron_casting.flavor":"这种高密度材料带来的防御性能无与伦比，但是也非常沉重",
@@ -362,11 +371,11 @@
 
   "modifier.tprt.storm_incarnation_att": "我即风暴",
   "modifier.tprt.storm_incarnation_att.flavor":"我即是那迫近的风暴",
-  "modifier.tprt.storm_incarnation_att.description":"造成的伤害提高15%；若为下雨或雷暴天气，则改为40%且会追加一次相当于20%造成伤害的雷电伤害",
+  "modifier.tprt.storm_incarnation_att.description":"造成的伤害提高35%；若为下雨或雷暴天气，则改为80%且会追加一次相当于50%造成伤害的雷电伤害",
 
   "modifier.tprt.storm_incarnation_arm": "我即风暴",
   "modifier.tprt.storm_incarnation_arm.flavor":"我即是那迫近的风暴",
-  "modifier.tprt.storm_incarnation_arm.description":"受到的伤害降低15%；若为下雨或雷暴天气，则额外获得抗性提升2和急迫2且无敌帧延长至两倍",
+  "modifier.tprt.storm_incarnation_arm.description":"受到的伤害降低2点；若为下雨或雷暴天气，则额外获得抗性提升3和急迫3且无敌帧延长至三倍",
 
   "modifier.tprt.breath_of_the_abyss": "深渊之息",
   "modifier.tprt.breath_of_the_abyss.flavor":"至深，至暗",
@@ -374,7 +383,7 @@
 
   "modifier.tprt.dimension_fragmentation": "维度碎裂",
   "modifier.tprt.dimension_fragmentation.flavor":"撕裂维度的力量！",
-  "modifier.tprt.dimension_fragmentation.description":"若攻击目标持有深渊恐惧效果，则削减其3%最大生命值",
+  "modifier.tprt.dimension_fragmentation.description":"若攻击目标持有深渊恐惧效果，则削减其3%最大生命值。若目标未持有则每次削减其1%最大生命值且最多削减至70%",
 
   "modifier.tprt.void_scatter": "虚空散射",
   "modifier.tprt.void_scatter.flavor":"破碎虚空！",

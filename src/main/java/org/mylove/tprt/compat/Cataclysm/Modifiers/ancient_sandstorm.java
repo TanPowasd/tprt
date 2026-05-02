@@ -27,9 +27,9 @@ public class ancient_sandstorm extends NoLevelsModifier implements ToolStatsModi
         double X=Math.log10(x);
         double y=X * x/(6 * x +30000);
 
-        ToolStats.ATTACK_DAMAGE.multiply(builder, 1 + 0.8 * y );
-        ToolStats.PROJECTILE_DAMAGE.multiply(builder, 1 + 1.0 * y );
-        ToolStats.ARMOR.multiply(builder, 1 + 1.5 * y );
+        ToolStats.ATTACK_DAMAGE.multiply(builder, 1 + 1.2 * y );
+        ToolStats.PROJECTILE_DAMAGE.multiply(builder, 1 + 1.5 * y );
+        ToolStats.ARMOR.multiply(builder, 1 + 2 * y );
         ToolStats.DURABILITY.add(builder,1500);
     }
 }

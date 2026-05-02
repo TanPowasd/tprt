@@ -7,6 +7,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.mylove.tprt.registries.ModifierIds;
+import org.mylove.tprt.utils.ModifierLEVEL;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.armor.ModifyDamageModifierHook;
@@ -56,9 +58,12 @@ public class The_dragon_lord extends NoLevelsModifier implements ModifyDamageMod
     @Override
     public void onInventoryTick(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, net.minecraft.world.level.@NotNull Level world, @NotNull LivingEntity entity, int itemSlot, boolean isSelected, boolean isCorrectSlot, @NotNull ItemStack stack) {
         if (entity instanceof Player player) {
-            float x = entity.getMaxHealth();
-            if (x >= 100){
-                FlyingHelper.tickFlying(player);
+            int X = ModifierLEVEL.getTotalArmorModifierlevel(entity, ModifierIds.The_dragon_lord);
+            if(X > 0){
+                float x = entity.getMaxHealth();
+                if (x >= 100){
+                    FlyingHelper.tickFlying(player);
+                }
             }
         }
     }
