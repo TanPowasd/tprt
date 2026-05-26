@@ -23,8 +23,14 @@
     ],
     "sakuratinker:charm":[
       {
-        "level":2,
-        "name":"tprt:strengthen_for_charm_spell_power"
+        "level":1,
+        "name":"tprt:spell_power_improved_curios"
+      }
+    ],
+    "sakuratinker:tinker_spell_book": [
+      {
+        "level": 1,
+        "name": "tprt:spell_power_improved_curios"
       }
     ]
   }

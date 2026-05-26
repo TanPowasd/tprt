@@ -6,7 +6,7 @@
     }
   ],
   "perStat": {
-    "sakuratinker:spell_cloth": [
+    "sakuratinker:tinker_spell_book": [
       {
         "level": 1,
         "name": "tprt:source_alloy_spell_cloth"

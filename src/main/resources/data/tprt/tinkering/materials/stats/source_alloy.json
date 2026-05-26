@@ -15,6 +15,30 @@
     }
   ],
   "stats": {
+    "sakuratinker:book_mark": {
+      "percent_bonus": 0.50,
+      "spell_slot": 15
+    },
+    "sakuratinker:gutter": {},
+    "sakuratinker:envelope": {
+      "school_bonus": {
+        "irons_spellbooks:ice": 0.25,
+        "irons_spellbooks:fire": 0.25,
+        "irons_spellbooks:holy": 0.25,
+        "irons_spellbooks:nature": 0.25,
+        "irons_spellbooks:ender": 0.25,
+        "irons_spellbooks:evocation": 0.25,
+        "irons_spellbooks:eldritch": 0.25,
+        "irons_spellbooks:lightning": 0.25
+      }
+    },
+    "sakuratinker:manu_script": {
+      "cast_time_reduce": 0.50,
+      "mana_reduce": 50.0,
+      "mana_regen": 0.5,
+      "mana_value": 1000.0,
+      "spell_damage": 50.0
+    },
     "sakuratinker:charm_chain": {
       "armor": 0.2,
       "arrow_damage": 0.25,

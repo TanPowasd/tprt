@@ -445,6 +445,10 @@
   "modifier.tprt.spell_power_improved.flavor":"这种材料充满了法力",
   "modifier.tprt.spell_power_improved.description":"提高最大法力值和法术强度",
 
+  "modifier.tprt.spell_power_improved_curios": "法强提升",
+  "modifier.tprt.spell_power_improved_curios.flavor":"这种材料充满了法力",
+  "modifier.tprt.spell_power_improved_curios.description":"提高最大法力值和法术强度",
+
   "modifier.tprt.ender_spell_power_improved": "末影法强提升",
   "modifier.tprt.ender_spell_power_improved.flavor":"末影的回响使你对末影法术有了更深刻的理解",
   "modifier.tprt.ender_spell_power_improved.description":"提高末影法术强度",
@@ -489,7 +493,7 @@
 
   "modifier.tprt.burning_ash": "燃灰",
   "modifier.tprt.burning_ash.flavor":"尚存余温",
-  "modifier.tprt.burning_ash.description":"每级提高3点攻击伤害",
+  "modifier.tprt.burning_ash.description":"每级提高4点攻击伤害",
 
   "modifier.tprt.shielding": "不屈不挠",
   "modifier.tprt.shielding.flavor":"永不言弃！",
@@ -525,7 +529,7 @@
 
   "modifier.tprt.fragile": "易碎",
   "modifier.tprt.fragile.flavor":"你比你想象中更加脆弱，但是你的攻击也更加犀利",
-  "modifier.tprt.fragile.description":"生命值上限降低35%，但是攻击伤害+15%",
+  "modifier.tprt.fragile.description":"生命值上限降低35%，但是攻击伤害+25%",
 
   "modifier.tprt.magician": "魔法使",
   "modifier.tprt.magician.flavor":"法术大师!",
@@ -560,6 +564,16 @@
   "modifier.tprt.lingering_infusion": "竹香茶韵",
   "modifier.tprt.lingering_infusion.flavor":"茶香弥漫，沁人心脾",
   "modifier.tprt.lingering_infusion.description":"受到攻击时获得短暂的4级茶韵效果,若持有茶韵效果时受到攻击，则会额外获得短暂的3级抗性提升效果",
+
+
+
+  "modifier.tprt.breakphantom": "破影",
+  "modifier.tprt.breakphantom.description": "隐身时释放法术会清除自身隐身效果，使法术等级提高2级",
+  "modifier.tprt.breakphantom.flavor": "谁家地下城",
+
+  "modifier.tprt.thorough": "通透",
+  "modifier.tprt.thorough.description": "处于亮度大于10的环境时，释放的法术等级+1，神圣法术将额外受到提升",
+  "modifier.tprt.thorough.flavor": "念头通达",
 
 
 
@@ -747,7 +761,7 @@
 
   "modifier.tprt.necronomicon_spell_book": "亡灵律典增强",
   "modifier.tprt.necronomicon_spell_book.flavor":"镌刻法典的力量",
-  "modifier.tprt.necronomicon_spell_book.description":"+200最大法力值，+10%猩红法术强度",
+  "modifier.tprt.necronomicon_spell_book.description":"+200最大法力值，+10%猩红法术强度，装备时，驱役亡灵等级+2",
 
   "modifier.tprt.dragonskin_spell_book": "龙鳞魔导书增强",
   "modifier.tprt.dragonskin_spell_book.flavor":"镌刻法典的力量",
@@ -938,7 +952,7 @@
 
   "modifier.tprt.precision_stab": "精准刺击",
   "modifier.tprt.precision_stab.flavor":"以点破面！",
-  "modifier.tprt.precision_stab.description":"造成伤害时最低为自身攻击力（有一定上限）",
+  "modifier.tprt.precision_stab.description":"攻击会追加一次等于自身攻击力的边界伤害",
 
 
   "common": "not_yet_completed",

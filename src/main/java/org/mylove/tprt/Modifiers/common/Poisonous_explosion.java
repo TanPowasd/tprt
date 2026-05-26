@@ -62,7 +62,8 @@ public class Poisonous_explosion extends NoLevelsModifier implements MeleeHitMod
                     float z = target.getHealth();
                     float damage = (float) (10 * X * Y + 0.03 * x * z);
                     for (LivingEntity entity : nearbyEntities) {
-                            entity.hurt(damageSource, damage);
+                        entity.hurt(damageSource, damage);
+                        entity.setLastHurtByMob(context.getAttacker());
                     }
                     player.getCooldowns().addCooldown(mainhand.getItem(), Poisonous_explosionCoolDown);
                 }

@@ -14,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
+import org.mylove.tprt.compat.Cloudertinker.CTCompat;
 import org.mylove.tprt.compat.Goety.GoetyCompat;
 import org.mylove.tprt.compat.Iceandfire.Iceandfire_Compat;
 import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
@@ -67,6 +68,10 @@ public class Tprt {
         if (ModListUtil.IceandfireLoaded) {
             Iceandfire_Compat.Iceandfire_MODIFIERS.register(modEventBus);
             LOGGER.info("Found iceandfire, integration initializing……");
+        }
+        if (ModListUtil.CloudertinkerLoaded) {
+            CTCompat.CT_MODIFIERS.register(modEventBus);
+            LOGGER.info("Found cloudertinker, integration initializing……");
         }
     }
 

@@ -15,6 +15,23 @@
     }
   ],
   "stats": {
+    "sakuratinker:book_mark": {
+      "percent_bonus": 0.30,
+      "spell_slot": 10
+    },
+    "sakuratinker:envelope": {
+      "school_bonus": {
+        "irons_spellbooks:holy": 0.25,
+        "irons_spellbooks:fire": 0.1
+      }
+    },
+    "sakuratinker:manu_script": {
+      "cast_time_reduce": 0.00,
+      "mana_reduce": 10.0,
+      "mana_regen": 0.10,
+      "mana_value": 200.0,
+      "spell_damage": 50.0
+    },
     "sakuratinker:charm_chain": {
       "armor": 0.05,
       "arrow_damage": 0.75,

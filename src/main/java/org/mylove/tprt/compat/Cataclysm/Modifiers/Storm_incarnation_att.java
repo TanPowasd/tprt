@@ -41,6 +41,7 @@ public class Storm_incarnation_att extends NoLevelsModifier implements MeleeDama
             if (attacker.isInWaterOrRain()) {
                 target.invulnerableTime = 0;
                 target.hurt(target.damageSources().lightningBolt(),damageDealt * 0.50f);
+                target.setLastHurtByMob(context.getAttacker());
             }
         }
     }

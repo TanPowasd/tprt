@@ -23,6 +23,12 @@
         "level":1,
         "name":"tconstruct:soulbound"
       }
+    ],
+    "sakuratinker:tinker_spell_book": [
+      {
+        "level": 1,
+        "name": "tprt:breakphantom"
+      }
     ]
   }
 }

@@ -106,6 +106,7 @@
     "ice_spell_power_improved": "#BEF0F0",
     "mana_improved": "#E8A074",
     "spell_power_improved": "#73ABDE",
+    "spell_power_improved_curios": "#73ABDE",
     "ender_spell_power_improved": "#40004A",
     "marathon": "#44005f",
     "human_turpentine": "#44005f",
@@ -172,6 +173,8 @@
     "ender_armor": "#cd00ff",
     "void_armed": "#cd00ff",
     "ender_echo": "#cd00ff",
-    "imbued": "#FCA800"
+    "imbued": "#FCA800",
+    "breakphantom": "#526042",
+    "thorough": "#CEE7E6"
   }
 }

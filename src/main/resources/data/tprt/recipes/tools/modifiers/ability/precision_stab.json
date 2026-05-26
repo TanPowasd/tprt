@@ -1,4 +1,5 @@
 {
+  "type": "tconstruct:modifier",
   "allow_crystal": true,
   "inputs": [
     {

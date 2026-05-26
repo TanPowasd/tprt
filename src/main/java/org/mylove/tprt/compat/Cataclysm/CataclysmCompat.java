@@ -46,6 +46,8 @@ public class CataclysmCompat {
     public static final StaticModifier<Void_Armed> Void_Armed;
     public static final StaticModifier<Ender_Armor> Ender_Armor;
 
+    public static final StaticModifier<soul_surge> soul_surge;
+
 
     public static final RegistryObject<Soul_casting_blade> Soul_casting_blade;
     static {
@@ -80,6 +82,8 @@ public class CataclysmCompat {
         Void_Power = Cataclysm_MODIFIERS.register("void_power", Void_Power::new);
         Void_Armed = Cataclysm_MODIFIERS.register("void_armed", Void_Armed::new);
         Ender_Armor = Cataclysm_MODIFIERS.register("ender_armor", Ender_Armor::new);
+
+        soul_surge = Cataclysm_MODIFIERS.register("soul_surge", soul_surge::new);
 
 
         Soul_casting_blade=Cataclysm_MODEFFECTS.register("soul_casting_blade", Soul_casting_blade::new);

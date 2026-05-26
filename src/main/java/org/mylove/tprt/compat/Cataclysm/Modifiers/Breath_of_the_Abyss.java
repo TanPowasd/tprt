@@ -33,6 +33,7 @@ public class Breath_of_the_Abyss extends Modifier implements MeleeHitModifierHoo
             target.addEffect(new MobEffectInstance(effect,200,0));
             target.invulnerableTime = 10 ;
             target.hurt(target.damageSources().fellOutOfWorld(),10f + 5f * modifier.getLevel());
+            target.setLastHurtByMob(context.getAttacker());
         }
     }
 }

@@ -435,6 +435,10 @@
   "modifier.tprt.spell_power_improved.flavor":"This material is filled with magic",
   "modifier.tprt.spell_power_improved.description":"Increases max mana and spell power",
 
+  "modifier.tprt.spell_power_improved_curios": "Improved Spell Power",
+  "modifier.tprt.spell_power_improved_curios.flavor":"This material is filled with magic",
+  "modifier.tprt.spell_power_improved_curios.description":"Increases max mana and spell power",
+
   "modifier.tprt.ender_spell_power_improved": "Improved Ender Spell Power",
   "modifier.tprt.ender_spell_power_improved.flavor":"The echo of the End gives you deeper understanding of Ender spells",
   "modifier.tprt.ender_spell_power_improved.description":"Increases Ender spell power",
@@ -480,7 +484,7 @@
 
   "modifier.tprt.burning_ash": "Burning Ash",
   "modifier.tprt.burning_ash.flavor":"Still retains warmth",
-  "modifier.tprt.burning_ash.description":"Per level: Increases attack damage by 3",
+  "modifier.tprt.burning_ash.description":"Per level: Increases attack damage by 4",
 
   "modifier.tprt.shielding": "Indomitable",
   "modifier.tprt.shielding.flavor":"Never give up!",
@@ -516,7 +520,7 @@
 
   "modifier.tprt.fragile": "Fragile",
   "modifier.tprt.fragile.flavor":"You are more fragile than you think, but your attacks are also sharper",
-  "modifier.tprt.fragile.description":"Max health reduced by 35%, but attack damage +15%",
+  "modifier.tprt.fragile.description":"Max health reduced by 35%, but attack damage +25%",
 
   "modifier.tprt.magician": "Magician",
   "modifier.tprt.magician.flavor":"Spell Master!",
@@ -551,6 +555,17 @@
   "modifier.tprt.lingering_infusion": "Bamboo Tea Aroma",
   "modifier.tprt.lingering_infusion.flavor":"Tea fragrance permeates, refreshing the heart",
   "modifier.tprt.lingering_infusion.description":"When hit, gain a short Tea Aroma IV effect. If hit while having Tea Aroma, additionally gain a short Resistance III effect",
+
+
+
+
+  "modifier.tprt.breakphantom": "Phantom Break",
+  "modifier.tprt.breakphantom.description": "Releasing a spell while invisibility will clear the invisibility effect and increase the spell level by 2 levels.",
+  "modifier.tprt.breakphantom.flavor": "Whose dungeon is this?",
+
+  "modifier.tprt.thorough": "Thorough",
+  "modifier.tprt.thorough.description": "When the brightness is greater than 10, the released spell level will be +1, and the holy spell will be enhanced additionally.",
+  "modifier.tprt.thorough.flavor": "Light gives strength.",
 
   "common": "upgrades_modifiers",
 
@@ -736,7 +751,7 @@
 
   "modifier.tprt.necronomicon_spell_book": "Necronomicon Enhancement",
   "modifier.tprt.necronomicon_spell_book.flavor":"The power of engraved codex",
-  "modifier.tprt.necronomicon_spell_book.description":"+200 max mana, +10% Crimson spell power",
+  "modifier.tprt.necronomicon_spell_book.description":"+200 max mana, +10% blood spell power, when it's equipped, the level of Raise Dead will improved 2 level",
 
   "modifier.tprt.dragonskin_spell_book": "Dragon Scale Spellbook Enhancement",
   "modifier.tprt.dragonskin_spell_book.flavor":"The power of engraved codex",
@@ -926,7 +941,7 @@
 
   "modifier.tprt.precision_stab": "Precision Stab",
   "modifier.tprt.precision_stab.flavor":"Break the surface with points!",
-  "modifier.tprt.precision_stab.description":"When causing damage, the minimum is your own attack power (with a certain upper limit).",
+  "modifier.tprt.precision_stab.description":"The attack will add a boundary damage equal to its own attack power.",
 
 
 

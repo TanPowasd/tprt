@@ -187,7 +187,11 @@ dependencies {
     implementation fg.deobf("curse.maven:tinkers-construct-74072:7371800")
     implementation fg.deobf("curse.maven:jei-238222:6600311")
     implementation fg.deobf("curse.maven:jade-324717:6271651")
-    implementation fg.deobf("curse.maven:sakura-tinker-1217345:7350373")
+    implementation fg.deobf("curse.maven:sakura-tinker-1217345:8118741")
+    /*implementation fg.deobf(jarJar("com.ssakura49.sakuratinker:sakuratinker:1.4.2.3-2")) {
+        transitive = false
+        jarJar.ranged(it, "[1.4.2.3,)")
+    }*/
     implementation fg.deobf("curse.maven:l2library-620203:6806000")
     //implementation fg.deobf("curse.maven:tinkers-calibration-tic3-863663:6735556")
     implementation fg.deobf("curse.maven:etst-lib-1206379:6732443")

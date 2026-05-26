@@ -64,10 +64,10 @@ public class human_turpentine extends NoLevelsModifier implements MeleeHitModifi
                     {
                         {;
                             context.getLivingTarget().hurt(context.getLivingTarget().damageSources().dragonBreath(), (float) (15 * x * y));
+                            context.getLivingTarget().setLastHurtByMob(context.getAttacker());
                         }
                     }
                 }
-                context.getLivingTarget().setLastHurtByMob(context.getAttacker());
             }
         }
     }

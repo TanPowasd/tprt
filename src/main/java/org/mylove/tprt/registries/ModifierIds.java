@@ -20,6 +20,18 @@ public class ModifierIds {
     public static final ModifierId Immolate = id("immolate");
     public static final ModifierId The_dragon_lord = id("the_dragon_lord");
 
+    public static final ModifierId netherite_spell_book = id("netherite_spell_book");
+    public static final ModifierId gold_spell_book = id("gold_spell_book");
+    public static final ModifierId evoker_spell_book = id("evoker_spell_book");
+    public static final ModifierId blaze_spell_book = id("blaze_spell_book");
+    public static final ModifierId necronomicon_spell_book = id("necronomicon_spell_book");
+    public static final ModifierId dragonskin_spell_book = id("dragonskin_spell_book");
+    public static final ModifierId villager_spell_book = id("villager_spell_book");
+    public static final ModifierId druidic_spell_book = id("druidic_spell_book");
+    public static final ModifierId cursed_doll_spell_book = id("cursed_doll_spell_book");
+    public static final ModifierId ice_spell_book = id("ice_spell_book");
+    public static final ModifierId the_source_of_all_spells = id("the_source_of_all_spells");
+
     private ModifierIds() {
     }
 
