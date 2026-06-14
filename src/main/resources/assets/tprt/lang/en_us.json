@@ -113,6 +113,10 @@
   "fluid.tconstruct.flowing_molten_arcane_metal": "Flowing Molten Arcane Metal",
   "item.tprt.molten_arcane_metal_bucket": "Molten Arcane Metal Bucket",
 
+  "fluid.tconstruct.molten_pyrium": "Molten Arcane Metal",
+  "fluid.tconstruct.flowing_molten_pyrium": "Flowing Molten Arcane Metal",
+  "item.tprt.molten_pyrium_bucket": "Molten Arcane Metal Bucket",
+
   "item.tprt.dark_knight_ingot": "Drenched Knight Ingot",
   "item.tprt.dark_knight_ingot.desc": "Contributor Material",
   "tooltip.tprt.dark_knight_ingot.line1": "Hehe, I must win",
@@ -214,6 +218,12 @@
 
   "material.tprt.dark_knight":"Drenched Knight Metal",
   "material.tprt.dark_knight.flavor":"“Hehe, I must win”",
+
+  "material.tprt.bloody_vellum":"Bloody Vellum",
+  "material.tprt.bloody_vellum.flavor":"Some existence is answering your call ...",
+
+  "material.tprt.pyrium":"Pyrium",
+  "material.tprt.pyrium.flavor":"The secret storage of the Nether",
 
   "common": "materials_modifiers",
 
@@ -451,7 +461,25 @@
   "modifier.tprt.marathon.flavor":"“Favor jingles when cut”",
   "modifier.tprt.marathon.description":"Movement speed greatly increased while holding the weapon",
 
+  "modifier.tprt.bloodstain": "Bloodstain",
+  "modifier.tprt.bloodstain.flavor":"Scarlet blessing!",
+  "modifier.tprt.bloodstain.description":"Increases max mana, and increases the level of the blood spell when it is released.",
 
+  "modifier.tprt.light_the_fire": "Light The Fire",
+  "modifier.tprt.light_the_fire.flavor":"Light these evil creatures!",
+  "modifier.tprt.light_the_fire.description":"The attack is added with a level of Immolate (it will explode when superimposed on the third level), and the arrow will explode immediately when it hits.",
+
+  "modifier.tprt.flaming_torus": "Flaming Torus",
+  "modifier.tprt.flaming_torus.flavor":"Burn all the evil things that dare to get close!",
+  "modifier.tprt.flaming_torus.description":"When attacked, it deals fire damage to the damage source (imposed by the spell power)",
+
+  "modifier.tprt.fire_flow": "Fire Flow",
+  "modifier.tprt.fire_flow.flavor":"Strengthen yourself with fire!",
+  "modifier.tprt.fire_flow.description":"The damage taken is reduced by 2 , and the damage caused will increase according to the intensity of the wearer's fire spell power.",
+
+  "modifier.tprt.flame_paradise": "Flame Paradise",
+  "modifier.tprt.flame_paradise.flavor":"Burn the darkness with fire!",
+  "modifier.tprt.flame_paradise.description":"The level of blazing spell is improved. When you release blazing spell, you will get Strength effect and Absorption effect according to the spell level.",
 
 
   "modifier.tprt.nature_affinity": "Nature Affinity",
@@ -723,7 +751,7 @@
 
   "modifier.tprt.pyrium": "Pyrium",
   "modifier.tprt.pyrium.flavor":"Get the strength from pyrium!",
-  "modifier.tprt.pyrium.description":"Strength tools and improve your max mana",
+  "modifier.tprt.pyrium.description":"Strength tools and improve your max mana and spell power",
 
   "modifier.tprt.immolate": "Immolation",
   "modifier.tprt.immolate.flavor":"Destroy the enemy with fire.",

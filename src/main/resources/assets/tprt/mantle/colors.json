@@ -31,7 +31,9 @@
     "tears_of_the_storm": "#7cbee6",
     "abyss_fragment": "#883dfc",
     "void_jaw": "#8019FC",
-    "void_power_alloy": "#cd00ff"
+    "void_power_alloy": "#cd00ff",
+    "bloody_vellum": "#8c2538",
+    "pyrium": "#d6af39"
   },
   "modifier.tprt": {
     "the_dragon_lord":"#EEDD82",
@@ -175,6 +177,11 @@
     "ender_echo": "#cd00ff",
     "imbued": "#FCA800",
     "breakphantom": "#526042",
-    "thorough": "#CEE7E6"
+    "thorough": "#CEE7E6",
+    "bloodstain": "#8c2538",
+    "light_the_fire": "#d6af39",
+    "flaming_torus": "#d6af39",
+    "fire_flow": "#d6af39",
+    "flame_paradise": "#d6af39"
   }
 }

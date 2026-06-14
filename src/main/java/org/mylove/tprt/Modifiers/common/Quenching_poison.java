@@ -57,7 +57,7 @@ public class Quenching_poison extends Modifier implements MeleeHitModifierHook, 
         }
     }
     @Override
-    public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
+    public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target, boolean notBlocked) {
         MobEffect effect = MobEffects.POISON;
         MobEffectInstance instance = null;
         if (target != null) {

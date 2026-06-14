@@ -121,6 +121,10 @@
   "fluid.tconstruct.flowing_molten_arcane_metal": "流动的熔融奥术金属",
   "item.tprt.molten_arcane_metal_bucket": "熔融奥术金属桶",
 
+  "fluid.tconstruct.molten_pyrium": "熔融炽金",
+  "fluid.tconstruct.flowing_molten_pyrium": "流动的熔融炽金",
+  "item.tprt.molten_pyrium_bucket": "熔融炽金桶",
+
   "item.tprt.dark_knight_ingot": "濡湿骑士锭",
   "item.tprt.dark_knight_ingot.desc": "贡献者材料",
   "tooltip.tprt.dark_knight_ingot.line1": "嘻嘻,我一定要赢",
@@ -223,6 +227,12 @@
 
   "material.tprt.dark_knight":"濡湿骑士金属",
   "material.tprt.dark_knight.flavor":"“嘻嘻，我一定要赢”",
+
+  "material.tprt.bloody_vellum":"血腥羊皮纸",
+  "material.tprt.bloody_vellum.flavor":"某种存在正在回应你的呼唤……",
+
+  "material.tprt.pyrium":"炽金",
+  "material.tprt.pyrium.flavor":"下界秘藏",
 
 
   "common": "materials_modifiers",
@@ -460,6 +470,26 @@
   "modifier.tprt.marathon": "马拉松",
   "modifier.tprt.marathon.flavor":"“宠爱切的叮当响”",
   "modifier.tprt.marathon.description":"手持武器时移速大幅加快",
+
+  "modifier.tprt.bloodstain": "染血",
+  "modifier.tprt.bloodstain.flavor":"猩红赐福！",
+  "modifier.tprt.bloodstain.description":"提高最大法力值，释放猩红法术时使其等级额外提升",
+
+  "modifier.tprt.light_the_fire": "引火",
+  "modifier.tprt.light_the_fire.flavor":"点燃这些邪恶的生物！",
+  "modifier.tprt.light_the_fire.description":"近战攻击附加一层炽焰献祭（叠加至3层发生爆炸），箭矢命中时则立即引发爆炸",
+
+  "modifier.tprt.flaming_torus": "炽焰环身",
+  "modifier.tprt.flaming_torus.flavor":"烧尽胆敢近身的邪祟！",
+  "modifier.tprt.flaming_torus.description":"受到攻击时对伤害来源造成火焰伤害（受法强加成）",
+
+  "modifier.tprt.fire_flow": "逝火流",
+  "modifier.tprt.fire_flow.flavor":"以火焰壮大己身！",
+  "modifier.tprt.fire_flow.description":"受到的伤害降低2点，造成伤害会根据佩戴者的炽焰法术强度提高",
+
+  "modifier.tprt.flame_paradise": "光焰天途",
+  "modifier.tprt.flame_paradise.flavor":"以焰渡世！",
+  "modifier.tprt.flame_paradise.description":"炽焰法术等级提升，释放炽焰法术时会根据法术等级获得力量效果和伤害吸收效果",
 
 
 
@@ -733,7 +763,7 @@
 
   "modifier.tprt.pyrium": "炽金",
   "modifier.tprt.pyrium.flavor":"得到炽金的加强！",
-  "modifier.tprt.pyrium.description":"增强工具并提升最大法力值",
+  "modifier.tprt.pyrium.description":"增强工具并提升最大法力值与法术强度",
 
   "modifier.tprt.immolate": "炽焰献祭",
   "modifier.tprt.immolate.flavor":"用炽焰湮灭敌人!",

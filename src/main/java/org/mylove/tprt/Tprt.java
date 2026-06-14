@@ -50,6 +50,7 @@ public class Tprt {
 
         if (ModListUtil.ISSLoaded) {
             IssCompat.Iss_MODIFIERS.register(modEventBus);
+            IssCompat.ISS_FLUIDS.register(modEventBus);
             LOGGER.info("Found Iron's Spellbooks, integration initializing……");
         }
         if (ModListUtil.IDLoaded) {

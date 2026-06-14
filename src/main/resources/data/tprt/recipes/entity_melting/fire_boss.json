@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:entity_melting",
+  "damage": 4,
+  "entity": {
+    "types": [
+      "irons_spellbooks:fire_boss"
+    ]
+  },
+  "result": {
+    "amount": 10,
+    "fluid": "tprt:molten_pyrium"
+  }
+}

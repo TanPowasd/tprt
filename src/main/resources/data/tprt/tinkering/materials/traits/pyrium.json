@@ -1,0 +1,46 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:pyrium"
+    },
+    {
+      "level": 1,
+      "name": "tprt:light_the_fire"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:pyrium"
+      },
+      {
+        "level": 1,
+        "name": "tprt:flaming_torus"
+      }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:pyrium"
+      },
+      {
+        "level": 1,
+        "name": "tprt:light_the_fire"
+      }
+    ],
+    "sakuratinker:charm":[
+      {
+        "level":1,
+        "name":"tprt:fire_flow"
+      }
+    ],
+    "sakuratinker:tinker_spell_book": [
+      {
+        "level": 1,
+        "name": "tprt:flame_paradise"
+      }
+    ]
+  }
+}

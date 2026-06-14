@@ -1,0 +1,5 @@
+{
+  "color": "FFFFFF",
+  "flowing": "tprt:fluid/molten_pyrium/flowing",
+  "still": "tprt:fluid/molten_pyrium/still"
+}

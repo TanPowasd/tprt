@@ -1,12 +1,52 @@
 package org.mylove.tprt.compat.IronsSpellBooks;
 
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraftforge.common.SoundActions;
+import net.minecraftforge.fluids.FluidType;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.*;
 import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.Curios.*;
+import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
+import slimeknights.mantle.registration.object.FluidObject;
+import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import static slimeknights.tconstruct.fluids.block.BurningLiquidBlock.createBurning;
+
 public class IssCompat {
+
+    public static final FluidDeferredRegister ISS_FLUIDS=new FluidDeferredRegister(Tprt.MODID);
+    protected static Map<FluidObject<ForgeFlowingFluid>,Boolean> FLUID_MAP = new HashMap<>();
+    public static Set<FluidObject<ForgeFlowingFluid>> getFluids(){
+        return FLUID_MAP.keySet();
+    }
+    public static Map<FluidObject<ForgeFlowingFluid>,Boolean> getFluidMap(){
+        return FLUID_MAP;
+    }
+    private static FluidObject<ForgeFlowingFluid> registerHotFluid(FluidDeferredRegister register,String name,int temp,int lightLevel,int burnTime,float damage,boolean gas){
+        FluidObject<ForgeFlowingFluid> object = register.register(name).type(hot(name,temp,gas)).bucket().block(createBurning(MapColor.COLOR_GRAY,lightLevel,burnTime,damage)).commonTag().flowing();
+        FLUID_MAP.put(object,gas);
+        return object;
+    }
+    public static final FluidObject<ForgeFlowingFluid>molten_pyrium=registerHotFluid(ISS_FLUIDS,"molten_pyrium",2000,8,5,5,false);
+
+    private static FluidType.Properties hot(String name, int Temp, boolean gas) {
+        return FluidType.Properties.create().density(gas?-2000:2000).viscosity(10000).temperature(Temp)
+                .descriptionId(TConstruct.makeDescriptionId("fluid", name))
+                .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
+                .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
+                .canSwim(false).canDrown(false)
+                .pathType(BlockPathTypes.LAVA).adjacentPathType(null);
+    }
+
     public static ModifierDeferredRegister Iss_MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
 /*
     public static final RegistryObject<Item> magic_blade= Iss_ITEMS.register("magic_blade",
@@ -24,6 +64,10 @@ public class IssCompat {
     public static StaticModifier<Immolate> ImmoLate;
     public static StaticModifier<Lightning_upgrade> Lightning_upgrade;
     public static StaticModifier<Imbued> Imbued;
+    public static StaticModifier<light_the_fire> light_the_fire;
+    public static StaticModifier<flaming_torus> flaming_torus;
+    public static StaticModifier<fire_flow> fire_flow;
+    public static StaticModifier<flame_paradise> flame_paradise;
 
     public static final StaticModifier<BreakPhantom> BreakPhantom;
     public static final StaticModifier<Thorough> Thorough;
@@ -46,6 +90,7 @@ public class IssCompat {
     public static StaticModifier<magician> magician;
     public static StaticModifier<fountain_magic> fountain_magic;
     public static StaticModifier<elemental_mastery> elemental_mastery;
+    public static StaticModifier<bloodstain> bloodstain;
     public static StaticModifier<source_alloy_charm> source_alloy_charm;
     public static StaticModifier<source_alloy_spell_cloth> source_alloy_spell_cloth;
     static {
@@ -57,6 +102,10 @@ public class IssCompat {
         ImmoLate = Iss_MODIFIERS.register("immolate", Immolate::new);
         Lightning_upgrade = Iss_MODIFIERS.register("lightning_upgrade", Lightning_upgrade::new);
         Imbued = Iss_MODIFIERS.register("imbued", Imbued::new);
+        light_the_fire = Iss_MODIFIERS.register("light_the_fire", light_the_fire::new);
+        flaming_torus = Iss_MODIFIERS.register("flaming_torus", flaming_torus::new);
+        fire_flow = Iss_MODIFIERS.register("fire_flow", fire_flow::new);
+        flame_paradise = Iss_MODIFIERS.register("flame_paradise", flame_paradise::new);
 
         BreakPhantom = Iss_MODIFIERS.register("breakphantom", BreakPhantom::new);
         Thorough = Iss_MODIFIERS.register("thorough", Thorough::new);
@@ -79,6 +128,7 @@ public class IssCompat {
         magician = Iss_MODIFIERS.register("magician", magician::new);
         fountain_magic = Iss_MODIFIERS.register("fountain_magic", fountain_magic::new);
         elemental_mastery = Iss_MODIFIERS.register("elemental_mastery", elemental_mastery::new);
+        bloodstain = Iss_MODIFIERS.register("bloodstain", bloodstain::new);
         source_alloy_charm = Iss_MODIFIERS.register("source_alloy_charm", source_alloy_charm::new);
         source_alloy_spell_cloth = Iss_MODIFIERS.register("source_alloy_spell_cloth", source_alloy_spell_cloth::new);
     }
