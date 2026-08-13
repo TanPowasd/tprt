@@ -1008,6 +1008,10 @@
 
   "modifier.tprt.millennium": "Millennium",
   "modifier.tprt.millennium.flavor": "",
-  "modifier.tprt.millennium.description": ""
+  "modifier.tprt.millennium.description": "",
+
+  "modifier.tprt.all_permitted": "All Is Permitted, Nothing Is Forbidden",
+  "modifier.tprt.all_permitted.flavor": "Nothing is true, everything is permitted",
+  "modifier.tprt.all_permitted.description": "Endgame modifier. Right-click to switch forms: [Xu] hits steal target armor & damage (quality sets conversion rate), killing stolen targets doubles Forbidden, hitting 100 auto-triggers a true-damage AOE overload; [Yun] ignores i-frames, each hit consumes Forbidden in geometric progression (1/2/4/8/16) into true damage with combo scaling, running dry triggers Sin (-30% damage, atone with 5 Xu hits)"
 
 }

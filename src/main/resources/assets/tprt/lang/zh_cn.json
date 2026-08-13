@@ -1020,6 +1020,10 @@
 
   "modifier.tprt.millennium": "千年",
   "modifier.tprt.millennium.flavor": "",
-  "modifier.tprt.millennium.description": ""
+  "modifier.tprt.millennium.description": "",
+
+  "modifier.tprt.all_permitted": "万般皆允，百无禁忌",
+  "modifier.tprt.all_permitted.flavor": "万物皆虚，万事皆允",
+  "modifier.tprt.all_permitted.description": "毕业词条。右键切换形态：【虚】命中偷取目标护甲与攻击（质量决定转化率），击杀被偷目标禁忌翻倍，蓄满100自动超载真伤AOE；【允】无视无敌帧，每击等比消耗禁忌（1/2/4/8/16）转化为真伤，连击加深，禁忌耗尽陷入罪业（伤害-30%，虚形态命中5次赎罪）"
 
 }

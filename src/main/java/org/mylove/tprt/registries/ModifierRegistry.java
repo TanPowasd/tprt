@@ -13,6 +13,7 @@ import org.mylove.tprt.Modifiers.melee.Shine_at_night;
 import org.mylove.tprt.Modifiers.melee.advanced_greed;
 import org.mylove.tprt.Modifiers.range.Automation;
 import org.mylove.tprt.Modifiers.special.*;
+import org.mylove.tprt.Modifiers.re.all_permitted;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.common.modifier.modifierModule.CuriosModifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
@@ -71,4 +72,5 @@ public class ModifierRegistry {
     public static final StaticModifier<persistence_of_nature> PERSISTENCE_OF_NATURE = MODIFIERS.register("persistence_of_nature",persistence_of_nature::new);
     public static final StaticModifier<Automation> Automation = MODIFIERS.register("automation",Automation::new);
     public static final StaticModifier<Precision_stab> Precision_stab = MODIFIERS.register("precision_stab",Precision_stab::new);
+    public static final StaticModifier<all_permitted> ALL_PERMITTED = MODIFIERS.register("all_permitted",all_permitted::new);
 }

@@ -17,5 +17,6 @@ public class ModDamageSource {
     public static final ResourceKey<DamageType> LANCER_RICHER_DAMAGE_TYPE=create("lancer_richer_damage_type");
     public static final ResourceKey<DamageType> TPRT_FIRE_DAMAGE_TYPE=create("tprt_fire_damage_type");
     public static final ResourceKey<DamageType> TPRT_MAGIC_DAMAGE_TYPE=create("tprt_magic_damage_type");
+    public static final ResourceKey<DamageType> TPRT_PURE_DAMAGE_TYPE=create("tprt_pure_damage_type");
 
 }
