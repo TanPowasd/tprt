@@ -1012,6 +1012,10 @@
 
   "modifier.tprt.all_permitted": "All Is Permitted, Nothing Is Forbidden",
   "modifier.tprt.all_permitted.flavor": "Nothing is true, everything is permitted",
-  "modifier.tprt.all_permitted.description": "Endgame modifier. Right-click to switch forms: [Xu] hits steal target armor & damage (quality sets conversion rate), killing stolen targets doubles Forbidden, hitting 100 auto-triggers a true-damage AOE overload; [Yun] ignores i-frames, each hit consumes Forbidden in geometric progression (1/2/4/8/16) into true damage with combo scaling, running dry triggers Sin (-30% damage, atone with 5 Xu hits)"
+  "modifier.tprt.all_permitted.description": "Endgame modifier. Right-click to switch forms: [Xu] hits steal target armor & damage (quality sets conversion rate), killing stolen targets doubles Forbidden, hitting 100 auto-triggers a true-damage AOE overload; [Yun] ignores i-frames, each hit consumes Forbidden in geometric progression (1/2/4/8/16) into true damage with combo scaling, running dry triggers Sin (-30% damage, atone with 5 Xu hits)",
+
+  "modifier.tprt.combat_echo": "Combat Echo",
+  "modifier.tprt.combat_echo.flavor": "Every blow you strike leaves its echo upon the world",
+  "modifier.tprt.combat_echo.description": "On hit, deals an additional attack for 50% of the original damage, sourced from the player and ignoring the target's invulnerability frames"
 
 }

@@ -1024,6 +1024,10 @@
 
   "modifier.tprt.all_permitted": "万般皆允，百无禁忌",
   "modifier.tprt.all_permitted.flavor": "万物皆虚，万事皆允",
-  "modifier.tprt.all_permitted.description": "毕业词条。右键切换形态：【虚】命中偷取目标护甲与攻击（质量决定转化率），击杀被偷目标禁忌翻倍，蓄满100自动超载真伤AOE；【允】无视无敌帧，每击等比消耗禁忌（1/2/4/8/16）转化为真伤，连击加深，禁忌耗尽陷入罪业（伤害-30%，虚形态命中5次赎罪）"
+  "modifier.tprt.all_permitted.description": "毕业词条。右键切换形态：【虚】命中偷取目标护甲与攻击（质量决定转化率），击杀被偷目标禁忌翻倍，蓄满100自动超载真伤AOE；【允】无视无敌帧，每击等比消耗禁忌（1/2/4/8/16）转化为真伤，连击加深，禁忌耗尽陷入罪业（伤害-30%，虚形态命中5次赎罪）",
+
+  "modifier.tprt.combat_echo": "战斗回响",
+  "modifier.tprt.combat_echo.flavor": "挥出的每一击，都在这世间留下回响",
+  "modifier.tprt.combat_echo.description": "攻击命中时，额外造成一次基础伤害为本击50%的伤害，伤害来源为玩家且无视目标无敌帧"
 
 }
