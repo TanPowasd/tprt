@@ -1,6 +1,6 @@
 package org.mylove.tprt.Modifiers.special;
 
-import com.ssakura49.sakuratinker.generic.BaseModifier;
+import com.ssakura49.sakuratinker.core.tools.modifiers.base.BaseModifier;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;

@@ -1,7 +1,7 @@
 package org.mylove.tprt.Modifiers.special;
 
-import com.ssakura49.sakuratinker.generic.BaseModifier;
-import com.ssakura49.sakuratinker.library.damagesource.LegacyDamageSource;
+import com.ssakura49.sakura_library.entity.damagesource.LegacyDamageSource;
+import com.ssakura49.sakuratinker.core.tools.modifiers.base.BaseModifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

@@ -1,13 +1,11 @@
 package org.mylove.tprt.common.item.curios;
 
-import com.google.common.collect.ImmutableMultimap;
+/*import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.ssakura49.sakuratinker.client.component.CuriosMutableComponent;
-import com.ssakura49.sakuratinker.client.component.LoreHelper;
-import com.ssakura49.sakuratinker.client.component.LoreStyle;
-import com.ssakura49.sakuratinker.client.component.STFont;
-import com.ssakura49.sakuratinker.client.component.ChatFormattingContext;
-import com.ssakura49.sakuratinker.common.items.curios.SimpleDescriptiveCurio;
+import com.ssakura49.sakuratinker.core.client.component.CuriosMutableComponent;
+import com.ssakura49.sakuratinker.core.client.component.LoreStyle;
+import com.ssakura49.sakuratinker.core.item.base.SimpleDescriptiveCurio;
+import com.ssakura49.sakuratinker_materials.client.component.LoreHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.resources.language.I18n;
@@ -35,9 +33,8 @@ public class Goldenfoxmask extends SimpleDescriptiveCurio {
         this.defaultDesc(
                 CuriosMutableComponent.create(LoreStyle.ATTRIBUTE_PREFIX).appendAttributeFormat(1, stack ->
                         new Object[]{
-                                LoreHelper.codeMode(ChatFormatting.GOLD),
+                                LoreHelper.class,(ChatFormatting.GOLD),
                                 95F,
-                                LoreHelper.codeMode(ChatFormattingContext.SAKURA_ORIGIN()),
                                 I18n.get("item.tprt.golden_fox_mask.desc")
                         }
                 )
@@ -49,9 +46,9 @@ public class Goldenfoxmask extends SimpleDescriptiveCurio {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public @Nullable Font getFont(ItemStack stack, FontContext context) {
-                return STFont.INSTANCE;
+                return (Font) Font.ELLIPSIS;
             }
         });
         super.initializeClient(consumer);
     }
-}
+}*/

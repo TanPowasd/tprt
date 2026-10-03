@@ -27,6 +27,7 @@
       "toughness": 0.25
     },
     "sakuratinker:charm_core": {},
+    "sakuratinker:charm_setting": {},
     "tconstruct:grip": {
       "accuracy": 0.30,
       "durability": 0.60,

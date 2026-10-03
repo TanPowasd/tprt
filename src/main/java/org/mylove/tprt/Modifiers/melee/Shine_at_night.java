@@ -1,6 +1,6 @@
 package org.mylove.tprt.Modifiers.melee;
 
-import com.ssakura49.sakuratinker.common.tinkering.modifiers.special.PolishModifier;
+import com.ssakura49.sakuratinker_materials.tool.modifier.melee.polish.PolishModifier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

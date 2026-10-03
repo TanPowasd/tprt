@@ -1,8 +1,8 @@
 package org.mylove.tprt.compat.IronsSpellBooks.Modifiers.Curios;
 
-import com.ssakura49.sakuratinker.compat.IronSpellBooks.ISSHooks;
-import com.ssakura49.sakuratinker.compat.IronSpellBooks.context.SpellAttackContext;
-import com.ssakura49.sakuratinker.compat.IronSpellBooks.hook.SpellLevelModifierHook;
+import com.ssakura49.sakuratinker_tools.compat.irons_spellbooks.library.hook.ISSHooks;
+import com.ssakura49.sakuratinker_tools.compat.irons_spellbooks.library.hook.spellbook.SpellLevelModifierHook;
+import com.ssakura49.sakuratinker_tools.compat.irons_spellbooks.tool.context.SpellAttackContext;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,7 +15,7 @@ import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class Thorough extends CuriosModifier implements SpellLevelModifierHook{
+public class Thorough extends CuriosModifier implements SpellLevelModifierHook {
 
     public boolean isNoLevels() {
         return true;

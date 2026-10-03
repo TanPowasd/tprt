@@ -41,6 +41,7 @@
       "toughness": 0.15
     },
     "sakuratinker:charm_core": {},
+    "sakuratinker:charm_setting": {},
     "sakuratinker:energy_unit": {
       "durability": 0.35,
       "max_energy": 50000

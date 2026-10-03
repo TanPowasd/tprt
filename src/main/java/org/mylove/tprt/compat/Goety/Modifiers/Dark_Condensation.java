@@ -1,6 +1,6 @@
 package org.mylove.tprt.compat.Goety.Modifiers;
 
-import com.ssakura49.sakuratinker.library.tinkering.tools.STToolStats;
+import com.ssakura49.sakuratinker_tools.compat.goety.library.tool.stat.GoetyToolStats;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -23,8 +23,8 @@ public class Dark_Condensation extends NoLevelsModifier implements ToolStatsModi
         double xx = x - 5;
         if (xx > 0) {
             float X = (float) Math.log10(x+5);
-            STToolStats.SOUL_INCREASE.add(builder, 0.2 * X);
-            STToolStats.SOUL_INCREASE.multiply(builder, X * X);
+            GoetyToolStats.SOUL_INCREASE.add(builder, 0.2 * X);
+            GoetyToolStats.SOUL_INCREASE.multiply(builder, X * X);
             ToolStats.ATTACK_SPEED.multiply(builder, -X);
         }
     }

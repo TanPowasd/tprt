@@ -1,6 +1,7 @@
 package org.mylove.tprt.compat.Iceandfire.Modifires;
 
-import com.ssakura49.sakuratinker.library.logic.helper.FlyingHelper;
+import com.ssakura49.sakura_library.capability.SakuraLibraryPlayerCapability;
+import com.ssakura49.sakura_library.proxy.CommonProxy;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -62,7 +63,7 @@ public class The_dragon_lord extends NoLevelsModifier implements ModifyDamageMod
             if(X > 0){
                 float x = entity.getMaxHealth();
                 if (x >= 100){
-                    FlyingHelper.tickFlying(player);
+                    CommonProxy.getPlayerCapOptional(player).ifPresent(SakuraLibraryPlayerCapability::tickFlying);
                 }
             }
         }

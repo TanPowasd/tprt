@@ -2,11 +2,29 @@
   "loader": "tconstruct:tool",
   "parent": "forge:item/default-tool",
   "textures": {
-    "head_1":  "tprt:item/tool/anchor_sword/head_1_broken",
-    "head_2": "tprt:item/tool/anchor_sword/head_2_broken",
-    "handle":  "tprt:item/tool/anchor_sword/handle",
-    "grip":   "tprt:item/tool/anchor_sword/grip_broken"
+    "head_1":  "tprt:item/tool/anchor_sword/small/head_1/head_1_broken",
+    "head_2": "tprt:item/tool/anchor_sword/small/head_2/head_2_broken",
+    "handle":  "tprt:item/tool/anchor_sword/small/handle/handle",
+    "grip":   "tprt:item/tool/anchor_sword/small/grip/grip_broken",
+
+    "large_head_1": "tprt:item/tool/anchor_sword/large/head_1/head_1_broken",
+    "large_head_2": "tprt:item/tool/anchor_sword/large/head_2/head_2_broken",
+    "large_handle": "tprt:item/tool/anchor_sword/large/handle/handle",
+    "large_grip": "tprt:item/tool/anchor_sword/large/grip/grip_broken"
   },
+  "modifier_maps": [
+    "tprt:anchor_sword_broken",
+    "tprt:anchor_sword"
+  ],
+  "modifier_roots":{
+    "small": ["tprt:item/tool/anchor_sword/small/modifiers/","tprt:item/tool/anchor_sword/small/modifiers/broken/"],
+    "large": ["tprt:item/tool/anchor_sword/large/modifiers/","tprt:item/tool/anchor_sword/large/modifiers/broken/"]
+  },
+  "large": true,
+  "large_offset": [
+    -2,
+    2
+  ],
   "parts": [
     { "name": "head_1",  "index": 0 },
     { "name": "head_2",  "index": 1 },

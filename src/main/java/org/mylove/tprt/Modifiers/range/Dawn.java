@@ -17,7 +17,7 @@ import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.nbt.*;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 
-import static com.ssakura49.sakuratinker.common.tinkering.modifiers.special.PolishModifier.POLISH_STAT;
+import static com.ssakura49.sakuratinker_materials.tool.modifier.melee.polish.PolishModifier.POLISH_STAT;
 
 public class Dawn extends Arrowmodifier implements ToolStatsModifierHook, ProjectileHitModifierHook{
 

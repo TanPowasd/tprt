@@ -48,6 +48,7 @@
       "toughness": 0.5
     },
     "sakuratinker:charm_core": {},
+    "sakuratinker:charm_setting": {},
     "sakuratinker:spell_cloth": {
       "base_spell_damage": 50.0,
       "cast_time": 0.8,

@@ -1,13 +1,12 @@
 package org.mylove.tprt.registries.item;
 
-import com.google.common.collect.ImmutableMultimap;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.mylove.tprt.Tprt;
-import org.mylove.tprt.common.item.curios.Goldenfoxmask;
+/*import org.mylove.tprt.common.item.curios.Goldenfoxmask;*/
 import org.mylove.tprt.registries.ModFoods;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
@@ -64,10 +63,10 @@ public class ItemsRegistry {
 
     public static final  ItemObject<Item>TANPOWASD=ITEMS.register("tanpowasd",
             ()->new Item(new Item.Properties()));
-
+/*
 //lr特供 金质狐狸面具
     public static final ItemObject<Item>Goldenfoxmask = ITEMS.register("golden_fox_mask",
-        () -> new Goldenfoxmask(new Item.Properties(), "fox_mask", ImmutableMultimap.of()));
+        () -> new Goldenfoxmask(new Item.Properties(), "fox_mask", ImmutableMultimap.of()));*/
 //lr特供 龙神锭
     public static final ItemObject<Item>MIXEDDRAGON=ITEMS.register("mixeddragon",
         ()->new Item(new Item.Properties()));
@@ -141,7 +140,7 @@ public class ItemsRegistry {
         tab.accept(DARK_KNIGHT_INGOT);
         tab.accept(Leisamboo_Board);
         tab.accept(Composite_dragon_scales);
-        tab.accept(Goldenfoxmask);
+        /*tab.accept(Goldenfoxmask);*/
     }
 
     public static void addToolTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {

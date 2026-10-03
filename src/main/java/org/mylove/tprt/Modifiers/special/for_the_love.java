@@ -1,6 +1,7 @@
 package org.mylove.tprt.Modifiers.special;
 
-import com.ssakura49.sakuratinker.generic.BaseModifier;
+
+import com.ssakura49.sakuratinker.core.tools.modifiers.base.BaseModifier;
 
 import java.util.UUID;
 

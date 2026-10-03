@@ -1,6 +1,6 @@
 package org.mylove.tprt.Modifiers.armor;
 
-import com.ssakura49.sakuratinker.common.tinkering.modifiers.special.PolishModifier;
+import com.ssakura49.sakuratinker_materials.tool.modifier.melee.polish.PolishModifier;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

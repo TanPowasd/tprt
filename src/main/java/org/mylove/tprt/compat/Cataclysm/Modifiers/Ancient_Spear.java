@@ -1,7 +1,7 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
 import com.github.L_Ender.cataclysm.entity.projectile.Sandstorm_Projectile;
-import com.ssakura49.sakuratinker.generic.BaseModifier;
+import com.ssakura49.sakuratinker.core.tools.modifiers.base.BaseModifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,7 +18,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import java.util.Objects;
 
 
-public class Ancient_Spear extends BaseModifier{
+public class Ancient_Spear extends BaseModifier {
 
     public boolean isNoLevels() {
         return true;
