@@ -1,47 +1,75 @@
 {
   "parts": [
     {
-      "path": "tprt:item/tool/anchor_sword/head_1",
+      "path": "tprt:item/tool/anchor_sword/small/head_1/head_1",
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "tprt:item/tool/anchor_sword/head_2",
+      "path": "tprt:item/tool/anchor_sword/small/head_2/head_2",
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "tprt:item/tool/anchor_sword/grip",
+      "path": "tprt:item/tool/anchor_sword/small/grip/grip",
       "stat_type": "tconstruct:grip"
     },
     {
-      "path": "tprt:item/tool/anchor_sword/handle",
+      "path": "tprt:item/tool/anchor_sword/small/handle/handle",
       "stat_type": "tconstruct:handle"
     },
     {
-      "path": "tprt:item/tool/anchor_sword/head_1_broken",
+      "path": "tprt:item/tool/anchor_sword/small/head_1/head_1_broken",
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "tprt:item/tool/anchor_sword/head_2_broken",
+      "path": "tprt:item/tool/anchor_sword/small/head_2/head_2_broken",
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "tprt:item/tool/anchor_sword/grip_broken",
+      "path": "tprt:item/tool/anchor_sword/small/grip/grip_broken",
       "stat_type": "tconstruct:grip"
     },
     {
-      "path": "tprt:item/tool/magic_blade/head",
+      "path": "tprt:item/tool/anchor_sword/large/head_1/head_1",
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "tprt:item/tool/magic_blade/head_broken",
+      "path": "tprt:item/tool/anchor_sword/large/head_2/head_2",
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "tprt:item/tool/magic_blade/handguard",
+      "path": "tprt:item/tool/anchor_sword/large/grip/grip",
+      "stat_type": "tconstruct:grip"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/handle/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/head_1/head_1_broken",
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "tprt:item/tool/magic_blade/handle",
+      "path": "tprt:item/tool/anchor_sword/large/head_2/head_2_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/grip/grip_broken",
+      "stat_type": "tconstruct:grip"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/head/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/head/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/handguard/handguard",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/handle/handle",
       "stat_type": "tconstruct:handle"
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "parent": "tconstruct:item/sword",
+  "parent": "tprt:item/magic_blade",
   "display": {
     "firstperson_righthand": {
       "rotation": [0, 180, -5],

@@ -2,15 +2,15 @@
     "loader": "tconstruct:tool",
     "parent": "forge:item/default-tool",
     "textures": {
-      "head_1":  "tprt:item/tool/anchor_sword/head_1",
-      "head_2": "tprt:item/tool/anchor_sword/head_2",
-      "handle":  "tprt:item/tool/anchor_sword/handle",
-      "grip":   "tprt:item/tool/anchor_sword/grip",
+      "head_1":  "tprt:item/tool/anchor_sword/small/head_1/head_1",
+      "head_2": "tprt:item/tool/anchor_sword/small/head_2/head_2",
+      "handle":  "tprt:item/tool/anchor_sword/small/handle/handle",
+      "grip":   "tprt:item/tool/anchor_sword/small/grip/grip",
 
-      "large_head_1":   "tprt:item/tool/anchor_sword/head_1",
-      "large_head_2": "tprt:item/tool/anchor_sword/head_2",
-      "large_handle":  "tprt:item/tool/anchor_sword/handle",
-      "large_grip": "tprt:item/tool/anchor_sword/grip"
+      "large_head_1":   "tprt:item/tool/anchor_sword/large/head_1/head_1",
+      "large_head_2": "tprt:item/tool/anchor_sword/large/head_2/head_2",
+      "large_handle":  "tprt:item/tool/anchor_sword/large/handle/handle",
+      "large_grip": "tprt:item/tool/anchor_sword/large/grip/grip"
     },
     "parts": [
       { "name": "head_1",  "index": 0 },
