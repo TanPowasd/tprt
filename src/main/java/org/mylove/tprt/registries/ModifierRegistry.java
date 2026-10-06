@@ -6,6 +6,7 @@ import org.mylove.tprt.Modifiers.armor.Glow_armor;
 import org.mylove.tprt.Modifiers.common.Poisonous_explosion;
 import org.mylove.tprt.Modifiers.common.Quenching_poison;
 import org.mylove.tprt.Modifiers.curio.*;
+import org.mylove.tprt.Modifiers.exclusive.Break_the_path;
 import org.mylove.tprt.Modifiers.exclusive.Precision_stab;
 import org.mylove.tprt.Modifiers.exclusive.persistence_of_nature;
 import org.mylove.tprt.Modifiers.exclusive.reaper;
@@ -39,6 +40,7 @@ public class ModifierRegistry {
     public static final StaticModifier<Glow_armor> Glow_armor = MODIFIERS.register("glow_armor",Glow_armor::new);
     public static final StaticModifier<CuriosModifier> The_shining_sun = MODIFIERS.register("the_shining_sun",The_shining_sun::new);
     public static final StaticModifier<reaper> REAPER = MODIFIERS.register("reaper",reaper::new);
+    public static final StaticModifier<Break_the_path> Break_the_path = MODIFIERS.register("break_the_path",Break_the_path::new);
     public static final StaticModifier<Poisonous_explosion> Poisonous_explosion = MODIFIERS.register("poisonous_explosion",Poisonous_explosion::new);
     public static final StaticModifier<Quenching_poison> Quenching_poison = MODIFIERS.register("quenching_poison",Quenching_poison::new);
     public static final StaticModifier<CuriosModifier> blood_of_hydra = MODIFIERS.register("blood_of_hydra", Blood_of_Hydra::new);

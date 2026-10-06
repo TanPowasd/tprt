@@ -3,6 +3,8 @@
   "entity": {
     "type": "cataclysm:the_harbinger"
   },
-  "result": "cataclysm:witherite_block",
-  "count": 1
+  "result": {
+    "item": "cataclysm:witherite_block",
+    "count": 1
+  }
 }

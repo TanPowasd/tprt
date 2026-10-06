@@ -1,8 +1,7 @@
 {
   "type": "tconstruct:severing",
   "entity": {
-    "type": [
-      "cataclysm:scylla",
+    "types": [
       "cataclysm:clawdian",
       "cataclysm:urchinkin",
       "cataclysm:drowned_host",

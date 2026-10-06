@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:severing",
   "entity": {
-    "type": [
+    "types": [
       "cataclysm:draugr",
       "cataclysm:royal_draugr",
       "cataclysm:elite_draugr",

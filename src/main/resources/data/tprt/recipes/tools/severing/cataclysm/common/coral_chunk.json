@@ -3,6 +3,8 @@
   "entity": {
     "type": "cataclysm:coralssus"
   },
-  "result": "cataclysm:coral_chunk",
-  "count": 1
+  "result": {
+    "item": "cataclysm:coral_chunk",
+    "count": 1
+  }
 }

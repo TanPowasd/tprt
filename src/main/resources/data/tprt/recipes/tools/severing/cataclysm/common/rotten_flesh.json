@@ -1,12 +1,11 @@
 {
   "type": "tconstruct:severing",
   "entity": {
-    "type": [
+    "types": [
       "cataclysm:draugr",
       "cataclysm:royal_draugr",
       "cataclysm:elite_draugr",
-      "cataclysm:drowned_host",
-      "cataclysm:the_prowler"
+      "cataclysm:drowned_host"
     ]
   },
   "result": {

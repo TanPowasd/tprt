@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -19,6 +20,7 @@ import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
@@ -28,9 +30,10 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.stats.ToolType;
 
 import java.util.List;
+import java.util.Objects;
 
 /// 灰烬斩击-合金巨兽材料词条
-public class cinder_slash extends Modifier implements MeleeHitModifierHook, TooltipModifierHook {
+public class cinder_slash extends Modifier implements MeleeHitModifierHook, TooltipModifierHook, MeleeDamageModifierHook {
     public static final ToolType[] TYPES = {ToolType.MELEE, ToolType.RANGED};
     public static final RandomSource random = RandomSource.create();
     public static final double splashDegree = Math.PI / 4;
@@ -120,5 +123,15 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
                 TooltipModifierHook.addFlatBoost(this, TooltipModifierHook.statName(this, ToolStats.USE_ITEM_SPEED), bonus2, tooltip);
             }
         }
+    }
+
+    @Override
+    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
+        LivingEntity entity = context.getLivingTarget();
+        LivingEntity attacker = context.getAttacker();
+        if (entity != null) {
+            return (float) (damage*(1 + 0.4));
+        }
+        return damage;
     }
 }

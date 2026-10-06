@@ -109,6 +109,8 @@
 
   "item.tprt.void_power_alloy": "Void Power Alloy",
 
+  "item.tprt.sandstorm_skeleton": "Sandstorm Skeleton",
+
   "fluid.tconstruct.molten_arcane_metal": "Molten Arcane Metal",
   "fluid.tconstruct.flowing_molten_arcane_metal": "Flowing Molten Arcane Metal",
   "item.tprt.molten_arcane_metal_bucket": "Molten Arcane Metal Bucket",
@@ -173,6 +175,9 @@
 
   "material.tprt.void_power_alloy":"Void Power Alloy",
   "material.tprt.void_power_alloy.flavor":"A part of the Ender Guardian, which can drive the power of the void.",
+
+  "material.tprt.sandstorm_skeleton":"Sandstorm Skeleton",
+  "material.tprt.sandstorm_skeleton.flavor":"The remains of bone dragons that have been sleeping for thousands of years have the power to drive sandstorms.",
 
   "material.tprt.void_jaw":"Void Jaw",
   "material.tprt.void_jaw.flavor":"The jaw of the Endermaptera can be used to make arrows.",
@@ -305,7 +310,7 @@
 
   "modifier.tprt.soul_puncture": "Soul Piercer",
   "modifier.tprt.soul_puncture.flavor":"Tear the enemy's soul using the death curse",
-  "modifier.tprt.soul_puncture.description":"Arrow damage increased by 40%",
+  "modifier.tprt.soul_puncture.description":"Arrows ignore invincible frames and gain tracking effect, which will penetrate the target infinitely.",
 
   "modifier.tprt.soul_dodge": "Soul Dodge",
   "modifier.tprt.soul_dodge.flavor":"Body becomes like a wraith",
@@ -332,7 +337,7 @@
 
   "modifier.tprt.cinder_slash": "Cinder Slash",
   "modifier.tprt.cinder_slash.flavor": "A devastating strike that spews lava",
-  "modifier.tprt.cinder_slash.description": "Adds a rear splash damage based on a percentage of attack damage. Higher levels increase splash range and multiplier",
+  "modifier.tprt.cinder_slash.description": "Damage caused increased by 50%, adds a rear splash damage based on a percentage of attack damage. Higher levels increase splash range and multiplier",
   "modifier.tprt.cinder_slash.attack_damage": "Cinder Slash Multiplier",
   "modifier.tprt.cinder_slash.use_item_speed": "Cinder Slash Range",
 
@@ -353,9 +358,8 @@
   "modifier.tprt.strong_but_pliable.description":"Base durability +500. Attack damage, armor value, and projectile power gradually increase as durability gets higher",
 
   "modifier.tprt.ancient_sandstorm": "Ancient Sandstorm",
-  "modifier.tprt.ancient_sandstorm.flavor":"The desert storm empowers you!",
-  "modifier.tprt.ancient_sandstorm.description":"Base durability +1500. Attack damage, armor value, and projectile power gradually gain high percentage increases as durability gets higher",
-  "modifier.tprt.ancient_sandstorm.requirements": "Requires Ancient Metal material as prerequisite",
+  "modifier.tprt.ancient_sandstorm.flavor":"The sandstorm is driven by you!",
+  "modifier.tprt.ancient_sandstorm.description":"Summon a large sandstorm tornado that rotates around itself after the attack.",
 
   "modifier.tprt.will_from_ancient": "Ancient Will",
   "modifier.tprt.will_from_ancient.flavor":"Unwavering!",
@@ -387,7 +391,7 @@
 
   "modifier.tprt.void_scatter": "Void Scatter",
   "modifier.tprt.void_scatter.flavor":"Broken void!",
-  "modifier.tprt.void_scatter.description":"When an arrow hits a entity or block, it will do some sputtering damage to the surrounding targets.",
+  "modifier.tprt.void_scatter.description":"On impact the arrow shatters into 17 void shards, each dealing 1.5 + 15% of the arrow's damage.",
 
   "modifier.tprt.void_power": "Void Power",
   "modifier.tprt.void_power.flavor":"The technology of the End, boy!",
@@ -877,11 +881,6 @@
   "modifier.tprt.lightning_dragon_blood.description":"Greatly increase melee damage, and will greatly repel the target when attacking.",
   "modifier.tprt.lightning_dragon_blood.requirements": "Need dragon bone material as the front.",
 
-  "modifier.tprt.fear_nothing": "Fear Nothing",
-  "modifier.tprt.fear_nothing.flavor":"A real man should fear nothing",
-  "modifier.tprt.fear_nothing.description":"Attack range +1.5 blocks. Increases all types of resistance",
-  "modifier.tprt.fear_nothing.resistance": "Universal Resistance",
-
   "modifier.tprt.advanced_luck": "Boundless Fortune",
   "modifier.tprt.advanced_luck.2": "Boundless Fortune+",
   "modifier.tprt.advanced_luck.3": "Boundless Fortune++",
@@ -958,6 +957,15 @@
   "modifier.tprt.persistence_of_nature": "Persistence of Nature",
   "modifier.tprt.persistence_of_nature.flavor":"We are connected by blood, we never retreat",
   "modifier.tprt.persistence_of_nature.description":"When current health is below 75%, being hit restores 3 + 3% of missing health. Trigger cooldown 0.5 seconds",
+
+  "modifier.tprt.fear_nothing": "Fear Nothing",
+  "modifier.tprt.fear_nothing.flavor":"A real man should fear nothing",
+  "modifier.tprt.fear_nothing.description":"Attack range +1.5 blocks. Increases all types of resistance",
+  "modifier.tprt.fear_nothing.resistance": "Universal Resistance",
+
+  "modifier.tprt.break_the_path": "Break The Path",
+  "modifier.tprt.break_the_path.flavor":"Open the way!",
+  "modifier.tprt.break_the_path.description":"Right-click stealth can accumulate power for throwing. The longer the power is accumulated, the greater the throwing power will be. After throwing, the player will be transported to the landing point.",
 
   "modifier.tprt.enchanting": "Enchanting",
   "modifier.tprt.enchanting.flavor":"Enchant the blade with magic",

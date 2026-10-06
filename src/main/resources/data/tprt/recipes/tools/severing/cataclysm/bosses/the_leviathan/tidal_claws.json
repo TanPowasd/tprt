@@ -3,6 +3,8 @@
   "entity": {
     "type": "cataclysm:the_leviathan"
   },
-  "result": "cataclysm:tidal_claws",
-  "count": 1
+  "result": {
+    "item": "cataclysm:tidal_claws",
+    "count": 1
+  }
 }

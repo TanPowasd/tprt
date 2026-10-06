@@ -3,6 +3,8 @@
   "entity": {
     "type": "cataclysm:netherite_monstrosity"
   },
-  "result": "cataclysm:infernal_forge",
-  "count": 1
+  "result": {
+    "item": "cataclysm:infernal_forge",
+    "count": 1
+  }
 }

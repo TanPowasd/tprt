@@ -117,6 +117,8 @@
 
   "item.tprt.void_power_alloy": "虚空动力合金",
 
+  "item.tprt.sandstorm_skeleton": "沙暴骨骸",
+
   "fluid.tconstruct.molten_arcane_metal": "熔融奥术金属",
   "fluid.tconstruct.flowing_molten_arcane_metal": "流动的熔融奥术金属",
   "item.tprt.molten_arcane_metal_bucket": "熔融奥术金属桶",
@@ -182,6 +184,9 @@
 
   "material.tprt.void_power_alloy":"虚空动力合金",
   "material.tprt.void_power_alloy.flavor":"末影守卫的组成部分，能够驱动虚空的力量",
+
+  "material.tprt.sandstorm_skeleton":"沙暴骨骸",
+  "material.tprt.sandstorm_skeleton.flavor":"沉睡千万年的骨龙残骸，拥有驱使沙暴的力量",
 
   "material.tprt.void_jaw":"虚空之颚",
   "material.tprt.void_jaw.flavor":"末影甲虫的上颚，可用于制作箭矢",
@@ -315,7 +320,7 @@
 
   "modifier.tprt.soul_puncture": "万魂穿心",
   "modifier.tprt.soul_puncture.flavor":"利用死亡诅咒撕裂敌人的灵魂",
-  "modifier.tprt.soul_puncture.description":"弓箭造成的伤害提升75%",
+  "modifier.tprt.soul_puncture.description":"箭矢无视无敌帧，且获得追踪效果，将无限穿透目标",
 
   "modifier.tprt.soul_dodge": "魂灵闪避",
   "modifier.tprt.soul_dodge.flavor":"身体仿若幽魂",
@@ -342,7 +347,7 @@
 
   "modifier.tprt.cinder_slash": "熔毁",
   "modifier.tprt.cinder_slash.flavor": "迸射熔岩的毁灭打击",
-  "modifier.tprt.cinder_slash.description": "附带攻击伤害一定比例的后方溅射伤害；等级越高，溅射越远，倍率越高",
+  "modifier.tprt.cinder_slash.description": "造成的伤害提升40%，附带攻击伤害一定比例的后方溅射伤害；等级越高，溅射越远，倍率越高",
   "modifier.tprt.cinder_slash.attack_damage": "熔毁倍率",
   "modifier.tprt.cinder_slash.use_item_speed": "熔毁范围",
 
@@ -363,9 +368,8 @@
   "modifier.tprt.strong_but_pliable.description":"基础耐久+500，攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐提升",
 
   "modifier.tprt.ancient_sandstorm": "远古沙暴",
-  "modifier.tprt.ancient_sandstorm.flavor":"满天沙暴加持于你！",
-  "modifier.tprt.ancient_sandstorm.description":"基础耐久+1500，攻击伤害，护甲值，弹射物力量会随着耐久度的提升而逐渐获得高额百分比提升",
-  "modifier.tprt.ancient_sandstorm.requirements": "需要远古金属材料作为前置",
+  "modifier.tprt.ancient_sandstorm.flavor":"满天沙暴为你驱使！",
+  "modifier.tprt.ancient_sandstorm.description":"攻击后召唤围绕自身旋转的大型沙暴龙卷风",
 
   "modifier.tprt.will_from_ancient": "远古意志",
   "modifier.tprt.will_from_ancient.flavor":"坚定不移！",
@@ -397,7 +401,7 @@
 
   "modifier.tprt.void_scatter": "虚空散射",
   "modifier.tprt.void_scatter.flavor":"破碎虚空！",
-  "modifier.tprt.void_scatter.description":"箭矢在击中实体或方块时对周围的目标造成一定的溅射伤害",
+  "modifier.tprt.void_scatter.description":"箭矢命中实体或方块时当场碎裂，炸出17片虚空碎片，碎片造成箭矢伤害15%+1.5点伤害",
 
   "modifier.tprt.void_power": "虚空动力",
   "modifier.tprt.void_power.flavor":"末地科技，小子！",
@@ -971,6 +975,10 @@
   "modifier.tprt.fear_nothing.flavor":"真正的man应该无所畏惧",
   "modifier.tprt.fear_nothing.description":"攻击距离+1.5格，提升所有类型的抗性",
   "modifier.tprt.fear_nothing.resistance": "通用抗性",
+
+  "modifier.tprt.break_the_path": "辟路斩棘",
+  "modifier.tprt.break_the_path.flavor":"破开前路！",
+  "modifier.tprt.break_the_path.description":"潜行右键可蓄力投掷，蓄力时间越长，投掷威力越大，投掷结束后将玩家传送至落点",
 
   "modifier.tprt.enchanting": "附魔",
   "modifier.tprt.enchanting.flavor":"为剑刃附上魔力",

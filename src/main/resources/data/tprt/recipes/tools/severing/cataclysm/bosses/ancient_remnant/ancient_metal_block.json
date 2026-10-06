@@ -3,6 +3,8 @@
   "entity": {
     "type": "cataclysm:ancient_remnant"
   },
-  "result": "cataclysm:ancient_metal_block",
-  "count": 1
+  "result": {
+    "item": "cataclysm:ancient_metal_block",
+    "count": 1
+  }
 }

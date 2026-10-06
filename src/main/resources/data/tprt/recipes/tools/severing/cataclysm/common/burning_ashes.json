@@ -3,5 +3,8 @@
   "entity": {
     "type": "cataclysm:ignited_revenant"
   },
-  "result": "cataclysm:burning_ashes"
+  "result": {
+    "item": "cataclysm:burning_ashes",
+    "count": 1
+  }
 }

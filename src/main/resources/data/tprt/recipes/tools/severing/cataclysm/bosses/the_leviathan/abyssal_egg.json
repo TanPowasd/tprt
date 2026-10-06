@@ -3,6 +3,8 @@
   "entity": {
     "type": "cataclysm:the_leviathan"
   },
-  "result": "cataclysm:abyssal_egg",
-  "count": 1
+  "result": {
+    "item": "cataclysm:abyssal_egg",
+    "count": 1
+  }
 }
