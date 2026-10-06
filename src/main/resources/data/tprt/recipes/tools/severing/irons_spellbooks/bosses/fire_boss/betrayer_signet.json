@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "irons_spellbooks:fire_boss"
+  },
+  "result": {
+    "item": "irons_spellbooks:betrayer_signet",
+    "count": 1
+  }
+}

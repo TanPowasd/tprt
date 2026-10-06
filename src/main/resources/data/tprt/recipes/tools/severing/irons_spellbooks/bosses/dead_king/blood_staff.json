@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "irons_spellbooks:dead_king"
+  },
+  "result": {
+    "item": "irons_spellbooks:blood_staff",
+    "count": 1
+  }
+}

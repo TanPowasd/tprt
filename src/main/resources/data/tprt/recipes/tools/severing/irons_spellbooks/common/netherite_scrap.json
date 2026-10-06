@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "irons_spellbooks:citadel_keeper"
+  },
+  "result": {
+    "item": "minecraft:netherite_scrap",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "irons_spellbooks:archevoker"
+  },
+  "result": {
+    "item": "irons_spellbooks:evoker_spell_book",
+    "count": 1
+  }
+}

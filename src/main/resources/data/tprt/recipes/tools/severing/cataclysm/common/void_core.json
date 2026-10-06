@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:ender_golem"
+  },
+  "result": {
+    "item": "cataclysm:void_core",
+    "count": 1
+  }
+}

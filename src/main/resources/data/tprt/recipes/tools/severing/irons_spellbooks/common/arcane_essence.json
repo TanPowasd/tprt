@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:severing",
+  "entity": {
+    "types": [
+      "irons_spellbooks:apothecarist",
+      "irons_spellbooks:archevoker",
+      "irons_spellbooks:cryomancer",
+      "irons_spellbooks:cultist",
+      "irons_spellbooks:necromancer",
+      "irons_spellbooks:priest",
+      "irons_spellbooks:pyromancer"
+    ]
+  },
+  "result": {
+    "item": "irons_spellbooks:arcane_essence",
+    "count": 8
+  }
+}
