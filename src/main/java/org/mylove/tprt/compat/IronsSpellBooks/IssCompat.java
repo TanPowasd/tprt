@@ -1,61 +1,61 @@
 package org.mylove.tprt.compat.IronsSpellBooks;
 
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.minecraftforge.common.SoundActions;
-import net.minecraftforge.fluids.FluidType;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.*;
 import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.Curios.*;
+import org.mylove.tprt.registries.ModFluids;
+import org.mylove.tprt.registries.item.TPRTItemUtils;
 import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
 import slimeknights.mantle.registration.object.FluidObject;
-import slimeknights.tconstruct.TConstruct;
+import slimeknights.mantle.registration.object.ItemObject;
+import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import static slimeknights.tconstruct.fluids.block.BurningLiquidBlock.createBurning;
+import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
+import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
+import slimeknights.tconstruct.library.tools.item.ModifiableItem;
+import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 
 public class IssCompat {
 
     public static final FluidDeferredRegister ISS_FLUIDS=new FluidDeferredRegister(Tprt.MODID);
-    protected static Map<FluidObject<ForgeFlowingFluid>,Boolean> FLUID_MAP = new HashMap<>();
-    public static Set<FluidObject<ForgeFlowingFluid>> getFluids(){
-        return FLUID_MAP.keySet();
-    }
-    public static Map<FluidObject<ForgeFlowingFluid>,Boolean> getFluidMap(){
-        return FLUID_MAP;
-    }
-    private static FluidObject<ForgeFlowingFluid> registerHotFluid(FluidDeferredRegister register,String name,int temp,int lightLevel,int burnTime,float damage,boolean gas){
-        FluidObject<ForgeFlowingFluid> object = register.register(name).type(hot(name,temp,gas)).bucket().block(createBurning(MapColor.COLOR_GRAY,lightLevel,burnTime,damage)).commonTag().flowing();
-        FLUID_MAP.put(object,gas);
-        return object;
-    }
-    public static final FluidObject<ForgeFlowingFluid>molten_pyrium=registerHotFluid(ISS_FLUIDS,"molten_pyrium",2000,8,5,5,false);
-
-    private static FluidType.Properties hot(String name, int Temp, boolean gas) {
-        return FluidType.Properties.create().density(gas?-2000:2000).viscosity(10000).temperature(Temp)
-                .descriptionId(TConstruct.makeDescriptionId("fluid", name))
-                .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
-                .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
-                .canSwim(false).canDrown(false)
-                .pathType(BlockPathTypes.LAVA).adjacentPathType(null);
-    }
+    //lr特供 铁魔法联动流体 (熔融派瑞姆 / 熔融奥术金属 / 熔融源质合金 / 熔融濡湿骑士)
+    public static final FluidObject<ForgeFlowingFluid> molten_pyrium=ModFluids.registerHotFluid(ISS_FLUIDS,"molten_pyrium",2000,8,5,5,false);
+    public static final FluidObject<ForgeFlowingFluid> molten_arcane_metal=ModFluids.registerHotFluid(ISS_FLUIDS,"molten_arcane_metal",1000,4,5,2,false);
+    public static final FluidObject<ForgeFlowingFluid> SOURCE_ALLOY_FLUID=ModFluids.registerHotFluid(ISS_FLUIDS,"source_alloy_fluid",3500,4,5,2,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_DARK_KNIGHT=ModFluids.registerHotFluid(ISS_FLUIDS,"molten_dark_knight",2255,4,5,2,false);
 
     public static ModifierDeferredRegister Iss_MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
-/*
-    public static final RegistryObject<Item> magic_blade= Iss_ITEMS.register("magic_blade",
-            ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.MAGIC_BLADE));
-    public static final RegistryObject<Item>SOURCE_ALLOY=Iss_ITEMS.register("source_alloy",
+    /**
+     * 铁魔法联动物品专用注册器: 和词条 ({@link #Iss_MODIFIERS}) 与流体 ({@link #ISS_FLUIDS}) 一样,
+     * 只有检测到铁魔法时才会在 Tprt 里挂到事件总线上 —— 没装就完全不注册,
+     * 所以注法者既不在注册表里, 也不会出现在创造物品栏。
+     */
+    public static final ItemDeferredRegisterExtension ISS_ITEMS = new ItemDeferredRegisterExtension(Tprt.MODID);
+    /** 注法者的工具定义 (跟物品一起, 只在装了铁魔法时创建) */
+    public static final ToolDefinition MAGIC_BLADE = ToolDefinition.create(Tprt.getResource("magic_blade"));
+    //lr特供 注法者 (铁魔法联动)
+    public static final ItemObject<ModifiableItem> magic_blade = ISS_ITEMS.register("magic_blade",
+            ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, MAGIC_BLADE));
+
+    //lr特供 源质合金 / 濡湿骑士锭 (铁魔法联动材料, 材料定义里已带 irons_spellbooks 条件)
+    public static final ItemObject<Item> SOURCE_ALLOY = ISS_ITEMS.register("source_alloy",
             ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item>DARK_KNIGHT_INGOT=Iss_ITEMS.register("dark_knight_ingot",
+    public static final ItemObject<Item> DARK_KNIGHT_INGOT = ISS_ITEMS.register("dark_knight_ingot",
             ()->new Item(new Item.Properties()));
-*/
+
+    /** 创造物品栏条目: 由 ItemsRegistry 在检测到铁魔法时调用 */
+    public static void addToolTabItems(CreativeModeTab.Output tab) {
+        ToolBuildHandler.addVariants(tab::accept, magic_blade.get(), "");
+    }
+    public static void addCommonTabItems(CreativeModeTab.Output tab) {
+        tab.accept(SOURCE_ALLOY);
+        tab.accept(DARK_KNIGHT_INGOT);
+    }
+
     public static final StaticModifier<enchanting> enchanting;
     public static StaticModifier<Magic_Sublimation_Range> Magic_Sublimation_Range;
     public static StaticModifier<Magic_sublimation> Magic_sublimation;

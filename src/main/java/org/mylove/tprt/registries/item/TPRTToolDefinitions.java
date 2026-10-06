@@ -4,11 +4,10 @@ import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
 public class TPRTToolDefinitions {
     public static final ToolDefinition ANCHOR_SWORD;
-    public static final ToolDefinition MAGIC_BLADE;
+    //注法者的工具定义已移到 IssCompat.MAGIC_BLADE (只在装了铁魔法时创建)
 
     static {
         ANCHOR_SWORD = ToolDefinition.create(ItemsRegistry.anchor_sword);
-        MAGIC_BLADE = ToolDefinition.create(ItemsRegistry.magic_blade);
     }
 }
 

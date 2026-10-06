@@ -6,8 +6,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.mylove.tprt.Tprt;
+import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
+import org.mylove.tprt.compat.Iceandfire.Iceandfire_Compat;
+import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
+import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 /*import org.mylove.tprt.common.item.curios.Goldenfoxmask;*/
 import org.mylove.tprt.registries.ModFoods;
+import org.mylove.tprt.utils.ModListUtil;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.CastItemObject;
@@ -67,56 +72,28 @@ public class ItemsRegistry {
 //lr特供 金质狐狸面具
     public static final ItemObject<Item>Goldenfoxmask = ITEMS.register("golden_fox_mask",
         () -> new Goldenfoxmask(new Item.Properties(), "fox_mask", ImmutableMultimap.of()));*/
-//lr特供 龙神锭
-    public static final ItemObject<Item>MIXEDDRAGON=ITEMS.register("mixeddragon",
-        ()->new Item(new Item.Properties()));
+//lr特供 龙神锭 -> 已移到 Iceandfire_Compat.MIXEDDRAGON (冰与火联动材料)
 //lr特供 锻造钢
     public static final ItemObject<Item>FORGED_STEEL=ITEMS.register("forged_steel",
         ()->new Item(new Item.Properties()));
-//lr特供 源质合金
-    public static final ItemObject<Item>SOURCE_ALLOY=ITEMS.register("source_alloy",
-        ()->new Item(new Item.Properties()));
+//lr特供 源质合金 -> 已移到 IssCompat.SOURCE_ALLOY (铁魔法联动材料)
 //lr特供 超限玛玉灵
     public static final ItemObject<Item>ADVANCED_MANYULLYN=ITEMS.register("advanced_manyullyn",
         ()->new Item(new Item.Properties()));
 //lr特供 耀光骑士金属锭
     public static final ItemObject<Item>RADIANT_KNIGHTMETAL_INGOT=ITEMS.register("radiant_knightmetal_ingot",
             ()->new Item(new Item.Properties()));
-//lr特供 瓦斯麦谷锭
-    public static final ItemObject<Item>KWAT_WHEAT_GRAIN_INGOT=ITEMS.register("kwat_wheat_grain_ingot",
-        ()->new Item(new Item.Properties().food(ModFoods.KWAT_WHEAT_GRAIN_INGOT)));
-//lr特供 恶兽合金锭
-    public static final ItemObject<Item>EVIL_BEAST_ALLOY_INGOT=ITEMS.register("evil_beast_alloy_ingot",
-        ()->new Item(new Item.Properties()));
-//lr特供 风暴之泪
-    public static final ItemObject<Item>Tears_of_the_storm=ITEMS.register("tears_of_the_storm",
-            ()->new Item(new Item.Properties()));
-//lr特供 深渊残片
-    public static final ItemObject<Item>Abyss_fragment=ITEMS.register("abyss_fragment",
-            ()->new Item(new Item.Properties()));
-//lr特供 虚空动力合金锭
-    public static final ItemObject<Item>Void_power_alloy=ITEMS.register("void_power_alloy",
-            ()->new Item(new Item.Properties()));
-//lr特供 沙暴骨骸
-    public static final ItemObject<Item>Sandstorm_skeleton=ITEMS.register("sandstorm_skeleton",
-            ()->new Item(new Item.Properties()));
-//lr特供 濡湿骑士锭
-    public static final ItemObject<Item>DARK_KNIGHT_INGOT=ITEMS.register("dark_knight_ingot",
-        ()->new Item(new Item.Properties()));
-//lr特供 溪竹板
-    public static final ItemObject<Item>Leisamboo_Board=ITEMS.register("leisamboo_board",
-        ()->new Item(new Item.Properties()));
-//lr特供 复合龙鳞
-    public static final ItemObject<Item>Composite_dragon_scales=ITEMS.register("composite_dragon_scales",
-        ()->new Item(new Item.Properties()));
+//联动模组物品已按所属模组移到各自的兼容类: 装了对应模组才会注册
+//  灾变     -> CataclysmCompat.CATACLYSM_ITEMS            (tears_of_the_storm / abyss_fragment / void_power_alloy / sandstorm_skeleton / evil_beast_alloy_ingot)
+//  冰与火   -> Iceandfire_Compat.ICEANDFIRE_ITEMS         (composite_dragon_scales / mixeddragon)
+//  不朽乐事 -> Immortalers_Delight_Compat.ID_ITEMS        (kwat_wheat_grain_ingot / leisamboo_board)
+//  铁魔法   -> IssCompat.ISS_ITEMS                        (magic_blade / source_alloy / dark_knight_ingot)
 
 
     //lr特供 锚剑
     public static final ItemObject<ModifiableItem>anchor_sword= ITEMS.register("anchor_sword",
         ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.ANCHOR_SWORD));
-    //lr特供 注法者
-    public static final ItemObject<ModifiableItem>magic_blade= ITEMS.register("magic_blade",
-        ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.MAGIC_BLADE));
+    //注法者 (铁魔法联动) 已移到 IssCompat.magic_blade: 装了铁魔法时才会注册
 
 //lr特供 🐖包
     public static final ItemObject<Item>PIG_BUN=ITEMS.register("pig_bun",
@@ -130,27 +107,33 @@ public class ItemsRegistry {
 
 
     public static void addCommonTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
-        tab.accept(MIXEDDRAGON);
+        //自有材料
         tab.accept(FORGED_STEEL);
-        tab.accept(SOURCE_ALLOY);
         tab.accept(ADVANCED_MANYULLYN);
         tab.accept(RADIANT_KNIGHTMETAL_INGOT);
-        tab.accept(KWAT_WHEAT_GRAIN_INGOT);
-        tab.accept(EVIL_BEAST_ALLOY_INGOT);
-        tab.accept(Tears_of_the_storm);
-        tab.accept(Abyss_fragment);
-        tab.accept(Void_power_alloy);
-        tab.accept(Sandstorm_skeleton);
-        tab.accept(DARK_KNIGHT_INGOT);
-        tab.accept(Leisamboo_Board);
-        tab.accept(Composite_dragon_scales);
+        //联动模组物品: 没装对应模组就没有注册, 也就不往创造栏里放
+        if (ModListUtil.ISSLoaded) {
+            IssCompat.addCommonTabItems(tab);
+        }
+        if (ModListUtil.CALoaded) {
+            CataclysmCompat.addCommonTabItems(tab);
+        }
+        if (ModListUtil.IceandfireLoaded) {
+            Iceandfire_Compat.addCommonTabItems(tab);
+        }
+        if (ModListUtil.IDLoaded) {
+            Immortalers_Delight_Compat.addCommonTabItems(tab);
+        }
         /*tab.accept(Goldenfoxmask);*/
     }
 
     public static void addToolTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         Consumer<ItemStack> output = tab::accept;
         acceptTool(output, anchor_sword);
-        acceptTool(output, magic_blade);
+        // 铁魔法联动物品 (注法者) 只有装了铁魔法才会注册, 没装就不往创造栏里放
+        if (ModListUtil.ISSLoaded) {
+            IssCompat.addToolTabItems(tab);
+        }
     }
 
     private static void acceptTool(Consumer<ItemStack> output, Supplier<? extends IModifiable> tool) {

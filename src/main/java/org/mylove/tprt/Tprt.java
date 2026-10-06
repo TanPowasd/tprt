@@ -51,10 +51,12 @@ public class Tprt {
         if (ModListUtil.ISSLoaded) {
             IssCompat.Iss_MODIFIERS.register(modEventBus);
             IssCompat.ISS_FLUIDS.register(modEventBus);
+            IssCompat.ISS_ITEMS.register(modEventBus);
             LOGGER.info("Found Iron's Spellbooks, integration initializing……");
         }
         if (ModListUtil.IDLoaded) {
             Immortalers_Delight_Compat.Id_MODIFIERS.register(modEventBus);
+            Immortalers_Delight_Compat.ID_ITEMS.register(modEventBus);
             LOGGER.info("Found Immortalers Delight, integration initializing……");
         }
         if (ModListUtil.GTLoaded) {
@@ -64,10 +66,14 @@ public class Tprt {
         if (ModListUtil.CALoaded) {
             CataclysmCompat.Cataclysm_MODIFIERS.register(modEventBus);
             CataclysmCompat.Cataclysm_MODEFFECTS.register(modEventBus);
+            CataclysmCompat.CATACLYSM_ITEMS.register(modEventBus);
+            CataclysmCompat.CATACLYSM_FLUIDS.register(modEventBus);
             LOGGER.info("Found Cataclysm, integration initializing……");
         }
         if (ModListUtil.IceandfireLoaded) {
             Iceandfire_Compat.Iceandfire_MODIFIERS.register(modEventBus);
+            Iceandfire_Compat.ICEANDFIRE_ITEMS.register(modEventBus);
+            Iceandfire_Compat.ICEANDFIRE_FLUIDS.register(modEventBus);
             LOGGER.info("Found iceandfire, integration initializing……");
         }
         if (ModListUtil.CloudertinkerLoaded) {

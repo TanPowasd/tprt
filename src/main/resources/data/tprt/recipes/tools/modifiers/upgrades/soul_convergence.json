@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
   "condition": {
     "modid": "goety",
     "type": "forge:mod_loaded"

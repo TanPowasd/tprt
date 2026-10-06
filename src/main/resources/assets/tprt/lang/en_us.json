@@ -969,7 +969,15 @@
 
   "modifier.tprt.enchanting": "Enchanting",
   "modifier.tprt.enchanting.flavor":"Enchant the blade with magic",
-  "modifier.tprt.enchanting.description":"Attacks deal additional magic damage and it can be improved according to spell power",
+  "modifier.tprt.enchanting.description":"The upgrade recipe decides the school (fire/ice/lightning/holy/ender/blood/evocation/nature). On hit, a spell damage instance of that school is dealt right before the attack damage, 50% by default, scaled by generic and school spell power. Apply another recipe to swap the school",
+  "modifier.tprt.enchanting.fire": "Fire Enchanting",
+  "modifier.tprt.enchanting.ice": "Ice Enchanting",
+  "modifier.tprt.enchanting.lightning": "Lightning Enchanting",
+  "modifier.tprt.enchanting.holy": "Holy Enchanting",
+  "modifier.tprt.enchanting.ender": "Ender Enchanting",
+  "modifier.tprt.enchanting.blood": "Blood Enchanting",
+  "modifier.tprt.enchanting.evocation": "Evocation Enchanting",
+  "modifier.tprt.enchanting.nature": "Nature Enchanting",
 
   "modifier.tprt.release_spells": "Casting",
   "modifier.tprt.release_spells.flavor":"Your sword can be used as staff!",

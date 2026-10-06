@@ -1,5 +1,5 @@
 {
   "values": [
-    "tprt:magic_blade"
+    { "id": "tprt:magic_blade", "required": false }
   ]
 }

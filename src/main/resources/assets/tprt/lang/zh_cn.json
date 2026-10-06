@@ -982,7 +982,15 @@
 
   "modifier.tprt.enchanting": "附魔",
   "modifier.tprt.enchanting.flavor":"为剑刃附上魔力",
-  "modifier.tprt.enchanting.description":"攻击时会根据法术强度附加魔法伤害",
+  "modifier.tprt.enchanting.description":"可获得不同法术流派增益：命中时在结算攻击伤害前追加一次该流派的法术伤害，倍率默认50%，受通用法强与对应流派法强加成。换一条配方即可替换流派",
+  "modifier.tprt.enchanting.fire": "炽焰附魔",
+  "modifier.tprt.enchanting.ice": "冰霜附魔",
+  "modifier.tprt.enchanting.lightning": "雷电附魔",
+  "modifier.tprt.enchanting.holy": "神圣附魔",
+  "modifier.tprt.enchanting.ender": "末影附魔",
+  "modifier.tprt.enchanting.blood": "猩红附魔",
+  "modifier.tprt.enchanting.evocation": "唤魔附魔",
+  "modifier.tprt.enchanting.nature": "自然附魔",
 
   "modifier.tprt.release_spells": "施法",
   "modifier.tprt.release_spells.flavor":"剑-杖！",

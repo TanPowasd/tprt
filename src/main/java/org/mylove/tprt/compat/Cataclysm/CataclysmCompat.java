@@ -1,18 +1,49 @@
 package org.mylove.tprt.compat.Cataclysm;
 
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.compat.Cataclysm.ModEffects.Soul_casting_blade;
 import org.mylove.tprt.compat.Cataclysm.Modifiers.*;
+import org.mylove.tprt.registries.ModFluids;
+import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
+import slimeknights.mantle.registration.object.FluidObject;
+import slimeknights.mantle.registration.object.ItemObject;
+import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 public class CataclysmCompat {
     public static ModifierDeferredRegister Cataclysm_MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
     public static final DeferredRegister<MobEffect> Cataclysm_MODEFFECTS=DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Tprt.MODID);
+
+    /** 灾变联动物品专用注册器: 只在装了灾变时才会在 Tprt 里挂到事件总线上 (没装就不注册, 也不进创造栏) */
+    public static final ItemDeferredRegisterExtension CATACLYSM_ITEMS = new ItemDeferredRegisterExtension(Tprt.MODID);
+    //lr特供 风暴之泪 / 深渊残片 / 虚空动力合金锭 / 沙暴骨骸 / 恶兽合金锭
+    public static final ItemObject<Item> Tears_of_the_storm = CATACLYSM_ITEMS.register("tears_of_the_storm", () -> new Item(new Item.Properties()));
+    public static final ItemObject<Item> Abyss_fragment = CATACLYSM_ITEMS.register("abyss_fragment", () -> new Item(new Item.Properties()));
+    public static final ItemObject<Item> Void_power_alloy = CATACLYSM_ITEMS.register("void_power_alloy", () -> new Item(new Item.Properties()));
+    public static final ItemObject<Item> Sandstorm_skeleton = CATACLYSM_ITEMS.register("sandstorm_skeleton", () -> new Item(new Item.Properties()));
+    public static final ItemObject<Item> EVIL_BEAST_ALLOY_INGOT = CATACLYSM_ITEMS.register("evil_beast_alloy_ingot", () -> new Item(new Item.Properties()));
+
+    /** 灾变联动流体专用注册器 (熔融黑钢 / 熔融远古金属) */
+    public static final FluidDeferredRegister CATACLYSM_FLUIDS = new FluidDeferredRegister(Tprt.MODID);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLACK_STEEL = ModFluids.registerHotFluid(CATACLYSM_FLUIDS,"molten_black_steel",1000,4,5,2,false);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANCIENT_METAL = ModFluids.registerHotFluid(CATACLYSM_FLUIDS,"molten_ancient_metal",1250,4,5,2,false);
+
+    /** 创造物品栏条目: 由 ItemsRegistry 在检测到灾变时调用 */
+    public static void addCommonTabItems(CreativeModeTab.Output tab) {
+        tab.accept(Tears_of_the_storm);
+        tab.accept(Abyss_fragment);
+        tab.accept(Void_power_alloy);
+        tab.accept(Sandstorm_skeleton);
+        tab.accept(EVIL_BEAST_ALLOY_INGOT);
+    }
 
     public static final StaticModifier<ancient_sandstorm> ancient_sandstorm;
     public static final StaticModifier<burning_flames> burning_flames;

@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
   "condition": {
     "type": "forge:mod_loaded",
     "modid": "cataclysm"
