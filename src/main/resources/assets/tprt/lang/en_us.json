@@ -170,6 +170,9 @@
   "material.tprt.tears_of_the_storm":"Tears Of The Storm",
   "material.tprt.tears_of_the_storm.flavor":"The tears of the goddess crystallize and contain the power of the storm.",
 
+  "material.tprt.lacrima":"Lacrima",
+  "material.tprt.lacrima.flavor":"A crystallization of the ocean; for some reason it fills you with a faint sorrow.",
+
   "material.tprt.abyss_fragment":"Abyss",
   "material.tprt.abyss_fragment.flavor":"The debris brought by Leviathan is chilling.",
 
@@ -352,6 +355,10 @@
   "modifier.tprt.soul_surge": "Soul Surge",
   "modifier.tprt.soul_surge.flavor":"Long-term immersion has filled it with soul power",
   "modifier.tprt.soul_surge.description":"Attack damage additionally increased by 10%",
+
+  "modifier.tprt.tears_of_the_pearl_of_the_sea": "Tears of the Pearl of the Sea",
+  "modifier.tprt.tears_of_the_pearl_of_the_sea.flavor":"The sorrow of the sea",
+  "modifier.tprt.tears_of_the_pearl_of_the_sea.description":"Block an attack within 0.2s of raising the shield: knock the attacker back about 2 blocks, grant them Slowness III and yourself Strength III for 10 seconds, and gain temporary health equal to 10% of your max health",
 
   "modifier.tprt.strong_but_pliable": "Resilient",
   "modifier.tprt.strong_but_pliable.flavor":"Unique metal structure grants both strength and flexibility",
@@ -985,7 +992,7 @@
 
   "modifier.tprt.precision_stab": "Precision Stab",
   "modifier.tprt.precision_stab.flavor":"Break the surface with points!",
-  "modifier.tprt.precision_stab.description":"The attack will add a boundary damage equal to its own attack power.",
+  "modifier.tprt.precision_stab.description":"When attacking with its own tool, the final damage dealt is at least 10% of the player's attack power (armor and damage reduction ignored).",
 
 
 

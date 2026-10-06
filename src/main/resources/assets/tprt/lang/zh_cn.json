@@ -179,6 +179,9 @@
   "material.tprt.tears_of_the_storm":"风暴之泪",
   "material.tprt.tears_of_the_storm.flavor":"女神的泪滴结晶，蕴含风暴的威能",
 
+  "material.tprt.lacrima":"泪宝石",
+  "material.tprt.lacrima.flavor":"海洋的结晶，不知为何让人感觉到隐隐哀伤",
+
   "material.tprt.abyss_fragment":"深渊",
   "material.tprt.abyss_fragment.flavor":"利维坦带来的碎片，令人不寒而栗",
 
@@ -378,6 +381,10 @@
   "modifier.tprt.amethyst_of_the_earth": "大地的紫晶",
   "modifier.tprt.amethyst_of_the_earth.flavor":"安如磐石！",
   "modifier.tprt.amethyst_of_the_earth.description":"提高击退抗性，受到攻击时向周围发射紫水晶簇，对实体造成伤害",
+
+  "modifier.tprt.tears_of_the_pearl_of_the_sea": "海之珠泪",
+  "modifier.tprt.tears_of_the_pearl_of_the_sea.flavor":"海之哀伤",
+  "modifier.tprt.tears_of_the_pearl_of_the_sea.description":"若举盾的0.2秒内成功格挡攻击，则击退目标2格并分别给予目标10秒缓慢3和自身力量3，同时获得最大生命值10%的临时生命值",
 
   "modifier.tprt.eye_of_storm": "风暴之眼",
   "modifier.tprt.eye_of_storm.flavor":"引领风暴的航向！",
@@ -998,7 +1005,7 @@
 
   "modifier.tprt.precision_stab": "精准刺击",
   "modifier.tprt.precision_stab.flavor":"以点破面！",
-  "modifier.tprt.precision_stab.description":"攻击会追加一次等于自身攻击力的边界伤害",
+  "modifier.tprt.precision_stab.description":"使用对应武器攻击时，最终造成的伤害至少为玩家攻击力的10%（无视护甲与减伤）",
 
 
   "common": "not_yet_completed",

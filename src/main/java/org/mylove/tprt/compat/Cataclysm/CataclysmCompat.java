@@ -78,6 +78,8 @@ public class CataclysmCompat {
     public static final StaticModifier<Ender_Armor> Ender_Armor;
 
     public static final StaticModifier<soul_surge> soul_surge;
+    /** 海之珠泪: 完美格挡 (举盾 0.2 秒内挡下攻击) */
+    public static final StaticModifier<tears_of_the_pearl_of_the_sea> tears_of_the_pearl_of_the_sea;
 
 
     public static final RegistryObject<Soul_casting_blade> Soul_casting_blade;
@@ -115,6 +117,7 @@ public class CataclysmCompat {
         Ender_Armor = Cataclysm_MODIFIERS.register("ender_armor", Ender_Armor::new);
 
         soul_surge = Cataclysm_MODIFIERS.register("soul_surge", soul_surge::new);
+        tears_of_the_pearl_of_the_sea = Cataclysm_MODIFIERS.register("tears_of_the_pearl_of_the_sea", tears_of_the_pearl_of_the_sea::new);
 
 
         Soul_casting_blade=Cataclysm_MODEFFECTS.register("soul_casting_blade", Soul_casting_blade::new);

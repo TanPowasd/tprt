@@ -14,6 +14,7 @@ public class ModifierIds {
     public static final ModifierId Undead_Revive = id("undead_revive");
     public static final ModifierId double_or_none = id("double_or_none");
     public static final ModifierId Monstrous = id("monstrous");
+    public static final ModifierId TEARS_OF_THE_PEARL_OF_THE_SEA = id("tears_of_the_pearl_of_the_sea");
     public static final ModifierId amethyst_of_the_earth = id("amethyst_of_the_earth");
     public static final ModifierId Ender_Armor = id("ender_armor");
     public static final ModifierId Glow_armor = id("glow_armor");

@@ -18,23 +18,23 @@
       }
     ]
   },
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "A": {
-      "tag":"iceandfire:scales/sea_serpent"
+  "type": "tconstruct:item_part_builder",
+  "cost": 5,
+  "material": "tprt:sea_serpent_scales",
+  "pattern": "tconstruct:leggings_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
     },
-    "B": {
-      "item":"tconstruct:pattern"
+    {
+      "item": "tconstruct:leggings_plating_cast"
     }
-  },
-  "pattern": [
-    "BAB",
-    "A A",
-    "A A"
   ],
   "result": {
-    "item": "tconstruct:leggings_plating",
     "count": 1,
-    "nbt": "{Material:\"tprt:sea_serpent_scales\"}"
+    "item": "tconstruct:leggings_plating",
+    "nbt": {
+      "Material": "tprt:sea_serpent_scales"
+    }
   }
 }

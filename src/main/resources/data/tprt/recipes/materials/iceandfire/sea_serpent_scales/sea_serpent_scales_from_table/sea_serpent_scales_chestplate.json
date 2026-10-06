@@ -18,23 +18,23 @@
       }
     ]
   },
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "A": {
-      "tag":"iceandfire:scales/sea_serpent"
+  "type": "tconstruct:item_part_builder",
+  "cost": 6,
+  "material": "tprt:sea_serpent_scales",
+  "pattern": "tconstruct:chestplate_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
     },
-    "B": {
-      "item":"tconstruct:pattern"
+    {
+      "item": "tconstruct:chestplate_plating_cast"
     }
-  },
-  "pattern": [
-    "A A",
-    "AAA",
-    "BAB"
   ],
   "result": {
-    "item": "tconstruct:chestplate_plating",
     "count": 1,
-    "nbt": "{Material:\"tprt:sea_serpent_scales\"}"
+    "item": "tconstruct:chestplate_plating",
+    "nbt": {
+      "Material": "tprt:sea_serpent_scales"
+    }
   }
 }
