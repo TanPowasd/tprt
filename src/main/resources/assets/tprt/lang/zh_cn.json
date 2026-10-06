@@ -386,17 +386,17 @@
   "modifier.tprt.tears_of_the_pearl_of_the_sea.flavor":"海之哀伤",
   "modifier.tprt.tears_of_the_pearl_of_the_sea.description":"若举盾的0.2秒内成功格挡攻击，则击退目标2格并分别给予目标10秒缓慢3和自身力量3，同时获得最大生命值10%的临时生命值",
 
-  "modifier.tprt.eye_of_storm": "风暴之眼",
-  "modifier.tprt.eye_of_storm.flavor":"引领风暴的航向！",
-  "modifier.tprt.eye_of_storm.description":"工具可以长按右键使用，使用后使天气变为雷暴",
+  "modifier.tprt.tidal_surge": "潮涌",
+  "modifier.tprt.tidal_surge.flavor":"怒涛翻涌",
+  "modifier.tprt.tidal_surge.description":"攻击命中叠加潮湿效果（最多5级）；有50%的概率掀起水浪，目标潮湿时必定触发且威力翻倍",
 
   "modifier.tprt.storm_incarnation_att": "我即风暴",
   "modifier.tprt.storm_incarnation_att.flavor":"我即是那迫近的风暴",
-  "modifier.tprt.storm_incarnation_att.description":"造成的伤害提高35%；若为下雨或雷暴天气，则改为80%且会追加一次相当于50%造成伤害的雷电伤害",
+  "modifier.tprt.storm_incarnation_att.description":"攻击伤害提升35%（水/雨中改为80%）；攻击目标处于5级潮湿时在落点掀起雷暴：一圈16个闪电风暴，中心留下持续一段时间的静电场（伤害为玩家攻击力150%，10秒冷却）",
 
   "modifier.tprt.storm_incarnation_arm": "我即风暴",
   "modifier.tprt.storm_incarnation_arm.flavor":"我即是那迫近的风暴",
-  "modifier.tprt.storm_incarnation_arm.description":"受到的伤害降低2点；若为下雨或雷暴天气，则额外获得抗性提升3和急迫3且无敌帧延长至三倍",
+  "modifier.tprt.storm_incarnation_arm.description":"受到的最终伤害降低2点（水/雨中3点）；累计受伤达到最大生命值50%时在自身周围释放击退力场（15秒无新增受伤则清零）",
 
   "modifier.tprt.breath_of_the_abyss": "深渊之息",
   "modifier.tprt.breath_of_the_abyss.flavor":"至深，至暗",

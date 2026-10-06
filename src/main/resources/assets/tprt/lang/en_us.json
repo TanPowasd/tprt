@@ -376,17 +376,17 @@
   "modifier.tprt.amethyst_of_the_earth.flavor":"As safe as a rock!",
   "modifier.tprt.amethyst_of_the_earth.description":"Improve the knockback resistance. When attacked, fire amethyst clusters around you that damage entities.",
 
-  "modifier.tprt.eye_of_storm": "Eye Of Storm",
-  "modifier.tprt.eye_of_storm.flavor":"Lead the storm!",
-  "modifier.tprt.eye_of_storm.description":"The tool can be used by pressing the right button for a long time, which will turn the weather into a thunderstorm after use.",
+  "modifier.tprt.tidal_surge": "Tidal Surge",
+  "modifier.tprt.tidal_surge.flavor":"The tide rises",
+  "modifier.tprt.tidal_surge.description":"Hits stack Wetness (max 5); chance to summon a wave, guaranteed and doubled against wet targets",
 
   "modifier.tprt.storm_incarnation_att": "Storm Incarnation",
   "modifier.tprt.storm_incarnation_att.flavor":"I'm the storm that is approaching.",
-  "modifier.tprt.storm_incarnation_att.description":"The damage caused is increased by 35%; If it is raining or thunderstorm, it will be changed to 80% and a lightning damage equivalent to 50% will be added.",
+  "modifier.tprt.storm_incarnation_att.description":"Damage boost on hit (1.8x in water/rain); against a target with Wetness V, calls down a storm barrage at the impact point - 16 lightning storms in a ring plus a lingering static field (each deals 50% of your attack power, 10s cooldown)",
 
   "modifier.tprt.storm_incarnation_arm": "Storm Incarnation",
   "modifier.tprt.storm_incarnation_arm.flavor":"I'm the storm that is approaching.",
-  "modifier.tprt.storm_incarnation_arm.description":"The damage suffered is reduced by 2; If it's raining or thunderstorm, you will get resistance of 3 level and haste of 3 level, and the invincible frame will be triple.",
+  "modifier.tprt.storm_incarnation_arm.description":"Reduces final damage taken by 2 (3 in water/rain); when accumulated damage reaches 50% of max health, releases a knockback force field around you (resets after 15s without new damage)",
 
   "modifier.tprt.breath_of_the_abyss": "Breath of the abyss",
   "modifier.tprt.breath_of_the_abyss.flavor":"To the deepest, to the darkest",

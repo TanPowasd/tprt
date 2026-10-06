@@ -60,7 +60,7 @@ public class CataclysmCompat {
     public static final StaticModifier<strong_but_pliable> strong_but_pliable;
     public static final StaticModifier<Storm_incarnation_att> Storm_incarnation_att;
     public static final StaticModifier<Storm_incarnation_arm> Storm_incarnation_arm;
-    public static final StaticModifier<Eye_of_Storm> Eye_of_Storm;
+    public static final StaticModifier<Tidal_surge> Tidal_surge;
     public static final StaticModifier<Thunder> Thunder;
     public static final StaticModifier<Soul_render> Soul_render;
     public static final StaticModifier<Meat_Shredder> Meat_Shredder;
@@ -99,7 +99,7 @@ public class CataclysmCompat {
         strong_but_pliable = Cataclysm_MODIFIERS.register("strong_but_pliable", strong_but_pliable::new);
         Storm_incarnation_att = Cataclysm_MODIFIERS.register("storm_incarnation_att", Storm_incarnation_att::new);
         Storm_incarnation_arm = Cataclysm_MODIFIERS.register("storm_incarnation_arm", Storm_incarnation_arm::new);
-        Eye_of_Storm = Cataclysm_MODIFIERS.register("eye_of_storm", Eye_of_Storm::new);
+        Tidal_surge = Cataclysm_MODIFIERS.register("tidal_surge", Tidal_surge::new);
         Thunder = Cataclysm_MODIFIERS.register("thunder", Thunder::new);
         Soul_render = Cataclysm_MODIFIERS.register("soul_render", Soul_render::new);
         Meat_Shredder = Cataclysm_MODIFIERS.register("meat_shredder", Meat_Shredder::new);
