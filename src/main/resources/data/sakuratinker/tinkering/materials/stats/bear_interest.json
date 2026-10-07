@@ -8,6 +8,7 @@
       "movement_speed": 0.15,
       "toughness": 0.00
     },
-    "sakuratinker:charm_core": {}
+    "sakuratinker:charm_core": {},
+    "sakuratinker:charm_setting": {}
   }
 }
