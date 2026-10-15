@@ -13,7 +13,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
+import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
+import org.mylove.tprt.compat.Create.CreateCompat;
 import org.mylove.tprt.compat.Cloudertinker.CTCompat;
 import org.mylove.tprt.compat.Goety.GoetyCompat;
 import org.mylove.tprt.compat.Iceandfire.Iceandfire_Compat;
@@ -79,6 +80,12 @@ public class Tprt {
         if (ModListUtil.CloudertinkerLoaded) {
             CTCompat.CT_MODIFIERS.register(modEventBus);
             LOGGER.info("Found cloudertinker, integration initializing……");
+        }
+        if (ModListUtil.CreateLoaded) {
+            CreateCompat.CREATE_MODIFIERS.register(modEventBus);
+            CreateCompat.CREATE_ITEMS.register(modEventBus);
+            CreateCompat.CREATE_FLUIDS.register(modEventBus);
+            LOGGER.info("Found Create, integration initializing……");
         }
     }
 

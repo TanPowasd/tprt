@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tprt:pyrium",
+    "tprt:solid_armor",
+    "tprt:soul_convergence",
+    "tprt:strengthen_for_charm_attack_damage",
+    "tprt:strengthen_for_charm_luck",
+    "tprt:strengthen_for_charm_ranged",
+    "tprt:strengthen_for_charm_spell_power"
+  ]
+}

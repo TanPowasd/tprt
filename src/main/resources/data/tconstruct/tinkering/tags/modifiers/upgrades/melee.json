@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tprt:advanced_sharpness",
+    "tprt:advanced_swiftstrike",
+    "tprt:ancient_spear",
+    "tprt:fire_dragon_blood",
+    "tprt:ice_dragon_blood",
+    "tprt:lightning_dragon_blood",
+    "tprt:quenching_poison"
+  ]
+}

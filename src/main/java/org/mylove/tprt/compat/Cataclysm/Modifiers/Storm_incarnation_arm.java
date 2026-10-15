@@ -1,71 +1,83 @@
 package org.mylove.tprt.compat.Cataclysm.Modifiers;
 
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
+import org.mylove.tprt.registries.ModBuffRegistry;
 import org.mylove.tprt.registries.ModifierIds;
 import org.mylove.tprt.utils.ModifierLEVEL;
-import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.ModifierHooks;
-import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
-import slimeknights.tconstruct.library.module.ModuleHookMap;
-import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 /**
  * 风暴化身 (护甲):
- * 1) 最终伤害减免: 受到的最终伤害 -2 (在水/雨中 -3) —— 走 LivingDamageEvent, 即最后结算那一步;
- * 2) 受伤累计: 记录实际吃到的伤害, 累计达到最大生命值的 50% 时, 在自身周围释放
- *    斯库拉转阶段那样的击退力场 (照她的 Stormknockback: 把附近生物沿背离自身的方向推开);
- *    记录若 15 秒内没有新增受伤则清零。
+ * 1) 最终伤害减免: 受到的最终伤害 -2 (在水/雨中 -3) —— 走 LivingDamageEvent, 也就是最后结算那一步;
+ * 2) 累积受伤: 记录实际吃到的伤害 (15 秒没有新增就清零), 累积达到自身最大生命值的 50% 时
+ *    获得"次数盾": 可以取消接下来 5 次受到的攻击 —— 走 LivingAttackEvent 直接取消,
+ *    所以那一下既没有伤害, 也不会占用无敌帧、不产生击退;
+ *    触发冷却 5 秒; 剩余次数用一个隐形效果同步给客户端, 在生命值 UI 上方提示。
  */
-public class Storm_incarnation_arm extends NoLevelsModifier implements InventoryTickModifierHook {
+public class Storm_incarnation_arm extends NoLevelsModifier {
 
     /** 最终伤害减免: 平时 2 点 */
     public static final float FINAL_DAMAGE_REDUCTION = 2.0F;
     /** 在水/雨中改为 3 点 */
     public static final float WET_FINAL_DAMAGE_REDUCTION = 3.0F;
-    /** 累计受伤达到最大生命值的 50% 就张开力场 */
-    public static final float FIELD_THRESHOLD_RATIO = 0.5F;
-    /** 累计记录 15 秒没有变化就清零: 15 秒 = 300 tick */
+    /** 累积受伤达到最大生命值的 50% 就获得次数盾 */
+    public static final float SHIELD_THRESHOLD_RATIO = 0.5F;
+    /** 累积记录 15 秒没有变化就清零: 15 秒 = 300 tick */
     public static final int RECORD_RESET_TICKS = 300;
-    /** 击退力场的推力与半径: 照斯库拉转阶段的 Stormknockback (她用 0.5~0.7 力度 / 5.5 格半径) */
-    public static final float FIELD_PUSH = 1.0F;
-    public static final double FIELD_RADIUS = 5.5D;
-    /** 水花扩散: 从中心扩散到力场边缘要用多少 tick */
-    public static final int FIELD_EXPAND_TICKS = 20;
-    /** 扩散环上一圈撒多少个点 */
-    public static final int FIELD_PARTICLE_COUNT = 48;
+    /** 次数盾: 免疫 5 次攻击 */
+    public static final int SHIELD_CHARGES = 5;
+    /** 次数盾触发冷却: 5 秒 = 100 tick */
+    public static final int SHIELD_COOLDOWN_TICKS = 100;
 
     /** 每位穿戴者的受伤累计: UUID -> (累计值, 最后一次变化的 gameTime) */
     private static final Map<UUID, DamageRecord> RECORDS = new HashMap<>();
-    /** 正在播放的力场扩散动画: UUID -> 起始 gameTime */
-    private static final Map<UUID, Long> FIELD_ANIMATIONS = new HashMap<>();
+    /** 次数盾剩余次数 (服务端权威) */
+    private static final Map<UUID, Integer> SHIELD_COUNTS = new HashMap<>();
+    /** 上次触发次数盾的时间 (冷却用) */
+    private static final Map<UUID, Long> SHIELD_COOLDOWNS = new HashMap<>();
 
     static {
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, LivingAttackEvent.class, Storm_incarnation_arm::onLivingAttack);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, LivingDamageEvent.class, Storm_incarnation_arm::onLivingDamage);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, TickEvent.LevelTickEvent.class, Storm_incarnation_arm::onLevelTick);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, TickEvent.PlayerTickEvent.class, Storm_incarnation_arm::onPlayerTick);
     }
 
-    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, ModifierHooks.INVENTORY_TICK);
+    /** 次数盾: 还有次数就把这次攻击整个取消 (最先结算的一步) */
+    private static void onLivingAttack(LivingAttackEvent event) {
+        LivingEntity living = event.getEntity();
+        if (living.level().isClientSide) {
+            return;
+        }
+        Integer count = SHIELD_COUNTS.get(living.getUUID());
+        if (count == null || count <= 0) {
+            return;
+        }
+        if (ModifierLEVEL.getTotalArmorModifierlevel(living, ModifierIds.Storm_incarnation_arm) <= 0) {
+            return;
+        }
+        event.setCanceled(true);
+        int left = count - 1;
+        if (left <= 0) {
+            SHIELD_COUNTS.remove(living.getUUID());
+            living.removeEffect(ModBuffRegistry.ATTACK_SHIELD.get());
+        } else {
+            SHIELD_COUNTS.put(living.getUUID(), left);
+            showShield(living, left);
+        }
     }
 
-    /** 最终结算: 先减伤, 再记账 */
+    /** 最终结算: 先减伤, 再记账, 达到阈值就发次数盾 */
     private static void onLivingDamage(LivingDamageEvent event) {
         LivingEntity living = event.getEntity();
         if (living.level().isClientSide) {
@@ -83,7 +95,7 @@ public class Storm_incarnation_arm extends NoLevelsModifier implements Inventory
         float taken = Math.max(amount - reduction, 0.0F);
         event.setAmount(taken);
 
-        // 2) 累计受伤, 达到最大生命值 50% 就张开力场
+        // 2) 累计受伤, 达到最大生命值 50% 就发次数盾
         long gameTime = living.level().getGameTime();
         UUID id = living.getUUID();
         DamageRecord record = RECORDS.get(id);
@@ -91,71 +103,49 @@ public class Storm_incarnation_arm extends NoLevelsModifier implements Inventory
             record = new DamageRecord(0.0F, gameTime);
         }
         float total = record.total() + taken;
-        if (total >= living.getMaxHealth() * FIELD_THRESHOLD_RATIO) {
-            RECORDS.remove(id);
-            openField(living, (ServerLevel) living.level());
-        } else {
+        if (total < living.getMaxHealth() * SHIELD_THRESHOLD_RATIO) {
             RECORDS.put(id, new DamageRecord(total, gameTime));
-        }
-    }
-
-    /** 在自身周围释放击退力场: 力度与半径照斯库拉转阶段的 Stormknockback */
-    private static void openField(LivingEntity owner, ServerLevel level) {
-        List<Entity> nearby = level.getEntities(owner, owner.getBoundingBox().inflate(FIELD_RADIUS),
-                entity -> entity instanceof LivingEntity && !entity.isAlliedTo(owner));
-        for (Entity entity : nearby) {
-            double dx = entity.getX() - owner.getX();
-            double dz = entity.getZ() - owner.getZ();
-            double distanceSq = Math.max(dx * dx + dz * dz, 0.001D);
-            double power = entity.isShiftKeyDown() ? FIELD_PUSH / 3.0D : FIELD_PUSH;
-            entity.push(dx / distanceSq * power, 0.0D, dz / distanceSq * power);
-        }
-        FIELD_ANIMATIONS.put(owner.getUUID(), level.getGameTime());
-    }
-
-    /** 水花从中心向外扩散: 每 tick 在递增的半径上撒一圈, 并用云粒子体现排斥 */
-    private static void onLevelTick(TickEvent.LevelTickEvent event) {
-        if (event.phase != TickEvent.Phase.END || event.level.isClientSide() || FIELD_ANIMATIONS.isEmpty()) {
             return;
         }
-        if (!(event.level instanceof ServerLevel level)) {
+        // 触发冷却中就先攒着, 冷却一过下次结算再发
+        Long lastTrigger = SHIELD_COOLDOWNS.get(id);
+        if (lastTrigger != null && gameTime >= lastTrigger && gameTime - lastTrigger < SHIELD_COOLDOWN_TICKS) {
+            RECORDS.put(id, new DamageRecord(total, gameTime));
             return;
         }
-        long gameTime = level.getGameTime();
-        Iterator<Map.Entry<UUID, Long>> iterator = FIELD_ANIMATIONS.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<UUID, Long> entry = iterator.next();
-            long elapsed = gameTime - entry.getValue();
-            if (elapsed > FIELD_EXPAND_TICKS || !(level.getEntity(entry.getKey()) instanceof LivingEntity owner) || !owner.isAlive()) {
-                iterator.remove();
-                continue;
+        RECORDS.remove(id);
+        SHIELD_COOLDOWNS.put(id, gameTime);
+        SHIELD_COUNTS.put(id, SHIELD_CHARGES);
+        showShield(living, SHIELD_CHARGES);
+    }
+
+    /** 每 tick: 清理过期的累计记录; 拿掉护甲后收回次数盾 */
+    private static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) {
+            return;
+        }
+        Player player = event.player;
+        UUID id = player.getUUID();
+        DamageRecord record = RECORDS.get(id);
+        if (record != null && player.level().getGameTime() - record.lastChange() > RECORD_RESET_TICKS) {
+            RECORDS.remove(id);
+        }
+        if (ModifierLEVEL.getTotalArmorModifierlevel(player, ModifierIds.Storm_incarnation_arm) <= 0) {
+            if (SHIELD_COUNTS.remove(id) != null) {
+                player.removeEffect(ModBuffRegistry.ATTACK_SHIELD.get());
             }
-            double radius = FIELD_RADIUS * (elapsed + 1.0D) / (FIELD_EXPAND_TICKS + 1.0D);
-            spawnFieldRing(level, owner, radius);
+            SHIELD_COOLDOWNS.remove(id);
         }
     }
 
-    /** 在指定半径上撒一圈水花 + 云粒子 (云粒子体现排斥) */
-    private static void spawnFieldRing(ServerLevel level, LivingEntity owner, double radius) {
-        double y = owner.getY() + 0.25D;
-        for (int i = 0; i < FIELD_PARTICLE_COUNT; i++) {
-            double angle = Math.PI * 2.0D / FIELD_PARTICLE_COUNT * i;
-            double x = owner.getX() + Math.cos(angle) * radius;
-            double z = owner.getZ() + Math.sin(angle) * radius;
-            level.sendParticles(ParticleTypes.SPLASH, x, y, z, 2, 0.1D, 0.12D, 0.1D, 0.02D);
-            level.sendParticles(ParticleTypes.CLOUD, x, y + 0.2D, z, 1, 0.08D, 0.06D, 0.08D, 0.02D);
-        }
-    }
-    @Override
-    public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity entity, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
-        if (world.isClientSide() || !isCorrectSlot) {
+    /** 用隐形效果把剩余次数同步给客户端 (无粒子、不进状态栏), 客户端据此在生命值上方提示 */
+    private static void showShield(LivingEntity living, int count) {
+        MobEffectInstance current = living.getEffect(ModBuffRegistry.ATTACK_SHIELD.get());
+        if (current != null && current.getAmplifier() == count - 1) {
             return;
         }
-        // 15 秒没有新增受伤就把记录清零
-        DamageRecord record = RECORDS.get(entity.getUUID());
-        if (record != null && world.getGameTime() - record.lastChange() > RECORD_RESET_TICKS) {
-            RECORDS.remove(entity.getUUID());
-        }
+        living.addEffect(new MobEffectInstance(ModBuffRegistry.ATTACK_SHIELD.get(),
+                MobEffectInstance.INFINITE_DURATION, count - 1, false, false, false));
     }
 
     /** 受伤累计记录 */

@@ -53,7 +53,7 @@ public class ModifierRegistry {
     public static final StaticModifier<CuriosModifier> strengthen_for_charm_attack_damage = MODIFIERS.register("strengthen_for_charm_attack_damage", strengthen_for_charm_attack_damage::new);
     public static final StaticModifier<CuriosModifier> strengthen_for_charm_armor = MODIFIERS.register("strengthen_for_charm_armor", strengthen_for_charm_armor::new);
     public static final StaticModifier<CuriosModifier> strengthen_for_charm_luck = MODIFIERS.register("strengthen_for_charm_luck", strengthen_for_charm_luck::new);
-    public static final StaticModifier<CuriosModifier> be_thoroughly_tempered_curios = MODIFIERS.register("be_thoroughly_tempered_curios", be_thoroughly_tempered_curios::new);
+    //锻造钢专属特性 (调质处理) 已移到 CreateCompat: 只有装了机械动力才会注册
     public static final StaticModifier<CuriosModifier> nature_affinity = MODIFIERS.register("nature_affinity", nature_affinity::new);
     public static final StaticModifier<CuriosModifier> skeleton_affinity = MODIFIERS.register("skeleton_affinity", skeleton_affinity::new);
     public static final StaticModifier<CuriosModifier> sky_affinity = MODIFIERS.register("sky_affinity", sky_affinity::new);

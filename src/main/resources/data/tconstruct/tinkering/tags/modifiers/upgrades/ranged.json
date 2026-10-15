@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tprt:advanced_power",
+    "tprt:bulk_quiver",
+    "tprt:calibrate",
+    "tprt:polish",
+    "tprt:swift"
+  ]
+}

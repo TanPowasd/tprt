@@ -396,7 +396,12 @@
 
   "modifier.tprt.storm_incarnation_arm": "我即风暴",
   "modifier.tprt.storm_incarnation_arm.flavor":"我即是那迫近的风暴",
-  "modifier.tprt.storm_incarnation_arm.description":"受到的最终伤害降低2点（水/雨中3点）；累计受伤达到最大生命值50%时在自身周围释放击退力场（15秒无新增受伤则清零）",
+  "modifier.tprt.storm_incarnation_arm.description":"受到的最终伤害降低2点（水/雨中3点）；累积受伤达到自身最大生命值50%时获得次数盾，可免疫5次攻击（触发冷却5秒）",
+  "tprt.hud.attack_shield":"免疫 %s 次攻击",
+
+  "modifier.tprt.tide_walker": "潮汐行者",
+  "modifier.tprt.tide_walker.flavor":"踏浪而行，驭水为翼",
+  "modifier.tprt.tide_walker.description":"免疫摔落伤害；可在水面上行走；水中可自由飞行；不处于水中但下雨时可短暂飞行（最多10秒，落地后重置）",
 
   "modifier.tprt.breath_of_the_abyss": "深渊之息",
   "modifier.tprt.breath_of_the_abyss.flavor":"至深，至暗",
@@ -849,6 +854,14 @@
   "modifier.tprt.pyrium_staff.flavor":"攫取法杖的能力",
   "modifier.tprt.pyrium_staff.description":"+15% 炽焰法术强度，+15% 法术吟唱缩减，+5% 法术强度",
 
+  "modifier.tprt.eldritch_attr": "邪术法强强化",
+  "modifier.tprt.eldritch_attr.flavor":"",
+  "modifier.tprt.eldritch_attr.description":"每级提高10%邪术法强",
+
+  "modifier.tprt.aqua_attr": "源流法强强化",
+  "modifier.tprt.aqua_attr.flavor":"",
+  "modifier.tprt.aqua_attr.description":"每级提高10%源流法强",
+
   "modifier.tprt.strengthen_for_charm_attack_damage": "护符增强——攻击伤害",
   "modifier.tprt.strengthen_for_charm_attack_damage.flavor":"深渊之力",
   "modifier.tprt.strengthen_for_charm_attack_damage.description":"每级+3%攻击伤害",
@@ -998,6 +1011,8 @@
   "modifier.tprt.enchanting.blood": "猩红附魔",
   "modifier.tprt.enchanting.evocation": "唤魔附魔",
   "modifier.tprt.enchanting.nature": "自然附魔",
+  "modifier.tprt.enchanting.eldritch": "邪术附魔",
+  "modifier.tprt.enchanting.aqua": "源流附魔",
 
   "modifier.tprt.release_spells": "施法",
   "modifier.tprt.release_spells.flavor":"剑-杖！",
@@ -1051,6 +1066,28 @@
 
   "modifier.tprt.combat_echo": "战斗回响",
   "modifier.tprt.combat_echo.flavor": "挥出的每一击，都在这世间留下回响",
-  "modifier.tprt.combat_echo.description": "攻击命中时，额外造成一次基础伤害为本击50%的伤害，伤害来源为玩家且无视目标无敌帧"
-
+  "modifier.tprt.combat_echo.description": "攻击命中时，额外造成一次基础伤害为本击50%的伤害，伤害来源为玩家且无视目标无敌帧",
+  "item.tprt.lr_block": "lr块",
+  "item.tprt.raw_lr_block": "粗制lr块",
+  "effect.tprt.attack_shield": "次数盾",
+  "modifier.tprt.infinite_dropping": "无限下坠",
+  "modifier.tprt.infinite_dropping.description": "攻击命中时使目标持续下坠",
+  "modifier.tprt.dynamic_defense": "动态防御",
+  "modifier.tprt.dynamic_defense.description": "根据自身状态动态获得防御加成",
+  "modifier.tprt.dynamic_attack": "动态攻击",
+  "modifier.tprt.dynamic_attack.description": "根据自身状态动态获得攻击加成",
+  "modifier.tprt.lightning_upgrade": "雷电强化",
+  "modifier.tprt.lightning_upgrade.description": "每级提高雷电法术强度",
+  "modifier.tprt.zenith_first_fractal": "天顶第一分形",
+  "modifier.tprt.zenith_first_fractal.description": "天顶系列的第一枚分形",
+  "modifier.tprt.phantom_hurl": "幻影投掷",
+  "modifier.tprt.phantom_hurl.description": "投掷时附加幻影攻击",
+  "modifier.tprt.tetanus": "破伤风",
+  "modifier.tprt.tetanus.description": "命中时使目标感染破伤风",
+  "modifier.tprt.oxidation": "氧化",
+  "modifier.tprt.oxidation.description": "攻击会氧化目标，最多消耗自身耐久的1/3",
+  "death.attack.lancer_richer_damage_type": "%1$s 被长枪贯穿",
+  "death.attack.tprt_fire_damage_type": "%1$s 被烈焰焚尽",
+  "death.attack.tprt_magic_damage_type": "%1$s 被魔法撕裂",
+  "death.attack.tprt_pure_damage_type": "%1$s 被纯粹的力量抹除"
 }

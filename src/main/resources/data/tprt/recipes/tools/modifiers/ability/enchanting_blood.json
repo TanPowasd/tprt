@@ -9,10 +9,10 @@
   "allow_crystal": true,
   "inputs": [
     {
-      "item": "minecraft:experience_bottle"
+      "tag": "irons_spellbooks:blood_focus"
     },
     {
-      "tag": "irons_spellbooks:blood_focus"
+      "item": "minecraft:experience_bottle"
     },
     {
       "tag": "irons_spellbooks:blood_focus"

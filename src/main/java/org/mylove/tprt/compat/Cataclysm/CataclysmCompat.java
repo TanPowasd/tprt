@@ -12,7 +12,7 @@ import org.mylove.tprt.compat.Cataclysm.ModEffects.Soul_casting_blade;
 import org.mylove.tprt.compat.Cataclysm.Modifiers.*;
 import org.mylove.tprt.registries.ModFluids;
 import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
-import slimeknights.mantle.registration.object.FluidObject;
+import slimeknights.mantle.registration.object.FlowingFluidObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
@@ -33,8 +33,8 @@ public class CataclysmCompat {
 
     /** 灾变联动流体专用注册器 (熔融黑钢 / 熔融远古金属) */
     public static final FluidDeferredRegister CATACLYSM_FLUIDS = new FluidDeferredRegister(Tprt.MODID);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_BLACK_STEEL = ModFluids.registerHotFluid(CATACLYSM_FLUIDS,"molten_black_steel",1000,4,5,2,false);
-    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ANCIENT_METAL = ModFluids.registerHotFluid(CATACLYSM_FLUIDS,"molten_ancient_metal",1250,4,5,2,false);
+    public static final FlowingFluidObject<ForgeFlowingFluid> MOLTEN_BLACK_STEEL = ModFluids.registerHotFluid(CATACLYSM_FLUIDS,"molten_black_steel",1000,4,5,2,false);
+    public static final FlowingFluidObject<ForgeFlowingFluid> MOLTEN_ANCIENT_METAL = ModFluids.registerHotFluid(CATACLYSM_FLUIDS,"molten_ancient_metal",1250,4,5,2,false);
 
     /** 创造物品栏条目: 由 ItemsRegistry 在检测到灾变时调用 */
     public static void addCommonTabItems(CreativeModeTab.Output tab) {
@@ -80,6 +80,8 @@ public class CataclysmCompat {
     public static final StaticModifier<soul_surge> soul_surge;
     /** 海之珠泪: 完美格挡 (举盾 0.2 秒内挡下攻击) */
     public static final StaticModifier<tears_of_the_pearl_of_the_sea> tears_of_the_pearl_of_the_sea;
+    /** 潮汐行者: 风暴之泪的护甲特性 (免疫摔落 / 水面行走 / 水中飞行 / 雨中短暂飞行) */
+    public static final StaticModifier<Tide_walker> tide_walker;
 
 
     public static final RegistryObject<Soul_casting_blade> Soul_casting_blade;
@@ -118,6 +120,7 @@ public class CataclysmCompat {
 
         soul_surge = Cataclysm_MODIFIERS.register("soul_surge", soul_surge::new);
         tears_of_the_pearl_of_the_sea = Cataclysm_MODIFIERS.register("tears_of_the_pearl_of_the_sea", tears_of_the_pearl_of_the_sea::new);
+        tide_walker = Cataclysm_MODIFIERS.register("tide_walker", Tide_walker::new);
 
 
         Soul_casting_blade=Cataclysm_MODEFFECTS.register("soul_casting_blade", Soul_casting_blade::new);

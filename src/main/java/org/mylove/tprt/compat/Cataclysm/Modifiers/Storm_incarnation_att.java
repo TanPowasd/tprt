@@ -3,12 +3,18 @@ package org.mylove.tprt.compat.Cataclysm.Modifiers;
 import com.github.L_Ender.cataclysm.entity.effect.Lightning_Area_Effect_Entity;
 import com.github.L_Ender.cataclysm.entity.effect.Lightning_Storm_Entity;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -50,10 +56,19 @@ public class Storm_incarnation_att extends NoLevelsModifier implements MeleeDama
     public static final float FIELD_RADIUS = 4.0F;
     public static final int FIELD_WAIT_TIME = 20;
     public static final int FIELD_DURATION = 100;
+    /** 标记: 只处理本词条召唤的雷暴与静电场 */
+    public static final String TRPT_STORM_TAG = "tprt_storm_barrage";
     /** 每位玩家的雷暴冷却: 玩家UUID -> 上次召唤雷暴的 gameTime */
     private static final Map<UUID, Long> STORM_COOLDOWNS = new HashMap<>();
     /** 灾变的潮湿效果 */
     private static final ResourceLocation WETNESS = ResourceLocation.fromNamespaceAndPath("cataclysm", "wetness");
+    /** 被雷暴打中前的受击状态: 目标UUID -> 无敌帧/上次伤害, 这一 tick 结束后还原 */
+    private static final Map<UUID, InvulnerableState> PENDING_INVULNERABLE = new HashMap<>();
+
+    static {
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, LivingHurtEvent.class, Storm_incarnation_att::onLivingHurt);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, TickEvent.LevelTickEvent.class, Storm_incarnation_att::onLevelTick);
+    }
 
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
@@ -112,6 +127,7 @@ public class Storm_incarnation_att extends NoLevelsModifier implements MeleeDama
                     target.getY(),
                     target.getZ() + Math.sin(angle) * STORM_RING_RADIUS,
                     0.0F, STORM_DELAY, damage, 0.0F, player, STORM_SIZE);
+            storm.getPersistentData().putBoolean(TRPT_STORM_TAG, true);
             level.addFreshEntity(storm);
         }
         // 静电场: 会跳过 owner, 所以不会伤到玩家自己
@@ -123,6 +139,50 @@ public class Storm_incarnation_att extends NoLevelsModifier implements MeleeDama
         field.setWaitTime(FIELD_WAIT_TIME);
         field.setDuration(FIELD_DURATION);
         field.setRadiusPerTick(0.0F);
+        field.getPersistentData().putBoolean(TRPT_STORM_TAG, true);
         level.addFreshEntity(field);
+    }
+
+    /** 雷暴/静电场命中时: 记下目标此刻的无敌帧状态 (不改伤害) */
+    private static void onLivingHurt(LivingHurtEvent event) {
+        LivingEntity target = event.getEntity();
+        if (target.level().isClientSide || !isOurStorm(event.getSource())) {
+            return;
+        }
+        // putIfAbsent: 同一 tick 里多个雷暴命中时, 只保留最早 (没被雷暴碰过) 的状态
+        // 只记 invulnerableTime 就够: lastHurt 仅在 invulnerableTime > 10 时参与封顶, 而还原后这个条件不再成立
+        PENDING_INVULNERABLE.putIfAbsent(target.getUUID(), new InvulnerableState(target.invulnerableTime));
+    }
+
+    /** 判断这次伤害是不是本词条召唤的雷暴/静电场造成的 */
+    private static boolean isOurStorm(DamageSource source) {
+        Entity direct = source.getDirectEntity();
+        if (direct instanceof Lightning_Storm_Entity || direct instanceof Lightning_Area_Effect_Entity) {
+            return direct.getPersistentData().getBoolean(TRPT_STORM_TAG);
+        }
+        Entity causing = source.getEntity();
+        if (causing instanceof Lightning_Storm_Entity || causing instanceof Lightning_Area_Effect_Entity) {
+            return causing.getPersistentData().getBoolean(TRPT_STORM_TAG);
+        }
+        return false;
+    }
+
+    /** 这一 tick 结束后把无敌帧还原, 这样雷暴不会抢掉玩家自己的攻击窗口 */
+    private static void onLevelTick(TickEvent.LevelTickEvent event) {
+        if (event.phase != TickEvent.Phase.END || event.level.isClientSide() || PENDING_INVULNERABLE.isEmpty()) {
+            return;
+        }
+        if (event.level instanceof ServerLevel level) {
+            for (Map.Entry<UUID, InvulnerableState> entry : PENDING_INVULNERABLE.entrySet()) {
+                if (level.getEntity(entry.getKey()) instanceof LivingEntity target) {
+                    target.invulnerableTime = entry.getValue().invulnerableTime();
+                }
+            }
+        }
+        PENDING_INVULNERABLE.clear();
+    }
+
+    /** 受击状态快照 */
+    private record InvulnerableState(int invulnerableTime) {
     }
 }

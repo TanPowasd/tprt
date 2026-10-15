@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "tprt:abyss_call",
+    "tprt:ancient_relics",
+    "tprt:ender_echo",
+    "tprt:flame_rising",
+    "tprt:mechanical_innovation",
+    "tprt:philosophers_stone",
+    "tprt:renovation_of_historic_sites",
+    "tprt:storm_potential",
+    "tprt:taboo_knowledge",
+    "tprt:the_power_of_beast",
+    "tprt:the_power_of_nine_dragons",
+    "tprt:the_spirit_of_evil_curse"
+  ]
+}

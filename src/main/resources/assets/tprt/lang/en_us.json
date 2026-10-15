@@ -386,7 +386,12 @@
 
   "modifier.tprt.storm_incarnation_arm": "Storm Incarnation",
   "modifier.tprt.storm_incarnation_arm.flavor":"I'm the storm that is approaching.",
-  "modifier.tprt.storm_incarnation_arm.description":"Reduces final damage taken by 2 (3 in water/rain); when accumulated damage reaches 50% of max health, releases a knockback force field around you (resets after 15s without new damage)",
+  "modifier.tprt.storm_incarnation_arm.description":"Reduces final damage taken by 2 (3 in water/rain); when accumulated damage reaches 50% of your max health, gain a shield that negates the next 5 attacks (5s trigger cooldown)",
+  "tprt.hud.attack_shield":"Negates %s attacks",
+
+  "modifier.tprt.tide_walker": "Tide Walker",
+  "modifier.tprt.tide_walker.flavor":"Walk the waves, ride the tide as wings",
+  "modifier.tprt.tide_walker.description":"Immune to fall damage; walk on water; fly freely while in water; brief flight while it rains and you are not in water (max 10s, refilled on landing)",
 
   "modifier.tprt.breath_of_the_abyss": "Breath of the abyss",
   "modifier.tprt.breath_of_the_abyss.flavor":"To the deepest, to the darkest",
@@ -1039,6 +1044,36 @@
 
   "modifier.tprt.combat_echo": "Combat Echo",
   "modifier.tprt.combat_echo.flavor": "Every blow you strike leaves its echo upon the world",
-  "modifier.tprt.combat_echo.description": "On hit, deals an additional attack for 50% of the original damage, sourced from the player and ignoring the target's invulnerability frames"
-
+  "modifier.tprt.combat_echo.description": "On hit, deals an additional attack for 50% of the original damage, sourced from the player and ignoring the target's invulnerability frames",
+  "item.tprt.lr_block": "LR Block",
+  "item.tprt.raw_lr_block": "Crude LR Block",
+  "effect.tprt.attack_shield": "Attack Shield",
+  "modifier.tprt.infinite_dropping": "Infinite Dropping",
+  "modifier.tprt.infinite_dropping.description": "Melee hits send the target falling endlessly",
+  "modifier.tprt.dynamic_defense": "Dynamic Defense",
+  "modifier.tprt.dynamic_defense.description": "Grants defense that scales with your current state",
+  "modifier.tprt.dynamic_attack": "Dynamic Attack",
+  "modifier.tprt.dynamic_attack.description": "Grants attack that scales with your current state",
+  "modifier.tprt.lightning_upgrade": "Lightning Upgrade",
+  "modifier.tprt.lightning_upgrade.description": "Increases Lightning spell power per level",
+  "modifier.tprt.zenith_first_fractal": "Zenith First Fractal",
+  "modifier.tprt.zenith_first_fractal.description": "The first fractal of the Zenith series",
+  "modifier.tprt.phantom_hurl": "Phantom Hurl",
+  "modifier.tprt.phantom_hurl.description": "Adds a phantom strike when thrown",
+  "modifier.tprt.tetanus": "Tetanus",
+  "modifier.tprt.tetanus.description": "Melee hits infect the target with tetanus",
+  "modifier.tprt.oxidation": "Oxidation",
+  "modifier.tprt.oxidation.description": "Attacks oxidize the target, consuming up to 1/3 of your durability",
+  "death.attack.lancer_richer_damage_type": "%1$s was impaled by a lance",
+  "death.attack.tprt_fire_damage_type": "%1$s was consumed by flames",
+  "death.attack.tprt_magic_damage_type": "%1$s was torn apart by magic",
+  "death.attack.tprt_pure_damage_type": "%1$s was erased by pure force",
+  "modifier.tprt.eldritch_attr": "Eldritch Power",
+  "modifier.tprt.eldritch_attr.flavor": "",
+  "modifier.tprt.eldritch_attr.description": "Increases Eldritch spell power by 10% per level",
+  "modifier.tprt.aqua_attr": "Aqua Power",
+  "modifier.tprt.aqua_attr.flavor": "",
+  "modifier.tprt.aqua_attr.description": "Increases Aqua spell power by 10% per level",
+  "modifier.tprt.enchanting.eldritch": "Eldritch Enchanting",
+  "modifier.tprt.enchanting.aqua": "Aqua Enchanting"
 }

@@ -7,6 +7,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
+import org.mylove.tprt.compat.Create.CreateCompat;
 import org.mylove.tprt.compat.Iceandfire.Iceandfire_Compat;
 import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
 import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
@@ -73,9 +74,7 @@ public class ItemsRegistry {
     public static final ItemObject<Item>Goldenfoxmask = ITEMS.register("golden_fox_mask",
         () -> new Goldenfoxmask(new Item.Properties(), "fox_mask", ImmutableMultimap.of()));*/
 //lr特供 龙神锭 -> 已移到 Iceandfire_Compat.MIXEDDRAGON (冰与火联动材料)
-//lr特供 锻造钢
-    public static final ItemObject<Item>FORGED_STEEL=ITEMS.register("forged_steel",
-        ()->new Item(new Item.Properties()));
+//lr特供 锻造钢 -> 已移到 CreateCompat.FORGED_STEEL (机械动力联动材料)
 //lr特供 源质合金 -> 已移到 IssCompat.SOURCE_ALLOY (铁魔法联动材料)
 //lr特供 超限玛玉灵
     public static final ItemObject<Item>ADVANCED_MANYULLYN=ITEMS.register("advanced_manyullyn",
@@ -88,6 +87,7 @@ public class ItemsRegistry {
 //  冰与火   -> Iceandfire_Compat.ICEANDFIRE_ITEMS         (composite_dragon_scales / mixeddragon)
 //  不朽乐事 -> Immortalers_Delight_Compat.ID_ITEMS        (kwat_wheat_grain_ingot / leisamboo_board)
 //  铁魔法   -> IssCompat.ISS_ITEMS                        (magic_blade / source_alloy / dark_knight_ingot)
+//  机械动力 -> CreateCompat.CREATE_ITEMS                   (forged_steel)
 
 
     //lr特供 锚剑
@@ -108,7 +108,6 @@ public class ItemsRegistry {
 
     public static void addCommonTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         //自有材料
-        tab.accept(FORGED_STEEL);
         tab.accept(ADVANCED_MANYULLYN);
         tab.accept(RADIANT_KNIGHTMETAL_INGOT);
         //联动模组物品: 没装对应模组就没有注册, 也就不往创造栏里放
@@ -117,6 +116,9 @@ public class ItemsRegistry {
         }
         if (ModListUtil.CALoaded) {
             CataclysmCompat.addCommonTabItems(tab);
+        }
+        if (ModListUtil.CreateLoaded) {
+            CreateCompat.addCommonTabItems(tab);
         }
         if (ModListUtil.IceandfireLoaded) {
             Iceandfire_Compat.addCommonTabItems(tab);

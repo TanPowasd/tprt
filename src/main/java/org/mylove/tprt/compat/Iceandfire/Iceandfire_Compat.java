@@ -9,7 +9,7 @@ import org.mylove.tprt.compat.Iceandfire.Modifires.Tide_Guardian;
 import org.mylove.tprt.compat.Iceandfire.Modifires.the_dragon_power;
 import org.mylove.tprt.registries.ModFluids;
 import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
-import slimeknights.mantle.registration.object.FluidObject;
+import slimeknights.mantle.registration.object.FlowingFluidObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
@@ -26,7 +26,7 @@ public class Iceandfire_Compat {
 
     /** 冰与火联动流体专用注册器 (熔融龙神钢) */
     public static final FluidDeferredRegister ICEANDFIRE_FLUIDS = new FluidDeferredRegister(Tprt.MODID);
-    public static final FluidObject<ForgeFlowingFluid> MIXEDDRAGON_FLUID = ModFluids.registerHotFluid(ICEANDFIRE_FLUIDS,"mixeddragon_fluid",4000,15,5,200,false);
+    public static final FlowingFluidObject<ForgeFlowingFluid> MIXEDDRAGON_FLUID = ModFluids.registerHotFluid(ICEANDFIRE_FLUIDS,"mixeddragon_fluid",4000,15,5,200,false);
 
     /** 创造物品栏条目: 由 ItemsRegistry 在检测到冰与火时调用 */
     public static void addCommonTabItems(CreativeModeTab.Output tab) {

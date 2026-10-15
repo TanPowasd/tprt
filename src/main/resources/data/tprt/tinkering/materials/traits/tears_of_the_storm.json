@@ -14,6 +14,10 @@
       {
         "level": 1,
         "name": "tprt:storm_incarnation_arm"
+      },
+      {
+        "level": 1,
+        "name": "tprt:tide_walker"
       }
     ]
   }
