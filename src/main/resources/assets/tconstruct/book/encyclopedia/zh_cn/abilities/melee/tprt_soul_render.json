@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:soul_render",
+  "text": [
+    { "text": "长按右键可以快速冲刺。潜行状态下，则改为在自身周围圆环范围内召唤幻影戟" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "需要1个能力槽"
+  ]
+}

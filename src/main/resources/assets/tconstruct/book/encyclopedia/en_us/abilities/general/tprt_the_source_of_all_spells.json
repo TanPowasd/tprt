@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:the_source_of_all_spells",
+  "text": [
+    { "text": "+1500 max mana, +300 mana regen, +60% total spell power" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

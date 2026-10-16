@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:abyss_call",
+  "text": [
+    { "text": "深不见底的海渊为你带来了一个升级槽，一个防御槽" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "无需槽位"
+  ]
+}

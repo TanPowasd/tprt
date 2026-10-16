@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:spell_resist",
+  "text": [
+    { "text": "Per level: Increases Spell Resist by B%" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires 1 defense slot"
+  ]
+}

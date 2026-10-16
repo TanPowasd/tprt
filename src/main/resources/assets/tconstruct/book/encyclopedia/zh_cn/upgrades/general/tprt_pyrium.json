@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:pyrium",
+  "text": [
+    { "text": "增强工具并提升最大法力值与法术强度" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "需要1个升级槽"
+  ]
+}

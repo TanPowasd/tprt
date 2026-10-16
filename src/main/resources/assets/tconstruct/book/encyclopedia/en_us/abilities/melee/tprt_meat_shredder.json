@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:meat_shredder",
+  "text": [
+    { "text": "Right-click damages entities in front (i-frame ignore)" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

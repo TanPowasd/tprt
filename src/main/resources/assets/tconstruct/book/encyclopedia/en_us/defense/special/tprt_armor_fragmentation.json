@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:armor_fragmentation",
+  "text": [
+    { "text": "Gain one upgrade slot at the cost of one defense slot" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires 1 defense slot"
+  ]
+}

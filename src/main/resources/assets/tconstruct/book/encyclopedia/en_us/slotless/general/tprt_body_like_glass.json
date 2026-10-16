@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:body_like_glass",
+  "text": [
+    { "text": "Damage dealt increased to 135%, but damage taken is doubled" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:break_the_path",
+  "text": [
+    { "text": "潜行右键可蓄力投掷，蓄力时间越长，投掷威力越大，投掷结束后将玩家传送至落点" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "需要1个能力槽"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:strengthen_for_charm_endurance",
+  "text": [
+    { "text": "每级+5%受到治疗效果" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高3级",
+    "每级需要1个能力槽"
+  ]
+}

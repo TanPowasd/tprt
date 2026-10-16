@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:bulwark_of_the_flame",
+  "text": [
+    { "text": "Release while sneaking to charge forward and damage entities in front.If the target hits a wall, it will receive extra damage and be temporarily stunned" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:molten_radiant_knightmetal", "required": false },
+    { "id": "tprt:flowing_molten_radiant_knightmetal", "required": false }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:pyrium",
+  "text": [
+    { "text": "Strength tools and improve your max mana and spell power" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 upgrade slot"
+  ]
+}

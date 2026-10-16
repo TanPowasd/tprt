@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:villager_spell_book",
+  "text": [
+    { "text": "+200最大法力值，+8%神圣法术强度，+8%法术吟唱缩减" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "无需槽位"
+  ]
+}

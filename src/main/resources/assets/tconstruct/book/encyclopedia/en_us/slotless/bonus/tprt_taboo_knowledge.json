@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:taboo_knowledge",
+  "text": [
+    { "text": "Mysterious ancient knowledge grant one upgrade slots" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

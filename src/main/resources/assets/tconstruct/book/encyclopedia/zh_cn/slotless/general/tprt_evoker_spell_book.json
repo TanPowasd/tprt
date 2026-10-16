@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:evoker_spell_book",
+  "text": [
+    { "text": "+200最大法力值，+10%唤魔法术强度" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "无需槽位"
+  ]
+}

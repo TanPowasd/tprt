@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:unreal_image",
+  "text": [
+    { "text": "获得持续性的隐身且周期性获得2级抗性提升" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "无需槽位"
+  ]
+}

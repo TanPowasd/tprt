@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:fear_nothing",
+  "text": [
+    { "text": "攻击距离+1.5格，提升所有类型的抗性" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "无需槽位"
+  ]
+}

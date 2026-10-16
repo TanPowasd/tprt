@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:advanced_luck",
+  "text": [
+    { "text": "Enemies drop more loot, and more items drop when mining" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 3 levels",
+    "Requires 1 ability slot per level"
+  ]
+}

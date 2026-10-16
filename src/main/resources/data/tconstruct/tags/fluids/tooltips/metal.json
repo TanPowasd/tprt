@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#tprt:molten_advanced_manyullyn",
+    "#tprt:molten_ancient_metal",
+    "#tprt:molten_arcane_metal",
+    "#tprt:molten_black_steel",
+    "#tprt:molten_dark_knight",
+    "#tprt:molten_pyrium",
+    "#tprt:molten_radiant_knightmetal",
+    "#tprt:forged_steel_fluid",
+    "#tprt:source_alloy_fluid"
+  ]
+}

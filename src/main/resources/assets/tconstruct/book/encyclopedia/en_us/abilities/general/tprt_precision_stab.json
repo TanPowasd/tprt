@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:precision_stab",
+  "text": [
+    { "text": "When attacking with its own tool, the final damage dealt is at least 10% of the player's attack power (armor and damage reduction ignored)." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

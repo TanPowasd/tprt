@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:villager_spell_book",
+  "text": [
+    { "text": "+200 max mana, +8% Holy spell power, +8% spell cast time reduction" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

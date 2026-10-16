@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:abyss_call",
+  "text": [
+    { "text": "The bottomless abyss brings you an upgrade slot and a defense slot." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

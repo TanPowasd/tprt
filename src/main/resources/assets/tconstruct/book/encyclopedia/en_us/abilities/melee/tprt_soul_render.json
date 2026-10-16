@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:soul_render",
+  "text": [
+    { "text": "You can Rush of Render.When used while sneaking, it summons Phantom Halberds in a spiral pattern" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

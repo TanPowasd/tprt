@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:renovation_of_historic_sites",
+  "text": [
+    { "text": "上古遗迹的残留为你带来了一个升级槽和一个防御槽" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "无需槽位"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:philosophers_stone",
+  "text": [
+    { "text": "The pinnacle work of alchemy grants one upgrade slot, one defense slot, and one ability slot" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

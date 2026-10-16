@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:fear_nothing",
+  "text": [
+    { "text": "Attack range +1.5 blocks. Increases all types of resistance" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

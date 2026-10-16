@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:eldritch_attr",
+  "text": [
+    { "text": "Increases Eldritch spell power by 10% per level" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

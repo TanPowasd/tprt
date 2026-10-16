@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:ice_staff",
+  "text": [
+    { "text": "+15% Ice spell power, +5% spell power, +25% mana regeneration" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:bulk_quiver",
+  "text": [
+    { "text": "Grants the bow 5 quiver slots. Hold the bow and press 'Attack' to switch slots. Sneak and press 'Attack' to access these slots. Can call Tinker's Arrows" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 3 levels",
+    "Requires 1 upgrade slot per level"
+  ]
+}

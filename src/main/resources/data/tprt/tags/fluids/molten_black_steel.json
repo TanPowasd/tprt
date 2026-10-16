@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:molten_black_steel", "required": false },
+    { "id": "tprt:flowing_molten_black_steel", "required": false }
+  ]
+}

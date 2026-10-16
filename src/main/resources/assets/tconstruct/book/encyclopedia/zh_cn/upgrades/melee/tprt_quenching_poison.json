@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:quenching_poison",
+  "text": [
+    { "text": "攻击会对目标施加中毒效果，最高5级，等级越高施加的持续时间越长（持续时间可叠加）" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高3级",
+    "每级需要1个升级槽"
+  ]
+}

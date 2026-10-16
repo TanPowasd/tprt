@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:pyrium_staff",
+  "text": [
+    { "text": "+15% Fire spell power, -15% spell cooldown reduction, +5% spell power" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

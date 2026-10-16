@@ -1,5 +1,5 @@
 {
-  "color": "ffdd3a",
+  "color": "FFFFFFFF",
   "flowing": "tprt:fluid/source_alloy_fluid/flowing",
   "still": "tprt:fluid/source_alloy_fluid/still"
 }

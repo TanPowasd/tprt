@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:advanced_sharpness",
+  "text": [
+    { "text": "Per level: Increases tool attack power by 10%" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 3 levels",
+    "Requires 1 upgrade slot per level"
+  ]
+}

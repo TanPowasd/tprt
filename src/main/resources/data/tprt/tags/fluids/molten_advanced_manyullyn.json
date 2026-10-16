@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:molten_advanced_manyullyn", "required": false },
+    { "id": "tprt:flowing_molten_advanced_manyullyn", "required": false }
+  ]
+}

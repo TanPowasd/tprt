@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:poisonous_explosion",
+  "text": [
+    { "text": "The attack will cause a small range of magic damage based on the level and duration of the target's current poisoning effect and clear the target's poisoning effect." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

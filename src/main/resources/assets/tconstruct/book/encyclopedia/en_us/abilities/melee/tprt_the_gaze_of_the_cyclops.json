@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:the_gaze_of_the_cyclops",
+  "text": [
+    { "text": "Attacks apply Weakness III for a short duration" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:blaze_spell_book",
+  "text": [
+    { "text": "+200 max mana, +10% Fire spell power" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

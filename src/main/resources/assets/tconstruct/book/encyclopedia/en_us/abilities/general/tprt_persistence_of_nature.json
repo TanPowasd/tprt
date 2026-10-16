@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:persistence_of_nature",
+  "text": [
+    { "text": "When current health is below 75%, being hit restores 3 + 3% of missing health. Trigger cooldown 0.5 seconds" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

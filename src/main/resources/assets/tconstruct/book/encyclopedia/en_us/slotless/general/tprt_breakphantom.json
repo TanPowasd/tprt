@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:breakphantom",
+  "text": [
+    { "text": "Releasing a spell while invisibility will clear the invisibility effect and increase the spell level by 2 levels." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

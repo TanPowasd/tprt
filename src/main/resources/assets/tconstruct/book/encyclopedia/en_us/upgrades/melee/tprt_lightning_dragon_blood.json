@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:lightning_dragon_blood",
+  "text": [
+    { "text": "Greatly increase melee damage, and will greatly repel the target when attacking." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 upgrade slot"
+  ]
+}

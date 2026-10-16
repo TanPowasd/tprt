@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:advanced_melting",
+  "text": [
+    { "text": "Smelts attacked targets and their drops, but with better effect" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

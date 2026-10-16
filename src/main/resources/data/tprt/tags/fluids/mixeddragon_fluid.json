@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:mixeddragon_fluid", "required": false },
+    { "id": "tprt:flowing_mixeddragon_fluid", "required": false }
+  ]
+}

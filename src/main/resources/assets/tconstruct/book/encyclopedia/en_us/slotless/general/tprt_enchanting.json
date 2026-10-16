@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:enchanting",
+  "text": [
+    { "text": "The upgrade recipe decides the school (fire/ice/lightning/holy/ender/blood/evocation/nature). On hit, a spell damage instance of that school is dealt right before the attack damage, 50% by default, scaled by generic and school spell power. Apply another recipe to swap the school" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Single level",
+    "Requires no slots"
+  ]
+}

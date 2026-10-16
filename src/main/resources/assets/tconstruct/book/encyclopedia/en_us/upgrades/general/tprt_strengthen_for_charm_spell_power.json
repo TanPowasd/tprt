@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:strengthen_for_charm_spell_power",
+  "text": [
+    { "text": "Per level: +5% spell power" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 5 levels",
+    "Requires 1 upgrade slot per level"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:elemental_mastery",
+  "text": [
+    { "text": "Spells are fully realized in your hands. Per level: Increases Frost, Blaze, Lightning, Nature, and Holy spell power by 10% each" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:magician",
+  "text": [
+    { "text": "Casting cooldown and spell cooldown are improved" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}
