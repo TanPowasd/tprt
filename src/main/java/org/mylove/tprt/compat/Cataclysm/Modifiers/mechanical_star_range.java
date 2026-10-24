@@ -68,7 +68,7 @@ public class mechanical_star_range extends NoLevelsModifier
     public static final int LASER_COST = 8;
 
     /** 系数 */
-    public static final float MISSILE_RATIO = 1.5F;
+    public static final float MISSILE_RATIO = 3F;
     public static final float LASER_RATIO = 12F;
     public static final float LASER_PER_MULTISHOT = 0.25F;
 
