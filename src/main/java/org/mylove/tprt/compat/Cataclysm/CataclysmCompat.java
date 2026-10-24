@@ -20,6 +20,14 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 public class CataclysmCompat {
     public static ModifierDeferredRegister Cataclysm_MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
+    public static final DeferredRegister<net.minecraft.world.entity.EntityType<?>> CATACLYSM_ENTITIES =
+            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Tprt.MODID);
+    public static final RegistryObject<net.minecraft.world.entity.EntityType<org.mylove.tprt.compat.Cataclysm.entity.TprtDeathLaser>> TPRT_DEATH_LASER =
+            CATACLYSM_ENTITIES.register("tprt_death_laser", () -> net.minecraft.world.entity.EntityType.Builder
+                    .<org.mylove.tprt.compat.Cataclysm.entity.TprtDeathLaser>of(org.mylove.tprt.compat.Cataclysm.entity.TprtDeathLaser::new,
+                            net.minecraft.world.entity.MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(32).updateInterval(1)
+                    .build("tprt_death_laser"));
     public static final DeferredRegister<MobEffect> Cataclysm_MODEFFECTS=DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Tprt.MODID);
 
     /** 灾变联动物品专用注册器: 只在装了灾变时才会在 Tprt 里挂到事件总线上 (没装就不注册, 也不进创造栏) */
@@ -54,6 +62,7 @@ public class CataclysmCompat {
     public static final StaticModifier<machine_iron_casting> machine_iron_casting;
     public static final StaticModifier<mechanical_star_arm> mechanical_star_arm;
     public static final StaticModifier<mechanical_star_att> mechanical_star_att;
+    public static final StaticModifier<mechanical_star_range> mechanical_star_range;
     public static final StaticModifier<soul_dodge> soul_dodge;
     public static final StaticModifier<Undead_Revive> Undead_Revive;
     public static final StaticModifier<Soul_puncture> Soul_puncture;
@@ -95,6 +104,7 @@ public class CataclysmCompat {
         machine_iron_casting = Cataclysm_MODIFIERS.register("machine_iron_casting", machine_iron_casting::new);
         mechanical_star_arm = Cataclysm_MODIFIERS.register("mechanical_star_arm", mechanical_star_arm::new);
         mechanical_star_att = Cataclysm_MODIFIERS.register("mechanical_star_att", mechanical_star_att::new);
+        mechanical_star_range = Cataclysm_MODIFIERS.register("mechanical_star_range", mechanical_star_range::new);
         soul_dodge = Cataclysm_MODIFIERS.register("soul_dodge", soul_dodge::new);
         Undead_Revive = Cataclysm_MODIFIERS.register("undead_revive", Undead_Revive::new);
         Soul_puncture = Cataclysm_MODIFIERS.register("soul_puncture", Soul_puncture::new);

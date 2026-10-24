@@ -4,6 +4,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.AttributesModifierHook;
@@ -16,7 +17,7 @@ import java.util.function.BiConsumer;
 
 public class machine_iron_casting extends NoLevelsModifier implements AttributesModifierHook {
 
-    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+    protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.ATTRIBUTES);
     }
@@ -36,7 +37,7 @@ public class machine_iron_casting extends NoLevelsModifier implements Attributes
         consumer.accept(Attributes.MOVEMENT_SPEED,new AttributeModifier(
                 BONUS_MOVESPEED_UUID,
                 "Bonus Movement Speed",
-                -0.25f,
+                -0.15f,
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         ));
     }

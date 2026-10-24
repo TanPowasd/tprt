@@ -15,6 +15,12 @@
         "level": 1,
         "name": "tprt:machine_iron_casting"
       }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:mechanical_star_range"
+      }
     ]
   }
 }

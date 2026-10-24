@@ -7,7 +7,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 public class Soul_casting_blade extends MobEffect {
     public Soul_casting_blade(){
-        super(MobEffectCategory.HARMFUL, 0x39d2b2);
+        super(MobEffectCategory.BENEFICIAL, 0x39d2b2);
         this.addAttributeModifier(ModAttribute.ADDITIONAL_CRITICAL_DAMAGE.get(), "e6222ded-db34-4e86-8873-5d1cb4b49f09", 25, AttributeModifier.Operation.ADDITION);
     }
     @Override

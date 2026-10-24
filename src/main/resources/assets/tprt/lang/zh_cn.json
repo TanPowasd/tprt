@@ -65,6 +65,8 @@
   "effect.tprt.myl_girig_pro": "贪欲",
   "effect.tprt.soul_casting_blade": "魂铸锋刃",
   "effect.tprt.soul_casting_blade.description": "提高暴击伤害",
+  "effect.tprt.source_charge": "源质蓄能",
+  "effect.tprt.source_echo": "源质回响",
 
 
   "common": "item",
@@ -158,7 +160,7 @@
   "material.tprt.cursium":"咒魂",
   "material.tprt.cursium.flavor":"昔日的传奇战士，今日的诅咒亡灵",
 
-  "material.tprt.witherite":"凋零合金",
+  "material.tprt.witherite":"凋灵合金",
   "material.tprt.witherite.flavor":"上古的科技结晶",
 
   "material.tprt.evil_beast_alloy":"恶兽合金",
@@ -265,25 +267,32 @@
   "modifier.tprt.be_thoroughly_tempered_curios.flavor":"锤锻的力量蕴含其中",
   "modifier.tprt.be_thoroughly_tempered_curios.description":"每级提高6%最大生命值以及6%攻击伤害",
 
-  "modifier.tprt.magic_sublimation":"魔力升华",
-  "modifier.tprt.magic_sublimation.flavor":"你的魔力变得无比纯净",
-  "modifier.tprt.magic_sublimation.description":"根据持有者的法术强度提高近战伤害",
+  "modifier.tprt.source_charge": "源质蓄能",
+  "modifier.tprt.source_charge.flavor": "每一次咏唱都在为金属充能",
+  "modifier.tprt.source_charge.description":"近战命中积累源质（最多5层，30秒刷新）；满层后下一次近战引爆，造成 本次伤害×层数×40%×√法强 的魔法伤害，并获得最大生命20%的临时生命（半血以下40%，持续30秒），同时使下次施法等级+50%",
+  "tooltip.tprt.source_charge.full": "源质蓄能已满",
 
-  "modifier.tprt.magic_sublimation_range":"魔力升华",
-  "modifier.tprt.magic_sublimation_range.flavor":"你的魔力变得无比纯净",
-  "modifier.tprt.magic_sublimation_range.description":"根据法术强度提高箭矢伤害",
+  "modifier.tprt.magic_arrow": "魔化之箭",
+  "modifier.tprt.magic_arrow.flavor": "让金属记住魔法的轨迹",
+  "modifier.tprt.magic_arrow.description": "箭矢命中时转化为魔法箭；每次命中积累1层源质蓄能，满5层时魔法箭伤害+50%",
 
   "modifier.tprt.source_alloy_charm":"魔力棱镜",
   "modifier.tprt.source_alloy_charm.flavor":"聚焦你的魔力",
-  "modifier.tprt.source_alloy_charm.description":"大幅提升法术强度，会主动吞噬持有者的魔力",
+  "modifier.tprt.source_alloy_charm.description":"大幅提升法术强度并吞噬持有者的魔力；使你的魔法投射物额外弹射1次",
 
   "modifier.tprt.source_alloy_armor":"魔源裹身",
   "modifier.tprt.source_alloy_armor.flavor":"自然的魔力正在涌向你",
   "modifier.tprt.source_alloy_armor.description":"提升法术抗性，法力上限和法力回复速度",
 
-  "modifier.tprt.source_alloy_spell_cloth":"法力凝聚",
-  "modifier.tprt.source_alloy_spell_cloth.flavor":"一字一言皆为法",
-  "modifier.tprt.source_alloy_spell_cloth.description":"大幅提高法术强度",
+  "modifier.tprt.mana_surge": "魔力涌动",
+  "modifier.tprt.mana_surge.flavor": "魔力在甲胄间涌动",
+  "modifier.tprt.mana_surge.description": "受击获得源质蓄能（最多5层），每层减伤5%；满层受到高额伤害时消耗全部层数，伤害削减75%并以50法力抵1点，最低保留25%",
+  "tooltip.tprt.mana_surge.trigger": "魔源护体",
+  "tooltip.tprt.mana_surge.ready": "魔源护体就绪",
+
+  "modifier.tprt.arcane_echo":"奥法回响",
+  "modifier.tprt.arcane_echo.flavor":"回响的咒文再度生效",
+  "modifier.tprt.arcane_echo.description":"施法记录最近3个法术并叠加源质蓄能；满5层时消耗全部层数，按顺序重放这3个法术（不耗法力、不进冷却、无视无敌帧）",
 
   "modifier.tprt.advanced_greed": "贪欲",
   "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
@@ -338,15 +347,23 @@
 
   "modifier.tprt.mechanical_star_att": "机械之星",
   "modifier.tprt.mechanical_star_att.flavor":"机械工程的杰作，战争机器的化身",
-  "modifier.tprt.mechanical_star_att.description":"你的护甲值和盔甲韧性会提高造成伤害",
+  "modifier.tprt.mechanical_star_att.description":"护甲值与盔甲韧性提高造成伤害；命中会记录目标（最多3个，10秒），攻击已记录的目标时其它被记录目标同步受到一次相同攻击，每个协同目标消耗10点充能；持有时每0.5秒消耗4个红石补充10点充能（上限160）",
+  "modifier.tprt.mechanical_star_att.tooltip": "机械充能：%s/%s",
+
+  "modifier.tprt.mechanical_star_range": "机械之星",
+  "modifier.tprt.mechanical_star_range.flavor": "机械工程的杰作，战争机器的化身",
+  "modifier.tprt.mechanical_star_range.description":"射击时额外发射追踪凋零飞弹（数量随多重射击提升，护甲值每20点额外+1枚（最多+2），每枚消耗2点充能）；飞弹伤害按一次满蓄力射击计算；潜行射击改为发射死亡激光（8点充能，伤害随多重射击提升）；持有时每0.5秒消耗4个红石补充10点充能（上限160）",
+  "modifier.tprt.mechanical_star_range.tooltip": "机械充能：%s/%s",
+  "modifier.tprt.mechanical_star_att.targets": "已锁定目标：%s/3",
 
   "modifier.tprt.mechanical_star_arm": "机械之星",
   "modifier.tprt.mechanical_star_arm.flavor":"机械工程的杰作，战争机器的化身",
-  "modifier.tprt.mechanical_star_arm.description":"你的护甲值和盔甲韧性会提供受到伤害减免",
+  "modifier.tprt.mechanical_star_arm.description":"受到伤害时，将20%的伤害转化为吸收护盾（上限为最大生命的50%）；护盾存在期间免疫击退；护盾被击破时「装甲过载」：获得3秒速度提升并免疫击退，10秒冷却",
+  "tooltip.tprt.mechanical_star_arm.overload": "装甲过载",
 
   "modifier.tprt.machine_iron_casting": "机铁铸就",
   "modifier.tprt.machine_iron_casting.flavor":"这种高密度材料带来的防御性能无与伦比，但是也非常沉重",
-  "modifier.tprt.machine_iron_casting.description":"+20%护甲值，但是-25%移动速度",
+  "modifier.tprt.machine_iron_casting.description":"+20%护甲值，但是-15%移动速度",
 
   "modifier.tprt.cinder_slash": "熔毁",
   "modifier.tprt.cinder_slash.flavor": "迸射熔岩的毁灭打击",
@@ -788,6 +805,13 @@
   "modifier.tprt.imbued": "法术注入",
   "modifier.tprt.imbued.flavor":"让你的工具学会法术！",
   "modifier.tprt.imbued.description":"允许将法术注入到工具中",
+
+  "modifier.tprt.affinity": "亲和",
+  "modifier.tprt.affinity.flavor": "戒指与工具之间产生了共鸣",
+  "modifier.tprt.affinity.description": "使物品获得亲和：主手拿法术卷轴、副手拿带此词条的物品，潜行右键即可记录该法术；施放该法术时等级+1（主手/副手/饰品均生效，法术轮盘不显示）。加成等级与允许的法术由数据包配置",
+  "tooltip.tprt.affinity.empty": "亲和：未定调（主手卷轴 + 副手物品，潜行右键记录）",
+  "tooltip.tprt.affinity.recorded": "亲和：%s +%s 级（仅施法时生效，法术轮盘不显示）",
+  "tooltip.tprt.affinity.not_allowed": "亲和不允许记录：%s",
 
   "modifier.tprt.netherite_spell_book": "远古法典增强",
   "modifier.tprt.netherite_spell_book.flavor":"镌刻法典的力量",

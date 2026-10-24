@@ -13,7 +13,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
+import org.mylove.tprt.compat.Cataclysm.CataclysmCompat;
+
 import org.mylove.tprt.compat.Create.CreateCompat;
 import org.mylove.tprt.compat.Cloudertinker.CTCompat;
 import org.mylove.tprt.compat.Goety.GoetyCompat;
@@ -46,11 +47,15 @@ public class Tprt {
         /*ModMagic.register(modEventBus);*/
         ModifierRegistry.register(modEventBus);
         ModEntities.register(modEventBus);
+        org.mylove.tprt.registries.ModSounds.SOUNDS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
 
         if (ModListUtil.ISSLoaded) {
             IssCompat.Iss_MODIFIERS.register(modEventBus);
+            IssCompat.Iss_MODEFFECTS.register(modEventBus);
+            IssCompat.ISS_ENTITIES.register(modEventBus);
+            modEventBus.addListener(IssCompat::onEntityAttributes);
             IssCompat.ISS_FLUIDS.register(modEventBus);
             IssCompat.ISS_ITEMS.register(modEventBus);
             LOGGER.info("Found Iron's Spellbooks, integration initializing……");
@@ -66,6 +71,7 @@ public class Tprt {
         }
         if (ModListUtil.CALoaded) {
             CataclysmCompat.Cataclysm_MODIFIERS.register(modEventBus);
+        CataclysmCompat.CATACLYSM_ENTITIES.register(modEventBus);
             CataclysmCompat.Cataclysm_MODEFFECTS.register(modEventBus);
             CataclysmCompat.CATACLYSM_ITEMS.register(modEventBus);
             CataclysmCompat.CATACLYSM_FLUIDS.register(modEventBus);

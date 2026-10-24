@@ -1,8 +1,8 @@
 {
-  "condition": {
+  "conditions": [{
     "modid": "goety",
     "type": "forge:mod_loaded"
-  },
+  }],
   "type": "tconstruct:modifier_salvage",
   "modifier": "tprt:soul_convergence",
   "slots": {

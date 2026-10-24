@@ -1,9 +1,15 @@
 package org.mylove.tprt.compat.IronsSpellBooks;
 
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.mylove.tprt.Tprt;
+import org.mylove.tprt.compat.IronsSpellBooks.ModEffects.source_charge;
+import org.mylove.tprt.compat.IronsSpellBooks.ModEffects.source_echo;
 import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.*;
 import org.mylove.tprt.compat.IronsSpellBooks.Modifiers.Curios.*;
 import org.mylove.tprt.registries.ModFluids;
@@ -29,6 +35,21 @@ public class IssCompat {
     public static final FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DARK_KNIGHT=ModFluids.registerHotFluid(ISS_FLUIDS,"molten_dark_knight",2255,4,5,2,false);
 
     public static ModifierDeferredRegister Iss_MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
+
+    public static final DeferredRegister<MobEffect> Iss_MODEFFECTS=DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Tprt.MODID);
+
+    /** 奥法回响的临时施法者 (仅在铁魔法加载时注册) */
+    public static final DeferredRegister<net.minecraft.world.entity.EntityType<?>> ISS_ENTITIES =
+            DeferredRegister.create(net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES, Tprt.MODID);
+    public static final RegistryObject<net.minecraft.world.entity.EntityType<org.mylove.tprt.compat.IronsSpellBooks.entity.EchoCaster>> ECHO_CASTER =
+            ISS_ENTITIES.register("echo_caster", () -> net.minecraft.world.entity.EntityType.Builder
+                    .of(org.mylove.tprt.compat.IronsSpellBooks.entity.EchoCaster::new, net.minecraft.world.entity.MobCategory.MISC)
+                    .sized(0.6F, 1.8F).build("echo_caster"));
+
+    /** 源质蓄能层数 */
+    public static final RegistryObject<MobEffect> SOURCE_CHARGE=Iss_MODEFFECTS.register("source_charge", org.mylove.tprt.compat.IronsSpellBooks.ModEffects.source_charge::new);
+    /** 源质回响: 下次施法等级提升 */
+    public static final RegistryObject<MobEffect>SOURCE_ECHO=Iss_MODEFFECTS.register("source_echo", source_echo::new);
     /**
      * 铁魔法联动物品专用注册器: 和词条 ({@link #Iss_MODIFIERS}) 与流体 ({@link #ISS_FLUIDS}) 一样,
      * 只有检测到铁魔法时才会在 Tprt 里挂到事件总线上 —— 没装就完全不注册,
@@ -43,9 +64,9 @@ public class IssCompat {
 
     //lr特供 源质合金 / 濡湿骑士锭 (铁魔法联动材料, 材料定义里已带 irons_spellbooks 条件)
     public static final ItemObject<Item> SOURCE_ALLOY = ISS_ITEMS.register("source_alloy",
-            ()->new Item(new Item.Properties()));
+            ()->new org.mylove.tprt.compat.IronsSpellBooks.GlintingItem(new Item.Properties()));
     public static final ItemObject<Item> DARK_KNIGHT_INGOT = ISS_ITEMS.register("dark_knight_ingot",
-            ()->new Item(new Item.Properties()));
+            ()->new org.mylove.tprt.compat.IronsSpellBooks.GlintingItem(new Item.Properties()));
 
     /** 创造物品栏条目: 由 ItemsRegistry 在检测到铁魔法时调用 */
     public static void addToolTabItems(CreativeModeTab.Output tab) {
@@ -57,8 +78,6 @@ public class IssCompat {
     }
 
     public static final StaticModifier<enchanting> enchanting;
-    public static StaticModifier<Magic_Sublimation_Range> Magic_Sublimation_Range;
-    public static StaticModifier<Magic_sublimation> Magic_sublimation;
     public static StaticModifier<human_turpentine> Human_turpentine;
     public static StaticModifier<Release_spells> Release_spells;
     public static StaticModifier<Immolate> ImmoLate;
@@ -88,6 +107,16 @@ public class IssCompat {
     public static StaticModifier<mana_regeneration> mana_regeneration;
     public static StaticModifier<ruthless_and_tyrannical_spell> ruthless_and_tyrannical_spell;
     public static StaticModifier<magician> magician;
+    /** 亲和: 让工具获得亲和之戒的效果 (默认 +1 级, 之后可在奥术铁砧上更换法术) */
+    public static StaticModifier<Affinity> affinity;
+    /** 源质蓄能 */
+    public static StaticModifier<Source_charge> source_charge;
+    /** 魔化之箭 (取代远程的魔力升华) */
+    public static StaticModifier<Magic_arrow> magic_arrow;
+    /** 魔源裹身 (护甲) */
+    public static StaticModifier<Mana_surge> mana_surge;
+    /** 奥法回响 (法术书布) */
+    public static StaticModifier<Arcane_echo> arcane_echo;
     public static StaticModifier<fountain_magic> fountain_magic;
     public static StaticModifier<elemental_mastery> elemental_mastery;
     public static StaticModifier<bloodstain> bloodstain;
@@ -95,8 +124,13 @@ public class IssCompat {
     public static StaticModifier<source_alloy_spell_cloth> source_alloy_spell_cloth;
     static {
         enchanting = Iss_MODIFIERS.register("enchanting", enchanting::new);
-        Magic_Sublimation_Range = Iss_MODIFIERS.register("magic_sublimation_range", Magic_Sublimation_Range::new);
-        Magic_sublimation = Iss_MODIFIERS.register("magic_sublimation", Magic_sublimation::new);
+
+        affinity = Iss_MODIFIERS.register("affinity", Affinity::new);
+        source_charge = Iss_MODIFIERS.register("source_charge", Source_charge::new);
+        magic_arrow = Iss_MODIFIERS.register("magic_arrow", Magic_arrow::new);
+        mana_surge = Iss_MODIFIERS.register("mana_surge", Mana_surge::new);
+        arcane_echo = Iss_MODIFIERS.register("arcane_echo", Arcane_echo::new);
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(Chaos_Charm::onEntityJoin);
         Human_turpentine = Iss_MODIFIERS.register("human_turpentine", human_turpentine::new);
         Release_spells = Iss_MODIFIERS.register("release_spells", Release_spells::new);
         ImmoLate = Iss_MODIFIERS.register("immolate", Immolate::new);
@@ -132,5 +166,9 @@ public class IssCompat {
         source_alloy_charm = Iss_MODIFIERS.register("source_alloy_charm", source_alloy_charm::new);
         source_alloy_spell_cloth = Iss_MODIFIERS.register("source_alloy_spell_cloth", source_alloy_spell_cloth::new);
     }
-}
 
+    /** 实体属性注册 (必须在模组事件总线上调用) */
+    public static void onEntityAttributes(net.minecraftforge.event.entity.EntityAttributeCreationEvent event) {
+        event.put(ECHO_CASTER.get(), org.mylove.tprt.compat.IronsSpellBooks.entity.EchoCaster.createAttributes().build());
+    }
+}

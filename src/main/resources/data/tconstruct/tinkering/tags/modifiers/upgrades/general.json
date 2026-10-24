@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tprt:affinity",
     "tprt:pyrium",
     "tprt:solid_armor",
     "tprt:soul_convergence",

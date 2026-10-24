@@ -25,7 +25,7 @@ public class source_alloy_charm extends CuriosModifier {
     private static final UUID ID = UUID.fromString("c1753321-e847-4f24-8000-8e82df1afec2");
 
     public void modifyCurioAttribute(IToolStackView curio, ModifierEntry entry, SlotContext context, UUID uuid, BiConsumer<Attribute, AttributeModifier> consumer) {
-        consumer.accept(AttributeRegistry.SPELL_POWER.get(), new AttributeModifier(ID, "source_alloy_charm", 0.35 * (float)entry.getLevel(), AttributeModifier.Operation.MULTIPLY_TOTAL));
+        consumer.accept(AttributeRegistry.SPELL_POWER.get(), new AttributeModifier(ID, "source_alloy_charm", 0.35 , AttributeModifier.Operation.MULTIPLY_TOTAL));
     }
 
     @Override

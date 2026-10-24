@@ -58,6 +58,8 @@
   "effect.tprt.myl_girig_pro": "Greed",
   "effect.tprt.soul_casting_blade": "Soul Casting Blade",
   "effect.tprt.soul_casting_blade.description": "Increase critical strike damage",
+  "effect.tprt.source_charge": "Source Charge",
+  "effect.tprt.source_echo": "Source Echo",
 
   "common": "item",
   "item.tprt.leisamboo_board":"：Leisamboo Template",
@@ -255,25 +257,32 @@
   "modifier.tprt.be_thoroughly_tempered_curios.flavor":"The power of forging lies within",
   "modifier.tprt.be_thoroughly_tempered_curios.description":"Per level: Increases max health by 6% and attack damage by 6%",
 
-  "modifier.tprt.magic_sublimation":"Magic Sublimation",
-  "modifier.tprt.magic_sublimation.flavor":"Your magic becomes pure and powerful",
-  "modifier.tprt.magic_sublimation.description":"Increases melee damage based on the wielder's spell power",
+  "modifier.tprt.source_charge": "Source Charge",
+  "modifier.tprt.source_charge.flavor": "Every incantation feeds the metal",
+  "modifier.tprt.source_charge.description":"Melee hits build Source Charge (max 5, 30s). At 5 stacks the next melee detonates for hit damage x layers x 40% x sqrt(spell power) as magic damage, grants 20% max-health absorption (40% below half health, 30s), and empowers the next cast with +50% spell level",
+  "tooltip.tprt.source_charge.full": "Source Charge is full",
 
-  "modifier.tprt.magic_sublimation_range":"Magic Sublimation",
-  "modifier.tprt.magic_sublimation_range.flavor":"Your magic becomes pure and powerful",
-  "modifier.tprt.magic_sublimation_range.description":"Increases arrow damage based on spell power",
+  "modifier.tprt.magic_arrow": "Magic Arrow",
+  "modifier.tprt.magic_arrow.flavor": "The metal remembers the arcane",
+  "modifier.tprt.magic_arrow.description": "Arrows turn into magic arrows on impact; each hit gains 1 Source Charge, and at 5 stacks magic arrow damage is +50%",
 
   "modifier.tprt.source_alloy_charm":"Magic Prism",
   "modifier.tprt.source_alloy_charm.flavor":"Focus your magical power",
-  "modifier.tprt.source_alloy_charm.description":"Greatly increases spell power. Actively consumes the wielder's mana",
+  "modifier.tprt.source_alloy_charm.description":"Greatly increases spell power at the cost of draining your mana; your spell projectiles ricochet 1 extra time",
 
   "modifier.tprt.source_alloy_armor":"Mantled in Source",
   "modifier.tprt.source_alloy_armor.flavor":"The natural magic flows towards you",
   "modifier.tprt.source_alloy_armor.description":"Increases spell resistance, max mana, and mana regeneration speed",
 
-  "modifier.tprt.source_alloy_spell_cloth":"Mana Condensation",
-  "modifier.tprt.source_alloy_spell_cloth.flavor":"Every word and character is magic",
-  "modifier.tprt.source_alloy_spell_cloth.description":"Greatly increases spell power",
+  "modifier.tprt.mana_surge": "Mana Surge",
+  "modifier.tprt.mana_surge.flavor": "Mana surges through the plating",
+  "modifier.tprt.mana_surge.description": "Gains Source Charge on hit (max 5, +5% damage reduction each); at full charge a heavy hit consumes all stacks, cutting damage by up to 75% at 50 mana per point, down to a 25% floor",
+  "tooltip.tprt.mana_surge.trigger": "Mana Barrier",
+  "tooltip.tprt.mana_surge.ready": "Mana Barrier ready",
+
+  "modifier.tprt.arcane_echo": "Arcane Echo",
+  "modifier.tprt.arcane_echo.flavor":"Echoed incantations sound again",
+  "modifier.tprt.arcane_echo.description": "Casting records the last 3 spells and builds Source Charge; at 5 stacks all stacks are consumed and those 3 spells are re-cast in order (no mana, no cooldown, ignores invulnerability frames)",
 
   "modifier.tprt.advanced_greed": "Greed",
   "modifier.tprt.advanced_greed.flavor":"When was it ever enough?",
@@ -328,15 +337,23 @@
 
   "modifier.tprt.mechanical_star_att": "Mechanical Star",
   "modifier.tprt.mechanical_star_att.flavor":"A marvel of engineering, the embodiment of a war machine",
-  "modifier.tprt.mechanical_star_att.description":"Your armor and armor toughness increases damage dealt",
+  "modifier.tprt.mechanical_star_att.description":"Armor and toughness increase damage dealt. Hits lock onto targets (up to 3, 10s); attacking a locked target makes the other locked targets take the same hit, costing 10 charge each. While held, 4 redstone every 0.5s refills 10 charge (max 160)",
+  "modifier.tprt.mechanical_star_att.tooltip": "Mech Charge: %s/%s",
+
+  "modifier.tprt.mechanical_star_range": "Mechanical Star",
+  "modifier.tprt.mechanical_star_range.flavor": "A masterpiece of mechanical engineering, the incarnation of a war machine",
+  "modifier.tprt.mechanical_star_range.description":"Shots additionally fire homing wither missiles: count scales with Multishot, plus +1 per 20 armor (max +2), 2 charge each. Missile damage is computed from a fully drawn shot. Sneaking while shooting fires a Death Laser instead (8 charge, damage scales with Multishot). While held, 4 redstone every 0.5s refills 10 charge (max 160)",
+  "modifier.tprt.mechanical_star_range.tooltip": "Mech Charge: %s/%s",
+  "modifier.tprt.mechanical_star_att.targets": "Locked targets: %s/3",
 
   "modifier.tprt.mechanical_star_arm": "Mechanical Star",
   "modifier.tprt.mechanical_star_arm.flavor":"A marvel of engineering, the embodiment of a war machine",
-  "modifier.tprt.mechanical_star_arm.description":"Your armor and armor toughness provides damage reduction",
+  "modifier.tprt.mechanical_star_arm.description":"Taking damage converts 20% of it into a shield (capped at 50% max health). While the shield holds you are immune to knockback. When it breaks, ARMOR OVERLOAD grants 3s of speed and knockback immunity (10s cooldown)",
+  "tooltip.tprt.mechanical_star_arm.overload": "ARMOR OVERLOAD",
 
   "modifier.tprt.machine_iron_casting": "Machined Iron Casting",
   "modifier.tprt.machine_iron_casting.flavor":"The defensive properties of this high-density material are unparalleled, but it is also very heavy",
-  "modifier.tprt.machine_iron_casting.description":"+20% armor value, but -25% movement speed",
+  "modifier.tprt.machine_iron_casting.description":"+20% armor value, but -15% movement speed",
 
   "modifier.tprt.cinder_slash": "Cinder Slash",
   "modifier.tprt.cinder_slash.flavor": "A devastating strike that spews lava",
@@ -776,6 +793,13 @@
   "modifier.tprt.imbued": "Spell injection",
   "modifier.tprt.imbued.flavor":"Let your tools learn magic!",
   "modifier.tprt.imbued.description":"Allows you to inject spells into the tool.",
+
+  "modifier.tprt.affinity": "Affinity",
+  "modifier.tprt.affinity.flavor": "The ring resonates with your tool",
+  "modifier.tprt.affinity.description": "Grants Affinity: hold a spell scroll in your main hand and the imbued item in your offhand, then sneak-right-click to record that spell; casting it grants +1 level (works from main hand, off hand and curios; the spell wheel does not show it). The bonus and allowed spells are datapack configurable",
+  "tooltip.tprt.affinity.empty": "Affinity: unattuned (sneak-right-click with a scroll in your main hand)",
+  "tooltip.tprt.affinity.recorded": "Affinity: %s +%s (applies on cast only; the spell wheel does not show it)",
+  "tooltip.tprt.affinity.not_allowed": "Affinity does not allow: %s",
 
   "modifier.tprt.netherite_spell_book": "Ancient Codex Enhancement",
   "modifier.tprt.netherite_spell_book.flavor":"The power of engraved codex",

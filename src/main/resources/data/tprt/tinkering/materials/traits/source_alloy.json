@@ -2,26 +2,30 @@
   "default": [
     {
       "level": 1,
-      "name": "tprt:magic_sublimation"
+      "name": "tprt:source_charge"
     }
   ],
   "perStat": {
     "sakuratinker:tinker_spell_book": [
       {
         "level": 1,
-        "name": "tprt:source_alloy_spell_cloth"
+        "name": "tprt:arcane_echo"
       }
       ],
     "tconstruct:armor": [
       {
         "level": 1,
         "name": "tprt:source_alloy_armor"
+      },
+      {
+        "level": 1,
+        "name": "tprt:mana_surge"
       }
     ],
     "tconstruct:ranged": [
       {
         "level": 1,
-        "name": "tprt:magic_sublimation_range"
+        "name": "tprt:magic_arrow"
       }
     ],
     "sakuratinker:charm":[
