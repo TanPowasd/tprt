@@ -1,8 +1,8 @@
 package org.mylove.tprt.client;
 
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -23,15 +23,12 @@ public class ClientModEvents {
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.CINDER_SLASH_PARTICLE.get(), CinderParticleRenderer::new);
+        // 联动注册全部放在独立类里, 只有对应模组存在时才会被加载
         if (org.mylove.tprt.utils.ModListUtil.CALoaded) {
-            event.registerEntityRenderer(org.mylove.tprt.compat.Cataclysm.CataclysmCompat.TPRT_DEATH_LASER.get(),
-                    ctx -> (net.minecraft.client.renderer.entity.EntityRenderer)
-                            new com.github.L_Ender.cataclysm.client.render.entity.Death_Laser_beam_Renderer(ctx));
+            CataclysmClientCompat.registerRenderers(event);
         }
-        // 奥法回响的临时施法者 (仅铁魔法加载时注册)
         if (org.mylove.tprt.utils.ModListUtil.ISSLoaded) {
-            event.registerEntityRenderer(org.mylove.tprt.compat.IronsSpellBooks.IssCompat.ECHO_CASTER.get(),
-                    org.mylove.tprt.compat.IronsSpellBooks.entity.EchoCasterRenderer::new);
+            IssClientCompat.registerRenderers(event);
         }
     }
 
