@@ -1,0 +1,21 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "tconstruct:player.jump_count",
+          "operation": "addition",
+          "value": 0.5
+        },
+        {
+          "attribute": "forge:entity_gravity",
+          "operation": "multiply_total",
+          "value": -0.2
+        }
+      ],
+      "name": "tprt:sky_affinity"
+    }
+  ]
+}

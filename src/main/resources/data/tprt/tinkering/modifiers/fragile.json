@@ -1,0 +1,22 @@
+{
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "cloudertinker" }],
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.max_health",
+          "operation": "multiply_total",
+          "value": -0.35
+        },
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "multiply_total",
+          "value": 0.25
+        }
+      ],
+      "name": "tprt:fragile"
+    }
+  ]
+}

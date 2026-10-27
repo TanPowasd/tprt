@@ -1,0 +1,27 @@
+{
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "irons_spellbooks" }],
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "irons_spellbooks:max_mana",
+          "operation": "addition",
+          "value": 1500
+        },
+        {
+          "attribute": "irons_spellbooks:mana_regen",
+          "operation": "addition",
+          "value": 300
+        },
+        {
+          "attribute": "irons_spellbooks:spell_power",
+          "operation": "multiply_total",
+          "value": 0.6
+        }
+      ],
+      "name": "tprt:the_source_of_all_spells"
+    }
+  ]
+}

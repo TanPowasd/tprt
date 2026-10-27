@@ -28,7 +28,7 @@ import slimeknights.tconstruct.tools.item.ModifiableSwordItem;
 public class IssCompat {
 
     public static final FluidDeferredRegister ISS_FLUIDS=new FluidDeferredRegister(Tprt.MODID);
-    //lr特供 铁魔法联动流体 (熔融派瑞姆 / 熔融奥术金属 / 熔融源质合金 / 熔融濡湿骑士)
+    //lr閻楅€涚返 闁句線鐡熷▔鏇′粓閸斻劍绁︽担?(閻旀棁鐎哄ú鍓ф喓婵?/ 閻旀棁鐎烘總銉︽钩闁叉垵鐫?/ 閻旀棁鐎哄┃鎰窛閸氬牓鍣?/ 閻旀棁鐎哄┑鈩冪畭妤犳垵锛?
     public static final FlowingFluidObject<ForgeFlowingFluid> molten_pyrium=ModFluids.registerHotFluid(ISS_FLUIDS,"molten_pyrium",2000,8,5,5,false);
     public static final FlowingFluidObject<ForgeFlowingFluid> molten_arcane_metal=ModFluids.registerHotFluid(ISS_FLUIDS,"molten_arcane_metal",1000,4,5,2,false);
     public static final FlowingFluidObject<ForgeFlowingFluid> SOURCE_ALLOY_FLUID=ModFluids.registerHotFluid(ISS_FLUIDS,"source_alloy_fluid",3500,4,5,2,false);
@@ -38,7 +38,7 @@ public class IssCompat {
 
     public static final DeferredRegister<MobEffect> Iss_MODEFFECTS=DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Tprt.MODID);
 
-    /** 奥法回响的临时施法者 (仅在铁魔法加载时注册) */
+    /** 婵傘儲纭堕崶鐐叉惙閻ㄥ嫪澶嶉弮鑸垫煢濞夋洝鈧?(娴犲懎婀柧渚€鐡熷▔鏇炲鏉炶姤妞傚▔銊ュ斀) */
     public static final DeferredRegister<net.minecraft.world.entity.EntityType<?>> ISS_ENTITIES =
             DeferredRegister.create(net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES, Tprt.MODID);
     public static final RegistryObject<net.minecraft.world.entity.EntityType<org.mylove.tprt.compat.IronsSpellBooks.entity.EchoCaster>> ECHO_CASTER =
@@ -46,29 +46,29 @@ public class IssCompat {
                     .of(org.mylove.tprt.compat.IronsSpellBooks.entity.EchoCaster::new, net.minecraft.world.entity.MobCategory.MISC)
                     .sized(0.6F, 1.8F).build("echo_caster"));
 
-    /** 源质蓄能层数 */
+    /** 濠ф劘宸濋拑鍕厴鐏炲倹鏆?*/
     public static final RegistryObject<MobEffect> SOURCE_CHARGE=Iss_MODEFFECTS.register("source_charge", org.mylove.tprt.compat.IronsSpellBooks.ModEffects.source_charge::new);
-    /** 源质回响: 下次施法等级提升 */
+    /** 濠ф劘宸濋崶鐐叉惙: 娑撳顐奸弬鑺ョ《缁涘楠囬幓鎰磳 */
     public static final RegistryObject<MobEffect>SOURCE_ECHO=Iss_MODEFFECTS.register("source_echo", source_echo::new);
     /**
-     * 铁魔法联动物品专用注册器: 和词条 ({@link #Iss_MODIFIERS}) 与流体 ({@link #ISS_FLUIDS}) 一样,
-     * 只有检测到铁魔法时才会在 Tprt 里挂到事件总线上 —— 没装就完全不注册,
-     * 所以注法者既不在注册表里, 也不会出现在创造物品栏。
+     * 闁句線鐡熷▔鏇′粓閸斻劎澧块崫浣风瑩閻劍鏁為崘灞芥珤: 閸滃矁鐦濋弶?({@link #Iss_MODIFIERS}) 娑撳孩绁︽担?({@link #ISS_FLUIDS}) 娑撯偓閺?
+     * 閸欘亝婀佸Λ鈧ù瀣煂闁句線鐡熷▔鏇熸閹靛秳绱伴崷?Tprt 闁插本瀵曢崚棰佺皑娴犺埖鈧崵鍤庢稉?閳ユ柡鈧?濞屄ゎ棅鐏忓崬鐣崗銊ょ瑝濞夈劌鍞?
+     * 閹碘偓娴犮儲鏁炲▔鏇♀偓鍛＆娑撳秴婀▔銊ュ斀鐞涖劑鍣? 娑旂喍绗夋导姘毉閻滄澘婀崚娑⑩偓鐘靛⒖閸濅焦鐖妴?
      */
     public static final ItemDeferredRegisterExtension ISS_ITEMS = new ItemDeferredRegisterExtension(Tprt.MODID);
-    /** 注法者的工具定义 (跟物品一起, 只在装了铁魔法时创建) */
+    /** 濞夈劍纭堕懓鍛畱瀹搞儱鍙跨€规矮绠?(鐠虹喓澧块崫浣风鐠? 閸欘亜婀憗鍛啊闁句線鐡熷▔鏇熸閸掓稑缂? */
     public static final ToolDefinition MAGIC_BLADE = ToolDefinition.create(Tprt.getResource("magic_blade"));
-    //lr特供 注法者 (铁魔法联动)
+    //lr閻楅€涚返 濞夈劍纭堕懓?(闁句線鐡熷▔鏇′粓閸?
     public static final ItemObject<ModifiableItem> magic_blade = ISS_ITEMS.register("magic_blade",
             ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, MAGIC_BLADE));
 
-    //lr特供 源质合金 / 濡湿骑士锭 (铁魔法联动材料, 材料定义里已带 irons_spellbooks 条件)
+    //lr閻楅€涚返 濠ф劘宸濋崥鍫ュ櫨 / 濠碘剝绠嶆鎴濓紜闁?(闁句線鐡熷▔鏇′粓閸斻劍娼楅弬? 閺夋劖鏋＄€规矮绠熼柌灞藉嚒鐢?irons_spellbooks 閺夆€叉)
     public static final ItemObject<Item> SOURCE_ALLOY = ISS_ITEMS.register("source_alloy",
             ()->new org.mylove.tprt.compat.IronsSpellBooks.GlintingItem(new Item.Properties()));
     public static final ItemObject<Item> DARK_KNIGHT_INGOT = ISS_ITEMS.register("dark_knight_ingot",
             ()->new org.mylove.tprt.compat.IronsSpellBooks.GlintingItem(new Item.Properties()));
 
-    /** 创造物品栏条目: 由 ItemsRegistry 在检测到铁魔法时调用 */
+    /** 閸掓盯鈧姷澧块崫浣圭埉閺夛紕娲? 閻?ItemsRegistry 閸︺劍顥呭ù瀣煂闁句線鐡熷▔鏇熸鐠嬪啰鏁?*/
     public static void addToolTabItems(CreativeModeTab.Output tab) {
         ToolBuildHandler.addVariants(tab::accept, magic_blade.get(), "");
     }
@@ -90,38 +90,19 @@ public class IssCompat {
 
     public static final StaticModifier<BreakPhantom> BreakPhantom;
     public static final StaticModifier<Thorough> Thorough;
-    public static StaticModifier<netherite_spell_book> netherite_spell_book;
-    public static StaticModifier<gold_spell_book> gold_spell_book;
-    public static StaticModifier<evoker_spell_book> evoker_spell_book;
-    public static StaticModifier<blaze_spell_book> blaze_spell_book;
     public static StaticModifier<necronomicon_spell_book> necronomicon_spell_book;
-    public static StaticModifier<dragonskin_spell_book> dragonskin_spell_book;
-    public static StaticModifier<villager_spell_book> villager_spell_book;
-    public static StaticModifier<druidic_spell_book> druidic_spell_book;
-    public static StaticModifier<cursed_doll_spell_book> cursed_doll_spell_book;
-    public static StaticModifier<ice_spell_book> ice_spell_book;
-    public static StaticModifier<the_source_of_all_spells> the_source_of_all_spells;
-    public static StaticModifier<strengthen_for_charm_spell_power> strengthen_for_charm_spell_power;
-    public static StaticModifier<spell_power_improved_curios> spell_power_improved_curios;
-    public static StaticModifier<lightweight_spell> lightweight_spell;
-    public static StaticModifier<mana_regeneration> mana_regeneration;
-    public static StaticModifier<ruthless_and_tyrannical_spell> ruthless_and_tyrannical_spell;
-    public static StaticModifier<magician> magician;
-    /** 亲和: 让工具获得亲和之戒的效果 (默认 +1 级, 之后可在奥术铁砧上更换法术) */
+    /** 娴滄彃鎷? 鐠佲晛浼愰崗鐤箯瀵版ぞ缈伴崪灞肩閹存帞娈戦弫鍫熺亯 (姒涙顓?+1 缁? 娑斿鎮楅崣顖氭躬婵傘儲婀抽柧浣虹墪娑撳﹥娲块幑銏＄《閺? */
     public static StaticModifier<Affinity> affinity;
-    /** 源质蓄能 */
+    /** 濠ф劘宸濋拑鍕厴 */
     public static StaticModifier<Source_charge> source_charge;
-    /** 魔化之箭 (取代远程的魔力升华) */
+    /** 姒勬柨瀵叉稊瀣唲 (閸欐牔鍞潻婊呪柤閻ㄥ嫰鐡熼崝娑樺磳閸? */
     public static StaticModifier<Magic_arrow> magic_arrow;
-    /** 魔源裹身 (护甲) */
+    /** 姒勬梹绨憗纭呴煩 (閹躲倗鏁? */
     public static StaticModifier<Mana_surge> mana_surge;
-    /** 奥法回响 (法术书布) */
+    /** 婵傘儲纭堕崶鐐叉惙 (濞夋洘婀虫稊锕€绔? */
     public static StaticModifier<Arcane_echo> arcane_echo;
-    public static StaticModifier<fountain_magic> fountain_magic;
-    public static StaticModifier<elemental_mastery> elemental_mastery;
     public static StaticModifier<bloodstain> bloodstain;
     public static StaticModifier<source_alloy_charm> source_alloy_charm;
-    public static StaticModifier<source_alloy_spell_cloth> source_alloy_spell_cloth;
     static {
         enchanting = Iss_MODIFIERS.register("enchanting", enchanting::new);
 
@@ -143,31 +124,12 @@ public class IssCompat {
 
         BreakPhantom = Iss_MODIFIERS.register("breakphantom", BreakPhantom::new);
         Thorough = Iss_MODIFIERS.register("thorough", Thorough::new);
-        netherite_spell_book = Iss_MODIFIERS.register("netherite_spell_book", netherite_spell_book::new);
-        gold_spell_book = Iss_MODIFIERS.register("gold_spell_book", gold_spell_book::new);
-        evoker_spell_book = Iss_MODIFIERS.register("evoker_spell_book", evoker_spell_book::new);
-        blaze_spell_book = Iss_MODIFIERS.register("blaze_spell_book", blaze_spell_book::new);
         necronomicon_spell_book = Iss_MODIFIERS.register("necronomicon_spell_book", necronomicon_spell_book::new);
-        dragonskin_spell_book = Iss_MODIFIERS.register("dragonskin_spell_book", dragonskin_spell_book::new);
-        villager_spell_book = Iss_MODIFIERS.register("villager_spell_book", villager_spell_book::new);
-        druidic_spell_book = Iss_MODIFIERS.register("druidic_spell_book", druidic_spell_book::new);
-        cursed_doll_spell_book = Iss_MODIFIERS.register("cursed_doll_spell_book", cursed_doll_spell_book::new);
-        ice_spell_book = Iss_MODIFIERS.register("ice_spell_book", ice_spell_book::new);
-        the_source_of_all_spells = Iss_MODIFIERS.register("the_source_of_all_spells", the_source_of_all_spells::new);
-        strengthen_for_charm_spell_power = Iss_MODIFIERS.register("strengthen_for_charm_spell_power", strengthen_for_charm_spell_power::new);
-        spell_power_improved_curios = Iss_MODIFIERS.register("spell_power_improved_curios", spell_power_improved_curios::new);
-        lightweight_spell = Iss_MODIFIERS.register("lightweight_spell", lightweight_spell::new);
-        mana_regeneration = Iss_MODIFIERS.register("mana_regeneration", mana_regeneration::new);
-        ruthless_and_tyrannical_spell = Iss_MODIFIERS.register("ruthless_and_tyrannical_spell", ruthless_and_tyrannical_spell::new);
-        magician = Iss_MODIFIERS.register("magician", magician::new);
-        fountain_magic = Iss_MODIFIERS.register("fountain_magic", fountain_magic::new);
-        elemental_mastery = Iss_MODIFIERS.register("elemental_mastery", elemental_mastery::new);
         bloodstain = Iss_MODIFIERS.register("bloodstain", bloodstain::new);
         source_alloy_charm = Iss_MODIFIERS.register("source_alloy_charm", source_alloy_charm::new);
-        source_alloy_spell_cloth = Iss_MODIFIERS.register("source_alloy_spell_cloth", source_alloy_spell_cloth::new);
     }
 
-    /** 实体属性注册 (必须在模组事件总线上调用) */
+    /** 鐎圭偘缍嬬仦鐐粹偓褎鏁為崘?(韫囧懘銆忛崷銊δ佺紒鍕皑娴犺埖鈧崵鍤庢稉濠呯殶閻? */
     public static void onEntityAttributes(net.minecraftforge.event.entity.EntityAttributeCreationEvent event) {
         event.put(ECHO_CASTER.get(), org.mylove.tprt.compat.IronsSpellBooks.entity.EchoCaster.createAttributes().build());
     }

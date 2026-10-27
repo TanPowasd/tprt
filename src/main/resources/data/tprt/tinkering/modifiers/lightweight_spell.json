@@ -1,0 +1,17 @@
+{
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "irons_spellbooks" }],
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "operation": "multiply_total",
+          "value": 0.2
+        }
+      ],
+      "name": "tprt:lightweight_spell"
+    }
+  ]
+}

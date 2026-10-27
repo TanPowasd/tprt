@@ -50,19 +50,7 @@ public class ModifierRegistry {
     public static final StaticModifier<CuriosModifier> endless_life = MODIFIERS.register("endless_life", Endless_Life::new);
     public static final StaticModifier<CuriosModifier> Strengthen_for_charm_ranged = MODIFIERS.register("strengthen_for_charm_ranged", Strengthen_for_charm_ranged::new);
     public static final StaticModifier<CuriosModifier> Fortune_curio = MODIFIERS.register("fortune_curio", Fortune_curio::new);
-    public static final StaticModifier<CuriosModifier> strengthen_for_charm_attack_damage = MODIFIERS.register("strengthen_for_charm_attack_damage", strengthen_for_charm_attack_damage::new);
-    public static final StaticModifier<CuriosModifier> strengthen_for_charm_armor = MODIFIERS.register("strengthen_for_charm_armor", strengthen_for_charm_armor::new);
-    public static final StaticModifier<CuriosModifier> strengthen_for_charm_luck = MODIFIERS.register("strengthen_for_charm_luck", strengthen_for_charm_luck::new);
-    //锻造钢专属特性 (调质处理) 已移到 CreateCompat: 只有装了机械动力才会注册
-    public static final StaticModifier<CuriosModifier> nature_affinity = MODIFIERS.register("nature_affinity", nature_affinity::new);
-    public static final StaticModifier<CuriosModifier> skeleton_affinity = MODIFIERS.register("skeleton_affinity", skeleton_affinity::new);
-    public static final StaticModifier<CuriosModifier> sky_affinity = MODIFIERS.register("sky_affinity", sky_affinity::new);
-    public static final StaticModifier<CuriosModifier> lightweight = MODIFIERS.register("lightweight", lightweight::new);
-    public static final StaticModifier<CuriosModifier> burning_ash = MODIFIERS.register("burning_ash", burning_ash::new);
-    public static final StaticModifier<CuriosModifier> shielding = MODIFIERS.register("shielding", shielding::new);
-    public static final StaticModifier<CuriosModifier> ruthless_and_tyrannical = MODIFIERS.register("ruthless_and_tyrannical", ruthless_and_tyrannical::new);
-    public static final StaticModifier<CuriosModifier> sunlit = MODIFIERS.register("sunlit", sunlit::new);
-    public static final StaticModifier<CuriosModifier> deep_darkness = MODIFIERS.register("deep_darkness", deep_darkness::new);
+    //閿婚€犻挗涓撳睘鐗规€?(璋冭川澶勭悊) 宸茬Щ鍒?CreateCompat: 鍙湁瑁呬簡鏈烘鍔ㄥ姏鎵嶄細娉ㄥ唽
     public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
     public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
     public static final StaticModifier<dynamic_attack> DYNAMIC_ATTACK = MODIFIERS.register("dynamic_attack",dynamic_attack::new);

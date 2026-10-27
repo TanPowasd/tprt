@@ -1,0 +1,17 @@
+{
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "irons_spellbooks" }],
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "irons_spellbooks:mana_regen",
+          "operation": "multiply_total",
+          "value": 0.24
+        }
+      ],
+      "name": "tprt:mana_regeneration"
+    }
+  ]
+}

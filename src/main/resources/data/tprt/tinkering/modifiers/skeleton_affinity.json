@@ -1,0 +1,16 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "addition",
+          "value": 2
+        }
+      ],
+      "name": "tprt:skeleton_affinity"
+    }
+  ]
+}

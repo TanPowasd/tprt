@@ -1,0 +1,21 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.armor",
+          "operation": "multiply_total",
+          "value": 0.1
+        },
+        {
+          "attribute": "minecraft:generic.armor_toughness",
+          "operation": "multiply_total",
+          "value": 0.1
+        }
+      ],
+      "name": "tprt:shielding"
+    }
+  ]
+}
