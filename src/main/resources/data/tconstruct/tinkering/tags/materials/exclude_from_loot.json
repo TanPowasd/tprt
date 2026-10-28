@@ -1,39 +1,8 @@
 {
+  "replace": false,
   "values": [
     {
-      "id": "tprt:mixeddragon",
-      "required": false
-    },
-    {
-      "id": "tprt:forged_steel",
-      "required": false
-    },
-    {
-      "id": "tprt:source_alloy",
-      "required": false
-    },
-    {
-      "id": "tprt:ignitium",
-      "required": false
-    },
-    {
-      "id": "tprt:cursium",
-      "required": false
-    },
-    {
-      "id": "tprt:evil_beast_alloy",
-      "required": false
-    },
-    {
-      "id": "tprt:witherite",
-      "required": false
-    },
-    {
-      "id": "tprt:black_steel",
-      "required": false
-    },
-    {
-      "id": "tprt:ancient_metal",
+      "id": "tprt:abyss_fragment",
       "required": false
     },
     {
@@ -41,15 +10,51 @@
       "required": false
     },
     {
-      "id": "tprt:kwat_wheat_grain_ingot",
+      "id": "tprt:amethyst_crab_shell",
       "required": false
     },
     {
-      "id": "tprt:stymphalian_bird_feather",
+      "id": "tprt:ancient_metal",
+      "required": false
+    },
+    {
+      "id": "tprt:arcane_metal",
+      "required": false
+    },
+    {
+      "id": "tprt:black_steel",
+      "required": false
+    },
+    {
+      "id": "tprt:bloody_vellum",
+      "required": false
+    },
+    {
+      "id": "tprt:composite_dragon_scales",
+      "required": false
+    },
+    {
+      "id": "tprt:cursium",
       "required": false
     },
     {
       "id": "tprt:dark_knight",
+      "required": false
+    },
+    {
+      "id": "tprt:dragonbone",
+      "required": false
+    },
+    {
+      "id": "tprt:dragonskin",
+      "required": false
+    },
+    {
+      "id": "tprt:evil_beast_alloy",
+      "required": false
+    },
+    {
+      "id": "tprt:forged_steel",
       "required": false
     },
     {
@@ -61,11 +66,51 @@
       "required": false
     },
     {
-      "id": "tprt:arcane_metal",
+      "id": "tprt:hydra_fang",
       "required": false
     },
     {
-      "id": "tprt:dragonskin",
+      "id": "tprt:ignitium",
+      "required": false
+    },
+    {
+      "id": "tprt:koboleton_bone",
+      "required": false
+    },
+    {
+      "id": "tprt:kwat_wheat_grain_ingot",
+      "required": false
+    },
+    {
+      "id": "tprt:lacrima",
+      "required": false
+    },
+    {
+      "id": "tprt:leisamboo",
+      "required": false
+    },
+    {
+      "id": "tprt:mixeddragon",
+      "required": false
+    },
+    {
+      "id": "tprt:pyrium",
+      "required": false
+    },
+    {
+      "id": "tprt:radiant_knightmetal",
+      "required": false
+    },
+    {
+      "id": "tprt:sandstorm_skeleton",
+      "required": false
+    },
+    {
+      "id": "tprt:sea_serpent_fang",
+      "required": false
+    },
+    {
+      "id": "tprt:sea_serpent_scales",
       "required": false
     },
     {
@@ -73,7 +118,27 @@
       "required": false
     },
     {
-      "id": "tprt:leisamboo",
+      "id": "tprt:source_alloy",
+      "required": false
+    },
+    {
+      "id": "tprt:stymphalian_bird_feather",
+      "required": false
+    },
+    {
+      "id": "tprt:tears_of_the_storm",
+      "required": false
+    },
+    {
+      "id": "tprt:void_jaw",
+      "required": false
+    },
+    {
+      "id": "tprt:void_power_alloy",
+      "required": false
+    },
+    {
+      "id": "tprt:witherite",
       "required": false
     }
   ]
