@@ -44,6 +44,9 @@
   "item.tprt.magic_blade": "Magic Blade",
   "item.tprt.magic_blade.description": "A weapon that inflicts Magic damage on attack(need [Enchanting] upgrade)",
 
+  "item.tprt.lance": "Lance",
+  "item.tprt.lance.description": "A weapon built for high mobility: hold right click to charge into enemies",
+
   "common": "curios",
 
   "item.tprt.golden_fox_mask": "Golden Fox Mask",
@@ -124,6 +127,7 @@
   "item.tprt.dark_knight_ingot": "Drenched Knight Ingot",
   "item.tprt.dark_knight_ingot.desc": "Contributor Material",
   "tooltip.tprt.dark_knight_ingot.line1": "Hehe, I must win",
+  "tooltip.tprt.hold_shift": "Hold Shift for details",
   "fluid.tconstruct.molten_dark_knight": "Molten Drenched Knight",
   "fluid.tconstruct.flowing_molten_dark_knight": "Flowing Molten Drenched Knight",
   "item.tprt.molten_dark_knight_bucket": "Molten Drenched Knight Bucket",
@@ -1022,6 +1026,10 @@
   "modifier.tprt.precision_stab": "Precision Stab",
   "modifier.tprt.precision_stab.flavor":"Break the surface with points!",
   "modifier.tprt.precision_stab.description":"When attacking with its own tool, the final damage dealt is at least 10% of the player's attack power (armor and damage reduction ignored).",
+
+  "modifier.tprt.lance_charge": "Lance Charge",
+  "modifier.tprt.lance_charge.flavor": "Charge forward without hesitation!",
+  "modifier.tprt.lance_charge.description": "Hold use to charge: no slowdown and sprinting stays allowed. The faster you move horizontally, the more damage you deal. Each target is hit only once per charge and every hit costs 10 extra durability. The first hit starts a fixed 2-second window that then forces the charge to end; release and press use again to recharge.",
 
 
 

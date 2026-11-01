@@ -66,7 +66,7 @@ public class IssCompat {
     public static final ItemObject<Item> SOURCE_ALLOY = ISS_ITEMS.register("source_alloy",
             ()->new org.mylove.tprt.compat.IronsSpellBooks.GlintingItem(new Item.Properties()));
     public static final ItemObject<Item> DARK_KNIGHT_INGOT = ISS_ITEMS.register("dark_knight_ingot",
-            ()->new org.mylove.tprt.compat.IronsSpellBooks.GlintingItem(new Item.Properties()));
+            ()->new org.mylove.tprt.common.item.ShiftDescriptionItem(new Item.Properties(), true, "item.tprt.dark_knight_ingot.desc", "tooltip.tprt.dark_knight_ingot.line1"));
 
     /** 閸掓盯鈧姷澧块崫浣圭埉閺夛紕娲? 閻?ItemsRegistry 閸︺劍顥呭ù瀣煂闁句線鐡熷▔鏇熸鐠嬪啰鏁?*/
     public static void addToolTabItems(CreativeModeTab.Output tab) {

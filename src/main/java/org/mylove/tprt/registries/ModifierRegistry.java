@@ -23,6 +23,8 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 public class ModifierRegistry {
     private static final ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
+    public static final StaticModifier<org.mylove.tprt.common.modifier.LanceChargeModifier> LANCE_CHARGE =
+            MODIFIERS.register("lance_charge", org.mylove.tprt.common.modifier.LanceChargeModifier::new);
     public static void register(IEventBus eventBus) {
         MODIFIERS.register(eventBus);
     }

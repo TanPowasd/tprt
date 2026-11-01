@@ -93,6 +93,9 @@ public class ItemsRegistry {
     //lr特供 锚剑
     public static final ItemObject<ModifiableItem>anchor_sword= ITEMS.register("anchor_sword",
         ()->new ModifiableSwordItem(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.ANCHOR_SWORD));
+    //骑枪 (4 部件 GeckoLib 模型)
+    public static final ItemObject<ModifiableItem> LANCE = ITEMS.register("lance",
+        ()->org.mylove.tprt.common.item.LanceItemFactory.create(TPRTItemUtils.UNSTACKABLE_PROPS, TPRTToolDefinitions.LANCE));
     //注法者 (铁魔法联动) 已移到 IssCompat.magic_blade: 装了铁魔法时才会注册
 
 //lr特供 🐖包
@@ -132,6 +135,7 @@ public class ItemsRegistry {
     public static void addToolTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         Consumer<ItemStack> output = tab::accept;
         acceptTool(output, anchor_sword);
+        acceptTool(output, LANCE);
         // 铁魔法联动物品 (注法者) 只有装了铁魔法才会注册, 没装就不往创造栏里放
         if (ModListUtil.ISSLoaded) {
             IssCompat.addToolTabItems(tab);

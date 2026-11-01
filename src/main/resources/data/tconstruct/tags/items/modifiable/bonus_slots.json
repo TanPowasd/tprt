@@ -1,6 +1,7 @@
 {
   "values": [
     "tprt:anchor_sword",
+    "tprt:lance",
     { "id": "tprt:magic_blade", "required": false }
   ]
 }

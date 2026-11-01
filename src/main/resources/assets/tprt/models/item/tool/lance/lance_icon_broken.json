@@ -1,0 +1,19 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "head_1": "tprt:item/tool/lance/small/head_1/head_1_broken",
+    "head_2": "tprt:item/tool/lance/small/head_2/head_2",
+    "guard": "tprt:item/tool/lance/small/guard/guard",
+    "handle": "tprt:item/tool/lance/small/handle/handle"
+  },
+  "parts": [
+    { "name": "head_1", "index": 0 },
+    { "name": "head_2", "index": 1 },
+    { "name": "guard", "index": 2 },
+    { "name": "handle", "index": 3 }
+  ],
+  "display": {
+    "gui": { "rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [1, 1, 1] }
+  }
+}

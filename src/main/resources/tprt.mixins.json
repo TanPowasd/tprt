@@ -8,7 +8,12 @@
   "mixins": [
     "PlayerMixin"
   ],
-  "client": [],
+  "client": [
+    "LanceMovementMixin",
+    "LanceUseInputMixin",
+    "LanceArmPoseMixin",
+    "LanceItemRendererMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

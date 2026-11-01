@@ -49,6 +49,9 @@
   "item.tprt.magic_blade": "注法者",
   "item.tprt.magic_blade.description": "一种攻击附带魔法伤害的武器（需要[附魔]强化）",
 
+  "item.tprt.lance": "骑枪",
+  "item.tprt.lance.description": "一种需要高机动性使用的武器，能够通过按住右键进行冲刺来撞击敌人",
+
 
   "common": "curios",
 
@@ -132,6 +135,7 @@
   "item.tprt.dark_knight_ingot": "濡湿骑士锭",
   "item.tprt.dark_knight_ingot.desc": "贡献者材料",
   "tooltip.tprt.dark_knight_ingot.line1": "嘻嘻,我一定要赢",
+  "tooltip.tprt.hold_shift": "按住 Shift 查看详情",
   "fluid.tconstruct.molten_dark_knight": "熔融濡湿骑士",
   "fluid.tconstruct.flowing_molten_dark_knight": "流动的熔融濡湿骑士",
   "item.tprt.molten_dark_knight_bucket": "熔融濡湿骑士桶",
@@ -1045,6 +1049,11 @@
   "modifier.tprt.precision_stab": "精准刺击",
   "modifier.tprt.precision_stab.flavor":"以点破面！",
   "modifier.tprt.precision_stab.description":"使用对应武器攻击时，最终造成的伤害至少为玩家攻击力的10%（无视护甲与减伤）",
+
+  "modifier.tprt.lance_charge": "骑枪冲锋",
+  "modifier.tprt.lance_charge.flavor": "一往无前！",
+  "modifier.tprt.lance_charge.description": "按住使用键冲锋，不会减速且可疾跑。水平移动越快伤害越高；每次冲锋对每个目标仅命中一次，每次命中额外消耗10点耐久。首次命中后开始固定2秒窗口，到时强制结束；松开后可再次发动。",
+
 
 
   "common": "not_yet_completed",

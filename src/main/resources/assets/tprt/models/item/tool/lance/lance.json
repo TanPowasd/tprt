@@ -1,0 +1,17 @@
+{
+  "parent": "tprt:item/tool/lance/lance_base",
+  "overrides": [
+    {
+      "predicate": {
+        "tprt:lance_charging": 0.0001
+      },
+      "model": "tprt:item/tool/lance/lance_charging_start"
+    },
+    {
+      "predicate": {
+        "tprt:lance_charging": 1
+      },
+      "model": "tprt:item/tool/lance/lance_charging"
+    }
+  ]
+}
