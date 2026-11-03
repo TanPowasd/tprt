@@ -7,7 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.mylove.tprt.client.LanceDisplayModel;
-import org.mylove.tprt.client.LanceGeckoClientEvents;
+import org.mylove.tprt.client.LanceObjClientEvents;
 import org.mylove.tprt.registries.item.ItemsRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,7 +21,7 @@ public abstract class LanceItemRendererMixin {
     private void tprt$lanceDisplayModel(ItemStack stack, Level level, LivingEntity entity, int seed,
                                        CallbackInfoReturnable<BakedModel> cir) {
         if (!stack.is(ItemsRegistry.LANCE.get())) return;
-        BakedModel display = LanceGeckoClientEvents.displayModel();
+        BakedModel display = LanceObjClientEvents.displayModel();
         if (display == null) return;
         BakedModel resolved = display.getOverrides().resolve(display, stack,
                 level instanceof ClientLevel clientLevel ? clientLevel : null, entity, seed);

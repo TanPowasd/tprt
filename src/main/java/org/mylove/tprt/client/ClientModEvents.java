@@ -32,6 +32,13 @@ public class ClientModEvents {
         }
     }
 
+    @SubscribeEvent(priority = net.minecraftforge.eventbus.api.EventPriority.LOWEST)
+    public static void onAddLayers(EntityRenderersEvent.AddLayers event) {
+        if (org.mylove.tprt.utils.ModListUtil.CALoaded) {
+            SoulArrowRendererCompat.addLayers(event);
+        }
+    }
+
     @SubscribeEvent
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 

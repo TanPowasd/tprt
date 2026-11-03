@@ -5,9 +5,7 @@
   "plugin": "org.mylove.tprt.mixin.plugin.MixinPlugin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "tprt.refmap.json",
-  "mixins": [
-    "PlayerMixin"
-  ],
+  "mixins": [],
   "client": [
     "LanceMovementMixin",
     "LanceUseInputMixin",

@@ -1,0 +1,15 @@
+{
+  "modifier_id": "tprt:cursed_spirit_arrow",
+  "text": [
+    {
+      "text": "For Tinkers bows, including longbows and crossbows. Adds 1 piercing level and replaces fired arrows with compatible phantom arrows featuring homing and a ghostly trail, preserving Tinkers modifier data and arrow damage handling. Requires Cataclysm. Entity-specific behavior of third-party special arrows is not guaranteed to transfer."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Tinkers longbows and crossbows",
+    "Requires Cataclysm",
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

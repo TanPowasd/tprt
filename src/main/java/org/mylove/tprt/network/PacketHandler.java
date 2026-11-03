@@ -13,9 +13,13 @@ public class PacketHandler {
     private static final String PROTOCOL_VERSION = "1";
     public static final SimpleChannel INSTANCE = NetworkRegistry.ChannelBuilder.named(ResourceLocation.fromNamespaceAndPath("tprt", "main")).networkProtocolVersion(() -> "1").clientAcceptedVersions("1"::equals).serverAcceptedVersions("1"::equals).simpleChannel();
     private static int id = 0;
+    private static boolean initialized;
 
-    public static void init() {
+    public static synchronized void init() {
+        if (initialized) return;
         INSTANCE.messageBuilder(PlayerLeftClickEmpty.class, id++, NetworkDirection.PLAY_TO_SERVER).decoder(PlayerLeftClickEmpty::new).encoder(PlayerLeftClickEmpty::toByte).consumerMainThread(PlayerLeftClickEmpty::handle).add();
+        INSTANCE.messageBuilder(SoulArrowVisualPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(SoulArrowVisualPacket::new).encoder(SoulArrowVisualPacket::encode).consumerMainThread(SoulArrowVisualPacket::handle).add();
+        initialized = true;
     }
 
     public static <MSG> void sendToServer(MSG msg) {

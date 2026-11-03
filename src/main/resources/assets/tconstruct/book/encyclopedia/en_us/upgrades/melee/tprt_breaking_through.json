@@ -1,0 +1,14 @@
+{
+  "modifier_id": "tprt:breaking_through",
+  "text": [
+    {
+      "text": "Lances only. Each successful hit on a different enemy during a charge increases subsequent damage by 20% per level, up to 5 stacks. The first hit receives no stack bonus. Stacks reset when the charge ends."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Lances only",
+    "Maximum of 3 levels",
+    "Requires 1 upgrade slot per level"
+  ]
+}

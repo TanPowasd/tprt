@@ -97,6 +97,13 @@ versionRange="[5.3.1+1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
 
+[[dependencies.tprt]]
+modId="tinkercuriolib"
+mandatory=true
+versionRange="[1.0.3,)"
+ordering = "AFTER"
+side = "BOTH"
+
 # --- 可选联动 (optional integrations) ---
 
 [[dependencies.tprt]]

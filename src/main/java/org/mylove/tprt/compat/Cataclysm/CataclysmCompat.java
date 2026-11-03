@@ -28,6 +28,14 @@ public class CataclysmCompat {
                             net.minecraft.world.entity.MobCategory.MISC)
                     .sized(0.5F, 0.5F).clientTrackingRange(32).updateInterval(1)
                     .build("tprt_death_laser"));
+    public static final RegistryObject<net.minecraft.world.entity.EntityType<org.mylove.tprt.compat.Cataclysm.entity.TprtPhantomArrow>> TPRT_PHANTOM_ARROW =
+            CATACLYSM_ENTITIES.register("phantom_arrow", () -> net.minecraft.world.entity.EntityType.Builder
+                    .<org.mylove.tprt.compat.Cataclysm.entity.TprtPhantomArrow>of(org.mylove.tprt.compat.Cataclysm.entity.TprtPhantomArrow::new,
+                            net.minecraft.world.entity.MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(1)
+                    .build("tprt:phantom_arrow"));
+    public static final StaticModifier<CursedSpiritArrowModifier> CURSED_SPIRIT_ARROW =
+            Cataclysm_MODIFIERS.register("cursed_spirit_arrow", CursedSpiritArrowModifier::new);
     public static final DeferredRegister<MobEffect> Cataclysm_MODEFFECTS=DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Tprt.MODID);
 
     /** 灾变联动物品专用注册器: 只在装了灾变时才会在 Tprt 里挂到事件总线上 (没装就不注册, 也不进创造栏) */

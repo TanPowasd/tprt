@@ -69,6 +69,11 @@
   "item.tprt.composite_dragon_scales":"Composite Dragon Scales",
 
 
+  "common": "entity",
+
+  "entity.tprt.phantom_arrow": "Phantom Arrow",
+
+
   "common": "item_and_fluid",
 
   "item.tprt.mixeddragon":"§6Dragon God Steel Ingot§r",
@@ -692,6 +697,10 @@
   "modifier.tprt.bulwark_of_the_flame.flavor":"The flames are rushing!",
   "modifier.tprt.bulwark_of_the_flame.description":"Release while sneaking to charge forward and damage entities in front.If the target hits a wall, it will receive extra damage and be temporarily stunned",
 
+  "modifier.tprt.cursed_spirit_arrow": "Cursed Spirit Arrow",
+  "modifier.tprt.cursed_spirit_arrow.flavor":"Infuse arrows with the power of curses",
+  "modifier.tprt.cursed_spirit_arrow.description":"Fired arrows gain +1 pierce and are replaced with ghost arrows",
+
   "modifier.tprt.ancient_spear": "Ancient Spear",
   "modifier.tprt.ancient_spear.flavor":"Power from the desert",
   "modifier.tprt.ancient_spear.description":"Left click to shoot a Sandstorm",
@@ -1031,7 +1040,17 @@
   "modifier.tprt.lance_charge.flavor": "Charge forward without hesitation!",
   "modifier.tprt.lance_charge.description": "Hold use to charge: no slowdown and sprinting stays allowed. The faster you move horizontally, the more damage you deal. Each target is hit only once per charge and every hit costs 10 extra durability. The first hit starts a fixed 2-second window that then forces the charge to end; release and press use again to recharge.",
 
+  "modifier.tprt.thunderous_momentum": "Thunderous Momentum",
+  "modifier.tprt.thunderous_momentum.flavor": "Swift as lightning, fierce as thunder!",
+  "modifier.tprt.thunderous_momentum.description": "Hold right-click to charge and gradually gain movement speed, reaching +50% movement speed within 2 seconds. Attribute-based mounts you ride gain the same bonus.",
 
+  "modifier.tprt.breaking_through": "Unstoppable Advance",
+  "modifier.tprt.breaking_through.flavor": "One charge pierces the whole formation!",
+  "modifier.tprt.breaking_through.description": "Each enemy hit during a charge increases subsequent damage by +20% per level, stacking up to 5 times and resetting when the charge ends.",
+
+  "modifier.tprt.wall_breaker": "Wall Breaker",
+  "modifier.tprt.wall_breaker.flavor": "Every wall is just a road.",
+  "modifier.tprt.wall_breaker.description": "While charging, carves a 3x3x3 tunnel directly ahead, breaking up to 9 blocks per tick and only blocks with hardness 5 or less. Blocks drop as if mined by the player. Movement speed drops while breaking; the faster the lance mines, the smaller the penalty.",
 
   "common": "not_yet_completed",
 

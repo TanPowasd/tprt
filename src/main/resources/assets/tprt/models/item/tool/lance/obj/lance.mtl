@@ -1,0 +1,4 @@
+# Sprite is supplied by the Tinkers material-aware geometry loader.
+newmtl material
+Kd 1 1 1
+map_Kd #particle

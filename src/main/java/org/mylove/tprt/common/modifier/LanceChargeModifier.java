@@ -1,6 +1,13 @@
 package org.mylove.tprt.common.modifier;
 
 import net.minecraft.world.InteractionHand;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import org.mylove.tprt.registries.ModifierRegistry;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -29,18 +36,29 @@ import java.util.UUID;
 /** Active interaction trait: one hit per target, with a fixed window after the first hit. */
 public class LanceChargeModifier extends NoLevelsModifier implements GeneralInteractionModifierHook {
     public static final int HIT_WINDOW_TICKS = 40;
+    /** 势如破竹: +20% damage per already-pierced target per level, capped at five stacks. */
+    public static final double PIERCE_BONUS_PER_LEVEL = 0.2D;
+    public static final int MAX_PIERCE_STACKS = 5;
     private static final double ATTACK_LENGTH = 3.5D;
     private static final double ATTACK_HALF_WIDTH = 0.75D;
     // Weak player keys avoid retaining disconnected players; state is never shared between sides.
     private final Map<Player, Charge> charges = Collections.synchronizedMap(new WeakHashMap<>());
 
+    private static final TagKey<Item> LANCES = TagKey.create(Registries.ITEM, new ResourceLocation("tprt", "modifiable/melee/lance"));
+
     private static final class Charge {
         final InteractionHand hand;
+        final ItemStack stack;
+        final long started;
+        final net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> dimension;
         final Set<UUID> targets = new HashSet<>();
         long deadline = Long.MAX_VALUE;
         double previousX, previousZ;
         Charge(InteractionHand hand, Player player) {
             this.hand = hand;
+            this.stack = player.getItemInHand(hand);
+            this.started = player.level().getGameTime();
+            this.dimension = player.level().dimension();
             previousX = player.getX();
             previousZ = player.getZ();
         }
@@ -56,7 +74,10 @@ public class LanceChargeModifier extends NoLevelsModifier implements GeneralInte
     public InteractionResult onToolUse(IToolStackView tool, ModifierEntry modifier, Player player,
                                        InteractionHand hand, InteractionSource source) {
         if (source != InteractionSource.RIGHT_CLICK || !ToolAttackUtil.canPerformAttack(tool)) return InteractionResult.PASS;
-        if (!player.level().isClientSide) charges.put(player, new Charge(hand, player));
+        if (!player.level().isClientSide) {
+            clearCharge(player);
+            charges.put(player, new Charge(hand, player));
+        }
         GeneralInteractionModifierHook.startUsing(tool, modifier.getId(), player, hand);
         return InteractionResult.CONSUME;
     }
@@ -95,6 +116,8 @@ public class LanceChargeModifier extends NoLevelsModifier implements GeneralInte
             front = Math.max(front, frontDistance(vehicle.getBoundingBox(), player.position(), look));
             minY = Math.min(minY, vehicle.getBoundingBox().minY);
         }
+        LanceWallBreak.tick(tool, player, charge.stack, look);
+        if (!ToolAttackUtil.canPerformAttack(tool)) { finish(player); return; }
         Vec3 start = player.position().add(look.scale(front));
         Vec3 center = start.add(look.scale(ATTACK_LENGTH * 0.5D));
         double extentX = Math.abs(look.x) * ATTACK_LENGTH * 0.5D + Math.abs(side.x) * ATTACK_HALF_WIDTH;
@@ -109,10 +132,14 @@ public class LanceChargeModifier extends NoLevelsModifier implements GeneralInte
                     || !intersectsAttackRectangle(target.getBoundingBox(), center, look, side)
                     || !ToolAttackUtil.isAttackable(player, target)) continue;
             double bonus = Math.max(0.0D, (speed - 0.13D) * 3.0D);
+            // Targets already pierced this charge: the first hit adds no stacks.
+            int pierced = Math.min(MAX_PIERCE_STACKS, charge.targets.size());
+            int pierceLevel = tool.getModifierLevel(ModifierRegistry.BREAKING_THROUGH.getId());
+            double pierce = 1.0D + PIERCE_BONUS_PER_LEVEL * pierceLevel * pierced;
             float damage = ToolAttackUtil.getAttributeAttackDamage(tool, player, slot);
             float knockback = ToolAttackUtil.getSlotAttribute(tool, player, slot, Attributes.ATTACK_KNOCKBACK, 0.0F) / 2.0F;
             ToolAttackContext context = ToolAttackContext.attacker(player).target(target).hand(charge.hand)
-                    .baseDamage((float) (damage * (1.0D + bonus))).baseKnockback(knockback).cooldown(1.0F).build();
+                    .baseDamage((float) (damage * (1.0D + bonus) * pierce)).baseKnockback(knockback).cooldown(1.0F).build();
             boolean sprinting = player.isSprinting();
             Vec3 movement = player.getDeltaMovement();
             boolean hit;
@@ -135,7 +162,7 @@ public class LanceChargeModifier extends NoLevelsModifier implements GeneralInte
 
     @Override
     public void onStoppedUsing(IToolStackView tool, ModifierEntry modifier, LivingEntity living, int remaining) {
-        if (living instanceof Player player) charges.remove(player);
+        if (!living.level().isClientSide && living instanceof Player player) clearCharge(player);
     }
 
     private static double frontDistance(net.minecraft.world.phys.AABB box, Vec3 origin, Vec3 forward) {
@@ -157,8 +184,38 @@ public class LanceChargeModifier extends NoLevelsModifier implements GeneralInte
                 && across <= ATTACK_HALF_WIDTH + halfX * Math.abs(side.x) + halfZ * Math.abs(side.z);
     }
 
-    private void finish(Player player) {
+    public void clearCharge(Player player) {
         charges.remove(player);
+        ThunderousMomentumModifier.clear(player);
+        LanceWallBreak.clear(player);
+    }
+
+    /** Central server validation catches removal/swap even when item hooks no longer run. */
+    public void validateCharge(Player player) {
+        Charge charge = charges.get(player);
+        if (charge == null) { ThunderousMomentumModifier.clear(player); return; }
+        if (!player.isAlive() || !player.isUsingItem()
+                || player.level().dimension() != charge.dimension
+                || player.getUsedItemHand() != charge.hand
+                || player.getUseItem() != charge.stack
+                || player.getItemInHand(charge.hand) != charge.stack
+                || player.level().getGameTime() >= charge.deadline) {
+            clearCharge(player);
+            return;
+        }
+        var tool = ToolStack.from(charge.stack);
+        if (!ToolAttackUtil.canPerformAttack(tool)
+                || !GeneralInteractionModifierHook.getActiveModifier(tool).getId().equals(getId())) {
+            clearCharge(player);
+            return;
+        }
+        if (charge.stack.is(LANCES) && tool.getModifierLevel(ModifierRegistry.THUNDEROUS_MOMENTUM.getId()) > 0)
+            ThunderousMomentumModifier.update(player, player.level().getGameTime() - charge.started);
+        else ThunderousMomentumModifier.clear(player);
+    }
+
+    private void finish(Player player) {
+        clearCharge(player);
         player.stopUsingItem();
     }
 }

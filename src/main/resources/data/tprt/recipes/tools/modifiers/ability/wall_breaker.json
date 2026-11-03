@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    { "item": "minecraft:obsidian", "amount_needed": 4 },
+    { "item": "minecraft:diamond_pickaxe", "amount_needed": 1 },
+    { "item": "minecraft:obsidian", "amount_needed": 4 },
+    { "item": "minecraft:tnt", "amount_needed": 2 },
+    { "item": "minecraft:tnt", "amount_needed": 2 }
+  ],
+  "level": { "max": 1 },
+  "result": "tprt:wall_breaker",
+  "slots": { "abilities": 1 },
+  "tools": { "tag": "tprt:modifiable/melee/lance" }
+}

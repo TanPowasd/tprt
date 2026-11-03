@@ -38,6 +38,8 @@ public class Tprt {
     public Tprt(FMLJavaModLoadingContext context) {
 //        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus modEventBus = context.getModEventBus();
+        // Create the channel and register packet codecs before Forge locks network registration.
+        org.mylove.tprt.network.PacketHandler.init();
         ModFluids.register(modEventBus);
         TprtModCreativeTabs.register(modEventBus);
         ItemsRegistry.register(modEventBus);
@@ -71,7 +73,8 @@ public class Tprt {
         }
         if (ModListUtil.CALoaded) {
             CataclysmCompat.Cataclysm_MODIFIERS.register(modEventBus);
-        CataclysmCompat.CATACLYSM_ENTITIES.register(modEventBus);
+            CataclysmCompat.CATACLYSM_ENTITIES.register(modEventBus);
+            org.mylove.tprt.compat.Cataclysm.Modifiers.CursedSpiritArrowModifier.registerEvents();
             CataclysmCompat.Cataclysm_MODEFFECTS.register(modEventBus);
             CataclysmCompat.CATACLYSM_ITEMS.register(modEventBus);
             CataclysmCompat.CATACLYSM_FLUIDS.register(modEventBus);

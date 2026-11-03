@@ -25,6 +25,14 @@ public class ModifierRegistry {
     private static final ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
     public static final StaticModifier<org.mylove.tprt.common.modifier.LanceChargeModifier> LANCE_CHARGE =
             MODIFIERS.register("lance_charge", org.mylove.tprt.common.modifier.LanceChargeModifier::new);
+    public static final StaticModifier<org.mylove.tprt.common.modifier.ThunderousMomentumModifier> THUNDEROUS_MOMENTUM =
+            MODIFIERS.register("thunderous_momentum", org.mylove.tprt.common.modifier.ThunderousMomentumModifier::new);
+    /** Marker only: the stacking damage bonus is applied by {@link org.mylove.tprt.common.modifier.LanceChargeModifier}. */
+    public static final StaticModifier<slimeknights.tconstruct.library.modifiers.Modifier> BREAKING_THROUGH =
+            MODIFIERS.register("breaking_through", slimeknights.tconstruct.library.modifiers.Modifier::new);
+    /** Marker only: block breaking runs inside the charge tick, see {@link org.mylove.tprt.common.modifier.LanceWallBreak}. */
+    public static final StaticModifier<org.mylove.tprt.common.modifier.WallBreakerModifier> WALL_BREAKER =
+            MODIFIERS.register("wall_breaker", org.mylove.tprt.common.modifier.WallBreakerModifier::new);
     public static void register(IEventBus eventBus) {
         MODIFIERS.register(eventBus);
     }

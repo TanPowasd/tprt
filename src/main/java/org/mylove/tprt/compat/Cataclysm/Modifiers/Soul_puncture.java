@@ -121,14 +121,8 @@ public class Soul_puncture extends Arrowmodifier implements InventoryTickModifie
 
     @Override
     public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, LivingEntity attacker, LivingEntity target) {
-        if (target != null) {
-            Tracking tracking = TRACKED.get(projectile.getUUID());
-            // Set#add 返回 false, 说明这支箭之前已经打过它了
-            if (tracking != null && !tracking.hitEntities.add(target.getUUID())) {
-                // 返回 true 会被匠魂接到 ProjectileImpactEvent#setCanceled 上, 这次命中被整个取消:
-                // 不结算伤害、不消耗穿透, 箭直接穿过去。
-                return true;
-            }
+        if (target != null && recordHit(projectile, target)) {
+            return true;
         }
         // 等价于 Arrow 接口的默认实现: 命中交给 arrowhurt 处理
         if (target != null && attacker != null && projectile instanceof AbstractArrow arrow) {
@@ -156,13 +150,33 @@ public class Soul_puncture extends Arrowmodifier implements InventoryTickModifie
 
     @Override
     public void onTinkerArrowShoot(IToolStackView tool, int level, LivingEntity shooter, Projectile projectile, AbstractArrow arrow, ModDataNBT namespacedNBT, boolean primary) {
+        org.mylove.tprt.common.SoulArrowVisuals.mark(arrow);
+        trackArrow(shooter, arrow);
+    }
+
+    /** Shared homing registration; registering a shot twice must not reset its state. */
+    public static void trackArrow(LivingEntity shooter, AbstractArrow arrow) {
         if (!(shooter.level() instanceof ServerLevel serverLevel) || !(shooter instanceof Player player)) {
             return;
         }
         long now = serverLevel.getGameTime();
         // 顺手清掉过期/已经消失的记录
         TRACKED.entrySet().removeIf(entry -> entry.getValue().isDone(now));
-        TRACKED.put(arrow.getUUID(), new Tracking(player.getUUID(), arrow, now + MAX_TRACK_TICKS, now + STATE_LIFETIME));
+        TRACKED.putIfAbsent(arrow.getUUID(), new Tracking(player.getUUID(), arrow, now + MAX_TRACK_TICKS, now + STATE_LIFETIME));
+    }
+
+    public static boolean recordHit(Projectile projectile, LivingEntity target) {
+        Tracking tracking = TRACKED.get(projectile.getUUID());
+        return tracking != null && !tracking.hitEntities.add(target.getUUID());
+    }
+
+    /** Keep the same shot, deadlines and hit history when the entity is replaced. */
+    public static void transferTracking(AbstractArrow original, AbstractArrow replacement) {
+        Tracking tracking = TRACKED.remove(original.getUUID());
+        if (tracking != null) {
+            tracking.arrow = replacement;
+            TRACKED.put(replacement.getUUID(), tracking);
+        }
     }
 
     /* ============================================================
@@ -171,6 +185,10 @@ public class Soul_puncture extends Arrowmodifier implements InventoryTickModifie
 
     @Override
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
+        tickTracked(world, holder);
+    }
+
+    public static void tickTracked(Level world, LivingEntity holder) {
         if (TRACKED.isEmpty() || !(world instanceof ServerLevel serverLevel) || !(holder instanceof Player player)) {
             return;
         }
@@ -326,7 +344,7 @@ public class Soul_puncture extends Arrowmodifier implements InventoryTickModifie
     /** 一支在追踪中的箭 */
     private static final class Tracking {
         private final UUID ownerId;
-        private final AbstractArrow arrow;
+        private AbstractArrow arrow;
         /** 转向生效截止时间 (游戏刻) */
         private final long homingUntil;
         /** 状态清理截止时间 (游戏刻) */

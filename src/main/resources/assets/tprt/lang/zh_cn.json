@@ -77,6 +77,11 @@
   "item.tprt.composite_dragon_scales":"复合龙鳞",
 
 
+  "common": "entity",
+
+  "entity.tprt.phantom_arrow": "幽灵之箭",
+
+
   "common": "item_and_fluid",
 
   "item.tprt.mixeddragon":"§6龙神钢锭§r",
@@ -704,6 +709,10 @@
   "modifier.tprt.bulwark_of_the_flame.flavor":"烈焰猛冲！",
   "modifier.tprt.bulwark_of_the_flame.description":"潜行状态下，手持此盾右击以向前冲锋，对前方实体造成伤害；如果目标受击后撞到了墙，那么它会受到更多伤害并被暂时眩晕",
 
+  "modifier.tprt.cursed_spirit_arrow": "咒魂之箭",
+  "modifier.tprt.cursed_spirit_arrow.flavor":"将诅咒之力注入箭矢",
+  "modifier.tprt.cursed_spirit_arrow.description":"发射的箭矢穿透次数+1，发射的箭矢替换为幽灵之箭",
+
   "modifier.tprt.ancient_spear": "远古之矛",
   "modifier.tprt.ancient_spear.flavor":"源自沙漠的力量",
   "modifier.tprt.ancient_spear.description":"左键点击以发射小型沙尘暴",
@@ -1030,7 +1039,7 @@
 
   "modifier.tprt.enchanting": "附魔",
   "modifier.tprt.enchanting.flavor":"为剑刃附上魔力",
-  "modifier.tprt.enchanting.description":"可获得不同法术流派增益：命中时在结算攻击伤害前追加一次该流派的法术伤害，倍率默认50%，受通用法强与对应流派法强加成。换一条配方即可替换流派",
+  "modifier.tprt.enchanting.description":"可获得不同法术流派增益：命中时在结算攻击伤害前追加一次该流派的法术伤害，倍率默认50%，受通用法强与对应流派法强加成。更换配方即可替换流派",
   "modifier.tprt.enchanting.fire": "炽焰附魔",
   "modifier.tprt.enchanting.ice": "冰霜附魔",
   "modifier.tprt.enchanting.lightning": "雷电附魔",
@@ -1052,9 +1061,19 @@
 
   "modifier.tprt.lance_charge": "骑枪冲锋",
   "modifier.tprt.lance_charge.flavor": "一往无前！",
-  "modifier.tprt.lance_charge.description": "按住使用键冲锋，不会减速且可疾跑。水平移动越快伤害越高；每次冲锋对每个目标仅命中一次，每次命中额外消耗10点耐久。首次命中后开始固定2秒窗口，到时强制结束；松开后可再次发动。",
+  "modifier.tprt.lance_charge.description": "按住使用键冲锋，不会减速且可疾跑。水平移动越快伤害越高；每次冲锋对每个目标仅命中一次，每次命中额外消耗10点耐久。首次命中后开始固定2秒窗口，到时强制结束；松开后可再次发动",
 
+  "modifier.tprt.thunderous_momentum": "势若奔雷",
+  "modifier.tprt.thunderous_momentum.flavor": "迅疾似电，狂暴如雷！",
+  "modifier.tprt.thunderous_momentum.description": "按住右键进行冲锋时会逐渐获得移速加成，最多在2秒内获得+50%移速的加成；骑乘拥有速度属性的坐骑时坐骑同样获得该加成",
 
+  "modifier.tprt.breaking_through": "势如破竹",
+  "modifier.tprt.breaking_through.flavor": "一枪贯阵，锐不可当！",
+  "modifier.tprt.breaking_through.description": "冲锋时每命中一次敌人，后续伤害每级+20%，最高叠加5次，冲锋结束时重置",
+
+  "modifier.tprt.wall_breaker": "摧壁",
+  "modifier.tprt.wall_breaker.flavor": "坚壁在前，亦作坦途。",
+  "modifier.tprt.wall_breaker.description": "冲锋时在正前方开辟3×3×3的通道，每刻最多破坏9格，仅限硬度不超过5的方块，破坏视作玩家挖掘并正常掉落；破坏方块时移速降低，挖掘速度越快降低越少",
 
   "common": "not_yet_completed",
 

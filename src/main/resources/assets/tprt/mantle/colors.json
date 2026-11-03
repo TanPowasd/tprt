@@ -42,6 +42,9 @@
     "pyrium": "#d6af39"
   },
   "modifier.tprt": {
+    "thunderous_momentum": "#EEDD82",
+    "breaking_through": "#ADD8E6",
+    "wall_breaker": "#8B7355",
   "mechanical_star_range": "#303030",
   "mana_surge": "#ffdd3a",
     "the_dragon_lord":"#EEDD82",
@@ -176,6 +179,7 @@
     "infernal_forge": "#241F20",
     "the_incinerator": "#D27B00",
     "bulwark_of_the_flame": "#AB6707",
+    "cursed_spirit_arrow": "#5BCAC1",
     "ancient_spear": "#d8b669",
     "gauntlet_of_guard": "#705071",
     "breath_of_the_abyss": "#883dfc",

@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "sakuratinker" }],
+  "allow_crystal": false,
+  "inputs": [
+    { "item": "sakuratinker:eezo_ingot", "amount_needed": 1 },
+    { "item": "minecraft:redstone_block", "amount_needed": 8 },
+    { "item": "sakuratinker:eezo_ingot", "amount_needed": 1 },
+    { "item": "sakuratinker:orichalcum_ingot", "amount_needed": 4 },
+    { "item": "sakuratinker:prometheum_ingot", "amount_needed": 4 }
+  ],
+  "level": { "max": 3 },
+  "result": "tprt:breaking_through",
+  "slots": { "upgrades": 1 },
+  "tools": { "tag": "tprt:modifiable/melee/lance" }
+}
