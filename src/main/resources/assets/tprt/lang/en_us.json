@@ -59,6 +59,7 @@
   "effect.tprt.eager_edge": "Eager Edge",
   "effect.tprt.de_eager_edge": "Eager Edge Cooldown",
   "effect.tprt.myl_girig_pro": "Greed",
+  "effect.tprt.ranged_greed": "Greed",
   "effect.tprt.soul_casting_blade": "Soul Casting Blade",
   "effect.tprt.soul_casting_blade.description": "Increase critical strike damage",
   "effect.tprt.source_charge": "Source Charge",
@@ -72,6 +73,7 @@
   "common": "entity",
 
   "entity.tprt.phantom_arrow": "Phantom Arrow",
+  "entity.tprt.cursed_sandstorm": "Cursed Sandstorm",
 
 
   "common": "item_and_fluid",
@@ -293,13 +295,23 @@
   "modifier.tprt.arcane_echo.flavor":"Echoed incantations sound again",
   "modifier.tprt.arcane_echo.description": "Casting records the last 3 spells and builds Source Charge; at 5 stacks all stacks are consumed and those 3 spells are re-cast in order (no mana, no cooldown, ignores invulnerability frames)",
 
+  "effect.tprt.overlimit_progress": "Overlimit Charge",
+  "effect.tprt.overlimit_empowered": "Overlimit",
+  "modifier.tprt.overlimit": "Overlimit",
+  "modifier.tprt.overlimit.flavor": "Beyond limits, beneath the stars.",
+  "modifier.tprt.overlimit.description": "While worn as a charm, direct melee and projectile damage +15%, protectable damage taken -10%. Successful attacks or damage taken grant 1 charge at most once per second, plus 1 at full health. At 5 charges, enter Overlimit for 6 seconds: total damage +30%, damage taken -20%; no charging during Overlimit. Multiple charms do not stack; unequipping clears progress.",
+
+  "modifier.tprt.ranged_greed": "Greed",
+  "modifier.tprt.ranged_greed.flavor": "When was it ever enough?",
+  "modifier.tprt.ranged_greed.description": "Shots fired at full health deal 20% more damage. Successful hits grant 1 stack, or 2 if fired at full health or hitting a full-health target; once per volley. Each stack adds 5% damage, up to 6; bonuses add together. After 4 seconds without a hit, lose 1 stack per second. Stacks are separate from melee Greed.",
+
   "modifier.tprt.advanced_greed": "Greed",
   "modifier.tprt.advanced_greed.flavor":"When was it ever enough?",
-  "modifier.tprt.advanced_greed.description":"Each attack increases attack damage by 5%, stacks up to 10 times",
+  "modifier.tprt.advanced_greed.description":"Deal 20% more melee damage at full health. Successful hits grant 1 stack, or 2 if you or the target were at full health. Each stack adds 5% damage, up to 6 stacks; bonuses are additive. After 4 seconds without a hit, lose 1 stack per second.",
 
   "modifier.tprt.arrogant": "Arrogant",
   "modifier.tprt.arrogant.flavor":"Contempt for inferior creatures",
-  "modifier.tprt.arrogant.description":"When the health is full, the whole body will be given 5% independent damage reduction per level(up to 40%). If the current health is greater than 50% of the maximum health value, the effect will be reduced to 3% (up to 24%) per level.",
+  "modifier.tprt.arrogant.description":"Totals equipped armor levels, capped at 5. Each level reduces protectable damage by 8% at full health, 6% at half health or above, and 3% below half health. Stacks multiplicatively with other reductions.",
 
   "modifier.tprt.shine_at_night": "Shine At Night",
   "modifier.tprt.shine_at_night.flavor":"Pierce the night!",
@@ -700,6 +712,10 @@
   "modifier.tprt.cursed_spirit_arrow": "Cursed Spirit Arrow",
   "modifier.tprt.cursed_spirit_arrow.flavor":"Infuse arrows with the power of curses",
   "modifier.tprt.cursed_spirit_arrow.description":"Fired arrows gain +1 pierce and are replaced with ghost arrows",
+
+  "modifier.tprt.cursed_sandstorm": "Cursed Sandstorm",
+  "modifier.tprt.cursed_sandstorm.flavor":"Tear enemies apart with a cursed sandstorm!",
+  "modifier.tprt.cursed_sandstorm.description":"Replaces fired arrows with a three-shot spread of cursed sandstorms, at no extra ammunition or durability cost.",
 
   "modifier.tprt.ancient_spear": "Ancient Spear",
   "modifier.tprt.ancient_spear.flavor":"Power from the desert",

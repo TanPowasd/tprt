@@ -52,7 +52,9 @@ public class CursedSpiritArrowModifier extends NoLevelsModifier implements Proje
 
     private static void replaceArrow(EntityJoinLevelEvent event) {
         if (event.getLevel().isClientSide || !(event.getEntity() instanceof AbstractArrow original)
-                || original instanceof TprtPhantomArrow || !original.getPersistentData().getBoolean(REPLACE)) {
+                || original instanceof TprtPhantomArrow
+                || (!original.getPersistentData().getBoolean(REPLACE)
+                    && !original.getPersistentData().getBoolean(CursedSandstormModifier.REPLACE))) {
             return;
         }
         // This event occurs after ALL launch hooks. Never run them again: multishot, damage,
@@ -61,7 +63,13 @@ public class CursedSpiritArrowModifier extends NoLevelsModifier implements Proje
         // Only copy TC capabilities explicitly. Arbitrary third-party providers may be entity-specific.
         tag.remove("ForgeCaps");
         tag.getCompound("ForgeData").remove(REPLACE);
-        TprtPhantomArrow replacement = CataclysmCompat.TPRT_PHANTOM_ARROW.get().create(event.getLevel());
+        // Resolve once after every launch hook: independent of modifier iteration order.
+        boolean sandstorm = original.getPersistentData().getBoolean(CursedSandstormModifier.REPLACE);
+        tag.getCompound("ForgeData").remove(CursedSandstormModifier.REPLACE);
+        if (sandstorm) tag.getCompound("ForgeData").remove("tprt:soul_arrow_visual");
+        TprtPhantomArrow replacement = sandstorm
+                ? CataclysmCompat.TPRT_CURSED_SANDSTORM.get().create(event.getLevel())
+                : CataclysmCompat.TPRT_PHANTOM_ARROW.get().create(event.getLevel());
         if (replacement == null) {
             return;
         }
@@ -75,12 +83,53 @@ public class CursedSpiritArrowModifier extends NoLevelsModifier implements Proje
         replacement.getCapability(EntityModifierCapability.CAPABILITY).ifPresent(cap ->
                 cap.setModifiers(EntityModifierCapability.getOrEmpty(original)));
         PersistentDataCapability.getOrWarn(replacement).copyFrom(PersistentDataCapability.getOrWarn(original).getCopy());
+        if (replacement instanceof org.mylove.tprt.compat.Cataclysm.entity.TprtCursedSandstormArrow storm) {
+            storm.initializeFlight();
+        }
         if (event.getLevel().addFreshEntity(replacement)) {
             Soul_puncture.transferTracking(original, replacement);
+            if (sandstorm) {
+                spawnSandstormSideArrow(replacement, -15.0F);
+                spawnSandstormSideArrow(replacement, 15.0F);
+            }
             event.setCanceled(true);
             original.discard();
         }
         // If another mod denies the new spawn, retain the original arrow instead of eating ammunition.
+    }
+
+    /** Extra projectiles reuse the completed launch payload, without replaying launch hooks. */
+    private static void spawnSandstormSideArrow(TprtPhantomArrow center, float yawOffset) {
+        TprtPhantomArrow side = CataclysmCompat.TPRT_CURSED_SANDSTORM.get().create(center.level());
+        if (side == null) return;
+        CompoundTag tag = center.saveWithoutId(new CompoundTag());
+        tag.remove("UUID");
+        tag.remove("ForgeCaps");
+        tag.putBoolean("StormInitialized", false); // recompute acceleration for this side's rotated launch
+        tag.remove("StormTarget");
+        tag.getCompound("ForgeData").remove(REPLACE);
+        tag.getCompound("ForgeData").remove(CursedSandstormModifier.REPLACE);
+        side.load(tag);
+        side.setOwner(center.getOwner());
+        // Vec3.yRot uses the opposite sign to entity yaw.
+        side.setDeltaMovement(center.getDeltaMovement().yRot(-yawOffset * ((float) Math.PI / 180.0F)));
+        side.setYRot(center.getYRot() + yawOffset);
+        side.yRotO = side.getYRot();
+        side.setKnockback(center.getKnockback());
+        side.setNoGravity(center.isNoGravity());
+        side.setNoPhysics(center.isNoPhysics());
+        // These are free secondary projectiles, not additional recoverable ammunition.
+        side.pickup = AbstractArrow.Pickup.DISALLOWED;
+        side.getCapability(EntityModifierCapability.CAPABILITY).ifPresent(cap ->
+                cap.setModifiers(EntityModifierCapability.getOrEmpty(center)));
+        PersistentDataCapability.getOrWarn(side).copyFrom(PersistentDataCapability.getOrWarn(center).getCopy());
+        ((org.mylove.tprt.compat.Cataclysm.entity.TprtCursedSandstormArrow) side).initializeFlight();
+        if (center.level().addFreshEntity(side) && center.getOwner() instanceof LivingEntity shooter
+                && (EntityModifierCapability.getOrEmpty(center).getLevel(CataclysmCompat.Soul_puncture.getId()) > 0
+                    || EntityModifierCapability.getOrEmpty(center).getLevel(CataclysmCompat.CURSED_SPIRIT_ARROW.getId()) > 0)) {
+            Soul_puncture.trackArrow(shooter, side);
+        }
+        // A denied side spawn must never cancel or remove the already spawned center arrow.
     }
 
     @Override

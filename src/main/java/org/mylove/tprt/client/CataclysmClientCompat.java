@@ -18,6 +18,7 @@ public final class CataclysmClientCompat {
     @SuppressWarnings("unchecked")
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(CataclysmCompat.TPRT_PHANTOM_ARROW.get(), GhostArrowRenderer::new);
+        event.registerEntityRenderer(CataclysmCompat.TPRT_CURSED_SANDSTORM.get(), CursedSandstormArrowRenderer::new);
         event.registerEntityRenderer(CataclysmCompat.TPRT_DEATH_LASER.get(),
                 ctx -> (EntityRenderer) new com.github.L_Ender.cataclysm.client.render.entity
                         .Death_Laser_beam_Renderer(ctx));

@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "tprt:affinity",
+    "tprt:aqua_attr",
+    "tprt:eldritch_attr",
     "tprt:pyrium",
     "tprt:solid_armor",
     "tprt:soul_convergence",

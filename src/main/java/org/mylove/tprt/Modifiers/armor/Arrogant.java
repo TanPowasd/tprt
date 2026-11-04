@@ -1,6 +1,10 @@
 package org.mylove.tprt.Modifiers.armor;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
@@ -15,48 +19,30 @@ import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import java.util.UUID;
-
 public class Arrogant extends Modifier implements ModifyDamageModifierHook {
-
-    UUID uuid = UUID.fromString("9ACB057A-9A85-4C60-B54B-D491A01AF91");
-
+    private static final TagKey<DamageType> CAN_PROTECT = TagKey.create(Registries.DAMAGE_TYPE,
+            new ResourceLocation("mantle", "can_protect"));
     public static final TinkerDataCapability.TinkerDataKey<SlotInChargeModule.SlotInCharge> SLOT_IN_CHARGE = TinkerDataCapability.TinkerDataKey.of(ModifierIds.Arrogant);
 
-    protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
-        super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, ModifierHooks.MODIFY_DAMAGE);
-        hookBuilder.addModule(new SlotInChargeModule(SLOT_IN_CHARGE));
+    @Override
+    protected void registerHooks(ModuleHookMap.@NotNull Builder builder) {
+        super.registerHooks(builder);
+        builder.addHook(this, ModifierHooks.MODIFY_DAMAGE);
+        builder.addModule(new SlotInChargeModule(SLOT_IN_CHARGE));
     }
 
     @Override
-    public float modifyDamageTaken(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, EquipmentContext context, @NotNull EquipmentSlot slotType, DamageSource source, float amount, boolean isDirectDamage) {
-        LivingEntity entity =context.getEntity();
-        LivingEntity attacker =null;
-        if(source.getEntity() instanceof LivingEntity){
-            attacker = (LivingEntity) source.getEntity();
-        }
-        if(attacker != null) {
-            if(SlotInChargeModule.isInCharge(context.getTinkerData(), SLOT_IN_CHARGE, slotType)){
-                int level = SlotInChargeModule.getLevel(context.getTinkerData(), SLOT_IN_CHARGE, slotType);
-                if (entity.getHealth() == entity.getMaxHealth()){
-                    if (level >= 8){
-                        return (float) (amount*0.6);
-                    }
-                    else {
-                        return (float) (amount*(1-0.05*level));
-                    }
-                }
-                if (entity.getHealth() / entity.getMaxHealth() >= 0.5){
-                    if (level >= 8){
-                        return (float) (amount*0.76);
-                    }
-                    else {
-                        return (float) (amount*(1-0.03*level));
-                    }
-                }
-            }
-        }
-        return amount;
+    public float modifyDamageTaken(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
+            EquipmentContext context, @NotNull EquipmentSlot slotType, DamageSource source,
+            float amount, boolean isDirectDamage) {
+        if (!source.is(CAN_PROTECT)
+                || !SlotInChargeModule.isInCharge(context.getTinkerData(), SLOT_IN_CHARGE, slotType)) return amount;
+        int level = Math.max(0, Math.min(5,
+                SlotInChargeModule.getLevel(context.getTinkerData(), SLOT_IN_CHARGE, slotType)));
+        LivingEntity entity = context.getEntity();
+        float health = entity.getHealth();
+        float maxHealth = entity.getMaxHealth();
+        float reduction = health >= maxHealth ? 0.08F : health >= maxHealth * 0.5F ? 0.06F : 0.03F;
+        return amount * (1.0F - reduction * level);
     }
 }

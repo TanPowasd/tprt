@@ -7,6 +7,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.phys.Vec3;
 import org.mylove.tprt.common.SoulArrowVisuals;
 import org.mylove.tprt.compat.Cataclysm.entity.TprtPhantomArrow;
+import org.mylove.tprt.compat.Cataclysm.entity.TprtCursedSandstormArrow;
 
 /** Client-only cosmetic particles; loaded only with Cataclysm present. */
 public final class SoulArrowTrail {
@@ -14,7 +15,12 @@ public final class SoulArrowTrail {
 
     public static void tick(ClientLevel level) {
         for (var entity : level.entitiesForRendering()) {
+            if (entity instanceof TprtCursedSandstormArrow storm && storm.isAlive()) {
+                CursedSandstormVisuals.tick(storm);
+                continue;
+            }
             if (!(entity instanceof AbstractArrow arrow) || !arrow.isAlive()
+                    || arrow instanceof TprtCursedSandstormArrow
                     || (!(arrow instanceof TprtPhantomArrow) && !SoulArrowVisuals.isMarked(arrow))) continue;
             // Unlike the native phantom arrow, stop producing particles after ground impact.
             Vec3 velocity = arrow.getDeltaMovement();

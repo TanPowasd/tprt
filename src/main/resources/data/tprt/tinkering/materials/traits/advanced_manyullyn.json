@@ -10,11 +10,10 @@
     }
   ],
   "perStat": {
+    "sakuratinker:charm": [
+      { "level": 1, "name": "tprt:overlimit" }
+    ],
     "tconstruct:armor": [
-      {
-        "level": 1,
-        "name": "tconstruct:kinetic"
-      },
       {
         "level": 1,
         "name": "tprt:arrogant"
@@ -26,8 +25,8 @@
     ],
     "tconstruct:ranged": [
       {
-        "level": 2,
-        "name": "tconstruct:insatiable"
+        "level": 1,
+        "name": "tprt:ranged_greed"
       },
       {
         "level": 2,

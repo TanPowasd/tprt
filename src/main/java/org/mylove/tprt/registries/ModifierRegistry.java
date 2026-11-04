@@ -45,6 +45,10 @@ public class ModifierRegistry {
     public static final StaticModifier<disruption_break> DISRUPTION_BREAK = MODIFIERS.register("disruption_break",disruption_break::new);
     public static final StaticModifier<lucky_strike> LUCK_STRIKE = MODIFIERS.register("luck_strike",lucky_strike::new);
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.ranged.RangedGreedModifier> RANGED_GREED =
+            MODIFIERS.register("ranged_greed", org.mylove.tprt.Modifiers.ranged.RangedGreedModifier::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.curio.Overlimit> OVERLIMIT =
+            MODIFIERS.register("overlimit", org.mylove.tprt.Modifiers.curio.Overlimit::new);
     public static final StaticModifier<Arrogant> Arrogant = MODIFIERS.register("arrogant",Arrogant::new);
     public static final StaticModifier<Shine_at_night> Shine_at_night = MODIFIERS.register("shine_at_night",Shine_at_night::new);
     public static final StaticModifier<Glow_armor> Glow_armor = MODIFIERS.register("glow_armor",Glow_armor::new);

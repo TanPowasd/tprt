@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
+    "tprt:advanced_luck",
     "tprt:blood_of_hydra",
+    "tprt:enchanting",
     "tprt:break_the_path",
     "tprt:burning_flames",
     "tprt:dark_condensation",

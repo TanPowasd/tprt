@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tprt:advanced_luck",
-    "tprt:automation"
+    "tprt:automation",
+    { "id": "tprt:cursed_spirit_arrow", "required": false },
+    { "id": "tprt:cursed_sandstorm", "required": false }
   ]
 }

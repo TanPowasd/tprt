@@ -66,6 +66,9 @@
   "effect.tprt.eager_edge": "急切刀锋",
   "effect.tprt.de_eager_edge": "急切刀锋cd",
   "effect.tprt.myl_girig_pro": "贪欲",
+  "effect.tprt.ranged_greed": "贪欲",
+  "effect.tprt.overlimit_progress": "超限蓄势",
+  "effect.tprt.overlimit_empowered": "超限",
   "effect.tprt.soul_casting_blade": "魂铸锋刃",
   "effect.tprt.soul_casting_blade.description": "提高暴击伤害",
   "effect.tprt.source_charge": "源质蓄能",
@@ -80,6 +83,7 @@
   "common": "entity",
 
   "entity.tprt.phantom_arrow": "幽灵之箭",
+  "entity.tprt.cursed_sandstorm": "诅咒沙尘暴",
 
 
   "common": "item_and_fluid",
@@ -303,13 +307,21 @@
   "modifier.tprt.arcane_echo.flavor":"回响的咒文再度生效",
   "modifier.tprt.arcane_echo.description":"施法记录最近3个法术并叠加源质蓄能；满5层时消耗全部层数，按顺序重放这3个法术（不耗法力、不进冷却、无视无敌帧）",
 
+  "modifier.tprt.overlimit": "超限",
+  "modifier.tprt.overlimit.flavor": "越过极限，方见星河。",
+  "modifier.tprt.overlimit.description": "佩戴护符时直接近战与弹射物增伤15%，可防护伤害减免10%。成功攻击或受伤每秒最多蓄势一次，获得1层，触发前满血额外1层；5层后进入6秒超限，增伤提高至30%、减伤提高至20%，期间不蓄势。重复佩戴不叠加，卸下清空。",
+
+  "modifier.tprt.ranged_greed": "贪欲",
+  "modifier.tprt.ranged_greed.flavor": "什么时候满足过？",
+  "modifier.tprt.ranged_greed.description": "自身生命值为满时弹射物伤害提高20%。成功命中获得1层效果；发射时若自身生命值为满或命中前目标满血则获得2层效果，每次发射最多叠层一次。每层增伤5%，最多6层，与满血增伤相加；4秒未命中后每秒掉1层，与近战层数独立。",
+
   "modifier.tprt.advanced_greed": "贪欲",
   "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
-  "modifier.tprt.advanced_greed.description":"每次攻击提高5%攻击伤害，上限10层",
+  "modifier.tprt.advanced_greed.description":"自身生命值为满时攻击伤害提高20%。每次攻击会获得一层效果，若自身生命值为满或攻击目标生命值为满则额外叠加一层，每层提高5%攻击伤害，上限6层",
 
   "modifier.tprt.arrogant": "傲慢",
   "modifier.tprt.arrogant.flavor":"对下等生物的蔑视",
-  "modifier.tprt.arrogant.description":"生命值为满时全身每级提供5%独立伤害减免（最多40%），若当前生命值大于最大生命值的50%，则效果削减到每级3%（最多24%）",
+  "modifier.tprt.arrogant.description":"全身有效等级合计，最多计5级。满血时每级减伤8%，半血及以上未满血时每级6%，半血以下每级3%；仅对可防护伤害生效，与其他减伤乘法叠加。",
 
   "modifier.tprt.shine_at_night": "逐夜烁光",
   "modifier.tprt.shine_at_night.flavor":"刺破黑夜！",
@@ -712,6 +724,10 @@
   "modifier.tprt.cursed_spirit_arrow": "咒魂之箭",
   "modifier.tprt.cursed_spirit_arrow.flavor":"将诅咒之力注入箭矢",
   "modifier.tprt.cursed_spirit_arrow.description":"发射的箭矢穿透次数+1，发射的箭矢替换为幽灵之箭",
+
+  "modifier.tprt.cursed_sandstorm": "诅咒沙暴",
+  "modifier.tprt.cursed_sandstorm.flavor":"用诅咒沙尘暴撕裂敌人！",
+  "modifier.tprt.cursed_sandstorm.description":"将发射的箭矢替换为三发散射的诅咒沙尘暴，不额外消耗弹药或耐久。",
 
   "modifier.tprt.ancient_spear": "远古之矛",
   "modifier.tprt.ancient_spear.flavor":"源自沙漠的力量",

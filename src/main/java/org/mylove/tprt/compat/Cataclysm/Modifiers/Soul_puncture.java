@@ -218,7 +218,9 @@ public class Soul_puncture extends Arrowmodifier implements InventoryTickModifie
             tracking.lastArrowTick = arrow.tickCount;
             tracking.lastPos = pos;
             // 追踪只在前 MAX_TRACK_TICKS 内生效; 之后状态继续留着做“同一单位只打一次”的判定
-            if (now <= tracking.homingUntil) {
+            if (now <= tracking.homingUntil
+                    && !(arrow instanceof org.mylove.tprt.compat.Cataclysm.entity.TprtCursedSandstormArrow)) {
+                // Sandstorms own their delayed, fixed-target steering. Keep hit history only.
                 correct(arrow, player, tracking);
             }
         }

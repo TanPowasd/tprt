@@ -34,6 +34,14 @@ public class CataclysmCompat {
                             net.minecraft.world.entity.MobCategory.MISC)
                     .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(1)
                     .build("tprt:phantom_arrow"));
+    public static final RegistryObject<net.minecraft.world.entity.EntityType<org.mylove.tprt.compat.Cataclysm.entity.TprtCursedSandstormArrow>> TPRT_CURSED_SANDSTORM =
+            CATACLYSM_ENTITIES.register("cursed_sandstorm", () -> net.minecraft.world.entity.EntityType.Builder
+                    .<org.mylove.tprt.compat.Cataclysm.entity.TprtCursedSandstormArrow>of(org.mylove.tprt.compat.Cataclysm.entity.TprtCursedSandstormArrow::new,
+                            net.minecraft.world.entity.MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(1)
+                    .build("tprt:cursed_sandstorm"));
+    public static final StaticModifier<CursedSandstormModifier> CURSED_SANDSTORM =
+            Cataclysm_MODIFIERS.register("cursed_sandstorm", CursedSandstormModifier::new);
     public static final StaticModifier<CursedSpiritArrowModifier> CURSED_SPIRIT_ARROW =
             Cataclysm_MODIFIERS.register("cursed_spirit_arrow", CursedSpiritArrowModifier::new);
     public static final DeferredRegister<MobEffect> Cataclysm_MODEFFECTS=DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Tprt.MODID);

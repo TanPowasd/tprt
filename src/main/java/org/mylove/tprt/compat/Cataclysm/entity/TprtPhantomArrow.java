@@ -22,6 +22,13 @@ public class TprtPhantomArrow extends Arrow {
         super(type, level);
     }
 
+    /** Hide vanilla critical-arrow particles client-side; server critical damage stays intact.
+     * Also inherited by the compatible cursed sandstorm entity. */
+    @Override
+    public boolean isCritArrow() {
+        return !level().isClientSide && super.isCritArrow();
+    }
+
     public void copySpectralEffect(net.minecraft.world.entity.projectile.AbstractArrow original, CompoundTag data) {
         if (original instanceof SpectralArrow) {
             spectralDuration = data.contains("Duration") ? data.getInt("Duration") : 200;

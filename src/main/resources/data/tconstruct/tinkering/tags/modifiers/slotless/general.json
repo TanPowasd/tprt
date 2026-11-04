@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "tprt:aqua_attr",
     "tprt:artificer_cane",
     "tprt:blaze_spell_book",
     "tprt:blood_staff",
@@ -10,9 +9,7 @@
     "tprt:cursed_doll_spell_book",
     "tprt:dragonskin_spell_book",
     "tprt:druidic_spell_book",
-    "tprt:eldritch_attr",
     "tprt:elemental_mastery",
-    "tprt:enchanting",
     "tprt:evoker_spell_book",
     "tprt:fear_nothing",
     "tprt:fortune_curio",
