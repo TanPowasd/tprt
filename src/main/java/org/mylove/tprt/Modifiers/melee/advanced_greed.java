@@ -15,7 +15,8 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public class advanced_greed extends NoLevelsModifier implements MeleeDamageModifierHook, MeleeHitModifierHook {
-    // Weak contexts also release failed attacks, for which afterMeleeHit is never called.
+    // ToolAttackUtil passes the same context to damage and hit hooks, preserving pre-hit health.
+    // Weak keys also release attacks aborted before either hit callback.
     private final Map<ToolAttackContext, Boolean> fullHealthHits = new WeakHashMap<>();
 
     @Override
@@ -47,10 +48,17 @@ public class advanced_greed extends NoLevelsModifier implements MeleeDamageModif
     }
 
     @Override
+    public void failedMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage) {
+        fullHealthHits.remove(context);
+    }
+
+    @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         Boolean bonus = fullHealthHits.remove(context);
         LivingEntity attacker = context.getAttacker();
-        if (attacker.level().isClientSide || context.getLivingTarget() == null || damageDealt <= 0) return;
+        // TC calls this hook only after a successful hit. damageDealt is the target's
+        // health delta, which can be zero for a hit absorbed by absorption or other hooks.
+        if (attacker.level().isClientSide || context.getLivingTarget() == null) return;
         var effect = ModBuffRegistry.MYL_GIRIG_PRO.get();
         MobEffectInstance previous = attacker.getEffect(effect);
         int stacks = previous == null ? 0 : Math.min(6, previous.getAmplifier() + 1);

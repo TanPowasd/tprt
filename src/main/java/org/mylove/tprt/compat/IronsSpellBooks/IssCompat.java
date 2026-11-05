@@ -103,6 +103,7 @@ public class IssCompat {
     public static StaticModifier<Arcane_echo> arcane_echo;
     public static StaticModifier<bloodstain> bloodstain;
     public static StaticModifier<source_alloy_charm> source_alloy_charm;
+    public static final StaticModifier<SpellGreed> spell_greed = Iss_MODIFIERS.register("spell_greed", SpellGreed::new);
     static {
         enchanting = Iss_MODIFIERS.register("enchanting", enchanting::new);
 

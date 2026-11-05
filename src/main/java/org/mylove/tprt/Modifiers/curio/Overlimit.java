@@ -9,16 +9,12 @@ import com.ssakura49.tinkercuriolib.hook.combat.CurioDamageTargetPostModifierHoo
 import com.ssakura49.tinkercuriolib.hook.interation.CurioInventoryTickModifierHook;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -118,19 +114,10 @@ public final class Overlimit extends NoLevelsModifier implements CurioEquipmentC
         removeEffect(entity, EMPOWERED);
     }
 
-    private static LivingEntity directAttacker(DamageSource source) {
-        if (!(source.getEntity() instanceof LivingEntity attacker)) return null;
-        if (source.getDirectEntity() == attacker && (source.is(DamageTypes.PLAYER_ATTACK)
-                || source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.MOB_ATTACK_NO_AGGRO))) return attacker;
-        if (attacker instanceof Player && source.is(DamageTypeTags.IS_PROJECTILE)
-                && source.getDirectEntity() instanceof Projectile projectile && projectile.getOwner() == attacker) return attacker;
-        return null;
-    }
-
     @Override
     public void onDamageTargetPre(IToolStackView curio, ModifierEntry entry, LivingHurtEvent event,
                                   LivingEntity attacker, LivingEntity target) {
-        if (attacker != target && directAttacker(event.getSource()) == attacker) pre(event, attacker, true);
+        if (attacker != target) pre(event, attacker, true);
     }
 
     @Override
@@ -157,7 +144,7 @@ public final class Overlimit extends NoLevelsModifier implements CurioEquipmentC
     @Override
     public void onCurioDamageTargetPost(IToolStackView curio, ModifierEntry entry, LivingDamageEvent event,
                                        LivingEntity attacker, LivingEntity target) {
-        if (attacker != target && directAttacker(event.getSource()) == attacker) post(event, attacker, true);
+        if (attacker != target) post(event, attacker, true);
     }
 
     @Override

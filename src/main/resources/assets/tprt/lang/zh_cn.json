@@ -65,10 +65,11 @@
   "effect.tprt.lllegally_modified_holsters": "非法改造枪套",
   "effect.tprt.eager_edge": "急切刀锋",
   "effect.tprt.de_eager_edge": "急切刀锋cd",
-  "effect.tprt.myl_girig_pro": "贪欲",
-  "effect.tprt.ranged_greed": "贪欲",
+  "effect.tprt.myl_girig_pro": "贪欲（近战）",
+  "effect.tprt.ranged_greed": "贪欲（远程）",
   "effect.tprt.overlimit_progress": "超限蓄势",
   "effect.tprt.overlimit_empowered": "超限",
+  "effect.tprt.spell_greed": "贪欲（法术）",
   "effect.tprt.soul_casting_blade": "魂铸锋刃",
   "effect.tprt.soul_casting_blade.description": "提高暴击伤害",
   "effect.tprt.source_charge": "源质蓄能",
@@ -307,17 +308,21 @@
   "modifier.tprt.arcane_echo.flavor":"回响的咒文再度生效",
   "modifier.tprt.arcane_echo.description":"施法记录最近3个法术并叠加源质蓄能；满5层时消耗全部层数，按顺序重放这3个法术（不耗法力、不进冷却、无视无敌帧）",
 
+  "modifier.tprt.spell_greed": "贪欲",
+  "modifier.tprt.spell_greed.flavor": "什么时候满足过？",
+  "modifier.tprt.spell_greed.description": "自身满血时，法术强度提高10%。每次施法获得持续8秒的贪欲，每层提高4%法术强度和4%冷却缩减，最多5层；再次施法刷新持续时间，到期全部清空。",
+
   "modifier.tprt.overlimit": "超限",
   "modifier.tprt.overlimit.flavor": "越过极限，方见星河。",
-  "modifier.tprt.overlimit.description": "佩戴护符时直接近战与弹射物增伤15%，可防护伤害减免10%。成功攻击或受伤每秒最多蓄势一次，获得1层，触发前满血额外1层；5层后进入6秒超限，增伤提高至30%、减伤提高至20%，期间不蓄势。重复佩戴不叠加，卸下清空。",
+  "modifier.tprt.overlimit.description": "佩戴护符时造成的伤害提高15%，可防护伤害减免10%。每次成功攻击或受伤后叠加1层效果（每秒最多叠加一次），若自身生命值为满时则额外叠加1层效果；积累5层效果后进入6秒超限状态，期间造成的伤害提高至30%、可防护伤害减免提高至20%，期间无法进行叠层",
 
   "modifier.tprt.ranged_greed": "贪欲",
   "modifier.tprt.ranged_greed.flavor": "什么时候满足过？",
-  "modifier.tprt.ranged_greed.description": "自身生命值为满时弹射物伤害提高20%。成功命中获得1层效果；发射时若自身生命值为满或命中前目标满血则获得2层效果，每次发射最多叠层一次。每层增伤5%，最多6层，与满血增伤相加；4秒未命中后每秒掉1层，与近战层数独立。",
+  "modifier.tprt.ranged_greed.description": "自身生命值为满时弹射物伤害提高20%。成功命中获得1层效果；发射时若自身生命值为满或命中前目标满血则获得2层效果，每次发射最多叠加一层。每层使弹射物伤害提高5%，最多6层，与满血增伤相加；4秒未命中后每秒失去1层",
 
   "modifier.tprt.advanced_greed": "贪欲",
   "modifier.tprt.advanced_greed.flavor":"什么时候满足过？",
-  "modifier.tprt.advanced_greed.description":"自身生命值为满时攻击伤害提高20%。每次攻击会获得一层效果，若自身生命值为满或攻击目标生命值为满则额外叠加一层，每层提高5%攻击伤害，上限6层",
+  "modifier.tprt.advanced_greed.description":"自身生命值为满时攻击伤害提高20%。每次攻击会叠加一层效果，若自身生命值为满或攻击目标生命值为满则额外叠加一层，每层提高5%攻击伤害，上限6层",
 
   "modifier.tprt.arrogant": "傲慢",
   "modifier.tprt.arrogant.flavor":"对下等生物的蔑视",
