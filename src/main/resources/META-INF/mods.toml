@@ -100,7 +100,7 @@ side = "BOTH"
 [[dependencies.tprt]]
 modId="tinkercuriolib"
 mandatory=true
-versionRange="[1.0.3,)"
+versionRange="[1.0.1,)"
 ordering = "AFTER"
 side = "BOTH"
 

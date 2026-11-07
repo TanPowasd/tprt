@@ -20,7 +20,7 @@ public class TprtModCreativeTabs {
 
     public static final RegistryObject<CreativeModeTab> tabGeneral = CREATIVE_MODE_TABS.register(
             "general", () -> CreativeModeTab.builder().title(Component.translatable(Util.makeTranslationKey("creative_tab", Tprt.getResource("common"))))
-                    .icon(() -> new ItemStack(ItemsRegistry.TANPOWASD))
+                    .icon(() -> new ItemStack(ItemsRegistry.CHTHOLLY))
                     .displayItems(ItemsRegistry::addCommonTabItems)
                     .build());
     public static final RegistryObject<CreativeModeTab> tabTools = CREATIVE_MODE_TABS.register(

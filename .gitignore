@@ -119,3 +119,6 @@ runs/
 
 # workstation
 note.md
+
+# agent workspace data (memory / logs)
+.workbuddy/

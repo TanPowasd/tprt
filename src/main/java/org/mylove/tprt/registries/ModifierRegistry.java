@@ -16,6 +16,8 @@ import org.mylove.tprt.Modifiers.range.Automation;
 import org.mylove.tprt.Modifiers.special.*;
 import org.mylove.tprt.Modifiers.re.all_permitted;
 import org.mylove.tprt.Modifiers.re.combat_echo;
+import org.mylove.tprt.Modifiers.re.seniorious;
+import org.mylove.tprt.Modifiers.re.what_do_you_do_at_the_end_of_the_world;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.common.modifier.modifierModule.CuriosModifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
@@ -38,11 +40,6 @@ public class ModifierRegistry {
     }
 
     public static final StaticModifier<lastone> LASTONE = MODIFIERS.register("lastone", lastone::new);
-    public static final StaticModifier<for_the_love> FOR_THE_LOVE = MODIFIERS.register("for_the_love", for_the_love::new);
-    public static final StaticModifier<sacred_sacrifice> SACRED_SACRIFICE = MODIFIERS.register("sacred_sacrifice", sacred_sacrifice::new);
-    public static final StaticModifier<real_attack> REAL_ATTACK = MODIFIERS.register("real_attack",real_attack::new);
-    public static final StaticModifier<double_or_none> DOUBLE_OR_NONE = MODIFIERS.register("double_or_none",double_or_none::new);
-    public static final StaticModifier<disruption_break> DISRUPTION_BREAK = MODIFIERS.register("disruption_break",disruption_break::new);
     public static final StaticModifier<lucky_strike> LUCK_STRIKE = MODIFIERS.register("luck_strike",lucky_strike::new);
     public static final StaticModifier<advanced_greed> ADVANCED_GREED = MODIFIERS.register("advanced_greed",advanced_greed::new);
     public static final StaticModifier<org.mylove.tprt.Modifiers.ranged.RangedGreedModifier> RANGED_GREED =
@@ -65,13 +62,8 @@ public class ModifierRegistry {
     public static final StaticModifier<CuriosModifier> Strengthen_for_charm_ranged = MODIFIERS.register("strengthen_for_charm_ranged", Strengthen_for_charm_ranged::new);
     public static final StaticModifier<CuriosModifier> Fortune_curio = MODIFIERS.register("fortune_curio", Fortune_curio::new);
     //閿婚€犻挗涓撳睘鐗规€?(璋冭川澶勭悊) 宸茬Щ鍒?CreateCompat: 鍙湁瑁呬簡鏈烘鍔ㄥ姏鎵嶄細娉ㄥ唽
-    public static final StaticModifier<d2_half_truths> D2_HALF_TRUTHS = MODIFIERS.register("d2_half_truths",d2_half_truths::new);
-    public static final StaticModifier<d2_lucky_pants> D2_LUCKY_PANTS = MODIFIERS.register("d2_lucky_pants",d2_lucky_pants::new);
-    public static final StaticModifier<dynamic_attack> DYNAMIC_ATTACK = MODIFIERS.register("dynamic_attack",dynamic_attack::new);
-    public static final StaticModifier<dynamic_defense> DYNAMIC_DEFENSE = MODIFIERS.register("dynamic_defense",dynamic_defense::new);
     public static final StaticModifier<infinite_dropping> INFINITE_DROPPING = MODIFIERS.register("infinite_dropping",infinite_dropping::new);
     public static final StaticModifier<millennium> MILLENNIUM = MODIFIERS.register("millennium",millennium::new);
-    public static final StaticModifier<zenith_first_fractal>ZENITH_FIRST_FRACTAL = MODIFIERS.register("zenith_first_fractal",zenith_first_fractal::new);
     public static final StaticModifier<oxidation>OXIDATION = MODIFIERS.register("oxidation",oxidation::new);
     public static final StaticModifier<tetanus>TETANUS_STATIC = MODIFIERS.register("tetanus",tetanus::new);
     public static final StaticModifier<persistence_of_nature> PERSISTENCE_OF_NATURE = MODIFIERS.register("persistence_of_nature",persistence_of_nature::new);
@@ -79,4 +71,8 @@ public class ModifierRegistry {
     public static final StaticModifier<Precision_stab> Precision_stab = MODIFIERS.register("precision_stab",Precision_stab::new);
     public static final StaticModifier<all_permitted> ALL_PERMITTED = MODIFIERS.register("all_permitted",all_permitted::new);
     public static final StaticModifier<combat_echo> COMBAT_ECHO = MODIFIERS.register("combat_echo",combat_echo::new);
+    public static final StaticModifier<what_do_you_do_at_the_end_of_the_world> WHAT_DO_YOU_DO_AT_THE_END_OF_THE_WORLD =
+            MODIFIERS.register("what_do_you_do_at_the_end_of_the_world", what_do_you_do_at_the_end_of_the_world::new);
+    public static final StaticModifier<seniorious> SENIORIOUS =
+            MODIFIERS.register("seniorious", seniorious::new);
 }

@@ -202,6 +202,7 @@ dependencies {
     //implementation fg.deobf("curse.maven:tinkers-calibration-tic3-863663:6735556")
     implementation fg.deobf("curse.maven:etst-lib-1206379:6732443")
     implementation fg.deobf("curse.maven:lendercataclysm-551586:7849424")
+    runtimeOnly fg.deobf("curse.maven:lionfish-api-1001614:7923140")
     compileOnly files("libs/[Iron的法术与魔法书] irons_spellbooks-1.20.1-3.16.3.jar")
 compileOnly files("libs/geckolib-forge-1.20.1-4.8.4.jar")
     implementation fg.deobf("curse.maven:tinkercuriolib-1478834:7718493")

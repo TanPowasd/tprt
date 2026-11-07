@@ -14,14 +14,11 @@ public class ModBuffRegistry {
         EFFECT.register(eventBus);
     }
     public static final RegistryObject<MobEffect> MOREDAMAGE=EFFECT.register("moredamage",moredamage::new);
-    public static final RegistryObject<MobEffect>LLLEGALLY_MODIFIED_HOLSTERS=EFFECT.register("lllegally_modified_holsters", lllegally_modified_holsters::new);
     public static final RegistryObject<MobEffect>MYL_GIRIG_PRO=EFFECT.register("myl_girig_pro", myl_girig_pro::new);
     public static final RegistryObject<MobEffect> RANGED_GREED = EFFECT.register("ranged_greed", RangedGreedEffect::new);
     public static final RegistryObject<MobEffect> SPELL_GREED = EFFECT.register("spell_greed", SpellGreedEffect::new);
     public static final RegistryObject<MobEffect> OVERLIMIT_PROGRESS = EFFECT.register("overlimit_progress", OverlimitProgressEffect::new);
     public static final RegistryObject<MobEffect> OVERLIMIT_EMPOWERED = EFFECT.register("overlimit_empowered", OverlimitEmpoweredEffect::new);
-    public static final RegistryObject<MobEffect>EAGER_EDGE=EFFECT.register("eager_edge", eager_edge::new);
-    public static final RegistryObject<MobEffect>DE_EAGER_EDGE=EFFECT.register("de_eager_edge", de_eager_edge::new);
     /** 次数盾 (风暴化身护甲特性) 的隐身标记效果 */
     public static final RegistryObject<MobEffect>ATTACK_SHIELD=EFFECT.register("attack_shield", attack_shield::new);
 }
