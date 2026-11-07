@@ -43,22 +43,8 @@ public class ItemsRegistry {
     public static final  RegistryObject<Item>RAW_AWAIRON=ITEMS.register("raw_awairon",
             ()->new Item(new Item.Properties()));
 
-    public static final  RegistryObject<Item>TANPOWASD=ITEMS.register("tanpowasd",
-            ()->new Item(new Item.Properties()));
-
     public static final RegistryObject<Item>LR_APPLE=ITEMS.register("lr_apple",
             ()->new Item(new Item.Properties().food(ModFoods.LR_APPLE)));
-//挚爱锭前置
-    public static final RegistryObject<Item>KING_OF_FOREST=ITEMS.register("king_of_forest",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item>KING_OF_FIREANDICE=ITEMS.register("king_of_fireandice",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item>KING_OF_CATACLYSM=ITEMS.register("king_of_cataclysm",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item>KING_OF_MAGIC=ITEMS.register("king_of_magic",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item>KING_OF_MC=ITEMS.register("king_of_mc",
-            ()->new Item(new Item.Properties()));
     //精密合金
     public static final RegistryObject<Item>PRECISION_ALLOY=ITEMS.register("precision_alloy",
             ()->new Item(new Item.Properties()));
@@ -67,8 +53,8 @@ public class ItemsRegistry {
             ()->new Item(new Item.Properties()));
      */
 
-    public static final  ItemObject<Item>TANPOWASD=ITEMS.register("tanpowasd",
-            ()->new Item(new Item.Properties()));
+    public static final ItemObject<Item> CHTHOLLY = ITEMS.register("chtholly",
+            () -> new Item(new Item.Properties()));
 /*
 //lr特供 金质狐狸面具
     public static final ItemObject<Item>Goldenfoxmask = ITEMS.register("golden_fox_mask",
@@ -111,6 +97,7 @@ public class ItemsRegistry {
 
     public static void addCommonTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         //自有材料
+        tab.accept(CHTHOLLY);
         tab.accept(ADVANCED_MANYULLYN);
         tab.accept(RADIANT_KNIGHTMETAL_INGOT);
         //联动模组物品: 没装对应模组就没有注册, 也就不往创造栏里放

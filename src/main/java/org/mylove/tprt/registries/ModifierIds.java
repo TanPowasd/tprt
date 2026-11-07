@@ -12,7 +12,6 @@ public class ModifierIds {
     public static final ModifierId Storm_incarnation_arm = id("storm_incarnation_arm");
     public static final ModifierId soul_dodge = id("soul_dodge");
     public static final ModifierId Undead_Revive = id("undead_revive");
-    public static final ModifierId double_or_none = id("double_or_none");
     public static final ModifierId Monstrous = id("monstrous");
     public static final ModifierId TEARS_OF_THE_PEARL_OF_THE_SEA = id("tears_of_the_pearl_of_the_sea");
     public static final ModifierId TIDE_WALKER = id("tide_walker");
@@ -21,6 +20,10 @@ public class ModifierIds {
     public static final ModifierId Glow_armor = id("glow_armor");
     public static final ModifierId Immolate = id("immolate");
     public static final ModifierId The_dragon_lord = id("the_dragon_lord");
+    public static final ModifierId what_do_you_do_at_the_end_of_the_world = id("what_do_you_do_at_the_end_of_the_world");
+    public static final ModifierId seniorious = id("seniorious");
+    public static final ModifierId all_permitted = id("all_permitted");
+    public static final ModifierId combat_echo = id("combat_echo");
 
     public static final ModifierId netherite_spell_book = id("netherite_spell_book");
     public static final ModifierId gold_spell_book = id("gold_spell_book");

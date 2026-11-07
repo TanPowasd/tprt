@@ -4,30 +4,37 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mylove.tprt.Tprt;
 import org.mylove.tprt.hooks.KillingHook;
 import org.mylove.tprt.hooks.TprtHooks;
 import org.mylove.tprt.registries.ModDamageSource;
 import slimeknights.mantle.client.TooltipKey;
+import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.AttributesModifierHook;
@@ -40,101 +47,125 @@ import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickM
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
+import slimeknights.tconstruct.library.tools.nbt.IModDataView;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.tools.stats.ToolType;
+import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.WeakHashMap;
 import java.util.function.BiConsumer;
 
 /*
   ============================================================
-  万般皆允，百无禁忌 (all_permitted) —— 毕业词条 · 终极版
+  万般皆允，百无禁忌 (all_permitted) —— 挚爱 · 近战核心词条之一
   信条: 万物皆虚，万事皆允
 
-  核心循环: 【虚】蓄力 →【允】爆发 → 罪业惩罚 → 赎罪重回
+  核心循环: 潜行右键切换形态 | 【虚】掠夺蓄力 → 【允】连斩真伤 → 罪业与赎罪
 
-  【虚】万物皆虚 (蓄力期):
-    - 命中偷取目标护甲与攻击 (5 层 / 5 秒), 目标失去等量护甲
-    - 偷取时记录目标质量 Q = 护甲 + 攻击力
-      真伤转化率 = 0.02% × Q^0.75  (连续函数, 无分档, 偷到强敌转化率更高)
-    - 命中 +4 禁忌; 击杀被偷取中的目标 → 禁忌 ×2
-    - 禁忌满 100 → 自动超载: 全量真伤 AOE (4 格), 事后 10 秒强罪业(伤害减半)
+  【虚】万物皆虚 (蓄力/掠夺/赎罪):
+    - 命中叠 1 层偷取 (上限 5 层 / 持续 5 秒):
+        * 读取目标真实未削减护甲与攻击力, 削减目标 2%/层 护甲
+        * 主手持有时获得等量护甲与 +2%/层 攻击力总乘区 (切入【允】爆发期仍保留剩余时间)
+        * 记录猎物质量 Q = max(5, 护甲 + 攻击力), 偷取有效期内保留最高 Q
+    - 转化率 = 0.25% × Q^0.75 (每点禁忌转化为近战伤害对应比例的纯粹真伤)
+    - 命中 (含一击秒杀) +4 禁忌; 击杀普通目标 +10, 击杀被偷取目标禁忌翻倍 (×2)
+    - 禁忌蓄满 100 → 自动超载: 对周围 4 格敌对目标造成全量真伤 AOE, 事后陷入 10 秒强罪业 (-50% 伤害)
 
   【允】万事皆允 (爆发期):
     - 攻击无视目标受伤无敌帧
-    - 每击消耗禁忌等比递增: 1, 2, 4, 8, 16 (封顶 16), 换目标重置
-    - 真伤 = 本击消耗 × 转化率 × (1 + 连击层数 × 15%), 连击上限 10 层
-    - 禁忌不足时该击伤害 -50% (贪刀惩罚)
-    - 禁忌耗尽 → 强制切回【虚】+ 罪业 5 秒
+    - 每击等比递增消耗禁忌: 1, 2, 4, 8, 16 (封顶 16, 换目标重置; 普攻已直接击杀脆皮怪时不白耗禁忌)
+    - 附加真伤 = 本击近战伤害 × 实际消耗 × 转化率 × (1 + 连击层数 × 15%), 连击上限 10 层
+      (与自身攻击面板、增伤词条、暴击及【末日三问】狂暴自然乘算叠加)
+    - 【允】形态击杀目标同样回充禁忌 (钳制至 99, 续航连斩而不误触超载自爆)
+    - 禁忌不足支付本击消耗时: 该击普攻 -50% (贪刀惩罚), 随后耗尽切回【虚】并陷入 5 秒罪业 (-30% 伤害)
 
-  罪业:
-    - 伤害 -30% (超载罪业 -50%), 期间无法切换形态
-    - 用【虚】形态命中 5 次 → 赎罪, 提前解除
+  【罪业与赎罪】:
+    - 罪业期间常规近战伤害降低, 且锁定在【虚】形态无法切换
+    - 【虚】形态命中敌人 (含一击秒杀) 满 5 次 → 赎罪成功, 立即解除罪业
+
+  实现优化:
+    - 计时器全部使用到期 gameTime 时间戳而非每 tick 递减写 NBT, 彻底消除主手武器鬼畜抽搐
+    - 服务端 WeakHashMap 独立追踪所有被减甲目标, 换目标绝不泄漏减甲修饰符
 
   数值均为顶部常量, 可自由调整
   ============================================================
  */
 public class all_permitted extends NoLevelsModifier implements
         KillingHook, TooltipModifierHook, GeneralInteractionModifierHook, InventoryTickModifierHook,
-        MeleeHitModifierHook, MeleeDamageModifierHook, AttributesModifierHook
-{
-    public static final ToolType[] CAN_BE_USE_ON_TYPES = {ToolType.MELEE};
+        MeleeHitModifierHook, MeleeDamageModifierHook, AttributesModifierHook {
 
     // ===== 禁忌值 =====
-    public static final float FORBIDDEN_MAX = 100.0f;      // 禁忌值上限, 满值自动超载
-    public static final float FORBIDDEN_PER_HIT = 4.0f;    // 虚形态每次命中积累
-    public static final float FORBIDDEN_PER_KILL = 10.0f;  // 击杀普通目标积累
+    public static final float FORBIDDEN_MAX = 100.0f;       // 禁忌值上限 (虚形态蓄满自动超载)
+    public static final float FORBIDDEN_YUN_KILL_CAP = 99.0f; // 允形态击杀回充上限 (防连斩中途误触超载)
+    public static final float FORBIDDEN_PER_HIT = 4.0f;     // 虚形态每次命中积累
+    public static final float FORBIDDEN_PER_KILL = 10.0f;   // 击杀普通目标积累
+
     // ===== 偷取 =====
-    public static final int STEAL_MAX_STACKS = 5;          // 偷取最大层数
-    public static final int STEAL_DURATION = 100;          // 偷取持续 tick (5 秒)
-    public static final float STEAL_ARMOR_PERCENT = 0.02f; // 每层偷取目标护甲值的比例 (2%)
-    public static final float STEAL_ATTACK_PERCENT = 0.02f;// 每层自身攻击增益 (2%)
-    // ===== 质量 → 转化率 连续函数 (B) =====
-    public static final float TRANSFER_BASE = 0.0002f;     // 转化率基数: 0.02%
-    public static final double TRANSFER_EXP = 0.75;        // 幂指数: 转化率 = 基数 × Q^指数
-    public static final float MAX_TRANSFER_RATE = 0.0f;    // 可选软上限 (0 = 不限, 毕业词条允许爆发)
-    // ===== 允形态: 等比消耗 (C) =====
-    public static final int CONSUME_MAX_STEP = 4;          // 消耗档位上限: 2^4 = 16 (封顶)
-    public static final float STARVATION_PENALTY = 0.5f;   // 禁忌不足时该击伤害倍率 (贪刀惩罚)
-    // ===== 连击 =====
-    public static final int COMBO_MAX = 10;                // 连击层数上限
-    public static final float COMBO_BONUS = 0.15f;         // 每层连击真伤加成 (15%)
-    // ===== 罪业 (A) =====
-    public static final int SIN_DURATION = 100;            // 普通罪业 tick (5 秒, 禁忌耗尽)
-    public static final int SIN_DURATION_OVERLOAD = 200;   // 超载罪业 tick (10 秒)
-    public static final float SIN_PENALTY_NORMAL = 0.7f;   // 普通罪业伤害倍率 (-30%)
-    public static final float SIN_PENALTY_OVERLOAD = 0.5f; // 超载罪业伤害倍率 (-50%)
-    public static final int ATONE_REQUIRED = 5;            // 赎罪所需虚形态命中次数
-    // ===== 超载 =====
-    public static final float OVERLOAD_RADIUS = 4.0f;      // 超载 AOE 半径 (格)
-    public static final float OVERLOAD_MULTIPLIER = 1.5f;  // 超载伤害乘区
-    // ===== 切换 =====
-    public static final int SWITCH_COOLDOWN = 60;          // 切换冷却 tick (3 秒)
+    public static final int STEAL_MAX_STACKS = 5;           // 偷取最大层数
+    public static final int STEAL_DURATION = 100;           // 偷取持续时间 (100 tick = 5 秒)
+    public static final float STEAL_ARMOR_PERCENT = 0.02f;  // 每层偷取目标护甲比例 (2%, 满层 10%)
+    public static final float STEAL_ATTACK_PERCENT = 0.02f; // 每层自身攻击力总乘区 (2%, 满层 +10%)
+
+    // ===== 猎物质量 → 真伤转化率 =====
+    public static final float MIN_QUALITY = 5.0f;           // 最低猎物质量保底 (防 0 甲无面板怪转化率为 0)
+    public static final float TRANSFER_BASE = 0.0025f;      // 转化率基数: 每点禁忌 = 0.25% × Q^0.75 倍本击伤害真伤
+    public static final double TRANSFER_EXP = 0.75;         // 质量幂指数
+    public static final float MAX_TRANSFER_RATE = 0.0f;     // 可选软上限 (0 = 不封顶)
+
+    // ===== 允形态: 等比消耗与连击 =====
+    public static final int CONSUME_MAX_STEP = 4;           // 消耗档位上限: 2^4 = 16 (封顶)
+    public static final float STARVATION_PENALTY = 0.5f;    // 禁忌不足支付本击时普攻倍率 (-50% 贪刀惩罚)
+    public static final int COMBO_MAX = 10;                 // 连击层数上限
+    public static final float COMBO_BONUS = 0.15f;          // 每层连击真伤加成 (+15%, 满层 ×2.5)
+
+    // ===== 罪业与赎罪 =====
+    public static final int SIN_DURATION = 100;             // 普通罪业持续 (100 tick = 5 秒)
+    public static final int SIN_DURATION_OVERLOAD = 200;    // 超载强罪业持续 (200 tick = 10 秒)
+    public static final float SIN_PENALTY_NORMAL = 0.7f;    // 普通罪业伤害倍率 (-30%)
+    public static final float SIN_PENALTY_OVERLOAD = 0.5f;  // 超载强罪业伤害倍率 (-50%)
+    public static final int ATONE_REQUIRED = 5;             // 赎罪所需虚形态命中次数
+
+    // ===== 超载与切换 =====
+    public static final float OVERLOAD_RADIUS = 4.0f;       // 超载真伤 AOE 半径 (格)
+    public static final float OVERLOAD_MULTIPLIER = 1.5f;   // 超载真伤额外倍率
+    public static final int SWITCH_COOLDOWN = 60;           // 形态切换冷却 (60 tick = 3 秒)
 
     // ===== 工具持久数据 Key =====
     private static final ResourceLocation FORBIDDEN = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_forbidden");
     private static final ResourceLocation MODE = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_mode");
-    private static final ResourceLocation SWITCH_CD = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_switch_cd");
+    private static final ResourceLocation SWITCH_UNTIL = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_switch_until");
     private static final ResourceLocation STEAL_STACKS = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_steal_stacks");
-    private static final ResourceLocation STEAL_TIMER = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_steal_timer");
+    private static final ResourceLocation STEAL_UNTIL = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_steal_until");
     private static final ResourceLocation STEAL_TARGET_ARMOR = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_steal_target_armor");
-    private static final ResourceLocation STEAL_TARGET_ID = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_steal_target_id");
     private static final ResourceLocation STEAL_QUALITY = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_steal_quality");
     private static final ResourceLocation CONSUME_STEP = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_consume_step");
     private static final ResourceLocation COMBO = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_combo");
     private static final ResourceLocation COMBO_TARGET_ID = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_combo_target_id");
-    private static final ResourceLocation SIN_TIMER = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_sin_timer");
+    private static final ResourceLocation SIN_UNTIL = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_sin_until");
     private static final ResourceLocation SIN_PENALTY = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_sin_penalty");
     private static final ResourceLocation ATONE_COUNT = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "ap_atone_count");
 
     private static final String MODE_XU = "xu";   // 万物皆虚
     private static final String MODE_YUN = "yun"; // 万事皆允
 
-    // 属性修饰符 UUID (固定, 避免重复叠加)
     private static final UUID TARGET_ARMOR_UUID = UUID.fromString("1f6a3c9d-4b7e-4a52-8c1f-3e9d2b6a5c10");
     private static final UUID SELF_ARMOR_UUID = UUID.fromString("2f6a3c9d-4b7e-4a52-8c1f-3e9d2b6a5c11");
     private static final UUID SELF_DAMAGE_UUID = UUID.fromString("3f6a3c9d-4b7e-4a52-8c1f-3e9d2b6a5c12");
+
+    /** 记录本刀护甲前真实近战伤害 (供 afterMeleeHit 计算允形态真伤) */
+    private static final Map<ToolAttackContext, Float> SWING_DAMAGES = Collections.synchronizedMap(new WeakHashMap<>());
+    /** 追踪所有被施加了偷取减甲的实体 -> 到期 gameTime (防换目标漏删减甲) */
+    private static final Map<LivingEntity, Long> STOLEN_TARGETS = Collections.synchronizedMap(new WeakHashMap<>());
+    private static int serverTickCounter = 0;
+
+    static {
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, TickEvent.ServerTickEvent.class, all_permitted::onServerTick);
+    }
 
     @Override
     public int getPriority() {
@@ -142,24 +173,25 @@ public class all_permitted extends NoLevelsModifier implements
     }
 
     @Override
-    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+    protected void registerHooks(ModuleHookMap.@NotNull Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, TprtHooks.KILLING_HOOK, ModifierHooks.TOOLTIP, ModifierHooks.GENERAL_INTERACT,
                 ModifierHooks.INVENTORY_TICK, ModifierHooks.MELEE_HIT, ModifierHooks.MELEE_DAMAGE, ModifierHooks.ATTRIBUTES);
     }
 
     // ============================================================
-    //  伤害阶段: 罪业惩罚 + 贪刀惩罚 (发生在护甲减免之前)
+    //  伤害阶段: 罪业惩罚 + 贪刀惩罚 (护甲减免前)
     // ============================================================
     @Override
-    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
+    public float getMeleeDamage(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
+                                @NotNull ToolAttackContext context, float baseDamage, float damage) {
         if (!canModified(tool)) return damage;
 
-        // 罪业期间伤害削减
-        if (tool.getPersistentData().getInt(SIN_TIMER) > 0) {
+        long now = context.getAttacker().level().getGameTime();
+        if (isSinActive(tool, now)) {
             damage *= getSinPenalty(tool);
         }
 
-        // 允形态: 禁忌不足以支付本击消耗 → 贪刀惩罚 (-50%)
         if (isYun(tool)) {
             int consume = currentConsume(tool);
             if (tool.getPersistentData().getFloat(FORBIDDEN) < consume) {
@@ -170,10 +202,16 @@ public class all_permitted extends NoLevelsModifier implements
     }
 
     // ============================================================
-    //  命中前: 允形态无视目标无敌帧
+    //  命中前: 捕获护甲前近战伤害 + 允形态无视无敌帧
     // ============================================================
     @Override
-    public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+    public float beforeMeleeHit(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
+                                @NotNull ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+        if (!canModified(tool)) return knockback;
+        LivingEntity attacker = context.getAttacker();
+        if (!attacker.level().isClientSide) {
+            SWING_DAMAGES.put(context, damage);
+        }
         LivingEntity target = context.getLivingTarget();
         if (isYun(tool) && target != null) {
             target.invulnerableTime = 0;
@@ -181,318 +219,459 @@ public class all_permitted extends NoLevelsModifier implements
         return knockback;
     }
 
+    @Override
+    public void failedMeleeHit(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
+                               @NotNull ToolAttackContext context, float damageNotDealt) {
+        SWING_DAMAGES.remove(context);
+    }
+
     // ============================================================
-    //  命中后: 核心结算 —— 虚形态偷取/蓄力, 允形态消耗/爆发
+    //  命中后: 【虚】偷取/蓄力/赎罪(兼容秒杀), 【允】等比消耗/连击/真伤
     // ============================================================
     @Override
-    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
+    public void afterMeleeHit(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
+                              @NotNull ToolAttackContext context, float damageDealt) {
+        Float recorded = SWING_DAMAGES.remove(context);
         if (!canModified(tool)) return;
 
-        LivingEntity target = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
-        if (target == null || target.isDeadOrDying()) return;
+        LivingEntity target = context.getLivingTarget();
+        if (attacker.level().isClientSide || target == null) return;
+
+        long now = attacker.level().getGameTime();
 
         if (isXu(tool)) {
-            // ===== 万物皆虚: 偷取 + 蓄力 + 赎罪 =====
-            steal(tool, target);
-            addForbidden(tool, FORBIDDEN_PER_HIT);
-            atone(tool, attacker);              // 罪业期间命中计数 (赎罪)
-            checkOverload(tool, attacker);      // 蓄满 100 自动超载
-        } else if (isYun(tool)) {
-            // ===== 万事皆允: 等比消耗 + 连击 + 真伤 =====
-            boolean sameTarget = tool.getPersistentData().getInt(COMBO_TARGET_ID) == target.getId();
+            // 【虚】即使普攻一刀秒杀目标, 依然正常记录质量、增加禁忌并计入赎罪
+            steal(tool, target, now);
+            addForbidden(tool, FORBIDDEN_PER_HIT, FORBIDDEN_MAX);
+            atone(tool, attacker, now);
+            checkOverload(tool, attacker, now);
+        } else {
+            // 【允】若普攻本身已直接砍死脆皮目标, 不白耗禁忌档位
+            if (target.isDeadOrDying()) return;
+
+            ModDataNBT data = tool.getPersistentData();
+            boolean sameTarget = data.getInt(COMBO_TARGET_ID) == target.getId();
             int combo;
             if (sameTarget) {
-                // 同一目标: 连击 +1 (上限 COMBO_MAX)
-                combo = Math.min(COMBO_MAX, tool.getPersistentData().getInt(COMBO) + 1);
+                combo = Math.min(COMBO_MAX, data.getInt(COMBO) + 1);
             } else {
-                // 换目标: 连击与消耗档位全部重置
                 combo = 1;
-                tool.getPersistentData().putInt(CONSUME_STEP, 0);
+                data.putInt(CONSUME_STEP, 0);
             }
-            tool.getPersistentData().putInt(COMBO, combo);
-            tool.getPersistentData().putInt(COMBO_TARGET_ID, target.getId());
+            data.putInt(COMBO, combo);
+            data.putInt(COMBO_TARGET_ID, target.getId());
 
-            // 本击消耗 (等比 2^step, 封顶 16), 结算后档位 +1
             int consume = currentConsume(tool);
-            tool.getPersistentData().putInt(CONSUME_STEP, Math.min(CONSUME_MAX_STEP, tool.getPersistentData().getInt(CONSUME_STEP) + 1));
+            data.putInt(CONSUME_STEP, Math.min(CONSUME_MAX_STEP, data.getInt(CONSUME_STEP) + 1));
 
-            // 扣除禁忌 (不足则扣光)
-            float forbidden = tool.getPersistentData().getFloat(FORBIDDEN);
+            float forbidden = data.getFloat(FORBIDDEN);
             float realConsume = Math.min(forbidden, consume);
-            addForbidden(tool, -realConsume);
+            addForbidden(tool, -realConsume, FORBIDDEN_MAX);
 
-            // 真伤 = 消耗 × 转化率 × (1 + 连击加成)
+            float swingDamage = recorded != null
+                    ? recorded
+                    : Math.max(damageDealt, (float) attacker.getAttributeValue(Attributes.ATTACK_DAMAGE));
             float rate = transferRate(tool);
-            float trueDamage = realConsume * rate * (1 + combo * COMBO_BONUS);
+            float trueDamage = swingDamage * realConsume * rate * (1.0f + combo * COMBO_BONUS);
             if (trueDamage > 0.0f) {
+                target.invulnerableTime = 0;
                 target.hurt(pureSource(attacker), trueDamage);
             }
 
-            // 禁忌耗尽 → 强制切回【虚】并陷入罪业
             if (forbidden <= consume) {
-                forceToXu(tool, attacker);
+                forceToXu(tool, attacker, now);
             }
         }
     }
 
     // ============================================================
-    //  击杀: 被偷取中的目标死亡 → 禁忌 ×2, 否则 +10
+    //  击杀: 仅主手持有本武器时生效; 被偷取目标死亡禁忌翻倍, 否则 +10
     // ============================================================
     @Override
     public void onKillLivingTarget(IToolStackView tool, LivingDeathEvent event, LivingEntity attacker, LivingEntity target, int level) {
-        if (!canModified(tool)) return;
+        if (!canModified(tool) || target.level().isClientSide || event.isCanceled()) return;
         if (event.getSource().getEntity() != attacker) return;
 
-        // 目标身上还带着偷取减益 → 掠夺: 禁忌翻倍
+        ToolStack mainHand = Modifier.getHeldTool(attacker, InteractionHand.MAIN_HAND);
+        if (mainHand == null || mainHand.getModifierLevel(this) <= 0) return;
+
         AttributeInstance targetArmor = target.getAttribute(Attributes.ARMOR);
         boolean wasStolen = targetArmor != null && targetArmor.getModifier(TARGET_ARMOR_UUID) != null;
-        if (wasStolen) {
-            addForbidden(tool, tool.getPersistentData().getFloat(FORBIDDEN)); // +当前值 = ×2 (超上限自动钳制)
-        } else {
-            addForbidden(tool, FORBIDDEN_PER_KILL);
+
+        float cap = isYun(tool) ? FORBIDDEN_YUN_KILL_CAP : FORBIDDEN_MAX;
+        float gain = wasStolen ? Math.max(FORBIDDEN_PER_KILL, tool.getPersistentData().getFloat(FORBIDDEN)) : FORBIDDEN_PER_KILL;
+        addForbidden(tool, gain, cap);
+
+        if (isXu(tool)) {
+            checkOverload(tool, attacker, attacker.level().getGameTime());
         }
-        checkOverload(tool, attacker);
     }
 
     // ============================================================
-    //  属性: 虚形态偷取层数 → 自身护甲/攻击加成
+    //  属性: 仅主手生效; 偷取有效期内保留护甲与攻击增益 (含切入【允】爆发期)
     // ============================================================
     @Override
-    public void addAttributes(IToolStackView tool, ModifierEntry modifier, EquipmentSlot slot, BiConsumer<Attribute, AttributeModifier> consumer) {
+    public void addAttributes(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
+                              @NotNull EquipmentSlot slot, @NotNull BiConsumer<Attribute, AttributeModifier> consumer) {
+        if (slot != EquipmentSlot.MAINHAND || !canModified(tool)) return;
         int stacks = tool.getPersistentData().getInt(STEAL_STACKS);
-        if (stacks > 0 && isXu(tool)) {
-            // 护甲: +目标护甲值 × 2% × 层数
+        if (stacks > 0) {
             float stolenArmor = tool.getPersistentData().getFloat(STEAL_TARGET_ARMOR) * STEAL_ARMOR_PERCENT * stacks;
-            consumer.accept(Attributes.ARMOR, new AttributeModifier(SELF_ARMOR_UUID, "all_permitted.steal_armor", stolenArmor, AttributeModifier.Operation.ADDITION));
-            // 攻击: +2% × 层数
-            consumer.accept(Attributes.ATTACK_DAMAGE, new AttributeModifier(SELF_DAMAGE_UUID, "all_permitted.steal_damage", STEAL_ATTACK_PERCENT * stacks, AttributeModifier.Operation.MULTIPLY_TOTAL));
+            if (stolenArmor > 0.0f) {
+                consumer.accept(Attributes.ARMOR, new AttributeModifier(
+                        SELF_ARMOR_UUID, "all_permitted.steal_armor", stolenArmor, AttributeModifier.Operation.ADDITION));
+            }
+            consumer.accept(Attributes.ATTACK_DAMAGE, new AttributeModifier(
+                    SELF_DAMAGE_UUID, "all_permitted.steal_damage", STEAL_ATTACK_PERCENT * stacks, AttributeModifier.Operation.MULTIPLY_TOTAL));
         }
     }
 
     // ============================================================
-    //  每 tick: 偷取计时/归还, 罪业计时, 切换冷却
+    //  每 tick (仅服务端): 仅在计时器到期的那一刻清理一次 NBT, 平时 0 写入不抽搐
     // ============================================================
     @Override
-    public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
-        if (!canModified(tool)) return;
+    public void onInventoryTick(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, @NotNull Level world,
+                                @NotNull LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, @NotNull ItemStack stack) {
+        if (world.isClientSide || !canModified(tool)) return;
 
-        // 偷取计时: 到期归还目标护甲并清层数
-        int timer = tool.getPersistentData().getInt(STEAL_TIMER);
-        if (timer > 0) {
-            timer--;
-            tool.getPersistentData().putInt(STEAL_TIMER, timer);
-            if (timer <= 0) {
-                tool.getPersistentData().putInt(STEAL_STACKS, 0);
-                Entity target = world.getEntity(tool.getPersistentData().getInt(STEAL_TARGET_ID));
-                if (target instanceof LivingEntity living) {
-                    AttributeInstance targetArmor = living.getAttribute(Attributes.ARMOR);
-                    if (targetArmor != null) {
-                        targetArmor.removeModifier(TARGET_ARMOR_UUID);
+        long now = world.getGameTime();
+        ModDataNBT data = tool.getPersistentData();
+
+        long stealUntil = getLong(data, STEAL_UNTIL);
+        if (stealUntil > 0L && !isTimerActive(now, stealUntil, STEAL_DURATION)) {
+            data.remove(STEAL_UNTIL);
+            data.putInt(STEAL_STACKS, 0);
+        }
+
+        long sinUntil = getLong(data, SIN_UNTIL);
+        if (sinUntil > 0L && !isTimerActive(now, sinUntil, SIN_DURATION_OVERLOAD)) {
+            clearSin(data);
+        }
+
+        long switchUntil = getLong(data, SWITCH_UNTIL);
+        if (switchUntil > 0L && !isTimerActive(now, switchUntil, SWITCH_COOLDOWN)) {
+            data.remove(SWITCH_UNTIL);
+        }
+    }
+
+    /** 服务端全局回收所有到期目标身上的减甲修饰符 */
+    private static void onServerTick(TickEvent.ServerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) return;
+        if (++serverTickCounter % 10 != 0 || STOLEN_TARGETS.isEmpty()) return;
+
+        synchronized (STOLEN_TARGETS) {
+            Iterator<Map.Entry<LivingEntity, Long>> it = STOLEN_TARGETS.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<LivingEntity, Long> entry = it.next();
+                LivingEntity target = entry.getKey();
+                if (target == null || !target.isAlive() || target.isRemoved()) {
+                    it.remove();
+                    continue;
+                }
+                if (target.level().getGameTime() >= entry.getValue()) {
+                    AttributeInstance armor = target.getAttribute(Attributes.ARMOR);
+                    if (armor != null) {
+                        armor.removeModifier(TARGET_ARMOR_UUID);
                     }
+                    it.remove();
                 }
             }
         }
+    }
 
-        // 罪业计时: 到期解除
-        int sin = tool.getPersistentData().getInt(SIN_TIMER);
-        if (sin > 0) {
-            sin--;
-            tool.getPersistentData().putInt(SIN_TIMER, sin);
-            if (sin <= 0) {
-                tool.getPersistentData().putInt(ATONE_COUNT, 0);
-                tool.getPersistentData().putFloat(SIN_PENALTY, 1.0f);
+    // ============================================================
+    //  潜行 + 右键瞬发切换形态 (不阻塞疾跑, 不抢骑枪冲锋/格挡/施法右键)
+    // ============================================================
+    @Override
+    public @NotNull InteractionResult onToolUse(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
+                                                @NotNull Player player, @NotNull InteractionHand hand, @NotNull InteractionSource source) {
+        if (source != InteractionSource.RIGHT_CLICK || tool.isBroken() || !canModified(tool)) {
+            return InteractionResult.PASS;
+        }
+        if (!player.isShiftKeyDown()) {
+            return InteractionResult.PASS;
+        }
+
+        Level level = player.level();
+        long now = level.getGameTime();
+        if (isSinActive(tool, now)) {
+            if (!level.isClientSide) {
+                int remain = (int) ((getLong(tool.getPersistentData(), SIN_UNTIL) - now + 19L) / 20L);
+                player.displayClientMessage(Component.translatable("message.tprt.all_permitted.sin_locked", remain), true);
             }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (isSwitchOnCooldown(tool, now)) {
+            if (!level.isClientSide) {
+                int remain = (int) ((getLong(tool.getPersistentData(), SWITCH_UNTIL) - now + 19L) / 20L);
+                player.displayClientMessage(Component.translatable("message.tprt.all_permitted.switch_cd", remain), true);
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        if (world.isClientSide) return; // 以下仅服务端
-
-        // 切换冷却递减
-        int cd = tool.getPersistentData().getInt(SWITCH_CD);
-        if (cd > 0) {
-            cd--;
-            tool.getPersistentData().putInt(SWITCH_CD, cd);
+        if (!level.isClientSide) {
+            switchMode(tool, player, now);
         }
+        return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
     // ============================================================
-    //  右键切换形态 (罪业/冷却中禁止)
+    //  Tooltip 实时双语面板
     // ============================================================
     @Override
-    public InteractionResult onToolUse(IToolStackView tool, ModifierEntry modifier, Player player, InteractionHand hand, InteractionSource source) {
-        if (source == InteractionSource.RIGHT_CLICK && !tool.isBroken()) {
-            if (tool.getPersistentData().getInt(SIN_TIMER) > 0) return InteractionResult.PASS; // 罪业中无法切换
-            if (tool.getPersistentData().getInt(SWITCH_CD) > 0) return InteractionResult.PASS; // 冷却中
-            GeneralInteractionModifierHook.startUsing(tool, modifier.getId(), player, hand);
-            return InteractionResult.SUCCESS;
-        }
-        return InteractionResult.PASS;
-    }
-
-    @Override
-    public void onFinishUsing(IToolStackView tool, ModifierEntry modifier, LivingEntity entity) {
-        if (!canModified(tool)) return;
-        if (!tool.isBroken() && entity instanceof Player player) {
-            switchMode(tool, player);
-        }
-    }
-
-    @Override
-    public UseAnim getUseAction(IToolStackView tool, ModifierEntry modifier) {
-        return UseAnim.BLOCK;
-    }
-
-    @Override
-    public int getUseDuration(IToolStackView tool, ModifierEntry modifier) {
-        return 1;
-    }
-
-    // ============================================================
-    //  Tooltip: 形态 / 禁忌 / 消耗档位 / 连击 / 罪业 / 冷却
-    // ============================================================
-    @Override
-    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+    public void addTooltip(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, @Nullable Player player,
+                           @NotNull List<Component> tooltip, @NotNull TooltipKey tooltipKey, @NotNull TooltipFlag tooltipFlag) {
         if (!canModified(tool)) return;
 
-        tooltip.add(Component.literal(isYun(tool) ? "形态: §c[允] 万事皆允§r" : "形态: §d[虚] 万物皆虚§r"));
-        tooltip.add(Component.literal("禁忌: §e" + (int) tool.getPersistentData().getFloat(FORBIDDEN) + "§r / 100"));
+        IModDataView data = tool.getPersistentData();
+        long now = player != null ? player.level().getGameTime() : 0L;
+
+        tooltip.add(Component.translatable(isYun(tool)
+                ? "tooltip.tprt.all_permitted.mode_yun"
+                : "tooltip.tprt.all_permitted.mode_xu"));
+        tooltip.add(Component.translatable("tooltip.tprt.all_permitted.forbidden",
+                (int) data.getFloat(FORBIDDEN), (int) FORBIDDEN_MAX));
+
+        float quality = data.getFloat(STEAL_QUALITY);
+        if (quality > 0.0f) {
+            tooltip.add(Component.translatable("tooltip.tprt.all_permitted.rate",
+                    String.format("%.2f", transferRate(tool) * 100.0f), String.format("%.0f", quality)));
+        }
 
         if (isYun(tool)) {
-            tooltip.add(Component.literal("本击消耗: §6" + currentConsume(tool) + "§r | 连击: §6" + tool.getPersistentData().getInt(COMBO) + "§r / " + COMBO_MAX));
-            tooltip.add(Component.literal("转化率: §a" + String.format("%.2f", transferRate(tool) * 100) + "%§r / 点禁忌"));
+            tooltip.add(Component.translatable("tooltip.tprt.all_permitted.yun_status",
+                    currentConsume(tool), data.getInt(COMBO), COMBO_MAX));
         }
 
-        int sin = tool.getPersistentData().getInt(SIN_TIMER);
-        if (sin > 0) {
-            tooltip.add(Component.literal("罪业: §c" + ((sin + 19) / 20) + " 秒§r (赎罪 " + tool.getPersistentData().getInt(ATONE_COUNT) + "/" + ATONE_REQUIRED + ")"));
+        if (now > 0L && isSinActive(tool, now)) {
+            int sinSec = (int) ((getLong(data, SIN_UNTIL) - now + 19L) / 20L);
+            tooltip.add(Component.translatable("tooltip.tprt.all_permitted.sin",
+                    sinSec, data.getInt(ATONE_COUNT), ATONE_REQUIRED));
         }
 
-        int cd = tool.getPersistentData().getInt(SWITCH_CD);
-        if (cd > 0) {
-            tooltip.add(Component.literal("切换冷却: §7" + ((cd + 19) / 20) + " 秒§r"));
+        if (now > 0L && isSwitchOnCooldown(tool, now)) {
+            int cdSec = (int) ((getLong(data, SWITCH_UNTIL) - now + 19L) / 20L);
+            tooltip.add(Component.translatable("tooltip.tprt.all_permitted.switch_cd", cdSec));
         }
     }
 
-    // ****************************************************************************
-    //  私有工具方法
-    // ****************************************************************************
+    // ============================================================
+    //  内部核心逻辑
+    // ============================================================
 
-    // 真伤伤害源 (无视护甲 / 无敌帧 / 魔法保护 / 效果)
     private static DamageSource pureSource(LivingEntity attacker) {
-        return new DamageSource(attacker.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageSource.TPRT_PURE_DAMAGE_TYPE), attacker);
+        return new DamageSource(attacker.level().registryAccess()
+                .registryOrThrow(Registries.DAMAGE_TYPE)
+                .getHolderOrThrow(ModDamageSource.TPRT_PURE_DAMAGE_TYPE), attacker);
     }
 
-    // 虚形态偷取: 叠层 + 记录质量 + 目标减护甲
-    private static void steal(IToolStackView tool, LivingEntity target) {
-        int stacks = Math.min(STEAL_MAX_STACKS, tool.getPersistentData().getInt(STEAL_STACKS) + 1);
-        tool.getPersistentData().putInt(STEAL_STACKS, stacks);
-        tool.getPersistentData().putInt(STEAL_TIMER, STEAL_DURATION);
+    /** 虚形态偷取: 先剥离旧修饰符读取真实属性, 避免越偷越少或无攻击属性崩溃 */
+    private static void steal(IToolStackView tool, LivingEntity target, long now) {
+        ModDataNBT data = tool.getPersistentData();
+        boolean stillActive = isTimerActive(now, getLong(data, STEAL_UNTIL), STEAL_DURATION);
+        int stacks = stillActive ? Math.min(STEAL_MAX_STACKS, data.getInt(STEAL_STACKS) + 1) : 1;
 
-        // 记录目标质量 Q = 护甲 + 攻击力 (决定允形态转化率)
-        float armor = target.getArmorValue();
-        float quality = armor + (float) target.getAttributeValue(Attributes.ATTACK_DAMAGE);
-        tool.getPersistentData().putFloat(STEAL_TARGET_ARMOR, armor);
-        tool.getPersistentData().putFloat(STEAL_QUALITY, quality);
-        tool.getPersistentData().putInt(STEAL_TARGET_ID, target.getId());
+        AttributeInstance targetArmorAttr = target.getAttribute(Attributes.ARMOR);
+        float baseArmor;
+        if (targetArmorAttr != null) {
+            targetArmorAttr.removeModifier(TARGET_ARMOR_UUID);
+            baseArmor = Math.max(0.0f, (float) targetArmorAttr.getValue());
+        } else {
+            baseArmor = Math.max(0.0f, target.getArmorValue());
+        }
 
-        // 目标失去等量护甲 (STEAL_TIMER 到期时手动归还)
-        AttributeInstance targetArmor = target.getAttribute(Attributes.ARMOR);
-        if (targetArmor != null) {
-            targetArmor.removeModifier(TARGET_ARMOR_UUID);
-            targetArmor.addTransientModifier(new AttributeModifier(TARGET_ARMOR_UUID, "stolen_by_all_permitted", -armor * STEAL_ARMOR_PERCENT * stacks, AttributeModifier.Operation.ADDITION));
+        AttributeInstance targetAtkAttr = target.getAttribute(Attributes.ATTACK_DAMAGE);
+        float baseAttack = targetAtkAttr != null ? Math.max(0.0f, (float) targetAtkAttr.getValue()) : 0.0f;
+        float quality = Math.max(MIN_QUALITY, baseArmor + baseAttack);
+
+        // 偷取有效期内保留更高猎物质量与护甲快照, 避免小怪挡刀污染 Boss 转化率
+        float savedArmor = stillActive ? Math.max(data.getFloat(STEAL_TARGET_ARMOR), baseArmor) : baseArmor;
+        float savedQuality = stillActive ? Math.max(data.getFloat(STEAL_QUALITY), quality) : quality;
+
+        data.putInt(STEAL_STACKS, stacks);
+        putLong(data, STEAL_UNTIL, now + STEAL_DURATION);
+        data.putFloat(STEAL_TARGET_ARMOR, savedArmor);
+        data.putFloat(STEAL_QUALITY, savedQuality);
+
+        if (target.isAlive() && targetArmorAttr != null && baseArmor > 0.0f) {
+            targetArmorAttr.addTransientModifier(new AttributeModifier(
+                    TARGET_ARMOR_UUID, "stolen_by_all_permitted",
+                    -baseArmor * STEAL_ARMOR_PERCENT * stacks, AttributeModifier.Operation.ADDITION));
+            STOLEN_TARGETS.put(target, now + STEAL_DURATION);
         }
     }
 
-    // 质量 → 转化率: 连续函数 0.02% × Q^0.75 (可选软上限 MAX_TRANSFER_RATE)
     private static float transferRate(IToolStackView tool) {
         float quality = tool.getPersistentData().getFloat(STEAL_QUALITY);
-        if (quality <= 0) return 0.0f;
+        if (quality <= 0.0f) {
+            quality = MIN_QUALITY;
+        }
         float rate = TRANSFER_BASE * (float) Math.pow(quality, TRANSFER_EXP);
-        if (MAX_TRANSFER_RATE > 0 && rate > MAX_TRANSFER_RATE) return MAX_TRANSFER_RATE;
+        if (MAX_TRANSFER_RATE > 0.0f && rate > MAX_TRANSFER_RATE) {
+            return MAX_TRANSFER_RATE;
+        }
         return rate;
     }
 
-    // 本击禁忌消耗: 等比 2^step (1,2,4,8,16), 封顶 CONSUME_MAX_STEP
     private static int currentConsume(IToolStackView tool) {
         int step = Math.min(tool.getPersistentData().getInt(CONSUME_STEP), CONSUME_MAX_STEP);
         return 1 << step;
     }
 
-    // 禁忌增减 (0 ~ FORBIDDEN_MAX 钳制)
-    private static void addForbidden(IToolStackView tool, float amount) {
-        float value = Math.max(0.0f, Math.min(FORBIDDEN_MAX, tool.getPersistentData().getFloat(FORBIDDEN) + amount));
-        tool.getPersistentData().putFloat(FORBIDDEN, value);
+    private static void addForbidden(IToolStackView tool, float delta, float cap) {
+        ModDataNBT data = tool.getPersistentData();
+        float next = Math.max(0.0f, Math.min(cap, data.getFloat(FORBIDDEN) + delta));
+        data.putFloat(FORBIDDEN, next);
     }
 
-    // 自动超载: 禁忌满 100 → 全量真伤 AOE + 10 秒强罪业
-    private static void checkOverload(IToolStackView tool, LivingEntity attacker) {
-        if (tool.getPersistentData().getFloat(FORBIDDEN) < FORBIDDEN_MAX) return;
+    /** 虚形态禁忌满 100 自动超载: 敌对真伤 AOE + 10 秒强罪业 */
+    private static void checkOverload(IToolStackView tool, LivingEntity attacker, long now) {
+        ModDataNBT data = tool.getPersistentData();
+        if (data.getFloat(FORBIDDEN) < FORBIDDEN_MAX) return;
 
-        // 全量真伤 AOE (以攻击者为中心, 4 格, 含队友/玩家 —— 毕业词条的代价)
-        float rate = transferRate(tool);
-        float damage = FORBIDDEN_MAX * rate * OVERLOAD_MULTIPLIER;
+        AttributeInstance selfAtkAttr = attacker.getAttribute(Attributes.ATTACK_DAMAGE);
+        float attackPower = selfAtkAttr != null ? Math.max(1.0f, (float) selfAtkAttr.getValue()) : 10.0f;
+        float damage = attackPower * FORBIDDEN_MAX * transferRate(tool) * OVERLOAD_MULTIPLIER;
+
         DamageSource source = pureSource(attacker);
-        for (LivingEntity entity : attacker.level().getEntitiesOfClass(LivingEntity.class, attacker.getBoundingBox().inflate(OVERLOAD_RADIUS), e -> e != attacker)) {
+        List<LivingEntity> targets = attacker.level().getEntitiesOfClass(
+                LivingEntity.class,
+                attacker.getBoundingBox().inflate(OVERLOAD_RADIUS),
+                e -> isValidOverloadTarget(attacker, e));
+        for (LivingEntity entity : targets) {
+            entity.invulnerableTime = 0;
             entity.hurt(source, damage);
         }
 
-        // 禁忌清空 + 强罪业 (伤害减半)
-        tool.getPersistentData().putFloat(FORBIDDEN, 0.0f);
-        tool.getPersistentData().putInt(SIN_TIMER, SIN_DURATION_OVERLOAD);
-        tool.getPersistentData().putFloat(SIN_PENALTY, SIN_PENALTY_OVERLOAD);
+        data.putFloat(FORBIDDEN, 0.0f);
+        putLong(data, SIN_UNTIL, now + SIN_DURATION_OVERLOAD);
+        data.putFloat(SIN_PENALTY, SIN_PENALTY_OVERLOAD);
+        data.putInt(ATONE_COUNT, 0);
 
-        // 演出: 爆炸音效 + 粒子
         Level level = attacker.level();
-        level.playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.PLAYERS, 1.0F, 1.0F);
-        level.addParticle(ParticleTypes.EXPLOSION_EMITTER, attacker.getX(), attacker.getY() + 1.0, attacker.getZ(), 0, 0, 0);
-    }
-
-    // 赎罪: 罪业期间虚形态命中, 累计 ATONE_REQUIRED 次解除
-    private static void atone(IToolStackView tool, LivingEntity attacker) {
-        if (tool.getPersistentData().getInt(SIN_TIMER) <= 0) return;
-        int count = tool.getPersistentData().getInt(ATONE_COUNT) + 1;
-        if (count >= ATONE_REQUIRED) {
-            // 赎罪成功: 解除罪业
-            tool.getPersistentData().putInt(SIN_TIMER, 0);
-            tool.getPersistentData().putInt(ATONE_COUNT, 0);
-            tool.getPersistentData().putFloat(SIN_PENALTY, 1.0f);
-            attacker.level().playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.8F, 1.4F);
-        } else {
-            tool.getPersistentData().putInt(ATONE_COUNT, count);
+        level.playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
+                SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.PLAYERS, 0.9f, 1.05f);
+        if (level instanceof ServerLevel serverLevel) {
+            serverLevel.sendParticles(ParticleTypes.EXPLOSION_EMITTER,
+                    attacker.getX(), attacker.getY() + 1.0, attacker.getZ(), 1, 0.0, 0.0, 0.0, 0.0);
+            serverLevel.sendParticles(ParticleTypes.SOUL_FIRE_FLAME,
+                    attacker.getX(), attacker.getY() + 1.0, attacker.getZ(), 28, 1.2, 0.6, 1.2, 0.08);
+        }
+        if (attacker instanceof Player player) {
+            player.displayClientMessage(Component.translatable("message.tprt.all_permitted.overload"), true);
         }
     }
 
-    // 禁忌耗尽: 强制切回【虚】+ 普通罪业 5 秒
-    private static void forceToXu(IToolStackView tool, LivingEntity attacker) {
-        tool.getPersistentData().putString(MODE, MODE_XU);
-        tool.getPersistentData().putInt(SIN_TIMER, SIN_DURATION);
-        tool.getPersistentData().putFloat(SIN_PENALTY, SIN_PENALTY_NORMAL);
-        tool.getPersistentData().putInt(CONSUME_STEP, 0);
-        tool.getPersistentData().putInt(COMBO, 0);
-        attacker.level().playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.6F, 0.9F);
+    private static boolean isValidOverloadTarget(LivingEntity attacker, LivingEntity candidate) {
+        if (candidate == attacker || !candidate.isAlive() || candidate instanceof ArmorStand) return false;
+        if (attacker.isAlliedTo(candidate)) return false;
+        if (candidate instanceof OwnableEntity ownable && attacker.getUUID().equals(ownable.getOwnerUUID())) {
+            return false;
+        }
+        return true;
     }
 
-    // 右键切换形态: 重置消耗档位/连击, 附带音效与粒子
-    private static void switchMode(IToolStackView tool, LivingEntity user) {
-        boolean toYun = isXu(tool);
-        tool.getPersistentData().putString(MODE, toYun ? MODE_YUN : MODE_XU);
-        tool.getPersistentData().putInt(SWITCH_CD, SWITCH_COOLDOWN);
-        tool.getPersistentData().putInt(CONSUME_STEP, 0);
-        tool.getPersistentData().putInt(COMBO, 0);
-        tool.getPersistentData().putInt(COMBO_TARGET_ID, 0);
-
-        // 演出: 允=金色纹路, 虚=紫黑雾气
-        Level level = user.level();
-        if (toYun) {
-            level.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.BEACON_ACTIVATE, SoundSource.PLAYERS, 0.6F, 1.2F);
-            for (int i = 0; i < 8; i++) {
-                level.addParticle(ParticleTypes.GLOW, user.getX() + level.random.nextDouble() * 1.5 - 0.75, user.getY() + 1 + level.random.nextDouble() * 1.2, user.getZ() + level.random.nextDouble() * 1.5 - 0.75, 0, 0.2, 0);
+    /** 罪业期间虚形态命中赎罪 */
+    private static void atone(IToolStackView tool, LivingEntity attacker, long now) {
+        if (!isSinActive(tool, now)) return;
+        ModDataNBT data = tool.getPersistentData();
+        int count = data.getInt(ATONE_COUNT) + 1;
+        if (count >= ATONE_REQUIRED) {
+            clearSin(data);
+            Level level = attacker.level();
+            level.playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
+                    SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.8f, 1.4f);
+            if (level instanceof ServerLevel serverLevel) {
+                serverLevel.sendParticles(ParticleTypes.END_ROD,
+                        attacker.getX(), attacker.getY() + 1.0, attacker.getZ(), 12, 0.4, 0.5, 0.4, 0.04);
+            }
+            if (attacker instanceof Player player) {
+                player.displayClientMessage(Component.translatable("message.tprt.all_permitted.atoned"), true);
             }
         } else {
-            level.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.6F, 0.8F);
-            for (int i = 0; i < 8; i++) {
-                level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, user.getX() + level.random.nextDouble() * 1.5 - 0.75, user.getY() + 1 + level.random.nextDouble() * 1.2, user.getZ() + level.random.nextDouble() * 1.5 - 0.75, 0, 0.2, 0);
+            data.putInt(ATONE_COUNT, count);
+        }
+    }
+
+    private static void forceToXu(IToolStackView tool, LivingEntity attacker, long now) {
+        ModDataNBT data = tool.getPersistentData();
+        data.putString(MODE, MODE_XU);
+        putLong(data, SIN_UNTIL, now + SIN_DURATION);
+        data.putFloat(SIN_PENALTY, SIN_PENALTY_NORMAL);
+        data.putInt(ATONE_COUNT, 0);
+        data.putInt(CONSUME_STEP, 0);
+        data.putInt(COMBO, 0);
+
+        attacker.level().playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
+                SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.6f, 0.9f);
+        if (attacker instanceof Player player) {
+            player.displayClientMessage(Component.translatable("message.tprt.all_permitted.exhausted"), true);
+        }
+    }
+
+    private static void switchMode(IToolStackView tool, Player user, long now) {
+        ModDataNBT data = tool.getPersistentData();
+        boolean toYun = isXu(tool);
+        data.putString(MODE, toYun ? MODE_YUN : MODE_XU);
+        putLong(data, SWITCH_UNTIL, now + SWITCH_COOLDOWN);
+        data.putInt(CONSUME_STEP, 0);
+        data.putInt(COMBO, 0);
+        data.putInt(COMBO_TARGET_ID, 0);
+
+        Level level = user.level();
+        if (toYun) {
+            level.playSound(null, user.getX(), user.getY(), user.getZ(),
+                    SoundEvents.BEACON_ACTIVATE, SoundSource.PLAYERS, 0.6f, 1.25f);
+            if (level instanceof ServerLevel serverLevel) {
+                serverLevel.sendParticles(ParticleTypes.GLOW,
+                        user.getX(), user.getY() + 1.1, user.getZ(), 14, 0.45, 0.5, 0.45, 0.04);
             }
+            user.displayClientMessage(Component.translatable("message.tprt.all_permitted.to_yun"), true);
+        } else {
+            level.playSound(null, user.getX(), user.getY(), user.getZ(),
+                    SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.6f, 0.85f);
+            if (level instanceof ServerLevel serverLevel) {
+                serverLevel.sendParticles(ParticleTypes.SOUL_FIRE_FLAME,
+                        user.getX(), user.getY() + 1.1, user.getZ(), 14, 0.45, 0.5, 0.45, 0.03);
+            }
+            user.displayClientMessage(Component.translatable("message.tprt.all_permitted.to_xu"), true);
+        }
+    }
+
+    private static void clearSin(ModDataNBT data) {
+        data.remove(SIN_UNTIL);
+        data.putInt(ATONE_COUNT, 0);
+        data.remove(SIN_PENALTY);
+    }
+
+    private static boolean isSinActive(IToolStackView tool, long now) {
+        return isTimerActive(now, getLong(tool.getPersistentData(), SIN_UNTIL), SIN_DURATION_OVERLOAD);
+    }
+
+    private static boolean isSwitchOnCooldown(IToolStackView tool, long now) {
+        return isTimerActive(now, getLong(tool.getPersistentData(), SWITCH_UNTIL), SWITCH_COOLDOWN);
+    }
+
+    private static boolean isTimerActive(long now, long until, int maxDuration) {
+        return until > now && (until - now) <= maxDuration + 20L;
+    }
+
+    private static long getLong(IModDataView data, ResourceLocation key) {
+        String raw = data.getString(key);
+        if (raw.isEmpty()) return 0L;
+        try {
+            return Long.parseLong(raw);
+        } catch (NumberFormatException e) {
+            return 0L;
+        }
+    }
+
+    private static void putLong(ModDataNBT data, ResourceLocation key, long value) {
+        if (value <= 0L) {
+            data.remove(key);
+        } else {
+            data.putString(key, Long.toString(value));
         }
     }
 
@@ -511,11 +690,10 @@ public class all_permitted extends NoLevelsModifier implements
 
     private static float getSinPenalty(IToolStackView tool) {
         float penalty = tool.getPersistentData().getFloat(SIN_PENALTY);
-        return penalty <= 0 ? 1.0f : penalty; // 未存储时默认无惩罚
+        return penalty <= 0.0f ? 1.0f : penalty;
     }
 
     private static boolean canModified(IToolStackView tool) {
-        ToolType type = ToolType.from(tool.getItem(), CAN_BE_USE_ON_TYPES);
-        return type != null;
+        return tool.hasTag(TinkerTags.Items.MELEE);
     }
 }

@@ -39,7 +39,8 @@
     "void_power_alloy": "#cd00ff",
     "sandstorm_skeleton": "#5e463e",
     "bloody_vellum": "#8c2538",
-    "pyrium": "#d6af39"
+    "pyrium": "#d6af39",
+    "chtholly": "#6EC6FF"
   },
   "modifier.tprt": {
     "thunderous_momentum": "#EEDD82",
@@ -202,6 +203,10 @@
     "light_the_fire": "#d6af39",
     "flaming_torus": "#d6af39",
     "fire_flow": "#d6af39",
-    "flame_paradise": "#d6af39"
+    "flame_paradise": "#d6af39",
+    "what_do_you_do_at_the_end_of_the_world": "#6EC6FF",
+    "seniorious": "#6EC6FF",
+    "all_permitted": "#FF5E7E",
+    "combat_echo": "#9ED8FF"
   }
 }
