@@ -1,4 +1,136 @@
 {
-  "default": []
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:seniorious"
+    }
+  ],
+  "perStat": {
+    "tconstruct:head": [
+      {
+        "level": 1,
+        "name": "tprt:seniorious"
+      }
+    ],
+    "tconstruct:handle": [
+      {
+        "level": 1,
+        "name": "tprt:before_i_vanish"
+      }
+    ],
+    "tconstruct:binding": [
+      {
+        "level": 1,
+        "name": "tprt:before_i_vanish"
+      }
+    ],
+    "tconstruct:melee_harvest": [
+      {
+        "level": 1,
+        "name": "tprt:before_i_vanish"
+      }
+    ],
+    "tconstruct:limb": [
+      {
+        "level": 1,
+        "name": "tprt:even_as_the_sun_sets"
+      }
+    ],
+    "tconstruct:bowstring": [
+      {
+        "level": 1,
+        "name": "tprt:even_as_the_sun_sets"
+      }
+    ],
+    "tconstruct:grip": [
+      {
+        "level": 1,
+        "name": "tprt:before_i_vanish"
+      }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:even_as_the_sun_sets"
+      }
+    ],
+    "tconstruct:ammo": [
+      {
+        "level": 1,
+        "name": "tprt:even_as_the_sun_sets"
+      }
+    ],
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:what_do_you_do_at_the_end_of_the_world"
+      }
+    ],
+    "sakuratinker:charm": [
+      {
+        "level": 1,
+        "name": "tprt:happiest_girl_in_the_world"
+      }
+    ],
+    "sakuratinker:battle_flag": [
+      {
+        "level": 1,
+        "name": "tprt:happiest_girl_in_the_world"
+      }
+    ],
+    "sakuratinker:tinker_spell_book": [
+      {
+        "level": 1,
+        "name": "tprt:elegy_of_world_end"
+      }
+    ],
+    "sakuratinker:tinker_dark_wand": [
+      {
+        "level": 1,
+        "name": "tprt:elegy_of_world_end"
+      }
+    ],
+    "sakuratinker:alchemical_gloves": [
+      {
+        "level": 1,
+        "name": "tprt:elegy_of_world_end"
+      }
+    ],
+    "sakuratinker:laser_gun": [
+      {
+        "level": 1,
+        "name": "tprt:elegy_of_world_end"
+      }
+    ],
+    "sakuratinker:first_fractal": [
+      {
+        "level": 1,
+        "name": "tprt:seniorious"
+      }
+    ],
+    "sakuratinker:yo_yo": [
+      {
+        "level": 1,
+        "name": "tprt:before_i_vanish"
+      }
+    ],
+    "sakuratinker:range": [
+      {
+        "level": 1,
+        "name": "tprt:even_as_the_sun_sets"
+      }
+    ],
+    "sakuratinker:revolver": [
+      {
+        "level": 1,
+        "name": "tprt:even_as_the_sun_sets"
+      }
+    ],
+    "sakuratinker:tinker_arrow": [
+      {
+        "level": 1,
+        "name": "tprt:even_as_the_sun_sets"
+      }
+    ]
+  }
 }
-

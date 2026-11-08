@@ -32,10 +32,12 @@ import org.mylove.tprt.registries.ModifierIds;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import net.minecraft.world.phys.EntityHitResult;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.ToolDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
@@ -44,6 +46,7 @@ import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
+import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
@@ -73,6 +76,7 @@ public class before_i_vanish extends NoLevelsModifier implements
         InventoryTickModifierHook,
         ToolDamageModifierHook,
         MeleeHitModifierHook,
+        ProjectileHitModifierHook,
         TooltipModifierHook {
 
     // ===== 自律护主核心参数 =====
@@ -109,6 +113,7 @@ public class before_i_vanish extends NoLevelsModifier implements
                 ModifierHooks.INVENTORY_TICK,
                 ModifierHooks.TOOL_DAMAGE,
                 ModifierHooks.MELEE_HIT,
+                ModifierHooks.PROJECTILE_HIT,
                 ModifierHooks.TOOLTIP);
     }
 
@@ -324,6 +329,34 @@ public class before_i_vanish extends NoLevelsModifier implements
         } else {
             data.putInt(KEY_VANISHING_HITS, hits);
         }
+    }
+
+    @Override
+    public boolean onProjectileHitEntity(@NotNull ModifierNBT modifiers, @NotNull ModDataNBT persistentData,
+                                         @NotNull ModifierEntry modifier, @NotNull Projectile projectile,
+                                         @NotNull EntityHitResult hit, @Nullable LivingEntity attacker,
+                                         @Nullable LivingEntity target, boolean notBlocked) {
+        if (attacker instanceof Player player && target != null && !player.level().isClientSide) {
+            for (InteractionHand hand : InteractionHand.values()) {
+                ItemStack held = player.getItemInHand(hand);
+                if (!held.isEmpty() && held.getItem() instanceof IModifiable && ToolStack.isInitialized(held)) {
+                    ToolStack bowTool = ToolStack.from(held);
+                    if (bowTool.getModifierLevel(ModifierIds.before_i_vanish) > 0) {
+                        ModDataNBT data = bowTool.getPersistentData();
+                        if (data.getInt(KEY_VANISHING_TICKS) > 0) {
+                            int hits = data.getInt(KEY_VANISHING_HITS) + 1;
+                            if (!target.isAlive() || target.isDeadOrDying() || hits >= REFORGE_REQUIRED_HITS) {
+                                reforgeSword(player, bowTool, data);
+                            } else {
+                                data.putInt(KEY_VANISHING_HITS, hits);
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return notBlocked;
     }
 
     private void onLivingDeath(LivingDeathEvent event) {

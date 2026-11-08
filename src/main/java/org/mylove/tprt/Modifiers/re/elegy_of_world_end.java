@@ -90,6 +90,7 @@ public class elegy_of_world_end extends NoLevelsModifier implements TooltipModif
     // ===== 工具 NBT 同步键 (用于客户端法术书 Tooltip 实时展示) =====
     private static final ResourceLocation SYNC_ACTIVE_TARGETS = Tprt.getResource("elegy_active_targets");
     private static final ResourceLocation SYNC_MAX_STORED_TENTHS = Tprt.getResource("elegy_max_stored_tenths");
+    private static final ResourceLocation SYNC_REMAIN_SEC = Tprt.getResource("elegy_remain_sec");
 
     /** 递归重入保护: 防止余音共振/终末引爆的纯粹真伤再次被存入余音 */
     private static final Set<Entity> REENTRANT_GUARD = Collections.newSetFromMap(new WeakHashMap<>());
@@ -151,8 +152,8 @@ public class elegy_of_world_end extends NoLevelsModifier implements TooltipModif
         if (remainingHpAfterHit > 0.0f && remainingHpAfterHit <= mark.storedDamage) {
             marks.remove(target.getUUID());
             detonateEchoMark(attacker, target, mark);
-            syncBookNbt(attacker, marks);
         }
+        syncBookNbt(attacker, marks);
     }
 
     // ============================================================
@@ -458,28 +459,33 @@ public class elegy_of_world_end extends NoLevelsModifier implements TooltipModif
     private static void syncBookNbt(Player player, Map<UUID, EchoMark> marks) {
         int activeCount = marks.size();
         float maxStored = 0.0f;
+        int maxRemainTicks = 0;
         for (EchoMark mark : marks.values()) {
             if (mark.storedDamage > maxStored) {
                 maxStored = mark.storedDamage;
             }
+            if (mark.remainingTicks > maxRemainTicks) {
+                maxRemainTicks = mark.remainingTicks;
+            }
         }
         int maxStoredTenths = Math.round(maxStored * 10.0f);
+        int remainSec = (maxRemainTicks + 19) / 20;
 
-        updateStackNbtIfElegy(player.getMainHandItem(), activeCount, maxStoredTenths);
-        updateStackNbtIfElegy(player.getOffhandItem(), activeCount, maxStoredTenths);
+        updateStackNbtIfElegy(player.getMainHandItem(), activeCount, maxStoredTenths, remainSec);
+        updateStackNbtIfElegy(player.getOffhandItem(), activeCount, maxStoredTenths, remainSec);
 
         var inventory = CuriosApi.getCuriosInventory(player).resolve();
         if (inventory.isPresent()) {
             for (var entry : inventory.get().getCurios().entrySet()) {
                 var stacks = entry.getValue().getStacks();
                 for (int i = 0; i < stacks.getSlots(); i++) {
-                    updateStackNbtIfElegy(stacks.getStackInSlot(i), activeCount, maxStoredTenths);
+                    updateStackNbtIfElegy(stacks.getStackInSlot(i), activeCount, maxStoredTenths, remainSec);
                 }
             }
         }
     }
 
-    private static void updateStackNbtIfElegy(ItemStack stack, int activeCount, int maxStoredTenths) {
+    private static void updateStackNbtIfElegy(ItemStack stack, int activeCount, int maxStoredTenths, int remainSec) {
         if (!hasElegyModifier(stack)) return;
         ToolStack tool = ToolStack.from(stack);
         ModDataNBT data = tool.getPersistentData();
@@ -488,6 +494,9 @@ public class elegy_of_world_end extends NoLevelsModifier implements TooltipModif
         }
         if (data.getInt(SYNC_MAX_STORED_TENTHS) != maxStoredTenths) {
             data.putInt(SYNC_MAX_STORED_TENTHS, maxStoredTenths);
+        }
+        if (data.getInt(SYNC_REMAIN_SEC) != remainSec) {
+            data.putInt(SYNC_REMAIN_SEC, remainSec);
         }
     }
 

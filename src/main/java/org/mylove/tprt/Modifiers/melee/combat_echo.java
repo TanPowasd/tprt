@@ -1,4 +1,4 @@
-package org.mylove.tprt.Modifiers.re;
+package org.mylove.tprt.Modifiers.melee;
 
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;

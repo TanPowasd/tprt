@@ -12,12 +12,13 @@ import org.mylove.tprt.Modifiers.exclusive.persistence_of_nature;
 import org.mylove.tprt.Modifiers.exclusive.reaper;
 import org.mylove.tprt.Modifiers.melee.Shine_at_night;
 import org.mylove.tprt.Modifiers.melee.advanced_greed;
+import org.mylove.tprt.Modifiers.melee.all_permitted;
+import org.mylove.tprt.Modifiers.melee.combat_echo;
 import org.mylove.tprt.Modifiers.range.Automation;
 import org.mylove.tprt.Modifiers.special.*;
-import org.mylove.tprt.Modifiers.re.all_permitted;
 import org.mylove.tprt.Modifiers.re.before_i_vanish;
-import org.mylove.tprt.Modifiers.re.combat_echo;
 import org.mylove.tprt.Modifiers.re.elegy_of_world_end;
+import org.mylove.tprt.Modifiers.re.even_as_the_sun_sets;
 import org.mylove.tprt.Modifiers.re.happiest_girl_in_the_world;
 import org.mylove.tprt.Modifiers.re.seniorious;
 import org.mylove.tprt.Modifiers.re.what_do_you_do_at_the_end_of_the_world;
@@ -84,4 +85,6 @@ public class ModifierRegistry {
             MODIFIERS.register("elegy_of_world_end", elegy_of_world_end::new);
     public static final StaticModifier<before_i_vanish> BEFORE_I_VANISH =
             MODIFIERS.register("before_i_vanish", before_i_vanish::new);
+    public static final StaticModifier<even_as_the_sun_sets> EVEN_AS_THE_SUN_SETS =
+            MODIFIERS.register("even_as_the_sun_sets", even_as_the_sun_sets::new);
 }

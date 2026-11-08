@@ -43,9 +43,10 @@ public class ClientModEvents {
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 
     }
-    /** 次数盾: 画在生命值 UI 上方 */
+    /** 次数盾: 画在生命值 UI 上方；Destiny 2 状态栏 HUD: 画在顶层 */
     @SubscribeEvent
     public static void onRegisterOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAbove(VanillaGuiOverlay.PLAYER_HEALTH.id(), "attack_shield", Attack_shield_hud.OVERLAY);
+        event.registerAboveAll("destiny_status_hud", TprtDestinyHud.OVERLAY);
     }
 }

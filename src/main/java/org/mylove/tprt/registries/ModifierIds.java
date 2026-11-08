@@ -25,6 +25,7 @@ public class ModifierIds {
     public static final ModifierId happiest_girl_in_the_world = id("happiest_girl_in_the_world");
     public static final ModifierId elegy_of_world_end = id("elegy_of_world_end");
     public static final ModifierId before_i_vanish = id("before_i_vanish");
+    public static final ModifierId even_as_the_sun_sets = id("even_as_the_sun_sets");
     public static final ModifierId all_permitted = id("all_permitted");
     public static final ModifierId combat_echo = id("combat_echo");
 

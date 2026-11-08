@@ -1,4 +1,4 @@
-package org.mylove.tprt.Modifiers.re;
+package org.mylove.tprt.Modifiers.melee;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
@@ -62,7 +62,7 @@ import java.util.function.BiConsumer;
 
 /*
   ============================================================
-  万般皆允，百无禁忌 (all_permitted) —— 挚爱 · 近战核心词条之一
+  万般皆允，百无禁忌 (all_permitted)
   信条: 万物皆虚，万事皆允
 
   核心循环: 潜行右键切换形态 | 【虚】掠夺蓄力 → 【允】连斩真伤 → 罪业与赎罪
