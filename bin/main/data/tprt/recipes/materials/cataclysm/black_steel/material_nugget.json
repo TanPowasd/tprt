@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "cataclysm:black_steel_nugget"
+  },
+  "material": "tprt:black_steel",
+  "needed": 9,
+  "value": 1
+}

@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [{ "type": "mantle:tag_filled", "tag": "forge:storage_blocks/knightmetal" }],
+  "allow_crystal": false,
+  "inputs": [
+    { "item": "minecraft:redstone_block", "amount_needed": 16 },
+    { "item": "minecraft:nether_star", "amount_needed": 1 },
+    { "item": "minecraft:redstone_block", "amount_needed": 16 },
+    { "tag": "forge:storage_blocks/knightmetal", "amount_needed": 1 },
+    { "tag": "forge:storage_blocks/knightmetal", "amount_needed": 1 }
+  ],
+  "level": { "max": 1 },
+  "result": "tprt:thunderous_momentum",
+  "slots": { "abilities": 1 },
+  "tools": { "tag": "tprt:modifiable/melee/lance" }
+}

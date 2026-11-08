@@ -1,0 +1,29 @@
+{
+  "level_display": "tconstruct:single_level",
+  "modules": [
+    {
+      "type": "tconstruct:protection",
+      "damage_source": "mantle:can_protect",
+      "each_level": 5
+    },
+    {
+      "type": "tconstruct:attribute",
+      "attribute": "forge:block_reach",
+      "each_level": 1.5,
+      "operation": "addition",
+      "slots": [
+        "mainhand"
+      ]
+    },
+    {
+      "type": "tconstruct:attribute",
+      "attribute": "forge:entity_reach",
+      "each_level": 1.5,
+      "operation": "addition",
+      "slots": [
+        "mainhand"
+      ]
+    }
+  ],
+  "tooltip_display": "always"
+}

@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:molten_dark_knight", "required": false },
+    { "id": "tprt:flowing_molten_dark_knight", "required": false }
+  ]
+}

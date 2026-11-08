@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:ender_guardian"
+  },
+  "result": {
+    "item": "cataclysm:gauntlet_of_guard",
+    "count": 1
+  }
+}

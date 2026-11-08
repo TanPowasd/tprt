@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:breath_of_the_abyss"
+    },
+    {
+      "level": 1,
+      "name": "tprt:dimension_fragmentation"
+    }
+  ]
+}

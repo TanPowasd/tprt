@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "tprt:radiant_knightmetal_ingot", "required":false}
+  ]
+}

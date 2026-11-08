@@ -1,0 +1,65 @@
+{
+  "fallbacks": [
+    "bone",
+    "rock"
+  ],
+  "color": "C0B7A4",
+  "luminosity": 4,
+  "generator": {
+    "transformer": {
+      "type": "tconstruct:recolor_sprite",
+      "color_mapping": {
+        "type": "tconstruct:grey_to_color",
+        "palette": [
+          {
+            "grey": 0,
+            "color": "FF000000"
+          },
+          {
+            "grey": 63,
+            "color": "FF27251c"
+          },
+          {
+            "grey": 102,
+            "color": "FF505047"
+          },
+          {
+            "grey": 140,
+            "color": "FF817c6c"
+          },
+          {
+            "grey": 178,
+            "color": "FFb1ab95"
+          },
+          {
+            "grey": 216,
+            "color": "FFd1c9aa"
+          },
+          {
+            "grey": 255,
+            "color": "FFe0dbc7"
+          }
+        ]
+      }
+    },
+    "supported_stats": [
+      "tconstruct:head",
+      "tconstruct:handle",
+      "tconstruct:binding",
+      "tconstruct:repair_kit",
+      "tconstruct:armor_plating",
+      "tconstruct:plating_helmet",
+      "tconstruct:plating_chestplate",
+      "tconstruct:plating_leggings",
+      "tconstruct:plating_boots",
+      "tconstruct:plating_shield",
+      "tconstruct:maille",
+      "tconstruct:armor_maille",
+      "tconstruct:limb",
+      "tconstruct:grip",
+      "sakuratinker:charm_chain",
+      "sakuratinker:charm_core"
+    ],
+    "ignore_material_stats": false
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "level_display": {
+    "type": "tconstruct:unique",
+    "first_unique": false,
+    "unique_until": 5
+  },
+  "modules": [
+    {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 5,
+          "name": "tconstruct:power"
+        }
+      ],
+      "requirement": {
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "level": {
+          "min": 5
+        },
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tconstruct:power"
+        }
+      },
+      "translation_key": "modifier.tprt.advanced_power.requirements"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.0,
+      "operation": "add",
+      "stat": "tconstruct:projectile_damage",
+      "unique": "tprt.modifier.advanced_power"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.1,
+      "operation": "multiply_base",
+      "stat": "tconstruct:projectile_damage",
+      "unique": "tprt.modifier.advanced_power"
+    }
+  ]
+}

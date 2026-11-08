@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:necronomicon_spell_book",
+  "text": [
+    { "text": "+200 max mana, +10% blood spell power, when it's equipped, the level of Raise Dead will improved 2 level" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

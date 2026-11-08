@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:blood_staff",
+  "text": [
+    { "text": "+5% spell power, +15% Crimson spell power, +10% summon damage" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

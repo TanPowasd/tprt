@@ -1,0 +1,16 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.max_health",
+          "operation": "addition",
+          "value": 3
+        }
+      ],
+      "name": "tprt:nature_affinity"
+    }
+  ]
+}

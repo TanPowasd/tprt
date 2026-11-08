@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:thorough",
+  "text": [
+    { "text": "When the brightness is greater than 10, the released spell level will be +1, and the holy spell will be enhanced additionally." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

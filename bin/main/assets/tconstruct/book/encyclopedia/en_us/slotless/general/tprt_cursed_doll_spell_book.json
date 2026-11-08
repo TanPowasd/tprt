@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:cursed_doll_spell_book",
+  "text": [
+    { "text": "+200 max mana, +10% Blood spell power, +10% Spell Resistance" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tprt:source_alloy"
+  },
+  "material": "tprt:source_alloy",
+  "needed": 1,
+  "value": 1
+}

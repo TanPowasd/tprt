@@ -1,0 +1,27 @@
+{
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "irons_spellbooks" }],
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "irons_spellbooks:spell_power",
+          "operation": "multiply_total",
+          "value": 0.25
+        },
+        {
+          "attribute": "irons_spellbooks:spell_resist",
+          "operation": "multiply_total",
+          "value": -0.25
+        },
+        {
+          "attribute": "minecraft:generic.armor",
+          "operation": "multiply_total",
+          "value": -0.25
+        }
+      ],
+      "name": "tprt:ruthless_and_tyrannical_spell"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:strengthen_for_charm_luck",
+  "text": [
+    { "text": "Per level: +3 Luck" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 5 levels",
+    "Requires 1 upgrade slot per level"
+  ]
+}

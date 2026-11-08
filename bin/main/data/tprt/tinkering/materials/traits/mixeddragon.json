@@ -1,0 +1,34 @@
+{
+    "default": [
+      {
+        "level": 3,
+        "name": "sakuratinker:dragon_martyr"
+      },
+      {
+        "level": 1,
+        "name": "tprt:the_dragon_power"
+      }
+    ],
+    "perStat": {
+      "tconstruct:armor": [
+        {
+            "level": 3,
+            "name": "sakuratinker:dragon_soul"
+        },
+        {
+            "level": 1,
+            "name": "sakuratinker:breath_resistance"
+        },
+        {
+            "level": 1,
+            "name": "tprt:the_dragon_lord"
+        }
+      ],
+      "tconstruct:ranged": [
+          {
+            "level": 1,
+            "name": "tprt:mixeddragon_ranged"
+          }
+      ]
+    }
+  }

@@ -1,0 +1,20 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "types": [
+      "cataclysm:kobolediator",
+      "cataclysm:wadjet",
+      "cataclysm:koboleton"
+    ]
+  },
+  "result": {
+    "item": "cataclysm:koboleton_bone",
+    "count": 2
+  }
+}

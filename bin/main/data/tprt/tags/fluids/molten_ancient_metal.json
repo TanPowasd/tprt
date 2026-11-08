@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:molten_ancient_metal", "required": false },
+    { "id": "tprt:flowing_molten_ancient_metal", "required": false }
+  ]
+}

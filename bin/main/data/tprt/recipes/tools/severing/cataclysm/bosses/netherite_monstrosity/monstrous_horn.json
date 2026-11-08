@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:netherite_monstrosity"
+  },
+  "result": {
+    "item": "cataclysm:monstrous_horn",
+    "count": 1
+  }
+}

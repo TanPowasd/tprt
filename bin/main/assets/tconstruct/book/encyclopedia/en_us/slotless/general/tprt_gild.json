@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:gild",
+  "text": [
+    { "text": "Make the ammunition get an extra upgrade slot." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:mana_regeneration",
+  "text": [
+    { "text": "每级提高24%法力回复" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "无需槽位"
+  ]
+}

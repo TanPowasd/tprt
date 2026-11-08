@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tconstruct:luck"
+      }
+    ],
+    "sakuratinker:charm":[
+      {
+        "level": 3,
+        "name": "tprt:fortune_curio"
+      }
+    ]
+  }
+}

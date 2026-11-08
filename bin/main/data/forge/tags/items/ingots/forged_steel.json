@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "tprt:forged_steel", "required":false}
+  ]
+}

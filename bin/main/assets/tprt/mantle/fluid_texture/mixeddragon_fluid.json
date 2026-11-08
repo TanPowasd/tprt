@@ -1,0 +1,5 @@
+{
+  "color": "FFFFFFFF",
+  "flowing": "tprt:fluid/mixeddragon_fluid/flowing",
+  "still": "tprt:fluid/mixeddragon_fluid/still"
+}

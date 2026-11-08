@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:solid_armor",
+  "text": [
+    { "text": "Gain one defense slot at the cost of one upgrade slot" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires 1 upgrade slot"
+  ]
+}

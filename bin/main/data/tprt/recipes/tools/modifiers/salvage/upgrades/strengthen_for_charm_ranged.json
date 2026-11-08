@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "slots": {
+    "upgrades": 1
+  },
+  "modifier": "tprt:strengthen_for_charm_ranged",
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    }
+  ]
+}

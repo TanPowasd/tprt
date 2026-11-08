@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:leather",
+      "amount_needed":2
+    },
+    {
+      "item": "minecraft:arrow",
+      "amount_needed":16
+    },
+    {
+      "item": "minecraft:leather",
+      "amount_needed":2
+    },
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "tprt:bulk_quiver",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable/ranged/bows"
+    }
+  ]
+}

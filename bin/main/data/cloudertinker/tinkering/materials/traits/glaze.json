@@ -1,0 +1,20 @@
+{
+  "perStat": {
+  "sakuratinker:charm":[
+    {
+      "level":1,
+      "name":"tprt:body_like_glass"
+    },
+    {
+      "level":1,
+      "name":"tprt:fragile"
+    }
+  ],
+    "sakuratinker:tinker_spell_book": [
+      {
+        "level": 1,
+        "name": "tprt:thorough"
+      }
+    ]
+}
+}

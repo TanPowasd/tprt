@@ -1,0 +1,50 @@
+{
+  "fallbacks": [
+    "bone",
+    "rock"
+  ],
+  "color": "8019FC",
+  "luminosity": 8,
+  "generator": {
+    "transformer": {
+      "type": "tconstruct:recolor_sprite",
+      "color_mapping": {
+        "type": "tconstruct:grey_to_color",
+        "palette": [
+          {
+            "grey": 0,
+            "color": "FF000000"
+          },
+          {
+            "grey": 63,
+            "color": "FF340073"
+          },
+          {
+            "grey": 102,
+            "color": "FF4d00a9"
+          },
+          {
+            "grey": 140,
+            "color": "FF5700bf"
+          },
+          {
+            "grey": 178,
+            "color": "FF8219ff"
+          },
+          {
+            "grey": 216,
+            "color": "FF9842ff"
+          },
+          {
+            "grey": 255,
+            "color": "FFa153fe"
+          }
+        ]
+      }
+    },
+    "supported_stats": [
+      "tconstruct:arrow_head"
+    ],
+    "ignore_material_stats": false
+  }
+}

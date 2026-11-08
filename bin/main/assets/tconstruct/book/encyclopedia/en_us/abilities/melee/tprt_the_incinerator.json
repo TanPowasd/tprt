@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:the_incinerator",
+  "text": [
+    { "text": "Hold right click for 1 seconds to charge,When released, summons a flame strike in the direction you are facing.WARNING: Items may be lost when the flame strike explodes" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

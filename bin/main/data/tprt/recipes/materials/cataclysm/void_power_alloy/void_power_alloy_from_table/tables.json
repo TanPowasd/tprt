@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "key": {
+    "M": {
+      "item": "cataclysm:void_core"
+    },
+    "I": {
+      "item": "cataclysm:gauntlet_of_guard"
+    }
+  },
+  "pattern": [
+    " M ",
+    " I ",
+    " M "
+  ],
+  "result": {
+    "item": "tprt:void_power_alloy",
+    "count": 4
+  }
+}

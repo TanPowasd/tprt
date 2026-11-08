@@ -1,0 +1,37 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "amount": 180,
+      "fluid": "sakuratinker:molten_south_star"
+    },
+    {
+      "amount": 180,
+      "fluid": "sakuratinker:molten_arcane_alloy"
+    },
+    {
+      "amount": 90,
+      "fluid":"sakuratinker:molten_nihilite"
+    }
+  ],
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:source_alloy_fluid"
+  },
+  "temperature": 3200
+}

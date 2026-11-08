@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "iceandfire"
+        }
+      ]
+    }
+  ],
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:mixeddragon"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:mixeddragon_fluid"
+  },
+  "temperature": 3800,
+  "time": 20
+}

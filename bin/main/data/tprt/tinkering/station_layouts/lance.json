@@ -1,0 +1,14 @@
+{
+  "translation_key": "item.tprt.lance",
+  "sortIndex": 4,
+  "icon": {
+    "item": "tprt:lance",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#handle\"]}"
+  },
+  "input_slots": [
+    {"filter":{"item":"tconstruct:small_blade"},"icon":"tconstruct:small_blade","translation_key":"item.tconstruct.small_blade","x":53,"y":22},
+    {"filter":{"item":"tconstruct:hammer_head"},"icon":"tconstruct:hammer_head","translation_key":"item.tconstruct.hammer_head","x":33,"y":42},
+    {"filter":{"item":"tconstruct:large_plate"},"icon":"tconstruct:large_plate","translation_key":"item.tconstruct.large_plate","x":33,"y":62},
+    {"filter":{"item":"tconstruct:tough_handle"},"icon":"tconstruct:tough_handle","translation_key":"item.tconstruct.tough_handle","x":13,"y":62}
+  ]
+}

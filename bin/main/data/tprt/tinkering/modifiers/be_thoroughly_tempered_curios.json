@@ -1,0 +1,22 @@
+{
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "create" }],
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "minecraft:generic.max_health",
+          "operation": "multiply_total",
+          "value": 0.06
+        },
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "multiply_total",
+          "value": 0.06
+        }
+      ],
+      "name": "tprt:be_thoroughly_tempered_curios"
+    }
+  ]
+}

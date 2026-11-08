@@ -1,0 +1,19 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 6.00,
+      "operation": "add",
+      "stat": "tconstruct:attack_damage",
+      "unique": "tconstruct.modifier.karate"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.50,
+      "operation": "multiply_base",
+      "stat": "tconstruct:attack_damage",
+      "unique": "tconstruct.modifier.karate"
+    }
+  ]
+}

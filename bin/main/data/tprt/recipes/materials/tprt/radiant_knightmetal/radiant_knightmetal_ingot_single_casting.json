@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/ingot"
+  },
+  "cooling_time": 100,
+  "fluid": {
+    "amount": 90,
+    "fluid": "tprt:molten_radiant_knightmetal"
+  },
+  "result": "tprt:radiant_knightmetal_ingot"
+}

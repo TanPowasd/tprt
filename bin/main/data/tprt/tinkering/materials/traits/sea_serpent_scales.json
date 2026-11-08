@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:tide_guardian"
+      }
+    ],
+    "tconstruct:ammo": [
+      {
+        "level": 1,
+        "name": "tprt:brave_waves"
+      }
+    ]
+  }
+}

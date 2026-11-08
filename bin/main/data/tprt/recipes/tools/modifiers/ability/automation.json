@@ -1,0 +1,41 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:echo_slimesteel",
+      "amount_needed":2
+    },
+    {
+      "item": "minecraft:redstone_block",
+      "amount_needed":16
+    },
+    {
+      "item": "sakuratinker:echo_slimesteel",
+      "amount_needed":2
+    },
+    {
+      "item": "sakuratinker:steady_alloy",
+      "amount_needed":2
+    },
+    {
+      "item": "sakuratinker:steady_alloy",
+      "amount_needed":2
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "result": "tprt:automation",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/ranged/longbows"
+    },
+    {
+      "tag": "tconstruct:modifiable/staffs"
+    }
+  ]
+}

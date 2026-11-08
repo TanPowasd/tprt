@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "type": "tconstruct:no_container",
+      "tag": "tconstruct:tanks",
+      "amount_needed":16
+    },
+    {
+      "type": "tconstruct:no_container",
+      "tag": "tconstruct:tanks",
+      "amount_needed":16
+    }
+  ],
+  "result": "tprt:tank_expansion",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/held"
+    },
+    {
+      "tag": "tconstruct:modifiable/armor"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:enchantment",
+  "slots": {
+    "upgrades": 2
+  },
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}

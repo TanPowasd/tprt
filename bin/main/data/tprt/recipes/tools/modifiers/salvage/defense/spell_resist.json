@@ -1,0 +1,17 @@
+{
+  "conditions": [
+    { "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:modifier_salvage",
+  "slots": {
+    "defense": 1
+  },
+  "modifier": "tprt:spell_resist",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor"
+    }
+  ]
+}

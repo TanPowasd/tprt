@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "tprt:dark_knight_ingot", "required":false}
+  ]
+}

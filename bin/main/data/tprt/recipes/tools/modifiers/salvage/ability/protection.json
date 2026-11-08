@@ -1,0 +1,15 @@
+{
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "immortalers_delight"
+  },
+  "type": "tconstruct:modifier_salvage",
+  "level": 2,
+  "modifier": "tconstruct:protection",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
+}

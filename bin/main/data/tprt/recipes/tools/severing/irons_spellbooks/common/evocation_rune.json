@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "irons_spellbooks:archevoker"
+  },
+  "result": {
+    "item": "irons_spellbooks:evocation_rune",
+    "count": 1
+  }
+}

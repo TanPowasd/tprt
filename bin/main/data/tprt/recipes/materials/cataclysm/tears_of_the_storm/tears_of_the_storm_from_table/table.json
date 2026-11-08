@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "key": {
+    "L": {
+      "item": "cataclysm:lacrima"
+    },
+    "E": {
+      "item": "cataclysm:essence_of_the_storm"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "LEL",
+    "LLL"
+  ],
+  "result": {
+    "item": "tprt:tears_of_the_storm",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:lightweight_spell",
+  "text": [
+    { "text": "Increases spell cast time reduction by 20%" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

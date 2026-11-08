@@ -1,0 +1,12 @@
+{
+  "modifier_id": "tprt:cursed_sandstorm",
+  "text": [
+    { "text": "Replaces arrows with three homing sandstorms at no extra ammo or durability cost. Hits apply Curse of Desert II for 5 seconds. Cannot pass through walls. Overrides Cursed Spirit Arrow's appearance, retaining its piercing bonus." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Tinkers bows and crossbows",
+    "Requires Cataclysm",
+    "Single level; 1 ability slot"
+  ]
+}

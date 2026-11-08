@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "minecraft:golden_apple"
+  },
+  "cast_consumed": true,
+  "cooling_time": 600,
+  "fluid": {
+    "amount": 720,
+    "fluid": "sakuratinker:molten_gluttonous"
+  },
+  "result": "minecraft:enchanted_golden_apple"
+}

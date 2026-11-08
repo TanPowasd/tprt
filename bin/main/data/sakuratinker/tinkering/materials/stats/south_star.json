@@ -1,0 +1,25 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "sakuratinker:spell_cloth": {
+      "base_spell_damage": 20.0,
+      "cast_time": 0.15,
+      "spell_power": 0.35,
+      "spell_reduce": 0.2
+    }
+  }
+}

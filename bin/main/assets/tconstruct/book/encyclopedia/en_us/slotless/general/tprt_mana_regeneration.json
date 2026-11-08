@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:mana_regeneration",
+  "text": [
+    { "text": "Per level: Increases mana regeneration by 24%" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

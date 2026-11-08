@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:ignited_revenant"
+  },
+  "result": {
+    "item": "cataclysm:burning_ashes",
+    "count": 1
+  }
+}

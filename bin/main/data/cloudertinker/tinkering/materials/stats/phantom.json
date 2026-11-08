@@ -1,0 +1,79 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cloudertinker"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "sakuratinker:book_mark": {
+      "percent_bonus": 0.25,
+      "spell_slot": 12
+    },
+    "sakuratinker:envelope": {
+      "school_bonus": {
+        "irons_spellbooks:evocation": 0.25,
+        "irons_spellbooks:eldritch": 0.1
+      }
+    },
+    "sakuratinker:manu_script": {
+      "cast_time_reduce": 0.25,
+      "mana_reduce": 25.0,
+      "mana_regen": 0.35,
+      "mana_value": 400.0,
+      "spell_damage": 20.0
+    },
+    "sakuratinker:charm_chain": {
+      "armor": 0.25,
+      "arrow_damage": 0.35,
+      "damage": 0.35,
+      "health": 20,
+      "movement_speed": 0.15,
+      "toughness": 0.15
+    },
+    "sakuratinker:charm_core": {},
+    "sakuratinker:charm_setting": {},
+    "sakuratinker:energy_unit": {
+      "durability": 0.35,
+      "max_energy": 50000
+    },
+    "sakuratinker:laser_medium": {
+      "cooldown": 0.75,
+      "penetration": 8,
+      "range": 50.0
+    },
+    "sakuratinker:flag": {
+      "attack_buff_time": 1000,
+      "charge_time": 40,
+      "defence_buff_time": 1000,
+      "range": 12
+    },
+    "sakuratinker:axle": {
+      "attack_interval": 15,
+      "time": 200.0,
+      "weight": 0.75
+    },
+    "sakuratinker:chord": {
+      "length": 18.0
+    },
+    "sakuratinker:yoyo_ring": {
+      "max_collected": 2.0
+    },
+    "sakuratinker:range_core": {
+      "range": 16.0
+    },
+    "sakuratinker:soul_gatherer.json": {
+      "soul_increase": 0.24,
+      "soul_power": 8.0
+    }
+  }
+}

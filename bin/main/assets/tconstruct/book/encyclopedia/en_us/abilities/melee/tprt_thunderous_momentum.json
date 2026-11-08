@@ -1,0 +1,14 @@
+{
+  "modifier_id": "tprt:thunderous_momentum",
+  "text": [
+    {
+      "text": "Lances only. While charging, movement speed ramps up to +50% over 2 seconds. Living mounts with a movement-speed attribute receive the same bonus. The bonus ends with the charge."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Lances only",
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

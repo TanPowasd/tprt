@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:burning_flames",
+  "text": [
+    { "text": "The damage caused is increased by 25%. If the target armor value is 0, the damage is greatly increased." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

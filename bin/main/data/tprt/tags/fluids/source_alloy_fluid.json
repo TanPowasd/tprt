@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:source_alloy_fluid", "required": false },
+    { "id": "tprt:flowing_source_alloy_fluid", "required": false }
+  ]
+}

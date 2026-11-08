@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:source_alloy"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:source_alloy_fluid"
+  },
+  "temperature": 3200,
+  "time": 20
+}

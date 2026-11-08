@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "tconstruct:venom_bottle",
+      "amount_needed":4
+    },
+    {
+      "item": "minecraft:spider_eye",
+      "amount_needed":8
+    },
+    {
+      "item": "tconstruct:venom_bottle",
+      "amount_needed":4
+    },
+    {
+      "item": "tconstruct:venom_bucket"
+    },
+    {
+      "item": "tconstruct:venom_bucket"
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "tprt:quenching_poison",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable/melee/weapon"
+    }
+  ]
+}

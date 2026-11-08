@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:gild",
+  "text": [
+    { "text": "使弹药额外获得一个升级槽" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "无需槽位"
+  ]
+}

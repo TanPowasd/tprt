@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tprt:armor_fragmentation",
+    "tprt:spell_resist",
+    "tprt:strengthen_for_charm_armor"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "condition": {
+    "modid": "irons_spellbooks",
+    "type": "forge:mod_loaded"
+  },
+  "craftable": true,
+  "hidden": false,
+  "sortOrder": 2,
+  "tier": 4
+}

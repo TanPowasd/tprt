@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:coralssus"
+  },
+  "result": {
+    "item": "cataclysm:coral_chunk",
+    "count": 1
+  }
+}

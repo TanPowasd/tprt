@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:the_power_of_nine_dragons",
+  "text": [
+    { "text": "The dragons roaming the world grant one upgrade slot and one defense slot. Tool attack power +9%" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

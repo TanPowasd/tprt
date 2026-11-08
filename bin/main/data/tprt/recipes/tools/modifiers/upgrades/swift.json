@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:redstone",
+      "amount_needed":4
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "tprt:swift",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/ammo"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "heatRequirement": "superheated",
+  "ingredients": [
+    {
+      "item": "sakuratinker:eezo_ore"
+    },
+    {
+      "fluid": "sakuratinker:molten_aurumos",
+      "amount": 900
+    }
+  ],
+  "results": [
+    {
+      "amount": 540,
+      "fluid": "sakuratinker:molten_eezo"
+    }
+  ]
+}

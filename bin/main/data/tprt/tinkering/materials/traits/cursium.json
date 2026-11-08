@@ -1,0 +1,30 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:cursed_spirit"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:soul_dodge"
+      },
+      {
+        "level": 1,
+        "name": "tprt:undead_revive"
+      }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:soul_puncture"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:multishot"
+      }
+    ]
+  }
+}

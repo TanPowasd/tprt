@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:modifier_salvage",
+  "level": 1,
+  "modifier": "tprt:cursed_spirit_arrow",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/ranged/bows"
+    }
+  ]
+}

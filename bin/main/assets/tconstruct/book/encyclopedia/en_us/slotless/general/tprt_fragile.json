@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:fragile",
+  "text": [
+    { "text": "Max health reduced by 35%, but attack damage +25%" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "iceandfire"
+  },
+  "type": "tconstruct:item_part_builder",
+  "cost": 2,
+  "material": "tprt:composite_dragon_scales",
+  "pattern": "tconstruct:boots_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "tconstruct:boots_plating_cast"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "tconstruct:boots_plating",
+    "nbt": {
+      "Material": "tprt:composite_dragon_scales"
+    }
+  }
+}

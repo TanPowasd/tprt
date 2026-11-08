@@ -1,0 +1,40 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:advanced_greed"
+    },
+    {
+      "level": 2,
+      "name": "tconstruct:momentum"
+    }
+  ],
+  "perStat": {
+    "sakuratinker:tinker_spell_book": [
+      { "level": 1, "name": "tprt:spell_greed" }
+    ],
+    "sakuratinker:charm": [
+      { "level": 1, "name": "tprt:overlimit" }
+    ],
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:arrogant"
+      },
+      {
+        "level": 2,
+        "name": "tconstruct:recurrent_protection"
+      }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:ranged_greed"
+      },
+      {
+        "level": 2,
+        "name": "tconstruct:momentum"
+      }
+    ]
+  }
+}

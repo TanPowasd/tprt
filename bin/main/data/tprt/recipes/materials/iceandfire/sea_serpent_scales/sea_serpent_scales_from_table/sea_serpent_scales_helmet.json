@@ -1,0 +1,40 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "iceandfire"
+      }
+    ]
+  },
+  "type": "tconstruct:item_part_builder",
+  "cost": 3,
+  "material": "tprt:sea_serpent_scales",
+  "pattern": "tconstruct:helmet_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "tconstruct:helmet_plating_cast"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "tconstruct:helmet_plating",
+    "nbt": {
+      "Material": "tprt:sea_serpent_scales"
+    }
+  }
+}

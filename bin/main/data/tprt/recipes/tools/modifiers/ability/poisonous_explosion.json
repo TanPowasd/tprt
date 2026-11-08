@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:tnt"
+    },
+    {
+      "item": "tconstruct:cave_spider_head",
+      "amount_needed":8
+    },
+    {
+      "item": "minecraft:tnt"
+    },
+    {
+      "item": "tconstruct:venom_bucket"
+    },
+    {
+      "item": "tconstruct:venom_bucket"
+    }
+  ],
+  "level":1,
+  "result": "tprt:poisonous_explosion",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable/melee/weapon"
+    }
+  ]
+}

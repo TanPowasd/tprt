@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:break_the_path",
+  "text": [
+    { "text": "Right-click stealth can accumulate power for throwing. The longer the power is accumulated, the greater the throwing power will be. After throwing, the player will be transported to the landing point." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

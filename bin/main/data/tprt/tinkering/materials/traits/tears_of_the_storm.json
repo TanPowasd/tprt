@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:storm_incarnation_att"
+    },
+    {
+      "level": 1,
+      "name": "tprt:tidal_surge"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:storm_incarnation_arm"
+      },
+      {
+        "level": 1,
+        "name": "tprt:tide_walker"
+      }
+    ]
+  }
+}

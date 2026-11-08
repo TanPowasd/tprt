@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "level": 1,
+  "modifier": "tprt:burning_flames",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/durability"
+    }
+  ]
+}

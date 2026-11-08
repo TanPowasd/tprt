@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:radiant_knightmetal_ingot"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:molten_radiant_knightmetal"
+  },
+  "temperature": 4000,
+  "time": 20
+}

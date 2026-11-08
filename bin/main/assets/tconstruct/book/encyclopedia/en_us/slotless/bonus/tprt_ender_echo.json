@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:ender_echo",
+  "text": [
+    { "text": "The overlapping ender bring you an upgrade slot and a defense slot." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires no slots"
+  ]
+}

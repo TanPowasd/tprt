@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:forged_steel_fluid", "required": false },
+    { "id": "tprt:flowing_forged_steel_fluid", "required": false }
+  ]
+}

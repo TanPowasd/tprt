@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "level": 1,
+  "modifier": "tprt:precision_stab",
+  "slots": {
+    "abilities": 2
+  },
+  "tools": [
+    {
+      "item": "sakuratinker:swift_sword"
+    }
+  ]
+}

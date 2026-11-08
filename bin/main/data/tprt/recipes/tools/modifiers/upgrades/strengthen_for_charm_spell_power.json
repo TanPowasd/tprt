@@ -1,0 +1,39 @@
+{
+  "conditions": [
+    { "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:mithril_ingot"
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":2
+    },
+    {
+      "item": "irons_spellbooks:mithril_ingot"
+    },
+    {
+      "item": "irons_spellbooks:mithril_ingot"
+    },
+    {
+      "item": "irons_spellbooks:mithril_ingot"
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": "tprt:strengthen_for_charm_spell_power",
+  "tools": [
+    {
+      "tag": "sakuratinker:modifiable/curio/tinker_charm"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:lightning_upgrade",
+  "text": [
+    { "text": "Increases Lightning spell power per level" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

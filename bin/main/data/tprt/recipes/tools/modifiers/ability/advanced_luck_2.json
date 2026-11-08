@@ -1,0 +1,32 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "sakuratinker:gluttonous"
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":2
+    },
+    {
+      "item": "sakuratinker:gluttonous"
+    },
+    {
+      "item": "sakuratinker:gluttonous"
+    }
+  ],
+  "level": 2,
+  "result": "tprt:advanced_luck",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee/weapon"
+    },
+    {
+      "tag": "tconstruct:modifiable/harvest"
+    },
+    {
+      "tag": "tconstruct:modifiable/ranged"
+    }
+  ]
+}

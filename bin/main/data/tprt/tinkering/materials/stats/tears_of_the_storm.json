@@ -1,0 +1,33 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "tconstruct:binding": {},
+    "tconstruct:handle": {
+      "durability": 0.35,
+      "melee_damage": 0.4,
+      "melee_speed": 0.45,
+      "mining_speed": 0.4
+    },
+    "tconstruct:head": {
+      "durability": 860,
+      "melee_attack": 9.6,
+      "mining_speed": 11.2,
+      "mining_tier": "minecraft:netherite"
+    },
+    "tconstruct:maille": {}
+  }
+}

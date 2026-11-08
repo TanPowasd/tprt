@@ -1,0 +1,37 @@
+{
+  "default": [
+
+    {
+      "level": 1,
+      "name": "tprt:spell_power_improved"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+
+      {
+        "level": 1,
+        "name": "tprt:spell_power_improved"
+      }
+    ],
+    "tconstruct:ranged": [
+
+      {
+        "level": 1,
+        "name": "tprt:spell_power_improved"
+      }
+    ],
+    "sakuratinker:charm":[
+      {
+        "level":1,
+        "name":"tprt:spell_power_improved_curios"
+      }
+    ],
+    "sakuratinker:tinker_spell_book": [
+      {
+        "level": 1,
+        "name": "tprt:spell_power_improved_curios"
+      }
+    ]
+  }
+}

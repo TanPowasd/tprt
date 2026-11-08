@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "irons_spellbooks"
+        }
+      ]
+    }
+  ],
+  "type": "tconstruct:material_melting",
+  "input": "tprt:pyrium",
+  "temperature": 2000,
+  "result": {
+    "fluid": "tprt:molten_pyrium",
+    "amount": 90
+  }
+}

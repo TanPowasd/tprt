@@ -1,0 +1,37 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "irons_spellbooks"
+  },
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:mithril_ingot",
+      "amount_needed":2
+    },
+    {
+      "item": "irons_spellbooks:infernal_sorcerer_chestplate"
+    },
+    {
+      "item": "irons_spellbooks:mithril_ingot",
+      "amount_needed":2
+    }
+  ],
+  "level": 1,
+  "result": "tprt:immolate",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor/chestplate"
+    }
+  ]
+}

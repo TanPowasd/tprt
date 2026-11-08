@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "types": [
+      "irons_spellbooks:apothecarist",
+      "irons_spellbooks:archevoker",
+      "irons_spellbooks:cryomancer",
+      "irons_spellbooks:cultist",
+      "irons_spellbooks:priest",
+      "irons_spellbooks:pyromancer"
+    ]
+  },
+  "result": {
+    "item": "irons_spellbooks:uncommon_ink",
+    "count": 3
+  }
+}

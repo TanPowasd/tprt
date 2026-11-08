@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:the_leviathan"
+  },
+  "result": {
+    "item": "cataclysm:tidal_claws",
+    "count": 1
+  }
+}

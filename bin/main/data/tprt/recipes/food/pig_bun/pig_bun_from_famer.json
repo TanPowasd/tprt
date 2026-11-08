@@ -1,0 +1,36 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ae2"
+    }
+  ],
+  "type": "farmersdelight:cooking",
+  "cookingtime": 300,
+  "experience": 10.0,
+  "ingredients": [
+    {
+      "item": "ae2:controller"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    },
+    {
+      "tag": "forge:crops"
+    },
+    {
+      "tag": "forge:crops"
+    },
+    {
+      "tag": "forge:dough"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "tprt:pig_bun"
+  }
+}

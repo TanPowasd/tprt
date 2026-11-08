@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:lionfish"
+  },
+  "result": {
+    "item": "minecraft:bone_meal",
+    "count": 1
+  }
+}

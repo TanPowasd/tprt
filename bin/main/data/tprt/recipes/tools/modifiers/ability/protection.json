@@ -1,0 +1,39 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "immortalers_delight"
+    }
+  ],
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "immortalers_delight"
+  },
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "tconstruct:hepatizon_ingot"
+    },
+    {
+      "item": "immortalers_delight:leisamboo_block"
+    },
+    {
+      "item": "tconstruct:hepatizon_ingot"
+    },
+    {
+      "item": "tprt:leisamboo_board"
+    },
+    {
+      "item": "tprt:leisamboo_board"
+    }
+  ],
+  "level": 2,
+  "result": "tconstruct:protection",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
+}

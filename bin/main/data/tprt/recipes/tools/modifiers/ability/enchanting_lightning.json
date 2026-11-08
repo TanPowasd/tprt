@@ -1,0 +1,37 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:swappable_modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "tag": "irons_spellbooks:lightning_focus"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "tag": "irons_spellbooks:lightning_focus"
+    },
+    {
+      "item": "irons_spellbooks:arcane_ingot"
+    },
+    {
+      "item": "irons_spellbooks:arcane_ingot"
+    }
+  ],
+  "result": {
+    "name": "tprt:enchanting",
+    "value": "lightning"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tprt:modifiable/melee/magic_blade"
+  }
+}

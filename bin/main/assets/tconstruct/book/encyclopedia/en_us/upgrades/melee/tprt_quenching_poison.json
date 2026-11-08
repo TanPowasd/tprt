@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:quenching_poison",
+  "text": [
+    { "text": "The attack will poison the target, with the highest level of 5. The higher the level, the longer the duration (duration can be superimposed)." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 3 levels",
+    "Requires 1 upgrade slot per level"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:pyrium",
+  "level": {
+    "max": 1
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/durability"
+  }
+}

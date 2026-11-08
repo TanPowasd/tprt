@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:advanced_cheer_up",
+  "text": [
+    { "text": "Per level: Increases max health by 5%" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 3 levels",
+    "First level requires 1 ability slot; later levels are slotless"
+  ]
+}

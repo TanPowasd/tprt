@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "irons_spellbooks:citadel_keeper"
+  },
+  "result": {
+    "item": "irons_spellbooks:cinder_essence",
+    "count": 1
+  }
+}

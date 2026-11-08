@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "types": [
+      "cataclysm:the_prowler",
+      "cataclysm:the_watcher"
+    ]
+  },
+  "result": {
+    "item": "minecraft:redstone",
+    "count": 3
+  }
+}

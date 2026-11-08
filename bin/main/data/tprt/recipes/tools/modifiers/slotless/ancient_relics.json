@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "immortalers_delight"
+    }
+  ],
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "immortalers_delight"
+      }
+    ]
+  },
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "immortalers_delight:kwat_wheat"
+    },
+    {
+      "item": "immortalers_delight:evolutcorn"
+    },
+    {
+      "item": "immortalers_delight:pearlip"
+    },
+    {
+      "item": "immortalers_delight:contains_tea_leisamboo"
+    },
+    {
+      "item": "immortalers_delight:himekaido"
+    }
+  ],
+  "level": 1,
+  "result": "tprt:ancient_relics",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/bonus_slots"
+    }
+  ]
+}

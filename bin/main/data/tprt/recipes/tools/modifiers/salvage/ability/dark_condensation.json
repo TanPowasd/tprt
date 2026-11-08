@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "level": 1,
+  "modifier": "tprt:dark_condensation",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "item": "sakuratinker:tinker_wand"
+    }
+  ]
+}

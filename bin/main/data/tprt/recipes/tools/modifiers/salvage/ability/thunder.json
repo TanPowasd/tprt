@@ -1,0 +1,25 @@
+{
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "cataclysm"
+      }
+    ]
+  },
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:thunder",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee/weapon"
+    }
+  ]
+}

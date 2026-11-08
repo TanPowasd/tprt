@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fluid": {
+    "fluid": "tprt:molten_chtholly",
+    "amount": 90
+  },
+  "temperature": 1500,
+  "output": "tprt:chtholly"
+}
+

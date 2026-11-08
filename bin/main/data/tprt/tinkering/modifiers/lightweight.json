@@ -1,0 +1,21 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkercuriolib:multi_curio_attribute",
+      "attributes": [
+        {
+          "attribute": "tconstruct:generic.jump_boost",
+          "operation": "addition",
+          "value": 0.75
+        },
+        {
+          "attribute": "minecraft:generic.movement_speed",
+          "operation": "multiply_total",
+          "value": 0.15
+        }
+      ],
+      "name": "tprt:lightweight"
+    }
+  ]
+}

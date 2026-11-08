@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "type": "tconstruct:material",
+      "item": "tconstruct:bow_limb"
+    },
+    {
+      "tag": "forge:ingots/cinderslime"
+    },
+    {
+      "type": "tconstruct:material",
+      "item": "tconstruct:bow_grip"
+    },
+    {
+      "item": "sakuratinker:eezo_ingot",
+      "amount_needed":4
+    },
+    {
+      "item": "sakuratinker:eezo_ingot",
+      "amount_needed":4
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "result": "tprt:break_the_path",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tprt:modifiable/melee/anchor_sword"
+    }
+  ]
+}

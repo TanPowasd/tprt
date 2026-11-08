@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tprt:chtholly"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tprt:molten_chtholly"
+  },
+  "temperature": 1500,
+  "time": 80
+}
+

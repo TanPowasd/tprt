@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tprt:radiant_knightmetal_ingot"
+  },
+  "material": "tprt:radiant_knightmetal",
+  "needed": 1,
+  "value": 1
+}

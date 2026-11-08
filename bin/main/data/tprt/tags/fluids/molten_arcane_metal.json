@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:molten_arcane_metal", "required": false },
+    { "id": "tprt:flowing_molten_arcane_metal", "required": false }
+  ]
+}

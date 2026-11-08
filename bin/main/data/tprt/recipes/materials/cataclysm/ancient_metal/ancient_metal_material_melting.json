@@ -1,0 +1,22 @@
+{
+  "condition": {
+    "type": "forge:or",
+    "values": [
+      {
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "cataclysm"
+      }
+    ]
+  },
+  "type": "tconstruct:material_melting",
+  "input": "tprt:ancient_metal",
+  "temperature": 1400,
+  "result": {
+    "fluid": "tprt:molten_ancient_metal",
+    "amount": 90
+  }
+}

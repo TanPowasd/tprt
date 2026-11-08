@@ -1,0 +1,117 @@
+{
+  "parts": [
+    {
+      "path": "tprt:item/tool/anchor_sword/small/head_1/head_1",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/small/head_2/head_2",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/small/grip/grip",
+      "stat_type": "tconstruct:grip"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/small/handle/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/small/head_1/head_1_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/small/head_2/head_2_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/small/grip/grip_broken",
+      "stat_type": "tconstruct:grip"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/head_1/head_1",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/head_2/head_2",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/grip/grip",
+      "stat_type": "tconstruct:grip"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/handle/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/head_1/head_1_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/head_2/head_2_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/anchor_sword/large/grip/grip_broken",
+      "stat_type": "tconstruct:grip"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/head/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/head/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/handguard/handguard",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/magic_blade/handle/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tprt:item/tool/lance/small/head_1/head_1",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/lance/small/head_2/head_2",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/lance/small/guard/guard",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/lance/small/handle/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tprt:item/tool/lance/large/head_1/head_1",
+      "stat_type": "tconstruct:head",
+      "allow_animated": false
+    },
+    {
+      "path": "tprt:item/tool/lance/small/head_1/head_1_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tprt:item/tool/lance/large/head_2/head_2",
+      "stat_type": "tconstruct:head",
+      "allow_animated": false
+    },
+    {
+      "path": "tprt:item/tool/lance/large/guard/guard",
+      "stat_type": "tconstruct:head",
+      "allow_animated": false
+    },
+    {
+      "path": "tprt:item/tool/lance/large/handle/handle",
+      "stat_type": "tconstruct:handle",
+      "allow_animated": false
+    }
+  ],
+  "replace": false
+}

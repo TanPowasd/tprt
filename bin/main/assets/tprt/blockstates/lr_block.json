@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tprt:block/lr_block"
+    }
+  }
+}

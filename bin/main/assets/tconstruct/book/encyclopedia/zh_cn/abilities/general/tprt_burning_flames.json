@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:burning_flames",
+  "text": [
+    { "text": "攻击会削减目标的护甲值和盔甲韧性并点燃目标" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "需要1个能力槽"
+  ]
+}

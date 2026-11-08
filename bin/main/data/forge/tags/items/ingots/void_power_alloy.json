@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "tprt:void_power_alloy", "required":false}
+  ]
+}

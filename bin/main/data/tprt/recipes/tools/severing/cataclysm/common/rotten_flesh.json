@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "types": [
+      "cataclysm:draugr",
+      "cataclysm:royal_draugr",
+      "cataclysm:elite_draugr",
+      "cataclysm:drowned_host"
+    ]
+  },
+  "result": {
+    "item": "minecraft:rotten_flesh",
+    "count": 2
+  }
+}

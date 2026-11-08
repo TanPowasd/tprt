@@ -1,0 +1,37 @@
+{
+  "level_display": {
+    "type": "tconstruct:unique",
+    "first_unique": false,
+    "unique_until": 3
+  },
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 10000.0,
+      "operation": "add",
+      "stat": "tconstruct:tank_capacity"
+    },
+    {
+      "type": "tconstruct:trait",
+      "fixed_level": true,
+      "level": 3,
+      "name": "tconstruct:tank_handler"
+    },
+    {
+      "type": "tconstruct:melting",
+      "nuggets_per_metal": {
+        "each_level": 6,
+        "flat": 12
+      },
+      "shards_per_gem": {
+        "each_level": 4,
+        "flat": 12
+      },
+      "temperature": {
+        "each_level": 500,
+        "flat": 1000
+      }
+    }
+  ],
+  "tooltip_display": "always"
+}

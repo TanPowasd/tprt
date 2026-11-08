@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":2
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":3
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "amount_needed":2
+    },
+    {
+      "item": "sakuratinker:bear_interest_ingot",
+      "amount_needed":2
+    },
+    {
+      "item": "sakuratinker:bear_interest_ingot",
+      "amount_needed":2
+    }
+  ],
+  "level": 3,
+  "result": "tprt:advanced_cheer_up",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor"
+    }
+  ]
+}

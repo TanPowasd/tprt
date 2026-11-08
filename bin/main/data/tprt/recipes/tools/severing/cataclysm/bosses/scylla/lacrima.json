@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:scylla"
+  },
+  "result": {
+    "item": "cataclysm:lacrima",
+    "count": 16
+  }
+}

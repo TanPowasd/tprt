@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:blood_of_hydra",
+  "text": [
+    { "text": "Grants high life regeneration effect" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires 1 ability slot"
+  ]
+}

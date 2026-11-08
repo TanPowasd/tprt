@@ -1,0 +1,31 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "goety"
+        }
+      ]
+    }
+  ],
+  "level_display": {
+    "type": "tconstruct:unique",
+    "first_unique": false,
+    "unique_until": 5
+  },
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 0.08,
+      "operation": "multiply_base",
+      "stat": "sakuratinker:soul_power",
+      "unique": "tconstruct.modifier.soul_convergence"
+    }
+  ]
+}

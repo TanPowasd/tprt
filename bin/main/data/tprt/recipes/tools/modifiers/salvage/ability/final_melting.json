@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:final_melting",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "item": "tconstruct:melting_pan"
+    }
+  ]
+}

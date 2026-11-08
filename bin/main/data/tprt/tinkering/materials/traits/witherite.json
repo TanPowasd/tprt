@@ -1,0 +1,26 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:mechanical_star_att"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:mechanical_star_arm"
+      },
+      {
+        "level": 1,
+        "name": "tprt:machine_iron_casting"
+      }
+    ],
+    "tconstruct:ranged": [
+      {
+        "level": 1,
+        "name": "tprt:mechanical_star_range"
+      }
+    ]
+  }
+}

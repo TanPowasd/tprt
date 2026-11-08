@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "sakuratinker:bear_interest_ingot"
+    },
+    {
+      "item": "sakuratinker:soul_sakura"
+    },
+    {
+      "item": "sakuratinker:bear_interest_ingot"
+    },
+    {
+      "item": "sakuratinker:soul_sakura"
+    },
+    {
+      "item": "sakuratinker:soul_sakura"
+    }
+  ],
+  "level": {
+    "max": 1
+  },
+  "result": "tprt:persistence_of_nature",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tprt:modifiable/melee/anchor_sword"
+    }
+  ]
+}

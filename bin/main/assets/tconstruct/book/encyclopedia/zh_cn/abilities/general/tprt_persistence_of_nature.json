@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:persistence_of_nature",
+  "text": [
+    { "text": "当前生命值低于75%时受到攻击回复3+3%已损失生命值，触发间隔0.5秒" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "需要1个能力槽"
+  ]
+}

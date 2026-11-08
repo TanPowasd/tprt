@@ -1,0 +1,32 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tprt:void_power"
+    },
+    {
+      "level": 1,
+      "name": "tprt:void_armed"
+    },
+    {
+      "level": 1,
+      "name": "tconstruct:enderference"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tprt:void_power"
+      },
+      {
+        "level": 1,
+        "name": "tprt:ender_armor"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:ductile"
+      }
+    ]
+  }
+}

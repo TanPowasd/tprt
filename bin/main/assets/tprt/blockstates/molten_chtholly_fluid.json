@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "tprt:block/molten_chtholly_fluid"
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "ingredient": {
+    "item": "tprt:tears_of_the_storm"
+  },
+  "material": "tprt:tears_of_the_storm",
+  "needed": 1,
+  "value": 1
+}

@@ -1,0 +1,109 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "tconstruct:steel_block"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "item": "tprt:forged_steel"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_block"
+        },
+        {
+          "amount": 1000,
+          "fluid": "tconstruct:blazing_blood"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_block"
+        },
+        {
+          "amount":180,
+          "fluid": "tconstruct:molten_steel"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "tconstruct:steel_block"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tconstruct:steel_block"
+  }
+}

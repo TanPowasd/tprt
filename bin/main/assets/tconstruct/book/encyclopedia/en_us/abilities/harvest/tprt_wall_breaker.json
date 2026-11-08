@@ -1,0 +1,14 @@
+{
+  "modifier_id": "tprt:wall_breaker",
+  "text": [
+    {
+      "text": "Lances only. While charging, clears a 3x3 cross-section up to 3 blocks along the horizontal crosshair direction (unaffected by looking up or down), breaking at most 9 blocks per tick with hardness at most 5. Uses Tinkers harvest processing for drops and durability. Skips fluids, block entities and unbreakable blocks. Breaking slows movement by 15% to 60%; higher lance mining speed reduces the penalty."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Lances only",
+    "No levels",
+    "Requires 1 ability slot"
+  ]
+}

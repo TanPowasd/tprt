@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:unreal_image",
+  "text": [
+    { "text": "Grants continuous invisibility and periodically grants Resistance II" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:monstrous",
+  "text": [
+    { "text": "While worn, if you fall below half health knock back nearby entities and increases defense, knockback resistance and regeneration on the basis of this modifier of the whole body" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

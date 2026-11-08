@@ -1,0 +1,47 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 5,
+          "name": "tconstruct:tank"
+        }
+      ],
+      "requirement": {
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "level": {
+          "min": 5
+        },
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tconstruct:tank"
+        }
+      },
+      "translation_key": "modifier.tprt.final_tank.requirements"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 20000.0,
+      "flat": 10000.0,
+      "operation": "add",
+      "stat": "tconstruct:tank_capacity"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 2.0,
+      "flat": 1.0,
+      "operation": "multiply_base",
+      "stat": "tconstruct:tank_capacity"
+    },
+    {
+      "type": "tconstruct:trait",
+      "fixed_level": true,
+      "level": 1,
+      "name": "tconstruct:tank_handler"
+    }
+  ],
+  "tooltip_display": "always"
+}

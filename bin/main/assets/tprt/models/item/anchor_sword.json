@@ -1,0 +1,34 @@
+{
+    "loader": "tconstruct:tool",
+    "parent": "forge:item/default-tool",
+    "textures": {
+      "head_1":  "tprt:item/tool/anchor_sword/small/head_1/head_1",
+      "head_2": "tprt:item/tool/anchor_sword/small/head_2/head_2",
+      "handle":  "tprt:item/tool/anchor_sword/small/handle/handle",
+      "grip":   "tprt:item/tool/anchor_sword/small/grip/grip",
+
+      "large_head_1":   "tprt:item/tool/anchor_sword/large/head_1/head_1",
+      "large_head_2": "tprt:item/tool/anchor_sword/large/head_2/head_2",
+      "large_handle":  "tprt:item/tool/anchor_sword/large/handle/handle",
+      "large_grip": "tprt:item/tool/anchor_sword/large/grip/grip"
+    },
+    "parts": [
+      { "name": "head_1",  "index": 0 },
+      { "name": "head_2",  "index": 1 },
+      { "name": "handle", "index": 2 },
+      { "name": "grip",   "index": 3 }
+    ],
+   "large": true,
+   "large_offset": [-2, 2],
+    "overrides": [
+      {
+        "predicate": { "tconstruct:charging": 2 },
+        "model": "tprt:item/tool/anchor_sword/blocking"
+      },
+      {
+        "predicate": { "tconstruct:broken": 1 },
+        "model": "tprt:item/tool/anchor_sword/broken"
+      }
+    ]
+  }
+  

@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:affinity",
+  "text": [
+    { "text": "Record a spell with a spell scroll: hold the scroll in your main hand and the imbued item in your offhand, then sneak-right-click. Casting that spell gains +1 level." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 upgrade slot"
+  ]
+}

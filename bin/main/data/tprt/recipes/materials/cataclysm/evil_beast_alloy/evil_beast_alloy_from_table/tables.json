@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cataclysm"
+        }
+      ]
+    }
+  ],
+  "key": {
+    "M": {
+      "item": "cataclysm:monstrous_horn"
+    },
+    "I": {
+      "item": "cataclysm:infernal_forge"
+    },
+    "L": {
+      "item": "cataclysm:lava_power_cell"
+    }
+  },
+  "pattern": [
+    "LML",
+    "LIL",
+    "LLL"
+  ],
+  "result": {
+    "item": "tprt:evil_beast_alloy_ingot",
+    "count": 4
+  }
+}

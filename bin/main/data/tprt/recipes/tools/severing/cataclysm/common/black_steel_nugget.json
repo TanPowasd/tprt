@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "types": [
+      "cataclysm:draugr",
+      "cataclysm:royal_draugr",
+      "cataclysm:elite_draugr",
+      "cataclysm:aptrgangr"
+    ]
+  },
+  "result": {
+    "item": "cataclysm:black_steel_nugget",
+    "count": 4
+  }
+}

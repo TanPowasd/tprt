@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:dark_condensation",
+  "text": [
+    { "text": "Increases Soul Amplification according to the attack power of tools, but will sacrifice something ..." }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

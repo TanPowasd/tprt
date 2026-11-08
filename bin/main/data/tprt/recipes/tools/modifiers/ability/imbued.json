@@ -1,0 +1,37 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "irons_spellbooks"
+  },
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "irons_spellbooks:magic_cloth",
+      "amount_needed":4
+    },
+    {
+      "item": "irons_spellbooks:lesser_spell_slot_upgrade"
+    },
+    {
+      "item": "irons_spellbooks:ancient_knowledge_fragment",
+      "amount_needed":2
+    }
+  ],
+  "level": 1,
+  "result": "tprt:imbued",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/durability"
+    }
+  ]
+}

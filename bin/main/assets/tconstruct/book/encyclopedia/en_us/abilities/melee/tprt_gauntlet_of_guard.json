@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:gauntlet_of_guard",
+  "text": [
+    { "text": "Right click to pull entities and hurt them by dragon breath damage" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximum of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

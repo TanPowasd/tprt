@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:solid_armor",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}

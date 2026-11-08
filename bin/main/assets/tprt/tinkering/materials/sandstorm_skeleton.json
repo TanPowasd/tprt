@@ -1,0 +1,50 @@
+{
+  "color": "FF5e463e",
+  "fallbacks": [
+    "bone",
+    "rock"
+  ],
+  "luminosity": 7,
+  "generator": {
+    "transformer": {
+      "type": "tconstruct:animated_sprite",
+      "frames": 5,
+      "meta": "tprt:materials/sandstorm_skeleton",
+      "palette": [
+        {
+          "grey": 0,
+          "color": "FF000000"
+        },
+        {
+          "grey": 63,
+          "color": "FF404040",
+          "path": "tprt:materials/sandstorm_skeleton"
+        },
+        {
+          "grey": 102,
+          "color": "FF808080",
+          "path": "tprt:materials/sandstorm_skeleton"
+        },
+        {
+          "grey": 140,
+          "path": "tprt:materials/sandstorm_skeleton"
+        }
+      ]
+    },
+    "supported_stats": [
+      "tconstruct:head",
+      "tconstruct:handle",
+      "tconstruct:binding",
+      "tconstruct:repair_kit",
+      "tconstruct:armor_plating",
+      "tconstruct:plating_helmet",
+      "tconstruct:plating_chestplate",
+      "tconstruct:plating_leggings",
+      "tconstruct:plating_boots",
+      "tconstruct:plating_shield",
+      "tconstruct:maille",
+      "tconstruct:armor_maille"
+    ],
+    "ignore_material_stats": false
+  }
+}

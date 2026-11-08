@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.mylove.tprt.mixin",
+  "plugin": "org.mylove.tprt.mixin.plugin.MixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "tprt.refmap.json",
+  "mixins": [],
+  "client": [
+    "LanceMovementMixin",
+    "LanceUseInputMixin",
+    "LanceArmPoseMixin",
+    "LanceItemRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

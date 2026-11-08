@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "tconstruct:config",
+          "prop": "force_integration_materials"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ]
+    }
+  ],
+  "type": "tconstruct:material_melting",
+  "input": "tprt:forged_steel",
+  "temperature": 1435,
+  "result": {
+    "fluid": "tprt:forged_steel_fluid",
+    "amount": 90
+  }
+}

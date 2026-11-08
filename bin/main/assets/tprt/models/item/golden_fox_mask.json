@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tprt:item/golden_fox_mask",
+    "halo": "sakuratinker:item/misc/halo"
+  },
+  "loader": "sakuratinker:halo",
+  "halo": {
+    "texture": "#halo",
+    "color": -16777216,
+    "size": 8,
+    "pulse": true
+  }
+}

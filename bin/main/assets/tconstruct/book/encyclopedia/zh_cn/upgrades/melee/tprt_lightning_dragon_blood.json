@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:lightning_dragon_blood",
+  "text": [
+    { "text": "大幅度提高近战伤害，攻击时会大幅度击退目标" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "需要1个升级槽"
+  ]
+}

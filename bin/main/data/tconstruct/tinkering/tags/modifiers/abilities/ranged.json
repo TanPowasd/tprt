@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tprt:automation",
+    { "id": "tprt:cursed_spirit_arrow", "required": false },
+    { "id": "tprt:cursed_sandstorm", "required": false }
+  ]
+}

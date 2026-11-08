@@ -1,0 +1,10 @@
+{
+  "modifier_id": "tprt:fountain_magic",
+  "text": [
+    { "text": "Increases max mana and mana regeneration speed" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Requires no slots"
+  ]
+}

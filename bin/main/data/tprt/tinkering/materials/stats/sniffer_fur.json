@@ -1,0 +1,11 @@
+{
+  "conditions":
+  {
+    "type": "forge:mod_loaded",
+    "modid": "immortalers_delight"
+  },
+  "stats": {
+    "tconstruct:binding": {},
+    "tconstruct:maille": {}
+  }
+}

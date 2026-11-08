@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "tconstruct:severing",
+  "entity": {
+    "type": "cataclysm:coral_golem"
+  },
+  "result": {
+    "item": "cataclysm:crystallized_coral_fragments",
+    "count": 2
+  }
+}

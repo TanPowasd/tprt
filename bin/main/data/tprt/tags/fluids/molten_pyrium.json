@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "tprt:molten_pyrium", "required": false },
+    { "id": "tprt:flowing_molten_pyrium", "required": false }
+  ]
+}

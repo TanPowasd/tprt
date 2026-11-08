@@ -1,0 +1,11 @@
+{
+  "modifier_id": "tprt:ruthless_and_tyrannical_spell",
+  "text": [
+    { "text": "Universal spell power increased by 25%, but armor value and spell resistance reduced by 25%" }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Single level",
+    "Requires no slots"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:bamboo",
+      "amount_needed":4
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "tprt:calibrate",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/ammo"
+    }
+  ]
+}
