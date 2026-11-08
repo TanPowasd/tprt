@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tprt:chtholly"
+  },
+  "material": "tprt:chtholly",
+  "needed": 1,
+  "value": 1
+}
+

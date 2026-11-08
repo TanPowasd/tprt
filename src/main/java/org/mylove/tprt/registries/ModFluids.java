@@ -31,6 +31,7 @@ public class ModFluids {
         return object;
     }
     //锻造钢流体 -> 已移到 CreateCompat.FORGED_STEEL_FLUID (机械动力联动材料)
+    public static final FlowingFluidObject<ForgeFlowingFluid> MOLTEN_CHTHOLLY = registerHotFluid(FLUIDS, "molten_chtholly", 1500, 14, 5, 6, false);
     public static final FlowingFluidObject<ForgeFlowingFluid>MOLTEN_ADVANCED_MANYULLYN=registerHotFluid(FLUIDS,"molten_advanced_manyullyn",2000,4,5,2,false);
     public static final FlowingFluidObject<ForgeFlowingFluid>molten_radiant_knightmetal=registerHotFluid(FLUIDS,"molten_radiant_knightmetal",2000,12,5,15,false);
     //联动流体已移到各自兼容类的注册器:

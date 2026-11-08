@@ -1,0 +1,90 @@
+{
+  "fallbacks": [
+    "crystal",
+    "metal"
+  ],
+  "color": "6EC6FF",
+  "luminosity": 12,
+  "generator": {
+    "transformer": {
+      "type": "tconstruct:recolor_sprite",
+      "color_mapping": {
+        "type": "tconstruct:grey_to_color",
+        "palette": [
+          {
+            "grey": 0,
+            "color": "FF000000"
+          },
+          {
+            "grey": 63,
+            "color": "FF192547"
+          },
+          {
+            "grey": 102,
+            "color": "FF275FA3"
+          },
+          {
+            "grey": 140,
+            "color": "FF3A8AD4"
+          },
+          {
+            "grey": 178,
+            "color": "FF63C0F7"
+          },
+          {
+            "grey": 216,
+            "color": "FFA3E7FF"
+          },
+          {
+            "grey": 255,
+            "color": "FFFFF4EB"
+          }
+        ]
+      }
+    },
+    "supported_stats": [
+      "tconstruct:head",
+      "tconstruct:handle",
+      "tconstruct:binding",
+      "tconstruct:repair_kit",
+      "tconstruct:limb",
+      "tconstruct:grip",
+      "tconstruct:bowstring",
+      "tconstruct:arrow_head",
+      "tconstruct:arrow_shaft",
+      "tconstruct:fletching",
+      "tconstruct:armor_plating",
+      "tconstruct:plating_helmet",
+      "tconstruct:plating_chestplate",
+      "tconstruct:plating_leggings",
+      "tconstruct:plating_boots",
+      "tconstruct:plating_shield",
+      "tconstruct:maille",
+      "tconstruct:armor_maille",
+      "tconstruct:shield_core",
+      "tconstruct:cuirass",
+      "tconstruct:armor_cuirass",
+      "sakuratinker:charm_chain",
+      "sakuratinker:charm_core",
+      "sakuratinker:charm_setting",
+      "sakuratinker:book_mark",
+      "sakuratinker:manu_script",
+      "sakuratinker:envelope",
+      "sakuratinker:gutter",
+      "sakuratinker:energy_unit",
+      "sakuratinker:laser_medium",
+      "sakuratinker:flag",
+      "sakuratinker:range_core",
+      "sakuratinker:phantom_core",
+      "sakuratinker:revolver_chamber",
+      "sakuratinker:axle",
+      "sakuratinker:chord",
+      "sakuratinker:yoyo_ring",
+      "sakuratinker:fletching",
+      "sakuratinker:alchemical_core",
+      "sakuratinker:soul_gatherer"
+    ],
+    "ignore_material_stats": false
+  }
+}
+

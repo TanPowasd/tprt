@@ -30,6 +30,10 @@
       "required": false
     },
     {
+      "id": "tprt:chtholly",
+      "required": false
+    },
+    {
       "id": "tprt:composite_dragon_scales",
       "required": false
     },

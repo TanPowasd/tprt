@@ -12,6 +12,7 @@ import org.mylove.tprt.compat.Iceandfire.Iceandfire_Compat;
 import org.mylove.tprt.compat.Immortalers_Delight.Immortalers_Delight_Compat;
 import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 /*import org.mylove.tprt.common.item.curios.Goldenfoxmask;*/
+import org.mylove.tprt.registries.ModFluids;
 import org.mylove.tprt.registries.ModFoods;
 import org.mylove.tprt.utils.ModListUtil;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -98,6 +99,7 @@ public class ItemsRegistry {
     public static void addCommonTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         //自有材料
         tab.accept(CHTHOLLY);
+        tab.accept(ModFluids.MOLTEN_CHTHOLLY);
         tab.accept(ADVANCED_MANYULLYN);
         tab.accept(RADIANT_KNIGHTMETAL_INGOT);
         //联动模组物品: 没装对应模组就没有注册, 也就不往创造栏里放

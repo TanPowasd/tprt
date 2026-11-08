@@ -1,0 +1,151 @@
+{
+  "stats": {
+    "tconstruct:head": {
+      "durability": 2880,
+      "melee_attack": 16.5,
+      "mining_speed": 12.0,
+      "mining_tier": "minecraft:netherite"
+    },
+    "tconstruct:handle": {
+      "durability": 0.85,
+      "melee_damage": 0.70,
+      "melee_speed": 0.55,
+      "mining_speed": 0.75
+    },
+    "tconstruct:binding": {},
+    "tconstruct:repair_kit": {},
+    "tconstruct:limb": {
+      "durability": 1950,
+      "draw_speed": 0.95,
+      "velocity": 0.85,
+      "accuracy": 0.85
+    },
+    "tconstruct:grip": {
+      "durability": 1.0,
+      "accuracy": 0.65,
+      "melee_damage": 9.0
+    },
+    "tconstruct:bowstring": {},
+    "tconstruct:arrow_head": {},
+    "tconstruct:arrow_shaft": {},
+    "tconstruct:fletching": {},
+    "tconstruct:plating_helmet": {
+      "armor": 16.0,
+      "durability": 1680,
+      "knockback_resistance": 0.16,
+      "toughness": 6.0
+    },
+    "tconstruct:plating_chestplate": {
+      "armor": 25.0,
+      "durability": 2560,
+      "knockback_resistance": 0.25,
+      "toughness": 8.5
+    },
+    "tconstruct:plating_leggings": {
+      "armor": 22.0,
+      "durability": 2240,
+      "knockback_resistance": 0.22,
+      "toughness": 7.5
+    },
+    "tconstruct:plating_boots": {
+      "armor": 13.0,
+      "durability": 1440,
+      "knockback_resistance": 0.14,
+      "toughness": 5.5
+    },
+    "tconstruct:plating_shield": {
+      "durability": 2200,
+      "knockback_resistance": 0.20,
+      "toughness": 6.0
+    },
+    "tconstruct:maille": {},
+    "tconstruct:shield_core": {},
+    "tconstruct:cuirass": {},
+    "sakuratinker:charm_chain": {
+      "armor": 0.50,
+      "arrow_damage": 0.40,
+      "damage": 0.50,
+      "health": 40,
+      "movement_speed": 0.35,
+      "toughness": 0.50
+    },
+    "sakuratinker:charm_core": {},
+    "sakuratinker:charm_setting": {},
+    "sakuratinker:book_mark": {
+      "percent_bonus": 0.65,
+      "spell_slot": 16
+    },
+    "sakuratinker:manu_script": {
+      "cast_time_reduce": 0.50,
+      "mana_reduce": 60.0,
+      "mana_regen": 0.55,
+      "mana_value": 1200.0,
+      "spell_damage": 55.0
+    },
+    "sakuratinker:envelope": {
+      "school_bonus": {
+        "irons_spellbooks:blood": 0.30,
+        "irons_spellbooks:eldritch": 0.30,
+        "irons_spellbooks:ender": 0.30,
+        "irons_spellbooks:evocation": 0.30,
+        "irons_spellbooks:fire": 0.30,
+        "irons_spellbooks:holy": 0.30,
+        "irons_spellbooks:ice": 0.30,
+        "irons_spellbooks:lightning": 0.30,
+        "irons_spellbooks:nature": 0.30
+      }
+    },
+    "sakuratinker:gutter": {},
+    "sakuratinker:energy_unit": {
+      "durability": 1.25,
+      "max_energy": 250000
+    },
+    "sakuratinker:laser_medium": {
+      "cooldown": 0.20,
+      "penetration": 28,
+      "range": 160.0
+    },
+    "sakuratinker:flag": {
+      "attack_buff_time": 3000,
+      "charge_time": 20,
+      "defence_buff_time": 3000,
+      "range": 28
+    },
+    "sakuratinker:range_core": {
+      "range": 55.0
+    },
+    "sakuratinker:phantom_core": {
+      "move_speed": 1.6,
+      "phantom_amount": 4.0,
+      "range": 48.0
+    },
+    "sakuratinker:revolver_chamber": {
+      "recoil": 0.35,
+      "spread": 0.6
+    },
+    "sakuratinker:axle": {
+      "attack_interval": 3.0,
+      "time": 650.0,
+      "weight": 2.5
+    },
+    "sakuratinker:chord": {
+      "length": 20.0
+    },
+    "sakuratinker:yoyo_ring": {
+      "max_collected": 5.0
+    },
+    "sakuratinker:fletching": {
+      "accuracy": 0.40,
+      "velocity": 0.50
+    },
+    "sakuratinker:alchemical_core": {
+      "cooldown": 0.25,
+      "fluid_damage": 6.0
+    },
+    "sakuratinker:soul_gatherer": {
+      "soul_increase": 0.65,
+      "soul_power": 22.0
+    }
+  }
+}
+
