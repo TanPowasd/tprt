@@ -16,8 +16,11 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.OwnableEntity;
+import net.minecraft.world.entity.TraceableEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -52,10 +55,12 @@ import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import top.theillusivec4.curios.api.CuriosApi;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -66,26 +71,29 @@ import java.util.UUID;
   末日时在做什么？有没有空？可以来拯救吗？
   (what_do_you_do_at_the_end_of_the_world) —— 挚爱 · 护甲核心词条
 
-  设计原则: 零硬编码点名联动, 纯底层机制自洽, 与其他词条自然叠加
+  设计原则:
+    - 零硬编码点名联动, 纯底层机制自洽, 与其他词条自然叠加
+    - 全面兼容其他模组 (跨模组直接 setHealth 强制扣血/斩杀拦截、铁魔法/召唤物/远程投射物狂暴增伤与吸血、
+      护甲 + 主副手 + Curios 饰品全耐久快照回溯)
 
   【第一问】末日时在做什么？ (常驻):
     - 基于已损失生命值比例提供动态全伤害减免
-    - 在最终伤害结算层钳制单次受伤上限为最大生命值的 50% (防一击秒杀)
+    - 在最终伤害结算层钳制单次受伤上限为最大生命值的 50% (防一击秒杀, 含模组直接改血拦截)
 
   【第二问】有没有空？ (生命值 ≤ 50% 触发):
     - 首次跌至 ≤ 50% 最大生命值时种下「记忆锚点」
-      (记录 50% 血量、安全陆地坐标与维度、饱食度、全身护甲耐久)
+      (记录 50% 血量、安全陆地坐标与维度、饱食度、全身装备与 Curios 饰品耐久)
     - 处于 ≤ 50% 血线时, 受到伤害的 50% 截留进「延迟伤害池」
     - 延迟伤害池按秒直接扣减生命值 (不走 hurt, 不误耗次数盾/抛光/受击触发器)
 
   【第三问】可以来拯救吗？ (受到致命伤触发):
     - 拦截致死并锁 1 血, 溢出致死量记入延迟伤害池, 进入「绯红狂暴」
-    - 狂暴期间: 全类型造成伤害加成 + 攻速/移速提升 + 全伤害源吸血
+    - 狂暴期间: 全类型造成伤害加成 (含法术/召唤物/远程) + 攻速/移速提升 + 全伤害源吸血
     - 生命吸满后的溢出吸血/治疗直接抵消「延迟伤害池」
     - 狂暴结束结算剩余延迟池:
         * 活得了 (当前生命 > 延迟池且未坠入虚空): 扣除延迟池原地存活, 短冷却
         * 活不了 (当前生命 ≤ 延迟池或深陷虚空): 引爆锚点【时光回溯】,
-          清空延迟池与负面效果, 还原坐标、50% 血量、饱食度与护甲耐久, 完整冷却
+          清空延迟池与负面效果, 还原坐标、50% 血量、饱食度与全身装备/饰品耐久, 完整冷却
 
   数值均为顶部常量, 可自由调整
   ============================================================
@@ -154,11 +162,12 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
     }
 
     // ============================================================
-    //  进攻增益: 狂暴期间全类型造成伤害加成
+    //  进攻增益: 狂暴期间全类型造成伤害加成 (兼容近战/远程/铁魔法法术/召唤物)
     // ============================================================
     private static void onLivingHurt(LivingHurtEvent event) {
         if (event.getEntity().level().isClientSide || event.getAmount() <= 0.0f) return;
-        if (!(event.getSource().getEntity() instanceof Player attacker) || attacker == event.getEntity()) return;
+        Player attacker = resolvePlayerAttacker(event.getSource());
+        if (attacker == null || attacker == event.getEntity()) return;
 
         PlayerState state = STATES.get(attacker.getUUID());
         if (state != null && state.berserkTicks > 0 && isWearing(attacker)) {
@@ -167,14 +176,15 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
     }
 
     // ============================================================
-    //  最终伤害层: 1) 狂暴全伤害吸血  2) 三问受击结算
+    //  最终伤害层: 1) 狂暴全伤害吸血 (含法术/召唤物)  2) 三问受击结算
     // ============================================================
     private static void onLivingDamage(LivingDamageEvent event) {
         LivingEntity entity = event.getEntity();
         if (entity.level().isClientSide || event.getAmount() <= 0.0f || !Float.isFinite(event.getAmount())) return;
 
         // 1) 攻击者处于【绯红狂暴】 -> 全伤害源吸血, 溢出抵消延迟伤害池
-        if (event.getSource().getEntity() instanceof Player attacker && attacker != entity) {
+        Player attacker = resolvePlayerAttacker(event.getSource());
+        if (attacker != null && attacker != entity) {
             PlayerState atkState = STATES.get(attacker.getUUID());
             if (atkState != null && atkState.berserkTicks > 0 && isWearing(attacker)) {
                 applyBerserkLifesteal(attacker, atkState, event.getAmount() * BERSERK_LIFESTEAL_RATIO);
@@ -207,6 +217,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
                 amount = allowed;
             }
             event.setAmount(amount);
+            state.lastTrackedHealth = Math.max(1.0f, health - amount);
             syncArmorNbt(player, state);
             return;
         }
@@ -246,11 +257,13 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
             if (health < 1.0f) {
                 player.setHealth(1.0f);
             }
+            state.lastTrackedHealth = 1.0f;
             enterBerserk(player, state);
             return;
         }
 
         event.setAmount(amount);
+        state.lastTrackedHealth = Math.max(0.0f, health - amount);
         syncArmorNbt(player, state);
     }
 
@@ -268,6 +281,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
             // 狂暴期间锁血兜底
             event.setCanceled(true);
             player.setHealth(1.0f);
+            state.lastTrackedHealth = 1.0f;
             return;
         }
         if (state.cooldownTicks <= 0) {
@@ -276,12 +290,13 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
                 plantAnchor(player, state, player.getMaxHealth() * SECOND_QUESTION_HP_RATIO);
             }
             player.setHealth(1.0f);
+            state.lastTrackedHealth = 1.0f;
             enterBerserk(player, state);
         }
     }
 
     // ============================================================
-    //  狂暴期间外部治疗溢出同样可抵消延迟伤害池 (与再生/治疗词条自然叠加)
+    //  狂暴期间外部治疗溢出同样可抵消延迟伤害池 (与再生/治疗/护符词条自然叠加)
     // ============================================================
     private static void onLivingHeal(LivingHealEvent event) {
         if (!(event.getEntity() instanceof Player player) || player.level().isClientSide) return;
@@ -289,16 +304,20 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
         if (heal <= 0.0f) return;
 
         PlayerState state = STATES.get(player.getUUID());
-        if (state == null || state.berserkTicks <= 0 || state.delayedPool <= 0.0f || !isWearing(player)) return;
+        if (state == null || !isWearing(player)) return;
 
-        float overflow = (player.getHealth() + heal) - player.getMaxHealth();
+        float maxHp = player.getMaxHealth();
+        state.lastTrackedHealth = Math.min(maxHp, player.getHealth() + heal);
+
+        if (state.berserkTicks <= 0 || state.delayedPool <= 0.0f) return;
+        float overflow = (player.getHealth() + heal) - maxHp;
         if (overflow > 0.0f) {
             state.delayedPool = Math.max(0.0f, state.delayedPool - overflow);
         }
     }
 
     // ============================================================
-    //  每 tick 驱动: 安全坐标记录 / 狂暴倒计时与终幕结算 / 延迟池流逝 / 锚点维护
+    //  每 tick 驱动: 跨模组直接扣血拦截 / 安全坐标记录 / 狂暴倒计时 / 延迟池流逝 / 锚点维护
     // ============================================================
     private static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
@@ -315,6 +334,67 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
 
         PlayerState state = getOrCreateState(player);
         long now = player.level().getGameTime();
+        float maxHp = Math.max(1.0f, player.getMaxHealth());
+        float halfHp = maxHp * SECOND_QUESTION_HP_RATIO;
+
+        // 0) 跨模组直接 setHealth 强制扣血/百分比斩杀拦截 (防其他模组绕过 LivingDamageEvent 直接改血秒杀)
+        float currentHp = player.getHealth();
+        if (state.lastTrackedHealth > 0.0f && currentHp < state.lastTrackedHealth - 0.05f) {
+            float rawDrop = state.lastTrackedHealth - currentHp;
+            state.lastCombatTick = now;
+
+            // 套用第一问动态减伤与 50% 单次限伤
+            float missingRatio = Mth.clamp(1.0f - state.lastTrackedHealth / maxHp, 0.0f, 1.0f);
+            float reduction = Mth.clamp(BASE_DAMAGE_REDUCTION + missingRatio * MISSING_HP_EXTRA_REDUCTION, 0.0f, 0.90f);
+            float allowedDrop = Math.min(rawDrop * (1.0f - reduction), maxHp * SINGLE_HIT_CAP_RATIO);
+
+            if (state.berserkTicks > 0) {
+                // 狂暴期间强制锁 1 血, 溢出转入延迟池
+                float maxCanLose = Math.max(0.0f, state.lastTrackedHealth - 1.0f);
+                if (allowedDrop > maxCanLose) {
+                    state.delayedPool += (allowedDrop - maxCanLose);
+                    allowedDrop = maxCanLose;
+                }
+                currentHp = Math.max(1.0f, state.lastTrackedHealth - allowedDrop);
+                player.setHealth(currentHp);
+            } else {
+                // 第二问: 跌破半血部分截留 50% 入延迟池
+                float startHp = state.lastTrackedHealth;
+                if (startHp > halfHp) {
+                    float aboveHalf = Math.min(allowedDrop, startHp - halfHp);
+                    float belowHalf = allowedDrop - aboveHalf;
+                    if (startHp - aboveHalf <= halfHp + 1.0e-4f && state.anchor == null && state.cooldownTicks <= 0) {
+                        plantAnchor(player, state, halfHp);
+                    }
+                    if (belowHalf > 0.0f) {
+                        float deferred = belowHalf * DEFER_RATIO;
+                        state.delayedPool += deferred;
+                        allowedDrop = aboveHalf + (belowHalf - deferred);
+                    }
+                } else {
+                    if (state.anchor == null && state.cooldownTicks <= 0) {
+                        plantAnchor(player, state, halfHp);
+                    }
+                    float deferred = allowedDrop * DEFER_RATIO;
+                    state.delayedPool += deferred;
+                    allowedDrop -= deferred;
+                }
+
+                float targetHp = startHp - allowedDrop;
+                if (targetHp <= 1.0f && state.cooldownTicks <= 0) {
+                    if (state.anchor == null) {
+                        plantAnchor(player, state, halfHp);
+                    }
+                    state.delayedPool += Math.max(0.0f, 1.0f - targetHp);
+                    currentHp = 1.0f;
+                    player.setHealth(1.0f);
+                    enterBerserk(player, state);
+                } else if (targetHp > currentHp + 0.05f) {
+                    currentHp = Math.min(maxHp, targetHp);
+                    player.setHealth(currentHp);
+                }
+            }
+        }
 
         // 1) 记录最近一次安全陆地坐标 (防击飞坠虚空时把锚点种在半空)
         if (player.tickCount % 10 == 0 && player.onGround() && !player.isInLava() && !player.isInPowderSnow) {
@@ -341,12 +421,12 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
             if (state.berserkTicks <= 0) {
                 finishBerserk(player, state);
             }
+            state.lastTrackedHealth = player.getHealth();
             syncArmorNbt(player, state);
             return;
         }
 
-        // 4) 第二问血线检测 (兼容非伤害掉血后跌破 50% 的情况)
-        float halfHp = player.getMaxHealth() * SECOND_QUESTION_HP_RATIO;
+        // 4) 第二问血线检测
         if (player.getHealth() <= halfHp && state.anchor == null && state.cooldownTicks <= 0) {
             plantAnchor(player, state, halfHp);
         }
@@ -359,9 +439,10 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
                 state.delayedPool = 0.0f;
             }
 
-            float currentHp = player.getHealth();
+            currentHp = player.getHealth();
             if (currentHp > drain) {
                 player.setHealth(currentHp - drain);
+                state.lastTrackedHealth = player.getHealth();
             } else if (state.cooldownTicks <= 0) {
                 // 延迟池即将致死且第三问就绪 -> 拦截并进入绯红狂暴
                 if (state.anchor == null) {
@@ -370,6 +451,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
                 float unabsorbed = drain - Math.max(0.0f, currentHp - 1.0f);
                 state.delayedPool += unabsorbed;
                 player.setHealth(1.0f);
+                state.lastTrackedHealth = 1.0f;
                 enterBerserk(player, state);
                 syncArmorNbt(player, state);
                 return;
@@ -386,6 +468,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
                 } finally {
                     SETTLING_LETHAL.remove(id);
                 }
+                state.lastTrackedHealth = player.getHealth();
                 syncArmorNbt(player, state);
                 return;
             }
@@ -398,6 +481,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
             }
         }
 
+        state.lastTrackedHealth = player.getHealth();
         syncArmorNbt(player, state);
     }
 
@@ -461,7 +545,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
     //  核心阶段动作: 立锚 / 狂暴 / 吸血 / 结算与回溯
     // ============================================================
 
-    /** 种下第二问「记忆锚点」 */
+    /** 种下第二问「记忆锚点」 (涵盖护甲、主副手与 Curios 饰品耐久快照) */
     private static void plantAnchor(Player player, PlayerState state, float anchorHealth) {
         ResourceKey<Level> dim = player.level().dimension();
         Vec3 pos = player.position();
@@ -475,26 +559,25 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
             xRot = state.safeXRot;
         }
 
-        Item[] armorItems = new Item[ARMOR_SLOTS.length];
-        int[] armorDamages = new int[ARMOR_SLOTS.length];
-        for (int i = 0; i < ARMOR_SLOTS.length; i++) {
-            ItemStack stack = player.getItemBySlot(ARMOR_SLOTS[i]);
-            if (!stack.isEmpty()) {
-                armorItems[i] = stack.getItem();
-                if (stack.getItem() instanceof IModifiable && ToolStack.isInitialized(stack)) {
-                    armorDamages[i] = ToolStack.from(stack).getDamage();
-                } else if (stack.isDamageableItem()) {
-                    armorDamages[i] = stack.getDamageValue();
+        Map<ItemStack, Integer> itemDamages = new IdentityHashMap<>();
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            recordStackDamage(player.getItemBySlot(slot), itemDamages);
+        }
+        CuriosApi.getCuriosInventory(player).resolve().ifPresent(inv -> {
+            for (var entry : inv.getCurios().entrySet()) {
+                var stacks = entry.getValue().getStacks();
+                for (int i = 0; i < stacks.getSlots(); i++) {
+                    recordStackDamage(stacks.getStackInSlot(i), itemDamages);
                 }
             }
-        }
+        });
 
         FoodData food = player.getFoodData();
         state.anchor = new AnchorSnapshot(
                 dim, pos, yRot, xRot,
                 Math.max(1.0f, anchorHealth),
                 food.getFoodLevel(), food.getSaturationLevel(),
-                armorItems, armorDamages
+                itemDamages
         );
 
         Level level = player.level();
@@ -503,6 +586,29 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
         if (level instanceof ServerLevel serverLevel) {
             serverLevel.sendParticles(ParticleTypes.END_ROD,
                     pos.x, pos.y + 1.0, pos.z, 12, 0.4, 0.5, 0.4, 0.03);
+        }
+    }
+
+    private static void recordStackDamage(ItemStack stack, Map<ItemStack, Integer> map) {
+        if (stack.isEmpty()) return;
+        if (stack.getItem() instanceof IModifiable && ToolStack.isInitialized(stack)) {
+            map.put(stack, ToolStack.from(stack).getDamage());
+        } else if (stack.isDamageableItem()) {
+            map.put(stack, stack.getDamageValue());
+        }
+    }
+
+    private static void restoreStackDamage(ItemStack stack, Map<ItemStack, Integer> map) {
+        if (stack.isEmpty()) return;
+        Integer savedDamage = map.get(stack);
+        if (savedDamage == null) return;
+        if (stack.getItem() instanceof IModifiable && ToolStack.isInitialized(stack)) {
+            ToolStack tool = ToolStack.from(stack);
+            if (tool.getDamage() > savedDamage) {
+                tool.setDamage(savedDamage);
+            }
+        } else if (stack.isDamageableItem() && stack.getDamageValue() > savedDamage) {
+            stack.setDamageValue(savedDamage);
         }
     }
 
@@ -536,6 +642,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
         if (overflow > 0.0f && state.delayedPool > 0.0f) {
             state.delayedPool = Math.max(0.0f, state.delayedPool - overflow);
         }
+        state.lastTrackedHealth = player.getHealth();
     }
 
     /** 狂暴结束结算: 活得了原地续战, 活不了触发锚点【时光回溯】 */
@@ -554,6 +661,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
             }
             state.anchor = null;
             state.cooldownTicks = SURVIVE_COOLDOWN_TICKS;
+            state.lastTrackedHealth = player.getHealth();
             saveCooldown(player, state.cooldownTicks);
 
             player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
@@ -573,7 +681,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
         state.cooldownTicks = REWIND_COOLDOWN_TICKS;
         saveCooldown(player, state.cooldownTicks);
 
-        // 1) 清除所有负面状态与火焰
+        // 1) 清除所有负面状态、火焰与细雪冰冻
         List<MobEffect> harmful = new ArrayList<>();
         for (MobEffectInstance inst : player.getActiveEffects()) {
             if (inst.getEffect().getCategory() == MobEffectCategory.HARMFUL) {
@@ -584,6 +692,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
             player.removeEffect(effect);
         }
         player.clearFire();
+        player.setTicksFrozen(0);
         player.fallDistance = 0.0f;
         player.setDeltaMovement(Vec3.ZERO);
 
@@ -613,26 +722,23 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
                 food.setSaturation(anchor.saturation);
             }
 
-            // 5) 回溯全身护甲耐久 (仅在损耗大于锚点快照时还原)
-            for (int i = 0; i < ARMOR_SLOTS.length; i++) {
-                Item expected = anchor.armorItems[i];
-                if (expected == null) continue;
-                ItemStack stack = player.getItemBySlot(ARMOR_SLOTS[i]);
-                if (stack.isEmpty() || stack.getItem() != expected) continue;
-
-                if (stack.getItem() instanceof IModifiable && ToolStack.isInitialized(stack)) {
-                    ToolStack tool = ToolStack.from(stack);
-                    if (tool.getDamage() > anchor.armorDamages[i]) {
-                        tool.setDamage(anchor.armorDamages[i]);
-                    }
-                } else if (stack.isDamageableItem() && stack.getDamageValue() > anchor.armorDamages[i]) {
-                    stack.setDamageValue(anchor.armorDamages[i]);
-                }
+            // 5) 回溯全身护甲、主副手与 Curios 饰品耐久 (仅在损耗大于锚点快照时还原)
+            for (EquipmentSlot slot : EquipmentSlot.values()) {
+                restoreStackDamage(player.getItemBySlot(slot), anchor.itemDamages);
             }
+            CuriosApi.getCuriosInventory(player).resolve().ifPresent(inv -> {
+                for (var entry : inv.getCurios().entrySet()) {
+                    var stacks = entry.getValue().getStacks();
+                    for (int i = 0; i < stacks.getSlots(); i++) {
+                        restoreStackDamage(stacks.getStackInSlot(i), anchor.itemDamages);
+                    }
+                }
+            });
         } else {
             player.setHealth(Math.max(1.0f, player.getMaxHealth() * SECOND_QUESTION_HP_RATIO));
         }
 
+        state.lastTrackedHealth = player.getHealth();
         player.invulnerableTime = Math.max(player.invulnerableTime, REWIND_INVULNERABLE_TICKS);
 
         Level level = player.level();
@@ -653,6 +759,19 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
     //  辅助方法与内部状态结构
     // ============================================================
 
+    @Nullable
+    private static Player resolvePlayerAttacker(DamageSource source) {
+        Entity direct = source.getDirectEntity();
+        if (direct instanceof Player p) return p;
+        Entity causer = source.getEntity();
+        if (causer instanceof Player p) return p;
+        if (causer instanceof OwnableEntity ownable && ownable.getOwner() instanceof Player p) return p;
+        if (causer instanceof TraceableEntity traceable && traceable.getOwner() instanceof Player p) return p;
+        if (direct instanceof OwnableEntity ownable && ownable.getOwner() instanceof Player p) return p;
+        if (direct instanceof TraceableEntity traceable && traceable.getOwner() instanceof Player p) return p;
+        return null;
+    }
+
     private static boolean isWearing(Player player) {
         for (EquipmentSlot slot : ARMOR_SLOTS) {
             ItemStack stack = player.getItemBySlot(slot);
@@ -670,6 +789,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
         return STATES.computeIfAbsent(player.getUUID(), ignored -> {
             PlayerState s = new PlayerState();
             s.cooldownTicks = loadCooldown(player);
+            s.lastTrackedHealth = player.getHealth();
             if (player.onGround() && !player.isInLava()) {
                 s.safeDimension = player.level().dimension();
                 s.safePos = player.position();
@@ -746,6 +866,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
         int berserkTicks;
         int cooldownTicks;
         long lastCombatTick;
+        float lastTrackedHealth;
         ResourceKey<Level> safeDimension;
         Vec3 safePos;
         float safeYRot;
@@ -760,8 +881,7 @@ public class what_do_you_do_at_the_end_of_the_world extends NoLevelsModifier imp
             float health,
             int foodLevel,
             float saturation,
-            Item[] armorItems,
-            int[] armorDamages
+            Map<ItemStack, Integer> itemDamages
     ) {
     }
 }

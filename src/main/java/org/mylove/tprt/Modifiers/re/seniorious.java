@@ -23,6 +23,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.entity.PartEntity;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
@@ -174,19 +175,20 @@ public class seniorious extends NoLevelsModifier implements
 
         SeverMark mark = SEVERED_TARGETS.get(entity);
         if (mark == null) return;
-        if (entity.level().getGameTime() >= mark.until()) {
+        if (entity.level().getGameTime() >= mark.until) {
             SEVERED_TARGETS.remove(entity);
             return;
         }
-        if (mark.reduction() >= 1.0f) {
+        if (mark.reduction >= 1.0f) {
             event.setCanceled(true);
         } else {
-            event.setAmount(event.getAmount() * (1.0f - mark.reduction()));
+            event.setAmount(event.getAmount() * (1.0f - mark.reduction));
         }
+        mark.allowedHealth = entity.getHealth() + (event.isCanceled() ? 0.0f : event.getAmount());
     }
 
     // ============================================================
-    //  命中前: 记录护甲前近战伤害 + 绯红无视无敌帧
+    //  命中前: 记录护甲前近战伤害 + 绯红无视无敌帧 (含多部件 Boss)
     // ============================================================
     @Override
     public float beforeMeleeHit(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
@@ -198,7 +200,7 @@ public class seniorious extends NoLevelsModifier implements
         }
         LivingEntity target = context.getLivingTarget();
         if (isCrimson(tool) && target != null) {
-            target.invulnerableTime = 0;
+            resetInvulnerableFrames(target);
         }
         return knockback;
     }
@@ -260,8 +262,12 @@ public class seniorious extends NoLevelsModifier implements
             float rate = transferRate(tool);
             float trueDamage = swingDamage * realConsume * rate * (1.0f + combo * COMBO_TRUE_DMG_BONUS);
             if (trueDamage > 0.0f) {
-                target.invulnerableTime = 0;
+                resetInvulnerableFrames(target);
                 target.hurt(pureSource(attacker), trueDamage);
+                SeverMark mark = SEVERED_TARGETS.get(target);
+                if (mark != null) {
+                    mark.allowedHealth = target.getHealth();
+                }
             }
 
             // 完整支付第 10 刀并打满 10 层连击 → 按剩余全部心火绽放【妖精乡之门】!
@@ -360,7 +366,36 @@ public class seniorious extends NoLevelsModifier implements
 
     private static void onServerTick(TickEvent.ServerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
-        if (++serverTickCounter % 10 != 0) return;
+        serverTickCounter++;
+
+        // 每 tick 拦截带死印目标的跨模组直接 setHealth 回血 (如灾变/莱特兰等绕过 LivingHealEvent 的自愈)
+        if (!SEVERED_TARGETS.isEmpty()) {
+            synchronized (SEVERED_TARGETS) {
+                Iterator<Map.Entry<LivingEntity, SeverMark>> it = SEVERED_TARGETS.entrySet().iterator();
+                while (it.hasNext()) {
+                    Map.Entry<LivingEntity, SeverMark> entry = it.next();
+                    LivingEntity target = entry.getKey();
+                    SeverMark mark = entry.getValue();
+                    if (target == null || !target.isAlive() || target.isRemoved()
+                            || target.level().getGameTime() >= mark.until) {
+                        it.remove();
+                        continue;
+                    }
+                    float currentHp = target.getHealth();
+                    if (currentHp > mark.allowedHealth + 0.05f) {
+                        float directHeal = currentHp - mark.allowedHealth;
+                        float keptHeal = mark.reduction >= 1.0f ? 0.0f : directHeal * (1.0f - mark.reduction);
+                        float clampedHp = Math.max(1.0f, mark.allowedHealth + keptHeal);
+                        target.setHealth(clampedHp);
+                        mark.allowedHealth = clampedHp;
+                    } else {
+                        mark.allowedHealth = currentHp;
+                    }
+                }
+            }
+        }
+
+        if (serverTickCounter % 10 != 0) return;
 
         if (!STOLEN_TARGETS.isEmpty()) {
             synchronized (STOLEN_TARGETS) {
@@ -377,20 +412,6 @@ public class seniorious extends NoLevelsModifier implements
                         if (armor != null) {
                             armor.removeModifier(TARGET_ARMOR_UUID);
                         }
-                        it.remove();
-                    }
-                }
-            }
-        }
-
-        if (!SEVERED_TARGETS.isEmpty()) {
-            synchronized (SEVERED_TARGETS) {
-                Iterator<Map.Entry<LivingEntity, SeverMark>> it = SEVERED_TARGETS.entrySet().iterator();
-                while (it.hasNext()) {
-                    Map.Entry<LivingEntity, SeverMark> entry = it.next();
-                    LivingEntity target = entry.getKey();
-                    if (target == null || !target.isAlive() || target.isRemoved()
-                            || target.level().getGameTime() >= entry.getValue().until()) {
                         it.remove();
                     }
                 }
@@ -492,11 +513,26 @@ public class seniorious extends NoLevelsModifier implements
 
     private static void applySeverMark(LivingEntity target, long until, float reduction) {
         SeverMark prev = SEVERED_TARGETS.get(target);
-        float bestReduction = prev != null && target.level().getGameTime() < prev.until()
-                ? Math.max(prev.reduction(), reduction)
+        float bestReduction = prev != null && target.level().getGameTime() < prev.until
+                ? Math.max(prev.reduction, reduction)
                 : reduction;
-        long bestUntil = prev != null ? Math.max(prev.until(), until) : until;
-        SEVERED_TARGETS.put(target, new SeverMark(bestUntil, bestReduction));
+        long bestUntil = prev != null ? Math.max(prev.until, until) : until;
+        SEVERED_TARGETS.put(target, new SeverMark(bestUntil, bestReduction, target.getHealth()));
+    }
+
+    private static void resetInvulnerableFrames(LivingEntity target) {
+        target.invulnerableTime = 0;
+        target.hurtTime = 0;
+        if (target.isMultipartEntity()) {
+            PartEntity<?>[] parts = target.getParts();
+            if (parts != null) {
+                for (PartEntity<?> part : parts) {
+                    if (part != null) {
+                        part.invulnerableTime = 0;
+                    }
+                }
+            }
+        }
     }
 
     private static void steal(IToolStackView tool, LivingEntity target, long now) {
@@ -513,9 +549,15 @@ public class seniorious extends NoLevelsModifier implements
             baseArmor = Math.max(0.0f, target.getArmorValue());
         }
 
+        AttributeInstance targetToughnessAttr = target.getAttribute(Attributes.ARMOR_TOUGHNESS);
+        float baseToughness = targetToughnessAttr != null ? Math.max(0.0f, (float) targetToughnessAttr.getValue()) : 0.0f;
+
         AttributeInstance targetAtkAttr = target.getAttribute(Attributes.ATTACK_DAMAGE);
         float baseAttack = targetAtkAttr != null ? Math.max(0.0f, (float) targetAtkAttr.getValue()) : 0.0f;
-        float quality = Math.max(MIN_QUALITY, baseArmor + baseAttack);
+
+        // 综合目标护甲、盔甲韧性、攻击力与生命上限折算质量, 全面兼容高血量/高韧性/施法型跨模组 Boss
+        float hpFactor = Math.min(200.0f, Math.max(0.0f, target.getMaxHealth() - 20.0f) * 0.05f);
+        float quality = Math.max(MIN_QUALITY, baseArmor + baseToughness * 1.5f + baseAttack + hpFactor);
 
         float savedArmor = stillActive ? Math.max(data.getFloat(STEAL_TARGET_ARMOR), baseArmor) : baseArmor;
         float savedQuality = stillActive ? Math.max(data.getFloat(STEAL_QUALITY), quality) : quality;
@@ -598,8 +640,12 @@ public class seniorious extends NoLevelsModifier implements
                 e -> isValidHostileTarget(attacker, e));
         for (LivingEntity entity : targets) {
             applySeverMark(entity, now + SEVER_DURATION_TICKS * 2L, SEVER_HEAL_CUT_CRIMSON);
-            entity.invulnerableTime = 0;
+            resetInvulnerableFrames(entity);
             entity.hurt(source, damage);
+            SeverMark mark = SEVERED_TARGETS.get(entity);
+            if (mark != null) {
+                mark.allowedHealth = entity.getHealth();
+            }
         }
 
         // 清空剩余心火, 刷新自身满层调音增益, 回归【苍蓝】余温调息
@@ -758,6 +804,15 @@ public class seniorious extends NoLevelsModifier implements
         return tool.hasTag(TinkerTags.Items.MELEE);
     }
 
-    private record SeverMark(long until, float reduction) {
+    private static final class SeverMark {
+        final long until;
+        final float reduction;
+        float allowedHealth;
+
+        SeverMark(long until, float reduction, float allowedHealth) {
+            this.until = until;
+            this.reduction = reduction;
+            this.allowedHealth = allowedHealth;
+        }
     }
 }

@@ -15,7 +15,10 @@ import org.mylove.tprt.Modifiers.melee.advanced_greed;
 import org.mylove.tprt.Modifiers.range.Automation;
 import org.mylove.tprt.Modifiers.special.*;
 import org.mylove.tprt.Modifiers.re.all_permitted;
+import org.mylove.tprt.Modifiers.re.before_i_vanish;
 import org.mylove.tprt.Modifiers.re.combat_echo;
+import org.mylove.tprt.Modifiers.re.elegy_of_world_end;
+import org.mylove.tprt.Modifiers.re.happiest_girl_in_the_world;
 import org.mylove.tprt.Modifiers.re.seniorious;
 import org.mylove.tprt.Modifiers.re.what_do_you_do_at_the_end_of_the_world;
 import org.mylove.tprt.Tprt;
@@ -75,4 +78,10 @@ public class ModifierRegistry {
             MODIFIERS.register("what_do_you_do_at_the_end_of_the_world", what_do_you_do_at_the_end_of_the_world::new);
     public static final StaticModifier<seniorious> SENIORIOUS =
             MODIFIERS.register("seniorious", seniorious::new);
+    public static final StaticModifier<happiest_girl_in_the_world> HAPPIEST_GIRL_IN_THE_WORLD =
+            MODIFIERS.register("happiest_girl_in_the_world", happiest_girl_in_the_world::new);
+    public static final StaticModifier<elegy_of_world_end> ELEGY_OF_WORLD_END =
+            MODIFIERS.register("elegy_of_world_end", elegy_of_world_end::new);
+    public static final StaticModifier<before_i_vanish> BEFORE_I_VANISH =
+            MODIFIERS.register("before_i_vanish", before_i_vanish::new);
 }

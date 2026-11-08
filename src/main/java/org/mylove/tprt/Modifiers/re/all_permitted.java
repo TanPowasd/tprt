@@ -481,9 +481,13 @@ public class all_permitted extends NoLevelsModifier implements
             baseArmor = Math.max(0.0f, target.getArmorValue());
         }
 
+        AttributeInstance targetToughnessAttr = target.getAttribute(Attributes.ARMOR_TOUGHNESS);
+        float baseToughness = targetToughnessAttr != null ? Math.max(0.0f, (float) targetToughnessAttr.getValue()) : 0.0f;
+
         AttributeInstance targetAtkAttr = target.getAttribute(Attributes.ATTACK_DAMAGE);
         float baseAttack = targetAtkAttr != null ? Math.max(0.0f, (float) targetAtkAttr.getValue()) : 0.0f;
-        float quality = Math.max(MIN_QUALITY, baseArmor + baseAttack);
+        float hpFactor = Math.min(200.0f, Math.max(0.0f, target.getMaxHealth() - 20.0f) * 0.05f);
+        float quality = Math.max(MIN_QUALITY, baseArmor + baseToughness * 1.5f + baseAttack + hpFactor);
 
         // 偷取有效期内保留更高猎物质量与护甲快照, 避免小怪挡刀污染 Boss 转化率
         float savedArmor = stillActive ? Math.max(data.getFloat(STEAL_TARGET_ARMOR), baseArmor) : baseArmor;
