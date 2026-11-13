@@ -1,7 +1,7 @@
 {
   "modifier_id": "tprt:karate",
   "text": [
-    { "text": "Greatly increases bare-handed attack damage" }
+    { "text": "Per level: +6 attack damage and +50% base attack damage for the armor's unarmed attacks." }
   ],
   "more_text_space": true,
   "effects": [

@@ -1,7 +1,7 @@
 {
   "modifier_id": "tprt:pyrium",
   "text": [
-    { "text": "Strength tools and improve your max mana and spell power" }
+    { "text": "Applicable stats: +20% base durability, attack damage and velocity; +30% base mining speed; +2 armor, +1 toughness, +0.02 knockback resistance. While held or worn: +200 max mana and +10% total spell power." }
   ],
   "more_text_space": true,
   "effects": [

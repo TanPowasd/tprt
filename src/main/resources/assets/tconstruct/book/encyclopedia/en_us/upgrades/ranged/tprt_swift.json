@@ -1,7 +1,7 @@
 {
   "modifier_id": "tprt:swift",
   "text": [
-    { "text": "Increase the initial speed of arrows." }
+    { "text": "Adds 0.15 to the projectile velocity stat per level." }
   ],
   "more_text_space": true,
   "effects": [

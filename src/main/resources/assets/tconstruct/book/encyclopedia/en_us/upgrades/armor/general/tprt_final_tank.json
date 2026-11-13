@@ -1,10 +1,12 @@
 {
   "modifier_id": "tprt:final_tank",
   "text": [
-    { "text": "Massively increases the internal tank capacity of the tool" }
+    { "text": "Adds 10,000 mB plus 20,000 mB per level to tank capacity, and 100% plus 200% per level of base capacity. Enables fluid handling." }
   ],
   "more_text_space": true,
   "effects": [
-    "Requires 1 upgrade slot"
+    "Held tools or armor",
+    "Requires Tank V",
+    "Requires 1 upgrade slot per level"
   ]
 }

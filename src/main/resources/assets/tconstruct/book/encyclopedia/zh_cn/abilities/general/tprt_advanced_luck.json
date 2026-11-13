@@ -1,12 +1,14 @@
 {
-  "modifier_id": "tprt:advanced_luck",
-  "text": [
-    { "text": "敌人掉落的战利品更多，采掘时的掉落物也更多" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "最高3级",
-    "第1级需要1个能力槽",
-    "第2、3级无需槽位"
-  ]
+    "modifier_id":  "tprt:advanced_luck",
+    "text":  [
+                 {
+                     "text":  "通过对应工具或穿戴护甲的钩子提供时运与抢夺效果，每级另加2点海之眷顾。需要幸运III。"
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "最高3级",
+                    "第1级需要1个能力槽",
+                    "第2、3级无需槽位"
+                ]
 }

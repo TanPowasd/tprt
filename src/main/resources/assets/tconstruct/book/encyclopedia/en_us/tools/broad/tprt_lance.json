@@ -1,0 +1,20 @@
+{
+  "tool": "tprt:lance",
+  "text": [
+    {
+      "text": "Built from a small blade, hammer head, large plate and tough handle. Hold right click and move to strike ahead; mounting is optional. Horizontal motion increases charge damage; holding use does not propel you."
+    },
+    {
+      "text": "Each target can be hit once per charge, costing 10 extra durability per successful hit. The first hit starts a fixed 40-tick window; later hits do not extend it. Release and use again to begin a new charge. Targets require line of sight.",
+      "paragraph": true
+    }
+  ],
+  "properties": [
+    "+5 Attack Damage",
+    "140% Attack Multiplier",
+    "1.1 Base Attack Speed; 90% Multiplier",
+    "250% Durability Multiplier",
+    "3.5-block Forward Charge Area, 1.5 Blocks Wide",
+    "3 Upgrade Slots, 1 Ability Slot"
+  ]
+}

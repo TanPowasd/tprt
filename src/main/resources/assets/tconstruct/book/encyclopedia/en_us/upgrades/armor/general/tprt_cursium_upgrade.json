@@ -1,0 +1,14 @@
+{
+  "modifier_id": "tprt:cursium_upgrade",
+  "text": [
+    {
+      "text": "Increases durability by 30%, armor by 20%, and armor toughness by 15%."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Armor and shields only",
+    "Single level",
+    "Requires 1 upgrade slot"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "tool": "tprt:magic_blade",
+  "text": [
+    {
+      "text": "Requires Iron's Spells 'n Spellbooks. Built from a small blade, a large plate and a tough handle; the plate supplies the Rebalanced head trait."
+    },
+    {
+      "text": "A sword with sweeping and silky shearing. Imbued creates one spell-container slot on equip if none exists; it does not grant a spell. Extra school damage on melee hits requires the separate Enchanting modifier.",
+      "paragraph": true
+    }
+  ],
+  "properties": [
+    "+4 Attack Damage",
+    "125% Attack Multiplier",
+    "1.6 Attack Speed",
+    "180% Durability Multiplier",
+    "50% Mining Multiplier",
+    "3 Upgrade Slots, 1 Ability Slot"
+  ]
+}

@@ -1,10 +1,12 @@
 {
   "modifier_id": "tprt:tank_expansion",
   "text": [
-    { "text": "Greatly increases the internal tank capacity of the tool" }
+    { "text": "Each level adds 200% of base tank capacity. Enables the tank handler for storing fluids." }
   ],
   "more_text_space": true,
   "effects": [
-    "Requires 1 upgrade slot"
+    "Held tools or armor",
+    "Requires Tank III",
+    "Requires 1 upgrade slot per level"
   ]
 }

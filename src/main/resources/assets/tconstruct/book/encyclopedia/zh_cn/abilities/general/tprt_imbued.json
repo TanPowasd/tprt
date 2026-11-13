@@ -1,11 +1,13 @@
 {
-  "modifier_id": "tprt:imbued",
-  "text": [
-    { "text": "允许将法术注入到工具中" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "最高1级",
-    "需要1个能力槽"
-  ]
+    "modifier_id":  "tprt:imbued",
+    "text":  [
+                 {
+                     "text":  "装备时，若物品尚无法术容器，则创建一个单槽法术容器以供铭刻法术；已有容器会保留，护甲使用护甲专用容器设置。"
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "最高1级",
+                    "需要1个能力槽"
+                ]
 }

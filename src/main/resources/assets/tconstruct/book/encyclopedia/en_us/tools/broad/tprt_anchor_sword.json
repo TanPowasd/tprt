@@ -1,0 +1,20 @@
+{
+  "tool": "tprt:anchor_sword",
+  "text": [
+    {
+      "text": "A slow, heavy melee weapon with a circular area attack. Built from two broad blades, a tough handle and a tough binding."
+    },
+    {
+      "text": "Fear Nothing grants protection and +1.5 block and entity reach in the main hand. Expanders enlarge the circular melee attack.",
+      "paragraph": true
+    }
+  ],
+  "properties": [
+    "+6 Attack Damage",
+    "150% Attack Multiplier",
+    "1.0 Base Attack Speed; 80% Multiplier",
+    "325% Durability Multiplier",
+    "3-block Base Attack Diameter",
+    "3 Upgrade Slots, 1 Ability Slot"
+  ]
+}

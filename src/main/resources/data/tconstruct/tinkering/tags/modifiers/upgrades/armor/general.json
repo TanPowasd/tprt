@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "tprt:final_tank",
-    "tprt:tank_expansion"
+    "tprt:tank_expansion",
+    { "id": "tprt:ignitium_upgrade", "required": false },
+    { "id": "tprt:cursium_upgrade", "required": false }
   ]
 }

@@ -1,11 +1,13 @@
 {
-  "modifier_id": "tprt:automation",
-  "text": [
-    { "text": "使工具全自动射击" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "最高1级",
-    "需要1个能力槽"
-  ]
+    "modifier_id":  "tprt:automation",
+    "text":  [
+                 {
+                     "text":  "使用工具蓄力时，达到工具记录的拉弓时间便自动松弦。仍需主动开始使用工具，不会在闲置时自行射击。"
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "最高1级",
+                    "需要1个能力槽"
+                ]
 }

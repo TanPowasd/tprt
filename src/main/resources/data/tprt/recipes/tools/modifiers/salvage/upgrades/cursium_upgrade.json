@@ -1,0 +1,7 @@
+{
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "cataclysm" }],
+  "type": "tconstruct:modifier_salvage",
+  "modifier": "tprt:cursium_upgrade",
+  "slots": { "upgrades": 1 },
+  "tools": [{ "tag": "tconstruct:modifiable/armor/worn" }, { "tag": "tconstruct:modifiable/shields" }]
+}
