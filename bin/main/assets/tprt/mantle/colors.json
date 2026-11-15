@@ -196,6 +196,8 @@
     "ender_armor": "#cd00ff",
     "void_armed": "#cd00ff",
     "ender_echo": "#cd00ff",
+    "ignitium_upgrade": "#F08226",
+    "cursium_upgrade": "#5BCAC1",
     "imbued": "#FCA800",
     "breakphantom": "#526042",
     "thorough": "#CEE7E6",

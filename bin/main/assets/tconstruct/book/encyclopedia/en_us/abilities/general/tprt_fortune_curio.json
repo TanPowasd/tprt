@@ -1,11 +1,13 @@
 {
-  "modifier_id": "tprt:fortune_curio",
-  "text": [
-    { "text": "Enemies drop more loot, and more items drop when mining" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "Maximum of 5 levels",
-    "First level requires 1 ability slot; later levels are slotless"
-  ]
+    "modifier_id":  "tprt:fortune_curio",
+    "text":  [
+                 {
+                     "text":  "While equipped as a curio, supplies Fortune and Looting levels equal to this modifier level."
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "Maximum of 5 levels",
+                    "First level requires 1 ability slot; later levels are slotless"
+                ]
 }

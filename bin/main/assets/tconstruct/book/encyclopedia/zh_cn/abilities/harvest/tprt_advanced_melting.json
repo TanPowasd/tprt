@@ -1,11 +1,13 @@
 {
-  "modifier_id": "tprt:advanced_melting",
-  "text": [
-    { "text": "熔炼攻击目标及其掉落物，但是效果更佳" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "最高1级",
-    "需要1个能力槽"
-  ]
+    "modifier_id":  "tprt:advanced_melting",
+    "text":  [
+                 {
+                     "text":  "将攻击目标及采集掉落物熔成储存的流体，增加10000 mB储罐容量。1级时：每份金属18粒、每份宝石16碎片，熔炼温度1500。"
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "最高1级",
+                    "需要1个能力槽"
+                ]
 }

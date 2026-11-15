@@ -1,7 +1,7 @@
 {
   "modifier_id": "tprt:immolate",
   "text": [
-    { "text": "获得炼狱巫师胸甲的能力，且威力更甚" }
+    { "text": "穿戴时，玩家造成的烈焰魔法伤害提高20%。每次命中施加10秒焚身I；若目标已有焚身，则提高一级并将持续时间设为10秒。" }
   ],
   "more_text_space": true,
   "effects": [
