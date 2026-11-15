@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tprt:block/source_alloy_fluid_fluid"
+    }
+  }
+}

@@ -69,6 +69,12 @@ public class ItemsRegistry {
 //lr特供 耀光骑士金属锭
     public static final ItemObject<Item>RADIANT_KNIGHTMETAL_INGOT=ITEMS.register("radiant_knightmetal_ingot",
             ()->new Item(new Item.Properties()));
+    //烈焰锻钢 (烈焰血 + 锻造钢 合金)
+    public static final ItemObject<Item> BLAZEFORGED_STEEL=ITEMS.register("blazeforged_steel",
+            ()->new Item(new Item.Properties()));
+    //锻造钢 (核心注册, 不再依赖机械动力)
+    public static final ItemObject<Item> FORGED_STEEL=ITEMS.register("forged_steel",
+            ()->new Item(new Item.Properties()));
 //联动模组物品已按所属模组移到各自的兼容类: 装了对应模组才会注册
 //  灾变     -> CataclysmCompat.CATACLYSM_ITEMS            (tears_of_the_storm / abyss_fragment / void_power_alloy / sandstorm_skeleton / evil_beast_alloy_ingot)
 //  冰与火   -> Iceandfire_Compat.ICEANDFIRE_ITEMS         (composite_dragon_scales / mixeddragon)
@@ -102,6 +108,10 @@ public class ItemsRegistry {
         tab.accept(ModFluids.MOLTEN_CHTHOLLY);
         tab.accept(ADVANCED_MANYULLYN);
         tab.accept(RADIANT_KNIGHTMETAL_INGOT);
+        tab.accept(BLAZEFORGED_STEEL);
+        tab.accept(FORGED_STEEL);
+        tab.accept(ModFluids.BLAZEFORGED_STEEL_FLUID);
+        tab.accept(ModFluids.FORGED_STEEL_FLUID);
         //联动模组物品: 没装对应模组就没有注册, 也就不往创造栏里放
         if (ModListUtil.ISSLoaded) {
             IssCompat.addCommonTabItems(tab);

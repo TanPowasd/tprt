@@ -1,0 +1,25 @@
+{
+  "perStat": {
+    "sakuratinker:charm": [
+      { "level": 1, "name": "tprt:furnace_core" }
+    ],
+    "tconstruct:armor": [
+      { "level": 1, "name": "tprt:flame_bathed" },
+      { "level": 1, "name": "tprt:quenching" }
+    ],
+    "tconstruct:ranged": [
+      { "level": 1, "name": "tprt:flame_ignition" },
+      { "level": 1, "name": "tprt:ranged_kindled_rebirth" }
+    ],
+    "tconstruct:melee_harvest": [
+      {
+        "level": 1,
+        "name": "tprt:self_ignition"
+      },
+      {
+        "level": 1,
+        "name": "tprt:kindled_rebirth"
+      }
+    ]
+  }
+}

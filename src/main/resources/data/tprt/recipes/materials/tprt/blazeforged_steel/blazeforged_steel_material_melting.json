@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:blazeforged_steel",
+  "temperature": 2000,
+  "result": {
+    "fluid": "tprt:blazeforged_steel_fluid",
+    "amount": 90
+  }
+}

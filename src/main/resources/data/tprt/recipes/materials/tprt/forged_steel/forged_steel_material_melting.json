@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tprt:forged_steel",
+  "temperature": 1435,
+  "result": {
+    "fluid": "tprt:forged_steel_fluid",
+    "amount": 90
+  }
+}

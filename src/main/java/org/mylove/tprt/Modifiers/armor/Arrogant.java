@@ -20,8 +20,6 @@ import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public class Arrogant extends Modifier implements ModifyDamageModifierHook {
-    private static final TagKey<DamageType> CAN_PROTECT = TagKey.create(Registries.DAMAGE_TYPE,
-            ResourceLocation.fromNamespaceAndPath("mantle", "can_protect"));
     public static final TinkerDataCapability.TinkerDataKey<SlotInChargeModule.SlotInCharge> SLOT_IN_CHARGE = TinkerDataCapability.TinkerDataKey.of(ModifierIds.Arrogant);
 
     @Override
@@ -35,8 +33,7 @@ public class Arrogant extends Modifier implements ModifyDamageModifierHook {
     public float modifyDamageTaken(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
             EquipmentContext context, @NotNull EquipmentSlot slotType, DamageSource source,
             float amount, boolean isDirectDamage) {
-        if (!source.is(CAN_PROTECT)
-                || !SlotInChargeModule.isInCharge(context.getTinkerData(), SLOT_IN_CHARGE, slotType)) return amount;
+        if (!SlotInChargeModule.isInCharge(context.getTinkerData(), SLOT_IN_CHARGE, slotType)) return amount;
         int level = Math.max(0, Math.min(5,
                 SlotInChargeModule.getLevel(context.getTinkerData(), SLOT_IN_CHARGE, slotType)));
         LivingEntity entity = context.getEntity();

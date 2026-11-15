@@ -50,6 +50,20 @@ public class ModifierRegistry {
             MODIFIERS.register("ranged_greed", org.mylove.tprt.Modifiers.ranged.RangedGreedModifier::new);
     public static final StaticModifier<org.mylove.tprt.Modifiers.curio.Overlimit> OVERLIMIT =
             MODIFIERS.register("overlimit", org.mylove.tprt.Modifiers.curio.Overlimit::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.melee.self_ignition> SELF_IGNITION =
+            MODIFIERS.register("self_ignition", org.mylove.tprt.Modifiers.melee.self_ignition::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.melee.kindled_rebirth> KINDLED_REBIRTH =
+            MODIFIERS.register("kindled_rebirth", org.mylove.tprt.Modifiers.melee.kindled_rebirth::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.armor.FlameBathedModifier> FLAME_BATHED =
+            MODIFIERS.register("flame_bathed", org.mylove.tprt.Modifiers.armor.FlameBathedModifier::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.armor.QuenchingModifier> QUENCHING =
+            MODIFIERS.register("quenching", org.mylove.tprt.Modifiers.armor.QuenchingModifier::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.ranged.flame_ignition> FLAME_IGNITION =
+            MODIFIERS.register("flame_ignition", org.mylove.tprt.Modifiers.ranged.flame_ignition::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.ranged.ranged_kindled_rebirth> RANGED_KINDLED_REBIRTH =
+            MODIFIERS.register("ranged_kindled_rebirth", org.mylove.tprt.Modifiers.ranged.ranged_kindled_rebirth::new);
+    public static final StaticModifier<org.mylove.tprt.Modifiers.curio.FurnaceCoreModifier> FURNACE_CORE =
+            MODIFIERS.register("furnace_core", org.mylove.tprt.Modifiers.curio.FurnaceCoreModifier::new);
     public static final StaticModifier<Arrogant> Arrogant = MODIFIERS.register("arrogant",Arrogant::new);
     public static final StaticModifier<Shine_at_night> Shine_at_night = MODIFIERS.register("shine_at_night",Shine_at_night::new);
     public static final StaticModifier<Glow_armor> Glow_armor = MODIFIERS.register("glow_armor",Glow_armor::new);

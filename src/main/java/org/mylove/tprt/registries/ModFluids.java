@@ -34,6 +34,10 @@ public class ModFluids {
     public static final FlowingFluidObject<ForgeFlowingFluid> MOLTEN_CHTHOLLY = registerHotFluid(FLUIDS, "molten_chtholly", 1500, 14, 5, 6, false);
     public static final FlowingFluidObject<ForgeFlowingFluid>MOLTEN_ADVANCED_MANYULLYN=registerHotFluid(FLUIDS,"molten_advanced_manyullyn",2000,4,5,2,false);
     public static final FlowingFluidObject<ForgeFlowingFluid>molten_radiant_knightmetal=registerHotFluid(FLUIDS,"molten_radiant_knightmetal",2000,12,5,15,false);
+    /** 烈焰锻钢 (烈焰血 + 锻造钢 合金) */
+    public static final FlowingFluidObject<ForgeFlowingFluid> BLAZEFORGED_STEEL_FLUID=registerHotFluid(FLUIDS,"blazeforged_steel_fluid",2000,12,5,4,false);
+    /** 锻造钢 (不再依赖机械动力) */
+    public static final FlowingFluidObject<ForgeFlowingFluid> FORGED_STEEL_FLUID=registerHotFluid(FLUIDS,"forged_steel_fluid",1475,4,5,2,false);
     //联动流体已移到各自兼容类的注册器:
     //  黑钢 / 远古金属                -> CataclysmCompat.CATACLYSM_FLUIDS
     //  奥术金属 / 源质合金 / 濡湿骑士 -> IssCompat.ISS_FLUIDS

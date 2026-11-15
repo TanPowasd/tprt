@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "tprt:blazeforged_steel_fluid",
+      "required": false
+    },
+    {
+      "id": "tprt:flowing_blazeforged_steel_fluid",
+      "required": false
+    }
+  ]
+}

@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:material_melting",
-  "input": "tprt:stainless_steel",
-  "temperature": 1000,
-  "result": {
-    "fluid": "tprt:stainless_steel_fluid",
-    "amount": 90
-  }
-}

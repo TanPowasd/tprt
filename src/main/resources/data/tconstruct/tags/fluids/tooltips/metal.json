@@ -10,6 +10,7 @@
     "#tprt:molten_pyrium",
     "#tprt:molten_radiant_knightmetal",
     "#tprt:forged_steel_fluid",
-    "#tprt:source_alloy_fluid"
+    "#tprt:source_alloy_fluid",
+    "#tprt:blazeforged_steel_fluid"
   ]
 }

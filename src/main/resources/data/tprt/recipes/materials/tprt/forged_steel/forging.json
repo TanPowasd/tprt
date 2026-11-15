@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": { "tag": "forge:ingots/steel" },
+  "base": { "tag": "forge:ingots/steel" },
+  "addition": { "item": "minecraft:blaze_rod" },
+  "result": { "item": "tconstruct:steel_ingot" }
+}

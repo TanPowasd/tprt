@@ -40,7 +40,8 @@ public final class Overlimit extends NoLevelsModifier implements CurioEquipmentC
         CurioDamageTargetPostModifierHook, CurioTakeDamagePreModifierHook, CurioTakeDamagePostModifierHook {
     public static final ModifierId ID = new ModifierId("tprt", "overlimit");
     private static final TagKey<Item> CHARM = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("curios", "tinker_charm"));
-    private static final TagKey<DamageType> CAN_PROTECT = TagKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath("mantle", "can_protect"));
+    private static final slimeknights.mantle.data.predicate.damage.DamageSourcePredicate CAN_PROTECT =
+            slimeknights.mantle.data.predicate.damage.DamageSourcePredicate.CAN_PROTECT;
     private static final ResourceLocation PROGRESS = ResourceLocation.fromNamespaceAndPath("tprt", "overlimit_progress");
     private static final ResourceLocation EMPOWERED = ResourceLocation.fromNamespaceAndPath("tprt", "overlimit_empowered");
     private final Map<LivingEntity, State> states = new WeakHashMap<>();
@@ -137,7 +138,7 @@ public final class Overlimit extends NoLevelsModifier implements CurioEquipmentC
         for (Hit hit : hits) if (hit.pre == event && hit.offense == offense) return;
         hits.addLast(new Hit(event, now, offense, wearer.getHealth() >= wearer.getMaxHealth(), state));
         if (offense) event.setAmount(event.getAmount() * (state.empowered(now) ? 1.30F : 1.15F));
-        else if (event.getSource().is(CAN_PROTECT))
+        else if (CAN_PROTECT.matches(event.getSource()))
             event.setAmount(event.getAmount() * (state.empowered(now) ? 0.80F : 0.90F));
     }
 
