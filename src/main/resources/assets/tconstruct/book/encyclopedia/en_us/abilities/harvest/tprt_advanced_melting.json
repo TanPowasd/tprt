@@ -1,11 +1,13 @@
 {
-  "modifier_id": "tprt:advanced_melting",
-  "text": [
-    { "text": "Smelts attacked targets and their drops, but with better effect" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "Maximum of 1 level",
-    "Requires 1 ability slot"
-  ]
+    "modifier_id":  "tprt:advanced_melting",
+    "text":  [
+                 {
+                     "text":  "Melts targets and harvested drops into stored fluid. Adds 10,000 mB tank capacity. At level 1: 18 nuggets per metal, 16 shards per gem and 1,500 melting temperature."
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "Maximum of 1 level",
+                    "Requires 1 ability slot"
+                ]
 }

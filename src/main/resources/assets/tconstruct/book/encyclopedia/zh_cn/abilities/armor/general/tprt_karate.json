@@ -1,7 +1,7 @@
 {
   "modifier_id": "tprt:karate",
   "text": [
-    { "text": "使空手时的攻击伤害大幅提高" }
+    { "text": "每级为护甲的空手攻击增加6点攻击伤害，并增加相当于基础攻击伤害50%的伤害。" }
   ],
   "more_text_space": true,
   "effects": [

@@ -1,12 +1,14 @@
 {
-  "modifier_id": "tprt:advanced_luck",
-  "text": [
-    { "text": "Enemies drop more loot, and more items drop when mining" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "Maximum of 3 levels",
-    "First level requires 1 ability slot",
-    "Second and third levels are slotless"
-  ]
+    "modifier_id":  "tprt:advanced_luck",
+    "text":  [
+                 {
+                     "text":  "Adds Fortune and Looting through the applicable tool or worn-armor hooks, plus 2 sea luck per level. Requires Luck III."
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "Maximum of 3 levels",
+                    "First level requires 1 ability slot",
+                    "Second and third levels are slotless"
+                ]
 }

@@ -1,11 +1,14 @@
 {
-  "modifier_id": "tprt:final_melting",
-  "text": [
-    { "text": "熔炼攻击目标及其掉落物，但是效果远超普通熔炼！" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "最高5级",
-    "每级需要1个能力槽"
-  ]
+    "modifier_id":  "tprt:final_melting",
+    "text":  [
+                 {
+                     "text":  "将攻击目标及采集掉落物熔成流体，增加30000 mB容量。等级L时：金属产量27+9L粒，宝石产量18+9L碎片，熔炼温度2500+1500L。"
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "最高5级",
+                    "每级需要1个能力槽",
+                    "需要熔化II"
+                ]
 }

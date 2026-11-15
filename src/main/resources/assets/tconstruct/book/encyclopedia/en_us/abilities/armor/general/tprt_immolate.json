@@ -1,7 +1,7 @@
 {
   "modifier_id": "tprt:immolate",
   "text": [
-    { "text": "Get the ability of Infernal Sorcerer Chestplate, and strengthen it" }
+    { "text": "While worn, your Fire Magic damage is increased by 20%. Each hit applies Immolate I for 10 seconds, or raises an existing Immolate effect by one level and resets its duration to 10 seconds." }
   ],
   "more_text_space": true,
   "effects": [

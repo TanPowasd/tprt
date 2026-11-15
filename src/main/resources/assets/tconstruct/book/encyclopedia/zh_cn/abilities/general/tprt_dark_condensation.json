@@ -1,11 +1,13 @@
 {
-  "modifier_id": "tprt:dark_condensation",
-  "text": [
-    { "text": "根据工具的攻击力提高[灵魂增幅]，但是会献祭掉一些东西……" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "最高1级",
-    "需要1个能力槽"
-  ]
+    "modifier_id":  "tprt:dark_condensation",
+    "text":  [
+                 {
+                     "text":  "工具攻击伤害大于5时，根据攻击伤害提升灵魂增幅，代价是降低攻击速度；换算使用攻击伤害加5的常用对数。"
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "最高1级",
+                    "需要1个能力槽"
+                ]
 }

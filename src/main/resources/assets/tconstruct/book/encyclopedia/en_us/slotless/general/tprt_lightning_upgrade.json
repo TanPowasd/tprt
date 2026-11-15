@@ -1,10 +1,12 @@
 {
-  "modifier_id": "tprt:lightning_upgrade",
-  "text": [
-    { "text": "Increases Lightning spell power per level" }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "Requires no slots"
-  ]
+    "modifier_id":  "tprt:lightning_upgrade",
+    "text":  [
+                 {
+                     "text":  "While equipped as a curio, grants affinity for the Charge spell equal to this modifier level. This raises that spell level, not general Lightning spell power."
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "Requires no slots"
+                ]
 }

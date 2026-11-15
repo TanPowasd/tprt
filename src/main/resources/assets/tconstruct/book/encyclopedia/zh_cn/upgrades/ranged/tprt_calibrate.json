@@ -1,7 +1,7 @@
 {
   "modifier_id": "tprt:calibrate",
   "text": [
-    { "text": "提高箭矢的精确度" }
+    { "text": "每级增加0.3精准度，减少弹射物散布。" }
   ],
   "more_text_space": true,
   "effects": [

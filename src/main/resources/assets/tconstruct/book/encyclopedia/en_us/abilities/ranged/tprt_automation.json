@@ -1,11 +1,13 @@
 {
-  "modifier_id": "tprt:automation",
-  "text": [
-    { "text": "Make the tool shoot automatically." }
-  ],
-  "more_text_space": true,
-  "effects": [
-    "Maximum of 1 level",
-    "Requires 1 ability slot"
-  ]
+    "modifier_id":  "tprt:automation",
+    "text":  [
+                 {
+                     "text":  "While using the tool, automatically releases it once its stored draw time is reached. You still need to begin using the tool; it does not fire unattended."
+                 }
+             ],
+    "more_text_space":  true,
+    "effects":  [
+                    "Maximum of 1 level",
+                    "Requires 1 ability slot"
+                ]
 }
