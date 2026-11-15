@@ -67,10 +67,10 @@ public class Meat_Shredder extends NoLevelsModifier implements GeneralInteractio
             Vec3 destVec = srcVec.add(lookVec.x() * range, lookVec.y() * range, lookVec.z() * range);
             float var9 = 1.0F;
             List<Entity> possibleList = world.getEntities(living, living.getBoundingBox().expandTowards(lookVec.x() * range, lookVec.y() * range, lookVec.z() * range).inflate(var9, var9, var9));
-            boolean flag = false;
             Cataclysm.PROXY.playWorldSound(living, (byte) 1);
             for (Entity entity : possibleList) {
                 if (entity instanceof LivingEntity) {
+                    boolean flag = false;
                     float borderSize = 0.5F;
                     AABB collisionBB = entity.getBoundingBox().inflate(borderSize, borderSize, borderSize);
                     Optional<Vec3> interceptPos = collisionBB.clip(srcVec, destVec);

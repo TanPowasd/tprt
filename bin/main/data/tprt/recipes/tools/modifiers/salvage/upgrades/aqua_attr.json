@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "traveloptics"
+    }
+  ],
   "type": "tconstruct:modifier_salvage",
   "modifier": "tprt:aqua_attr",
   "slots": {

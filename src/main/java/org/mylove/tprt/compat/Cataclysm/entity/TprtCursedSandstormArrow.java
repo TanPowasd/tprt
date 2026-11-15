@@ -201,7 +201,7 @@ public class TprtCursedSandstormArrow extends TprtPhantomArrow {
     protected void doPostHurtEffects(LivingEntity target) {
         super.doPostHurtEffects(target);
         // Verified against Cataclysm ModEffect's DeferredRegister using javap (7849424 JAR).
-        MobEffect curse = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("cataclysm", "curse_of_desert"));
+        MobEffect curse = ForgeRegistries.MOB_EFFECTS.getValue(ResourceLocation.fromNamespaceAndPath("cataclysm", "curse_of_desert"));
         if (curse != null) target.addEffect(new MobEffectInstance(curse, 100, 1), getEffectSource());
     }
 

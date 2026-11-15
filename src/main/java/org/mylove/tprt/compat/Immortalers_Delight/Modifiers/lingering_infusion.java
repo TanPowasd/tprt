@@ -24,7 +24,7 @@ public class lingering_infusion extends NoLevelsModifier implements OnAttackedMo
     }
 
     public static MobEffect getEffect(){
-        ResourceLocation effectId=new ResourceLocation("immortalers_delight","lingering_infusion");
+        ResourceLocation effectId=ResourceLocation.fromNamespaceAndPath("immortalers_delight","lingering_infusion");
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
 

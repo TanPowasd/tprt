@@ -29,7 +29,7 @@ public final class LanceClientEvents {
     public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             ItemProperties.register(ItemsRegistry.LANCE.get(),
-                    new ResourceLocation(Tprt.MODID, "lance_charging"),
+                    ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "lance_charging"),
                     (stack, level, entity, seed) -> {
                         if (entity == null || !entity.isUsingItem() || entity.getUseItem() != stack) return 0.0F;
                         int elapsed = stack.getUseDuration() - entity.getUseItemRemainingTicks();

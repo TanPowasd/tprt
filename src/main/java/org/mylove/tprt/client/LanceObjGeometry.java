@@ -37,7 +37,7 @@ public final class LanceObjGeometry implements IUnbakedGeometry<LanceObjGeometry
     private LanceObjGeometry() {
         for (int i = 0; i < parts.length; i++) {
             parts[i] = ObjLoader.INSTANCE.loadModel(new ObjModel.ModelSettings(
-                    new ResourceLocation("tprt", "models/item/tool/lance/obj/" + PARTS[i] + ".obj"),
+                    ResourceLocation.fromNamespaceAndPath("tprt", "models/item/tool/lance/obj/" + PARTS[i] + ".obj"),
                     false, true, true, false, null));
         }
     }

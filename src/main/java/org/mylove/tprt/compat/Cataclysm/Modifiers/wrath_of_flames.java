@@ -33,13 +33,14 @@ public class wrath_of_flames extends NoLevelsModifier implements MeleeDamageModi
     public float getMeleeDamage(IToolStackView iToolStackView, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity target = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
-        double y = (int) 1.25f;
         if (target != null && attacker instanceof Player) {
+            float y = 1.25f;
             AttributeInstance attribute = target.getAttribute(Attributes.ARMOR);
-            if (attribute != null && attribute.getValue() == 0) {
+            if (attribute != null && attribute.getValue() <= 0) {
                 y = 1.75f;
             }
+            return damage * y;
         }
-        return (float) (baseDamage * y);
+        return damage;
     }
 }

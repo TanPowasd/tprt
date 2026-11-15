@@ -144,7 +144,7 @@ public abstract class CuriosModifier extends Modifier implements CurioFortuneMod
 
     @Override
     public float getProjectileDamage(ModDataNBT persistentData, ModifierEntry entry, ModifierNBT modifiers, @NotNull Projectile projectile, @javax.annotation.Nullable AbstractArrow arrow, @javax.annotation.Nullable LivingEntity attacker, @NotNull Entity target, float baseDamage, float damage){
-        return baseDamage;
+        return damage;
     }
 
     @Override

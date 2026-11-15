@@ -21,7 +21,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public class Arrogant extends Modifier implements ModifyDamageModifierHook {
     private static final TagKey<DamageType> CAN_PROTECT = TagKey.create(Registries.DAMAGE_TYPE,
-            new ResourceLocation("mantle", "can_protect"));
+            ResourceLocation.fromNamespaceAndPath("mantle", "can_protect"));
     public static final TinkerDataCapability.TinkerDataKey<SlotInChargeModule.SlotInCharge> SLOT_IN_CHARGE = TinkerDataCapability.TinkerDataKey.of(ModifierIds.Arrogant);
 
     @Override

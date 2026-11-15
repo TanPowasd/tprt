@@ -8,7 +8,9 @@ import org.mylove.tprt.compat.IronsSpellBooks.IssCompat;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
@@ -32,7 +34,10 @@ public class Magic_arrow extends NoLevelsModifier {
     }
 
     private static void onImpact(ProjectileImpactEvent event) {
-        if (!(event.getProjectile() instanceof AbstractArrow arrow)) {
+        if (!(event.getProjectile() instanceof AbstractArrow arrow) || arrow instanceof ThrownTrident) {
+            return;
+        }
+        if (!(event.getRayTraceResult() instanceof EntityHitResult)) {
             return;
         }
         if (!(arrow.getOwner() instanceof Player player) || player.level().isClientSide) {
@@ -75,9 +80,12 @@ public class Magic_arrow extends NoLevelsModifier {
             player.displayClientMessage(Component.translatable("tooltip.tprt.source_charge.full"), true);
         }
 
-        arrow.discard();
+        if (!(arrow instanceof ThrownTrident)) {
+            arrow.discard();
+        }
         // 跳过原箭的实体命中结算 (setCanceled 已弃用) 
-        event.setImpactResult(ProjectileImpactEvent.ImpactResult.SKIP_ENTITY);}
+        event.setImpactResult(ProjectileImpactEvent.ImpactResult.SKIP_ENTITY);
+    }
 
     private static boolean hasTrait(ItemStack stack) {
         return !stack.isEmpty() && ToolStack.isInitialized(stack)

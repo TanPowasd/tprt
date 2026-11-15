@@ -18,7 +18,7 @@ import org.mylove.tprt.compat.Cataclysm.entity.TprtCursedSandstormArrow;
 /** Client-only native sandstorm geometry, independent of Citadel/Lionfish model API changes. */
 public final class CursedSandstormArrowRenderer extends EntityRenderer<TprtCursedSandstormArrow> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("cataclysm", "textures/entity/cursed_sandstorm.png");
+            ResourceLocation.fromNamespaceAndPath("cataclysm", "textures/entity/cursed_sandstorm.png");
     private final ModelPart root;
     private final ModelPart[] storms;
     private final ModelPart[] shells;

@@ -25,6 +25,7 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -44,7 +45,7 @@ public class LanceChargeModifier extends NoLevelsModifier implements GeneralInte
     // Weak player keys avoid retaining disconnected players; state is never shared between sides.
     private final Map<Player, Charge> charges = Collections.synchronizedMap(new WeakHashMap<>());
 
-    private static final TagKey<Item> LANCES = TagKey.create(Registries.ITEM, new ResourceLocation("tprt", "modifiable/melee/lance"));
+    private static final TagKey<Item> LANCES = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("tprt", "modifiable/melee/lance"));
 
     private static final class Charge {
         final InteractionHand hand;
@@ -136,8 +137,12 @@ public class LanceChargeModifier extends NoLevelsModifier implements GeneralInte
             int pierced = Math.min(MAX_PIERCE_STACKS, charge.targets.size());
             int pierceLevel = tool.getModifierLevel(ModifierRegistry.BREAKING_THROUGH.getId());
             double pierce = 1.0D + PIERCE_BONUS_PER_LEVEL * pierceLevel * pierced;
-            float damage = ToolAttackUtil.getAttributeAttackDamage(tool, player, slot);
-            float knockback = ToolAttackUtil.getSlotAttribute(tool, player, slot, Attributes.ATTACK_KNOCKBACK, 0.0F) / 2.0F;
+            float damage = slot == EquipmentSlot.MAINHAND
+                    ? (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE)
+                    : ToolAttackUtil.getToolAttribute(tool, player, Attributes.ATTACK_DAMAGE, tool.getStats().get(ToolStats.ATTACK_DAMAGE));
+            float knockback = (slot == EquipmentSlot.MAINHAND
+                    ? (float) player.getAttributeValue(Attributes.ATTACK_KNOCKBACK)
+                    : ToolAttackUtil.getToolAttribute(tool, player, Attributes.ATTACK_KNOCKBACK, 0.0F)) / 2.0F;
             ToolAttackContext context = ToolAttackContext.attacker(player).target(target).hand(charge.hand)
                     .baseDamage((float) (damage * (1.0D + bonus) * pierce)).baseKnockback(knockback).cooldown(1.0F).build();
             boolean sprinting = player.isSprinting();

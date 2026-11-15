@@ -23,8 +23,8 @@ public class PlayerLeftClickEmpty {
         NetworkEvent.Context context = (NetworkEvent.Context)supplier.get();
         ServerPlayer serverPlayer = context.getSender();
         if (serverPlayer != null) {
-            ItemStack stack = serverPlayer.getItemInHand(serverPlayer.getUsedItemHand());
-            EquipmentSlot slot = stack.getEquipmentSlot();
+            ItemStack stack = serverPlayer.getMainHandItem();
+            EquipmentSlot slot = EquipmentSlot.MAINHAND;
             context.enqueueWork(() -> LeftClickModifierHook.handleLeftClick(stack, serverPlayer, slot));
         }
 

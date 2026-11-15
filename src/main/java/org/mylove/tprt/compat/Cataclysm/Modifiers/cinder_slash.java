@@ -47,14 +47,14 @@ public class cinder_slash extends Modifier implements MeleeHitModifierHook, Tool
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        hookBuilder.addHook(this, ModifierHooks.MELEE_HIT, ModifierHooks.TOOLTIP);
+        hookBuilder.addHook(this, ModifierHooks.MELEE_HIT, ModifierHooks.TOOLTIP, ModifierHooks.MELEE_DAMAGE);
     }
 
     @Override
     public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float rawDamage, float baseKnockback, float knockback) {
         LivingEntity attacker = context.getAttacker();
         LivingEntity target = context.getLivingTarget();
-        if(target == null) return knockback;
+        if(target == null || attacker == null || attacker.level().isClientSide) return knockback;
         Level level = attacker.level();
         Vec3 att, tar, vecT;
         double speedMuti, boxX, boxY, boxZ;

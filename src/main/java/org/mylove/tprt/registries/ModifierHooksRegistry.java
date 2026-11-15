@@ -20,7 +20,7 @@ public class ModifierHooksRegistry {
     }
 
     private static <T> ModuleHook<T> register(String name, Class<T> filter, T defaultInstance) {
-        return register(name, filter, (Function)null, defaultInstance);
+        return register(name, filter, null, defaultInstance);
     }
 
     static {

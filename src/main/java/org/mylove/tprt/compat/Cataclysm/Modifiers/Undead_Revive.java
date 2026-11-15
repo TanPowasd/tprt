@@ -51,26 +51,41 @@ public class Undead_Revive extends NoLevelsModifier implements InventoryTickModi
         LivingEntity entity = event.getEntity();
         int level = ModifierLEVEL.getTotalArmorModifierlevel(entity, ModifierIds.Undead_Revive);
         if(level >= 1 && entity instanceof Player player){
+            boolean canRevive = false;
             for (ItemStack equipment : player.getInventory().armor) {
                 if (equipment.getItem() instanceof ModifiableArmorItem) {
                     ToolStack tool = ToolStack.from(equipment);
-                    ModDataNBT toolData = tool.getPersistentData();
-                    int Cooldown = toolData.getInt(Undead_Revive_COOLDOWN);
-                    if (Cooldown == 0 && tool.getModifierLevel(this) > 0) {
-                        toolData.putInt(Undead_Revive_COOLDOWN, COOLDOWN_TICKS);
-                        event.setCanceled(true);
-                        player.deathTime = -2;
-                        player.fallDistance = 0;
-                        player.setHealth((float) (player.getMaxHealth() * 0.2));
-                        player.invulnerableTime = 100;
-                        player.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_SICKNESS.get(), 7200, 0, false, true));
-                        player.sendSystemMessage(
-                                Component.translatable("message.tprt.undead_revive")
-                                        .withStyle(ChatFormatting.DARK_AQUA)
-                        );
-                        break;
+                    if (tool.getModifierLevel(this) > 0) {
+                        int cooldown = tool.getPersistentData().getInt(Undead_Revive_COOLDOWN);
+                        if (cooldown == 0) {
+                            canRevive = true;
+                            break;
+                        }
                     }
                 }
+            }
+            if (canRevive) {
+                for (ItemStack equipment : player.getInventory().armor) {
+                    if (equipment.getItem() instanceof ModifiableArmorItem) {
+                        ToolStack tool = ToolStack.from(equipment);
+                        if (tool.getModifierLevel(this) > 0) {
+                            tool.getPersistentData().putInt(Undead_Revive_COOLDOWN, COOLDOWN_TICKS);
+                        }
+                    }
+                    if (!equipment.isEmpty()) {
+                        player.getCooldowns().addCooldown(equipment.getItem(), COOLDOWN_TICKS);
+                    }
+                }
+                event.setCanceled(true);
+                player.deathTime = -2;
+                player.fallDistance = 0;
+                player.setHealth((float) (player.getMaxHealth() * 0.2));
+                player.invulnerableTime = 100;
+                player.addEffect(new MobEffectInstance(ModEffect.EFFECTGHOST_SICKNESS.get(), 7200, 0, false, true));
+                player.sendSystemMessage(
+                        Component.translatable("message.tprt.undead_revive")
+                                .withStyle(ChatFormatting.DARK_AQUA)
+                );
             }
         }
     }

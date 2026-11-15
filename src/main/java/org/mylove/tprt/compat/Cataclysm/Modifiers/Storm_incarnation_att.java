@@ -81,12 +81,12 @@ public class Storm_incarnation_att extends NoLevelsModifier implements MeleeDama
         LivingEntity attacker = context.getPlayerAttacker();
         if (attacker != null && entity != null) {
             if (entity.isInWaterOrRain()) {
-                return (float) (baseDamage * 1.8);
+                return (float) (damage * 1.8);
             } else {
-                return (float) (baseDamage * 1.35);
+                return (float) (damage * 1.35);
             }
         }
-        return baseDamage;
+        return damage;
     }
 
     @Override

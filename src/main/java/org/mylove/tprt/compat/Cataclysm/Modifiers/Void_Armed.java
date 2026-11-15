@@ -59,23 +59,23 @@ public class Void_Armed extends NoLevelsModifier implements ToolStatsModifierHoo
                 }
             }
         }
-        return (float) (baseDamage * x);
+        return (float) (damage * x);
     }
 
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         LivingEntity target=context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
-        if(target != null){
+        if(target != null && attacker instanceof Player player){
             ModDataNBT tooldata = tool.getPersistentData();
-            if (tooldata.getInt(Void_Power) > 0 && !((Player)attacker).getCooldowns().isOnCooldown(tool.getItem())){
+            if (tooldata.getInt(Void_Power) > 0 && !player.getCooldowns().isOnCooldown(tool.getItem())){
                 if(tooldata.getInt(Void_Power) <= 50){
                     tooldata.putInt(Void_Power,tooldata.getInt(Void_Power)-1);
                 }else {
-                    ((Player) attacker).getCooldowns().addCooldown(tool.getItem(), 5);
+                    player.getCooldowns().addCooldown(tool.getItem(), 5);
                     tooldata.putInt(Void_Power,tooldata.getInt(Void_Power)-10);
                     target.invulnerableTime = 0;
-                    ToolAttackUtil.attackEntity(tool, (Player) attacker,target);
+                    ToolAttackUtil.attackEntity(tool, player, target);
                 }
             }
         }

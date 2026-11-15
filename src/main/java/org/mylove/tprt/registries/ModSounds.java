@@ -14,7 +14,7 @@ public class ModSounds {
 
     /** 激光持续音 */
     public static final RegistryObject<SoundEvent> LASER_LOOP = SOUNDS.register("laser_loop",
-            () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Tprt.MODID, "laser_loop")));
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "laser_loop")));
 
     private ModSounds() {
     }

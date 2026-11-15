@@ -18,7 +18,9 @@ import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.modifiers.hook.armor.OnAttackedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.modules.technical.SlotInChargeModule;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
+import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
@@ -38,6 +40,7 @@ import java.util.UUID;
 public class mechanical_star_arm extends NoLevelsModifier implements OnAttackedModifierHook {
 
     public static final ModifierId ID = new ModifierId("tprt", "mechanical_star_arm");
+    public static final TinkerDataCapability.TinkerDataKey<SlotInChargeModule.SlotInCharge> SLOT_IN_CHARGE = TinkerDataCapability.TinkerDataKey.of(ID);
     /** 伤害转护盾的比例 */
     public static final float CONVERT_RATIO = 0.20F;
     /** 护盾上限 (最大生命的比例) */
@@ -69,11 +72,15 @@ public class mechanical_star_arm extends NoLevelsModifier implements OnAttackedM
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.ON_ATTACKED);
+        hookBuilder.addModule(new SlotInChargeModule(SLOT_IN_CHARGE));
     }
 
     @Override
     public void onAttacked(IToolStackView tool, ModifierEntry modifier, EquipmentContext context,
                            EquipmentSlot slotType, DamageSource source, float amount, boolean isDirectDamage) {
+        if (!SlotInChargeModule.isInCharge(context.getTinkerData(), SLOT_IN_CHARGE, slotType)) {
+            return;
+        }
         LivingEntity entity = context.getEntity();
         if (!(entity instanceof Player player) || player.level().isClientSide) {
             return;
@@ -123,7 +130,6 @@ public class mechanical_star_arm extends NoLevelsModifier implements OnAttackedM
         long now = player.level().getGameTime();
         State state = STATES.getOrDefault(player.getUUID(), new State(0L, 0L));
         STATES.put(player.getUUID(), new State(now, now + OVERLOAD_COOLDOWN));
-        player.setAbsorptionAmount(0.0F);
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, OVERLOAD_TICKS, 1, false, false, true));
         // 护盾碎裂音效 (原版盾牌破裂声)
         player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
@@ -133,11 +139,13 @@ public class mechanical_star_arm extends NoLevelsModifier implements OnAttackedM
     }
     /** 护盾存在或过载期间免疫击退 */
     private static void onKnockBack(LivingKnockBackEvent event) {
-        if (!(event.getEntity() instanceof Player player)) {
+        if (!(event.getEntity() instanceof Player player) || !wearing(player)) {
             return;
         }
-        if (player.getAbsorptionAmount() > 0.0F
-                || player.hasEffect(MobEffects.MOVEMENT_SPEED)) {
+        State state = STATES.get(player.getUUID());
+        long now = player.level().getGameTime();
+        boolean inOverload = state != null && (now < state.lastHurt() + OVERLOAD_TICKS) && player.hasEffect(MobEffects.MOVEMENT_SPEED);
+        if (player.getAbsorptionAmount() > 0.0F || inOverload) {
             event.setCanceled(true);
         }
     }

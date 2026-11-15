@@ -19,6 +19,7 @@ public class PacketHandler {
         if (initialized) return;
         INSTANCE.messageBuilder(PlayerLeftClickEmpty.class, id++, NetworkDirection.PLAY_TO_SERVER).decoder(PlayerLeftClickEmpty::new).encoder(PlayerLeftClickEmpty::toByte).consumerMainThread(PlayerLeftClickEmpty::handle).add();
         INSTANCE.messageBuilder(SoulArrowVisualPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(SoulArrowVisualPacket::new).encoder(SoulArrowVisualPacket::encode).consumerMainThread(SoulArrowVisualPacket::handle).add();
+        INSTANCE.messageBuilder(ChthollyHudSyncPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT).decoder(ChthollyHudSyncPacket::new).encoder(ChthollyHudSyncPacket::encode).consumerMainThread(ChthollyHudSyncPacket::handle).add();
         initialized = true;
     }
 

@@ -1,39 +1,34 @@
 package org.mylove.tprt.Modifiers.re;
 
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.entity.PartEntity;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mylove.tprt.Tprt;
+import org.mylove.tprt.common.chtholly.ChthollyCombatHelper;
+import org.mylove.tprt.common.chtholly.ChthollyDataKeys;
 import org.mylove.tprt.hooks.KillingHook;
 import org.mylove.tprt.hooks.TprtHooks;
-import org.mylove.tprt.registries.ModDamageSource;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.Modifier;
@@ -48,10 +43,12 @@ import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickM
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
+import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IModDataView;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -69,7 +66,7 @@ import java.util.function.BiConsumer;
   核心循环 (心火上限 256):
     1) 【苍蓝 · 追忆调音】:
        - 命中减敌 80% 回血, 偷取护甲并加自身攻击 (4%/层, 上限 5 层), 按怪物护甲+攻击算真伤转化率
-       - 命中 +10 心火, 击杀 +20, 击杀被偷甲目标心火翻倍
+       - 命中 +10 心火, 击杀 +20, 击杀被偷甲目标获得双倍击杀心火 (+40)
        - 未攒满时可随时潜行右键切入【绯红】; 攒满 256 则自动切入【绯红】!
     2) 【绯红 · 前世燃魂】:
        - 攻击无视无敌帧、100% 禁疗; 同一目标连击叠层 (上限 10 层, 每层 +18% 真伤、+3% 攻速)
@@ -122,22 +119,8 @@ public class seniorious extends NoLevelsModifier implements
     public static final int TUNE_REQUIRED = 3;                   // 提前解除调息所需苍蓝命中次数
     public static final int SWITCH_COOLDOWN = 20;                // 手动切换冷却 (20 tick = 1 秒)
 
-    // ===== 工具持久数据 Key (独立前缀 sn_) =====
-    private static final ResourceLocation HEARTFIRE = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_heartfire");
-    private static final ResourceLocation MODE = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_mode");
-    private static final ResourceLocation SWITCH_UNTIL = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_switch_until");
-    private static final ResourceLocation STEAL_STACKS = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_steal_stacks");
-    private static final ResourceLocation STEAL_UNTIL = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_steal_until");
-    private static final ResourceLocation STEAL_TARGET_ARMOR = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_steal_target_armor");
-    private static final ResourceLocation STEAL_QUALITY = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_steal_quality");
-    private static final ResourceLocation CONSUME_STEP = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_consume_step");
-    private static final ResourceLocation COMBO = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_combo");
-    private static final ResourceLocation COMBO_TARGET_ID = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_combo_target_id");
-    private static final ResourceLocation REST_UNTIL = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_rest_until");
-    private static final ResourceLocation TUNE_COUNT = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "sn_tune_count");
-
-    private static final String MODE_AZURE = "azure";     // 苍蓝 · 追忆调音
-    private static final String MODE_CRIMSON = "crimson"; // 绯红 · 前世燃魂
+    public static final String MODE_AZURE = "azure";             // 苍蓝 · 追忆调音
+    public static final String MODE_CRIMSON = "crimson";         // 绯红 · 前世燃魂
 
     private static final UUID TARGET_ARMOR_UUID = UUID.fromString("7a2e41b8-9c14-4d63-8f52-1b9c4e7a2d10");
     private static final UUID SELF_ARMOR_UUID = UUID.fromString("7a2e41b8-9c14-4d63-8f52-1b9c4e7a2d11");
@@ -147,11 +130,20 @@ public class seniorious extends NoLevelsModifier implements
     private static final Map<ToolAttackContext, Float> SWING_DAMAGES = Collections.synchronizedMap(new WeakHashMap<>());
     private static final Map<LivingEntity, Long> STOLEN_TARGETS = Collections.synchronizedMap(new WeakHashMap<>());
     private static final Map<LivingEntity, SeverMark> SEVERED_TARGETS = Collections.synchronizedMap(new WeakHashMap<>());
+    private static final Map<LivingDeathEvent, Boolean> PROCESSED_DEATHS = Collections.synchronizedMap(new WeakHashMap<>());
     private static int serverTickCounter = 0;
 
     static {
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST, false, LivingHealEvent.class, seniorious::onLivingHeal);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, TickEvent.ServerTickEvent.class, seniorious::onServerTick);
+    }
+
+    public static void clearServerState() {
+        SWING_DAMAGES.clear();
+        STOLEN_TARGETS.clear();
+        SEVERED_TARGETS.clear();
+        PROCESSED_DEATHS.clear();
+        serverTickCounter = 0;
     }
 
     @Override
@@ -198,9 +190,12 @@ public class seniorious extends NoLevelsModifier implements
         if (!attacker.level().isClientSide) {
             SWING_DAMAGES.put(context, damage);
         }
-        LivingEntity target = context.getLivingTarget();
+        LivingEntity target = ChthollyCombatHelper.resolveLivingTarget(context.getTarget());
+        if (target == null) {
+            target = context.getLivingTarget();
+        }
         if (isCrimson(tool) && target != null) {
-            resetInvulnerableFrames(target);
+            ChthollyCombatHelper.resetInvulnerableFrames(target);
         }
         return knockback;
     }
@@ -221,7 +216,10 @@ public class seniorious extends NoLevelsModifier implements
         if (!canModified(tool)) return;
 
         LivingEntity attacker = context.getAttacker();
-        LivingEntity target = context.getLivingTarget();
+        LivingEntity target = ChthollyCombatHelper.resolveLivingTarget(context.getTarget());
+        if (target == null) {
+            target = context.getLivingTarget();
+        }
         if (attacker.level().isClientSide || target == null) return;
 
         long now = attacker.level().getGameTime();
@@ -233,7 +231,7 @@ public class seniorious extends NoLevelsModifier implements
             steal(tool, target, now);
             addHeartfire(tool, HEARTFIRE_PER_HIT);
             progressTuning(tool, attacker, now);
-            checkAutoEnterCrimson(tool, attacker, now);
+            checkAutoEnterCrimson(tool, attacker);
         } else {
             if (target.isAlive()) {
                 applySeverMark(target, now + SEVER_DURATION_TICKS, SEVER_HEAL_CUT_CRIMSON);
@@ -241,29 +239,29 @@ public class seniorious extends NoLevelsModifier implements
             if (target.isDeadOrDying()) return;
 
             ModDataNBT data = tool.getPersistentData();
-            boolean sameTarget = data.getInt(COMBO_TARGET_ID) == target.getId();
-            int combo = sameTarget ? Math.min(COMBO_MAX, data.getInt(COMBO) + 1) : 1;
+            boolean sameTarget = data.getInt(ChthollyDataKeys.SN_COMBO_TARGET_ID) == target.getId();
+            int combo = sameTarget ? Math.min(COMBO_MAX, data.getInt(ChthollyDataKeys.SN_COMBO) + 1) : 1;
             if (!sameTarget) {
-                data.putInt(CONSUME_STEP, 0);
+                data.putInt(ChthollyDataKeys.SN_CONSUME_STEP, 0);
             }
-            data.putInt(COMBO, combo);
-            data.putInt(COMBO_TARGET_ID, target.getId());
+            data.putInt(ChthollyDataKeys.SN_COMBO, combo);
+            data.putInt(ChthollyDataKeys.SN_COMBO_TARGET_ID, target.getId());
 
             int consume = currentConsume(tool);
-            data.putInt(CONSUME_STEP, Math.min(CONSUME_MAX_STEP, data.getInt(CONSUME_STEP) + 1));
+            data.putInt(ChthollyDataKeys.SN_CONSUME_STEP,
+                    Math.min(CONSUME_MAX_STEP, data.getInt(ChthollyDataKeys.SN_CONSUME_STEP) + 1));
 
-            float heartfireBefore = data.getFloat(HEARTFIRE);
+            float heartfireBefore = data.getFloat(ChthollyDataKeys.SN_HEARTFIRE);
             float realConsume = Math.min(heartfireBefore, consume);
             addHeartfire(tool, -realConsume);
 
             float swingDamage = recorded != null
                     ? recorded
-                    : Math.max(damageDealt, (float) attacker.getAttributeValue(Attributes.ATTACK_DAMAGE));
+                    : Math.max(damageDealt, getToolAttackPower(tool, attacker));
             float rate = transferRate(tool);
             float trueDamage = swingDamage * realConsume * rate * (1.0f + combo * COMBO_TRUE_DMG_BONUS);
             if (trueDamage > 0.0f) {
-                resetInvulnerableFrames(target);
-                target.hurt(pureSource(attacker), trueDamage);
+                ChthollyCombatHelper.dealPureDamage(attacker, target, trueDamage);
                 SeverMark mark = SEVERED_TARGETS.get(target);
                 if (mark != null) {
                     mark.allowedHealth = target.getHealth();
@@ -272,7 +270,7 @@ public class seniorious extends NoLevelsModifier implements
 
             // 完整支付第 10 刀并打满 10 层连击 → 按剩余全部心火绽放【妖精乡之门】!
             if (combo >= COMBO_MAX && heartfireBefore >= consume) {
-                triggerFairylandGate(tool, attacker, now);
+                triggerFairylandGate(tool, attacker, target, now);
                 return;
             }
 
@@ -291,19 +289,28 @@ public class seniorious extends NoLevelsModifier implements
         if (!canModified(tool) || target.level().isClientSide || event.isCanceled()) return;
         if (event.getSource().getEntity() != attacker) return;
 
-        ToolStack mainHand = Modifier.getHeldTool(attacker, InteractionHand.MAIN_HAND);
-        if (mainHand == null || mainHand.getModifierLevel(this) <= 0) return;
+        // EventTinkerHook 会同时遍历主副手两把工具触发 KillingHook:
+        // 通过事件去重 + 精确结算当前主手（含自律飞斩/斜阳御剑临时映射至主手的圣剑），彻底消除双持重复充能 Bug
+        ToolStack activeWeapon = Modifier.getHeldTool(attacker, InteractionHand.MAIN_HAND);
+        IToolStackView targetTool = (activeWeapon != null && activeWeapon.getModifierLevel(this) > 0) ? activeWeapon : tool;
+        if (targetTool == null || !canModified(targetTool) || targetTool.getModifierLevel(this) <= 0) {
+            return;
+        }
+        if (PROCESSED_DEATHS.put(event, Boolean.TRUE) != null) {
+            return;
+        }
 
         AttributeInstance targetArmor = target.getAttribute(Attributes.ARMOR);
         boolean wasStolen = targetArmor != null && targetArmor.getModifier(TARGET_ARMOR_UUID) != null;
 
-        float gain = wasStolen ? Math.max(HEARTFIRE_PER_KILL, tool.getPersistentData().getFloat(HEARTFIRE)) : HEARTFIRE_PER_KILL;
-        addHeartfire(tool, gain);
+        // 修复: 击杀被调音偷甲目标获得双倍击杀心火 (+40)，而非将整池心火指数翻倍
+        float gain = wasStolen ? HEARTFIRE_PER_KILL * 2.0f : HEARTFIRE_PER_KILL;
+        addHeartfire(targetTool, gain);
 
-        if (isCrimson(tool)) {
-            tool.getPersistentData().putInt(CONSUME_STEP, 0);
+        if (isCrimson(targetTool)) {
+            targetTool.getPersistentData().putInt(ChthollyDataKeys.SN_CONSUME_STEP, 0);
         } else {
-            checkAutoEnterCrimson(tool, attacker, attacker.level().getGameTime());
+            checkAutoEnterCrimson(targetTool, attacker);
         }
     }
 
@@ -316,9 +323,9 @@ public class seniorious extends NoLevelsModifier implements
         if (slot != EquipmentSlot.MAINHAND || !canModified(tool)) return;
         IModDataView data = tool.getPersistentData();
 
-        int stacks = data.getInt(STEAL_STACKS);
+        int stacks = data.getInt(ChthollyDataKeys.SN_STEAL_STACKS);
         if (stacks > 0) {
-            float stolenArmor = data.getFloat(STEAL_TARGET_ARMOR) * STEAL_ARMOR_PERCENT * stacks;
+            float stolenArmor = data.getFloat(ChthollyDataKeys.SN_STEAL_TARGET_ARMOR) * STEAL_ARMOR_PERCENT * stacks;
             if (stolenArmor > 0.0f) {
                 consumer.accept(Attributes.ARMOR, new AttributeModifier(
                         SELF_ARMOR_UUID, "seniorious.tune_armor", stolenArmor, AttributeModifier.Operation.ADDITION));
@@ -328,7 +335,7 @@ public class seniorious extends NoLevelsModifier implements
         }
 
         if (isCrimson(tool)) {
-            int combo = data.getInt(COMBO);
+            int combo = data.getInt(ChthollyDataKeys.SN_COMBO);
             if (combo > 0) {
                 consumer.accept(Attributes.ATTACK_SPEED, new AttributeModifier(
                         CRIMSON_SPEED_UUID, "seniorious.crimson_speed", COMBO_ATK_SPEED_BONUS * combo, AttributeModifier.Operation.MULTIPLY_TOTAL));
@@ -347,20 +354,20 @@ public class seniorious extends NoLevelsModifier implements
         long now = world.getGameTime();
         ModDataNBT data = tool.getPersistentData();
 
-        long stealUntil = getLong(data, STEAL_UNTIL);
-        if (stealUntil > 0L && !isTimerActive(now, stealUntil, STEAL_DURATION)) {
-            data.remove(STEAL_UNTIL);
-            data.putInt(STEAL_STACKS, 0);
+        long stealUntil = ChthollyDataKeys.getLong(data, ChthollyDataKeys.SN_STEAL_UNTIL);
+        if (stealUntil > 0L && !ChthollyDataKeys.isTimerActive(now, stealUntil, STEAL_DURATION)) {
+            data.remove(ChthollyDataKeys.SN_STEAL_UNTIL);
+            data.putInt(ChthollyDataKeys.SN_STEAL_STACKS, 0);
         }
 
-        long restUntil = getLong(data, REST_UNTIL);
-        if (restUntil > 0L && !isTimerActive(now, restUntil, REST_DURATION)) {
+        long restUntil = ChthollyDataKeys.getLong(data, ChthollyDataKeys.SN_REST_UNTIL);
+        if (restUntil > 0L && !ChthollyDataKeys.isTimerActive(now, restUntil, REST_DURATION)) {
             clearRest(data);
         }
 
-        long switchUntil = getLong(data, SWITCH_UNTIL);
-        if (switchUntil > 0L && !isTimerActive(now, switchUntil, SWITCH_COOLDOWN)) {
-            data.remove(SWITCH_UNTIL);
+        long switchUntil = ChthollyDataKeys.getLong(data, ChthollyDataKeys.SN_SWITCH_UNTIL);
+        if (switchUntil > 0L && !ChthollyDataKeys.isTimerActive(now, switchUntil, SWITCH_COOLDOWN)) {
+            data.remove(ChthollyDataKeys.SN_SWITCH_UNTIL);
         }
     }
 
@@ -385,7 +392,9 @@ public class seniorious extends NoLevelsModifier implements
                     if (currentHp > mark.allowedHealth + 0.05f) {
                         float directHeal = currentHp - mark.allowedHealth;
                         float keptHeal = mark.reduction >= 1.0f ? 0.0f : directHeal * (1.0f - mark.reduction);
-                        float clampedHp = Math.max(1.0f, mark.allowedHealth + keptHeal);
+                        // 修复: 当目标血量已不足 1.0f 时不抬高其血线，同时保证不会设成 0.0f 绕过正常死亡结算
+                        float floorHp = Math.min(1.0f, Math.max(0.01f, mark.allowedHealth));
+                        float clampedHp = Math.max(floorHp, mark.allowedHealth + keptHeal);
                         target.setHealth(clampedHp);
                         mark.allowedHealth = clampedHp;
                     } else {
@@ -436,19 +445,21 @@ public class seniorious extends NoLevelsModifier implements
         long now = level.getGameTime();
         if (isRestActive(tool, now)) {
             if (!level.isClientSide) {
-                int remain = (int) ((getLong(tool.getPersistentData(), REST_UNTIL) - now + 19L) / 20L);
+                int remain = ChthollyDataKeys.getRemainingSeconds(now,
+                        ChthollyDataKeys.getLong(tool.getPersistentData(), ChthollyDataKeys.SN_REST_UNTIL), REST_DURATION);
                 player.displayClientMessage(Component.translatable("message.tprt.seniorious.rest_locked", remain), true);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
         if (isSwitchOnCooldown(tool, now)) {
             if (!level.isClientSide) {
-                int remain = (int) ((getLong(tool.getPersistentData(), SWITCH_UNTIL) - now + 19L) / 20L);
+                int remain = ChthollyDataKeys.getRemainingSeconds(now,
+                        ChthollyDataKeys.getLong(tool.getPersistentData(), ChthollyDataKeys.SN_SWITCH_UNTIL), SWITCH_COOLDOWN);
                 player.displayClientMessage(Component.translatable("message.tprt.seniorious.switch_cd", remain), true);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
-        if (isAzure(tool) && tool.getPersistentData().getFloat(HEARTFIRE) <= 0.0f) {
+        if (isAzure(tool) && tool.getPersistentData().getFloat(ChthollyDataKeys.SN_HEARTFIRE) <= 0.0f) {
             if (!level.isClientSide) {
                 player.displayClientMessage(Component.translatable("message.tprt.seniorious.no_heartfire"), true);
             }
@@ -476,9 +487,9 @@ public class seniorious extends NoLevelsModifier implements
                 ? "tooltip.tprt.seniorious.mode_crimson"
                 : "tooltip.tprt.seniorious.mode_azure"));
         tooltip.add(Component.translatable("tooltip.tprt.seniorious.heartfire",
-                (int) data.getFloat(HEARTFIRE), (int) HEARTFIRE_MAX));
+                (int) data.getFloat(ChthollyDataKeys.SN_HEARTFIRE), (int) HEARTFIRE_MAX));
 
-        float quality = data.getFloat(STEAL_QUALITY);
+        float quality = data.getFloat(ChthollyDataKeys.SN_STEAL_QUALITY);
         if (quality > 0.0f) {
             tooltip.add(Component.translatable("tooltip.tprt.seniorious.rate",
                     String.format("%.2f", transferRate(tool) * 100.0f), String.format("%.0f", quality)));
@@ -486,17 +497,19 @@ public class seniorious extends NoLevelsModifier implements
 
         if (isCrimson(tool)) {
             tooltip.add(Component.translatable("tooltip.tprt.seniorious.crimson_status",
-                    currentConsume(tool), data.getInt(COMBO), COMBO_MAX));
+                    currentConsume(tool), data.getInt(ChthollyDataKeys.SN_COMBO), COMBO_MAX));
         }
 
         if (now > 0L && isRestActive(tool, now)) {
-            int restSec = (int) ((getLong(data, REST_UNTIL) - now + 19L) / 20L);
+            int restSec = ChthollyDataKeys.getRemainingSeconds(now,
+                    ChthollyDataKeys.getLong(data, ChthollyDataKeys.SN_REST_UNTIL), REST_DURATION);
             tooltip.add(Component.translatable("tooltip.tprt.seniorious.rest",
-                    restSec, data.getInt(TUNE_COUNT), TUNE_REQUIRED));
+                    restSec, data.getInt(ChthollyDataKeys.SN_TUNE_COUNT), TUNE_REQUIRED));
         }
 
         if (now > 0L && isSwitchOnCooldown(tool, now)) {
-            int cdSec = (int) ((getLong(data, SWITCH_UNTIL) - now + 19L) / 20L);
+            int cdSec = ChthollyDataKeys.getRemainingSeconds(now,
+                    ChthollyDataKeys.getLong(data, ChthollyDataKeys.SN_SWITCH_UNTIL), SWITCH_COOLDOWN);
             tooltip.add(Component.translatable("tooltip.tprt.seniorious.switch_cd", cdSec));
         }
     }
@@ -504,12 +517,6 @@ public class seniorious extends NoLevelsModifier implements
     // ============================================================
     //  内部实现
     // ============================================================
-
-    private static DamageSource pureSource(LivingEntity attacker) {
-        return new DamageSource(attacker.level().registryAccess()
-                .registryOrThrow(Registries.DAMAGE_TYPE)
-                .getHolderOrThrow(ModDamageSource.TPRT_PURE_DAMAGE_TYPE), attacker);
-    }
 
     private static void applySeverMark(LivingEntity target, long until, float reduction) {
         SeverMark prev = SEVERED_TARGETS.get(target);
@@ -520,25 +527,11 @@ public class seniorious extends NoLevelsModifier implements
         SEVERED_TARGETS.put(target, new SeverMark(bestUntil, bestReduction, target.getHealth()));
     }
 
-    private static void resetInvulnerableFrames(LivingEntity target) {
-        target.invulnerableTime = 0;
-        target.hurtTime = 0;
-        if (target.isMultipartEntity()) {
-            PartEntity<?>[] parts = target.getParts();
-            if (parts != null) {
-                for (PartEntity<?> part : parts) {
-                    if (part != null) {
-                        part.invulnerableTime = 0;
-                    }
-                }
-            }
-        }
-    }
-
     private static void steal(IToolStackView tool, LivingEntity target, long now) {
         ModDataNBT data = tool.getPersistentData();
-        boolean stillActive = isTimerActive(now, getLong(data, STEAL_UNTIL), STEAL_DURATION);
-        int stacks = stillActive ? Math.min(STEAL_MAX_STACKS, data.getInt(STEAL_STACKS) + 1) : 1;
+        boolean stillActive = ChthollyDataKeys.isTimerActive(now,
+                ChthollyDataKeys.getLong(data, ChthollyDataKeys.SN_STEAL_UNTIL), STEAL_DURATION);
+        int stacks = stillActive ? Math.min(STEAL_MAX_STACKS, data.getInt(ChthollyDataKeys.SN_STEAL_STACKS) + 1) : 1;
 
         AttributeInstance targetArmorAttr = target.getAttribute(Attributes.ARMOR);
         float baseArmor;
@@ -559,13 +552,13 @@ public class seniorious extends NoLevelsModifier implements
         float hpFactor = Math.min(200.0f, Math.max(0.0f, target.getMaxHealth() - 20.0f) * 0.05f);
         float quality = Math.max(MIN_QUALITY, baseArmor + baseToughness * 1.5f + baseAttack + hpFactor);
 
-        float savedArmor = stillActive ? Math.max(data.getFloat(STEAL_TARGET_ARMOR), baseArmor) : baseArmor;
-        float savedQuality = stillActive ? Math.max(data.getFloat(STEAL_QUALITY), quality) : quality;
+        float savedArmor = stillActive ? Math.max(data.getFloat(ChthollyDataKeys.SN_STEAL_TARGET_ARMOR), baseArmor) : baseArmor;
+        float savedQuality = stillActive ? Math.max(data.getFloat(ChthollyDataKeys.SN_STEAL_QUALITY), quality) : quality;
 
-        data.putInt(STEAL_STACKS, stacks);
-        putLong(data, STEAL_UNTIL, now + STEAL_DURATION);
-        data.putFloat(STEAL_TARGET_ARMOR, savedArmor);
-        data.putFloat(STEAL_QUALITY, savedQuality);
+        data.putInt(ChthollyDataKeys.SN_STEAL_STACKS, stacks);
+        ChthollyDataKeys.putLong(data, ChthollyDataKeys.SN_STEAL_UNTIL, now + STEAL_DURATION);
+        data.putFloat(ChthollyDataKeys.SN_STEAL_TARGET_ARMOR, savedArmor);
+        data.putFloat(ChthollyDataKeys.SN_STEAL_QUALITY, savedQuality);
 
         if (target.isAlive() && targetArmorAttr != null && baseArmor > 0.0f) {
             targetArmorAttr.addTransientModifier(new AttributeModifier(
@@ -576,7 +569,7 @@ public class seniorious extends NoLevelsModifier implements
     }
 
     private static float transferRate(IToolStackView tool) {
-        float quality = tool.getPersistentData().getFloat(STEAL_QUALITY);
+        float quality = tool.getPersistentData().getFloat(ChthollyDataKeys.SN_STEAL_QUALITY);
         if (quality <= 0.0f) {
             quality = MIN_QUALITY;
         }
@@ -588,26 +581,26 @@ public class seniorious extends NoLevelsModifier implements
     }
 
     private static int currentConsume(IToolStackView tool) {
-        int step = Math.min(tool.getPersistentData().getInt(CONSUME_STEP), CONSUME_MAX_STEP);
+        int step = Math.min(tool.getPersistentData().getInt(ChthollyDataKeys.SN_CONSUME_STEP), CONSUME_MAX_STEP);
         return 1 << step;
     }
 
     private static void addHeartfire(IToolStackView tool, float delta) {
         ModDataNBT data = tool.getPersistentData();
-        float next = Math.max(0.0f, Math.min(HEARTFIRE_MAX, data.getFloat(HEARTFIRE) + delta));
-        data.putFloat(HEARTFIRE, next);
+        float next = Math.max(0.0f, Math.min(HEARTFIRE_MAX, data.getFloat(ChthollyDataKeys.SN_HEARTFIRE) + delta));
+        data.putFloat(ChthollyDataKeys.SN_HEARTFIRE, next);
     }
 
     /** 苍蓝攒满 256 心火时自动拔剑进入【绯红】 */
-    private static void checkAutoEnterCrimson(IToolStackView tool, LivingEntity attacker, long now) {
+    private static void checkAutoEnterCrimson(IToolStackView tool, LivingEntity attacker) {
         ModDataNBT data = tool.getPersistentData();
-        if (data.getFloat(HEARTFIRE) < HEARTFIRE_MAX) return;
+        if (data.getFloat(ChthollyDataKeys.SN_HEARTFIRE) < HEARTFIRE_MAX) return;
 
         clearRest(data);
-        data.putString(MODE, MODE_CRIMSON);
-        data.putInt(CONSUME_STEP, 0);
-        data.putInt(COMBO, 0);
-        data.putInt(COMBO_TARGET_ID, 0);
+        data.putString(ChthollyDataKeys.SN_MODE, MODE_CRIMSON);
+        data.putInt(ChthollyDataKeys.SN_CONSUME_STEP, 0);
+        data.putInt(ChthollyDataKeys.SN_COMBO, 0);
+        data.putInt(ChthollyDataKeys.SN_COMBO_TARGET_ID, 0);
 
         Level level = attacker.level();
         level.playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
@@ -623,41 +616,54 @@ public class seniorious extends NoLevelsModifier implements
         }
     }
 
+    @SuppressWarnings({"removal", "deprecation"})
+    private static float getToolAttackPower(IToolStackView tool, LivingEntity attacker) {
+        float toolStat = tool.getStats().get(ToolStats.ATTACK_DAMAGE);
+        float attrDamage = ToolAttackUtil.getAttributeAttackDamage(tool, attacker, EquipmentSlot.MAINHAND);
+        float result = Math.max(toolStat, attrDamage);
+        if (result <= 0.0f) {
+            AttributeInstance selfAtkAttr = attacker.getAttribute(Attributes.ATTACK_DAMAGE);
+            result = selfAtkAttr != null ? (float) selfAtkAttr.getValue() : 10.0f;
+        }
+        return Math.max(1.0f, result);
+    }
+
     /** 绯红打满第 10 层连击时开启【妖精乡之门】: 剩余心火越多, 大招伤害越高 */
-    private static void triggerFairylandGate(IToolStackView tool, LivingEntity attacker, long now) {
+    private static void triggerFairylandGate(IToolStackView tool, LivingEntity attacker, @Nullable LivingEntity target, long now) {
         ModDataNBT data = tool.getPersistentData();
-        float remaining = Math.max(0.0f, data.getFloat(HEARTFIRE));
+        float remaining = Math.max(0.0f, data.getFloat(ChthollyDataKeys.SN_HEARTFIRE));
         float fuel = FAIRYLAND_BASE_FUEL + remaining;
 
-        AttributeInstance selfAtkAttr = attacker.getAttribute(Attributes.ATTACK_DAMAGE);
-        float attackPower = selfAtkAttr != null ? Math.max(1.0f, (float) selfAtkAttr.getValue()) : 10.0f;
+        float attackPower = getToolAttackPower(tool, attacker);
         float damage = attackPower * fuel * transferRate(tool) * FAIRYLAND_MULTIPLIER;
 
-        DamageSource source = pureSource(attacker);
+        AABB searchBox = target != null
+                ? target.getBoundingBox().inflate(FAIRYLAND_RADIUS)
+                : attacker.getBoundingBox().inflate(FAIRYLAND_RADIUS);
         List<LivingEntity> targets = attacker.level().getEntitiesOfClass(
                 LivingEntity.class,
-                attacker.getBoundingBox().inflate(FAIRYLAND_RADIUS),
-                e -> isValidHostileTarget(attacker, e));
+                searchBox,
+                e -> ChthollyCombatHelper.isValidHostileTarget(attacker, e));
+
+        // 清空剩余心火, 刷新自身满层调音增益, 回归【苍蓝】余温调息 (先于造成纯粹真伤执行，确保大招击杀怪物的奖励心火不被清零覆写)
+        data.putFloat(ChthollyDataKeys.SN_HEARTFIRE, 0.0f);
+        data.putString(ChthollyDataKeys.SN_MODE, MODE_AZURE);
+        data.putInt(ChthollyDataKeys.SN_CONSUME_STEP, 0);
+        data.putInt(ChthollyDataKeys.SN_COMBO, 0);
+        data.putInt(ChthollyDataKeys.SN_COMBO_TARGET_ID, 0);
+        data.putInt(ChthollyDataKeys.SN_STEAL_STACKS, STEAL_MAX_STACKS);
+        ChthollyDataKeys.putLong(data, ChthollyDataKeys.SN_STEAL_UNTIL, now + STEAL_DURATION);
+        ChthollyDataKeys.putLong(data, ChthollyDataKeys.SN_REST_UNTIL, now + REST_DURATION);
+        data.putInt(ChthollyDataKeys.SN_TUNE_COUNT, 0);
+
         for (LivingEntity entity : targets) {
             applySeverMark(entity, now + SEVER_DURATION_TICKS * 2L, SEVER_HEAL_CUT_CRIMSON);
-            resetInvulnerableFrames(entity);
-            entity.hurt(source, damage);
+            ChthollyCombatHelper.dealPureDamage(attacker, entity, damage);
             SeverMark mark = SEVERED_TARGETS.get(entity);
             if (mark != null) {
                 mark.allowedHealth = entity.getHealth();
             }
         }
-
-        // 清空剩余心火, 刷新自身满层调音增益, 回归【苍蓝】余温调息
-        data.putFloat(HEARTFIRE, 0.0f);
-        data.putString(MODE, MODE_AZURE);
-        data.putInt(CONSUME_STEP, 0);
-        data.putInt(COMBO, 0);
-        data.putInt(COMBO_TARGET_ID, 0);
-        data.putInt(STEAL_STACKS, STEAL_MAX_STACKS);
-        putLong(data, STEAL_UNTIL, now + STEAL_DURATION);
-        putLong(data, REST_UNTIL, now + REST_DURATION);
-        data.putInt(TUNE_COUNT, 0);
 
         Level level = attacker.level();
         level.playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
@@ -669,25 +675,22 @@ public class seniorious extends NoLevelsModifier implements
                     attacker.getX(), attacker.getY() + 1.1, attacker.getZ(), 42, 1.8, 0.8, 1.8, 0.10);
             serverLevel.sendParticles(ParticleTypes.CHERRY_LEAVES,
                     attacker.getX(), attacker.getY() + 1.3, attacker.getZ(), 28, 1.8, 0.8, 1.8, 0.06);
+            if (target != null && target != attacker) {
+                serverLevel.sendParticles(ParticleTypes.END_ROD,
+                        target.getX(), target.getY() + 1.1, target.getZ(), 32, 1.5, 0.8, 1.5, 0.08);
+                serverLevel.sendParticles(ParticleTypes.CHERRY_LEAVES,
+                        target.getX(), target.getY() + 1.3, target.getZ(), 24, 1.5, 0.8, 1.5, 0.06);
+            }
         }
         if (attacker instanceof Player player) {
             player.displayClientMessage(Component.translatable("message.tprt.seniorious.fairyland", (int) remaining), true);
         }
     }
 
-    private static boolean isValidHostileTarget(LivingEntity attacker, LivingEntity candidate) {
-        if (candidate == attacker || !candidate.isAlive() || candidate instanceof ArmorStand) return false;
-        if (attacker.isAlliedTo(candidate)) return false;
-        if (candidate instanceof OwnableEntity ownable && attacker.getUUID().equals(ownable.getOwnerUUID())) {
-            return false;
-        }
-        return true;
-    }
-
     private static void progressTuning(IToolStackView tool, LivingEntity attacker, long now) {
         if (!isRestActive(tool, now)) return;
         ModDataNBT data = tool.getPersistentData();
-        int count = data.getInt(TUNE_COUNT) + 1;
+        int count = data.getInt(ChthollyDataKeys.SN_TUNE_COUNT) + 1;
         if (count >= TUNE_REQUIRED) {
             clearRest(data);
             addHeartfire(tool, TUNE_COMPLETE_BONUS);
@@ -702,17 +705,17 @@ public class seniorious extends NoLevelsModifier implements
                 player.displayClientMessage(Component.translatable("message.tprt.seniorious.tuned", (int) TUNE_COMPLETE_BONUS), true);
             }
         } else {
-            data.putInt(TUNE_COUNT, count);
+            data.putInt(ChthollyDataKeys.SN_TUNE_COUNT, count);
         }
     }
 
     private static void enterAzureRest(IToolStackView tool, LivingEntity attacker, long now) {
         ModDataNBT data = tool.getPersistentData();
-        data.putString(MODE, MODE_AZURE);
-        putLong(data, REST_UNTIL, now + REST_DURATION);
-        data.putInt(TUNE_COUNT, 0);
-        data.putInt(CONSUME_STEP, 0);
-        data.putInt(COMBO, 0);
+        data.putString(ChthollyDataKeys.SN_MODE, MODE_AZURE);
+        ChthollyDataKeys.putLong(data, ChthollyDataKeys.SN_REST_UNTIL, now + REST_DURATION);
+        data.putInt(ChthollyDataKeys.SN_TUNE_COUNT, 0);
+        data.putInt(ChthollyDataKeys.SN_CONSUME_STEP, 0);
+        data.putInt(ChthollyDataKeys.SN_COMBO, 0);
 
         attacker.level().playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
                 SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 0.8f, 0.95f);
@@ -724,11 +727,11 @@ public class seniorious extends NoLevelsModifier implements
     private static void switchMode(IToolStackView tool, Player user, long now) {
         ModDataNBT data = tool.getPersistentData();
         boolean toCrimson = isAzure(tool);
-        data.putString(MODE, toCrimson ? MODE_CRIMSON : MODE_AZURE);
-        putLong(data, SWITCH_UNTIL, now + SWITCH_COOLDOWN);
-        data.putInt(CONSUME_STEP, 0);
-        data.putInt(COMBO, 0);
-        data.putInt(COMBO_TARGET_ID, 0);
+        data.putString(ChthollyDataKeys.SN_MODE, toCrimson ? MODE_CRIMSON : MODE_AZURE);
+        ChthollyDataKeys.putLong(data, ChthollyDataKeys.SN_SWITCH_UNTIL, now + SWITCH_COOLDOWN);
+        data.putInt(ChthollyDataKeys.SN_CONSUME_STEP, 0);
+        data.putInt(ChthollyDataKeys.SN_COMBO, 0);
+        data.putInt(ChthollyDataKeys.SN_COMBO_TARGET_ID, 0);
 
         Level level = user.level();
         if (toCrimson) {
@@ -753,38 +756,18 @@ public class seniorious extends NoLevelsModifier implements
     }
 
     private static void clearRest(ModDataNBT data) {
-        data.remove(REST_UNTIL);
-        data.putInt(TUNE_COUNT, 0);
+        data.remove(ChthollyDataKeys.SN_REST_UNTIL);
+        data.putInt(ChthollyDataKeys.SN_TUNE_COUNT, 0);
     }
 
     private static boolean isRestActive(IToolStackView tool, long now) {
-        return isTimerActive(now, getLong(tool.getPersistentData(), REST_UNTIL), REST_DURATION);
+        return ChthollyDataKeys.isTimerActive(now,
+                ChthollyDataKeys.getLong(tool.getPersistentData(), ChthollyDataKeys.SN_REST_UNTIL), REST_DURATION);
     }
 
     private static boolean isSwitchOnCooldown(IToolStackView tool, long now) {
-        return isTimerActive(now, getLong(tool.getPersistentData(), SWITCH_UNTIL), SWITCH_COOLDOWN);
-    }
-
-    private static boolean isTimerActive(long now, long until, int maxDuration) {
-        return until > now && (until - now) <= maxDuration + 20L;
-    }
-
-    private static long getLong(IModDataView data, ResourceLocation key) {
-        String raw = data.getString(key);
-        if (raw.isEmpty()) return 0L;
-        try {
-            return Long.parseLong(raw);
-        } catch (NumberFormatException e) {
-            return 0L;
-        }
-    }
-
-    private static void putLong(ModDataNBT data, ResourceLocation key, long value) {
-        if (value <= 0L) {
-            data.remove(key);
-        } else {
-            data.putString(key, Long.toString(value));
-        }
+        return ChthollyDataKeys.isTimerActive(now,
+                ChthollyDataKeys.getLong(tool.getPersistentData(), ChthollyDataKeys.SN_SWITCH_UNTIL), SWITCH_COOLDOWN);
     }
 
     private static boolean isAzure(IToolStackView tool) {
@@ -796,7 +779,7 @@ public class seniorious extends NoLevelsModifier implements
     }
 
     private static String getMode(IToolStackView tool) {
-        String mode = tool.getPersistentData().getString(MODE);
+        String mode = tool.getPersistentData().getString(ChthollyDataKeys.SN_MODE);
         return mode.isEmpty() ? MODE_AZURE : mode;
     }
 

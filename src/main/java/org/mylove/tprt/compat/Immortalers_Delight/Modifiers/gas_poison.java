@@ -23,7 +23,7 @@ public class  gas_poison extends Modifier implements MeleeHitModifierHook {
         hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
     }
     public static MobEffect getEffect(){
-        ResourceLocation effectId=new ResourceLocation("immortalers_delight","gas_poison");
+        ResourceLocation effectId=ResourceLocation.fromNamespaceAndPath("immortalers_delight","gas_poison");
         return ForgeRegistries.MOB_EFFECTS.getValue(effectId);
     }
     @Override

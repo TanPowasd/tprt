@@ -39,10 +39,10 @@ public final class Overlimit extends NoLevelsModifier implements CurioEquipmentC
         CurioInventoryTickModifierHook, CurioDamageTargetPreModifierHook,
         CurioDamageTargetPostModifierHook, CurioTakeDamagePreModifierHook, CurioTakeDamagePostModifierHook {
     public static final ModifierId ID = new ModifierId("tprt", "overlimit");
-    private static final TagKey<Item> CHARM = TagKey.create(Registries.ITEM, new ResourceLocation("curios", "tinker_charm"));
-    private static final TagKey<DamageType> CAN_PROTECT = TagKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("mantle", "can_protect"));
-    private static final ResourceLocation PROGRESS = new ResourceLocation("tprt", "overlimit_progress");
-    private static final ResourceLocation EMPOWERED = new ResourceLocation("tprt", "overlimit_empowered");
+    private static final TagKey<Item> CHARM = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("curios", "tinker_charm"));
+    private static final TagKey<DamageType> CAN_PROTECT = TagKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath("mantle", "can_protect"));
+    private static final ResourceLocation PROGRESS = ResourceLocation.fromNamespaceAndPath("tprt", "overlimit_progress");
+    private static final ResourceLocation EMPOWERED = ResourceLocation.fromNamespaceAndPath("tprt", "overlimit_empowered");
     private final Map<LivingEntity, State> states = new WeakHashMap<>();
     private final Map<LivingEntity, Deque<Hit>> pending = new WeakHashMap<>();
 
@@ -57,7 +57,7 @@ public final class Overlimit extends NoLevelsModifier implements CurioEquipmentC
     private static boolean validInSlot(ItemStack stack, String slot) {
         if (!slot.equals("tinker_charm") && !slot.equals("curio")) return false;
         if (stack.isEmpty() || !stack.is(CHARM) || !ToolStack.isInitialized(stack)
-                || !stack.is(TagKey.create(Registries.ITEM, new ResourceLocation("curios", slot)))) return false;
+                || !stack.is(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("curios", slot)))) return false;
         var tool = ToolStack.from(stack);
         return !tool.isBroken() && tool.getModifierLevel(ID) > 0;
     }

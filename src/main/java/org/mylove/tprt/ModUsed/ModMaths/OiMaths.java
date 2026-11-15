@@ -11,7 +11,7 @@ public class OiMaths {
     public class PRIME{
         public final static int MAXR = (int) (1e7+7);
         public static int PrimeNum=0;
-        public static ArrayList prime= new ArrayList<>();
+        public static ArrayList<Integer> prime= new ArrayList<>();
         public static boolean[] isprime=new boolean[MAXR+1];
         public static boolean isInit=false;
         public static void InitPrime(){
@@ -20,21 +20,25 @@ public class OiMaths {
             }
             isInit=true;
             Arrays.fill(isprime,true);
+            isprime[0]=false;
             isprime[1]=false;
             for(int i=2;i<=MAXR;++i){
                 if(isprime[i]){
                     prime.add(i);
                     PrimeNum++;
-                    for(int j=1;j<=PrimeNum&& i*(int) prime.get(j-1)<=MAXR;++j){
-                        isprime[i* (int) prime.get(j-1)]=false;
-                        if(i% (int) prime.get(j-1)==0){
-                            break;
-                        }
+                }
+                for(int j=0; j<PrimeNum && (long) i * prime.get(j) <= MAXR; ++j){
+                    isprime[i * prime.get(j)]=false;
+                    if(i % prime.get(j)==0){
+                        break;
                     }
                 }
             }
         }
         public static boolean isPrime(int n){
+            if (n < 0 || n > MAXR) {
+                return false;
+            }
             InitPrime();
             return isprime[n];
         }
@@ -90,7 +94,7 @@ public class OiMaths {
         public static int euler_phi(int n){
             //欧拉函数
             int res=n;
-            for(int i=2;i*i<=n;i++){
+            for(int i=2; (long) i * i <= n; i++){
                 if(n%i==0){
                     res=res/i*(i-1);
                     while(n%i==0){
@@ -105,6 +109,7 @@ public class OiMaths {
         }
     }
     public class Mat{
+        public static final long MOD = 1000000007L;
         public static long[][] MatMatrix=new long[10][10];
         public static long[][] MatrixMul_2(long[][] a,long[][] b){
             long[][] ans=new long[10][10];
@@ -116,14 +121,14 @@ public class OiMaths {
             for(int i=0;i<2;i++){
                 for(int j=0;j<2;j++){
                     for(int k=0;k<2;k++){
-                        ans[i][j]+= (long) (a[i][k]*b[k][j]%(1e9+7));
+                        ans[i][j] = (ans[i][j] + (a[i][k] % MOD) * (b[k][j] % MOD)) % MOD;
                     }
                 }
             }
             return ans;
         }
         public static long Fibonacci(long n){
-            if(n==0){
+            if(n<=0){
                 return 0;
             }
             if(n==1){
@@ -135,11 +140,10 @@ public class OiMaths {
             ans[1][0]=1;
             ans[1][1]=0;
             long[][] res=new long[2][2];
-            res[0][0]=0;
+            res[0][0]=1;
             res[0][1]=0;
             res[1][0]=0;
-            res[1][1]=0;
-            n-=2;
+            res[1][1]=1;
             while(n>0){
                 if((n&1)==1){
                     res=MatrixMul_2(res,ans);
@@ -147,7 +151,7 @@ public class OiMaths {
                 ans=MatrixMul_2(ans,ans);
                 n>>=1;
             }
-            return (long) ((res[0][1])%(1e9+7));
+            return res[0][1] % MOD;
         }
     }
     public class RANDOM{

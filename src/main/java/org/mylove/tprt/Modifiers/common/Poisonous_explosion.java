@@ -37,23 +37,19 @@ public class Poisonous_explosion extends NoLevelsModifier implements MeleeHitMod
     public void afterMeleeHit(IToolStackView tool, ModifierEntry entry, ToolAttackContext context, float damageDealt) {
         LivingEntity target = context.getLivingTarget();
         LivingEntity attacker = context.getAttacker();
-        if (target != null && target.hasEffect(Objects.requireNonNull(MobEffect.byId(MobEffect.getId(POISON)))) && attacker instanceof Player player) {
+        if (attacker == null || attacker.level().isClientSide) return;
+        if (target != null && target.hasEffect(POISON) && attacker instanceof Player player) {
             target.invulnerableTime = 0;
             MobEffectInstance instance = target.getEffect(POISON);
-//            List<MobEffectInstance> effectInstances = new ArrayList<>((Collection) POISON);
             if (instance != null) {
                 ToolStack mainhand = Modifier.getHeldTool(player, EquipmentSlot.MAINHAND);
                 if (mainhand != null) {
                     if (player.getCooldowns().isOnCooldown(mainhand.getItem())) return;
-                    else {
-                int x = instance.getAmplifier()+1;
-                int y = instance.getDuration()/20;
-                int X = (int) (1.25 * x);
-                int Y = (int) Math.sqrt(y);
-                if (context.getLivingTarget() != null) {
-//                    for (MobEffectInstance effectlist : effectInstances){
-//                        target.removeEffect(effectlist.getEffect());
-                        target.removeEffect(POISON);
+                    int x = instance.getAmplifier() + 1;
+                    int y = instance.getDuration() / 20;
+                    int X = (int) (1.25 * x);
+                    int Y = (int) Math.sqrt(y);
+                    target.removeEffect(POISON);
                     Level world = attacker.level();
                     AABB area = new AABB(target.getX() - 2, target.getY() - 1, target.getZ() - 2,
                             target.getX() + 2, target.getY() + 1, target.getZ() + 2);
@@ -62,12 +58,13 @@ public class Poisonous_explosion extends NoLevelsModifier implements MeleeHitMod
                     float z = target.getHealth();
                     float damage = (float) (10 * X * Y + 0.03 * x * z);
                     for (LivingEntity entity : nearbyEntities) {
+                        if (entity == attacker) continue;
                         entity.hurt(damageSource, damage);
-                        entity.setLastHurtByMob(context.getAttacker());
+                        entity.setLastHurtByMob(attacker);
                     }
                     player.getCooldowns().addCooldown(mainhand.getItem(), Poisonous_explosionCoolDown);
                 }
             }
         }
     }
-}}}
+}

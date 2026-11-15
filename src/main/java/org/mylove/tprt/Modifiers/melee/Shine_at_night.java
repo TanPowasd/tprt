@@ -44,11 +44,11 @@ public class Shine_at_night extends PolishModifier implements ToolStatsModifierH
         LivingEntity attacker=context.getAttacker();
         double x = 1f;
         if (entity != null && attacker instanceof Player){
-            if (iToolStackView.getStats().get(POLISH_STAT) > 100){
+            if (getPolish(iToolStackView) > 100 || iToolStackView.getStats().get(POLISH_STAT) > 100){
                 x = 1 + (0.25 * (2 + modifierEntry.getLevel()));
             }
         }
-        return (float) (baseDamage * x);
+        return (float) (damage * x);
     }
 
     @Override

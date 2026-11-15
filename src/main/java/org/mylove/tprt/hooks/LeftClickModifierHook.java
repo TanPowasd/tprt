@@ -2,14 +2,21 @@ package org.mylove.tprt.hooks;
 
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import org.mylove.tprt.Tprt;
 import org.mylove.tprt.network.PacketHandler;
 import org.mylove.tprt.network.PlayerLeftClickEmpty;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
@@ -23,6 +30,9 @@ public interface LeftClickModifierHook {
     }
 
     static void handleLeftClick(ItemStack stack, Player player, EquipmentSlot slot) {
+        if (stack.isEmpty() || !(stack.getItem() instanceof IModifiable)) {
+            return;
+        }
         Level level = player.level();
         IToolStackView tool = ToolStack.from(stack);
 
@@ -37,6 +47,9 @@ public interface LeftClickModifierHook {
     }
 
     static void handleLeftClickBlock(ItemStack stack, Player player, EquipmentSlot slot, BlockState state, BlockPos pos) {
+        if (stack.isEmpty() || !(stack.getItem() instanceof IModifiable)) {
+            return;
+        }
         Level level = player.level();
         IToolStackView tool = ToolStack.from(stack);
 
@@ -44,6 +57,20 @@ public interface LeftClickModifierHook {
             entry.getHook(TprtHooks.LEFT_CLICK).onLeftClickBlock(tool, entry, player, level, slot, state, pos);
         }
 
+    }
+
+    @Mod.EventBusSubscriber(modid = Tprt.MODID, value = Dist.CLIENT)
+    class ClientEvents {
+        @SubscribeEvent
+        public static void onLeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
+            if (event.getHand() == InteractionHand.MAIN_HAND) {
+                Player player = event.getEntity();
+                ItemStack stack = player.getMainHandItem();
+                if (!stack.isEmpty() && stack.getItem() instanceof IModifiable) {
+                    handleLeftClick(stack, player, EquipmentSlot.MAINHAND);
+                }
+            }
+        }
     }
 
     record AllMerger(

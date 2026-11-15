@@ -49,16 +49,20 @@ public class Gauntlet_of_Guard extends NoLevelsModifier implements GeneralIntera
 
     @Override
     public void onUsingTick(IToolStackView tool, ModifierEntry modifier, LivingEntity entity, int timeLeft) {
-        double radius = 11.0D;
         Level world = entity.level();
-        List<LivingEntity> list = world.getEntitiesOfClass(LivingEntity.class, entity.getBoundingBox().inflate(radius));
-        for (LivingEntity entitys : list) {
-            if (entitys instanceof Player && ((Player) entitys).getAbilities().invulnerable) continue;
-            Vec3 diff = entitys.position().subtract(entity.position().add(0,0,0));
-            diff = diff.normalize().scale(0.1);
-            entitys.setDeltaMovement(entitys.getDeltaMovement().subtract(diff));
-            int x = (int) Objects.requireNonNull(entity.getAttribute(Attributes.ATTACK_DAMAGE)).getValue();
-            entitys.hurt(entitys.damageSources().dragonBreath(), (float) (0.1 * x + 2));
+        if (!world.isClientSide) {
+            double radius = 11.0D;
+            List<LivingEntity> list = world.getEntitiesOfClass(LivingEntity.class, entity.getBoundingBox().inflate(radius));
+            for (LivingEntity entitys : list) {
+                if (entitys == entity) continue;
+                if (entitys instanceof Player && ((Player) entitys).getAbilities().invulnerable) continue;
+                Vec3 diff = entitys.position().subtract(entity.position());
+                diff = diff.normalize().scale(0.1);
+                entitys.setDeltaMovement(entitys.getDeltaMovement().subtract(diff));
+                var attr = entity.getAttribute(Attributes.ATTACK_DAMAGE);
+                int x = (int) (attr != null ? attr.getValue() : 1.0);
+                entitys.hurt(entitys.damageSources().dragonBreath(), (float) (0.1 * x + 2));
+            }
         }
         if (world.isClientSide) {
             for (int i = 0; i < 3; ++i) {

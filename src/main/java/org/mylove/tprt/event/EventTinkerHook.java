@@ -4,6 +4,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -17,6 +18,8 @@ import org.mylove.tprt.hooks.KillingHook;
 import org.mylove.tprt.hooks.TprtHooks;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.HashSet;
@@ -49,6 +52,7 @@ public class EventTinkerHook {
     }
 
     /// {@link LivingEntity#actuallyHurt(DamageSource, float)}
+    @SuppressWarnings({"removal", "deprecation"})
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void triggerDamageRedirectHook(LivingHurtEvent event) {
         if (!event.getSource().is(DamageTypes.PLAYER_ATTACK)) return;
@@ -69,7 +73,13 @@ public class EventTinkerHook {
                         // 重定向伤害
                         event.setCanceled(true);
                         target.invulnerableTime = 0;
-                        target.hurt(newSource, event.getAmount());
+                        boolean hurtSuccess = target.hurt(newSource, event.getAmount());
+                        if (hurtSuccess) {
+                            ToolAttackContext context = new ToolAttackContext(attacker, attacker, InteractionHand.MAIN_HAND, EquipmentSlot.MAINHAND, target, target, false, 1.0f, false);
+                            for (ModifierEntry modEntry : tinkerTool.getModifierList()) {
+                                modEntry.getHook(ModifierHooks.MELEE_HIT).afterMeleeHit(tinkerTool, modEntry, context, event.getAmount());
+                            }
+                        }
                         break;
                     }
                 }

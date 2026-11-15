@@ -1,7 +1,6 @@
 package org.mylove.tprt.Modifiers.re;
 
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -14,21 +13,17 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.OwnableEntity;
-import net.minecraft.world.entity.TraceableEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.entity.PartEntity;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -42,8 +37,8 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mylove.tprt.Tprt;
-import org.mylove.tprt.registries.ModDamageSource;
+import org.mylove.tprt.common.chtholly.ChthollyCombatHelper;
+import org.mylove.tprt.common.chtholly.ChthollySyncData;
 import org.mylove.tprt.registries.ModifierIds;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -53,38 +48,32 @@ import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.WeakHashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 /*
   ============================================================
   现在的我，不管别人怎么说，都一定是世界上最幸福的女孩
-  (happiest_girl_in_the_world) —— 挚爱 (chtholly) · 工匠护符核心词条
-
-  设计原则:
-    - 零硬编码点名联动, 纯底层机制自洽, 与「瑟尼欧里斯」「末日三问」自然叠加
-    - 全面兼容其他模组机制 (跨模组法术/吐息/激光穿甲伤害识别、直接 setHealth 扣血/治疗拦截、
-      非进食通道饱食度恢复、召唤物/法术/远程投射物攻击归因、多部件 Boss 破无敌帧)
+  (happiest_girl_in_the_world) —— 挚爱 (chtholly) · 工匠护符/战旗核心词条
 
   1) 【现在的我】—— 胸针与黄油蛋糕 (增益留温升阶 + 幸福护盾):
      - 美好留温: 获得任何正面药水效果 (BENEFICIAL) 时, 持续时间延长 100%;
-       若当前生命值 ≥ 50%, 正面效果等级额外 +1 (最高升至 V 级, 自动过滤内部计数型状态)
+       若当前生命值 ≥ 50%, 正面效果等级额外 +1 (最高升至 V 级, 抗性提升安全封顶于 III 级避免 100% 锁血无敌,
+       并按玩家维度记录原始/升阶等级防止信标刷新或重登切维无限叠层)
      - 治疗增幅与溢疗护盾: 受到任何治疗时治疗量 +30%, 生命回满后的溢出治疗 100% 转化为「幸福护盾」
      - 黄油蛋糕的余温: 进食或通过其他模组机制恢复饥饿值时立即获得 (饥饿值 × 3%) 最大生命值的幸福护盾;
        饱食度 ≥ 16 时每秒自然温养 2% 最大生命值的幸福护盾 (自然温养上限 40%, 总护盾上限 100% 最大生命值)
-     - 幸福护盾实时映射为金心 (Absorption), 优先替本体承受常规伤害与模组直接 setHealth 扣血
+     - 幸福护盾实时映射为金心 (Absorption), 优先替本体承受常规伤害与外部模组直接 setHealth 扣血
+       (与「末日三问」延迟池自然流逝无冲突协同, 并完整保留金苹果等高于上限的外部额外金心)
 
   2) 【不管别人怎么说】—— 心意不移 (护盾庇护):
      - 拥有幸福护盾或处于「幸福终幕」期间:
@@ -98,8 +87,6 @@ import java.util.WeakHashMap;
          +25% 攻击力、+25% 护甲值、+25% 攻击速度
        * 幸福星火追击: 终幕期间每次攻击 (含近战/远程/法术/召唤物) 命中额外造成
          (35% 有效攻击基准 + 50% 本轮峰值护盾) 的纯粹真伤, 并回复该真伤 25% 的生命值
-
-  数值均为顶部常量, 可自由调整
   ============================================================
  */
 public class happiest_girl_in_the_world extends NoLevelsModifier implements TooltipModifierHook {
@@ -108,12 +95,13 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
     public static final float BENEFICIAL_DURATION_MULTIPLIER = 2.0f; // 正面药水持续时间倍率 (×2.0 = 延长 100%)
     public static final float UPGRADE_EFFECT_MIN_HP_RATIO = 0.50f;   // 正面药水等级 +1 所需生命比例 (50%)
     public static final int MAX_UPGRADED_AMPLIFIER = 4;              // 药水升阶最高等级上限 (amplifier 4 = 等级 V)
+    public static final int MAX_RESISTANCE_AMPLIFIER = 2;            // 抗性提升升阶安全上限 (amplifier 2 = 抗性 III = 60% 减伤, 防抗性 V 100% 免伤)
 
     public static final float HEAL_AMPLIFY_BONUS = 0.30f;            // 受到治疗增幅比例 (+30%)
     public static final float OVERFLOW_TO_SHIELD_RATIO = 1.00f;      // 溢出治疗转化为幸福护盾比例 (100%)
     public static final float MAX_SHIELD_RATIO = 1.00f;              // 幸福护盾最大上限 (100% 最大生命值)
     public static final float FOOD_SHIELD_PER_NUTRITION = 0.03f;     // 每点食物饥饿值转化的最大生命护盾比例 (3%)
-    public static final float MIN_FOOD_SHIELD_RATIO = 0.06f;         // 单次进食最低护盾获取比例 (6% 最大生命值)
+    public static final float MIN_FOOD_SHIELD_RATIO = 0.06f;         // 单次主动进食最低护盾获取比例 (6% 最大生命值)
     public static final int WARMTH_MIN_FOOD_LEVEL = 16;              // 自然温养所需最低饱食度 (16)
     public static final float NATURAL_WARMTH_PER_SEC_RATIO = 0.02f;  // 每秒自然温养护盾比例 (2% 最大生命值)
     public static final float NATURAL_WARMTH_CAP_RATIO = 0.40f;      // 自然温养护盾上限 (40% 最大生命值)
@@ -133,26 +121,19 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
     public static final float FINALE_SHIELD_TRUE_DMG_RATIO = 0.50f;  // 终幕星火追击: 峰值护盾转化率 (50%)
     public static final float FINALE_LIFESTEAL_RATIO = 0.25f;        // 终幕星火追击: 真伤生命回复比例 (25%)
 
-    // 玩家持久化冷却 Key
     private static final String PLAYER_NBT_COOLDOWN = "tprt_happiest_girl_cd";
+    private static final String PLAYER_NBT_BOOSTED_EFFECTS = "tprt_hg_boosted_fx";
 
-    // 护符 Tooltip 同步 Key
-    private static final ResourceLocation SYNC_SHIELD_TENTHS = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "hg_shield_tenths");
-    private static final ResourceLocation SYNC_PEAK_TENTHS = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "hg_peak_tenths");
-    private static final ResourceLocation SYNC_FINALE_SEC = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "hg_finale_sec");
-    private static final ResourceLocation SYNC_CD_SEC = ResourceLocation.fromNamespaceAndPath(Tprt.MODID, "hg_cd_sec");
-
-    // 幸福终幕临时属性修饰符 UUID
     private static final UUID FINALE_ATK_UUID = UUID.fromString("d82b47c1-3e94-4a12-b850-7f1a2d9e60b1");
     private static final UUID FINALE_ARMOR_UUID = UUID.fromString("d82b47c1-3e94-4a12-b850-7f1a2d9e60b2");
     private static final UUID FINALE_ATK_SPEED_UUID = UUID.fromString("d82b47c1-3e94-4a12-b850-7f1a2d9e60b3");
 
     /** 服务端玩家实时状态表 */
-    private static final Map<UUID, PlayerState> STATES = new HashMap<>();
-    /** 已升阶过的药水实例表 (防同一实例重复翻倍) */
-    private static final Set<MobEffectInstance> BOOSTED_EFFECTS = Collections.newSetFromMap(new WeakHashMap<>());
+    private static final Map<UUID, PlayerState> STATES = new ConcurrentHashMap<>();
     /** 星火追击重入保护 */
-    private static final Set<UUID> TRIGGERING_STARFIRE = new HashSet<>();
+    private static final Set<UUID> TRIGGERING_STARFIRE = ConcurrentHashMap.newKeySet();
+    /** 药水升阶重入保护 */
+    private static final ThreadLocal<Boolean> APPLYING_EFFECT_BOOST = ThreadLocal.withInitial(() -> false);
 
     static {
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, false, LivingHealEvent.class, happiest_girl_in_the_world::onLivingHeal);
@@ -162,9 +143,27 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST, false, LivingKnockBackEvent.class, happiest_girl_in_the_world::onLivingKnockBack);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.LOWEST, false, LivingHurtEvent.class, happiest_girl_in_the_world::onLivingHurt);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.LOW, false, LivingDamageEvent.class, happiest_girl_in_the_world::onLivingDamage);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, TickEvent.PlayerTickEvent.class, happiest_girl_in_the_world::onPlayerTick);
+        // HIGH 优先级早于末日三问 (NORMAL) 运行: 外部直接扣血先扣幸福护盾，剩余伤害再交由末日三问减免/入池
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, false, TickEvent.PlayerTickEvent.class, happiest_girl_in_the_world::onPlayerTick);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, PlayerEvent.Clone.class, happiest_girl_in_the_world::onPlayerClone);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, PlayerEvent.PlayerChangedDimensionEvent.class, happiest_girl_in_the_world::onDimensionChange);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, PlayerEvent.PlayerLoggedOutEvent.class, happiest_girl_in_the_world::onPlayerLogout);
+    }
+
+    public static void clearServerState() {
+        STATES.clear();
+        TRIGGERING_STARFIRE.clear();
+    }
+
+    /**
+     * 供「末日三问」内部延迟伤害池流逝/结算时同步最新生命水位，
+     * 避免将本模组护甲延迟池自然结算误判为外部模组直接扣血而白吞幸福护盾。
+     */
+    public static void notifyInternalHealthChange(Player player, float newHealth) {
+        PlayerState state = STATES.get(player.getUUID());
+        if (state != null) {
+            state.lastTrackedHealth = newHealth;
+        }
     }
 
     @Override
@@ -182,7 +181,6 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         if (amount <= 0.0f || !Float.isFinite(amount)) return;
         if (!isWearingCharm(player)) return;
 
-        // 提升 30% 受治疗量 (HIGH 优先级, 天然放大后续「末日三问」LOWEST 的溢疗清池)
         float boosted = amount * (1.0f + HEAL_AMPLIFY_BONUS);
         event.setAmount(boosted);
 
@@ -193,7 +191,6 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
             addShield(player, state, overflow * OVERFLOW_TO_SHIELD_RATIO, maxHp * MAX_SHIELD_RATIO);
         }
         state.lastTrackedHealth = Math.min(maxHp, player.getHealth() + boosted);
-        syncCharmNbt(player, state);
     }
 
     // ============================================================
@@ -213,19 +210,18 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         PlayerState state = getOrCreateState(player);
         addShield(player, state, maxHp * ratio, maxHp * MAX_SHIELD_RATIO);
         state.lastFoodLevel = player.getFoodData().getFoodLevel();
-        syncCharmNbt(player, state);
     }
 
     // ============================================================
-    //  第一幕: 3) 美好留温 —— 正面药水持续时间翻倍 & 半血以上等级 +1
+    //  第一幕: 3) 美好留温 —— 正面药水持续时间翻倍 & 半血以上等级 +1 (防重复叠层与防抗性 V 无敌)
     // ============================================================
     private static void onMobEffectAdded(MobEffectEvent.Added event) {
+        if (APPLYING_EFFECT_BOOST.get()) return;
         if (!(event.getEntity() instanceof Player player) || player.level().isClientSide) return;
         MobEffectInstance incoming = event.getEffectInstance();
         if (incoming == null) return;
 
         MobEffect effect = incoming.getEffect();
-        // 若其他模组绕过 Applicable 强行塞入负面效果, 在护盾/终幕期间标记立即净除
         if (effect.getCategory() == MobEffectCategory.HARMFUL) {
             PlayerState state = STATES.get(player.getUUID());
             if (state != null && (state.shield > 0.0f || state.finaleTicks > 0) && isWearingCharm(player)) {
@@ -234,31 +230,60 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
             return;
         }
 
-        if (BOOSTED_EFFECTS.contains(incoming)) return;
         if (effect.getCategory() != MobEffectCategory.BENEFICIAL || effect.isInstantenous()) return;
         if (incoming.isInfiniteDuration() || incoming.getDuration() <= 0) return;
         if (isInternalCounterEffect(effect)) return;
         if (!isWearingCharm(player)) return;
 
-        BOOSTED_EFFECTS.add(incoming);
+        PlayerState state = getOrCreateState(player);
+        long now = player.level().getGameTime();
 
-        int newDuration = Mth.clamp(Math.round(incoming.getDuration() * BENEFICIAL_DURATION_MULTIPLIER),
-                incoming.getDuration(), 72000);
-        int newAmplifier = incoming.getAmplifier();
-        if (player.getHealth() >= player.getMaxHealth() * UPGRADE_EFFECT_MIN_HP_RATIO && newAmplifier < MAX_UPGRADED_AMPLIFIER) {
-            newAmplifier = Math.min(MAX_UPGRADED_AMPLIFIER, newAmplifier + 1);
+        // 切维/重生复制药水宽限窗口内不二次升阶已存在效果
+        if (now <= state.cloneGraceUntil) {
+            return;
         }
 
-        MobEffectInstance upgraded = new MobEffectInstance(
-                effect,
-                newDuration,
-                newAmplifier,
-                incoming.isAmbient(),
-                incoming.isVisible(),
-                incoming.showIcon()
-        );
-        BOOSTED_EFFECTS.add(upgraded);
-        incoming.update(upgraded);
+        int rawAmp = incoming.getAmplifier();
+        int rawDur = incoming.getDuration();
+        MobEffectInstance oldInst = event.getOldEffectInstance();
+        BoostedEffectMeta meta = state.boostedEffects.get(effect);
+
+        if (meta != null && now < meta.expireGameTime) {
+            int expectedRemaining = (int) (meta.expireGameTime - now);
+            // 若新塞入的实例等级与已升阶等级完全一致，且剩余时长与当前已升阶剩余时长吻合，判定为跨模组状态复制/同步，跳过二次升阶
+            if (rawAmp == meta.boostedAmplifier && meta.rawAmplifier < meta.boostedAmplifier
+                    && rawDur <= expectedRemaining + 10) {
+                return;
+            }
+            if (oldInst != null && rawAmp == oldInst.getAmplifier() && Math.abs(rawDur - oldInst.getDuration()) <= 5) {
+                return;
+            }
+        }
+
+        int newDuration = Mth.clamp(Math.round(rawDur * BENEFICIAL_DURATION_MULTIPLIER), rawDur, 72000);
+        int maxAllowedAmp = (effect == MobEffects.DAMAGE_RESISTANCE) ? MAX_RESISTANCE_AMPLIFIER : MAX_UPGRADED_AMPLIFIER;
+        int newAmplifier = rawAmp;
+        if (player.getHealth() >= player.getMaxHealth() * UPGRADE_EFFECT_MIN_HP_RATIO && rawAmp < maxAllowedAmp) {
+            newAmplifier = Math.min(maxAllowedAmp, rawAmp + 1);
+        }
+
+        state.boostedEffects.put(effect, new BoostedEffectMeta(rawAmp, newAmplifier, now + newDuration));
+        saveBoostedEffects(player, state, now);
+
+        APPLYING_EFFECT_BOOST.set(true);
+        try {
+            MobEffectInstance upgraded = new MobEffectInstance(
+                    effect,
+                    newDuration,
+                    newAmplifier,
+                    incoming.isAmbient(),
+                    incoming.isVisible(),
+                    incoming.showIcon()
+            );
+            incoming.update(upgraded);
+        } finally {
+            APPLYING_EFFECT_BOOST.remove();
+        }
     }
 
     // ============================================================
@@ -284,7 +309,7 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
     }
 
     // ============================================================
-    //  伤害前层: 1) 穿甲/法术/吐息/激光伤害减免 40%  2) 暂存金心防原版提前吞盾
+    //  伤害前层: 1) 穿甲/法术/吐息/激光伤害减免 40%  2) 暂存金心并在伤害取消时无损还原
     // ============================================================
     private static void onLivingHurt(LivingHurtEvent event) {
         LivingEntity entity = event.getEntity();
@@ -294,30 +319,25 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         if (!isWearingCharm(player)) return;
 
         PlayerState state = getOrCreateState(player);
-        foldExternalAbsorption(player, state);
+        syncAbsorptionFromPlayer(player, state);
 
-        // 护盾或终幕庇护下, 原版穿甲与跨模组魔法/法术/龙息/深渊/激光伤害降低 40%
         if ((state.shield > 0.0f || state.finaleTicks > 0) && isBypassOrModdedSpellDamage(event.getSource())) {
             event.setAmount(event.getAmount() * (1.0f - BYPASS_ARMOR_REDUCTION));
-        }
-
-        // 暂存原版 Absorption, 由 onLivingDamage 统一用幸福护盾结算并识别碎盾瞬间
-        if (state.shield > 0.0f && player.getAbsorptionAmount() > 0.0f) {
-            player.setAbsorptionAmount(0.0f);
         }
     }
 
     // ============================================================
-    //  最终伤害层: 1) 终幕星火追击 (含远程/法术/召唤物)  2) 幸福护盾吸收与碎盾开启【幸福终幕】
+    //  最终伤害层: 1) 终幕星火追击  2) 幸福护盾与外部金心吸收及碎盾开启【幸福终幕】
     // ============================================================
     private static void onLivingDamage(LivingDamageEvent event) {
         LivingEntity target = event.getEntity();
-        if (target.level().isClientSide || event.getAmount() <= 0.0f || !Float.isFinite(event.getAmount())) return;
+        if (target.level().isClientSide || !Float.isFinite(event.getAmount())) return;
 
-        // 1) 攻击者处于【幸福终幕】 -> 触发幸福星火真伤追击并回血 (兼容近战/远程/法术/召唤物)
-        Player attacker = resolvePlayerAttacker(event.getSource());
-        if (attacker != null && attacker != target) {
-            if (!TRIGGERING_STARFIRE.contains(attacker.getUUID())) {
+        // 1) 攻击者处于【幸福终幕】 -> 触发幸福星火真伤追击并回血 (防纯粹真伤跨词条递归)
+        if (event.getAmount() > 0.0f && !ChthollyCombatHelper.isDealingPureDamage()
+                && !ChthollyCombatHelper.isDealingPureDamage(target)) {
+            Player attacker = ChthollyCombatHelper.resolvePlayerAttacker(event.getSource());
+            if (attacker != null && attacker != target && !TRIGGERING_STARFIRE.contains(attacker.getUUID())) {
                 PlayerState atkState = STATES.get(attacker.getUUID());
                 if (atkState != null && atkState.finaleTicks > 0 && isWearingCharm(attacker)) {
                     triggerStarfirePursuit(attacker, target, atkState, event.getAmount());
@@ -325,26 +345,31 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
             }
         }
 
-        // 2) 受击者佩戴本护符 -> 幸福护盾吸收伤害 & 检测碎盾绽放【幸福终幕】
+        // 2) 受击者佩戴本护符 -> 结算金心/幸福护盾吸收 & 检测碎盾绽放【幸福终幕】
         if (!(target instanceof Player player)) return;
         if (!isWearingCharm(player)) return;
 
         PlayerState state = getOrCreateState(player);
-        float amount = event.getAmount();
+        state.stashedTotalAbsorption = 0.0f;
 
-        if (state.shield > 0.0f) {
+        float amount = Math.max(0.0f, event.getAmount());
+        if (amount > 0.0f && state.externalExtraAbsorption > 0.0f) {
+            float extAbsorbed = Math.min(state.externalExtraAbsorption, amount);
+            state.externalExtraAbsorption -= extAbsorbed;
+            amount -= extAbsorbed;
+        }
+        if (amount > 0.0f && state.shield > 0.0f) {
             float absorbed = absorbWithShield(player, state, amount);
             amount -= absorbed;
-            event.setAmount(amount);
         }
+        event.setAmount(amount);
 
         state.lastTrackedHealth = Math.max(0.0f, player.getHealth() - amount);
-        player.setAbsorptionAmount(state.shield);
-        syncCharmNbt(player, state);
+        player.setAbsorptionAmount(state.shield + state.externalExtraAbsorption);
     }
 
     // ============================================================
-    //  每 tick 驱动: 跨模组直接扣血拦截 / 非进食回饱食度捕获 / 自然温养 / 负面净除 / 终幕倒计时
+    //  每 tick 驱动: 外部直接扣血拦截 / 非进食回饱食度 / 自然温养 / 负面净除 / 终幕倒计时
     // ============================================================
     private static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
@@ -363,28 +388,52 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         }
 
         PlayerState state = getOrCreateState(player);
-        foldExternalAbsorption(player, state);
+        long now = player.level().getGameTime();
+
+        // 若之前遗留了暂存金心则安全归还
+        if (state.stashedTotalAbsorption > 0.0f) {
+            player.setAbsorptionAmount(Math.max(player.getAbsorptionAmount(), state.stashedTotalAbsorption));
+            state.stashedTotalAbsorption = 0.0f;
+        }
+
+        syncAbsorptionFromPlayer(player, state);
 
         float currentHp = player.getHealth();
         float maxHp = Math.max(1.0f, player.getMaxHealth());
 
-        // 0) 跨模组直接 setHealth 扣血拦截: 若其他模组绕过 hurt 事件直接扣减玩家生命值, 优先由幸福护盾替本体承受
-        if (state.lastTrackedHealth > 0.0f && currentHp < state.lastTrackedHealth - 0.05f && state.shield > 0.0f) {
-            // 仅在非「末日三问」每秒延迟池自然流逝时拦截, 或当血量即将跌破半血/致死时兜底保护
+        // 卸载增血装备时生命上限下降导致的自然血量截断，先扣除自然差值，不把该部分视为外界伤害
+        if (state.lastTrackedMaxHealth > 0.0f && maxHp < state.lastTrackedMaxHealth - 0.05f) {
+            state.lastTrackedHealth = Math.min(state.lastTrackedHealth, maxHp);
+        }
+        state.lastTrackedMaxHealth = maxHp;
+
+        // 0) 外部模组直接 setHealth 扣血拦截 (末日三问内部流逝已通过 notifyInternalHealthChange 同步水位，不会误触发)
+        if (state.lastTrackedHealth > 0.0f && currentHp < state.lastTrackedHealth - 0.05f
+                && (state.shield > 0.0f || state.externalExtraAbsorption > 0.0f)) {
             float directDrop = state.lastTrackedHealth - currentHp;
-            float absorbed = absorbWithShield(player, state, directDrop);
-            if (absorbed > 0.0f) {
-                currentHp = Math.min(maxHp, currentHp + absorbed);
+            float totalAbsorbed = 0.0f;
+            if (state.externalExtraAbsorption > 0.0f) {
+                float ext = Math.min(state.externalExtraAbsorption, directDrop);
+                state.externalExtraAbsorption -= ext;
+                directDrop -= ext;
+                totalAbsorbed += ext;
+            }
+            if (directDrop > 0.0f && state.shield > 0.0f) {
+                totalAbsorbed += absorbWithShield(player, state, directDrop);
+            }
+            if (totalAbsorbed > 0.0f) {
+                currentHp = Math.min(maxHp, currentHp + totalAbsorbed);
                 player.setHealth(currentHp);
             }
         }
         state.lastTrackedHealth = player.getHealth();
+        state.lastTrackedMaxHealth = maxHp;
 
-        // 0.5) 跨模组非进食通道饱食度恢复捕获 (如机械动力注液、背包自动喂食、法术回饱食度等)
+        // 0.5) 跨模组非进食通道饱食度恢复捕获: 按实际饥饿增量线性折算 3%/点 (不设 6% 保底以防饱和药水刷满盾)
         int currentFood = player.getFoodData().getFoodLevel();
         if (state.lastFoodLevel >= 0 && currentFood > state.lastFoodLevel) {
             int gainedFood = currentFood - state.lastFoodLevel;
-            float ratio = Math.max(MIN_FOOD_SHIELD_RATIO, gainedFood * FOOD_SHIELD_PER_NUTRITION);
+            float ratio = gainedFood * FOOD_SHIELD_PER_NUTRITION;
             addShield(player, state, maxHp * ratio, maxHp * MAX_SHIELD_RATIO);
         }
         state.lastFoodLevel = currentFood;
@@ -395,6 +444,12 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
             if (state.cooldownTicks == 0 || player.tickCount % 20 == 0) {
                 saveCooldown(player, state.cooldownTicks);
             }
+        }
+
+        // 定期清理已过期的药水升阶记录
+        if (player.tickCount % 100 == 0 && !state.boostedEffects.isEmpty()) {
+            state.boostedEffects.entrySet().removeIf(e -> now >= e.getValue().expireGameTime || !player.hasEffect(e.getKey()));
+            saveBoostedEffects(player, state, now);
         }
 
         // 2) 【幸福终幕】倒计时与结束处理
@@ -420,22 +475,40 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
             cleanseHarmfulEffects(player);
         }
 
-        // 5) 同步金心显示与护符 NBT
-        if (Math.abs(player.getAbsorptionAmount() - state.shield) > 0.05f) {
-            player.setAbsorptionAmount(state.shield);
+        // 5) 同步金心显示
+        float expectedAbs = state.shield + state.externalExtraAbsorption;
+        if (Math.abs(player.getAbsorptionAmount() - expectedAbs) > 0.05f) {
+            player.setAbsorptionAmount(expectedAbs);
         }
-        syncCharmNbt(player, state);
     }
 
     private static void onPlayerClone(PlayerEvent.Clone event) {
-        UUID id = event.getEntity().getUUID();
-        STATES.remove(id);
+        Player next = event.getEntity();
+        UUID id = next.getUUID();
         TRIGGERING_STARFIRE.remove(id);
         if (event.isWasDeath()) {
-            saveCooldown(event.getEntity(), 0);
+            STATES.remove(id);
+            saveCooldown(next, 0);
+            next.getPersistentData().remove(PLAYER_NBT_BOOSTED_EFFECTS);
         } else {
             int cd = loadCooldown(event.getOriginal());
-            saveCooldown(event.getEntity(), cd);
+            saveCooldown(next, cd);
+            CompoundTag oldBoosted = event.getOriginal().getPersistentData().getCompound(PLAYER_NBT_BOOSTED_EFFECTS);
+            if (!oldBoosted.isEmpty()) {
+                next.getPersistentData().put(PLAYER_NBT_BOOSTED_EFFECTS, oldBoosted.copy());
+            }
+            PlayerState state = getOrCreateState(next);
+            state.cloneGraceUntil = next.level().getGameTime() + 5L;
+        }
+    }
+
+    private static void onDimensionChange(PlayerEvent.PlayerChangedDimensionEvent event) {
+        Player player = event.getEntity();
+        if (player != null && !player.level().isClientSide) {
+            PlayerState state = STATES.get(player.getUUID());
+            if (state != null) {
+                state.cloneGraceUntil = player.level().getGameTime() + 5L;
+            }
         }
     }
 
@@ -446,20 +519,40 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         if (state != null) {
             removeFinaleModifiers(player);
             saveCooldown(player, state.cooldownTicks);
+            saveBoostedEffects(player, state, player.level().getGameTime());
         }
     }
 
     // ============================================================
-    //  Tooltip 显示
+    //  Tooltip 显示 & HUD 快照导出 (零 ItemStack NBT 污染)
     // ============================================================
+
+    public record HappiestGirlHudSnapshot(boolean equipped, int shieldTenths, int peakTenths, int finaleSec, int cdSec) {
+    }
+
+    public static HappiestGirlHudSnapshot getHudSnapshot(Player player) {
+        boolean equipped = isWearingCharm(player);
+        PlayerState state = STATES.get(player.getUUID());
+        if (!equipped || state == null) {
+            return new HappiestGirlHudSnapshot(equipped, 0, 0, 0, 0);
+        }
+        return new HappiestGirlHudSnapshot(
+                true,
+                Math.round(state.shield * 10.0f),
+                Math.round(Math.max(state.peakShield, state.finaleBonusShield) * 10.0f),
+                (state.finaleTicks + 19) / 20,
+                (state.cooldownTicks + 19) / 20
+        );
+    }
+
     @Override
     public void addTooltip(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, @Nullable Player player,
                            @NotNull List<Component> tooltip, @NotNull TooltipKey tooltipKey, @NotNull TooltipFlag tooltipFlag) {
-        ModDataNBT data = tool.getPersistentData();
-        int shieldTenths = data.getInt(SYNC_SHIELD_TENTHS);
-        int peakTenths = data.getInt(SYNC_PEAK_TENTHS);
-        int finaleSec = data.getInt(SYNC_FINALE_SEC);
-        int cdSec = data.getInt(SYNC_CD_SEC);
+        ChthollySyncData sync = ChthollySyncData.getClient();
+        int shieldTenths = sync.hgShieldTenths();
+        int peakTenths = sync.hgPeakTenths();
+        int finaleSec = sync.hgFinaleSec();
+        int cdSec = sync.hgCdSec();
 
         if (finaleSec > 0) {
             tooltip.add(Component.translatable("tooltip.tprt.happiest_girl.state_finale", finaleSec));
@@ -489,10 +582,9 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         float maxAllowed = Math.max(state.shield, cap);
         state.shield = Math.min(maxAllowed, state.shield + gain);
         state.peakShield = Math.max(state.peakShield, state.shield);
-        player.setAbsorptionAmount(state.shield);
+        player.setAbsorptionAmount(state.shield + state.externalExtraAbsorption);
     }
 
-    /** 扣除幸福护盾并在归零时判定是否开启【幸福终幕】 */
     private static float absorbWithShield(Player player, PlayerState state, float incomingDamage) {
         if (state.shield <= 0.0f || incomingDamage <= 0.0f) return 0.0f;
         float absorbed = Math.min(state.shield, incomingDamage);
@@ -510,13 +602,27 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         return absorbed;
     }
 
-    /** 兼容金苹果或模组护盾提供的伤害吸收金心, 自动并入幸福护盾统一管理 */
-    private static void foldExternalAbsorption(Player player, PlayerState state) {
+    /** 兼容金苹果或模组护盾提供的伤害吸收金心: 在 100% 最大生命上限内并入幸福护盾，超出部分无损保留于 externalExtraAbsorption */
+    private static void syncAbsorptionFromPlayer(Player player, PlayerState state) {
         float currentAbs = player.getAbsorptionAmount();
-        if (currentAbs > state.shield + 0.05f) {
+        float trackedTotal = state.shield + state.externalExtraAbsorption;
+        if (currentAbs > trackedTotal + 0.05f) {
             float maxCap = Math.max(1.0f, player.getMaxHealth()) * MAX_SHIELD_RATIO;
-            state.shield = Math.min(maxCap, currentAbs);
+            float added = currentAbs - trackedTotal;
+            float roomInShield = Math.max(0.0f, maxCap - state.shield);
+            float intoShield = Math.min(roomInShield, added);
+            state.shield += intoShield;
             state.peakShield = Math.max(state.peakShield, state.shield);
+            state.externalExtraAbsorption += (added - intoShield);
+        } else if (currentAbs < trackedTotal - 0.05f) {
+            // 若外部效果自然到期导致总金心减少，优先扣减外部额外金心
+            float lost = trackedTotal - currentAbs;
+            float fromExternal = Math.min(state.externalExtraAbsorption, lost);
+            state.externalExtraAbsorption -= fromExternal;
+            lost -= fromExternal;
+            if (lost > 0.0f) {
+                state.shield = Math.max(0.0f, state.shield - lost);
+            }
         }
     }
 
@@ -552,7 +658,6 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         applyFinaleModifiers(player);
         cleanseHarmfulEffects(player);
 
-        // 爆发瞬间: 黄金妖精共鸣 8 格星火震击
         Level level = player.level();
         float atk = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
         float burstDmg = atk * FINALE_ATK_TRUE_DMG_RATIO + state.finaleBonusShield * FINALE_SHIELD_TRUE_DMG_RATIO;
@@ -560,14 +665,15 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         List<LivingEntity> targets = level.getEntitiesOfClass(
                 LivingEntity.class,
                 player.getBoundingBox().inflate(FINALE_RADIUS),
-                e -> isValidTarget(player, e) && e.distanceToSqr(player) <= FINALE_RADIUS * FINALE_RADIUS
+                e -> ChthollyCombatHelper.isValidHostileTarget(player, e)
+                        && e.distanceToSqr(player) <= FINALE_RADIUS * FINALE_RADIUS
         );
 
         UUID id = player.getUUID();
         TRIGGERING_STARFIRE.add(id);
         try {
             for (LivingEntity victim : targets) {
-                dealPureTrueDamage(player, victim, burstDmg);
+                ChthollyCombatHelper.dealPureDamage(player, victim, burstDmg);
                 double dx = victim.getX() - player.getX();
                 double dz = victim.getZ() - player.getZ();
                 double dist = Math.sqrt(dx * dx + dz * dz);
@@ -595,9 +701,9 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         player.displayClientMessage(Component.translatable("message.tprt.happiest_girl.finale_start"), true);
     }
 
-    /** 终幕期间每次攻击命中: 幸福星火真伤追击 (取面板攻击与本击伤害较高者作为基准, 全面兼容远程/法术) + 25% 真伤回血 */
     private static void triggerStarfirePursuit(Player attacker, LivingEntity target, PlayerState state, float hitDamage) {
-        if (!target.isAlive()) return;
+        LivingEntity resolved = ChthollyCombatHelper.resolveLivingTarget(target);
+        if (resolved == null || !resolved.isAlive()) return;
         float basePower = Math.max((float) attacker.getAttributeValue(Attributes.ATTACK_DAMAGE), hitDamage);
         float bonusDmg = basePower * FINALE_ATK_TRUE_DMG_RATIO + state.finaleBonusShield * FINALE_SHIELD_TRUE_DMG_RATIO;
         if (bonusDmg <= 0.0f) return;
@@ -605,7 +711,7 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         UUID id = attacker.getUUID();
         TRIGGERING_STARFIRE.add(id);
         try {
-            dealPureTrueDamage(attacker, target, bonusDmg);
+            ChthollyCombatHelper.dealPureDamage(attacker, resolved, bonusDmg);
         } finally {
             TRIGGERING_STARFIRE.remove(id);
         }
@@ -617,7 +723,7 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
 
         if (attacker.level() instanceof ServerLevel serverLevel) {
             serverLevel.sendParticles(ParticleTypes.END_ROD,
-                    target.getX(), target.getY() + target.getBbHeight() * 0.5, target.getZ(),
+                    resolved.getX(), resolved.getY() + resolved.getBbHeight() * 0.5, resolved.getZ(),
                     6, 0.25, 0.25, 0.25, 0.03);
         }
     }
@@ -631,50 +737,6 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         player.displayClientMessage(Component.translatable("message.tprt.happiest_girl.finale_end"), true);
     }
 
-    private static void dealPureTrueDamage(Player attacker, LivingEntity target, float amount) {
-        if (amount <= 0.0f || !Float.isFinite(amount)) return;
-        DamageSource source = new DamageSource(
-                attacker.level().registryAccess()
-                        .registryOrThrow(Registries.DAMAGE_TYPE)
-                        .getHolderOrThrow(ModDamageSource.TPRT_PURE_DAMAGE_TYPE),
-                attacker
-        );
-        int prevHurtResistant = target.invulnerableTime;
-        resetInvulnerableFrames(target);
-        target.hurt(source, amount);
-        target.invulnerableTime = prevHurtResistant;
-    }
-
-    private static void resetInvulnerableFrames(LivingEntity target) {
-        target.invulnerableTime = 0;
-        target.hurtTime = 0;
-        if (target.isMultipartEntity()) {
-            PartEntity<?>[] parts = target.getParts();
-            if (parts != null) {
-                for (PartEntity<?> part : parts) {
-                    if (part != null) {
-                        part.invulnerableTime = 0;
-                    }
-                }
-            }
-        }
-    }
-
-    /** 解析跨模组伤害来源的玩家归属 (支持直接攻击、投射物、铁魔法法术、召唤物/从属实体) */
-    @Nullable
-    private static Player resolvePlayerAttacker(DamageSource source) {
-        Entity direct = source.getDirectEntity();
-        if (direct instanceof Player p) return p;
-        Entity causer = source.getEntity();
-        if (causer instanceof Player p) return p;
-        if (causer instanceof OwnableEntity ownable && ownable.getOwner() instanceof Player p) return p;
-        if (causer instanceof TraceableEntity traceable && traceable.getOwner() instanceof Player p) return p;
-        if (direct instanceof OwnableEntity ownable && ownable.getOwner() instanceof Player p) return p;
-        if (direct instanceof TraceableEntity traceable && traceable.getOwner() instanceof Player p) return p;
-        return null;
-    }
-
-    /** 识别原版及跨模组的穿甲、魔法、法术、吐息、激光、深渊诅咒等伤害类型 */
     private static boolean isBypassOrModdedSpellDamage(DamageSource source) {
         if (source.is(DamageTypeTags.BYPASSES_ARMOR)
                 || source.is(DamageTypeTags.BYPASSES_EFFECTS)
@@ -703,7 +765,6 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
                 .orElse(false);
     }
 
-    /** 过滤模组内部用 amplifier 当层数计数器的状态效果, 防止误改其层数逻辑 */
     private static boolean isInternalCounterEffect(MobEffect effect) {
         ResourceLocation id = ForgeRegistries.MOB_EFFECTS.getKey(effect);
         if (id == null) return false;
@@ -715,35 +776,37 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
                 || path.equals("ranged_greed");
     }
 
-    private static boolean isValidTarget(Player attacker, LivingEntity candidate) {
-        if (candidate == attacker || !candidate.isAlive() || candidate instanceof ArmorStand) return false;
-        if (candidate.isAlliedTo(attacker)) return false;
-        if (candidate instanceof OwnableEntity ownable && attacker.getUUID().equals(ownable.getOwnerUUID())) {
-            return false;
+    // ============================================================
+    //  辅助方法与内部状态结构 (兼容 Curios 护符槽与主副手战旗)
+    // ============================================================
+
+    public static boolean isWearingCharm(Player player) {
+        if (hasHappiestGirlModifier(player.getMainHandItem()) || hasHappiestGirlModifier(player.getOffhandItem())) {
+            return true;
         }
-        return true;
-    }
-
-    // ============================================================
-    //  辅助方法与内部状态结构
-    // ============================================================
-
-    private static boolean isWearingCharm(Player player) {
         var inventory = CuriosApi.getCuriosInventory(player).resolve();
         if (inventory.isEmpty()) return false;
         for (var entry : inventory.get().getCurios().entrySet()) {
+            String slotId = entry.getKey().toLowerCase(Locale.ROOT);
+            if (slotId.contains("cosmetic")) {
+                continue;
+            }
             var stacks = entry.getValue().getStacks();
             for (int i = 0; i < stacks.getSlots(); i++) {
-                ItemStack stack = stacks.getStackInSlot(i);
-                if (!stack.isEmpty() && stack.getItem() instanceof IModifiable && ToolStack.isInitialized(stack)) {
-                    ToolStack tool = ToolStack.from(stack);
-                    if (!tool.isBroken() && tool.getModifierLevel(ModifierIds.happiest_girl_in_the_world) > 0) {
-                        return true;
-                    }
+                if (hasHappiestGirlModifier(stacks.getStackInSlot(i))) {
+                    return true;
                 }
             }
         }
         return false;
+    }
+
+    private static boolean hasHappiestGirlModifier(ItemStack stack) {
+        if (stack.isEmpty() || !(stack.getItem() instanceof IModifiable) || !ToolStack.isInitialized(stack)) {
+            return false;
+        }
+        ToolStack tool = ToolStack.from(stack);
+        return !tool.isBroken() && tool.getModifierLevel(ModifierIds.happiest_girl_in_the_world) > 0;
     }
 
     private static PlayerState getOrCreateState(Player player) {
@@ -751,7 +814,9 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
             PlayerState s = new PlayerState();
             s.cooldownTicks = loadCooldown(player);
             s.lastTrackedHealth = player.getHealth();
+            s.lastTrackedMaxHealth = player.getMaxHealth();
             s.lastFoodLevel = player.getFoodData().getFoodLevel();
+            loadBoostedEffects(player, s, player.level().getGameTime());
             return s;
         });
     }
@@ -786,33 +851,6 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         if (atkSpeed != null) atkSpeed.removeModifier(FINALE_ATK_SPEED_UUID);
     }
 
-    /** 仅在展示整数变化时同步至佩戴中的护符 NBT */
-    private static void syncCharmNbt(Player player, PlayerState state) {
-        var inventory = CuriosApi.getCuriosInventory(player).resolve();
-        if (inventory.isEmpty()) return;
-
-        int shieldTenths = Math.round(state.shield * 10.0f);
-        int peakTenths = Math.round(Math.max(state.peakShield, state.finaleBonusShield) * 10.0f);
-        int finaleSec = (state.finaleTicks + 19) / 20;
-        int cdSec = (state.cooldownTicks + 19) / 20;
-
-        for (var entry : inventory.get().getCurios().entrySet()) {
-            var stacks = entry.getValue().getStacks();
-            for (int i = 0; i < stacks.getSlots(); i++) {
-                ItemStack stack = stacks.getStackInSlot(i);
-                if (stack.isEmpty() || !(stack.getItem() instanceof IModifiable) || !ToolStack.isInitialized(stack)) continue;
-                ToolStack tool = ToolStack.from(stack);
-                if (tool.getModifierLevel(ModifierIds.happiest_girl_in_the_world) <= 0) continue;
-
-                ModDataNBT data = tool.getPersistentData();
-                if (data.getInt(SYNC_SHIELD_TENTHS) != shieldTenths) data.putInt(SYNC_SHIELD_TENTHS, shieldTenths);
-                if (data.getInt(SYNC_PEAK_TENTHS) != peakTenths) data.putInt(SYNC_PEAK_TENTHS, peakTenths);
-                if (data.getInt(SYNC_FINALE_SEC) != finaleSec) data.putInt(SYNC_FINALE_SEC, finaleSec);
-                if (data.getInt(SYNC_CD_SEC) != cdSec) data.putInt(SYNC_CD_SEC, cdSec);
-            }
-        }
-    }
-
     private static void saveCooldown(Player player, int cooldownTicks) {
         CompoundTag data = player.getPersistentData();
         if (cooldownTicks > 0) {
@@ -826,13 +864,62 @@ public class happiest_girl_in_the_world extends NoLevelsModifier implements Tool
         return Math.max(0, player.getPersistentData().getInt(PLAYER_NBT_COOLDOWN));
     }
 
+    private static void saveBoostedEffects(Player player, PlayerState state, long now) {
+        CompoundTag root = player.getPersistentData();
+        if (state.boostedEffects.isEmpty()) {
+            root.remove(PLAYER_NBT_BOOSTED_EFFECTS);
+            return;
+        }
+        CompoundTag tag = new CompoundTag();
+        for (Map.Entry<MobEffect, BoostedEffectMeta> entry : state.boostedEffects.entrySet()) {
+            BoostedEffectMeta meta = entry.getValue();
+            if (meta.expireGameTime <= now) continue;
+            ResourceLocation id = ForgeRegistries.MOB_EFFECTS.getKey(entry.getKey());
+            if (id == null) continue;
+            CompoundTag sub = new CompoundTag();
+            sub.putInt("r", meta.rawAmplifier);
+            sub.putInt("b", meta.boostedAmplifier);
+            sub.putInt("rem", (int) (meta.expireGameTime - now));
+            tag.put(id.toString(), sub);
+        }
+        if (tag.isEmpty()) {
+            root.remove(PLAYER_NBT_BOOSTED_EFFECTS);
+        } else {
+            root.put(PLAYER_NBT_BOOSTED_EFFECTS, tag);
+        }
+    }
+
+    private static void loadBoostedEffects(Player player, PlayerState state, long now) {
+        CompoundTag tag = player.getPersistentData().getCompound(PLAYER_NBT_BOOSTED_EFFECTS);
+        if (tag.isEmpty()) return;
+        for (String key : tag.getAllKeys()) {
+            ResourceLocation id = ResourceLocation.tryParse(key);
+            if (id == null) continue;
+            MobEffect effect = ForgeRegistries.MOB_EFFECTS.getValue(id);
+            if (effect == null) continue;
+            CompoundTag sub = tag.getCompound(key);
+            int rem = sub.getInt("rem");
+            if (rem > 0) {
+                state.boostedEffects.put(effect, new BoostedEffectMeta(sub.getInt("r"), sub.getInt("b"), now + rem));
+            }
+        }
+    }
+
+    private record BoostedEffectMeta(int rawAmplifier, int boostedAmplifier, long expireGameTime) {
+    }
+
     private static final class PlayerState {
         float shield;
+        float externalExtraAbsorption;
+        float stashedTotalAbsorption;
         float peakShield;
         float finaleBonusShield;
         int finaleTicks;
         int cooldownTicks;
         float lastTrackedHealth;
+        float lastTrackedMaxHealth;
         int lastFoodLevel = -1;
+        long cloneGraceUntil;
+        final Map<MobEffect, BoostedEffectMeta> boostedEffects = new HashMap<>();
     }
 }

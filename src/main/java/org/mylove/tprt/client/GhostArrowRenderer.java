@@ -17,7 +17,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
  * Only load/register this class when Cataclysm is present. No fade: that would imply phantom lifetime behavior.
  */
 public class GhostArrowRenderer<T extends AbstractArrow> extends EntityRenderer<T> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("cataclysm", "textures/entity/maledictus/phantom_arrow.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("cataclysm", "textures/entity/maledictus/phantom_arrow.png");
     private static final RenderType GHOST = CMRenderTypes.getGhost(TEXTURE);
 
     public GhostArrowRenderer(EntityRendererProvider.Context context) {

@@ -47,24 +47,7 @@ public class ModifierLEVEL {
     }
 
     public static int getEachHandsTotalModifierlevel(LivingEntity entity, ModifierId modifierId) {
-        if (entity != null) {
-            if (entity instanceof Player player) {
-                ItemStack itemStack = entity.getItemBySlot(EquipmentSlot.MAINHAND);
-                if (!(itemStack.getItem() instanceof IModifiable))return 0;
-                ToolStack toolStack = ToolStack.from(itemStack);
-                ItemStack itemStack1 = entity.getItemBySlot(EquipmentSlot.OFFHAND);
-                if (!(itemStack1.getItem() instanceof IModifiable))return 0;
-                ToolStack toolStack1 = ToolStack.from(itemStack1);
-                if (!(toolStack.isBroken()||toolStack1.isBroken())) {
-                    return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.MAINHAND), modifierId) + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.OFFHAND), modifierId);
-                }else if (!toolStack.isBroken()){
-                    return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.MAINHAND), modifierId);
-                }else {
-                    return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.OFFHAND), modifierId);
-                }
-            }
-        }
-        return 0;
+        return getMainhandModifierlevel(entity, modifierId) + getOffhandModifierlevel(entity, modifierId);
     }
 
     public static boolean EachHandsHaveModifierlevel(LivingEntity entity, ModifierId modifierId) {

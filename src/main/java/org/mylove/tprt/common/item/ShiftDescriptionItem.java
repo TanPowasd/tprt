@@ -1,12 +1,13 @@
 package org.mylove.tprt.common.item;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import slimeknights.mantle.client.SafeClientAccess;
+import slimeknights.mantle.client.TooltipKey;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -45,7 +46,7 @@ public class ShiftDescriptionItem extends Item {
         if (level != null && !level.isClientSide) {
             return;
         }
-        if (Screen.hasShiftDown()) {
+        if (SafeClientAccess.getTooltipKey() == TooltipKey.SHIFT) {
             tooltip.add(Component.translatable(descKey).withStyle(ChatFormatting.GRAY));
             for (String key : lineKeys) {
                 tooltip.add(Component.translatable(key).withStyle(ChatFormatting.DARK_PURPLE));

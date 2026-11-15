@@ -39,7 +39,7 @@ public class mechanical_star_att extends NoLevelsModifier
         implements MeleeDamageModifierHook, MeleeHitModifierHook, InventoryTickModifierHook, TooltipModifierHook {
 
     /** 充能 (红石) */
-    public static final ResourceLocation MECH_CHARGE = new ResourceLocation("tprt", "mech_charge");
+    public static final ResourceLocation MECH_CHARGE = ResourceLocation.fromNamespaceAndPath("tprt", "mech_charge");
     public static final int MAX_CHARGE = 160;
     public static final int CHARGE_PER_TICK = 10;
     public static final int REDSTONE_COST = 4;
@@ -48,10 +48,10 @@ public class mechanical_star_att extends NoLevelsModifier
 
     /** 三个头的目标记录 */
     public static final ResourceLocation[] TARGET_KEYS = new ResourceLocation[]{
-            new ResourceLocation("tprt", "mech_target_0"),
-            new ResourceLocation("tprt", "mech_target_1"),
-            new ResourceLocation("tprt", "mech_target_2")};
-    public static final ResourceLocation TARGET_TIME = new ResourceLocation("tprt", "mech_target_time");
+            ResourceLocation.fromNamespaceAndPath("tprt", "mech_target_0"),
+            ResourceLocation.fromNamespaceAndPath("tprt", "mech_target_1"),
+            ResourceLocation.fromNamespaceAndPath("tprt", "mech_target_2")};
+    public static final ResourceLocation TARGET_TIME = ResourceLocation.fromNamespaceAndPath("tprt", "mech_target_time");
     /** 记录有效时长 (10 秒) */
     public static final int RECORD_TICKS = 200;
     /** 每个协同目标消耗的充能 */

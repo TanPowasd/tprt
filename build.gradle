@@ -141,6 +141,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    mavenCentral()
     // 优先本地 libs 文件夹
     flatDir {
         dir 'libs'
@@ -236,6 +237,9 @@ compileOnly files("libs/geckolib-forge-1.20.1-4.8.4.jar")
         transitive = false
         jarJar.ranged(it, "[1.0.0,)")
     }
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -277,5 +281,9 @@ tasks.named('jar', Jar).configure {
 }
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
 }
 

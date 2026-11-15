@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.api.spells.ISpellContainer;
 import io.redspace.ironsspellbooks.api.spells.SpellData;
+import io.redspace.ironsspellbooks.item.Scroll;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -77,13 +78,17 @@ public class Affinity extends CuriosModifier implements InventoryTickModifierHoo
             return;
         }
         ResourceLocation spellId = recordedSpell(stack);
-        if (spellId == null || AffinityData.hasAffinityData(stack)) {
+        if (spellId == null) {
             return;
         }
         AbstractSpell spell = SpellRegistry.getSpell(spellId);
         if (spell != null) {
-            AffinityData.set(stack, new AffinityData(spell));
-            AffinityData.setAffinityData(stack, spell, affinityLevel(stack) * AffinityConfig.bonus());
+            int targetBonus = affinityLevel(stack) * AffinityConfig.bonus();
+            AffinityData current = AffinityData.getAffinityData(stack);
+            if (current == null || current == AffinityData.NONE || !current.hasBonusFor(spell) || current.getBonusFor(spell) != targetBonus || current.affinityData().size() != 1) {
+                AffinityData.set(stack, new AffinityData(spell));
+                AffinityData.setAffinityData(stack, spell, targetBonus);
+            }
         }
     }
 
@@ -97,6 +102,9 @@ public class Affinity extends CuriosModifier implements InventoryTickModifierHoo
             return;
         }
         ItemStack scroll = event.getItemStack();
+        if (!(scroll.getItem() instanceof Scroll)) {
+            return;
+        }
         ItemStack tool = player.getOffhandItem();
         AbstractSpell spell = readScrollSpell(scroll);
         if (spell == null || !hasAffinity(tool)) {
@@ -108,13 +116,14 @@ public class Affinity extends CuriosModifier implements InventoryTickModifierHoo
             return;
         }
         tool.getOrCreateTag().putString(AFFINITY_TAG, spellId.toString());
-        if (!player.getAbilities().instabuild) {
+        if (!player.getAbilities().instabuild && scroll.getItem() instanceof Scroll) {
             scroll.shrink(1);
         }
         player.level().playSound(null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE,
                 SoundSource.PLAYERS, 0.8F, 1.2F);
         player.swing(InteractionHand.MAIN_HAND);
-        event.setCanceled(true);}
+        event.setCanceled(true);
+    }
 
     /** 法术等级计算: 每件正在手持、且记录了该法术的亲和物品 +1 级 (可叠加) */
     private static void onModifySpellLevel(ModifySpellLevelEvent event) {
@@ -199,7 +208,7 @@ public class Affinity extends CuriosModifier implements InventoryTickModifierHoo
 
     /** 从法术卷轴取出法术 */
     private static AbstractSpell readScrollSpell(ItemStack stack) {
-        if (stack.isEmpty() || !ISpellContainer.isSpellContainer(stack)) {
+        if (stack.isEmpty() || !(stack.getItem() instanceof Scroll) || !ISpellContainer.isSpellContainer(stack)) {
             return null;
         }
         ISpellContainer container = ISpellContainer.get(stack);

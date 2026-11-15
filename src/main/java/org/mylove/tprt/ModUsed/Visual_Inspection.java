@@ -47,7 +47,7 @@ public class Visual_Inspection {
                     }
                 }
                 if (!hitwhat.isEmpty()) {
-                    hitwhat.sort((o1, o2) -> o1.getLocation().distanceToSqr(startPos) < o2.getLocation().distanceToSqr(startPos) ? -1 : 1);
+                    hitwhat.sort((o1, o2) -> Double.compare(o1.getLocation().distanceToSqr(startPos), o2.getLocation().distanceToSqr(startPos)));
                     HitResult hitResult = hitwhat.get(0);
                     if (hitResult instanceof EntityHitResult entityHitResult && entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
                         // DeBug.Logger.log("Radiographic_detection_GetEntity: " + livingEntity.getName().getString());

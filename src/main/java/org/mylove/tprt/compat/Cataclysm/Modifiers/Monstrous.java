@@ -38,7 +38,14 @@ public class Monstrous extends Modifier implements InventoryTickModifierHook {
                 boolean berserk = player.getMaxHealth() * 1 / 2 >= player.getHealth();
                 double radius = 4.0D;
                 List<Entity> list = world.getEntities(player, player.getBoundingBox().inflate(radius));
-                if (berserk && !(player.getCooldowns().isOnCooldown(tool.getItem()))) {
+                long now = player.level().getGameTime();
+                if (berserk && !(player.getCooldowns().isOnCooldown(tool.getItem())) && now >= player.getPersistentData().getLong("tprt_monstrous_cd")) {
+                    player.getPersistentData().putLong("tprt_monstrous_cd", now + 350);
+                    for (ItemStack armor : player.getArmorSlots()) {
+                        if (!armor.isEmpty()) {
+                            player.getCooldowns().addCooldown(armor.getItem(), 350);
+                        }
+                    }
                     for (Entity entity : list) {
                         if (entity instanceof LivingEntity) {
                             entity.hurt(world.damageSources().mobAttack(player), (float) ((float) X * player.getAttributeValue(Attributes.ATTACK_DAMAGE) * 5 / 2));
@@ -48,7 +55,6 @@ public class Monstrous extends Modifier implements InventoryTickModifierHook {
                             entity.push(d0 / d2 * 1.5, 0.15D, d1 / d2 * 1.5);
                         }
                     }
-                    player.getCooldowns().addCooldown(tool.getItem(), 350);
                     player.addEffect(new MobEffectInstance(ModEffect.EFFECTMONSTROUS.get(), 200, X - 1, false, true));
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, X - 1, false, false));
                 }

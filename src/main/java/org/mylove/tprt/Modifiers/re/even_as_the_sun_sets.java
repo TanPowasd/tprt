@@ -3,8 +3,10 @@ package org.mylove.tprt.Modifiers.re;
 import com.ssakura49.sakuratinker.core.library.tools.modifier.hooks.STHooks;
 import com.ssakura49.sakuratinker.core.library.tools.modifier.hooks.click.LeftClickModifierHook;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -12,12 +14,10 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -26,20 +26,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.entity.PartEntity;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraft.core.registries.Registries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mylove.tprt.Tprt;
-import org.mylove.tprt.registries.ModDamageSource;
+import org.mylove.tprt.common.chtholly.ChthollyCombatHelper;
+import org.mylove.tprt.common.chtholly.ChthollySyncData;
 import org.mylove.tprt.registries.ModifierIds;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -53,19 +53,18 @@ import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileHitModifi
 import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileLaunchModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
-import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
-import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
+import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.tools.entity.ThrownTool;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -79,14 +78,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
   核心机制 —— 【凝时守望 · 斜阳御剑 · 妖精归途】三位一体闭环:
     1) 望眼欲穿 · 凝时守望 (潜行松弦驻留 + 贴脸护驾):
-       - 【潜行 + 松弦射箭】时, 射出的箭矢不会飞走, 而是凝固悬停在你身侧半空的星火法阵中,
+       - 【潜行 + 松弦射箭】(需至少约 40% 拉弓力度) 时, 射出的箭矢不会飞走, 而是凝固悬停在你身侧半空的星火法阵中,
          化作「守望之矢」(最多同时驻留 8 支, 持续 15 秒, 随身环绕);
        - 驻留期间若有敌对生物闯入周围 4.0 格贴脸突袭, 身侧会自动抽出一支「守望之矢」迎面瞬发钉射并将其击退。
     2) 太阳西斜 · 万箭御剑 (引信齐射 + 跨空间唤剑劈砍 + 斜阳折跃):
        - 【非潜行射出引信箭】命中任意目标时:
          a) 万箭齐发: 身侧所有悬停的「守望之矢」同时化作绯红流光, 跨空间锁定穿刺该目标 (无视无敌帧, 独立结算 100% 箭矢伤害);
          b) 斜阳御剑: 直接唤醒你快捷栏 (0~8 槽) 或副手中的【匠魂近战武器】跨越空间在远方目标头顶显形,
-            自动对其劈下一记完整的匠魂近战斩击 (100% 触发该近战武器面板与全部词条! 本次齐射每倾泻 3 支守望之矢额外多劈 1 剑, 最多连劈 3 剑;
+            自动对其劈下一记完整的匠魂近战斩击 (精确读取该近战武器完整面板与全部词条! 本次齐射每倾泻 3 支守望之矢额外多劈 1 剑, 最多连劈 3 剑;
             若未携带近战武器则保底降下一道本弓星火剑气);
          c) 斜阳折跃: 若在跳跃/滞空状态下松弦射箭且周围 6 格内有敌对生物逼近, 借斜阳余晖向后上方轻盈折跃拉开距离并重置摔落高度。
     3) 不归之人 · 妖精归途 (穿透留标 + 倒飞折返二次穿刺 + 丝线聚怪 + 归箭续杯):
@@ -94,20 +93,22 @@ import java.util.concurrent.ConcurrentHashMap;
        - 当场上「不归路标」达到 6 枚及以上时自动触发 (或手持弓随时按下【左键】主动召回 / 路标到期自动折返):
          所有「不归路标」拉出苍蓝与绯红交织的记忆丝线朝你高速倒飞折返, 无视无敌帧从背后二次贯穿沿途所有敌人 (85% 箭矢伤害),
          并将沿途敌人向丝线中心强力牵引聚拢;
-       - 每枚折返归来的路标为你恢复本弓 2 点耐久, 并将其中一半 (向上取整, 最多 4 支) 直接重新凝聚为身侧悬停的「守望之矢」进入下一轮!
+       - 每枚命中过敌人（去程命中或回程贯穿）的路标为你恢复本弓 2 点耐久, 并将半数有效战斗路标重新凝聚为身侧悬停的「守望之矢」进入下一轮!
   ============================================================
  */
 public class even_as_the_sun_sets extends NoLevelsModifier implements
         ProjectileLaunchModifierHook,
         ProjectileHitModifierHook,
         GeneralInteractionModifierHook,
-        LeftClickModifierHook,
+        com.ssakura49.sakuratinker.core.library.tools.modifier.hooks.click.LeftClickModifierHook,
+        org.mylove.tprt.hooks.LeftClickModifierHook,
         InventoryTickModifierHook,
         TooltipModifierHook {
 
     // ===== 1. 【凝时守望】参数 =====
     public static final int MAX_HOVER_ARROWS = 8;                    // 最多同时悬停的「守望之矢」数量 (8 支)
     public static final int HOVER_DURATION_TICKS = 15 * 20;          // 「守望之矢」持续时间 (15 秒 = 300 ticks)
+    public static final double MIN_HOVER_CAPTURE_SPEED = 1.2D;       // 潜行驻留守望之矢所需最低出膛初速度 (防止 0.05s 秒点刷满伤箭)
     public static final double GUARD_RADIUS = 4.0D;                  // 贴身自动护驾扫描半径 (4.0 格)
     public static final int GUARD_INTERVAL_TICKS = 10;               // 贴身护驾扫描间隔 (0.5 秒 = 10 ticks)
     public static final float GUARD_KNOCKBACK = 0.85f;               // 贴身护驾钉射击退力度
@@ -126,23 +127,23 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     public static final int WAYMARK_DURATION_TICKS = 12 * 20;        // 「不归路标」持续时间 (12 秒 = 240 ticks)
     public static final float RECALL_DAMAGE_RATIO = 0.85f;           // 路标倒飞折返背后穿刺伤害比例 (85%)
     public static final double RECALL_CORRIDOR_WIDTH = 1.85D;        // 路标倒飞折返穿刺与聚怪走廊宽度 (1.85 格)
+    public static final double MAX_RECALL_CORRIDOR_DISTANCE = 96.0D; // 路标倒飞折返扫描走廊的最大有效距离 (96 格)
     public static final double RECALL_PULL_STRENGTH = 0.45D;         // 记忆丝线向连线中心牵引聚拢敌人的力度
-    public static final int RECALL_DURABILITY_REPAIR = 2;            // 每枚折返路标恢复的弓耐久 (2 点)
+    public static final int RECALL_DURABILITY_REPAIR = 2;            // 每枚有效战斗折返路标恢复的弓耐久 (2 点)
     public static final int MAX_REFILL_HOVER = 4;                    // 单次折返最多回填凝聚的「守望之矢」数量 (4 支)
 
     // ===== 投射物实体临时标记 =====
+    private static final String TAG_LAUNCH_PROCESSED = "tprt:sun_sets_launch_processed";
     private static final String TAG_CAPTURED_HOVER = "tprt:sun_sets_captured_hover";
     private static final String TAG_ESTIMATED_DAMAGE = "tprt:sun_sets_est_dmg";
+    private static final String TAG_VOLLEY_UNLEASHED = "tprt:sun_sets_volley_unleashed";
 
-    // ===== 同步至弓 NBT 的键 (供 Tooltip 与 Destiny 2 HUD 读取) =====
+    // 保留旧常量符号以兼容外部引用 (现已切换至 ChthollyHudSyncPacket 网络快照同步, 不再污染手持弓 NBT)
     public static final ResourceLocation SYNC_HOVER_COUNT = Tprt.getResource("ss_hover_count");
     public static final ResourceLocation SYNC_HOVER_SEC = Tprt.getResource("ss_hover_sec");
     public static final ResourceLocation SYNC_WAYMARK_COUNT = Tprt.getResource("ss_waymark_count");
     public static final ResourceLocation SYNC_WAYMARK_SEC = Tprt.getResource("ss_waymark_sec");
     public static final ResourceLocation SYNC_LINKED_SWORD = Tprt.getResource("ss_linked_sword");
-
-    /** 跨空间唤剑递归重入保护 */
-    private static boolean PERFORMING_REMOTE_SWORD = false;
 
     /** 单支悬停在身侧的「守望之矢」 */
     private static final class HoverArrow {
@@ -157,13 +158,17 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
 
     /** 单枚插在远方的「不归路标」 */
     private static final class Waymark {
+        final ResourceKey<Level> dimension;
         final Vec3 pos;
         final float damage;
+        final boolean hitEntity;
         long expireTick;
 
-        Waymark(Vec3 pos, float damage, long expireTick) {
+        Waymark(ResourceKey<Level> dimension, Vec3 pos, float damage, boolean hitEntity, long expireTick) {
+            this.dimension = dimension;
             this.pos = pos;
             this.damage = damage;
+            this.hitEntity = hitEntity;
             this.expireTick = expireTick;
         }
     }
@@ -173,12 +178,32 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         final List<HoverArrow> hoverArrows = new ArrayList<>();
         final List<Waymark> waymarks = new ArrayList<>();
         long lastRecallTick = -20L;
+        long lastCaptureTick = Long.MIN_VALUE;
+        long lastTickGameTime = Long.MIN_VALUE;
     }
 
     private static final Map<UUID, ArcherState> ARCHER_STATES = new ConcurrentHashMap<>();
 
-    public even_as_the_sun_sets() {
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST, false, EntityJoinLevelEvent.class, this::onEntityJoinLevel);
+    static {
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST, false, EntityJoinLevelEvent.class, even_as_the_sun_sets::onEntityJoinLevel);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, PlayerEvent.PlayerLoggedOutEvent.class, even_as_the_sun_sets::onPlayerLogout);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.LOWEST, false, LivingDeathEvent.class, even_as_the_sun_sets::onPlayerDeath);
+    }
+
+    public static void clearServerState() {
+        ARCHER_STATES.clear();
+    }
+
+    private static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        if (event.getEntity() != null) {
+            ARCHER_STATES.remove(event.getEntity().getUUID());
+        }
+    }
+
+    private static void onPlayerDeath(LivingDeathEvent event) {
+        if (event.getEntity() instanceof Player player && !player.level().isClientSide && !event.isCanceled()) {
+            ARCHER_STATES.remove(player.getUUID());
+        }
     }
 
     @Override
@@ -186,9 +211,12 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this,
                 ModifierHooks.PROJECTILE_LAUNCH,
+                ModifierHooks.PROJECTILE_SHOT,
+                ModifierHooks.PROJECTILE_THROWN,
                 ModifierHooks.PROJECTILE_HIT,
                 ModifierHooks.GENERAL_INTERACT,
                 STHooks.LEFT_CLICK,
+                org.mylove.tprt.hooks.TprtHooks.LEFT_CLICK,
                 ModifierHooks.INVENTORY_TICK,
                 ModifierHooks.TOOLTIP);
     }
@@ -204,7 +232,13 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
                                    @Nullable AbstractArrow arrow, @NotNull ModDataNBT persistentData,
                                    boolean primary) {
         if (shooter.level().isClientSide || !(shooter instanceof Player player)) return;
+        // 防止「挚爱长弓 + 挚爱工匠箭矢」同时挂载本词条时对同一枚弹射物重复结算 PROJECTILE_SHOT 与 PROJECTILE_LAUNCH
+        if (projectile.getPersistentData().getBoolean(TAG_LAUNCH_PROCESSED)) {
+            return;
+        }
+        projectile.getPersistentData().putBoolean(TAG_LAUNCH_PROCESSED, true);
 
+        double launchSpeed = projectile.getDeltaMovement().length();
         float estimatedDamage = estimateProjectileDamage(tool, projectile, arrow);
         projectile.getPersistentData().putFloat(TAG_ESTIMATED_DAMAGE, estimatedDamage);
 
@@ -217,28 +251,35 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         long now = player.level().getGameTime();
         pruneExpired(player, tool, state, now);
 
-        // 【潜行 + 松弦】: 箭矢不飞出, 而是凝固悬停在身侧化为「守望之矢」
-        if (player.isShiftKeyDown() && state.hoverArrows.size() < MAX_HOVER_ARROWS) {
-            state.hoverArrows.add(new HoverArrow(estimatedDamage, now + HOVER_DURATION_TICKS));
-            // 刷新全部驻留箭的持续时间, 方便连射布阵
-            for (HoverArrow ha : state.hoverArrows) {
-                ha.expireTick = Math.max(ha.expireTick, now + HOVER_DURATION_TICKS);
-            }
-            projectile.getPersistentData().putBoolean(TAG_CAPTURED_HOVER, true);
-            projectile.setDeltaMovement(Vec3.ZERO);
+        // 【潜行 + 松弦】: 需具备有效拉弓力度 (初速度 >= 1.2) 方可凝固悬停为「守望之矢」(排除实体投掷工具如标枪以防吞武器)
+        if (player.isShiftKeyDown() && launchSpeed >= MIN_HOVER_CAPTURE_SPEED && !(projectile instanceof ThrownTool)) {
+            boolean isPrimaryShot = primary && state.lastCaptureTick != now;
+            if (isPrimaryShot && state.hoverArrows.size() < MAX_HOVER_ARROWS) {
+                state.hoverArrows.add(new HoverArrow(estimatedDamage, now + HOVER_DURATION_TICKS));
+                for (HoverArrow ha : state.hoverArrows) {
+                    ha.expireTick = Math.max(ha.expireTick, now + HOVER_DURATION_TICKS);
+                }
+                state.lastCaptureTick = now;
+                projectile.getPersistentData().putBoolean(TAG_CAPTURED_HOVER, true);
+                projectile.setDeltaMovement(Vec3.ZERO);
 
-            if (player.level() instanceof ServerLevel serverLevel) {
-                spawnHoverStoreParticles(serverLevel, player, state.hoverArrows.size());
+                if (player.level() instanceof ServerLevel serverLevel) {
+                    spawnHoverStoreParticles(serverLevel, player, state.hoverArrows.size());
+                }
+                player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
+                        SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS,
+                        0.9f, 1.15f + 0.06f * state.hoverArrows.size());
+                player.displayClientMessage(
+                        Component.translatable("message.tprt.sun_sets.hover_stored",
+                                state.hoverArrows.size(), MAX_HOVER_ARROWS),
+                        true);
+                return;
+            } else if (state.lastCaptureTick == now) {
+                // 多重射击副箭随主箭一并收束，不乱飞误伤且不白嫖多倍驻留箭
+                projectile.getPersistentData().putBoolean(TAG_CAPTURED_HOVER, true);
+                projectile.setDeltaMovement(Vec3.ZERO);
+                return;
             }
-            player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS,
-                    0.9f, 1.15f + 0.06f * state.hoverArrows.size());
-            player.displayClientMessage(
-                    Component.translatable("message.tprt.sun_sets.hover_stored",
-                            state.hoverArrows.size(), MAX_HOVER_ARROWS),
-                    true);
-            syncBowNbt(player, tool.getPersistentData(), state, now);
-            return;
         }
 
         // 【非潜行 + 滞空松弦】: 若周围 6 格内有敌对生物逼近, 触发【斜阳折跃】向后上方轻盈拉开距离
@@ -264,12 +305,10 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
             player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
                     SoundEvents.ENDER_DRAGON_FLAP, SoundSource.PLAYERS, 0.55f, 1.65f);
         }
-
-        syncBowNbt(player, tool.getPersistentData(), state, now);
     }
 
     /** 拦截潜行驻留箭的实体生成, 使其化作身侧星火悬停而不飞向地面 */
-    private void onEntityJoinLevel(EntityJoinLevelEvent event) {
+    private static void onEntityJoinLevel(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
         if (!event.getLevel().isClientSide && entity instanceof Projectile projectile) {
             if (projectile.getPersistentData().getBoolean(TAG_CAPTURED_HOVER)) {
@@ -287,13 +326,18 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     public boolean onProjectileHitEntity(@NotNull ModifierNBT modifiers, @NotNull ModDataNBT persistentData,
                                          @NotNull ModifierEntry modifier, @NotNull Projectile projectile,
                                          @NotNull EntityHitResult hit, @Nullable LivingEntity attacker,
-                                         @Nullable LivingEntity target, boolean notBlocked) {
-        if (attacker == null || target == null || attacker.level().isClientSide) return notBlocked;
+                                         @Nullable LivingEntity rawTarget, boolean notBlocked) {
+        if (attacker == null || rawTarget == null || attacker.level().isClientSide) return notBlocked;
         if (!(attacker instanceof Player player) || !(player.level() instanceof ServerLevel serverLevel)) {
             return notBlocked;
         }
         if (projectile.getPersistentData().getBoolean(TAG_CAPTURED_HOVER)) {
             return false;
+        }
+
+        LivingEntity target = ChthollyCombatHelper.resolveLivingTarget(rawTarget);
+        if (target == null || !ChthollyCombatHelper.isValidHostileTarget(player, target)) {
+            return notBlocked;
         }
 
         ArcherState state = ARCHER_STATES.computeIfAbsent(player.getUUID(), k -> new ArcherState());
@@ -307,51 +351,46 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
                     projectile instanceof AbstractArrow aa ? aa : null);
         }
 
-        // 1) 【万箭齐发】: 倾泻身侧全部悬停的「守望之矢」跨空间穿刺该目标
+        // 1) 【万箭齐发】: 倾泻身侧全部悬停的「守望之矢」跨空间穿刺该目标 (穿透箭多次命中仅在首击倾泻，防止连环倾泻与重复回填死循环)
         int unleashedCount = 0;
-        if (!state.hoverArrows.isEmpty()) {
+        boolean alreadyUnleashed = projectile.getPersistentData().getBoolean(TAG_VOLLEY_UNLEASHED);
+        if (!alreadyUnleashed && !state.hoverArrows.isEmpty()) {
+            projectile.getPersistentData().putBoolean(TAG_VOLLEY_UNLEASHED, true);
             List<HoverArrow> toUnleash = new ArrayList<>(state.hoverArrows);
             state.hoverArrows.clear();
             unleashedCount = toUnleash.size();
 
             for (int i = 0; i < unleashedCount; i++) {
                 HoverArrow ha = toUnleash.get(i);
-                // 绘制从玩家身侧飞向目标的苍蓝/绯红流光弹道
                 Vec3 startPos = getHoverOrbitPosition(player, i, unleashedCount, now);
                 Vec3 endPos = target.position().add(0.0D, target.getBbHeight() * 0.55D, 0.0D);
                 spawnStreamLineParticles(serverLevel, startPos, endPos, i % 2 == 0);
 
-                // 无视无敌帧独立结算 100% 驻留箭伤害
                 if (target.isAlive()) {
-                    dealPurePierceDamage(player, target, ha.damage);
+                    ChthollyCombatHelper.dealPureDamage(player, target, ha.damage);
                 }
 
-                // 每支倾泻的守望之矢穿过目标后, 在目标身后扇形落点插下一枚「不归路标」
                 Vec3 behindPos = computeBehindWaymarkPos(startPos, target, i, unleashedCount);
-                addWaymark(state, behindPos, ha.damage, now);
+                addWaymark(state, serverLevel.dimension(), behindPos, ha.damage, true, now);
             }
 
             serverLevel.playSound(null, target.getX(), target.getY(), target.getZ(),
                     SoundEvents.TRIDENT_RETURN, SoundSource.PLAYERS, 0.95f, 1.45f);
+        } else if (!alreadyUnleashed) {
+            projectile.getPersistentData().putBoolean(TAG_VOLLEY_UNLEASHED, true);
         }
 
         // 2) 【斜阳御剑】: 唤醒快捷栏/副手里的匠魂近战武器跨越空间在目标头顶劈下完整近战斩击
         int swordStrikes = Math.min(MAX_SWORD_STRIKES, 1 + (unleashedCount / ARROWS_PER_EXTRA_SWORD));
         triggerRemoteSwordStrikes(serverLevel, player, heldBow, target, swordStrikes, baseArrowDamage);
 
-        // 3) 【不归路标】: 本支引信箭穿过目标后, 在其身后延伸处插下一枚「不归路标」
-        Vec3 flightDir = projectile.getDeltaMovement();
-        if (flightDir.lengthSqr() < 1.0E-4D) {
-            flightDir = target.position().subtract(player.position());
-        }
+        // 3) 【不归路标】: 本支引信箭穿过目标后, 在其身后延伸处插下一枚有效战斗「不归路标」
         Vec3 behindTarget = computeBehindWaymarkPos(player.getEyePosition(), target, 0, 1);
-        addWaymark(state, behindTarget, baseArrowDamage, now);
+        addWaymark(state, serverLevel.dimension(), behindTarget, baseArrowDamage, true, now);
 
         // 若场上「不归路标」达到自动折返阈值 (6 枚及以上), 立即触发【妖精归途】万矢倒飞折返!
         if (state.waymarks.size() >= AUTO_RECALL_THRESHOLD) {
             triggerWaymarkRecall(serverLevel, player, heldBow, state, now);
-        } else if (heldBow != null) {
-            syncBowNbt(player, heldBow.getPersistentData(), state, now);
         }
 
         return notBlocked;
@@ -376,14 +415,12 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
                     projectile instanceof AbstractArrow aa ? aa : null);
         }
 
-        // 箭矢落地的终点同样化作一枚「不归路标」
+        // 箭矢落地的终点化作地面路标 (hitEntity = false; 若回程贯穿敌人则自动升级为有效战斗路标)
         Vec3 hitPos = hit.getLocation().add(0.0D, 0.35D, 0.0D);
-        addWaymark(state, hitPos, baseArrowDamage, now);
+        addWaymark(state, serverLevel.dimension(), hitPos, baseArrowDamage, false, now);
 
         if (state.waymarks.size() >= AUTO_RECALL_THRESHOLD) {
             triggerWaymarkRecall(serverLevel, player, heldBow, state, now);
-        } else if (heldBow != null) {
-            syncBowNbt(player, heldBow.getPersistentData(), state, now);
         }
         return false;
     }
@@ -426,7 +463,7 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         tryManualRecall(tool, player, level);
     }
 
-    private void tryManualRecall(IToolStackView tool, Player player, Level level) {
+    private static void tryManualRecall(IToolStackView tool, Player player, Level level) {
         if (level.isClientSide || !(level instanceof ServerLevel serverLevel)) return;
         ArcherState state = ARCHER_STATES.get(player.getUUID());
         if (state != null && !state.waymarks.isEmpty()) {
@@ -435,7 +472,7 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     }
 
     // ============================================================
-    //  4. 背包/手持常驻 Tick: 贴身护驾 + 悬停/路标粒子渲染 + 状态同步
+    //  4. 背包/手持常驻 Tick: 贴身护驾 + 悬停/路标粒子渲染
     // ============================================================
 
     @Override
@@ -445,53 +482,61 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         if (level.isClientSide || !(holder instanceof Player player) || !(level instanceof ServerLevel serverLevel)) {
             return;
         }
-        // 仅在手持或位于快捷栏/副手时驱动, 且每 tick 只由主手或第一个匹配槽位驱动一次
         boolean inHotbarOrOffhand = isSelected || player.getOffhandItem() == stack || (itemSlot >= 0 && itemSlot <= 8);
         if (!inHotbarOrOffhand) return;
 
+        IToolStackView primaryBow = stack.is(TinkerTags.Items.RANGED) ? tool : findPlayerBow(player);
+        tickArcherState(serverLevel, player, primaryBow != null ? primaryBow : tool);
+    }
+
+    /** 供背包钩子与全局同步管理器共同调用，确保即使仅使用挚爱箭矢也能正常驱动到期折返 */
+    public static void tickArcherStateIfPresent(ServerLevel serverLevel, Player player) {
         ArcherState state = ARCHER_STATES.get(player.getUUID());
+        if (state == null || (state.hoverArrows.isEmpty() && state.waymarks.isEmpty())) {
+            return;
+        }
+        tickArcherState(serverLevel, player, findPlayerBow(player));
+    }
+
+    private static void tickArcherState(ServerLevel serverLevel, Player player, @Nullable IToolStackView primaryBow) {
+        ArcherState state = ARCHER_STATES.get(player.getUUID());
+        if (state == null) return;
         long now = serverLevel.getGameTime();
+        if (state.lastTickGameTime == now) return;
+        state.lastTickGameTime = now;
 
-        if (state != null) {
-            pruneExpired(player, tool, state, now);
+        pruneExpired(player, primaryBow, state, now);
 
-            // 1) 【凝时守望 · 近身自动护驾】: 若身侧有「守望之矢」且 4 格内有敌对生物贴脸, 自动抽出一支迎面钉射逼退
-            if (!state.hoverArrows.isEmpty() && now % GUARD_INTERVAL_TICKS == 0) {
-                LivingEntity rusher = findNearestHostile(player, GUARD_RADIUS);
-                if (rusher != null) {
-                    HoverArrow guardArrow = state.hoverArrows.remove(state.hoverArrows.size() - 1);
-                    Vec3 startPos = getHoverOrbitPosition(player, 0, 1, now);
-                    Vec3 endPos = rusher.position().add(0.0D, rusher.getBbHeight() * 0.55D, 0.0D);
-                    spawnStreamLineParticles(serverLevel, startPos, endPos, true);
+        // 1) 【凝时守望 · 近身自动护驾】: 若身侧有「守望之矢」且 4 格内有敌对生物贴脸, 自动抽出一支迎面钉射逼退
+        if (!state.hoverArrows.isEmpty() && now % GUARD_INTERVAL_TICKS == 0) {
+            LivingEntity rusher = findNearestHostile(player, GUARD_RADIUS);
+            if (rusher != null) {
+                HoverArrow guardArrow = state.hoverArrows.remove(state.hoverArrows.size() - 1);
+                Vec3 startPos = getHoverOrbitPosition(player, 0, 1, now);
+                Vec3 endPos = rusher.position().add(0.0D, rusher.getBbHeight() * 0.55D, 0.0D);
+                spawnStreamLineParticles(serverLevel, startPos, endPos, true);
 
-                    dealPurePierceDamage(player, rusher, guardArrow.damage);
-                    Vec3 pushDir = rusher.position().subtract(player.position());
-                    if (pushDir.lengthSqr() > 1.0E-4D) {
-                        pushDir = pushDir.normalize();
-                        rusher.knockback(GUARD_KNOCKBACK, -pushDir.x, -pushDir.z);
-                    }
-                    // 护驾射出的箭矢同样在突袭者身后立下一枚「不归路标」
-                    Vec3 behindPos = computeBehindWaymarkPos(startPos, rusher, 0, 1);
-                    addWaymark(state, behindPos, guardArrow.damage, now);
-
-                    serverLevel.playSound(null, player.getX(), player.getY(), player.getZ(),
-                            SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 0.8f, 1.45f);
-
-                    if (state.waymarks.size() >= AUTO_RECALL_THRESHOLD) {
-                        triggerWaymarkRecall(serverLevel, player, tool, state, now);
-                    }
+                ChthollyCombatHelper.dealPureDamage(player, rusher, guardArrow.damage);
+                Vec3 pushDir = rusher.position().subtract(player.position());
+                if (pushDir.lengthSqr() > 1.0E-4D) {
+                    pushDir = pushDir.normalize();
+                    rusher.knockback(GUARD_KNOCKBACK, -pushDir.x, -pushDir.z);
                 }
-            }
+                Vec3 behindPos = computeBehindWaymarkPos(startPos, rusher, 0, 1);
+                addWaymark(state, serverLevel.dimension(), behindPos, guardArrow.damage, true, now);
 
-            // 2) 渲染身侧悬停「守望之矢」与远方「不归路标」的星火粒子
-            if (now % 5 == 0) {
-                renderAmbientParticles(serverLevel, player, state, now);
+                serverLevel.playSound(null, player.getX(), player.getY(), player.getZ(),
+                        SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 0.8f, 1.45f);
+
+                if (state.waymarks.size() >= AUTO_RECALL_THRESHOLD) {
+                    triggerWaymarkRecall(serverLevel, player, primaryBow, state, now);
+                }
             }
         }
 
-        // 每 5 ticks 同步一次 NBT 供客户端 Tooltip 与 Destiny 2 HUD 读取
+        // 2) 渲染身侧悬停「守望之矢」与远方「不归路标」的星火粒子
         if (now % 5 == 0) {
-            syncBowNbt(player, tool.getPersistentData(), state, now);
+            renderAmbientParticles(serverLevel, player, state, now);
         }
     }
 
@@ -499,41 +544,17 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     //  5. 【斜阳御剑】: 跨空间唤醒快捷栏/副手匠魂近战武器劈砍目标
     // ============================================================
 
-    private void triggerRemoteSwordStrikes(ServerLevel serverLevel, Player player,
-                                           @Nullable IToolStackView heldBow, LivingEntity target,
-                                           int strikeCount, float arrowDamage) {
-        if (PERFORMING_REMOTE_SWORD || !target.isAlive()) return;
+    private static void triggerRemoteSwordStrikes(ServerLevel serverLevel, Player player,
+                                                  @Nullable IToolStackView heldBow, LivingEntity target,
+                                                  int strikeCount, float arrowDamage) {
+        if (ChthollyCombatHelper.isPerformingOffSlotAttack() || !target.isAlive()) return;
 
         ItemStack linkedSword = findBestTinkerMeleeWeapon(player);
         if (!linkedSword.isEmpty()) {
             ToolStack swordTool = ToolStack.from(linkedSword);
             if (!swordTool.isBroken()) {
-                boolean wasSprinting = player.isSprinting();
-                Vec3 prevVelocity = player.getDeltaMovement();
-                ItemStack prevMainHand = player.getMainHandItem();
-                PERFORMING_REMOTE_SWORD = true;
-                try {
-                    player.setItemInHand(InteractionHand.MAIN_HAND, linkedSword);
-                    for (int i = 0; i < strikeCount; i++) {
-                        if (!target.isAlive() || target.isDeadOrDying()) break;
-                        resetInvulnerabilityRecursive(target);
-                        ToolAttackContext context = ToolAttackContext.attacker(player)
-                                .target(target)
-                                .hand(InteractionHand.MAIN_HAND)
-                                .cooldown(1.0f)
-                                .extraAttack()
-                                .build();
-                        ToolAttackUtil.performAttack(swordTool, context);
-                        spawnRemoteSwordParticles(serverLevel, target, i);
-                    }
-                } finally {
-                    player.setItemInHand(InteractionHand.MAIN_HAND, prevMainHand);
-                    PERFORMING_REMOTE_SWORD = false;
-                    if (wasSprinting) {
-                        player.setSprinting(true);
-                    }
-                    player.setDeltaMovement(prevVelocity);
-                }
+                ChthollyCombatHelper.performOffSlotAttacks(player, linkedSword, swordTool, target,
+                        strikeCount, 0.35f, i -> spawnRemoteSwordParticles(serverLevel, target, i));
                 serverLevel.playSound(null, target.getX(), target.getY(), target.getZ(),
                         SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 0.85f, 1.30f);
                 return;
@@ -545,7 +566,7 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         float avgPanelDamage = (bowMeleeDamage + arrowDamage) * 0.5f;
         for (int i = 0; i < strikeCount; i++) {
             if (!target.isAlive() || target.isDeadOrDying()) break;
-            dealPurePierceDamage(player, target, avgPanelDamage);
+            ChthollyCombatHelper.dealPureDamage(player, target, avgPanelDamage);
             spawnRemoteSwordParticles(serverLevel, target, i);
         }
         serverLevel.playSound(null, target.getX(), target.getY(), target.getZ(),
@@ -558,7 +579,6 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         ItemStack bestStack = ItemStack.EMPTY;
         float bestAttack = -1.0f;
 
-        // 优先检查副手与快捷栏 0~8
         List<ItemStack> candidates = new ArrayList<>(10);
         candidates.add(player.getOffhandItem());
         for (int slot = 0; slot < 9; slot++) {
@@ -567,9 +587,10 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
 
         for (ItemStack candidate : candidates) {
             if (candidate.isEmpty() || candidate == player.getMainHandItem()) continue;
+            if (!(candidate.getItem() instanceof IModifiable) || !ToolStack.isInitialized(candidate)) continue;
             if (!candidate.is(TinkerTags.Items.MELEE_WEAPON)) continue;
-            // 排除远程弓弩自身
-            if (candidate.is(TinkerTags.Items.RANGED)) continue;
+            if (candidate.is(TinkerTags.Items.BOWS) || candidate.is(TinkerTags.Items.FISHING_RODS)
+                    || candidate.is(TinkerTags.Items.AMMO)) continue;
 
             ToolStack tool = ToolStack.from(candidate);
             if (tool.isBroken()) continue;
@@ -586,74 +607,92 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     //  6. 【不归路标 & 妖精归途】: 倒飞折返二次穿刺 + 丝线聚怪 + 归箭回耐续杯
     // ============================================================
 
-    private void addWaymark(ArcherState state, Vec3 pos, float damage, long now) {
+    private static void addWaymark(ArcherState state, ResourceKey<Level> dimension, Vec3 pos,
+                                   float damage, boolean hitEntity, long now) {
         while (state.waymarks.size() >= MAX_WAYMARKS) {
             state.waymarks.remove(0);
         }
-        state.waymarks.add(new Waymark(pos, damage, now + WAYMARK_DURATION_TICKS));
+        state.waymarks.add(new Waymark(dimension, pos, damage, hitEntity, now + WAYMARK_DURATION_TICKS));
     }
 
-    private void triggerWaymarkRecall(ServerLevel serverLevel, Player player,
-                                      @Nullable IToolStackView bowTool, ArcherState state, long now) {
+    private static void triggerWaymarkRecall(ServerLevel serverLevel, Player player,
+                                             @Nullable IToolStackView bowTool, ArcherState state, long now) {
         if (state.waymarks.isEmpty() || now - state.lastRecallTick < 3L) return;
         state.lastRecallTick = now;
 
         List<Waymark> recalledList = new ArrayList<>(state.waymarks);
         state.waymarks.clear();
         int recalledCount = recalledList.size();
+        int combatWaymarkCount = 0;
 
         Vec3 playerCenter = player.position().add(0.0D, player.getBbHeight() * 0.6D, 0.0D);
+        ResourceKey<Level> currentDim = serverLevel.dimension();
 
         for (int i = 0; i < recalledCount; i++) {
             Waymark wm = recalledList.get(i);
-            Vec3 start = wm.pos;
-            Vec3 seg = playerCenter.subtract(start);
-            double dist = seg.length();
-            if (dist < 0.25D) continue;
+            boolean engagedEnemy = wm.hitEntity;
 
-            // 绘制从远方路标倒飞回玩家身侧的苍蓝-绯红记忆丝线
-            spawnStreamLineParticles(serverLevel, start, playerCenter, i % 2 == 0);
+            if (currentDim.equals(wm.dimension)) {
+                Vec3 start = wm.pos;
+                Vec3 seg = playerCenter.subtract(start);
+                double dist = seg.length();
+                if (dist >= 0.25D && dist <= MAX_RECALL_CORRIDOR_DISTANCE) {
+                    spawnStreamLineParticles(serverLevel, start, playerCenter, i % 2 == 0);
 
-            // 沿折返线段扫描走廊内的所有敌对生物: 从背后无视无敌帧二次贯穿 + 向连线中点牵引聚拢
-            AABB scanBox = new AABB(start, playerCenter).inflate(RECALL_CORRIDOR_WIDTH);
-            Vec3 pullCenter = start.lerp(playerCenter, 0.45D);
-            List<LivingEntity> candidates = serverLevel.getEntitiesOfClass(
-                    LivingEntity.class, scanBox, e -> isValidEnemy(player, e));
+                    AABB scanBox = new AABB(start, playerCenter).inflate(RECALL_CORRIDOR_WIDTH);
+                    Vec3 pullCenter = start.lerp(playerCenter, 0.45D);
+                    List<LivingEntity> candidates = serverLevel.getEntitiesOfClass(
+                            LivingEntity.class, scanBox, e -> ChthollyCombatHelper.isValidHostileTarget(player, e));
 
-            Set<UUID> piercedThisLine = new HashSet<>();
-            for (LivingEntity enemy : candidates) {
-                LivingEntity root = resolveDamageTarget(enemy);
-                if (piercedThisLine.contains(root.getUUID())) continue;
+                    Set<UUID> piercedThisLine = new HashSet<>();
+                    for (LivingEntity enemy : candidates) {
+                        LivingEntity root = ChthollyCombatHelper.resolveLivingTarget(enemy);
+                        if (root == null || piercedThisLine.contains(root.getUUID())) continue;
 
-                Vec3 enemyCenter = root.position().add(0.0D, root.getBbHeight() * 0.5D, 0.0D);
-                if (distanceToSegment(enemyCenter, start, playerCenter) <= RECALL_CORRIDOR_WIDTH + root.getBbWidth() * 0.5D) {
-                    piercedThisLine.add(root.getUUID());
-                    float pierceDamage = Math.max(2.0f, wm.damage * RECALL_DAMAGE_RATIO);
-                    dealPurePierceDamage(player, root, pierceDamage);
+                        Vec3 enemyCenter = root.position().add(0.0D, root.getBbHeight() * 0.5D, 0.0D);
+                        if (distanceToSegment(enemyCenter, start, playerCenter) <= RECALL_CORRIDOR_WIDTH + root.getBbWidth() * 0.5D) {
+                            piercedThisLine.add(root.getUUID());
+                            engagedEnemy = true;
+                            float pierceDamage = Math.max(2.0f, wm.damage * RECALL_DAMAGE_RATIO);
+                            ChthollyCombatHelper.dealPureDamage(player, root, pierceDamage);
 
-                    // 记忆丝线牵引聚拢
-                    Vec3 pullVec = pullCenter.subtract(root.position());
-                    Vec3 horizPull = new Vec3(pullVec.x, 0.0D, pullVec.z);
-                    if (horizPull.lengthSqr() > 0.04D) {
-                        horizPull = horizPull.normalize().scale(RECALL_PULL_STRENGTH);
-                        root.setDeltaMovement(
-                                Mth.clamp(root.getDeltaMovement().x + horizPull.x, -1.2D, 1.2D),
-                                Math.max(root.getDeltaMovement().y, 0.16D),
-                                Mth.clamp(root.getDeltaMovement().z + horizPull.z, -1.2D, 1.2D));
-                        root.hurtMarked = true;
+                            Vec3 pullVec = pullCenter.subtract(root.position());
+                            Vec3 horizPull = new Vec3(pullVec.x, 0.0D, pullVec.z);
+                            if (horizPull.lengthSqr() > 0.04D) {
+                                horizPull = horizPull.normalize().scale(RECALL_PULL_STRENGTH);
+                                root.setDeltaMovement(
+                                        Mth.clamp(root.getDeltaMovement().x + horizPull.x, -1.2D, 1.2D),
+                                        Math.max(root.getDeltaMovement().y, 0.16D),
+                                        Mth.clamp(root.getDeltaMovement().z + horizPull.z, -1.2D, 1.2D));
+                                root.hurtMarked = true;
+                            }
+                        }
                     }
                 }
             }
+
+            if (engagedEnemy) {
+                combatWaymarkCount++;
+            }
         }
 
-        // 归途回馈 1: 每枚折返归来的路标恢复本弓 2 点耐久
-        if (bowTool != null) {
-            int repairAmount = recalledCount * RECALL_DURABILITY_REPAIR;
-            ToolDamageUtil.repair(bowTool, repairAmount);
+        // 归途回馈 1: 仅对命中过敌人的有效战斗路标恢复本弓耐久 (彻底封堵对地空射白嫖无限耐久与无限守望之矢漏洞)
+        if (combatWaymarkCount > 0) {
+            IToolStackView repairTarget = bowTool;
+            if (repairTarget == null || !repairTarget.hasTag(TinkerTags.Items.RANGED)) {
+                ToolStack actualBow = findPlayerBow(player);
+                if (actualBow != null) {
+                    repairTarget = actualBow;
+                }
+            }
+            if (repairTarget != null) {
+                int repairAmount = combatWaymarkCount * RECALL_DURABILITY_REPAIR;
+                ToolDamageUtil.repair(repairTarget, repairAmount);
+            }
         }
 
-        // 归途回馈 2: 将折返路标的一半 (向上取整, 最多 4 支) 直接重新凝聚为身侧悬停的「守望之矢」
-        int refillCount = Math.min(MAX_REFILL_HOVER, (recalledCount + 1) / 2);
+        // 归途回馈 2: 将有效战斗路标的一半 (向上取整, 最多 4 支) 重新凝聚为身侧悬停的「守望之矢」
+        int refillCount = combatWaymarkCount > 0 ? Math.min(MAX_REFILL_HOVER, (combatWaymarkCount + 1) / 2) : 0;
         float avgDamage = (float) recalledList.stream().mapToDouble(w -> w.damage).average().orElse(12.0D);
         int actualRefilled = 0;
         for (int i = 0; i < refillCount && state.hoverArrows.size() < MAX_HOVER_ARROWS; i++) {
@@ -669,14 +708,10 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         player.displayClientMessage(
                 Component.translatable("message.tprt.sun_sets.recall", recalledCount, actualRefilled),
                 true);
-
-        if (bowTool != null) {
-            syncBowNbt(player, bowTool.getPersistentData(), state, now);
-        }
     }
 
     /** 清理过期状态; 若「不归路标」自然到期, 也会自动触发折返归来而不浪费 */
-    private void pruneExpired(Player player, @Nullable IToolStackView bowTool, ArcherState state, long now) {
+    private static void pruneExpired(Player player, @Nullable IToolStackView bowTool, ArcherState state, long now) {
         state.hoverArrows.removeIf(ha -> ha.expireTick <= now);
 
         boolean anyWaymarkExpired = false;
@@ -692,38 +727,57 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     }
 
     // ============================================================
-    //  7. 伤害、索敌、粒子与 HUD 数据同步辅助方法
+    //  7. 伤害估算、索敌、粒子与 HUD 快照导出
     // ============================================================
+
+    public record SunSetsHudSnapshot(int hoverCount, int hoverSec, int waymarkCount, int waymarkSec,
+                                     @NotNull String linkedSword) {
+    }
+
+    public static SunSetsHudSnapshot getHudSnapshot(Player player, long now) {
+        ArcherState state = ARCHER_STATES.get(player.getUUID());
+        int hoverCount = 0;
+        int hoverSec = 0;
+        int waymarkCount = 0;
+        int waymarkSec = 0;
+        if (state != null) {
+            hoverCount = state.hoverArrows.size();
+            for (HoverArrow ha : state.hoverArrows) {
+                int sec = (int) ((ha.expireTick - now + 19L) / 20L);
+                if (sec > hoverSec) hoverSec = sec;
+            }
+            waymarkCount = state.waymarks.size();
+            for (Waymark wm : state.waymarks) {
+                int sec = (int) ((wm.expireTick - now + 19L) / 20L);
+                if (sec > waymarkSec) waymarkSec = sec;
+            }
+        }
+
+        String swordName = "";
+        if (hasSunSetsCarrier(player)) {
+            ItemStack linkedSword = findBestTinkerMeleeWeapon(player);
+            if (!linkedSword.isEmpty()) {
+                swordName = linkedSword.getHoverName().getString();
+            }
+        }
+        return new SunSetsHudSnapshot(hoverCount, Math.max(0, hoverSec), waymarkCount, Math.max(0, waymarkSec), swordName);
+    }
 
     private static float estimateProjectileDamage(@Nullable IToolStackView tool, Projectile projectile,
                                                   @Nullable AbstractArrow arrow) {
         if (arrow != null) {
-            double speed = Math.max(1.2D, arrow.getDeltaMovement().length());
-            float dmg = (float) (arrow.getBaseDamage() * speed);
-            if (dmg > 1.0f) return dmg;
+            double speed = arrow.getDeltaMovement().length();
+            if (speed > 0.05D) {
+                return Math.max(1.0f, (float) (arrow.getBaseDamage() * speed));
+            }
         }
         if (tool != null) {
             float vel = tool.getStats().get(ToolStats.VELOCITY);
             float projDmg = tool.getStats().get(ToolStats.PROJECTILE_DAMAGE);
-            return Math.max(6.0f, projDmg * vel * 3.0f);
+            double speedRatio = Mth.clamp(projectile.getDeltaMovement().length() / Math.max(0.5D, vel * 3.0D), 0.25D, 1.25D);
+            return Math.max(2.0f, (float) (projDmg * vel * 3.0D * speedRatio));
         }
-        return 12.0f;
-    }
-
-    private static void dealPurePierceDamage(Player player, LivingEntity rawTarget, float amount) {
-        if (amount <= 0.0f) return;
-        LivingEntity target = resolveDamageTarget(rawTarget);
-        if (target == null || !target.isAlive() || target.isDeadOrDying()) return;
-
-        resetInvulnerabilityRecursive(target);
-        DamageSource pureSource = new DamageSource(
-                player.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
-                        .getHolderOrThrow(ModDamageSource.TPRT_PURE_DAMAGE_TYPE),
-                player,
-                player
-        );
-        target.hurt(pureSource, amount);
-        resetInvulnerabilityRecursive(target);
+        return 8.0f;
     }
 
     private static Vec3 computeBehindWaymarkPos(Vec3 fromPos, LivingEntity target, int index, int total) {
@@ -734,7 +788,6 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
         } else {
             horiz = horiz.normalize();
         }
-        // 多支齐射箭在目标身后呈优雅的扇形展开立标
         float spreadAngle = total > 1 ? ((index - (total - 1) * 0.5f) * 0.28f) : 0.0f;
         Vec3 rotated = horiz.yRot(spreadAngle);
         double behindDist = Math.max(2.2D, target.getBbWidth() + 1.8D);
@@ -763,17 +816,47 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     }
 
     @Nullable
-    private static ToolStack findPlayerBow(Player player) {
+    public static ToolStack findPlayerBow(Player player) {
         for (InteractionHand hand : InteractionHand.values()) {
             ItemStack stack = player.getItemInHand(hand);
-            if (!stack.isEmpty() && stack.is(TinkerTags.Items.MODIFIABLE)) {
+            if (!stack.isEmpty() && stack.getItem() instanceof IModifiable
+                    && ToolStack.isInitialized(stack) && stack.is(TinkerTags.Items.RANGED)) {
                 ToolStack tool = ToolStack.from(stack);
-                if (tool.getModifierLevel(ModifierIds.even_as_the_sun_sets) > 0) {
+                if (!tool.isBroken() && tool.getModifierLevel(ModifierIds.even_as_the_sun_sets) > 0) {
+                    return tool;
+                }
+            }
+        }
+        for (int slot = 0; slot < 9; slot++) {
+            ItemStack stack = player.getInventory().getItem(slot);
+            if (!stack.isEmpty() && stack.getItem() instanceof IModifiable
+                    && ToolStack.isInitialized(stack) && stack.is(TinkerTags.Items.RANGED)) {
+                ToolStack tool = ToolStack.from(stack);
+                if (!tool.isBroken() && tool.getModifierLevel(ModifierIds.even_as_the_sun_sets) > 0) {
                     return tool;
                 }
             }
         }
         return null;
+    }
+
+    private static boolean hasSunSetsCarrier(Player player) {
+        if (findPlayerBow(player) != null) return true;
+        for (InteractionHand hand : InteractionHand.values()) {
+            if (hasSunSetsModifier(player.getItemInHand(hand))) return true;
+        }
+        for (int slot = 0; slot < 9; slot++) {
+            if (hasSunSetsModifier(player.getInventory().getItem(slot))) return true;
+        }
+        return false;
+    }
+
+    private static boolean hasSunSetsModifier(ItemStack stack) {
+        if (stack.isEmpty() || !(stack.getItem() instanceof IModifiable) || !ToolStack.isInitialized(stack)) {
+            return false;
+        }
+        ToolStack tool = ToolStack.from(stack);
+        return !tool.isBroken() && tool.getModifierLevel(ModifierIds.even_as_the_sun_sets) > 0;
     }
 
     private static boolean hasNearbyHostile(Player player, double radius) {
@@ -791,42 +874,9 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     }
 
     private static boolean isHostileToPlayer(Player player, LivingEntity entity) {
-        if (!isValidEnemy(player, entity)) return false;
+        if (!ChthollyCombatHelper.isValidHostileTarget(player, entity)) return false;
         if (entity instanceof Mob mob && mob.getTarget() == player) return true;
         return entity instanceof Enemy;
-    }
-
-    private static boolean isValidEnemy(Player player, LivingEntity entity) {
-        if (entity == player || !entity.isAlive() || entity.isSpectator()) return false;
-        if (entity.isAlliedTo(player)) return false;
-        if (entity instanceof OwnableEntity ownable && player.getUUID().equals(ownable.getOwnerUUID())) {
-            return false;
-        }
-        return true;
-    }
-
-    private static LivingEntity resolveDamageTarget(Entity entity) {
-        if (entity instanceof PartEntity<?> part && part.getParent() instanceof LivingEntity parent) {
-            return parent;
-        }
-        return entity instanceof LivingEntity living ? living : null;
-    }
-
-    private static void resetInvulnerabilityRecursive(Entity entity) {
-        entity.invulnerableTime = 0;
-        if (entity instanceof LivingEntity living) {
-            living.hurtTime = 0;
-        }
-        if (entity.isMultipartEntity()) {
-            PartEntity<?>[] parts = entity.getParts();
-            if (parts != null) {
-                for (PartEntity<?> part : parts) {
-                    if (part != null) {
-                        part.invulnerableTime = 0;
-                    }
-                }
-            }
-        }
     }
 
     private static void spawnHoverStoreParticles(ServerLevel serverLevel, Player player, int count) {
@@ -866,59 +916,17 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
                     i % 2 == 0 ? ParticleTypes.END_ROD : ParticleTypes.FLAME,
                     p.x, p.y, p.z, 1, 0.02D, 0.02D, 0.02D, 0.0D);
         }
+        ResourceKey<Level> currentDim = serverLevel.dimension();
+        double maxDistSq = MAX_RECALL_CORRIDOR_DISTANCE * MAX_RECALL_CORRIDOR_DISTANCE;
         for (int i = 0; i < state.waymarks.size(); i++) {
             Waymark wm = state.waymarks.get(i);
+            if (!currentDim.equals(wm.dimension) || wm.pos.distanceToSqr(player.position()) > maxDistSq) {
+                continue;
+            }
             serverLevel.sendParticles(ParticleTypes.END_ROD,
                     wm.pos.x, wm.pos.y, wm.pos.z, 2, 0.08D, 0.25D, 0.08D, 0.01D);
             serverLevel.sendParticles(ParticleTypes.SOUL_FIRE_FLAME,
                     wm.pos.x, wm.pos.y, wm.pos.z, 1, 0.06D, 0.12D, 0.06D, 0.01D);
-        }
-    }
-
-    private static void syncBowNbt(Player player, ModDataNBT data, @Nullable ArcherState state, long now) {
-        if (state == null) {
-            data.remove(SYNC_HOVER_COUNT);
-            data.remove(SYNC_HOVER_SEC);
-            data.remove(SYNC_WAYMARK_COUNT);
-            data.remove(SYNC_WAYMARK_SEC);
-        } else {
-            int hoverCount = state.hoverArrows.size();
-            int hoverSec = 0;
-            for (HoverArrow ha : state.hoverArrows) {
-                int sec = (int) ((ha.expireTick - now + 19L) / 20L);
-                if (sec > hoverSec) hoverSec = sec;
-            }
-
-            int waymarkCount = state.waymarks.size();
-            int waymarkSec = 0;
-            for (Waymark wm : state.waymarks) {
-                int sec = (int) ((wm.expireTick - now + 19L) / 20L);
-                if (sec > waymarkSec) waymarkSec = sec;
-            }
-
-            if (hoverCount > 0) {
-                data.putInt(SYNC_HOVER_COUNT, hoverCount);
-                data.putInt(SYNC_HOVER_SEC, hoverSec);
-            } else {
-                data.remove(SYNC_HOVER_COUNT);
-                data.remove(SYNC_HOVER_SEC);
-            }
-
-            if (waymarkCount > 0) {
-                data.putInt(SYNC_WAYMARK_COUNT, waymarkCount);
-                data.putInt(SYNC_WAYMARK_SEC, waymarkSec);
-            } else {
-                data.remove(SYNC_WAYMARK_COUNT);
-                data.remove(SYNC_WAYMARK_SEC);
-            }
-        }
-
-        ItemStack linkedSword = findBestTinkerMeleeWeapon(player);
-        if (!linkedSword.isEmpty()) {
-            String swordName = linkedSword.getHoverName().getString();
-            data.putString(SYNC_LINKED_SWORD, swordName);
-        } else {
-            data.remove(SYNC_LINKED_SWORD);
         }
     }
 
@@ -930,12 +938,18 @@ public class even_as_the_sun_sets extends NoLevelsModifier implements
     public void addTooltip(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
                            @Nullable Player player, @NotNull List<Component> tooltip,
                            @NotNull TooltipKey tooltipKey, @NotNull TooltipFlag tooltipFlag) {
-        ModDataNBT data = tool.getPersistentData();
-        int hoverCount = data.getInt(SYNC_HOVER_COUNT);
-        int hoverSec = data.getInt(SYNC_HOVER_SEC);
-        int waymarkCount = data.getInt(SYNC_WAYMARK_COUNT);
-        int waymarkSec = data.getInt(SYNC_WAYMARK_SEC);
-        String linkedSword = data.getString(SYNC_LINKED_SWORD);
+        ChthollySyncData sync = ChthollySyncData.getClient();
+        int hoverCount = sync.ssHoverCount();
+        int hoverSec = sync.ssHoverSec();
+        int waymarkCount = sync.ssWaymarkCount();
+        int waymarkSec = sync.ssWaymarkSec();
+        String linkedSword = sync.ssLinkedSword();
+        if (linkedSword.isEmpty() && player != null) {
+            ItemStack bestSword = findBestTinkerMeleeWeapon(player);
+            if (!bestSword.isEmpty()) {
+                linkedSword = bestSword.getHoverName().getString();
+            }
+        }
 
         tooltip.add(Component.translatable("tooltip.tprt.sun_sets.hover_status",
                 hoverCount, MAX_HOVER_ARROWS, hoverSec));

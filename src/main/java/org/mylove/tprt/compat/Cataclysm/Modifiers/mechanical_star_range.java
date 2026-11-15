@@ -56,7 +56,7 @@ public class mechanical_star_range extends NoLevelsModifier
     public static final ModifierId MULTISHOT = new ModifierId("tconstruct", "multishot");
 
     /** 充能 */
-    public static final ResourceLocation MECH_CHARGE = new ResourceLocation("tprt", "mech_charge");
+    public static final ResourceLocation MECH_CHARGE = ResourceLocation.fromNamespaceAndPath("tprt", "mech_charge");
     public static final int MAX_CHARGE = 160;
     public static final int CHARGE_PER_REDSTONE = 10;
     public static final int REDSTONE_PER_CHARGE = 4;
@@ -317,6 +317,9 @@ public class mechanical_star_range extends NoLevelsModifier
         }
         List<LaserBeam> finished = new ArrayList<>();
         for (LaserBeam beam : LASER_BEAMS) {
+            if (beam.caster().level() != level) {
+                continue;
+            }
             if (now > beam.expire() || !beam.caster().isAlive()) {
                 finished.add(beam);
             }
@@ -327,6 +330,9 @@ public class mechanical_star_range extends NoLevelsModifier
         }
 
         for (LaserBeam beam : LASER_BEAMS) {
+            if (beam.caster().level() != level) {
+                continue;
+            }
             LivingEntity caster = beam.caster();
             Vec3 eye = caster.getEyePosition();
             Vec3 end = beamEnd(level, caster, eye);
@@ -350,6 +356,9 @@ public class mechanical_star_range extends NoLevelsModifier
             return;
         }
         for (LaserBeam beam : LASER_BEAMS) {
+            if (beam.caster().level() != level) {
+                continue;
+            }
             if (now < beam.startAt()) {
                 continue;
             }
@@ -408,7 +417,7 @@ public class mechanical_star_range extends NoLevelsModifier
         return hit.getType() == HitResult.Type.MISS ? target : hit.getLocation();
     }
 
-    /** 沿光束撒粒子: 用灾变的闪电粒子做光束主体 */
+    /** 沿光束撒粒子: 闪电火花做光束主体 */
     private static void drawBeam(ServerLevel level, Vec3 start, Vec3 end) {
         Vec3 delta = end.subtract(start);
         double length = delta.length();
@@ -419,7 +428,7 @@ public class mechanical_star_range extends NoLevelsModifier
         Vec3 step = delta.scale(1.0D / length * 0.5D);
         for (int i = 0; i <= points; i++) {
             Vec3 p = start.add(step.scale(i));
-            level.sendParticles(new com.github.L_Ender.cataclysm.client.particle.Options.LightningParticleOptions(255, 30, 30),
+            level.sendParticles(ParticleTypes.ELECTRIC_SPARK,
                     p.x, p.y, p.z, 1, 0.03D, 0.03D, 0.03D, 0.0D);
             if ((i % 3) == 0) {
                 level.sendParticles(ParticleTypes.END_ROD, p.x, p.y, p.z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
