@@ -2,16 +2,16 @@
   "type": "tconstruct:alloy",
   "inputs": [
     {
-      "amount": 270,
+      "amount": 360,
       "fluid": "tprt:forged_steel_fluid"
     },
     {
-      "amount": 1000,
+      "amount": 4000,
       "tag": "tconstruct:blazing_blood"
     }
   ],
   "result": {
-    "amount": 270,
+    "amount": 360,
     "fluid": "tprt:blazeforged_steel_fluid"
   },
   "temperature": 2000

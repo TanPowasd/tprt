@@ -23,7 +23,7 @@
           "item": "tconstruct:steel_block"
         },
         {
-          "amount": 1000,
+          "amount": 500,
           "fluid": "tconstruct:blazing_blood"
         }
       ],
@@ -40,7 +40,7 @@
           "item": "tconstruct:steel_block"
         },
         {
-          "amount":180,
+          "amount":90,
           "fluid": "tconstruct:molten_steel"
         }
       ],
