@@ -104,7 +104,6 @@ public class ItemsRegistry {
 
     public static void addCommonTabItems(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output tab) {
         //自有材料
-        tab.accept(CHTHOLLY);
         tab.accept(ModFluids.MOLTEN_CHTHOLLY);
         tab.accept(ADVANCED_MANYULLYN);
         tab.accept(RADIANT_KNIGHTMETAL_INGOT);

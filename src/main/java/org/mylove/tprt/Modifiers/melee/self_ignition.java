@@ -39,14 +39,31 @@ public class self_ignition extends NoLevelsModifier implements MeleeHitModifierH
         attacker.setSecondsOnFire(FIRE_SECONDS);
     }
 
+    private static ItemStack selectedAuraStack(LivingEntity holder) {
+        // Only one aura per wearer: main hand wins if it has an unbroken self-ignition tool.
+        ItemStack main = holder.getMainHandItem();
+        if (main.is(slimeknights.tconstruct.common.TinkerTags.Items.MODIFIABLE)) {
+            var tool = slimeknights.tconstruct.library.tools.nbt.ToolStack.from(main);
+            if (!tool.isBroken() && tool.getModifierLevel(
+                    new slimeknights.tconstruct.library.modifiers.ModifierId("tprt", "self_ignition")) > 0) return main;
+        }
+        return holder.getOffhandItem();
+    }
+
     @Override
     public void onInventoryTick(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
                                 @NotNull Level world, @NotNull LivingEntity holder, int itemSlot,
                                 boolean isSelected, boolean isEquipped, @NotNull ItemStack stack) {
-        if (world.isClientSide || !isSelected || holder.getMainHandItem() != stack || tool.isBroken()
-                || !holder.isOnFire()) {
+        if (world.isClientSide || !isEquipped || tool.isBroken() || !holder.isOnFire()
+                || (holder.getMainHandItem() != stack && holder.getOffhandItem() != stack)
+                || selectedAuraStack(holder) != stack) {
             return;
         }
+        long now = world.getGameTime();
+        var data = holder.getPersistentData();
+        String tickKey = "tprt:self_ignition_tick";
+        if (data.contains(tickKey) && data.getLong(tickKey) == now) return;
+        data.putLong(tickKey, now);
         if (holder.tickCount % 10 == 0) org.mylove.tprt.common.BlazeforgedFireEvents.circle(holder);
         if (holder.tickCount % 20 != 0) return;
         float damage = (float) holder.getAttributeValue(Attributes.ATTACK_DAMAGE)

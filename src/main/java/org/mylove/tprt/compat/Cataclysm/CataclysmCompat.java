@@ -20,6 +20,11 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 public class CataclysmCompat {
     public static ModifierDeferredRegister Cataclysm_MODIFIERS = ModifierDeferredRegister.create(Tprt.MODID);
+    public static final DeferredRegister<net.minecraft.world.item.crafting.RecipeSerializer<?>> CATACLYSM_RECIPE_SERIALIZERS =
+            DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Tprt.MODID);
+    public static final RegistryObject<org.mylove.tprt.compat.Cataclysm.recipe.AmethystToolBlessingRecipe.Serializer> AMETHYST_TOOL_BLESSING =
+            CATACLYSM_RECIPE_SERIALIZERS.register("amethyst_tool_blessing",
+                    org.mylove.tprt.compat.Cataclysm.recipe.AmethystToolBlessingRecipe.Serializer::new);
     public static final DeferredRegister<net.minecraft.world.entity.EntityType<?>> CATACLYSM_ENTITIES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Tprt.MODID);
     public static final RegistryObject<net.minecraft.world.entity.EntityType<org.mylove.tprt.compat.Cataclysm.entity.TprtDeathLaser>> TPRT_DEATH_LASER =
@@ -40,6 +45,8 @@ public class CataclysmCompat {
                             net.minecraft.world.entity.MobCategory.MISC)
                     .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(1)
                     .build("tprt:cursed_sandstorm"));
+    public static final StaticModifier<org.mylove.tprt.common.modifier.AmethystProtectionModifier> AMETHYST_PROTECTION =
+            Cataclysm_MODIFIERS.register("amethyst_protection", org.mylove.tprt.common.modifier.AmethystProtectionModifier::new);
     public static final StaticModifier<CursedSandstormModifier> CURSED_SANDSTORM =
             Cataclysm_MODIFIERS.register("cursed_sandstorm", CursedSandstormModifier::new);
     public static final StaticModifier<CursedSpiritArrowModifier> CURSED_SPIRIT_ARROW =

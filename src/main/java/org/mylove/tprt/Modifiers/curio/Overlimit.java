@@ -169,7 +169,10 @@ public final class Overlimit extends NoLevelsModifier implements CurioEquipmentC
             if (hit.time != now || hit.offense != offense || hit.post != null
                     || hit.pre.getSource() != event.getSource() || hit.pre.getEntity() != event.getEntity()) continue;
             hit.post = event; // Shared identity/direction marker deduplicates all equipped charms.
-            if (active(wearer) == hit.state) charge(wearer, hit.full, now);
+            // Only explicitly wearer-attributed self damage cannot charge. Null-source
+            // environmental fire remains eligible; pre-stage defensive reduction is unchanged.
+            if (event.getSource().getEntity() != wearer && active(wearer) == hit.state)
+                charge(wearer, hit.full, now);
             return;
         }
     }

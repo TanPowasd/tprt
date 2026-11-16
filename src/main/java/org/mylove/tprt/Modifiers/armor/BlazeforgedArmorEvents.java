@@ -8,7 +8,6 @@ import java.util.WeakHashMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +20,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import org.mylove.tprt.Tprt;
+import org.mylove.tprt.registries.ModDamageSource;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
@@ -66,9 +66,10 @@ public final class BlazeforgedArmorEvents {
                 || !wearing(entity, false)) return;
         float half = event.getAmount() * 0.5F;
         event.setAmount(half); // Never cancel/replay the original nonfire damage.
+        // This fire portion still goes through armor; vanilla on_fire bypasses armor.
         DamageSource fire = new DamageSource(entity.level().registryAccess()
-                .registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.ON_FIRE),
-                source.getEntity() instanceof LivingEntity owner ? owner : null);
+                .registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageSource.CONVERTED_FIRE),
+                source.getEntity());
         PENDING.computeIfAbsent(entity, ignored -> new ArrayList<>())
                 .add(new Split(event, fire, half, entity.level().getGameTime() + 1));
     }

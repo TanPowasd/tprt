@@ -73,6 +73,7 @@ public class Tprt {
         }
         if (ModListUtil.CALoaded) {
             CataclysmCompat.Cataclysm_MODIFIERS.register(modEventBus);
+            CataclysmCompat.CATACLYSM_RECIPE_SERIALIZERS.register(modEventBus);
             CataclysmCompat.CATACLYSM_ENTITIES.register(modEventBus);
             org.mylove.tprt.compat.Cataclysm.Modifiers.CursedSpiritArrowModifier.registerEvents();
             CataclysmCompat.Cataclysm_MODEFFECTS.register(modEventBus);

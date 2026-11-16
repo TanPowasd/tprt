@@ -20,6 +20,10 @@ public class MixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.equals("org.mylove.tprt.mixin.AltarOfAmethystMixin")) {
+            // The loading list is available before ordinary ModList initialization and target resolution.
+            return net.minecraftforge.fml.loading.LoadingModList.get().getModFileById("cataclysm") != null;
+        }
         return true;
     }
 

@@ -46,7 +46,8 @@ public class kindled_rebirth extends NoLevelsModifier
     public void onInventoryTick(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
                                 @NotNull Level world, @NotNull LivingEntity holder, int itemSlot,
                                 boolean isSelected, boolean isEquipped, @NotNull ItemStack stack) {
-        if (!world.isClientSide && isSelected && holder.getMainHandItem() == stack && !tool.isBroken()) {
+        if (!world.isClientSide && isEquipped && !tool.isBroken()
+                && (holder.getMainHandItem() == stack || holder.getOffhandItem() == stack)) {
             BlazeforgedTraitData.points(tool, world.getGameTime());
         }
     }

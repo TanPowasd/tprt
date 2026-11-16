@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class SmithingTransformRecipeMixin {
     @Unique
     private static final ResourceLocation tprt$FORGING_RECIPE =
-            new ResourceLocation("tprt", "materials/forged_steel/forging/forging");
+            new ResourceLocation("tprt", "materials/tprt/forged_steel/forging");
 
     @Inject(method = "assemble(Lnet/minecraft/world/Container;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;",
             at = @At("RETURN"), cancellable = true)
@@ -38,6 +38,7 @@ public abstract class SmithingTransformRecipeMixin {
             if (base.hasTag()) {
                 result.setTag(base.getTag().copy());
                 result.getTag().remove(ForgingProgress.KEY);
+                if (result.getTag().isEmpty()) result.setTag(null);
             }
         } else {
             result = base.copy();

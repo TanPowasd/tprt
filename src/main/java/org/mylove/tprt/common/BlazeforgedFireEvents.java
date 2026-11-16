@@ -34,12 +34,9 @@ public final class BlazeforgedFireEvents {
     public static void snapshot(IToolStackView tool, LivingEntity shooter, Projectile projectile, AbstractArrow arrow) {
         if (shooter.level().isClientSide || arrow == null || tool.isBroken()
                 || projectile.getPersistentData().contains(SHOT, Tag.TAG_COMPOUND)) return;
-        var held = shooter.getMainHandItem();
-        if (!held.is(TinkerTags.Items.MODIFIABLE) || !held.is(TinkerTags.Items.RANGED)) return;
-        ToolStack active = ToolStack.from(held);
-        // Additional-arrow callbacks must not activate an unrelated or backpack tool.
-        if (active.isBroken() || !active.getPersistentData().equals(tool.getPersistentData())
-                || (active.getModifierLevel(IGNITION) <= 0 && active.getModifierLevel(RANGED) <= 0)) return;
+        // Additional-arrow callbacks must match a genuine held ranged tool, in either hand.
+        if (!matchesHeldRanged(tool, shooter.getMainHandItem())
+                && !matchesHeldRanged(tool, shooter.getOffhandItem())) return;
         boolean ignition = tool.getModifierLevel(IGNITION) > 0;
         // The current launch ignites first; all same-tick multishot arrows share that snapshot.
         if (ignition) shooter.setSecondsOnFire(5);
@@ -64,18 +61,33 @@ public final class BlazeforgedFireEvents {
         arrow.setBaseDamage(arrow.getBaseDamage() * (1 + bonus));
     }
 
+    private static boolean matchesHeldRanged(IToolStackView tool, net.minecraft.world.item.ItemStack held) {
+        if (!held.is(TinkerTags.Items.MODIFIABLE) || !held.is(TinkerTags.Items.RANGED)) return false;
+        ToolStack active = ToolStack.from(held);
+        return !active.isBroken() && active.getPersistentData().equals(tool.getPersistentData())
+                && active.getModifierList().equals(tool.getModifierList())
+                && (active.getModifierLevel(IGNITION) > 0 || active.getModifierLevel(RANGED) > 0);
+    }
+
+    private static void addHeldFirePoint(net.minecraft.world.item.ItemStack stack, long now) {
+        if (!stack.is(TinkerTags.Items.MODIFIABLE)) return;
+        ToolStack tool = ToolStack.from(stack);
+        boolean eligible = stack.is(TinkerTags.Items.RANGED) ? tool.getModifierLevel(RANGED) > 0
+                : tool.getModifierLevel(MELEE) > 0;
+        if (!tool.isBroken() && eligible) BlazeforgedTraitData.addPoint(tool, now);
+    }
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void actualDamage(LivingDamageEvent event) {
         LivingEntity target = event.getEntity();
         if (target.level().isClientSide || event.getAmount() <= 0) return;
         if (event.getSource().is(DamageTypeTags.IS_FIRE)) {
-            var stack = target.getMainHandItem();
-            if (stack.is(TinkerTags.Items.MODIFIABLE)) {
-                ToolStack tool = ToolStack.from(stack);
-                boolean eligible = stack.is(TinkerTags.Items.RANGED) ? tool.getModifierLevel(RANGED) > 0
-                        : tool.getModifierLevel(MELEE) > 0;
-                if (!tool.isBroken() && eligible) BlazeforgedTraitData.addPoint(tool, target.level().getGameTime());
-            }
+            var main = target.getMainHandItem();
+            var off = target.getOffhandItem();
+            long now = target.level().getGameTime();
+            addHeldFirePoint(main, now);
+            // Identity, not NBT equality: two separate tools retain independent point data.
+            if (off != main) addHeldFirePoint(off, now);
         }
         if (!(event.getSource().getDirectEntity() instanceof AbstractArrow arrow)) return;
         CompoundTag payload = arrow.getPersistentData().getCompound(SHOT);

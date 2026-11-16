@@ -1,0 +1,7 @@
+{
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "cataclysm" }
+  ],
+  "type": "tprt:amethyst_tool_blessing",
+  "time": 120
+}
